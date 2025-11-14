@@ -35,3 +35,28 @@ Carbon count (currently 1 data point in `Materials.py`) is separated in ***A1-A3
 
 Planning on developing the same workflow for ***Layer*** and ***Component*** after confirmation.
 
+order is Material --> Layer --> Component -->Element --> Construction
+
+# 14/11 2025 Progress Notes (Djamila)
+### EPSM_Enums
+- embodied carbon class
+    - Needs unit properties embedded
+
+### Material
+- generated ID in parent class 
+- EnergyMaterial as default
+    - ID from honeybee and boverket should be added in
+
+### Layers
+- Changed R-calculation for a weighted value
+- plot
+    - plot needs to properly visualise the Resistance
+
+### Component
+- Year Installed (Optional)
+
+### Element
+- U value
+- Components + shearing layers
+
+In general need to add validation checks and pytests, formatting needs structuring. 
