@@ -1,8 +1,13 @@
-from typing import List, Tuple, Optional, Union
-from Materials import Material, concrete, glass #this needs to fixed for usability later on.
+from typing import List, Tuple, Union
+from Materials import Material, concrete, glass
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
 
-#How do we calculate R-value for composite layers? And U-value? for element was there a specific formula?
-#Is the composite tactic uneccessary, better with two classes instead? and etc. 
+#this needs to fixed for usability later on. #How do we calculate R-value for composite layers? And U-value? for element was there a specific formula? 
+# Is the composite tactic uneccessary, better with two classes instead? and etc. # # R-Value check with Angela. 
+# add a plot function plot a unit section, rectangles labels etc 
+#  validate again.
+
 
 class Layer:
     """
@@ -12,7 +17,7 @@ class Layer:
 
     def __init__(
         self,
-        thickness: float, #m
+        thickness: float,  # m
         materials: Union[Material, List[Tuple[Material, float]]],
     ):
         """
@@ -20,7 +25,8 @@ class Layer:
         ----------
         thickness : float
             Layer thickness in meters.
-            materials : Material or list of (Material, fraction)
+
+        materials : Material or list of (Material, fraction)
             - Single Material → homogeneous layer.
             - List of (Material, area_fraction) → composite layer.
         """
@@ -35,18 +41,35 @@ class Layer:
         # Calculate effective R-value
         self.r_value = self.calculate_r_value()
 
-    def calculate_r_value(self) -> Optional[float]:
-        """Compute equivalent thermal resistance (m²·K/W)."""
-        u_total = 0.0
+    #Uses Lambda method and U-value method to calculate R-value --> average of the two
+    def calculate_r_value(self) -> float:
+        d = self.thickness
+
+        lambdas = []
+        fractions = []
+
         for mat, fraction in self.materials:
-            if not mat.conductivity or mat.conductivity <= 0:
+            if mat.conductivity <= 0:
                 continue
-            r_i = self.thickness / mat.conductivity
-            u_i = 1 / r_i
-            u_total += fraction * u_i
-        if u_total > 0:
-            return round(1 / u_total, 5)
-        return None
+            lambdas.append(mat.conductivity)
+            fractions.append(fraction)
+
+        if not lambdas:
+            return None
+
+        # 1) λ-value weighted method
+        lambda_eq = sum(f * lam for f, lam in zip(fractions, lambdas))
+        R_lambda = d / lambda_eq
+
+        # 2) U-value (parallel) method
+        # 1/R = Σ( f_i * λ_i / d )
+        u_sum = sum(f * lam / d for f, lam in zip(fractions, lambdas))
+        R_U = 1 / u_sum
+
+        # combined R-value
+        R_final = 0.5 * (R_lambda + R_U)
+
+        return R_final
 
     def to_dict(self):
         """Return this layer as a dictionary for export or serialization."""
@@ -63,19 +86,61 @@ class Layer:
             ],
         }
     
-#############
+    
+    def plot(self, figsize=(4, 6)):
+        """
+        Plot a vertical stack of the materials in the layer,
+        showing each material's fraction and contribution to the total R-value.
+        """
+        fig, ax = plt.subplots(figsize=figsize)
+        y_start = 0.0
+        total_height = 1.0
 
-# Example 1: Homogeneous layer (single material)
+        # Precompute λ- and U-based contributions for consistent R display
+        total_R_lambda = self.thickness / sum(f * mat.conductivity for mat, f in self.materials)
+        total_R_U = 1 / sum(f * mat.conductivity / self.thickness for mat, f in self.materials)
+        total_R = 0.5 * (total_R_lambda + total_R_U)
+
+        for mat, fraction in self.materials:
+            height = fraction * total_height
+
+            # Contribution fractions (proportional to λ and U)
+            R_lambda_contrib = (fraction * self.thickness / mat.conductivity)
+            R_U_contrib = 1 / (sum(f * mat_i.conductivity / self.thickness for mat_i, f in self.materials) ) * fraction
+            R_avg_contrib = 0.5 * (R_lambda_contrib + R_U_contrib)
+
+            rect = Rectangle((0, y_start), 1, height, edgecolor="black", facecolor="lightgray")
+            ax.add_patch(rect)
+
+            ax.text(
+                0.5, y_start + height / 2,
+                f"{mat.name}\nR_contrib={R_avg_contrib:.3f} m²K/W",
+                ha="center", va="center", fontsize=10
+            )
+
+            y_start += height
+
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_aspect("equal")
+        ax.axis("off")
+        plt.title(f"Layer Thickness = {self.thickness} m | R_total = {self.r_value:.3f} m²K/W", pad=15)
+        plt.show()
+
+
+# Examples
 Concrete_Layer = Layer(
     thickness=0.2,
-    materials=concrete  # existing OpaqueMaterial instance
+    materials=concrete
 )
 
-# Example 2: Composite layer (multiple materials in parallell)
 Franken_Layer = Layer(
     thickness=0.2,
     materials=[
-        (concrete, 0.85),  # 85% concrete
-        (glass, 0.15)         # 15% glass (fraction based on area)
+        (concrete, 0.85),
+        (glass, 0.15)
     ]
 )
+
+if __name__ == "__main__":
+    Franken_Layer.plot()

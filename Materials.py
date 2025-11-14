@@ -1,6 +1,7 @@
+import uuid
+import base64
 from abc import ABC, abstractmethod
-from typing import Optional
-from EPSM_Enums import Roughness
+from EPSM_Enums import Roughness, EmbodiedCarbon, ec_cement
 
 # is id necessary here or only for the element level?
 # Boverket reference ?
@@ -8,25 +9,45 @@ from EPSM_Enums import Roughness
 # Units, find one standardised and annotate or separate class/ properties for units within the class?
 # Need to figure out the shared properties handling
 
+# User entered name, no spaces and so on.
+# Validate material function, checks if things are within the right range validate
+    #Space in names också kolla om värdena är relistiska
+
 
 # Currently all of the common properties are listed in this base class.
 class Material(ABC):
-    """Abstract base class for all material types (opaque and window).
-    Contains all of the shared properties."""
+    """Abstract base class for all material types (opaque and window)."""
 
     def __init__(
         self,
         name: str,
         mat_type: str,
-        UUID: str,
         conductivity: float,
-        embodied_carbon: Optional[float] = None,
+        embodied_carbon: EmbodiedCarbon
     ):
+        if embodied_carbon is None:
+            raise ValueError("embodied_carbon is required for all materials.")
         self.name = name
-        self.mat_type = mat_type
-        self.UUID = UUID
+        self.mat_type = "EnergyMaterial" if mat_type is None else mat_type #EnergyMaterial as default for now
         self.conductivity = conductivity
         self.embodied_carbon = embodied_carbon
+        self.UUID = str(uuid.uuid4())
+        # Add description property for excel export ?
+        # Honeybee material id
+
+    def base_dict(self) -> dict:
+        """Return common material properties as a dictionary."""
+        return {
+            "UUID": self.UUID,
+            "name": self.name,
+            "type": self.mat_type,
+            "conductivity": self.conductivity,
+            "embodied_carbon": self.embodied_carbon.to_dict()
+        }
+
+    def print_embodied_carbon(self):
+        """Print the embodied carbon information."""
+        self.embodied_carbon.print_info()
 
     @abstractmethod
     def print_info(self):
@@ -35,9 +56,8 @@ class Material(ABC):
 
     @abstractmethod
     def to_dict(self) -> dict:
-        """Serialize material to dictionary."""
+        """Serialize material to a dictionary."""
         pass
-
 
 class OpaqueMaterial(Material):
     """Represents opaque materials like concrete, gypsum, etc."""
@@ -50,7 +70,7 @@ class OpaqueMaterial(Material):
         thermal_absorptance: float,
         solar_absorptance: float,
         visible_absorptance: float,
-        **kwargs,  # name, type, UUID, conductivity, embodied_carbon handled by base class
+        **kwargs   # name, type, UUID, conductivity, embodied_carbon handled by base class
     ):
         super().__init__(**kwargs)
         self.roughness = roughness
@@ -61,37 +81,28 @@ class OpaqueMaterial(Material):
         self.visible_absorptance = visible_absorptance
 
     def print_info(self):
-        super_info = f"[Opaque] {self.name} ({self.mat_type})\nID: {self.UUID}"
-        conductivity_info = f"\nConductivity: {self.conductivity}"
-        embodied_carbon_info = f"\nConductivity: {self.embodied_carbon}" if self.embodied_carbon else ""
- 
-        ""
-        print(
-            f"{super_info}"
-            f"{conductivity_info}\n"
-            f"{embodied_carbon_info}\n"
-            f"Roughness: {self.roughness.value}\n"
-            f"Density: {self.density}\n"
-            f"Specific Heat: {self.specific_heat}\n"
-            f"Thermal Absorptance: {self.thermal_absorptance}\n"
-            f"Solar Absorptance: {self.solar_absorptance}\n"
-            f"Visible Absorptance: {self.visible_absorptance}"
-        )
+        print(f"[Opaque] {self.name} ({self.mat_type}) - ID: {self.UUID}")
+        print(f"Conductivity: {self.conductivity}")
+        self.print_embodied_carbon()
+        print(f"Roughness: {self.roughness.value}")
+        print(f"Density: {self.density}")
+        print(f"Specific Heat: {self.specific_heat}")
+        print(f"Thermal Absorptance: {self.thermal_absorptance}")
+        print(f"Solar Absorptance: {self.solar_absorptance}")
+        print(f"Visible Absorptance: {self.visible_absorptance}")
 
     def to_dict(self):
-        data = {
-            "UUID": self.UUID,
-            "name": self.name,
-            "type": self.mat_type,
-            "conductivity": self.conductivity,
+        data = self.base_dict()
+        data.update({
             "roughness": self.roughness.value,
             "density": self.density,
             "specific_heat": self.specific_heat,
             "thermal_absorptance": self.thermal_absorptance,
             "solar_absorptance": self.solar_absorptance,
             "visible_absorptance": self.visible_absorptance,
-        }
+        })
         return data
+
 
 
 class WindowMaterial(Material):
@@ -110,7 +121,7 @@ class WindowMaterial(Material):
         emissivity_back: float,
         dirt_correction: float,
         solar_diffusing: bool,
-        **kwargs,  # name, type, UUID, conductivity, embodied_carbon handled by base class
+        **kwargs   # name, type, UUID, conductivity, embodied_carbon handled by base class
     ):
         super().__init__(**kwargs)
         self.solar_transmittance = solar_transmittance
@@ -126,34 +137,24 @@ class WindowMaterial(Material):
         self.solar_diffusing = solar_diffusing
 
     def print_info(self):
-        super_info = f"[Window] {self.name} ({self.mat_type})\nID: {self.UUID}"
-        conductivity_info = f"\nConductivity: {self.conductivity}"
-        embodied_carbon_info = f"\nConductivity: {self.embodied_carbon}" if self.embodied_carbon else ""
- 
-        ""        
-        print(
-            f"{super_info}\n"
-            f"{conductivity_info}\n"
-            f"{embodied_carbon_info}\n"
-            f"Solar Transmittance: {self.solar_transmittance}\n"
-            f"Solar Reflectance (Front): {self.solar_reflectance}\n"
-            f"Solar Reflectance (Back): {self.solar_reflectance_back}\n"
-            f"Visible Transmittance: {self.visible_transmittance}\n"
-            f"Visible Reflectance (Front): {self.visible_reflectance}\n"
-            f"Visible Reflectance (Back): {self.visible_reflectance_back}\n"
-            f"Infrared Transmittance: {self.infrared_transmittance}\n"
-            f"Emissivity (Front): {self.emissivity}\n"
-            f"Emissivity (Back): {self.emissivity_back}\n"
-            f"Dirt Correction: {self.dirt_correction}\n"
-            f"Solar Diffusing: {self.solar_diffusing}"
-        )
+        print(f"[Window] {self.name} ({self.mat_type}) - ID: {self.UUID}")
+        print(f"Conductivity: {self.conductivity}")
+        self.print_embodied_carbon()
+        print(f"Solar Transmittance: {self.solar_transmittance}")
+        print(f"Solar Reflectance (Front): {self.solar_reflectance}")
+        print(f"Solar Reflectance (Back): {self.solar_reflectance_back}")
+        print(f"Visible Transmittance: {self.visible_transmittance}")
+        print(f"Visible Reflectance (Front): {self.visible_reflectance}")
+        print(f"Visible Reflectance (Back): {self.visible_reflectance_back}")
+        print(f"Infrared Transmittance: {self.infrared_transmittance}")
+        print(f"Emissivity (Front): {self.emissivity}")
+        print(f"Emissivity (Back): {self.emissivity_back}")
+        print(f"Dirt Correction: {self.dirt_correction}")
+        print(f"Solar Diffusing: {self.solar_diffusing}")
 
     def to_dict(self):
-        data = {
-            "UUID": self.UUID,
-            "name": self.name,
-            "type": self.mat_type,
-            "conductivity": self.conductivity,
+        data = self.base_dict()
+        data.update({
             "solar_transmittance": self.solar_transmittance,
             "solar_reflectance": self.solar_reflectance,
             "solar_reflectance_back": self.solar_reflectance_back,
@@ -164,18 +165,15 @@ class WindowMaterial(Material):
             "emissivity": self.emissivity,
             "emissivity_back": self.emissivity_back,
             "dirt_correction": self.dirt_correction,
-            "solar_diffusing": self.solar_diffusing,
-        }
+            "solar_diffusing": self.solar_diffusing
+        })
         return data
 
 
-######### Example usage ######################
-
-# Opaque material
+### Example materials
 concrete = OpaqueMaterial(
     name="Concrete",
     mat_type="EnergyMaterial",
-    UUID="mat-001",
     conductivity=1.8,
     roughness=Roughness.ROUGH,
     density=2300,
@@ -183,14 +181,12 @@ concrete = OpaqueMaterial(
     thermal_absorptance=0.9,
     solar_absorptance=0.7,
     visible_absorptance=0.65,
-    embodied_carbon=250
+    embodied_carbon=ec_cement
 )
-
 
 glass = WindowMaterial(
     name="Glass",
     mat_type="WindowMaterial",
-    UUID="win-001",
     conductivity=1.2,
     solar_transmittance=0.8,
     solar_reflectance=0.1,
@@ -202,13 +198,9 @@ glass = WindowMaterial(
     emissivity=0.84,
     emissivity_back=0.88,
     dirt_correction=1.0,
-    solar_diffusing=False
+    solar_diffusing=False,
+    embodied_carbon=ec_cement
 )
 
-# Print info
-concrete.print_info()
-glass.print_info()
-
-# Export to dict
-print(concrete.to_dict())
-print(glass.to_dict())
+## add function that populates embodied carbon with serial number from boverket
+## Same for honeybee,
