@@ -23,16 +23,35 @@ class Material(ABC):
         name: str,
         mat_type: str,
         conductivity: float,
-        embodied_carbon: EmbodiedCarbon
+        embodied_carbon: EmbodiedCarbon,
+        json_id: str= None,
+        boverket_id: str = None
+        
     ):
-        if embodied_carbon is None:
-            raise ValueError("embodied_carbon is required for all materials.")
-        self.name = name
-        self.mat_type = "EnergyMaterial" if mat_type is None else mat_type #EnergyMaterial as default for now
+        
+        self.name = name.strip().lower()
+        self.mat_type = "EnergyMaterial" if mat_type is None else mat_type #EnergyMaterial as default for now, make  everything energyMaterial???
         self.conductivity = conductivity
         self.embodied_carbon = embodied_carbon
         self.UUID = str(uuid.uuid4())
-        # Add description property for excel export ?
+        self.json_id = json_id
+        self.boverket_id = boverket_id
+
+
+        
+
+        ##Validation checks (pytests later)
+        if embodied_carbon is None:
+            raise ValueError("embodied_carbon is required for all materials.")
+        
+        if conductivity <= 0:
+            raise ValueError("Conductivity must be a positive value.")
+        
+        
+        
+        
+        
+        # Add description property for excel export  if boverket_api/json contains descriptor?
         # Honeybee material id
 
     def base_dict(self) -> dict:
@@ -70,7 +89,7 @@ class OpaqueMaterial(Material):
         thermal_absorptance: float,
         solar_absorptance: float,
         visible_absorptance: float,
-        **kwargs   # name, type, UUID, conductivity, embodied_carbon handled by base class
+        **kwargs   # name, type, UUID, conductivity, embodied_carbon and IDs handled by base class
     ):
         super().__init__(**kwargs)
         self.roughness = roughness
@@ -121,7 +140,7 @@ class WindowMaterial(Material):
         emissivity_back: float,
         dirt_correction: float,
         solar_diffusing: bool,
-        **kwargs   # name, type, UUID, conductivity, embodied_carbon handled by base class
+        **kwargs   # name, type, UUID, conductivity, embodied_carbon and IDs  handled by base class
     ):
         super().__init__(**kwargs)
         self.solar_transmittance = solar_transmittance
@@ -181,7 +200,9 @@ concrete = OpaqueMaterial(
     thermal_absorptance=0.9,
     solar_absorptance=0.7,
     visible_absorptance=0.65,
-    embodied_carbon=ec_cement
+    embodied_carbon=ec_cement,
+    json_id="Temporrary",
+    boverket_id="Temporary",
 )
 
 glass = WindowMaterial(
@@ -199,7 +220,9 @@ glass = WindowMaterial(
     emissivity_back=0.88,
     dirt_correction=1.0,
     solar_diffusing=False,
-    embodied_carbon=ec_cement
+    embodied_carbon=ec_cement,
+    json_id="Temporrary",
+    boverket_id="Temporary",
 )
 
 ## add function that populates embodied carbon with serial number from boverket

@@ -1,5 +1,5 @@
 from typing import List, Tuple, Union
-from Materials import Material, concrete, glass
+from ClassDefinitions.Materials import Material, concrete, glass
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 

@@ -1,6 +1,6 @@
 from typing import List
 from EPSM_Enums import ShearingLayer
-from Layers import Layer, Concrete_Layer, Franken_Layer  # Same thing here
+from ClassDefinitions.Layers import Layer, Concrete_Layer, Franken_Layer  # Same thing here
 from datetime import datetime
 
 

@@ -59,4 +59,29 @@ order is Material --> Layer --> Component -->Element --> Construction
 - U value
 - Components + shearing layers
 
-In general need to add validation checks and pytests, formatting needs structuring. 
+# 22/1 2026 Progress Notes (Djamila)
+
+### EPSM_Enums
+- Added MediumSmooth
+- Units still need to be handled
+
+### Material
+- Needs tests added to the class to ensure the ranges extracted from ExtractExcel.py and so on make sense
+
+### Layers
+- plot needs to properly visualise the Resistance
+- Tests here as well
+
+### Component
+- Year Installed (Optional)
+
+### Element
+- U value
+- Components + shearing layers
+
+## Extraction
+Currently solely Opaque_Materials are extracted if both IDs are present. First iteration Extract.py only takes given pairs and will be removed eventually, ExtractExcel.py is the most current and also needs test/validations
+
+diagrams can be be added where they make sense
+
+Formatting over the entire script needs overlooking

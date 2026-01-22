@@ -4,6 +4,7 @@ from dataclasses import dataclass
 # Roughness enum for material surface texture
 class Roughness(Enum):
     SMOOTH = "Smooth"
+    MEDIUM_SMOOTH = "MediumSmooth"
     MEDIUM_ROUGH = "MediumRough"
     ROUGH = "Rough"
     VERY_ROUGH = "VeryRough"
@@ -36,7 +37,7 @@ class EmbodiedCarbon:
         conversion_factor: float, # kg/m³
         technical_service_life: int # years
     ):
-        self.product_name = product_name
+        self.product_name = product_name.strip().lower() #global methods/ sanitation goes there
         self.resource_id = resource_id
         self.A1_A3_conservative = A1_A3_conservative
         self.A4 = A4
@@ -46,6 +47,18 @@ class EmbodiedCarbon:
         self.A5_factor_byggspill = A5_factor_byggspill
         self.conversion_factor = conversion_factor
         self.technical_service_life = technical_service_life
+
+        if A1_A3_conservative < 0 or A4 < 0 or A5_conservative < 0 or A1_A3_typical <0 or A1_A3_factor_conservative <0 or A5_factor_byggspill <0 or conversion_factor <0:
+            raise ValueError("Embodied carbon values must be non-negative.") #above zero, is there a range?
+
+        if product_name is None:
+            raise ValueError("Product name cannot be empty.")
+        
+        
+        
+        #if A1_A3_factor_conservative
+    ##validation checks (pytests later)
+    
 
     def print_info(self):
         """Print all properties of the embodied carbon instance."""
@@ -70,7 +83,6 @@ class EmbodiedCarbon:
         }
 
 # Example usage https://klimatdatabasen.boverket.se/detaljer/1/6000000193
-
 ec_cement = EmbodiedCarbon(
         product_name="Cement, typ CEM II/A-LL 42,5 R, Cement, type CEM II/A-LL 42,5 R",
         resource_id="6000000193",

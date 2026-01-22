@@ -1,5 +1,5 @@
 from typing import List
-from Components import Component, wall_component
+from ClassDefinitions.Components import Component, wall_component
 from EPSM_Enums import ShearingLayer
 
 class Element:
