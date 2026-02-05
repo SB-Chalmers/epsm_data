@@ -1,22 +1,17 @@
 import uuid
-import base64
 from abc import ABC, abstractmethod
-from EPSM_Enums import Roughness, EmbodiedCarbon, ec_cement
-
-# is id necessary here or only for the element level?
-# Boverket reference ?
-# Do we want some type of embodied carbon property here?
-# Units, find one standardised and annotate or separate class/ properties for units within the class?
-# Need to figure out the shared properties handling
-
-# User entered name, no spaces and so on.
-# Validate material function, checks if things are within the right range validate
-    #Space in names också kolla om värdena är relistiska
+from EPSM_Enums import Roughness
+from ClassDefinitions.EmbodiedCarbon import EmbodiedCarbon
 
 
-# Currently all of the common properties are listed in this base class.
+# ======================================================================
+# Base Material
+# ======================================================================
 class Material(ABC):
-    """Abstract base class for all material types (opaque and window)."""
+    """
+    Abstract base class for all material types.
+    Materials are entities: they have identity and are reused.
+    """
 
     def __init__(
         self,
@@ -24,60 +19,68 @@ class Material(ABC):
         mat_type: str,
         conductivity: float,
         embodied_carbon: EmbodiedCarbon,
-        json_id: str= None,
-        boverket_id: str = None
-        
+        json_id: str | None = None,
+        boverket_id: str | None = None,
     ):
-        
+        # Canonical identity
         self.name = name.strip().lower()
-        self.mat_type = "EnergyMaterial" if mat_type is None else mat_type #EnergyMaterial as default for now, make  everything energyMaterial???
+        self.mat_type = mat_type or "EnergyMaterial"
+
+        # Physical properties
         self.conductivity = conductivity
         self.embodied_carbon = embodied_carbon
+
+        # Identifiers
         self.UUID = str(uuid.uuid4())
         self.json_id = json_id
         self.boverket_id = boverket_id
 
+    # Validation
+    def validate(self) -> list[str]:
+        warnings = []
+        if not self.name:
+            warnings.append("Material name cannot be empty.")
 
-        
+        if self.conductivity is None or self.conductivity <= 0:
+            warnings.append("Conductivity must be positive.")
 
-        ##Validation checks (pytests later)
-        if embodied_carbon is None:
-            raise ValueError("embodied_carbon is required for all materials.")
-        
-        if conductivity <= 0:
-            raise ValueError("Conductivity must be a positive value.")
-        
-        
-        
-        
-        
-        # Add description property for excel export  if boverket_api/json contains descriptor?
-        # Honeybee material id
+        if self.embodied_carbon is None:
+            warnings.append("Embodied carbon data missing.")
 
+        return warnings
+
+
+    # Derived / convenience
+    @property
+    def display_name(self) -> str:
+        """Human-readable name."""
+        return self.name.replace("_", " ").title()
+
+    # Serialization helpers
     def base_dict(self) -> dict:
-        """Return common material properties as a dictionary."""
         return {
-            "UUID": self.UUID,
+            "uuid": self.UUID,
             "name": self.name,
             "type": self.mat_type,
             "conductivity": self.conductivity,
-            "embodied_carbon": self.embodied_carbon.to_dict()
         }
 
-    def print_embodied_carbon(self):
-        """Print the embodied carbon information."""
+    def print_embodied_carbon(self) -> None:
         self.embodied_carbon.print_info()
 
+    # Required interface
     @abstractmethod
-    def print_info(self):
-        """Print material information."""
+    def print_info(self) -> None:
         pass
 
     @abstractmethod
     def to_dict(self) -> dict:
-        """Serialize material to a dictionary."""
         pass
 
+
+# ======================================================================
+# Opaque Material
+# ======================================================================
 class OpaqueMaterial(Material):
     """Represents opaque materials like concrete, gypsum, etc."""
 
@@ -89,9 +92,10 @@ class OpaqueMaterial(Material):
         thermal_absorptance: float,
         solar_absorptance: float,
         visible_absorptance: float,
-        **kwargs   # name, type, UUID, conductivity, embodied_carbon and IDs handled by base class
+        **kwargs
     ):
         super().__init__(**kwargs)
+
         self.roughness = roughness
         self.density = density
         self.specific_heat = specific_heat
@@ -99,18 +103,48 @@ class OpaqueMaterial(Material):
         self.solar_absorptance = solar_absorptance
         self.visible_absorptance = visible_absorptance
 
-    def print_info(self):
-        print(f"[Opaque] {self.name} ({self.mat_type}) - ID: {self.UUID}")
+    # Validation
+    def validate(self) -> list[str]:
+        """Check if values are reasonable, return list of warnings."""
+        warnings = []
+
+        if self.density <= 0:
+            warnings.append("Density must be positive.")
+
+        if self.specific_heat <= 0:
+            warnings.append("Specific heat must be positive.")
+
+        for prop_name, value in {
+            "thermal_absorptance": self.thermal_absorptance,
+            "solar_absorptance": self.solar_absorptance,
+            "visible_absorptance": self.visible_absorptance,
+        }.items():
+            if not (0 <= value <= 0.5):
+                warnings.append(f"{prop_name} must be between 0 and 0.5.")
+
+        return warnings
+
+
+
+    # Presentation
+    def print_info(self) -> None:
+        self.validate()
+
+        print(f"[Opaque] {self.display_name} ({self.mat_type})")
+        print(f"UUID: {self.UUID}")
         print(f"Conductivity: {self.conductivity}")
-        self.print_embodied_carbon()
         print(f"Roughness: {self.roughness.value}")
         print(f"Density: {self.density}")
         print(f"Specific Heat: {self.specific_heat}")
         print(f"Thermal Absorptance: {self.thermal_absorptance}")
         print(f"Solar Absorptance: {self.solar_absorptance}")
         print(f"Visible Absorptance: {self.visible_absorptance}")
+        self.print_embodied_carbon()
 
-    def to_dict(self):
+    # Serialization
+    def to_dict(self) -> dict:
+        self.validate()
+
         data = self.base_dict()
         data.update({
             "roughness": self.roughness.value,
@@ -119,11 +153,14 @@ class OpaqueMaterial(Material):
             "thermal_absorptance": self.thermal_absorptance,
             "solar_absorptance": self.solar_absorptance,
             "visible_absorptance": self.visible_absorptance,
+            "embodied_carbon": self.embodied_carbon.to_dict(),
         })
         return data
 
 
-
+# ======================================================================
+# Window Material
+# ======================================================================
 class WindowMaterial(Material):
     """Represents transparent or translucent window materials."""
 
@@ -140,9 +177,10 @@ class WindowMaterial(Material):
         emissivity_back: float,
         dirt_correction: float,
         solar_diffusing: bool,
-        **kwargs   # name, type, UUID, conductivity, embodied_carbon and IDs  handled by base class
+        **kwargs
     ):
         super().__init__(**kwargs)
+
         self.solar_transmittance = solar_transmittance
         self.solar_reflectance = solar_reflectance
         self.solar_reflectance_back = solar_reflectance_back
@@ -155,10 +193,35 @@ class WindowMaterial(Material):
         self.dirt_correction = dirt_correction
         self.solar_diffusing = solar_diffusing
 
-    def print_info(self):
-        print(f"[Window] {self.name} ({self.mat_type}) - ID: {self.UUID}")
+    # Validation
+    def validate(self) -> list[str]:
+        warnings = super().validate()
+
+        for prop_name, value in {
+            "solar_transmittance": self.solar_transmittance,
+            "solar_reflectance": self.solar_reflectance,
+            "solar_reflectance_back": self.solar_reflectance_back,
+            "visible_transmittance": self.visible_transmittance,
+            "visible_reflectance": self.visible_reflectance,
+            "visible_reflectance_back": self.visible_reflectance_back,
+            "infrared_transmittance": self.infrared_transmittance,
+            "emissivity": self.emissivity,
+            "emissivity_back": self.emissivity_back,
+            "dirt_correction": self.dirt_correction,
+        }.items():
+            if not (0 <= value <= 1):
+                warnings.append(f"{prop_name} must be between 0 and 1.")
+
+        return warnings
+
+
+    # Presentation
+    def print_info(self) -> None:
+        self.validate()
+
+        print(f"[Window] {self.display_name} ({self.mat_type})")
+        print(f"UUID: {self.UUID}")
         print(f"Conductivity: {self.conductivity}")
-        self.print_embodied_carbon()
         print(f"Solar Transmittance: {self.solar_transmittance}")
         print(f"Solar Reflectance (Front): {self.solar_reflectance}")
         print(f"Solar Reflectance (Back): {self.solar_reflectance_back}")
@@ -170,8 +233,12 @@ class WindowMaterial(Material):
         print(f"Emissivity (Back): {self.emissivity_back}")
         print(f"Dirt Correction: {self.dirt_correction}")
         print(f"Solar Diffusing: {self.solar_diffusing}")
+        self.print_embodied_carbon()
 
-    def to_dict(self):
+    # Serialization
+    def to_dict(self) -> dict:
+        self.validate()
+
         data = self.base_dict()
         data.update({
             "solar_transmittance": self.solar_transmittance,
@@ -184,46 +251,7 @@ class WindowMaterial(Material):
             "emissivity": self.emissivity,
             "emissivity_back": self.emissivity_back,
             "dirt_correction": self.dirt_correction,
-            "solar_diffusing": self.solar_diffusing
+            "solar_diffusing": self.solar_diffusing,
+            "embodied_carbon": self.embodied_carbon.to_dict(),
         })
         return data
-
-
-### Example materials
-concrete = OpaqueMaterial(
-    name="Concrete",
-    mat_type="EnergyMaterial",
-    conductivity=1.8,
-    roughness=Roughness.ROUGH,
-    density=2300,
-    specific_heat=880,
-    thermal_absorptance=0.9,
-    solar_absorptance=0.7,
-    visible_absorptance=0.65,
-    embodied_carbon=ec_cement,
-    json_id="Temporrary",
-    boverket_id="Temporary",
-)
-
-glass = WindowMaterial(
-    name="Glass",
-    mat_type="WindowMaterial",
-    conductivity=1.2,
-    solar_transmittance=0.8,
-    solar_reflectance=0.1,
-    solar_reflectance_back=0.12,
-    visible_transmittance=0.9,
-    visible_reflectance=0.08,
-    visible_reflectance_back=0.1,
-    infrared_transmittance=0.7,
-    emissivity=0.84,
-    emissivity_back=0.88,
-    dirt_correction=1.0,
-    solar_diffusing=False,
-    embodied_carbon=ec_cement,
-    json_id="Temporrary",
-    boverket_id="Temporary",
-)
-
-## add function that populates embodied carbon with serial number from boverket
-## Same for honeybee,

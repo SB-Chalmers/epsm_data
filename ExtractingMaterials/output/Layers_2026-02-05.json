@@ -1,0 +1,1262 @@
+{
+    "CMF_1950_ROOF_WOODENSTUD4X4_T102_S": {
+        "name": "Roof: wooden stud 4\" x 4\"",
+        "thickness": 0.1016,
+        "r_value": 0.8472332587055904,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "wooden_stud",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_ROOF_WOODENBEAM2X6_T152_S": {
+        "name": "Roof: wooden beam 2\" x 6\"",
+        "thickness": 0.1524,
+        "r_value": 1.2708498880583858,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "wooden_beam",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_ROOF_WOODENRAFTER2X4_T102_S": {
+        "name": "Roof: wooden rafter 2\" x 4\"",
+        "thickness": 0.1016,
+        "r_value": 0.8472332587055904,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "wooden_rafter",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_ROOF_WOODENPANEL_T038_S": {
+        "name": "Roof: wooden panel",
+        "thickness": 0.038,
+        "r_value": 0.3456857247402907,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "wooden_panel",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S": {
+        "name": "Roof: galvaniced sheet metal",
+        "thickness": 0.003,
+        "r_value": 6.629875462868244e-05,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "galvanized_sheet_metal",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_TOPFLOOR_CONCRETE_T050_S": {
+        "name": "Top floor: concrete, top",
+        "thickness": 0.05,
+        "r_value": 0.02165531830355255,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S": {
+        "name": "Top floor: granulated blast furnace slag",
+        "thickness": 0.15,
+        "r_value": 0.45454545454545453,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "granulated_blast_furnace_slag",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_TOPFLOOR_CONCRETE_T140_S": {
+        "name": "Top floor: concrete",
+        "thickness": 0.14,
+        "r_value": 0.06063489124994714,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S": {
+        "name": "Exterior wall, floor 1-6: Lime plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "lime_plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S": {
+        "name": "Exterior wall, floor 1-6: concrete",
+        "thickness": 0.15,
+        "r_value": 0.06496595491065765,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C": {
+        "name": "Exterior wall, floor 1-6: lightweight concrete 12,5 cm",
+        "thickness": 0.125,
+        "r_value": 0.2047530698959689,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "lightweight_concrete",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S": {
+        "name": "Exterior wall, floor 1-6: terrasit plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "terrasit_plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S": {
+        "name": "Exterior wall, floor 1-6: mortar 5 mm",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "mortar",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S": {
+        "name": "Exterior wall, floor 7-10: Lime plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "lime_plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C": {
+        "name": "Exterior wall, floor 7-10: lightweight concrete 25 cm",
+        "thickness": 0.25,
+        "r_value": 0.4095061397919378,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "lightweight_concrete",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S": {
+        "name": "Exterior wall, floor 7-10: terrasit plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "terrasit_plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C": {
+        "name": "Exterior wall, floor 11: mortar 20 cm",
+        "thickness": 0.2,
+        "r_value": 0.3276049118335502,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "lightweight_concrete",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S": {
+        "name": "Exterior wall, floor 11: terrasit plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "terrasit_plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_WINDOW_WOODENFRAME_T150_C": {
+        "name": "Window: wooden frame",
+        "thickness": 0.15,
+        "r_value": 1.2508365039944742,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "wooden_frame",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S": {
+        "name": "Bottom floor: plastic mat",
+        "thickness": 0.01,
+        "r_value": 0.06254182519972348,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "plastic_mat",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR_PLASTER_T050_S": {
+        "name": "Bottom floor: plaster",
+        "thickness": 0.05,
+        "r_value": 0.0723235908640922,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S": {
+        "name": "Bottom floor: concrete mixed with sawdust",
+        "thickness": 0.05,
+        "r_value": 0.0944027550184508,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete_mixed_with_sawdust",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR_COKEASH_T080_S": {
+        "name": "Bottom floor: coke ash",
+        "thickness": 0.08,
+        "r_value": 0.5003346015977879,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S": {
+        "name": "Bottom floor: concrete 16 cm",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF_METALSHEET_T003_S": {
+        "name": "Roof: Metal sheet",
+        "thickness": 0.003,
+        "r_value": 6.629875462868244e-05,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "metal_sheet",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF_BATTENS1_T023_S": {
+        "name": "Roof: battens 1",
+        "thickness": 0.023,
+        "r_value": 0.19179493061248604,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "battens_1",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF_BATTENS2_T023_S": {
+        "name": "Roof: battens 2",
+        "thickness": 0.023,
+        "r_value": 0.19179493061248604,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "battens_2",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF_ROOFINGFELT_T005_S": {
+        "name": "Roof: Cardboard",
+        "thickness": 0.005,
+        "r_value": 0.03127091259986174,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "roofing_felt",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF_WOODENPANEL_T025_S": {
+        "name": "Roof: wooden panel",
+        "thickness": 0.0254,
+        "r_value": 0.2310636160106153,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "wooden_panel",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C": {
+        "name": "Exterior wall, brick 75%: Mortar",
+        "thickness": 0.125,
+        "r_value": 0.1581535597413673,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "brick",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C": {
+        "name": "Exterior wall, brick 75%: mineral wool",
+        "thickness": 0.095,
+        "r_value": 1.2675143240477342,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "mineral_wool",
+                "fraction": 0.5
+            },
+            {
+                "name": "wooden_stud",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S": {
+        "name": "Exterior wall, brick 75% : plasterboard",
+        "thickness": 0.13,
+        "r_value": 0.8130437275964126,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "plaster_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S": {
+        "name": "Exterior wall, balcony 25%: eternit board",
+        "thickness": 0.09,
+        "r_value": 0.18,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "eternit_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C": {
+        "name": "Exterior wall, balcony 25%: mineral wool",
+        "thickness": 0.095,
+        "r_value": 1.2675143240477342,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "mineral_wool",
+                "fraction": 0.5
+            },
+            {
+                "name": "wooden_stud",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S": {
+        "name": "Exterior wall, balcony 25%: apshalt board",
+        "thickness": 0.012,
+        "r_value": 0.024,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "asphalt_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S": {
+        "name": "Exterior wall, balcony 25% : plasterboard",
+        "thickness": 0.013,
+        "r_value": 0.08130437275964125,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "plaster_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S": {
+        "name": "Bottom floor: Linoleum",
+        "thickness": 0.01,
+        "r_value": 0.06254182519972348,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "linoleum",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S": {
+        "name": "Bottom floor: Woodfiber board",
+        "thickness": 0.013,
+        "r_value": 0.1083337762590533,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "woodfiber_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S": {
+        "name": "Bottom floor: reinforced concrete: concrete",
+        "thickness": 0.15,
+        "r_value": 0.06496595491065765,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_BOTTOMFLOOR_LECA_T150_S": {
+        "name": "Bottom floor: Leca",
+        "thickness": 0.15,
+        "r_value": 0.45454545454545453,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "leca",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S": {
+        "name": "Top floor: Cardboard",
+        "thickness": 0.005,
+        "r_value": 0.03127091259986174,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "cardboard",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S": {
+        "name": "Top floor: mineral wool blanket",
+        "thickness": 0.03,
+        "r_value": 0.6126546142013747,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "mineral_wool_blanket",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S": {
+        "name": "Top floor: mineral wool carpet",
+        "thickness": 0.12,
+        "r_value": 2.4506184568054987,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "mineral_wool_carpet",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_TOPFLOOR_CONCRETE_T140_S": {
+        "name": "Top floor: concrete",
+        "thickness": 0.14,
+        "r_value": 0.06063489124994714,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_ROOF_SHEETMETAL_T003_S": {
+        "name": "Roof: sheet metal",
+        "thickness": 0.003,
+        "r_value": 6.629875462868244e-05,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "sheet_metal",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_ROOF_ROOFINGFELT_T010_S": {
+        "name": "Roof: cardboard",
+        "thickness": 0.01,
+        "r_value": 0.06254182519972348,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "roofing_felt",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_ROOF_WOODENPANEL_T025_S": {
+        "name": "Roof: wooden panel",
+        "thickness": 0.025,
+        "r_value": 0.22742481890808597,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "wooden_panel",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_ROOF_TRUSS_T050_S": {
+        "name": "Roof: truss",
+        "thickness": 0.05,
+        "r_value": 0.41694550133149144,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "wooden_truss",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S": {
+        "name": "Top floor: mineral wool carpet",
+        "thickness": 0.12,
+        "r_value": 2.4506184568054987,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "mineral_wool_carpet",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S": {
+        "name": "Top floor: mineral wool blanket",
+        "thickness": 0.03,
+        "r_value": 0.6126546142013747,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "mineral_wool_blanket",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S": {
+        "name": "Top floor: reinforced concrete: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S": {
+        "name": "Exterior wall 85%: plaster int",
+        "thickness": 0.01,
+        "r_value": 0.014464718172818438,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C": {
+        "name": "Exterior wall 85%: light weight concrete",
+        "thickness": 0.15,
+        "r_value": 0.24570368387516267,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "lightweight_concrete",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S": {
+        "name": "Exterior wall 85%: concrete",
+        "thickness": 0.15,
+        "r_value": 0.06496595491065765,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL15_ASPHALTBOARD_T010_S": {
+        "name": "Exterior wall 15%: asphalt board",
+        "thickness": 0.01,
+        "r_value": 0.02,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "asphalt_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL15_STUDS_T050_C": {
+        "name": "Exterior wall 15%: studs",
+        "thickness": 0.05,
+        "r_value": 0.6671128021303864,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "mineral_wool",
+                "fraction": 0.5
+            },
+            {
+                "name": "wooden_stud",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL15_FOIL_T001_S": {
+        "name": "Exterior wall 15%: foil",
+        "thickness": 0.001,
+        "r_value": 0.006254182519972348,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "foil",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S": {
+        "name": "Exterior wall 15%: gypsum board",
+        "thickness": 0.013,
+        "r_value": 0.08130437275964125,
+        "archetype:": "CMF_1960_2",
+        "materials": [
+            {
+                "name": "gypsum_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_ROOF_BATTENS_T040_S": {
+        "name": "Roof: battens",
+        "thickness": 0.04,
+        "r_value": 0.3335564010651931,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "battens_1",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_ROOF_WOODENPANEL_T030_S": {
+        "name": "Roof: wooden panel",
+        "thickness": 0.03,
+        "r_value": 0.2729097826897031,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "wooden_panel",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_TOPFLOOR_COKEASH_T100_S": {
+        "name": "Top floor: coke ash",
+        "thickness": 0.1,
+        "r_value": 0.6254182519972349,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_TOPFLOOR_WOODSHAVINGS_T150_S": {
+        "name": "Top floor:  wood shavings",
+        "thickness": 0.15,
+        "r_value": 3.0632730710068734,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "wood_shavings",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S": {
+        "name": "Top floor: reinforced concrete: concrete",
+        "thickness": 0.14,
+        "r_value": 0.06063489124994714,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOOR_REINFORCEDCONCRETE_T160_S": {
+        "name": "Intermediate floor: reinforced concrete: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_FLOORBOARD_T040_S": {
+        "name": "Intermediate floor (living room): floorboard",
+        "thickness": 0.04,
+        "r_value": 0.3638797102529375,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "floorboard",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_COKEASH_T100_S": {
+        "name": "Intermediate floor (living room): coke ash",
+        "thickness": 0.1,
+        "r_value": 0.6254182519972349,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_STUDS_T050_S": {
+        "name": "Intermediate floor (living room): studs",
+        "thickness": 0.05,
+        "r_value": 0.41694550133149144,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "stud",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOOR_VINYLFLOORING_T040_S": {
+        "name": "Intermediate floor: vinyl flooring",
+        "thickness": 0.04,
+        "r_value": 0.25016730079889393,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "vinyl_flooring",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOOR_CONCRETE_T050_S": {
+        "name": "Intermediate floor: concrete",
+        "thickness": 0.05,
+        "r_value": 0.02165531830355255,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOOR_COKEASH_T080_S": {
+        "name": "Intermediate floor: coke ash",
+        "thickness": 0.08,
+        "r_value": 0.5003346015977879,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORBATHROOM_TILES_T006_S": {
+        "name": "Intermediate floor (bathroom): tiles",
+        "thickness": 0.006,
+        "r_value": 0.006746084515925251,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "ceramic_tile",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORBATHROOM_CONCRETE_T040_S": {
+        "name": "Intermediate floor (bathroom): concrete",
+        "thickness": 0.04,
+        "r_value": 0.01732425464284204,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERMEDIATEFLOORBATHROOM_COKEASH_T080_S": {
+        "name": "Intermediate floor (bathroom): coke ash",
+        "thickness": 0.08,
+        "r_value": 0.5003346015977879,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_EXTERIORWALL_PLASTERINT_T010_S": {
+        "name": "Exterior wall: plaster int",
+        "thickness": 0.01,
+        "r_value": 0.014464718172818438,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_EXTERIORWALL_LIGHTWEIGHTCONCRETE_T250_C": {
+        "name": "Exterior wall: light weight concrete",
+        "thickness": 0.25,
+        "r_value": 0.4095061397919378,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "lightweight_concrete",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1940_1_EXTERIORWALL_PLASTEREXT_T010_S": {
+        "name": "Exterior wall: plaster ext",
+        "thickness": 0.01,
+        "r_value": 0.014464718172818438,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERIORWALLBEARING_PLASTER_T010_S": {
+        "name": "Interior Wall, bearing: plaster",
+        "thickness": 0.01,
+        "r_value": 0.014464718172818438,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERIORWALLBEARING_CONCRETE_T200_S": {
+        "name": "Interior Wall, bearing: concrete",
+        "thickness": 0.2,
+        "r_value": 0.0866212732142102,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERIORWALLNONBEARING_PLASTER_T010_S": {
+        "name": "Interior Wall, non bearing: plaster",
+        "thickness": 0.01,
+        "r_value": 0.014464718172818438,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_INTERIORWALLNONBEARING_CONCRETE_T070_S": {
+        "name": "Interior Wall, non bearing: concrete",
+        "thickness": 0.07,
+        "r_value": 0.03031744562497357,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S": {
+        "name": "Interior wall, bearing: plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLBEARING_BRICK_T02_C": {
+        "name": "Interior wall, bearing: brick",
+        "thickness": 0.2,
+        "r_value": 0.25304569558618767,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "brick",
+                "fraction": 0.5
+            },
+            {
+                "name": "mortar",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S": {
+        "name": "Interior wall, non-bearing: gypsum",
+        "thickness": 0.013,
+        "r_value": 0.08130437275964125,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "gypsum_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C": {
+        "name": "Interior wall, non-bearing: mineral wool",
+        "thickness": 0.07,
+        "r_value": 0.933957922982541,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "mineral_wool",
+                "fraction": 0.5
+            },
+            {
+                "name": "wooden_stud",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S": {
+        "name": "Interior wall, bearing: plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S": {
+        "name": "Interior wall, bearing: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S": {
+        "name": "Interior wall: gypsum",
+        "thickness": 0.013,
+        "r_value": 0.08130437275964125,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "gypsum_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C": {
+        "name": "Interior wall: mineral wool",
+        "thickness": 0.007,
+        "r_value": 0.0933957922982541,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "mineral_wool",
+                "fraction": 0.5
+            },
+            {
+                "name": "wooden_stud",
+                "fraction": 0.5
+            }
+        ]
+    },
+    "CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S": {
+        "name": "Intermediate floor x2: Linoleum",
+        "thickness": 0.002,
+        "r_value": 0.012508365039944696,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "linoleum",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S": {
+        "name": "Intermediate floor x2: Woodfiber board",
+        "thickness": 0.013,
+        "r_value": 0.1083337762590533,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "woodfiber_board",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S": {
+        "name": "Intermediate floor x2: reinforced concrete: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S": {
+        "name": "Intermediate floor x2: plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1960_1",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S": {
+        "name": "Intermediate floor x9: plastic mat",
+        "thickness": 0.01,
+        "r_value": 0.06254182519972348,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "plastic_mat",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S": {
+        "name": "Intermediate floor x9: concrete mixed with sawdust",
+        "thickness": 0.05,
+        "r_value": 0.0944027550184508,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete_mixed_with_sawdust",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S": {
+        "name": "Intermediate floor x9: coke ash",
+        "thickness": 0.08,
+        "r_value": 0.5003346015977879,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S": {
+        "name": "Intermediate floor x9: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S": {
+        "name": "Intermediate floor x9: plaster",
+        "thickness": 0.005,
+        "r_value": 0.007232359086409219,
+        "archetype:": "CMF_1950",
+        "materials": [
+            {
+                "name": "plaster",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S": {
+        "name": "Bottom Floor: reinforced concrete: concrete",
+        "thickness": 0.16,
+        "r_value": 0.06929701857136816,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_1_BOTTOMFLOOR_COKEASH_T80_S": {
+        "name": "Bottom Floor: coke ash",
+        "thickness": 0.8,
+        "r_value": 5.003346015977879,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "coke_ash",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_BOTTOMFLOOR_CONCRETE_T50_S": {
+        "name": "Bottom Floor: concrete",
+        "thickness": 0.05,
+        "r_value": 0.02165531830355255,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "concrete",
+                "fraction": 1.0
+            }
+        ]
+    },
+    "CMF_1940_BOTTOMFLOOR_VINYLFLOORING_T40_S": {
+        "name": "Bottom Floor: vinyl flooring",
+        "thickness": 0.04,
+        "r_value": 0.25016730079889393,
+        "archetype:": "CMF_1940_1",
+        "materials": [
+            {
+                "name": "vinyl_flooring",
+                "fraction": 1.0
+            }
+        ]
+    }
+}

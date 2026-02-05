@@ -85,3 +85,98 @@ Currently solely Opaque_Materials are extracted if both IDs are present. First i
 diagrams can be be added where they make sense
 
 Formatting over the entire script needs overlooking
+
+# 22/1 2026 Progress Notes 
+
+### EPSM_Enums
+- Units still need to be handled
+
+### Material
+- Needs tests added to the class to ensure the ranges extracted from ExtractExcel.py and so on make sense
+
+### Layers
+- plot needs to properly visualise the Resistance
+- thickness test for composite materials, (do all Materials have the same thickness?)
+- Need to test if it flags correctly with one area fraction filled in (for composite materials)
+- check wether the resistance is correct
+- clean up the output log (lists everything clearly not one clump)
+
+### Component
+- Year Installed (Optional)
+
+### Element
+- U value
+- Components + shearing layers
+
+## Extraction
+- Currently solely Opaque_Materials are extracted if both IDs are present. 
+- First iteration Extract.py only takes given pairs and will be removed eventually, 
+- ExtractLayers.py is the most current and extracts both materials and layers, for the material the class needs to be implemented properly
+- Duplication logic in ExtractLayers for Layer handling needs a second look.
+
+## Overall
+- diagrams can be be added where they make sense in the classes
+- Formatting over the entire script needs overlooking
+- Workbook + Explanation of code
+- Pytest set up
+- Check for redundancies (uneccessary code duplication and so on)
+- Archetype property for the layer and component
+
+# 02/05 2026 Progress Notes 
+Complete classes:
+
+EmbodiedCarbon
+Materials
+Layers
+Components
+Element
+
+ExtractAll outputs three jsons: Material (w embodied carbon), layers, component
+Currently ExtractElement handles element .json (but does so through the component .json)
+
+Also for every level BUT Layers, R-value is calculated by assuming the materials are in a series
+
+Needs:
+- More validation check as it for now mostly ensures the number properties are above zero
+- Updated read me w sources
+- Updated legend (most is mentioned here for now)
+- Embodied Carbon class follows the other classes structure
+- Remove redundant Extract files (and maybe rename them) but commited for now to keep the history
+
+### EPSM_Enums
+- Units still need to be handled
+
+### Embodied Carbon 
+- Separated out
+- Needs a consistency check of style, as it may be old
+
+### Material
+- Could do with more tests
+
+### Layers
+- plot needs to properly visualise the Resistance
+- thickness test for composite materials, (do all Materials have the same thickness?)
+- Need to test if it flags correctly with one area fraction filled in (for composite materials)
+
+### Component
+- Ensure all wanted properties are included
+
+### Element
+- Needs more validation tests
+
+## Extraction
+- Currently solely Opaque_Materials are extracted if both IDs are present. 
+- First iteration Extract.py only takes given pairs and will be removed eventually, 
+- ExtractLayers.py is the most current and extracts both materials and layers, for the material the class needs to be implemented properly
+- Duplication logic in ExtractLayers for Layer handling needs a second look.
+
+- One for elements was added, however due to lacking an excel sheet with info its currently based off of the component names and may not produce correct Elements
+- Utilizes a temporary Element class that can read dictionaries. 
+
+## Overall
+- diagrams can be be added where they make sense in the classes
+- Workbook + Explanation of code
+- Pytest set up
+- Check for redundancies (uneccessary code duplication and so on)
+- Read me needs sources and general explanation
+

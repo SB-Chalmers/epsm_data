@@ -1,0 +1,1929 @@
+{
+    "CMF_1940_1_BOTTOMFLOOR": {
+        "name": "CMF_1940_1_BOTTOMFLOOR",
+        "archetype": "CMF_1940_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 5.514465653651694,
+        "u_value_total": 0.18134,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1940_1_BOTTOMFLOOR_SPACE_3",
+                "archetype": "CMF_1940_1",
+                "r_value_total": 5.275168635080326,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom Floor: coke ash",
+                        "thickness": 0.8,
+                        "r_value": 5.003346015977879,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "coke_ash",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Bottom Floor: concrete",
+                        "thickness": 0.05,
+                        "r_value": 0.02165531830355255,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Bottom Floor: vinyl flooring",
+                        "thickness": 0.04,
+                        "r_value": 0.25016730079889393,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "vinyl_flooring",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1940_1",
+                "r_value_total": 0.06929701857136816,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom Floor: reinforced concrete: concrete",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1940_1_ROOF": {
+        "name": "CMF_1940_1_ROOF",
+        "archetype": "CMF_1940_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 1.1100225848200893,
+        "u_value_total": 0.90088,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1940_1_ROOF_SKIN_4",
+                "archetype": "CMF_1940_1",
+                "r_value_total": 0.9400225848200893,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: battens",
+                        "thickness": 0.04,
+                        "r_value": 0.3335564010651931,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "battens_1",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: battens",
+                        "thickness": 0.04,
+                        "r_value": 0.3335564010651931,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "battens_1",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: wooden panel",
+                        "thickness": 0.03,
+                        "r_value": 0.2729097826897031,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "wooden_panel",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1940_1_TOPFLOOR": {
+        "name": "CMF_1940_1_TOPFLOOR",
+        "archetype": "CMF_1940_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 3.9193262142540553,
+        "u_value_total": 0.25515,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1940_1_TOPFLOOR_SPACE_3",
+                "archetype": "CMF_1940_1",
+                "r_value_total": 3.6886913230041083,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: coke ash",
+                        "thickness": 0.1,
+                        "r_value": 0.6254182519972349,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "coke_ash",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Top floor:  wood shavings",
+                        "thickness": 0.15,
+                        "r_value": 3.0632730710068734,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "wood_shavings",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1940_1_TOPFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1940_1",
+                "r_value_total": 0.06063489124994714,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: reinforced concrete: concrete",
+                        "thickness": 0.14,
+                        "r_value": 0.06063489124994714,
+                        "archetype:": "CMF_1940_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_BOTTOMFLOOR": {
+        "name": "CMF_1950_BOTTOMFLOOR",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.9688997912514224,
+        "u_value_total": 1.0321,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_BOTTOMFLOOR_SPACE_2",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.1348654160638157,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom floor: plastic mat",
+                        "thickness": 0.01,
+                        "r_value": 0.06254182519972348,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "plastic_mat",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Bottom floor: plaster",
+                        "thickness": 0.05,
+                        "r_value": 0.0723235908640922,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_BOTTOMFLOOR_STRUCTURE_3",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.6640343751876068,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom floor: concrete mixed with sawdust",
+                        "thickness": 0.05,
+                        "r_value": 0.0944027550184508,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete_mixed_with_sawdust",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Bottom floor: coke ash",
+                        "thickness": 0.08,
+                        "r_value": 0.5003346015977879,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "coke_ash",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Bottom floor: concrete 16 cm",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_EXTERNALWALL1.6": {
+        "name": "CMF_1950_EXTERNALWALL1.6",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.46141610206585415,
+        "u_value_total": 2.16724,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_EXTERNALWALL1.6_SKIN_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 1-6: terrasit plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "terrasit_plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_EXTERNALWALL1.6_SPACE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 1-6: Lime plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "lime_plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_EXTERNALWALL1.6_STRUCTURE_3",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.27695138389303575,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 1-6: lightweight concrete 12,5 cm",
+                        "thickness": 0.125,
+                        "r_value": 0.2047530698959689,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "lightweight_concrete",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Exterior wall, floor 1-6: mortar 5 mm",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "mortar",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Exterior wall, floor 1-6: concrete",
+                        "thickness": 0.15,
+                        "r_value": 0.06496595491065765,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_EXTERNALWALL1.7": {
+        "name": "CMF_1950_EXTERNALWALL1.7",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.5795061397919379,
+        "u_value_total": 1.72561,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_EXTERNALWALL1.7_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.4095061397919378,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 7-10: lightweight concrete 25 cm",
+                        "thickness": 0.25,
+                        "r_value": 0.4095061397919378,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "lightweight_concrete",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_EXTERNALWALL11": {
+        "name": "CMF_1950_EXTERNALWALL11",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.5048372709199594,
+        "u_value_total": 1.98084,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_EXTERNALWALL11_SKIN_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 11: terrasit plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "terrasit_plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_EXTERNALWALL11_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.3276049118335502,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 11: mortar 20 cm",
+                        "thickness": 0.2,
+                        "r_value": 0.3276049118335502,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "lightweight_concrete",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_EXTERNALWALL7.10": {
+        "name": "CMF_1950_EXTERNALWALL7.10",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.18446471817281845,
+        "u_value_total": 5.42109,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_EXTERNALWALL7.10_SKIN_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 7-10: terrasit plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "terrasit_plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_EXTERNALWALL7.10_SPACE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, floor 7-10: Lime plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "lime_plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLBEARING": {
+        "name": "CMF_1950_INTERIORWALLBEARING",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.4302780546725969,
+        "u_value_total": 2.32408,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_INTERIORWALLBEARING_SKIN_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, bearing: plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_INTERIORWALLBEARING_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.25304569558618767,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, bearing: brick",
+                        "thickness": 0.2,
+                        "r_value": 0.25304569558618767,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "brick",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_INTERIORWALLNONBEARING": {
+        "name": "CMF_1950_INTERIORWALLNONBEARING",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 1.1852622957421821,
+        "u_value_total": 0.8437,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_INTERIORWALLNONBEARING_SPACE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.08130437275964125,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, non-bearing: gypsum",
+                        "thickness": 0.013,
+                        "r_value": 0.08130437275964125,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "gypsum_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.933957922982541,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, non-bearing: mineral wool",
+                        "thickness": 0.07,
+                        "r_value": 0.933957922982541,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "mineral_wool",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_INTERMEDIATEFLOOR": {
+        "name": "CMF_1950_INTERMEDIATEFLOOR",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.9038085594737395,
+        "u_value_total": 1.10643,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_INTERMEDIATEFLOOR_SPACE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x9: plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_INTERMEDIATEFLOOR_SPACE_3",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.6572791818159621,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x9: plastic mat",
+                        "thickness": 0.01,
+                        "r_value": 0.06254182519972348,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "plastic_mat",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Intermediate floor x9: concrete mixed with sawdust",
+                        "thickness": 0.05,
+                        "r_value": 0.0944027550184508,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete_mixed_with_sawdust",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Intermediate floor x9: coke ash",
+                        "thickness": 0.08,
+                        "r_value": 0.5003346015977879,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "coke_ash",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.06929701857136816,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x9: concrete",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_ROOF": {
+        "name": "CMF_1950_ROOF",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 3.481068428964486,
+        "u_value_total": 0.28727,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_ROOF_SKIN_2",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.34575202349491935,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: galvaniced sheet metal",
+                        "thickness": 0.003,
+                        "r_value": 6.629875462868244e-05,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "galvanized_sheet_metal",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: wooden panel",
+                        "thickness": 0.038,
+                        "r_value": 0.3456857247402907,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "wooden_panel",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_ROOF_STRUCTURE_3",
+                "archetype": "CMF_1950",
+                "r_value_total": 2.965316405469567,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: wooden rafter 2\" x 4\"",
+                        "thickness": 0.1016,
+                        "r_value": 0.8472332587055904,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "wooden_rafter",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Roof: wooden beam 2\" x 6\"",
+                        "thickness": 0.1524,
+                        "r_value": 1.2708498880583858,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "wooden_beam",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Roof: wooden stud 4\" x 4\"",
+                        "thickness": 0.1016,
+                        "r_value": 0.8472332587055904,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1950_TOPFLOOR": {
+        "name": "CMF_1950_TOPFLOOR",
+        "archetype": "CMF_1950",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.7068356640989543,
+        "u_value_total": 1.41476,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1950_TOPFLOOR_SPACE_2",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.4762007728490071,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: concrete, top",
+                        "thickness": 0.05,
+                        "r_value": 0.02165531830355255,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Top floor: granulated blast furnace slag",
+                        "thickness": 0.15,
+                        "r_value": 0.45454545454545453,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "granulated_blast_furnace_slag",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1950_TOPFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1950",
+                "r_value_total": 0.06063489124994714,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: concrete",
+                        "thickness": 0.14,
+                        "r_value": 0.06063489124994714,
+                        "archetype:": "CMF_1950",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_BOTTOMFLOOR": {
+        "name": "CMF_1960_1_BOTTOMFLOOR",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.860387010914889,
+        "u_value_total": 1.16227,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_BOTTOMFLOOR_SKIN_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.45454545454545453,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom floor: Leca",
+                        "thickness": 0.15,
+                        "r_value": 0.45454545454545453,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "leca",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_BOTTOMFLOOR_SPACE_2",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.17087560145877678,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom floor: Linoleum",
+                        "thickness": 0.01,
+                        "r_value": 0.06254182519972348,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "linoleum",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Bottom floor: Woodfiber board",
+                        "thickness": 0.013,
+                        "r_value": 0.1083337762590533,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "woodfiber_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.06496595491065765,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Bottom floor: reinforced concrete: concrete",
+                        "thickness": 0.15,
+                        "r_value": 0.06496595491065765,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALL025": {
+        "name": "CMF_1960_1_EXTERIORWALL025",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 1.7228186968073755,
+        "u_value_total": 0.58044,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_EXTERIORWALL025_SKIN_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.18,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, balcony 25%: eternit board",
+                        "thickness": 0.09,
+                        "r_value": 0.18,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "eternit_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_EXTERIORWALL025_SPACE_2",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.10530437275964125,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, balcony 25%: apshalt board",
+                        "thickness": 0.012,
+                        "r_value": 0.024,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "asphalt_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Exterior wall, balcony 25% : plasterboard",
+                        "thickness": 0.013,
+                        "r_value": 0.08130437275964125,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "plaster_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_EXTERIORWALL025_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 1.2675143240477342,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, balcony 25%: mineral wool",
+                        "thickness": 0.095,
+                        "r_value": 1.2675143240477342,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "mineral_wool",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_EXTERIORWALL075": {
+        "name": "CMF_1960_1_EXTERIORWALL075",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 2.408711611385514,
+        "u_value_total": 0.41516,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_EXTERIORWALL075_SKIN_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.1581535597413673,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, brick 75%: Mortar",
+                        "thickness": 0.125,
+                        "r_value": 0.1581535597413673,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "brick",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_EXTERIORWALL075_SPACE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.8130437275964126,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, brick 75% : plasterboard",
+                        "thickness": 0.13,
+                        "r_value": 0.8130437275964126,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "plaster_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_EXTERIORWALL075_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 1.2675143240477342,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall, brick 75%: mineral wool",
+                        "thickness": 0.095,
+                        "r_value": 1.2675143240477342,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "mineral_wool",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLBEARING": {
+        "name": "CMF_1960_1_INTERIORWALLBEARING",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.2465293776577774,
+        "u_value_total": 4.05631,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_INTERIORWALLBEARING_SPACE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, bearing: plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.06929701857136816,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall, bearing: concrete",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_INTERIORWALLNONBEARING": {
+        "name": "CMF_1960_1_INTERIORWALLNONBEARING",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.3447001650578953,
+        "u_value_total": 2.90107,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.08130437275964125,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall: gypsum",
+                        "thickness": 0.013,
+                        "r_value": 0.08130437275964125,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "gypsum_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.0933957922982541,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Interior wall: mineral wool",
+                        "thickness": 0.007,
+                        "r_value": 0.0933957922982541,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "mineral_wool",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_INTERMEDIATEFLOOR": {
+        "name": "CMF_1960_1_INTERMEDIATEFLOOR",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.3673715189567754,
+        "u_value_total": 2.72204,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.007232359086409219,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x2: plaster",
+                        "thickness": 0.005,
+                        "r_value": 0.007232359086409219,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.120842141298998,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x2: Linoleum",
+                        "thickness": 0.002,
+                        "r_value": 0.012508365039944696,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "linoleum",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Intermediate floor x2: Woodfiber board",
+                        "thickness": 0.013,
+                        "r_value": 0.1083337762590533,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "woodfiber_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.06929701857136816,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Intermediate floor x2: reinforced concrete: concrete",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_ROOF": {
+        "name": "CMF_1960_1_ROOF",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.8159906885900778,
+        "u_value_total": 1.2255,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_ROOF_SKIN_5",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.6459906885900778,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: Metal sheet",
+                        "thickness": 0.003,
+                        "r_value": 6.629875462868244e-05,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "metal_sheet",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: battens 1",
+                        "thickness": 0.023,
+                        "r_value": 0.19179493061248604,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "battens_1",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: battens 2",
+                        "thickness": 0.023,
+                        "r_value": 0.19179493061248604,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "battens_2",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: Cardboard",
+                        "thickness": 0.005,
+                        "r_value": 0.03127091259986174,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "roofing_felt",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 4,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: wooden panel",
+                        "thickness": 0.0254,
+                        "r_value": 0.2310636160106153,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "wooden_panel",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 5,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_1_TOPFLOOR": {
+        "name": "CMF_1960_1_TOPFLOOR",
+        "archetype": "CMF_1960_1",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 3.325178874856682,
+        "u_value_total": 0.30074,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_1_TOPFLOOR_SPACE_3",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 3.094543983606735,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: Cardboard",
+                        "thickness": 0.005,
+                        "r_value": 0.03127091259986174,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "cardboard",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Top floor: mineral wool blanket",
+                        "thickness": 0.03,
+                        "r_value": 0.6126546142013747,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "mineral_wool_blanket",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Top floor: mineral wool carpet",
+                        "thickness": 0.12,
+                        "r_value": 2.4506184568054987,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "mineral_wool_carpet",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_1_TOPFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1960_1",
+                "r_value_total": 0.06063489124994714,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: concrete",
+                        "thickness": 0.14,
+                        "r_value": 0.06063489124994714,
+                        "archetype:": "CMF_1960_1",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL015": {
+        "name": "CMF_1960_2_EXTERIORWALL015",
+        "archetype": "CMF_1960_2",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.94467135741,
+        "u_value_total": 1.05857,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_2_EXTERIORWALL015_SKIN_2",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.02,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall 15%: asphalt board",
+                        "thickness": 0.01,
+                        "r_value": 0.02,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "asphalt_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_2_EXTERIORWALL015_SPACE_2",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.0875585552796136,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall 15%: foil",
+                        "thickness": 0.001,
+                        "r_value": 0.006254182519972348,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "foil",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Exterior wall 15%: gypsum board",
+                        "thickness": 0.013,
+                        "r_value": 0.08130437275964125,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "gypsum_board",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_2_EXTERIORWALL015_STRUCTURE_1",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.6671128021303864,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall 15%: studs",
+                        "thickness": 0.05,
+                        "r_value": 0.6671128021303864,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "mineral_wool",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "wooden_stud",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_2_EXTERIORWALL085": {
+        "name": "CMF_1960_2_EXTERIORWALL085",
+        "archetype": "CMF_1960_2",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.4951343569586387,
+        "u_value_total": 2.01965,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_2_EXTERIORWALL085_SPACE_1",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.014464718172818438,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall 85%: plaster int",
+                        "thickness": 0.01,
+                        "r_value": 0.014464718172818438,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "plaster",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_2_EXTERIORWALL085_STRUCTURE_2",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.3106696387858203,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Exterior wall 85%: light weight concrete",
+                        "thickness": 0.15,
+                        "r_value": 0.24570368387516267,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "lightweight_concrete",
+                                "fraction": 0.5
+                            },
+                            {
+                                "name": "mortar",
+                                "fraction": 0.5
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    },
+                    {
+                        "name": "Exterior wall 85%: concrete",
+                        "thickness": 0.15,
+                        "r_value": 0.06496595491065765,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_2_ROOF": {
+        "name": "CMF_1960_2_ROOF",
+        "archetype": "CMF_1960_2",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 0.8769784441939296,
+        "u_value_total": 1.14028,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_2_ROOF_SKIN_3",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.29003294286243814,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: sheet metal",
+                        "thickness": 0.003,
+                        "r_value": 6.629875462868244e-05,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "sheet_metal",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: cardboard",
+                        "thickness": 0.01,
+                        "r_value": 0.06254182519972348,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "roofing_felt",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Skin"
+                    },
+                    {
+                        "name": "Roof: wooden panel",
+                        "thickness": 0.025,
+                        "r_value": 0.22742481890808597,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "wooden_panel",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 3,
+                        "shearing_layer": "Skin"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_2_ROOF_STRUCTURE_3",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.41694550133149144,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Roof: truss",
+                        "thickness": 0.05,
+                        "r_value": 0.41694550133149144,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "wooden_truss",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    },
+    "CMF_1960_2_TOPFLOOR": {
+        "name": "CMF_1960_2_TOPFLOOR",
+        "archetype": "CMF_1960_2",
+        "rsi": 0.13,
+        "rse": 0.04,
+        "r_value_total": 3.3025700895782415,
+        "u_value_total": 0.30279,
+        "age": null,
+        "components": [
+            {
+                "name": "CMF_1960_2_TOPFLOOR_SPACE_2",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 3.0632730710068734,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: mineral wool carpet",
+                        "thickness": 0.12,
+                        "r_value": 2.4506184568054987,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "mineral_wool_carpet",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Space"
+                    },
+                    {
+                        "name": "Top floor: mineral wool blanket",
+                        "thickness": 0.03,
+                        "r_value": 0.6126546142013747,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "mineral_wool_blanket",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 2,
+                        "shearing_layer": "Space"
+                    }
+                ]
+            },
+            {
+                "name": "CMF_1960_2_TOPFLOOR_STRUCTURE_1",
+                "archetype": "CMF_1960_2",
+                "r_value_total": 0.06929701857136816,
+                "age": null,
+                "layers": [
+                    {
+                        "name": "Top floor: reinforced concrete: concrete",
+                        "thickness": 0.16,
+                        "r_value": 0.06929701857136816,
+                        "archetype:": "CMF_1960_2",
+                        "materials": [
+                            {
+                                "name": "concrete",
+                                "fraction": 1.0
+                            }
+                        ],
+                        "layer_index": 1,
+                        "shearing_layer": "Structure"
+                    }
+                ]
+            }
+        ]
+    }
+}
