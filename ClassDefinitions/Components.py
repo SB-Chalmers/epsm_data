@@ -10,10 +10,6 @@ class Component:
     consisting of multiple layers and surface resistances.
     Each layer has its own shearing_layer.
     """
-
-    #DEFAULT_RSI = 0.13  # typical internal surface resistance [m²·K/W]
-    #DEFAULT_RSE = 0.04  # typical external surface resistance [m²·K/W]
-
     def __init__(
         self,
         name: str,
@@ -21,8 +17,7 @@ class Component:
         layers: List[Layer],
         shearing_layer: ShearingLayer,
         year_installed: int = None,
-        #rsi: float = None,
-        #rse: float = None,
+
     ):
         if not layers:
             raise ValueError("Component must have at least one layer.")
@@ -32,10 +27,6 @@ class Component:
         self.name = name
         self.archetype = archetype
         self.layers = layers
-
-        # Assign default surface resistances if not provided
-        #self.rsi = rsi if rsi is not None else self.DEFAULT_RSI
-        #self.rse = rse if rse is not None else self.DEFAULT_RSE
 
         # Propagate shearing_layer to each layer
         for layer in self.layers:
@@ -92,13 +83,6 @@ class Component:
         """Dynamic total R-value including all layers and surface resistances."""
         return self.calculate_r_value()
 
-    """@property
-    def u_value(self) -> float | None:
-        r_total = self.r_value_total
-        if r_total <= 0:
-            return None
-        return 1 / r_total"""
-
     @property
     def age(self) -> int | None:
         """Calculate the age of the component."""
@@ -123,8 +107,6 @@ class Component:
 
         print("-" * 55)
         print(f"{'Total R-value:':<20}{self.r_value_total:.2f} m²·K/W")
-        #u_val = self.u_value
-        #print(f"{'U-value:':<20}{u_val:.3f} W/m²·K" if u_val is not None else f"{'U-value:':<20}Error")
         print(f"{'Age:':<20}{self.age if self.age is not None else 'Unknown'} years\n")
 
 
@@ -140,8 +122,6 @@ class Component:
         return {
             "name": self.name,
             "archetype": self.archetype,
-            #"rsi": self.rsi,
-            #"rse": self.rse,
             "r_value_total": self.r_value_total,
             "age": self.age,
             "layers": layers_with_index,

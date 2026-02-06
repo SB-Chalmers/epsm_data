@@ -172,6 +172,7 @@ Needs:
 
 - One for elements was added, however due to lacking an excel sheet with info its currently based off of the component names and may not produce correct Elements
 - Utilizes a temporary Element class that can read dictionaries. 
+- ExtractEnergyPlus creates json based solely on energyplus values and archetype given for modelling
 
 ## Overall
 - diagrams can be be added where they make sense in the classes
