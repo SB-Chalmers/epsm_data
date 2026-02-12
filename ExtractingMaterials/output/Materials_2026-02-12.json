@@ -1,6 +1,6 @@
 {
     "wooden_stud": {
-        "uuid": "278105f4-ce7a-4aba-8795-1da459270ce0",
+        "uuid": "3c66c622-b857-49bc-a4bb-00eb97496d46",
         "name": "wooden_stud",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -24,7 +24,7 @@
         }
     },
     "wooden_beam": {
-        "uuid": "bdd245a9-d1a0-48c4-9d01-4e6da1bc0b19",
+        "uuid": "ddd4ae7d-39cc-40bc-8319-66fa9e97e885",
         "name": "wooden_beam",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -48,7 +48,7 @@
         }
     },
     "wooden_rafter": {
-        "uuid": "2d4e4eea-efda-4c96-9996-230558325a49",
+        "uuid": "fff2a4b1-a099-4cf9-9a50-de41613ab24b",
         "name": "wooden_rafter",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -72,16 +72,16 @@
         }
     },
     "wooden_panel": {
-        "uuid": "4409d3fa-8a37-48e7-8bb9-33c9e147f260",
+        "uuid": "a7f8cb73-88ad-4012-b262-d2e1d42e5e18",
         "name": "wooden_panel",
         "type": "EnergyMaterial",
-        "conductivity": 0.10992643687716327,
+        "conductivity": 0.11991974932054163,
         "roughness": "MediumSmooth",
-        "density": 544.6212452676245,
+        "density": 540.0012347040437,
         "specific_heat": 1209.2198113776988,
         "thermal_absorptance": 0.9,
-        "solar_absorptance": 0.78,
-        "visible_absorptance": 0.78,
+        "solar_absorptance": 0.7,
+        "visible_absorptance": 0.7,
         "embodied_carbon": {
             "product_name": "sawn timber, u 16 %, coniferous",
             "resource_id": "6000000007",
@@ -96,7 +96,7 @@
         }
     },
     "galvanized_sheet_metal": {
-        "uuid": "e3cd5989-8104-4797-aff5-3286cdf3450f",
+        "uuid": "a414315c-660d-473a-8090-041c37b88b00",
         "name": "galvanized_sheet_metal",
         "type": "EnergyMaterial",
         "conductivity": 45.24971874361766,
@@ -120,7 +120,7 @@
         }
     },
     "granulated_blast_furnace_slag": {
-        "uuid": "3100c5c2-ad27-456c-91ba-491b12639a1e",
+        "uuid": "33f943d4-3042-4117-8272-a0becc30511a",
         "name": "granulated_blast_furnace_slag",
         "type": "EnergyMaterial",
         "conductivity": 0.33,
@@ -144,7 +144,7 @@
         }
     },
     "concrete": {
-        "uuid": "ba2ac5c5-d0cb-4cc1-ab00-d8fe2c2c3938",
+        "uuid": "aa1699db-ce06-46a0-a142-974c4257343e",
         "name": "concrete",
         "type": "EnergyMaterial",
         "conductivity": 2.3089016425031033,
@@ -168,7 +168,7 @@
         }
     },
     "lime_plaster": {
-        "uuid": "e0256566-97e8-46e8-b858-3b5f3117e5a9",
+        "uuid": "bca06bfe-69ba-45aa-9b47-1fcce91d9209",
         "name": "lime_plaster",
         "type": "EnergyMaterial",
         "conductivity": 0.6913373548329222,
@@ -192,7 +192,7 @@
         }
     },
     "lightweight_concrete": {
-        "uuid": "0b7feb33-aa13-4fa4-946c-14174a739078",
+        "uuid": "1820479b-6b7d-4537-932d-63ddfbe3bc7e",
         "name": "lightweight_concrete",
         "type": "EnergyMaterial",
         "conductivity": 0.5296455594990593,
@@ -216,7 +216,7 @@
         }
     },
     "terrasit_plaster": {
-        "uuid": "7c81fdb7-1ec1-4eca-87b9-3462a796466d",
+        "uuid": "b888a311-462a-479b-95c8-2b1ff36c9982",
         "name": "terrasit_plaster",
         "type": "EnergyMaterial",
         "conductivity": 0.6913373548329222,
@@ -240,7 +240,7 @@
         }
     },
     "mortar": {
-        "uuid": "27a5fdb0-3fd8-4807-84bf-fff484319f3b",
+        "uuid": "fbe8f739-75f1-4b37-8946-2fc8b1e6a1d5",
         "name": "mortar",
         "type": "EnergyMaterial",
         "conductivity": 0.6913373548329222,
@@ -264,7 +264,7 @@
         }
     },
     "plastic_mat": {
-        "uuid": "b91c5747-428c-46ee-a1fd-93fa2ab72439",
+        "uuid": "c1251a0e-e379-43cd-b2f1-259734eee43f",
         "name": "plastic_mat",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -288,7 +288,7 @@
         }
     },
     "plaster": {
-        "uuid": "3a0ca050-0223-4193-94cc-c0c5d3933c6e",
+        "uuid": "baa6cfe3-ef6d-4467-b37c-8b5197083b0f",
         "name": "plaster",
         "type": "EnergyMaterial",
         "conductivity": 0.6913373548329222,
@@ -312,7 +312,7 @@
         }
     },
     "concrete_mixed_with_sawdust": {
-        "uuid": "3a756165-aa8a-44fd-93e1-0cf21a1b4f45",
+        "uuid": "349cae73-76df-43ff-b36c-8c72d4b05d88",
         "name": "concrete_mixed_with_sawdust",
         "type": "EnergyMaterial",
         "conductivity": 0.5296455594990593,
@@ -336,7 +336,7 @@
         }
     },
     "coke_ash": {
-        "uuid": "42d93df9-704c-4b09-a9d1-5ecc374449d4",
+        "uuid": "8014b5e8-4eea-4e56-9952-8aa4077452bf",
         "name": "coke_ash",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -360,7 +360,7 @@
         }
     },
     "metal_sheet": {
-        "uuid": "aac4e7c7-152e-4cfb-9337-44bf79737d29",
+        "uuid": "459e2260-b137-43be-8ad8-ee057030929c",
         "name": "metal_sheet",
         "type": "EnergyMaterial",
         "conductivity": 45.24971874361766,
@@ -384,7 +384,7 @@
         }
     },
     "battens_1": {
-        "uuid": "38707b45-397f-4212-bcaa-61929b97d5a6",
+        "uuid": "bef12827-7388-4472-826c-41449224386c",
         "name": "battens_1",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -408,7 +408,7 @@
         }
     },
     "battens_2": {
-        "uuid": "ab8d810a-fb6e-4afe-9fd6-5391011abe2f",
+        "uuid": "956062c8-1d34-4204-86a1-21560f47858b",
         "name": "battens_2",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -432,7 +432,7 @@
         }
     },
     "roofing_felt": {
-        "uuid": "361a933a-45a4-43f1-9f9a-dface3ec326b",
+        "uuid": "ebf073d2-9de0-4464-a85c-7f3cb0084e90",
         "name": "roofing_felt",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -456,7 +456,7 @@
         }
     },
     "brick": {
-        "uuid": "9a36c4f1-4d13-4c72-bac3-2c293b716d69",
+        "uuid": "98d20e9e-4845-49c6-89df-c6b34faafa9d",
         "name": "brick",
         "type": "EnergyMaterial",
         "conductivity": 0.8894048074606842,
@@ -480,7 +480,7 @@
         }
     },
     "mineral_wool": {
-        "uuid": "fc589581-4b3e-47e5-8fbc-1c840552a1ae",
+        "uuid": "d17424dc-7470-46c5-b42c-e3acd07ab6e7",
         "name": "mineral_wool",
         "type": "EnergyMaterial",
         "conductivity": 0.029979937330135372,
@@ -504,7 +504,7 @@
         }
     },
     "stud": {
-        "uuid": "7d8e90dc-c0e5-4928-b0b4-35447363bb84",
+        "uuid": "28107f6f-16f1-4cb1-bdcf-ac3a0aaa5a74",
         "name": "stud",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -528,7 +528,7 @@
         }
     },
     "plaster_board": {
-        "uuid": "e26ec026-f0a6-4c2a-addf-2debb98e34e6",
+        "uuid": "648468d7-164b-418c-a802-24bc0e518c77",
         "name": "plaster_board",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405463,
@@ -552,7 +552,7 @@
         }
     },
     "eternit_board": {
-        "uuid": "ae7c8061-31da-465a-be42-09e78760773e",
+        "uuid": "945ff2c0-8fb8-4c14-b243-13402ee64121",
         "name": "eternit_board",
         "type": "EnergyMaterial",
         "conductivity": 0.5,
@@ -576,7 +576,7 @@
         }
     },
     "asphalt_board": {
-        "uuid": "c42be26d-c55b-4fed-88c9-b29fd52c84c4",
+        "uuid": "59915d1a-7c41-4b03-8eff-6e53e3965624",
         "name": "asphalt_board",
         "type": "EnergyMaterial",
         "conductivity": 0.5,
@@ -600,7 +600,7 @@
         }
     },
     "linoleum": {
-        "uuid": "810138b5-2621-4f3d-9ada-773ae6d81f23",
+        "uuid": "0fe0526b-af15-495d-acc2-81d0f8293d77",
         "name": "linoleum",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -624,7 +624,7 @@
         }
     },
     "woodfiber_board": {
-        "uuid": "19ba5ed5-677d-4045-9a30-249ca74e0315",
+        "uuid": "7d83f0eb-f232-4813-97fb-fa763640feeb",
         "name": "woodfiber_board",
         "type": "EnergyMaterial",
         "conductivity": 0.11999950937659305,
@@ -648,7 +648,7 @@
         }
     },
     "leca": {
-        "uuid": "de6914c3-9773-4587-be71-3bd993bbd0e4",
+        "uuid": "0e10157f-d32c-4cea-a4fb-b85474818a4d",
         "name": "leca",
         "type": "EnergyMaterial",
         "conductivity": 0.33,
@@ -672,7 +672,7 @@
         }
     },
     "mineral_wool_blanket": {
-        "uuid": "a74bdbed-cd84-44e0-9960-61051b29bcd2",
+        "uuid": "fddb2ab0-d767-4888-8399-24cb52015762",
         "name": "mineral_wool_blanket",
         "type": "EnergyMaterial",
         "conductivity": 0.04896723097255453,
@@ -696,7 +696,7 @@
         }
     },
     "mineral_wool_carpet": {
-        "uuid": "fc0e038f-fd73-42aa-ab1a-6c36bce5e62a",
+        "uuid": "59ae1e52-2f0e-44df-800d-4109f84c98d0",
         "name": "mineral_wool_carpet",
         "type": "EnergyMaterial",
         "conductivity": 0.04896723097255453,
@@ -720,7 +720,7 @@
         }
     },
     "wooden_truss": {
-        "uuid": "1a48f153-bf31-45f2-83ba-8c1b16a2fa59",
+        "uuid": "05e85162-3a14-4a1e-8cc1-5c01e154906f",
         "name": "wooden_truss",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -744,7 +744,7 @@
         }
     },
     "reinforced concrete: steel": {
-        "uuid": "c316c1da-8e03-4647-8e2f-32e0eb71e24a",
+        "uuid": "c5853644-f53a-48e5-bc49-8522f1845881",
         "name": "reinforced concrete: steel",
         "type": "EnergyMaterial",
         "conductivity": 45.249718743617805,
@@ -768,7 +768,7 @@
         }
     },
     "foil": {
-        "uuid": "f937be00-9219-4746-9e25-ef777398e960",
+        "uuid": "6a182fc3-0a86-43e2-9878-516e53902bc5",
         "name": "foil",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -792,7 +792,7 @@
         }
     },
     "gypsum_board": {
-        "uuid": "23a57830-5acc-44ce-b9fb-6c8b6301d7d5",
+        "uuid": "c20bf92b-0837-4c1e-8269-f18281e58fbb",
         "name": "gypsum_board",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405463,
@@ -816,7 +816,7 @@
         }
     },
     "wooden_frame": {
-        "uuid": "c882c247-d87b-4904-b035-6acc49302cb6",
+        "uuid": "635c5337-76c5-4b24-bff7-e2f9c63f2041",
         "name": "wooden_frame",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -840,7 +840,7 @@
         }
     },
     "lightweight_concrete_beam": {
-        "uuid": "f35edb5e-eff7-44d7-94c2-09dfcd2e5556",
+        "uuid": "21ef6560-19fd-48dd-a45d-44f4589db40e",
         "name": "lightweight_concrete_beam",
         "type": "EnergyMaterial",
         "conductivity": 0.5296455594990593,
@@ -864,7 +864,7 @@
         }
     },
     "beam_plate": {
-        "uuid": "cf30b45d-d260-483a-ab8b-6cb379ed9821",
+        "uuid": "273da2be-e038-4d68-8690-c2384877282f",
         "name": "beam_plate",
         "type": "EnergyMaterial",
         "conductivity": 45.249718743617805,
@@ -888,7 +888,7 @@
         }
     },
     "battens": {
-        "uuid": "fdcbe1d9-29ea-4ee0-bbd7-09d9a0299d7a",
+        "uuid": "059a8dae-b8cc-4904-b4a9-b68298690817",
         "name": "battens",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -912,7 +912,7 @@
         }
     },
     "ceramic_tile": {
-        "uuid": "8c5a7072-aef9-4c8e-9a1e-fa729bd846f9",
+        "uuid": "29693c3e-8b2b-4735-83a9-698b53582e7d",
         "name": "ceramic_tile",
         "type": "EnergyMaterial",
         "conductivity": 0.8894048074606842,
@@ -936,7 +936,7 @@
         }
     },
     "paper": {
-        "uuid": "af8e2344-e5ee-4fdf-9326-35e22327b24d",
+        "uuid": "b3af2cd6-9a5f-4f38-b2a1-351c5fc2fbda",
         "name": "paper",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -960,7 +960,7 @@
         }
     },
     "wood_shavings": {
-        "uuid": "7282b00a-005e-4938-9305-d61b089c033e",
+        "uuid": "3b12a6bb-f383-4147-89cb-076204cfaf86",
         "name": "wood_shavings",
         "type": "EnergyMaterial",
         "conductivity": 0.04896723097255453,
@@ -984,7 +984,7 @@
         }
     },
     "floorboard": {
-        "uuid": "aec23883-f25c-4323-8453-9513a1abfcf7",
+        "uuid": "8f8b7293-dddc-494b-be04-e0b9f6b71e8f",
         "name": "floorboard",
         "type": "EnergyMaterial",
         "conductivity": 0.10992643687716327,
@@ -1008,7 +1008,7 @@
         }
     },
     "vinyl_flooring": {
-        "uuid": "54000ea5-c363-455d-897a-315eb2c2a8d1",
+        "uuid": "8c978a1b-1ee4-4600-8929-13f63d385b8d",
         "name": "vinyl_flooring",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -1032,7 +1032,7 @@
         }
     },
     "membrane": {
-        "uuid": "c0861395-1c6d-4c22-9f26-c2aaa36e3feb",
+        "uuid": "132d3f3d-e75f-48ef-859a-e61f71521f39",
         "name": "membrane",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -1056,7 +1056,7 @@
         }
     },
     "wooden frame pane windows": {
-        "uuid": "7e0951db-4c52-432c-bd40-e16dfb449591",
+        "uuid": "7bd38ce4-68ec-4aac-9cd8-ebd7160120d5",
         "name": "wooden frame pane windows",
         "type": "EnergyMaterial",
         "conductivity": 0.11991974932054163,
@@ -1080,7 +1080,7 @@
         }
     },
     "cardboard": {
-        "uuid": "e8c96302-bed5-479b-8085-89ad1b766a3f",
+        "uuid": "c9951ea2-e814-4fdc-9c80-06441d280959",
         "name": "cardboard",
         "type": "EnergyMaterial",
         "conductivity": 0.15989299909405608,
@@ -1104,7 +1104,7 @@
         }
     },
     "sheet_metal": {
-        "uuid": "e2f1bd05-575b-4148-9791-32a456e276c5",
+        "uuid": "b3e2717c-9bde-4dbc-82ab-bf8e08e2d162",
         "name": "sheet_metal",
         "type": "EnergyMaterial",
         "conductivity": 45.24971874361766,

@@ -45,6 +45,26 @@ class EmbodiedCarbon:
 
         if any(v < 0 for v in values):
             raise ValueError("Embodied carbon values must be non-negative.")
+        
+        if self.A1_A3_conservative < self.A1_A3_typical:
+            raise ValueError(
+                "A1-A3 conservative value cannot be lower than typical value."
+            )
+        
+        if self.A1_A3_factor_conservative < 1:
+            raise ValueError(
+                "A1-A3 conservative factor must be ≥ 1."
+            )
+
+        if self.A5_factor_byggspill < 1:
+            raise ValueError(
+                "A5 waste factor must be ≥ 1."
+            )
+        
+        if not (1 <= self.technical_service_life <= 200):
+            raise ValueError(
+                "Technical service life must be between 1 and 200 years."
+            )
 
     # Factory methods
     @classmethod
@@ -88,10 +108,7 @@ class EmbodiedCarbon:
             technical_service_life=technical_service_life
         )
 
-    # ------------------------------------------------------------------
-    # Serialization / display
-    # ------------------------------------------------------------------
-
+    # Serialization
     def to_dict(self) -> dict:
         """Return a dictionary of all properties."""
         return {

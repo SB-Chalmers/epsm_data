@@ -38,7 +38,7 @@
     "CMF_1950_ROOF_WOODENPANEL_T038_S": {
         "name": "Roof: wooden panel",
         "thickness": 0.038,
-        "r_value": 0.3456857247402907,
+        "r_value": 0.31687858101193345,
         "archetype:": "CMF_1950",
         "materials": [
             {
@@ -350,7 +350,7 @@
     "CMF_1960_1_ROOF_WOODENPANEL_T025_S": {
         "name": "Roof: wooden panel",
         "thickness": 0.0254,
-        "r_value": 0.2310636160106153,
+        "r_value": 0.2118083146763976,
         "archetype:": "CMF_1960_1",
         "materials": [
             {
@@ -578,7 +578,7 @@
     "CMF_1960_2_ROOF_WOODENPANEL_T025_S": {
         "name": "Roof: wooden panel",
         "thickness": 0.025,
-        "r_value": 0.22742481890808597,
+        "r_value": 0.20847275066574572,
         "archetype:": "CMF_1960_2",
         "materials": [
             {
@@ -742,7 +742,7 @@
     "CMF_1940_1_ROOF_WOODENPANEL_T030_S": {
         "name": "Roof: wooden panel",
         "thickness": 0.03,
-        "r_value": 0.2729097826897031,
+        "r_value": 0.2501673007988948,
         "archetype:": "CMF_1940_1",
         "materials": [
             {

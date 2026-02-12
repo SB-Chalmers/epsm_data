@@ -43,7 +43,11 @@ class Material(ABC):
 
         if self.conductivity is None or self.conductivity <= 0:
             warnings.append("Conductivity must be positive.")
-
+        elif not (0.01 <= self.conductivity <= 400):
+            warnings.append(
+                "Conductivity outside realistic range (0.01–400 W/mK)."
+            )
+            
         if self.embodied_carbon is None:
             warnings.append("Embodied carbon data missing.")
 
@@ -106,7 +110,7 @@ class OpaqueMaterial(Material):
     # Validation
     def validate(self) -> list[str]:
         """Check if values are reasonable, return list of warnings."""
-        warnings = []
+        warnings = super().validate()
 
         if self.density <= 0:
             warnings.append("Density must be positive.")
@@ -114,16 +118,39 @@ class OpaqueMaterial(Material):
         if self.specific_heat <= 0:
             warnings.append("Specific heat must be positive.")
 
+        if not (1 <= self.density <= 20000):
+            warnings.append(
+                "Density outside realistic range (1–20000 kg/m³)."
+            )
+        
+        if not (100 <= self.specific_heat <= 5000):
+            warnings.append(
+                "Specific heat outside realistic range (100–5000 J/kgK)."
+            )
+
+        if self.conductivity > 10 and self.density < 1000:
+            warnings.append(
+                "High conductivity but low density – possible unit or material mismatch."
+            )
+
+        if self.embodied_carbon:
+            conv = self.embodied_carbon.conversion_factor
+            if conv > 0:
+                relative_diff = abs(conv - self.density) / self.density
+                if relative_diff > 0.5:
+                    warnings.append(
+                        "Conversion factor differs significantly from material density."
+                    )
+
         for prop_name, value in {
             "thermal_absorptance": self.thermal_absorptance,
             "solar_absorptance": self.solar_absorptance,
             "visible_absorptance": self.visible_absorptance,
         }.items():
-            if not (0 <= value <= 0.5):
-                warnings.append(f"{prop_name} must be between 0 and 0.5.")
+            if not (0 <= value <= 1):
+                warnings.append(f"{prop_name} must be between 0 and 1.")
 
         return warnings
-
 
 
     # Presentation

@@ -2,6 +2,7 @@ from typing import List
 from ClassDefinitions.Components import Component
 from EPSM_Enums import ShearingLayer
 
+# NOT IN USE - READING ELEMENTS AS DICTS IN EXTRACTINGMATERIALS/ExtractElements.py
 
 class Element:
     """
@@ -28,6 +29,13 @@ class Element:
         self.components = components
         self.rsi = rsi if rsi is not None else self.DEFAULT_RSI
         self.rse = rse if rse is not None else self.DEFAULT_RSE
+        
+        # Validate R-value immediately after all attributes are set
+        if self.r_value_total <= 0:
+            raise ValueError(
+                f"Element '{self.name}' has invalid total R-value ({self.r_value_total:.3f}). "
+                f"Check component thermal properties and surface resistances."
+            )
 
     def validate(self) -> list[str]:
         """Run validation checks on the element and its components."""
@@ -67,10 +75,14 @@ class Element:
         return self.rsi + total_r + self.rse
 
     @property
-    def u_value_total(self) -> float | None:
+    def u_value_total(self) -> float:
         """Overall U-value [W/m²·K] of the element."""
         r_total = self.r_value_total
-        return round(1 / r_total, 5) if r_total > 0 else None
+        if r_total <= 0:
+            raise ValueError(
+                f"Invalid state: Element '{self.name}' has R-value ≤ 0"
+            )
+        return round(1 / r_total, 5)
 
     @property
     def age(self) -> int | None:

@@ -87,14 +87,14 @@
         "archetype": "CMF_1940_1",
         "rsi": 0.13,
         "rse": 0.04,
-        "r_value_total": 1.1100225848200893,
-        "u_value_total": 0.90088,
+        "r_value_total": 1.087280102929281,
+        "u_value_total": 0.91973,
         "age": null,
         "components": [
             {
                 "name": "CMF_1940_1_ROOF_SKIN_4",
                 "archetype": "CMF_1940_1",
-                "r_value_total": 0.9400225848200893,
+                "r_value_total": 0.917280102929281,
                 "age": null,
                 "layers": [
                     {
@@ -128,7 +128,7 @@
                     {
                         "name": "Roof: wooden panel",
                         "thickness": 0.03,
-                        "r_value": 0.2729097826897031,
+                        "r_value": 0.2501673007988948,
                         "archetype:": "CMF_1940_1",
                         "materials": [
                             {
@@ -797,14 +797,14 @@
         "archetype": "CMF_1950",
         "rsi": 0.13,
         "rse": 0.04,
-        "r_value_total": 3.481068428964486,
-        "u_value_total": 0.28727,
+        "r_value_total": 3.452261285236129,
+        "u_value_total": 0.28967,
         "age": null,
         "components": [
             {
                 "name": "CMF_1950_ROOF_SKIN_2",
                 "archetype": "CMF_1950",
-                "r_value_total": 0.34575202349491935,
+                "r_value_total": 0.3169448797665621,
                 "age": null,
                 "layers": [
                     {
@@ -824,7 +824,7 @@
                     {
                         "name": "Roof: wooden panel",
                         "thickness": 0.038,
-                        "r_value": 0.3456857247402907,
+                        "r_value": 0.31687858101193345,
                         "archetype:": "CMF_1950",
                         "materials": [
                             {
@@ -1439,14 +1439,14 @@
         "archetype": "CMF_1960_1",
         "rsi": 0.13,
         "rse": 0.04,
-        "r_value_total": 0.8159906885900778,
-        "u_value_total": 1.2255,
+        "r_value_total": 0.7967353872558601,
+        "u_value_total": 1.25512,
         "age": null,
         "components": [
             {
                 "name": "CMF_1960_1_ROOF_SKIN_5",
                 "archetype": "CMF_1960_1",
-                "r_value_total": 0.6459906885900778,
+                "r_value_total": 0.6267353872558601,
                 "age": null,
                 "layers": [
                     {
@@ -1508,7 +1508,7 @@
                     {
                         "name": "Roof: wooden panel",
                         "thickness": 0.0254,
-                        "r_value": 0.2310636160106153,
+                        "r_value": 0.2118083146763976,
                         "archetype:": "CMF_1960_1",
                         "materials": [
                             {
@@ -1779,14 +1779,14 @@
         "archetype": "CMF_1960_2",
         "rsi": 0.13,
         "rse": 0.04,
-        "r_value_total": 0.8769784441939296,
-        "u_value_total": 1.14028,
+        "r_value_total": 0.8580263759515894,
+        "u_value_total": 1.16547,
         "age": null,
         "components": [
             {
                 "name": "CMF_1960_2_ROOF_SKIN_3",
                 "archetype": "CMF_1960_2",
-                "r_value_total": 0.29003294286243814,
+                "r_value_total": 0.2710808746200979,
                 "age": null,
                 "layers": [
                     {
@@ -1820,7 +1820,7 @@
                     {
                         "name": "Roof: wooden panel",
                         "thickness": 0.025,
-                        "r_value": 0.22742481890808597,
+                        "r_value": 0.20847275066574572,
                         "archetype:": "CMF_1960_2",
                         "materials": [
                             {

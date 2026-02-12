@@ -181,3 +181,37 @@ Needs:
 - Check for redundancies (uneccessary code duplication and so on)
 - Read me needs sources and general explanation
 
+
+
+# 02/12 2026 Progress Notes 
+
+### EPSM_Enums
+- Units still need to be handled
+
+### Embodied Carbon 
+- Needs a consistency check of style, as it may be old
+
+### Material
+- Added more tests, need to check if they work
+
+### Layers
+- plot needs to properly visualise the Resistance
+- thickness test for composite materials, (do all Materials have the same thickness?)
+- Need to test if it flags correctly with one area fraction filled in (for composite materials)
+
+### Component
+- Ensure all wanted properties are included
+
+### Element
+- Needs more validation tests
+- Ensure the R-value calculation makes sense (to keep it on a series on every level BUT layers)
+- Not integrated still
+
+## Extraction
+- Due to lacking an excel sheet with info its currently based off of the component names and may not produce correct Elements
+- Utilizes a temporary Element class that can read dictionaries.
+- The tabula dictionary is only constructed to hold different years and CMF archetypes. Nesting it one more level so that theres a level for each archetype parameter.
+
+## Overall
+- diagrams can be be added where they make sense in the classes
+- Pytest set up

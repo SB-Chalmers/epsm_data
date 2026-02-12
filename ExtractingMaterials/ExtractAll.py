@@ -370,8 +370,8 @@ def export_materials_layers_components(
 
 if __name__ == "__main__":
 
-    export_materials = False
-    export_layers = False
+    export_materials = True
+    export_layers = True
     export_components_flag = True  # Adjust accordingly
 
     # Load materials
@@ -406,10 +406,4 @@ if __name__ == "__main__":
     )
 
 
-# Check the area ratio stuff
-# Other tests
-# Ensure all validations are done in class, not in here
-# UUID in Layers and comp?
-# Check embodied carbon :(
-# aREA handling, if one ratio is given - two materials it should calculate the other. However Warning?
-# Rse, Rsi handling, should maybe be on element level? And not on heree... Rse - skin-structure-space-Rsi for correct U value?
+

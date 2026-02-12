@@ -1,0 +1,194 @@
+{
+    "report_date": "2026-02-12",
+    "total_elements": 25,
+    "total_warnings": 42,
+    "tabula_warnings": 22,
+    "missing_tabula_archetypes": [
+        "CMF_1960_1",
+        "CMF_1960_2",
+        "CMF_1940_1"
+    ],
+    "available_tabula_archetypes": [
+        "CMF_1940",
+        "CMF_1950",
+        "CMF_1960"
+    ],
+    "details": [
+        {
+            "element": "CMF_1940_1_ROOF",
+            "archetype": "CMF_1940_1",
+            "warning": "CMF_1940 roof:0.36 -- 0.91973",
+            "calculated_u_value": 0.91973,
+            "tabula_u_value": 0.36,
+            "r_value_total": 1.087280102929281
+        },
+        {
+            "element": "CMF_1950_BOTTOMFLOOR",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 floor:0.32 -- 1.0321",
+            "calculated_u_value": 1.0321,
+            "tabula_u_value": 0.32,
+            "r_value_total": 0.9688997912514224
+        },
+        {
+            "element": "CMF_1950_EXTERNALWALL1.6",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 2.1672",
+            "calculated_u_value": 2.16724,
+            "tabula_u_value": 0.58,
+            "r_value_total": 0.46141610206585415
+        },
+        {
+            "element": "CMF_1950_EXTERNALWALL1.7",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 1.7256",
+            "calculated_u_value": 1.72561,
+            "tabula_u_value": 0.58,
+            "r_value_total": 0.5795061397919379
+        },
+        {
+            "element": "CMF_1950_EXTERNALWALL11",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 1.9808",
+            "calculated_u_value": 1.98084,
+            "tabula_u_value": 0.58,
+            "r_value_total": 0.5048372709199594
+        },
+        {
+            "element": "CMF_1950_EXTERNALWALL7.10",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 5.4211",
+            "calculated_u_value": 5.42109,
+            "tabula_u_value": 0.58,
+            "r_value_total": 0.18446471817281845
+        },
+        {
+            "element": "CMF_1950_INTERIORWALLBEARING",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 2.3241",
+            "calculated_u_value": 2.32408,
+            "tabula_u_value": 0.58,
+            "r_value_total": 0.4302780546725969
+        },
+        {
+            "element": "CMF_1950_INTERIORWALLNONBEARING",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 wall:0.58 -- 0.8437",
+            "calculated_u_value": 0.8437,
+            "tabula_u_value": 0.58,
+            "r_value_total": 1.1852622957421821
+        },
+        {
+            "element": "CMF_1950_INTERMEDIATEFLOOR",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 floor:0.32 -- 1.1064",
+            "calculated_u_value": 1.10643,
+            "tabula_u_value": 0.32,
+            "r_value_total": 0.9038085594737395
+        },
+        {
+            "element": "CMF_1950_TOPFLOOR",
+            "archetype": "CMF_1950",
+            "warning": "CMF_1950 floor:0.32 -- 1.4148",
+            "calculated_u_value": 1.41476,
+            "tabula_u_value": 0.32,
+            "r_value_total": 0.7068356640989543
+        },
+        {
+            "element": "CMF_1960_1_BOTTOMFLOOR",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 floor:0.26 -- 1.1623",
+            "calculated_u_value": 1.16227,
+            "tabula_u_value": 0.26,
+            "r_value_total": 0.860387010914889
+        },
+        {
+            "element": "CMF_1960_1_EXTERIORWALL025",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 wall:0.41 -- 0.58044",
+            "calculated_u_value": 0.58044,
+            "tabula_u_value": 0.41,
+            "r_value_total": 1.7228186968073755
+        },
+        {
+            "element": "CMF_1960_1_EXTERIORWALL075",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 wall:0.41 -- 0.41516",
+            "calculated_u_value": 0.41516,
+            "tabula_u_value": 0.41,
+            "r_value_total": 2.408711611385514
+        },
+        {
+            "element": "CMF_1960_1_INTERIORWALLBEARING",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 wall:0.41 -- 4.0563",
+            "calculated_u_value": 4.05631,
+            "tabula_u_value": 0.41,
+            "r_value_total": 0.2465293776577774
+        },
+        {
+            "element": "CMF_1960_1_INTERIORWALLNONBEARING",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 wall:0.41 -- 2.9011",
+            "calculated_u_value": 2.90107,
+            "tabula_u_value": 0.41,
+            "r_value_total": 0.3447001650578953
+        },
+        {
+            "element": "CMF_1960_1_INTERMEDIATEFLOOR",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 floor:0.26 -- 2.722",
+            "calculated_u_value": 2.72204,
+            "tabula_u_value": 0.26,
+            "r_value_total": 0.3673715189567754
+        },
+        {
+            "element": "CMF_1960_1_ROOF",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 roof:0.2 -- 1.2551",
+            "calculated_u_value": 1.25512,
+            "tabula_u_value": 0.2,
+            "r_value_total": 0.7967353872558601
+        },
+        {
+            "element": "CMF_1960_1_TOPFLOOR",
+            "archetype": "CMF_1960_1",
+            "warning": "CMF_1960 floor:0.26 -- 0.30074",
+            "calculated_u_value": 0.30074,
+            "tabula_u_value": 0.26,
+            "r_value_total": 3.325178874856682
+        },
+        {
+            "element": "CMF_1960_2_EXTERIORWALL015",
+            "archetype": "CMF_1960_2",
+            "warning": "CMF_1960 wall:0.41 -- 1.0586",
+            "calculated_u_value": 1.05857,
+            "tabula_u_value": 0.41,
+            "r_value_total": 0.94467135741
+        },
+        {
+            "element": "CMF_1960_2_EXTERIORWALL085",
+            "archetype": "CMF_1960_2",
+            "warning": "CMF_1960 wall:0.41 -- 2.0196",
+            "calculated_u_value": 2.01965,
+            "tabula_u_value": 0.41,
+            "r_value_total": 0.4951343569586387
+        },
+        {
+            "element": "CMF_1960_2_ROOF",
+            "archetype": "CMF_1960_2",
+            "warning": "CMF_1960 roof:0.2 -- 1.1655",
+            "calculated_u_value": 1.16547,
+            "tabula_u_value": 0.2,
+            "r_value_total": 0.8580263759515894
+        },
+        {
+            "element": "CMF_1960_2_TOPFLOOR",
+            "archetype": "CMF_1960_2",
+            "warning": "CMF_1960 floor:0.26 -- 0.30279",
+            "calculated_u_value": 0.30279,
+            "tabula_u_value": 0.26,
+            "r_value_total": 3.3025700895782415
+        }
+    ]
+}

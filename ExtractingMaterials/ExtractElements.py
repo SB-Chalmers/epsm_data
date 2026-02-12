@@ -8,6 +8,31 @@ from typing import List
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 
+#U-values according to tabula
+# Always referenced charts 1 
+# 1960 and earlier: https://webtool.building-typology.eu/#vares
+# 1961...1975: https://webtool.building-typology.eu/#vares 
+Tabula_CMF = {
+  "CMF_1940" : { 
+    "roof" : 0.36, #W/(m2K)
+    "wall" : 0.58, # W/(m2K)
+    "window" : 2.22, # W/(m2K)
+    "floor":  0.32 #W/(m2K)
+  },
+  "CMF_1950" : { 
+    "roof" : 0.36, #W/(m2K)
+    "wall" : 0.58, # W/(m2K)
+    "window" : 2.22, # W/(m2K)
+    "floor":  0.32 #W/(m2K)
+  },
+  "CMF_1960" : {
+    "roof" : 0.20, # W/(m2K)	
+    "wall" : 0.41, # W/(m2K)	
+    "window" : 2.22, # W/(m2K)
+    "floor": 0.26 #W/(m2K)
+  }
+}
+
 # Automatically pick the latest Components_*.json file
 components_files = sorted(
     [f for f in os.listdir(OUTPUT_DIR) if f.startswith("Components_") and f.endswith(".json")], 
@@ -57,6 +82,47 @@ class Element:  # Reading everything as dicts (hense a new defintion of Elements
         if any("layers" not in c or not c["layers"] for c in self.components):
             warnings.append("One or more components missing layers")
         return warnings
+    
+    def check_tabula_threshold(self, tabula_data: dict) -> tuple[str | None, str | None, float | None]:
+        """
+        Compare calculated U-value against Tabula threshold.
+        Returns: (warning_message, matched_type, tabula_u_value)
+        """
+        name_upper = self.name.upper()
+        
+        # Find matching archetype in name
+        matched_archetype = None
+        for archetype_key in tabula_data.keys():
+            if archetype_key.upper() in name_upper:
+                matched_archetype = archetype_key
+                break
+        
+        if matched_archetype is None:
+            return ("CANT FIND ARCHETYPE", None, None)
+        
+        # Find matching element type in name
+        element_types = ["roof", "wall", "window", "floor"]
+        matched_type = None
+        
+        for elem_type in element_types:
+            if elem_type.upper() in name_upper:
+                matched_type = elem_type
+                break
+        
+        if matched_type is None:
+            return ("CANT FIND TABULA U-VALUE", None, None)
+        
+        # Get Tabula U-value
+        tabula_u_value = tabula_data[matched_archetype][matched_type]
+        calculated_u_value = self.u_value_total
+        
+        # Compare values
+        if calculated_u_value > tabula_u_value:
+            warning = f"{matched_archetype} {matched_type}:{tabula_u_value} -- {calculated_u_value:.5}"
+            return (warning, matched_type, tabula_u_value)
+           
+        
+        return (None, matched_type, tabula_u_value)
 
     def to_dict(self):
         return {
@@ -73,6 +139,14 @@ class Element:  # Reading everything as dicts (hense a new defintion of Elements
 # Load components JSON
 with open(COMPONENTS_JSON, "r", encoding="utf-8") as f:
     components_data = json.load(f)
+
+# Validate archetypes against Tabula data
+unique_archetypes = set(comp.get("archetype") for comp in components_data.values() if comp.get("archetype"))
+missing_tabula = unique_archetypes - set(Tabula_CMF.keys())
+
+if missing_tabula:
+    print(f"\033[93m[WARNING]\033[0m Archetypes missing from Tabula data: {missing_tabula}")
+    print(f"Available Tabula archetypes: {set(Tabula_CMF.keys())}\n")
 
 # Group components into elements based on base name
 elements_dict = {}
@@ -99,6 +173,8 @@ YELLOW = "\033[93m"
 RESET = "\033[0m"
 
 total_warnings = 0  # Track all warnings
+tabula_warnings = 0  # Track Tabula threshold warnings
+warnings_details = []  # Store warning details for export
 
 for base_name, comps in elements_dict.items():
     # Sort components by shearing_layer
@@ -129,6 +205,23 @@ for base_name, comps in elements_dict.items():
             print(f"{YELLOW}[ELEMENT WARNING]{RESET} {base_name}: {w}")
         total_warnings += len(warnings)
 
+    # Check Tabula U-value threshold
+    tabula_warning, matched_type, tabula_u_value = element.check_tabula_threshold(Tabula_CMF)
+    if tabula_warning:
+        print(f"{RED}[TABULA WARNING]{RESET} {base_name}: {tabula_warning}")
+        tabula_warnings += 1
+        total_warnings += 1
+        
+        # Store warning details for export
+        warnings_details.append({
+            "element": element.name,
+            "archetype": element.archetype,
+            "warning": tabula_warning,
+            "calculated_u_value": element.u_value_total,
+            "tabula_u_value": tabula_u_value,
+            "r_value_total": element.r_value_total
+        })
+
     elements.append(element)
 
 # Export elements JSON
@@ -137,6 +230,21 @@ elements_file = os.path.join(OUTPUT_DIR, f"Elements_{today}.json")
 
 with open(elements_file, "w", encoding="utf-8") as f:
     json.dump({e.name: e.to_dict() for e in elements}, f, indent=4)
+
+# Export warnings report
+warnings_file = os.path.join(OUTPUT_DIR, f"Warnings_{today}.json")
+warnings_report = {
+    "report_date": today,
+    "total_elements": len(elements),
+    "total_warnings": total_warnings,
+    "tabula_warnings": tabula_warnings,
+    "missing_tabula_archetypes": list(missing_tabula) if missing_tabula else [],
+    "available_tabula_archetypes": list(Tabula_CMF.keys()),
+    "details": warnings_details
+}
+
+with open(warnings_file, "w", encoding="utf-8") as f:
+    json.dump(warnings_report, f, indent=4)
 
 # Print skipped elements
 if skipped_elements:
@@ -148,4 +256,6 @@ if skipped_elements:
 print(f"\nProcessed elements: {len(elements)}")
 print(f"Skipped elements: {len(skipped_elements)}")
 print(f"Total warnings: {total_warnings}")
+print(f"Tabula threshold warnings: {tabula_warnings}")
 print(f"Exported elements JSON to: {elements_file}")
+print(f"Exported warnings report to: {warnings_file}")
