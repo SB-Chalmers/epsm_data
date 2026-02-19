@@ -1,7 +1,7 @@
 {
   "wooden_stud": {
     "name": "wooden_stud",
-    "uuid": "eec17e89-8d72-4212-b4a2-bf3d024562aa",
+    "uuid": "b5f43483-631c-4479-bf71-64416d20ccec",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -15,20 +15,20 @@
     "embodied_carbon": {
       "name": "wooden_stud",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "wooden_beam": {
     "name": "wooden_beam",
-    "uuid": "689d284a-4f4e-4335-b495-893e8068b338",
+    "uuid": "9497de6d-1688-4bf0-abfb-38b0bcb584a2",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -42,20 +42,20 @@
     "embodied_carbon": {
       "name": "wooden_beam",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "wooden_rafter": {
     "name": "wooden_rafter",
-    "uuid": "8fb4bb9a-f2b2-422c-b5b3-2a240d6b2b11",
+    "uuid": "ac63cac8-f1b2-48b8-964e-db4bed55f2b4",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -69,20 +69,20 @@
     "embodied_carbon": {
       "name": "wooden_rafter",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "wooden_panel": {
     "name": "wooden_panel",
-    "uuid": "f1547cb6-9a06-4896-be11-623b95adbfd0",
+    "uuid": "35e3923c-77dc-413b-9978-aa0ff33a889d",
     "json_id": "Wood Siding",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -96,20 +96,20 @@
     "embodied_carbon": {
       "name": "wooden_panel",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "galvanized_sheet_metal": {
     "name": "galvanized_sheet_metal",
-    "uuid": "4d80ede8-56a3-463a-af24-15a23b9ee4be",
+    "uuid": "dd7dbbef-9b87-4256-88b7-87db31afd661",
     "json_id": "Metal Surface",
     "boverket_id": "6000000221",
     "material_type": "EnergyMaterial",
@@ -123,20 +123,20 @@
     "embodied_carbon": {
       "name": "galvanized_sheet_metal",
       "resource_id": "6000000221",
-      "boverket_name": "Galvaniserade stålprodukter, 80 % primär",
+      "boverket_name": "Galvanised steel products, hot-dip galvanized, 80 % primary",
       "A1_A3_conservative": 3.33,
       "A1_A3_typical": 2.66,
       "A4_transport": 0.207,
       "A5_conservative": 0.177,
       "conservative_factor": 1.25,
       "conversion_factor": 7850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "granulated_blast_furnace_slag": {
     "name": "granulated_blast_furnace_slag",
-    "uuid": "bc57dff1-8b3e-495b-87e9-851be2a701b4",
+    "uuid": "8a8f9889-f5db-408b-afde-081f625744c6",
     "json_id": "Dry Sand",
     "boverket_id": "6000000085",
     "material_type": "EnergyMaterial",
@@ -150,20 +150,20 @@
     "embodied_carbon": {
       "name": "granulated_blast_furnace_slag",
       "resource_id": "6000000085",
-      "boverket_name": "Lättklinkerblock, <10 % cement (650-700 kg/m³)",
+      "boverket_name": "Expanded clay concrete block, <10 % cement (650-700 kg/m³)",
       "A1_A3_conservative": 0.24,
       "A1_A3_typical": 0.192,
       "A4_transport": 0.036,
       "A5_conservative": 0.0138,
       "conservative_factor": 1.25,
       "conversion_factor": 650.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "concrete": {
     "name": "concrete",
-    "uuid": "bd7a97f3-9c24-4759-bc5d-eba95d759ab4",
+    "uuid": "e48eab38-1d32-49c8-a85b-2416223884ea",
     "json_id": "100mm Normalweight concrete floor",
     "boverket_id": "6000000029",
     "material_type": "EnergyMaterial",
@@ -177,20 +177,20 @@
     "embodied_carbon": {
       "name": "concrete",
       "resource_id": "6000000029",
-      "boverket_name": "Fabriksbetong, husbyggnad C25/30",
+      "boverket_name": "Ready-mix made concrete, buildings C25/30",
       "A1_A3_conservative": 0.129,
       "A1_A3_typical": 0.103,
       "A4_transport": 0.00472,
       "A5_conservative": 0.004,
       "conservative_factor": 1.25,
       "conversion_factor": 2350.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "lime_plaster": {
     "name": "lime_plaster",
-    "uuid": "356c89be-9997-4667-b008-d894c8ac9b38",
+    "uuid": "d663a3b5-fd4e-4b24-a351-1d4a75b69a34",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000094",
     "material_type": "EnergyMaterial",
@@ -204,20 +204,20 @@
     "embodied_carbon": {
       "name": "lime_plaster",
       "resource_id": "6000000094",
-      "boverket_name": "Kalkbruk D (CS I)",
+      "boverket_name": "Plastering type D (CS I)",
       "A1_A3_conservative": 0.153,
       "A1_A3_typical": 0.122,
       "A4_transport": 0.036,
       "A5_conservative": 0.00943,
       "conservative_factor": 1.25,
       "conversion_factor": 1600.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "lightweight_concrete": {
     "name": "lightweight_concrete",
-    "uuid": "4ef70c6a-2b65-424f-8ea0-40da7575c53c",
+    "uuid": "9f2dbfd4-55c7-408e-bdc3-9ffd4f6985ab",
     "json_id": "M11 100mm lightweight concrete",
     "boverket_id": "6000000096",
     "material_type": "EnergyMaterial",
@@ -231,20 +231,20 @@
     "embodied_carbon": {
       "name": "lightweight_concrete",
       "resource_id": "6000000096",
-      "boverket_name": "Gasbetongblock",
+      "boverket_name": "Autoclaved Aerated Concrete, (AAC)",
       "A1_A3_conservative": 0.539,
       "A1_A3_typical": 0.431,
       "A4_transport": 0.0989,
       "A5_conservative": 0.0319,
       "conservative_factor": 1.25,
       "conversion_factor": 400.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "terrasit_plaster": {
     "name": "terrasit_plaster",
-    "uuid": "3fad7869-bcd4-4f9d-a5ab-dc3afb1033d3",
+    "uuid": "d54f27bf-0f5e-4dd5-ac51-13b466c58cf5",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000131",
     "material_type": "EnergyMaterial",
@@ -258,20 +258,20 @@
     "embodied_carbon": {
       "name": "terrasit_plaster",
       "resource_id": "6000000131",
-      "boverket_name": "EPS, expanderad polystyren",
+      "boverket_name": "EPS, expanded polystyrene",
       "A1_A3_conservative": 4,
       "A1_A3_typical": 3.2,
       "A4_transport": 0.045,
       "A5_conservative": 0.283,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "mortar": {
     "name": "mortar",
-    "uuid": "f1ed563b-b28d-4b70-afb2-9b1c00f97957",
+    "uuid": "1c617857-447e-4f1a-bd8c-b3ce1d41bcc0",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000092",
     "material_type": "EnergyMaterial",
@@ -285,20 +285,20 @@
     "embodied_carbon": {
       "name": "mortar",
       "resource_id": "6000000092",
-      "boverket_name": "Mur- och putsbruk C (CS II)",
+      "boverket_name": "Plastering and masonry mortar type C (CS II)",
       "A1_A3_conservative": 0.203,
       "A1_A3_typical": 0.162,
       "A4_transport": 0.036,
       "A5_conservative": 0.0119,
       "conservative_factor": 1.25,
       "conversion_factor": 1600.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "plastic_mat": {
     "name": "plastic_mat",
-    "uuid": "e7fad1c6-9555-4b1f-a293-d0ead5140e10",
+    "uuid": "21c53e56-d329-41cd-b4b1-a239da2597a9",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000224",
     "material_type": "EnergyMaterial",
@@ -312,20 +312,20 @@
     "embodied_carbon": {
       "name": "plastic_mat",
       "resource_id": "6000000224",
-      "boverket_name": "Takduk, PVC",
+      "boverket_name": "Waterproofing sheet, PVC",
       "A1_A3_conservative": 5.69,
       "A1_A3_typical": 4.55,
       "A4_transport": 0.0539,
       "A5_conservative": 0.287,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": ">40 år",
+      "technical_service_life": ">40 years",
       "biogenic_carbon": 0.0
     }
   },
   "plaster": {
     "name": "plaster",
-    "uuid": "7f6320e9-ddb1-4b31-bffd-6b90a1ad74d5",
+    "uuid": "9864379c-2a49-4953-bef4-9f8a4371a495",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000091",
     "material_type": "EnergyMaterial",
@@ -339,20 +339,20 @@
     "embodied_carbon": {
       "name": "plaster",
       "resource_id": "6000000091",
-      "boverket_name": "Mur- och putsbruk B (CS III)",
+      "boverket_name": "Masonry mortar and plastering type B (CS III)",
       "A1_A3_conservative": 0.209,
       "A1_A3_typical": 0.167,
       "A4_transport": 0.045,
       "A5_conservative": 0.0127,
       "conservative_factor": 1.25,
       "conversion_factor": 1600.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "concrete_mixed_with_sawdust": {
     "name": "concrete_mixed_with_sawdust",
-    "uuid": "5f3f304d-51dc-4265-8ecd-9ecb6f054133",
+    "uuid": "45a4b03c-82f4-4266-b8bf-7d566633d208",
     "json_id": "M11 100mm lightweight concrete",
     "boverket_id": "6000000222",
     "material_type": "EnergyMaterial",
@@ -366,20 +366,20 @@
     "embodied_carbon": {
       "name": "concrete_mixed_with_sawdust",
       "resource_id": "6000000222",
-      "boverket_name": "Cementbunden träullsplatta",
+      "boverket_name": "Cement-bonded wood wool",
       "A1_A3_conservative": 0.715,
       "A1_A3_typical": 0.572,
       "A4_transport": 0.144,
       "A5_conservative": 0.0601,
       "conservative_factor": 1.25,
       "conversion_factor": 450.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.165
     }
   },
   "coke_ash": {
     "name": "coke_ash",
-    "uuid": "2d7a7a4b-e2c7-4a5c-a1ca-6d8826b7a375",
+    "uuid": "db17d1c9-9b01-45cf-8035-b0dbd9fd8f29",
     "json_id": "1/2IN Gypsum",
     "boverket_id": "6000000085",
     "material_type": "EnergyMaterial",
@@ -393,20 +393,20 @@
     "embodied_carbon": {
       "name": "coke_ash",
       "resource_id": "6000000085",
-      "boverket_name": "Lättklinkerblock, <10 % cement (650-700 kg/m³)",
+      "boverket_name": "Expanded clay concrete block, <10 % cement (650-700 kg/m³)",
       "A1_A3_conservative": 0.24,
       "A1_A3_typical": 0.192,
       "A4_transport": 0.036,
       "A5_conservative": 0.0138,
       "conservative_factor": 1.25,
       "conversion_factor": 650.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "metal_sheet": {
     "name": "metal_sheet",
-    "uuid": "d8de018f-87cb-455c-931e-acebc2251705",
+    "uuid": "4569c978-14aa-4461-be64-18300eb77050",
     "json_id": "Metal Surface",
     "boverket_id": "6000000153",
     "material_type": "EnergyMaterial",
@@ -420,20 +420,20 @@
     "embodied_carbon": {
       "name": "metal_sheet",
       "resource_id": "6000000153",
-      "boverket_name": "Tunnplåt för beklädnad, 80 % primär",
+      "boverket_name": "Steel sheets for cladding, 80 % primary",
       "A1_A3_conservative": 3.24,
       "A1_A3_typical": 2.59,
       "A4_transport": 0.0989,
       "A5_conservative": 0.167,
       "conservative_factor": 1.25,
       "conversion_factor": 7850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "battens_1": {
     "name": "battens_1",
-    "uuid": "7beddaf4-32ac-4659-bf26-13571a5346de",
+    "uuid": "62966f12-f912-433d-a083-ac0bb20e82ac",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -447,20 +447,20 @@
     "embodied_carbon": {
       "name": "battens_1",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "battens_2": {
     "name": "battens_2",
-    "uuid": "e45d4e10-6be6-4961-9701-e6d9e4c1dabd",
+    "uuid": "d78847ec-beed-40ba-a45a-b8eba94b07ee",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -474,20 +474,20 @@
     "embodied_carbon": {
       "name": "battens_2",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "roofing_felt": {
     "name": "roofing_felt",
-    "uuid": "77b573d6-9aab-4bc0-9b1c-5e3ce4d4b480",
+    "uuid": "771feb8a-c58b-444d-83b7-ada4d628158e",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000140",
     "material_type": "EnergyMaterial",
@@ -501,20 +501,20 @@
     "embodied_carbon": {
       "name": "roofing_felt",
       "resource_id": "6000000140",
-      "boverket_name": "Underlagspapp",
+      "boverket_name": "Bitumen waterproofing membrane, bottom layer ",
       "A1_A3_conservative": 0.85,
       "A1_A3_typical": 0.68,
       "A4_transport": 0.045,
       "A5_conservative": 0.0448,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": "<40 år",
+      "technical_service_life": "<40 years",
       "biogenic_carbon": 0.0
     }
   },
   "brick": {
     "name": "brick",
-    "uuid": "9f8d4a21-8b61-428e-af9c-1a0ca72e082d",
+    "uuid": "20fc7f16-6b9f-48c4-8d95-a17d584dcf6b",
     "json_id": "M01 100mm brick",
     "boverket_id": "6000000082",
     "material_type": "EnergyMaterial",
@@ -528,20 +528,20 @@
     "embodied_carbon": {
       "name": "brick",
       "resource_id": "6000000082",
-      "boverket_name": "Tegelsten",
+      "boverket_name": "Bricks",
       "A1_A3_conservative": 0.314,
       "A1_A3_typical": 0.251,
       "A4_transport": 0.0629,
       "A5_conservative": 0.0188,
       "conservative_factor": 1.25,
       "conversion_factor": 1800.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "mineral_wool": {
     "name": "mineral_wool",
-    "uuid": "200c0219-b93e-42be-b46c-09c4a4fddfc3",
+    "uuid": "8d85dea9-c013-4ca8-bf55-1b153126fc30",
     "json_id": "I02 50mm insulation board",
     "boverket_id": "6000000002",
     "material_type": "EnergyMaterial",
@@ -555,20 +555,20 @@
     "embodied_carbon": {
       "name": "mineral_wool",
       "resource_id": "6000000002",
-      "boverket_name": "Glasull, fasadskivor",
+      "boverket_name": "Glasswool, facade boards",
       "A1_A3_conservative": 1.08,
       "A1_A3_typical": 0.86,
       "A4_transport": 0.045,
       "A5_conservative": 0.0784,
       "conservative_factor": 1.25,
       "conversion_factor": 55.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "stud": {
     "name": "stud",
-    "uuid": "29b82c48-613c-4859-ab0d-b0edd5d02ad3",
+    "uuid": "6a4f5a9a-fe50-40d5-97ea-e48238e0f7db",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -582,20 +582,20 @@
     "embodied_carbon": {
       "name": "stud",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "plaster_board": {
     "name": "plaster_board",
-    "uuid": "a2eeea78-cc51-4a67-ba02-ca01caf27f64",
+    "uuid": "b33ac1e6-77eb-4db6-8c86-58f1b8a09063",
     "json_id": "1/2 in. Gypsum Board",
     "boverket_id": "6000000015",
     "material_type": "EnergyMaterial",
@@ -609,20 +609,20 @@
     "embodied_carbon": {
       "name": "plaster_board",
       "resource_id": "6000000015",
-      "boverket_name": "Gipsskiva, vindsskyddsskiva",
+      "boverket_name": "Gypsum, sheathing plasterboard",
       "A1_A3_conservative": 0.333,
       "A1_A3_typical": 0.266,
       "A4_transport": 0.0315,
       "A5_conservative": 0.0437,
       "conservative_factor": 1.25,
       "conversion_factor": 760.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.045
     }
   },
   "eternit_board": {
     "name": "eternit_board",
-    "uuid": "3676a3e9-30a3-4979-bf8d-e39b9bccfbbd",
+    "uuid": "9f1ca16a-8d4d-476d-812a-836a8fd7939c",
     "json_id": "Dry Dust",
     "boverket_id": "6000000180",
     "material_type": "EnergyMaterial",
@@ -636,20 +636,20 @@
     "embodied_carbon": {
       "name": "eternit_board",
       "resource_id": "6000000180",
-      "boverket_name": "Fibercementskivor, byggskiva, ≤ 60 vikt-% cement",
+      "boverket_name": "Fiber cement boards, construction board ≤ 0.60 w//w cement",
       "A1_A3_conservative": 0.849,
       "A1_A3_typical": 0.679,
       "A4_transport": 0.0989,
       "A5_conservative": 0.0948,
       "conservative_factor": 1.25,
       "conversion_factor": 1550.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.065
     }
   },
   "asphalt_board": {
     "name": "asphalt_board",
-    "uuid": "8b6c1bbe-af26-474b-944c-f8cb87358c96",
+    "uuid": "7e1200a7-fb69-4c22-8996-1ba2bb907453",
     "json_id": "Dry Dust",
     "boverket_id": "6000000141",
     "material_type": "EnergyMaterial",
@@ -663,20 +663,20 @@
     "embodied_carbon": {
       "name": "asphalt_board",
       "resource_id": "6000000141",
-      "boverket_name": "Takpapp, enskiktstätning",
+      "boverket_name": "Bitumen waterproofing membrane, single layer ",
       "A1_A3_conservative": 0.813,
       "A1_A3_typical": 0.65,
       "A4_transport": 0.045,
       "A5_conservative": 0.0429,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": "<40 år",
+      "technical_service_life": "<40 years",
       "biogenic_carbon": 0.0
     }
   },
   "linoleum": {
     "name": "linoleum",
-    "uuid": "0d2d145f-d0dd-4890-85e1-045c44845365",
+    "uuid": "aa2ed78c-a65d-4f5b-ad2d-53c422ac73ab",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000224",
     "material_type": "EnergyMaterial",
@@ -690,20 +690,20 @@
     "embodied_carbon": {
       "name": "linoleum",
       "resource_id": "6000000224",
-      "boverket_name": "Takduk, PVC",
+      "boverket_name": "Waterproofing sheet, PVC",
       "A1_A3_conservative": 5.69,
       "A1_A3_typical": 4.55,
       "A4_transport": 0.0539,
       "A5_conservative": 0.287,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": ">40 år",
+      "technical_service_life": ">40 years",
       "biogenic_carbon": 0.0
     }
   },
   "woodfiber_board": {
     "name": "woodfiber_board",
-    "uuid": "87309c53-e100-4ce7-85f4-e80fbc5c4643",
+    "uuid": "14bc59a8-23d6-4d58-9c98-7989aef7086f",
     "json_id": "Plywood - 5/8 in. CBES",
     "boverket_id": "6000000215",
     "material_type": "EnergyMaterial",
@@ -717,20 +717,20 @@
     "embodied_carbon": {
       "name": "woodfiber_board",
       "resource_id": "6000000215",
-      "boverket_name": "HDF-skiva, HDF (torr process)",
+      "boverket_name": "High-density fibreboard, HDF (dry process)",
       "A1_A3_conservative": 0.638,
       "A1_A3_typical": 0.51,
       "A4_transport": 0.0809,
       "A5_conservative": 0.0718,
       "conservative_factor": 1.25,
       "conversion_factor": 850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.39
     }
   },
   "leca": {
     "name": "leca",
-    "uuid": "024d8f52-fe7b-433c-a770-2080adb0374b",
+    "uuid": "5cdae279-7547-4251-9b95-ca43545c3289",
     "json_id": "Dry Sand",
     "boverket_id": "6000000089",
     "material_type": "EnergyMaterial",
@@ -744,20 +744,20 @@
     "embodied_carbon": {
       "name": "leca",
       "resource_id": "6000000089",
-      "boverket_name": "Lättklinkerkulor",
+      "boverket_name": "Lightweight expanded clay clinker",
       "A1_A3_conservative": 0.324,
       "A1_A3_typical": 0.259,
       "A4_transport": 0.036,
       "A5_conservative": 0.0072,
       "conservative_factor": 1.25,
       "conversion_factor": 300.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "mineral_wool_blanket": {
     "name": "mineral_wool_blanket",
-    "uuid": "486a98d1-c9f2-41eb-8327-864832b068ad",
+    "uuid": "64af53b4-991f-47bb-8c6e-fb676dd9add3",
     "json_id": "AtticFloor Insulation",
     "boverket_id": "6000000128",
     "material_type": "EnergyMaterial",
@@ -771,20 +771,20 @@
     "embodied_carbon": {
       "name": "mineral_wool_blanket",
       "resource_id": "6000000128",
-      "boverket_name": "Stenull, lösull, vindsbjälklag",
+      "boverket_name": "Stone wool, blowing wool, attic floor",
       "A1_A3_conservative": 1.6,
       "A1_A3_typical": 1.28,
       "A4_transport": 0.045,
       "A5_conservative": 0.0165,
       "conservative_factor": 1.25,
       "conversion_factor": 28.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "mineral_wool_carpet": {
     "name": "mineral_wool_carpet",
-    "uuid": "660b261f-d2db-48bb-b0bd-8e888d8238d0",
+    "uuid": "29feb483-d18d-4032-954f-9bb356e65c1a",
     "json_id": "AtticFloor Insulation",
     "boverket_id": "6000000005",
     "material_type": "EnergyMaterial",
@@ -798,20 +798,20 @@
     "embodied_carbon": {
       "name": "mineral_wool_carpet",
       "resource_id": "6000000005",
-      "boverket_name": "Glasull, lösull, vindsbjälklag",
+      "boverket_name": "Glasswool, blowing wool, attic floor",
       "A1_A3_conservative": 1.13,
       "A1_A3_typical": 0.9,
       "A4_transport": 0.045,
       "A5_conservative": 0.0117,
       "conservative_factor": 1.25,
       "conversion_factor": 15.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "wooden_truss": {
     "name": "wooden_truss",
-    "uuid": "d5221643-0a4f-4263-ac40-9648179ed43d",
+    "uuid": "e05149b0-feb0-4dc8-88be-638c0d22ed23",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -825,20 +825,20 @@
     "embodied_carbon": {
       "name": "wooden_truss",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "reinforced concrete: steel": {
     "name": "reinforced concrete: steel",
-    "uuid": "799ffe83-3d1e-4989-89e1-92848a42f121",
+    "uuid": "e78389ba-4ede-4942-9c30-cbc0240c139e",
     "json_id": "F08 Metal surface",
     "boverket_id": "6000000155",
     "material_type": "EnergyMaterial",
@@ -852,20 +852,20 @@
     "embodied_carbon": {
       "name": "reinforced concrete: steel",
       "resource_id": "6000000155",
-      "boverket_name": "Spännarmering, stål, 100 % skrotbaserad",
+      "boverket_name": "Prestressing steel, 100 % scrap-based",
       "A1_A3_conservative": 1.25,
       "A1_A3_typical": 1.0,
       "A4_transport": 0.0989,
       "A5_conservative": 0.0674,
       "conservative_factor": 1.25,
       "conversion_factor": 7850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "foil": {
     "name": "foil",
-    "uuid": "9724812f-50ae-49dc-abd8-bfb373fcf148",
+    "uuid": "52e2181a-29d6-495f-9534-4eb32d3e55d0",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000198",
     "material_type": "EnergyMaterial",
@@ -879,20 +879,20 @@
     "embodied_carbon": {
       "name": "foil",
       "resource_id": "6000000198",
-      "boverket_name": "Plastfolie, ångspärr",
+      "boverket_name": "Plastic film, vapor barrier",
       "A1_A3_conservative": 2.75,
       "A1_A3_typical": 2.2,
       "A4_transport": 0.0629,
       "A5_conservative": 0.281,
       "conservative_factor": 1.25,
       "conversion_factor": 900.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "gypsum_board": {
     "name": "gypsum_board",
-    "uuid": "222cd114-f61f-4163-a03a-684aefdba7c1",
+    "uuid": "940a0c72-382a-470c-b237-7e70b0fd89e3",
     "json_id": "5/8 in. Gypsum Board",
     "boverket_id": "6000000020",
     "material_type": "EnergyMaterial",
@@ -906,20 +906,20 @@
     "embodied_carbon": {
       "name": "gypsum_board",
       "resource_id": "6000000020",
-      "boverket_name": "Gipsskiva, standardskiva",
+      "boverket_name": "Gypsum, standard plasterboard",
       "A1_A3_conservative": 0.284,
       "A1_A3_typical": 0.227,
       "A4_transport": 0.0315,
       "A5_conservative": 0.0378,
       "conservative_factor": 1.25,
       "conversion_factor": 710.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.037
     }
   },
   "wooden_frame": {
     "name": "wooden_frame",
-    "uuid": "f9991788-a045-41f5-ad9a-ff77bdad5ab4",
+    "uuid": "755280db-1247-4d25-9aee-a7f0c41045c9",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -933,20 +933,20 @@
     "embodied_carbon": {
       "name": "wooden_frame",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "lightweight_concrete_beam": {
     "name": "lightweight_concrete_beam",
-    "uuid": "ab707571-f611-4f2e-8f72-4b074f8d361c",
+    "uuid": "9fad8352-80f2-4d93-9c7b-fcd9af06a254",
     "json_id": "M11 100mm lightweight concrete",
     "boverket_id": "6000000096",
     "material_type": "EnergyMaterial",
@@ -960,20 +960,20 @@
     "embodied_carbon": {
       "name": "lightweight_concrete_beam",
       "resource_id": "6000000096",
-      "boverket_name": "Gasbetongblock",
+      "boverket_name": "Autoclaved Aerated Concrete, (AAC)",
       "A1_A3_conservative": 0.539,
       "A1_A3_typical": 0.431,
       "A4_transport": 0.0989,
       "A5_conservative": 0.0319,
       "conservative_factor": 1.25,
       "conversion_factor": 400.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "beam_plate": {
     "name": "beam_plate",
-    "uuid": "4c4a8c54-c8c6-4c04-aba1-7dcc1e34b6c5",
+    "uuid": "70c020dc-2b2e-4b8a-bb66-55ef51da7309",
     "json_id": "F08 Metal surface",
     "boverket_id": "6000000221",
     "material_type": "EnergyMaterial",
@@ -987,20 +987,20 @@
     "embodied_carbon": {
       "name": "beam_plate",
       "resource_id": "6000000221",
-      "boverket_name": "Galvaniserade stålprodukter, 80 % primär",
+      "boverket_name": "Galvanised steel products, hot-dip galvanized, 80 % primary",
       "A1_A3_conservative": 3.33,
       "A1_A3_typical": 2.66,
       "A4_transport": 0.207,
       "A5_conservative": 0.177,
       "conservative_factor": 1.25,
       "conversion_factor": 7850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "battens": {
     "name": "battens",
-    "uuid": "61e5e76d-e738-440e-bd8b-418cc1022942",
+    "uuid": "48f80e81-20bc-4c53-8ec9-4aa650208b00",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -1014,20 +1014,20 @@
     "embodied_carbon": {
       "name": "battens",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "ceramic_tile": {
     "name": "ceramic_tile",
-    "uuid": "45b3b653-f3a2-4e7a-bab0-3940ef4e9545",
+    "uuid": "684a3a4a-de66-48a5-8688-b49706d47b30",
     "json_id": "M01 100mm brick",
     "boverket_id": "6000000081",
     "material_type": "EnergyMaterial",
@@ -1041,20 +1041,20 @@
     "embodied_carbon": {
       "name": "ceramic_tile",
       "resource_id": "6000000081",
-      "boverket_name": "Tegeltakpannor",
+      "boverket_name": "Clay roof tiles",
       "A1_A3_conservative": 0.27,
       "A1_A3_typical": 0.216,
       "A4_transport": 0.0629,
       "A5_conservative": 0.0166,
       "conservative_factor": 1.25,
       "conversion_factor": 1800.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "paper": {
     "name": "paper",
-    "uuid": "5d723077-3a2c-4793-94dc-48ea07c78583",
+    "uuid": "eb07278a-f109-4eec-ab81-33e98866b21b",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000141",
     "material_type": "EnergyMaterial",
@@ -1068,20 +1068,20 @@
     "embodied_carbon": {
       "name": "paper",
       "resource_id": "6000000141",
-      "boverket_name": "Takpapp, enskiktstätning",
+      "boverket_name": "Bitumen waterproofing membrane, single layer ",
       "A1_A3_conservative": 0.813,
       "A1_A3_typical": 0.65,
       "A4_transport": 0.045,
       "A5_conservative": 0.0429,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": "<40 år",
+      "technical_service_life": "<40 years",
       "biogenic_carbon": 0.0
     }
   },
   "wood_shavings": {
     "name": "wood_shavings",
-    "uuid": "a71cc9b8-83a2-4d53-b9a8-12357796564b",
+    "uuid": "38aa7479-b054-4cf6-bcd4-a9a7fe4c0ffb",
     "json_id": "Wood Frame NonRes Wall Insulation-0.73",
     "boverket_id": "6000000000",
     "material_type": "EnergyMaterial",
@@ -1095,20 +1095,20 @@
     "embodied_carbon": {
       "name": "wood_shavings",
       "resource_id": "6000000000",
-      "boverket_name": "Spånskiva",
+      "boverket_name": "Particle board",
       "A1_A3_conservative": 0.488,
       "A1_A3_typical": 0.39,
       "A4_transport": 0.0629,
       "A5_conservative": 0.055,
       "conservative_factor": 1.25,
       "conversion_factor": 700.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.42
     }
   },
   "floorboard": {
     "name": "floorboard",
-    "uuid": "7319e9e0-dc08-45a9-9d04-d087ee8721f8",
+    "uuid": "f710a5a2-3b22-4e5f-af0a-0b742aaca184",
     "json_id": "Wood Siding",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -1122,20 +1122,20 @@
     "embodied_carbon": {
       "name": "floorboard",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "vinyl_flooring": {
     "name": "vinyl_flooring",
-    "uuid": "eb149f0e-1fac-4d54-88b9-a8c017524951",
+    "uuid": "0ab45f1c-a3b4-44dd-8ba0-6ee8a3a0c7bb",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000224",
     "material_type": "EnergyMaterial",
@@ -1149,20 +1149,20 @@
     "embodied_carbon": {
       "name": "vinyl_flooring",
       "resource_id": "6000000224",
-      "boverket_name": "Takduk, PVC",
+      "boverket_name": "Waterproofing sheet, PVC",
       "A1_A3_conservative": 5.69,
       "A1_A3_typical": 4.55,
       "A4_transport": 0.0539,
       "A5_conservative": 0.287,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": ">40 år",
+      "technical_service_life": ">40 years",
       "biogenic_carbon": 0.0
     }
   },
   "membrane": {
     "name": "membrane",
-    "uuid": "12a1ba93-d98f-4749-8fdc-3a6cba49cef5",
+    "uuid": "13dfd6a1-f5b1-4f55-a521-1d5d9807da5d",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000198",
     "material_type": "EnergyMaterial",
@@ -1176,20 +1176,20 @@
     "embodied_carbon": {
       "name": "membrane",
       "resource_id": "6000000198",
-      "boverket_name": "Plastfolie, ångspärr",
+      "boverket_name": "Plastic film, vapor barrier",
       "A1_A3_conservative": 2.75,
       "A1_A3_typical": 2.2,
       "A4_transport": 0.0629,
       "A5_conservative": 0.281,
       "conservative_factor": 1.25,
       "conversion_factor": 900.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   },
   "wooden frame pane windows": {
     "name": "wooden frame pane windows",
-    "uuid": "c483d979-1b87-4bf0-a55d-fb5b7018d948",
+    "uuid": "3b30ff26-b9f0-4f13-9969-bc1e74bf44bd",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -1203,20 +1203,20 @@
     "embodied_carbon": {
       "name": "wooden frame pane windows",
       "resource_id": "6000000007",
-      "boverket_name": "Sågat virke, u 16 %, barrträ",
+      "boverket_name": "Sawn timber, u 16 %, coniferous ",
       "A1_A3_conservative": 0.08,
       "A1_A3_typical": 0.064,
       "A4_transport": 0.0225,
       "A5_conservative": 0.0103,
       "conservative_factor": 1.25,
       "conversion_factor": 455.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.43
     }
   },
   "cardboard": {
     "name": "cardboard",
-    "uuid": "b7a037ea-a2f8-4a1a-8504-89c77c24c64f",
+    "uuid": "5dad5336-1e6f-45fe-8850-beecd9ee662e",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000141",
     "material_type": "EnergyMaterial",
@@ -1230,20 +1230,20 @@
     "embodied_carbon": {
       "name": "cardboard",
       "resource_id": "6000000141",
-      "boverket_name": "Takpapp, enskiktstätning",
+      "boverket_name": "Bitumen waterproofing membrane, single layer ",
       "A1_A3_conservative": 0.813,
       "A1_A3_typical": 0.65,
       "A4_transport": 0.045,
       "A5_conservative": 0.0429,
       "conservative_factor": 1.25,
       "conversion_factor": 1.0,
-      "technical_service_life": "<40 år",
+      "technical_service_life": "<40 years",
       "biogenic_carbon": 0.0
     }
   },
   "sheet_metal": {
     "name": "sheet_metal",
-    "uuid": "deb1e074-c67d-47e1-9320-7d645d413606",
+    "uuid": "01c745c9-68ec-4d2c-9862-25d3617286b6",
     "json_id": "Metal Surface",
     "boverket_id": "6000000153",
     "material_type": "EnergyMaterial",
@@ -1257,14 +1257,14 @@
     "embodied_carbon": {
       "name": "sheet_metal",
       "resource_id": "6000000153",
-      "boverket_name": "Tunnplåt för beklädnad, 80 % primär",
+      "boverket_name": "Steel sheets for cladding, 80 % primary",
       "A1_A3_conservative": 3.24,
       "A1_A3_typical": 2.59,
       "A4_transport": 0.0989,
       "A5_conservative": 0.167,
       "conservative_factor": 1.25,
       "conversion_factor": 7850.0,
-      "technical_service_life": ">50 år",
+      "technical_service_life": ">50 years",
       "biogenic_carbon": 0.0
     }
   }

@@ -11,7 +11,7 @@ from DataFetcher import fetch_all_materials, parse_material_api
 # all load_ functions
 
 EXCEL_PATH = "Material_Database.xlsx"
-JSON_PATH = os.path.join(os.getcwd(), "ExtractingMaterials", "opaque_material.json")
+JSON_PATH = os.path.join(os.getcwd(), "opaque_material.json")
 
 # Helpers
 def resolve_fractions(raw_fracs: list[float | None]) -> list[float]:

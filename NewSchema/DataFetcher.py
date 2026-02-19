@@ -3,7 +3,7 @@ import certifi
 from Classes import EmbodiedCarbon2
 # API calls + parse_material_api
 
-def fetch_all_materials(db_version="latest", culture="sv", response_type="json") -> list[dict]:
+def fetch_all_materials(db_version="latest", culture="en", response_type="json") -> list[dict]:
     url = f"https://api.boverket.se/klimatdatabas/api/Klimat/v2/GetAllResources/{db_version}/{culture}/{response_type}"
     print(f"Fetching resources from: {url}")
     response = requests.get(url, verify=certifi.where())

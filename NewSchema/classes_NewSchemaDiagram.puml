@@ -1,3 +1,11 @@
+Navigate to NewSchema Folder
+Run:
+pyreverse @(Get-ChildItem -Filter *.py | ForEach-Object { $_.BaseName }) -o 
+puml -p NewSchemaDiagram
+
+this will generate a UML diagram without the tuple layers and components shown as having a relationship to their respective classes this file has been edited to include that
+_________________________________________________
+
 @startuml
 set namespaceSeparator none
 
@@ -81,5 +89,3 @@ Layer2 --> OpaqueMaterial2 : materials
 OpaqueMaterial2 --> EmbodiedCarbon2 : embodied_carbon
 OpaqueMaterial2 --> Roughness2 : roughness
 @enduml
-
-pyreverse @(Get-ChildItem -Filter *.py | ForEach-Object { $_.BaseName }) -o puml -p NewSchemaDiagram

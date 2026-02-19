@@ -3,8 +3,6 @@ from uuid import UUID, uuid4
 from typing import Tuple
 from enum import Enum
 
-# dataclasses + enums
-
 # Roughness enum for material surface texture
 class Roughness2(Enum):
     SMOOTH = "Smooth"

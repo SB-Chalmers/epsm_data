@@ -62,7 +62,7 @@
       <node id="6000000221" label="6000000221">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Galvaniserade stålprodukter, 80 % primär" />
+          <attvalue for="11" value="Galvanised steel products, hot-dip galvanized, 80 % primary" />
           <attvalue for="12" value="3.33" />
           <attvalue for="13" value="2.66" />
         </attvalues>
@@ -86,7 +86,7 @@
       <node id="6000000007" label="6000000007">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Sågat virke, u 16 %, barrträ" />
+          <attvalue for="11" value="Sawn timber, u 16 %, coniferous " />
           <attvalue for="12" value="0.08" />
           <attvalue for="13" value="0.064" />
         </attvalues>
@@ -182,7 +182,7 @@
       <node id="6000000029" label="6000000029">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Fabriksbetong, husbyggnad C25/30" />
+          <attvalue for="11" value="Ready-mix made concrete, buildings C25/30" />
           <attvalue for="12" value="0.129" />
           <attvalue for="13" value="0.103" />
         </attvalues>
@@ -206,7 +206,7 @@
       <node id="6000000085" label="6000000085">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Lättklinkerblock, &lt;10 % cement (650-700 kg/m³)" />
+          <attvalue for="11" value="Expanded clay concrete block, &lt;10 % cement (650-700 kg/m³)" />
           <attvalue for="12" value="0.24" />
           <attvalue for="13" value="0.192" />
         </attvalues>
@@ -263,7 +263,7 @@
       <node id="6000000131" label="6000000131">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="EPS, expanderad polystyren" />
+          <attvalue for="11" value="EPS, expanded polystyrene" />
           <attvalue for="12" value="4" />
           <attvalue for="13" value="3.2" />
         </attvalues>
@@ -295,7 +295,7 @@
       <node id="6000000094" label="6000000094">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Kalkbruk D (CS I)" />
+          <attvalue for="11" value="Plastering type D (CS I)" />
           <attvalue for="12" value="0.153" />
           <attvalue for="13" value="0.122" />
         </attvalues>
@@ -327,7 +327,7 @@
       <node id="6000000096" label="6000000096">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Gasbetongblock" />
+          <attvalue for="11" value="Autoclaved Aerated Concrete, (AAC)" />
           <attvalue for="12" value="0.539" />
           <attvalue for="13" value="0.431" />
         </attvalues>
@@ -342,7 +342,7 @@
       <node id="6000000092" label="6000000092">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Mur- och putsbruk C (CS II)" />
+          <attvalue for="11" value="Plastering and masonry mortar type C (CS II)" />
           <attvalue for="12" value="0.203" />
           <attvalue for="13" value="0.162" />
         </attvalues>
@@ -509,7 +509,7 @@
       <node id="6000000224" label="6000000224">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Takduk, PVC" />
+          <attvalue for="11" value="Waterproofing sheet, PVC" />
           <attvalue for="12" value="5.69" />
           <attvalue for="13" value="4.55" />
         </attvalues>
@@ -533,7 +533,7 @@
       <node id="6000000091" label="6000000091">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Mur- och putsbruk B (CS III)" />
+          <attvalue for="11" value="Masonry mortar and plastering type B (CS III)" />
           <attvalue for="12" value="0.209" />
           <attvalue for="13" value="0.167" />
         </attvalues>
@@ -565,7 +565,7 @@
       <node id="6000000222" label="6000000222">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Cementbunden träullsplatta" />
+          <attvalue for="11" value="Cement-bonded wood wool" />
           <attvalue for="12" value="0.715" />
           <attvalue for="13" value="0.572" />
         </attvalues>
@@ -647,7 +647,7 @@
       <node id="6000000082" label="6000000082">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Tegelsten" />
+          <attvalue for="11" value="Bricks" />
           <attvalue for="12" value="0.314" />
           <attvalue for="13" value="0.251" />
         </attvalues>
@@ -687,7 +687,7 @@
       <node id="6000000020" label="6000000020">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Gipsskiva, standardskiva" />
+          <attvalue for="11" value="Gypsum, standard plasterboard" />
           <attvalue for="12" value="0.284" />
           <attvalue for="13" value="0.227" />
         </attvalues>
@@ -719,7 +719,7 @@
       <node id="6000000002" label="6000000002">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Glasull, fasadskivor" />
+          <attvalue for="11" value="Glasswool, facade boards" />
           <attvalue for="12" value="1.08" />
           <attvalue for="13" value="0.86" />
         </attvalues>
@@ -836,7 +836,7 @@
       <node id="6000000153" label="6000000153">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Tunnplåt för beklädnad, 80 % primär" />
+          <attvalue for="11" value="Steel sheets for cladding, 80 % primary" />
           <attvalue for="12" value="3.24" />
           <attvalue for="13" value="2.59" />
         </attvalues>
@@ -892,7 +892,7 @@
       <node id="6000000140" label="6000000140">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Underlagspapp" />
+          <attvalue for="11" value="Bitumen waterproofing membrane, bottom layer " />
           <attvalue for="12" value="0.85" />
           <attvalue for="13" value="0.68" />
         </attvalues>
@@ -958,7 +958,7 @@
       <node id="6000000015" label="6000000015">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Gipsskiva, vindsskyddsskiva" />
+          <attvalue for="11" value="Gypsum, sheathing plasterboard" />
           <attvalue for="12" value="0.333" />
           <attvalue for="13" value="0.266" />
         </attvalues>
@@ -1015,7 +1015,7 @@
       <node id="6000000180" label="6000000180">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Fibercementskivor, byggskiva, ≤ 60 vikt-% cement" />
+          <attvalue for="11" value="Fiber cement boards, construction board ≤ 0.60 w//w cement" />
           <attvalue for="12" value="0.849" />
           <attvalue for="13" value="0.679" />
         </attvalues>
@@ -1047,7 +1047,7 @@
       <node id="6000000141" label="6000000141">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Takpapp, enskiktstätning" />
+          <attvalue for="11" value="Bitumen waterproofing membrane, single layer " />
           <attvalue for="12" value="0.813" />
           <attvalue for="13" value="0.65" />
         </attvalues>
@@ -1113,7 +1113,7 @@
       <node id="6000000089" label="6000000089">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Lättklinkerkulor" />
+          <attvalue for="11" value="Lightweight expanded clay clinker" />
           <attvalue for="12" value="0.324" />
           <attvalue for="13" value="0.259" />
         </attvalues>
@@ -1161,7 +1161,7 @@
       <node id="6000000215" label="6000000215">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="HDF-skiva, HDF (torr process)" />
+          <attvalue for="11" value="High-density fibreboard, HDF (dry process)" />
           <attvalue for="12" value="0.638" />
           <attvalue for="13" value="0.51" />
         </attvalues>
@@ -1234,7 +1234,7 @@
       <node id="6000000128" label="6000000128">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Stenull, lösull, vindsbjälklag" />
+          <attvalue for="11" value="Stone wool, blowing wool, attic floor" />
           <attvalue for="12" value="1.6" />
           <attvalue for="13" value="1.28" />
         </attvalues>
@@ -1258,7 +1258,7 @@
       <node id="6000000005" label="6000000005">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Glasull, lösull, vindsbjälklag" />
+          <attvalue for="11" value="Glasswool, blowing wool, attic floor" />
           <attvalue for="12" value="1.13" />
           <attvalue for="13" value="0.9" />
         </attvalues>
@@ -1643,7 +1643,7 @@
       <node id="6000000198" label="6000000198">
         <attvalues>
           <attvalue for="0" value="EmbodiedCarbon" />
-          <attvalue for="11" value="Plastfolie, ångspärr" />
+          <attvalue for="11" value="Plastic film, vapor barrier" />
           <attvalue for="12" value="2.75" />
           <attvalue for="13" value="2.2" />
         </attvalues>

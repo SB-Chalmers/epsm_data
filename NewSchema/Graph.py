@@ -156,7 +156,7 @@ def query_element_materials(G: nx.DiGraph, element_name: str) -> list[str]:
     """Get all material names reachable from an element."""
     return [
         node for node, data in G.nodes(data=True)
-        if data.get("type") == "OpaqueMaterial2"
+        if data.get("type") == "OpaqueMaterial"
         and nx.has_path(G, element_name, node)
     ]
 
