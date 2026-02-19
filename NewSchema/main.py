@@ -2,8 +2,8 @@ from InstanceLoader import (
     load_opaque_materials, load_layers,
     load_components, load_elements
 )
+
 from Exporter import export_all
-# entry point
 
 if __name__ == "__main__":
     opaque_materials = load_opaque_materials()

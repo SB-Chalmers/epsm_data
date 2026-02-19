@@ -10,26 +10,26 @@ _________________________________________________
 set namespaceSeparator none
 
 ' Classes with attributes and methods
-class "Components2" as Components2 {
+class "Components" as Components {
   archetype : str
-  layers : Tuple[Tuple[Layer2, int], ...]
+  layers : Tuple[Tuple[Layer, int], ...]
   name : str
   r_sum : float
-  shearing_layer : ShearingLayer2
+  shearing_layer : ShearingLayer
   to_dict() -> dict
 }
 
-class "Element2" as Element2 {
+class "Element" as Element {
   age : int
   archetype : str
-  components : Tuple[Components2, ...]
+  components : Tuple[Components, ...]
   name : str
   u_value : float
   check_tabula(tabula_data: dict) -> str | None
   to_dict() -> dict
 }
 
-class "EmbodiedCarbon2" as EmbodiedCarbon2 {
+class "EmbodiedCarbon" as EmbodiedCarbon {
   A1_A3_conservative : float
   A1_A3_typical : float
   A4_transport : float
@@ -44,11 +44,11 @@ class "EmbodiedCarbon2" as EmbodiedCarbon2 {
   to_dict() -> dict
 }
 
-class "Layer2" as Layer2 {
+class "Layer" as Layer {
   archetype : str
   is_composite : bool
   layer_code : str
-  materials : Tuple[Tuple[OpaqueMaterial2, float, float], ...]
+  materials : Tuple[Tuple[OpaqueMaterial, float, float], ...]
   name : str
   r_value : float
   thickness : float
@@ -56,15 +56,15 @@ class "Layer2" as Layer2 {
   to_dict() -> dict
 }
 
-class "OpaqueMaterial2" as OpaqueMaterial2 {
+class "OpaqueMaterial" as OpaqueMaterial {
   boverket_id : str
   conductivity : float
   density : float
-  embodied_carbon : EmbodiedCarbon2
+  embodied_carbon : EmbodiedCarbon
   json_id : str
   material_type : str
   name : str
-  roughness : Roughness2
+  roughness : Roughness
   solar_absorptance : float
   specific_heat : float
   thermal_absorptance : float
@@ -73,19 +73,19 @@ class "OpaqueMaterial2" as OpaqueMaterial2 {
   to_dict() -> dict
 }
 
-class "Roughness2" as Roughness2 {
+class "Roughness" as Roughness {
   name
 }
 
-class "ShearingLayer2" as ShearingLayer2 {
+class "ShearingLayer" as ShearingLayer {
   name
 }
 
 ' Explicit relationships
-Components2 --> ShearingLayer2 : shearing_layer
-Components2 --> Layer2 : layers
-Element2 --> Components2 : components
-Layer2 --> OpaqueMaterial2 : materials
-OpaqueMaterial2 --> EmbodiedCarbon2 : embodied_carbon
-OpaqueMaterial2 --> Roughness2 : roughness
+Components --> ShearingLayer : shearing_layer
+Components --> Layer : layers
+Element --> Components : components
+Layer --> OpaqueMaterial : materials
+OpaqueMaterial --> EmbodiedCarbon : embodied_carbon
+OpaqueMaterial --> Roughness : roughness
 @enduml

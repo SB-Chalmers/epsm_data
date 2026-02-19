@@ -1,7 +1,6 @@
 import requests
 import certifi
-from Classes import EmbodiedCarbon2
-# API calls + parse_material_api
+from Classes import EmbodiedCarbon
 
 def fetch_all_materials(db_version="latest", culture="en", response_type="json") -> list[dict]:
     url = f"https://api.boverket.se/klimatdatabas/api/Klimat/v2/GetAllResources/{db_version}/{culture}/{response_type}"
@@ -13,7 +12,7 @@ def fetch_all_materials(db_version="latest", culture="en", response_type="json")
     return [m for m in raw_list if isinstance(m, dict) and "ResourceId" in m]
 
 
-def parse_material_api(material_json: dict, excel_name: str) -> EmbodiedCarbon2:
+def parse_material_api(material_json: dict, excel_name: str) -> EmbodiedCarbon:
     data_items = {item["PropertyCode"]: item for item in material_json.get("DataItems", [])}
     gwp = data_items.get("GWP-GHG AR4", {})
     values = {dv["DataModuleCode"]: dv["Value"] for dv in gwp.get("DataValueItems", [])}
@@ -21,7 +20,7 @@ def parse_material_api(material_json: dict, excel_name: str) -> EmbodiedCarbon2:
         (c["Value"] for c in material_json.get("Conversions", []) if c["Field"] == "Volume"),
         1.0
     )
-    return EmbodiedCarbon2(
+    return EmbodiedCarbon(
         name=excel_name,
         boverket_name=material_json.get("Name"),
         resource_id=str(material_json.get("ResourceId")),

@@ -4,7 +4,7 @@ from typing import Tuple
 from enum import Enum
 
 # Roughness enum for material surface texture
-class Roughness2(Enum):
+class Roughness(Enum):
     SMOOTH = "Smooth"
     MEDIUM_SMOOTH = "MediumSmooth"
     MEDIUM_ROUGH = "MediumRough"
@@ -12,7 +12,7 @@ class Roughness2(Enum):
     VERY_ROUGH = "VeryRough"
 
 # Brands Shearing Layers 
-class ShearingLayer2(Enum):
+class ShearingLayer(Enum):
     Skin = "Skin"
     Structure = "Structure"
     Services = "Services"
@@ -28,7 +28,7 @@ TABULA_CMF = {
 
 ###########################################
 @dataclass(frozen=True)
-class EmbodiedCarbon2:
+class EmbodiedCarbon:
     name: str
     resource_id: str
     boverket_name:str
@@ -38,7 +38,7 @@ class EmbodiedCarbon2:
     A5_conservative: float      # kg CO₂e/kg
     conservative_factor: float  # multiplier (e.g. 1.25)
     conversion_factor: float    # kg/m³
-    technical_service_life: str # years, when calling the api it gives some extra symbols
+    technical_service_life: str # years, when calling the api it gives some extra symbols (<,>, etc)
     biogenic_carbon: float      # kg CO₂e/kg
 
     def __post_init__(self):
@@ -74,24 +74,21 @@ class EmbodiedCarbon2:
             "biogenic_carbon": self.biogenic_carbon,
         }
         
-        
-        
-              
 ####################################
 @dataclass(frozen=True)
-class OpaqueMaterial2:
+class OpaqueMaterial:
     name: str
     json_id: str
     boverket_id: str
     material_type: str
-    roughness: Roughness2
+    roughness: Roughness
     density: float
     specific_heat: float
     thermal_absorptance: float
     solar_absorptance: float
     visible_absorptance: float
     conductivity: float
-    embodied_carbon: EmbodiedCarbon2
+    embodied_carbon: EmbodiedCarbon
     uuid: UUID = field(default_factory=uuid4)  # generates one UUID per instance
 
     def __post_init__(self):
@@ -126,11 +123,11 @@ class OpaqueMaterial2:
           
 ####################################
 @dataclass(frozen=True)
-class Layer2:
+class Layer:
     name: str
     layer_code: str
     thickness: float
-    materials: Tuple[Tuple[OpaqueMaterial2, float, float], ...]  # (material, area_fraction, thickness)
+    materials: Tuple[Tuple[OpaqueMaterial, float, float], ...]  # (material, area_fraction, thickness)
     archetype: str
     is_composite: bool = False
 
@@ -227,11 +224,11 @@ class Layer2:
           
 ####################################
 @dataclass(frozen=True)
-class Components2:
+class Components:
     name: str
     archetype: str
-    layers: Tuple[Tuple[Layer2, int], ...]
-    shearing_layer: ShearingLayer2
+    layers: Tuple[Tuple[Layer, int], ...]
+    shearing_layer: ShearingLayer
 
     def __post_init__(self):
         if not self.layers:
@@ -246,7 +243,7 @@ class Components2:
         return {
             "name": self.name,
             "archetype": self.archetype,
-            "shearing_layer": self.shearing_layer.value,  # Enum → string
+            "shearing_layer": self.shearing_layer.value,  # Enum → string ?
             "r_sum": round(self.r_sum, 6),
             "layers": [
                 {"layer_code": layer.layer_code, "layer_index": idx}
@@ -254,15 +251,13 @@ class Components2:
             ],
         }
          
-    
-
 ####################################
 @dataclass(frozen=True)
-class Element2:
+class Element:
     name: str
     archetype: str
-    age: int # parsed from archetype e.g. CMF_1950 → 1950
-    components: Tuple[Components2, ...] 
+    age: int # Check the handling
+    components: Tuple[Components, ...] 
 
     def __post_init__(self):
         if not self.components:

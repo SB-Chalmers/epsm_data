@@ -1,10 +1,10 @@
 # graph.py
 import networkx as nx
 from pyvis.network import Network
-from Classes import Element2
+from Classes import Element
 
 # Build Graph
-def build_graph(elements: list[Element2]) -> nx.DiGraph:
+def build_graph(elements: list[Element]) -> nx.DiGraph: # Diff between directed and regular?
     """
     Build a directed graph of all relationships in the data hierarchy.
     Element2 → Components2 → Layer2 → OpaqueMaterial2 ( → EmbodiedCarbon2)
@@ -151,14 +151,14 @@ def export_gephi(G: nx.DiGraph, output: str = "graph.gexf") -> None:
     nx.write_gexf(G_export, output)
     print(f"Exported to {output} — open in Gephi")
 
-# Example Query
-def query_element_materials(G: nx.DiGraph, element_name: str) -> list[str]:
-    """Get all material names reachable from an element."""
-    return [
-        node for node, data in G.nodes(data=True)
-        if data.get("type") == "OpaqueMaterial"
-        and nx.has_path(G, element_name, node)
-    ]
+# # Example Query
+# def query_element_materials(G: nx.DiGraph, element_name: str) -> list[str]:
+#     """Get all material names reachable from an element."""
+#     return [
+#         node for node, data in G.nodes(data=True)
+#         if data.get("type") == "OpaqueMaterial"
+#         and nx.has_path(G, element_name, node)
+#     ]
 
 # Run
 if __name__ == "__main__":
@@ -182,11 +182,11 @@ if __name__ == "__main__":
     print_graph_summary(G)
 
     # Example condition
-    if elements:
-        example = elements[0].name
-        print(f"\nMaterials in '{example}':")
-        for mat in query_element_materials(G, example):
-            print(f"  {mat}")
+    # if elements:
+    #     example = elements[0].name
+    #     print(f"\nMaterials in '{example}':")
+    #     for mat in query_element_materials(G, example):
+    #         print(f"  {mat}")
 
     visualise_pyvis(G)
     export_gephi(G)

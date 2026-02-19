@@ -1,20 +1,19 @@
 import json
 import os
 from datetime import datetime
-from Classes import OpaqueMaterial2, Layer2, Components2, Element2
-
+from Classes import OpaqueMaterial, Layer, Components, Element
 
 OUTPUT_DIR = "output"
 
-
 def export_all(
-    materials: list[OpaqueMaterial2],
-    layers: list[Layer2],
-    components: list[Components2],
-    elements: list[Element2],
-) -> None:
+    materials: list[OpaqueMaterial],
+    layers: list[Layer],
+    components: list[Components],
+    elements: list[Element],
+    ) -> None:
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    today = datetime.today().strftime("%Y-%m-%d")
+    today = datetime.today().strftime("%d-%m-%Y")
 
     files = {
         f"materials_{today}.json": {m.name: m.to_dict() for m in materials},

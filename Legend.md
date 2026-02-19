@@ -256,5 +256,6 @@ build_graph + visualise_pyvis + export_gephi
 - Would be neat to have size
 - Outputs a relationship graph
 
-### /demos & Tests/
-- Both need to be built.
+### Other
+- /demos & /Tests need to be built.
+- Update README.md

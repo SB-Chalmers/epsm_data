@@ -1,14 +1,11 @@
 import os
 import json
 import pandas as pd
-from Classes import (
-    EmbodiedCarbon2, OpaqueMaterial2, Roughness2,
-    Layer2, Components2, ShearingLayer2, Element2,
+from Classes import (OpaqueMaterial, Roughness,
+    Layer, Components, ShearingLayer, Element,
     TABULA_CMF
 )
 from DataFetcher import fetch_all_materials, parse_material_api
-
-# all load_ functions
 
 EXCEL_PATH = "Material_Database.xlsx"
 JSON_PATH = os.path.join(os.getcwd(), "opaque_material.json")
@@ -19,7 +16,7 @@ def resolve_fractions(raw_fracs: list[float | None]) -> list[float]:
     if not missing:
         return list(raw_fracs)
     known_sum = sum(f for f in raw_fracs if f is not None)
-    if known_sum > 1.001:
+    if known_sum > 1.0:
         raise ValueError(f"Known fractions sum to {known_sum:.4f}, exceeds 1.0.")
     fill = (1.0 - known_sum) / len(missing)
     result = list(raw_fracs)
@@ -28,7 +25,7 @@ def resolve_fractions(raw_fracs: list[float | None]) -> list[float]:
     return result
 
 
-def parse_age_from_archetype(archetype: str) -> int | None:
+def parse_age_from_archetype(archetype: str) -> int | None: #Not necessarrily tho, not needed
     for part in archetype.split("_"):
         if part.isdigit() and len(part) == 4:
             return int(part)
@@ -36,7 +33,7 @@ def parse_age_from_archetype(archetype: str) -> int | None:
 
 
 # Loaders
-def load_opaque_materials() -> list[OpaqueMaterial2]:
+def load_opaque_materials() -> list[OpaqueMaterial]:
     df = pd.read_excel(EXCEL_PATH, sheet_name="Opaque_Materials")
     resource_lookup = {str(r["ResourceId"]): r for r in fetch_all_materials()}
 
@@ -68,12 +65,12 @@ def load_opaque_materials() -> list[OpaqueMaterial2]:
 
         try:
             ec = parse_material_api(material_json, name)
-            opaque = OpaqueMaterial2(
+            opaque = OpaqueMaterial(
                 name=name,
                 json_id=ep_id,
                 boverket_id=boverket_id,
                 material_type=ep_data.get("type"),
-                roughness=Roughness2(ep_data.get("roughness")),
+                roughness=Roughness(ep_data.get("roughness")),
                 density=ep_data.get("density"),
                 specific_heat=ep_data.get("specific_heat"),
                 thermal_absorptance=ep_data.get("thermal_absorptance"),
@@ -86,7 +83,7 @@ def load_opaque_materials() -> list[OpaqueMaterial2]:
         except Exception as e:
             skipped.append((name, str(e)))
 
-    print(f"\nOpaqueMaterial2 — loaded: {len(results)}, skipped: {len(skipped)}")
+    print(f"\nOpaqueMaterial — loaded: {len(results)}, skipped: {len(skipped)}")
     if skipped:
         for name, reason in skipped:
             print(f"  '{name}': {reason}")
@@ -94,7 +91,7 @@ def load_opaque_materials() -> list[OpaqueMaterial2]:
     return results
 
 
-def load_layers(opaque_lookup: dict[str, OpaqueMaterial2]) -> list[Layer2]:
+def load_layers(opaque_lookup: dict[str, OpaqueMaterial]) -> list[Layer]:
     df = pd.read_excel(EXCEL_PATH, sheet_name="Layers")
 
     mat_indices, i = [], 1
@@ -178,7 +175,7 @@ def load_layers(opaque_lookup: dict[str, OpaqueMaterial2]) -> list[Layer2]:
         )
 
         try:
-            layer = Layer2(
+            layer = Layer(
                 name=name, layer_code=layer_code, thickness=thickness,
                 materials=materials_tuple, archetype=archetype, is_composite=is_composite,
             )
@@ -191,12 +188,12 @@ def load_layers(opaque_lookup: dict[str, OpaqueMaterial2]) -> list[Layer2]:
 
         results.append(layer)
 
-    print(f"\nLayer2 — loaded: {len(results)}, skipped: {len(skipped)}, thickness warnings: {len(thickness_warnings)}")
+    print(f"\nLayer — loaded: {len(results)}, skipped: {len(skipped)}, thickness warnings: {len(thickness_warnings)}")
     
     return results
 
 
-def load_components(layer_lookup: dict[str, Layer2]) -> list[Components2]:
+def load_components(layer_lookup: dict[str, Layer]) -> list[Components]:
     df = pd.read_excel(EXCEL_PATH, sheet_name="Components")
     df["Component Code"] = df["Component Code"].ffill()
 
@@ -230,12 +227,12 @@ def load_components(layer_lookup: dict[str, Layer2]) -> list[Components2]:
         shearing_str = str(group.iloc[0].get("Shearing Layer", "")).strip()
 
         try:
-            shearing_layer = ShearingLayer2(shearing_str)
+            shearing_layer = ShearingLayer(shearing_str)
         except ValueError:
             skipped.append((comp_code, f"Invalid shearing layer '{shearing_str}'")); continue
 
         try:
-            component = Components2(
+            component = Components(
                 name=comp_code,
                 archetype=str(group.iloc[0].get("Archetype", "")).strip(),
                 layers=tuple(layer_entries),
@@ -245,15 +242,15 @@ def load_components(layer_lookup: dict[str, Layer2]) -> list[Components2]:
         except Exception as e:
             skipped.append((comp_code, str(e)))
 
-    print(f"\nComponents2 — loaded: {len(results)}, skipped: {len(skipped)}")
+    print(f"\nComponents — loaded: {len(results)}, skipped: {len(skipped)}")
     if skipped:
         for name, reason in skipped:
             print(f"  '{name}': {reason}")
     return results
 
 
-def load_elements(components_lookup: dict[str, Components2]) -> list[Element2]:
-    groups: dict[str, list[Components2]] = {}
+def load_elements(components_lookup: dict[str, Components]) -> list[Element]:
+    groups: dict[str, list[Components]] = {}
     skipped, tabula_warnings = [], []
 
     for comp_name, comp in components_lookup.items():
@@ -263,8 +260,8 @@ def load_elements(components_lookup: dict[str, Components2]) -> list[Element2]:
         groups.setdefault(parts[0], []).append(comp)
 
     shearing_order = [
-        ShearingLayer2.Skin, ShearingLayer2.Space,
-        ShearingLayer2.Structure, ShearingLayer2.Services, ShearingLayer2.Stuff,
+        ShearingLayer.Skin, ShearingLayer.Space,
+        ShearingLayer.Structure, ShearingLayer.Services, ShearingLayer.Stuff,
     ]
     results = []
 
@@ -281,7 +278,7 @@ def load_elements(components_lookup: dict[str, Components2]) -> list[Element2]:
             skipped.append((base_name, f"Could not parse age from '{archetype}'")); continue
 
         try:
-            element = Element2(
+            element = Element(
                 name=base_name, archetype=archetype,
                 age=age, components=tuple(comps_sorted),
             )
@@ -294,7 +291,7 @@ def load_elements(components_lookup: dict[str, Components2]) -> list[Element2]:
 
         results.append(element)
 
-    print(f"\nElement2 — loaded: {len(results)}, skipped: {len(skipped)}, Tabula warnings: {len(tabula_warnings)}")
+    print(f"\nElement — loaded: {len(results)}, skipped: {len(skipped)}, Tabula warnings: {len(tabula_warnings)}")
     if skipped:
         for name, reason in skipped:
             print(f"  '{name}': {reason}")
