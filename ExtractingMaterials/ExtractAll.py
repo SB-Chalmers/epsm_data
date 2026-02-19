@@ -166,7 +166,7 @@ def load_layers_from_excel(filename: str, material_lookup: dict):
                 except Exception:
                     frac = None
 
-            materials_list.append((mat, frac))
+            materials_list.append((mat, frac)) ## instance instead of name, ALL of the instances as nested
 
         if not materials_list:
             skipped_layers.append((layer_code, "No valid materials found"))

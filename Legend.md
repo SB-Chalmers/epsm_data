@@ -181,8 +181,6 @@ Needs:
 - Check for redundancies (uneccessary code duplication and so on)
 - Read me needs sources and general explanation
 
-
-
 # 02/12 2026 Progress Notes 
 
 ### EPSM_Enums
@@ -215,3 +213,45 @@ Needs:
 ## Overall
 - diagrams can be be added where they make sense in the classes
 - Pytest set up
+
+# 02/19 2026 Progress Notes 
+
+## General Update
+Sort of like a second draft. All architecture has been moved to NewSchema folder (Output folder for this is in EPSM_DATA). This will replace the old draft that is currently described in the README.md. 
+
+### Classes.py 
+Contains all classes + enums
+    -- Tabula values should be turned into a class for general scalability, hardcoded most likely
+    -- All classes are immutable, for easier tracking of what goes where (and to ensure no data gets corrupted/changed once created)
+    -- No longer abstract but dataclasses
+    -- Need to check if old validation checks are moved over (plus any missing get added)
+    -- Thickness warnings get ignored (as it's flagged everytime due to excel input being incorrect)
+    -- Area ratio handling needs a second look to ensure its working properly
+
+### DataFetcher.py 
+Grabs data from boverket API and loads embodiedCarbon
+    -- fetch_all_materials + parse_material_api
+    -- Fetches from Boverkets API directly
+    -- Calls the swedish API, should be changed to english
+    -- Currently calls API every time it's run (should only do when its been updated)
+
+### InstanceLoader.py 
+all load_ functions
+    -- Loads Material, Layer, Component & Element instances (outputs as lists)
+    -- Prints all warnings (warning handling needs to be looked through)
+    -- Currently a bit repetitive (can probably be done more efficiently) 
+    -- Docstrings missing
+
+### Exporter.py 
+outputs json for ease of search/debugging
+    -- Currently Outputs to output in EPSM_DATA and not to ExtractingMaterials/
+    -- Check if to_dict of the classes outputs what makes sense.
+
+### main.py 
+entrypoint
+    -- runs every script but those in graph.py
+
+### graph.py 
+build_graph + visualise_pyvis + export_gephi
+    -- Needs some fine tuning in regards to how data is presented (embodied carbon is id etc.)
+    -- Outputs a relationship graph

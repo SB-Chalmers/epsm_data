@@ -1,0 +1,3203 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-02-19">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="14" title="relationship" type="string" />
+      <attribute id="15" title="layer_index" type="long" />
+      <attribute id="16" title="area_fraction" type="double" />
+      <attribute id="17" title="thickness" type="double" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="type" type="string" />
+      <attribute id="1" title="archetype" type="string" />
+      <attribute id="2" title="age" type="long" />
+      <attribute id="3" title="u_value" type="double" />
+      <attribute id="4" title="shearing_layer" type="string" />
+      <attribute id="5" title="r_sum" type="double" />
+      <attribute id="6" title="thickness" type="double" />
+      <attribute id="7" title="r_value" type="double" />
+      <attribute id="8" title="is_composite" type="boolean" />
+      <attribute id="9" title="conductivity" type="double" />
+      <attribute id="10" title="density" type="double" />
+      <attribute id="11" title="boverket_name" type="string" />
+      <attribute id="12" title="A1_A3_conservative" type="double" />
+      <attribute id="13" title="A1_A3_typical" type="double" />
+    </attributes>
+    <nodes>
+      <node id="CMF_1950_ROOF" label="CMF_1950_ROOF">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="0.28727" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_SKIN_2" label="CMF_1950_ROOF_SKIN_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.3458" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S" label="CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.003" />
+          <attvalue for="7" value="0.0001" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="galvanized_sheet_metal" label="galvanized_sheet_metal">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="45.24971874361766" />
+          <attvalue for="10" value="7824.017889489713" />
+        </attvalues>
+      </node>
+      <node id="6000000221" label="6000000221">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Galvaniserade stålprodukter, 80 % primär" />
+          <attvalue for="12" value="3.33" />
+          <attvalue for="13" value="2.66" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_WOODENPANEL_T038_S" label="CMF_1950_ROOF_WOODENPANEL_T038_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.038" />
+          <attvalue for="7" value="0.3457" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="wooden_panel" label="wooden_panel">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.10992643687716327" />
+          <attvalue for="10" value="544.6212452676245" />
+        </attvalues>
+      </node>
+      <node id="6000000007" label="6000000007">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Sågat virke, u 16 %, barrträ" />
+          <attvalue for="12" value="0.08" />
+          <attvalue for="13" value="0.064" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_STRUCTURE_3" label="CMF_1950_ROOF_STRUCTURE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="2.9653" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_WOODENRAFTER2X4_T102_S" label="CMF_1950_ROOF_WOODENRAFTER2X4_T102_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.1016" />
+          <attvalue for="7" value="0.8472" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="wooden_rafter" label="wooden_rafter">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_WOODENBEAM2X6_T152_S" label="CMF_1950_ROOF_WOODENBEAM2X6_T152_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.1524" />
+          <attvalue for="7" value="1.2708" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="wooden_beam" label="wooden_beam">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_ROOF_WOODENSTUD4X4_T102_S" label="CMF_1950_ROOF_WOODENSTUD4X4_T102_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.1016" />
+          <attvalue for="7" value="0.8472" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="wooden_stud" label="wooden_stud">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR" label="CMF_1950_TOPFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="1.41476" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR_SPACE_2" label="CMF_1950_TOPFLOOR_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.4762" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR_CONCRETE_T050_S" label="CMF_1950_TOPFLOOR_CONCRETE_T050_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.0217" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="concrete" label="concrete">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="2.3089016425031033" />
+          <attvalue for="10" value="2322.006775596" />
+        </attvalues>
+      </node>
+      <node id="6000000029" label="6000000029">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Fabriksbetong, husbyggnad C25/30" />
+          <attvalue for="12" value="0.129" />
+          <attvalue for="13" value="0.103" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S" label="CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.4545" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="granulated_blast_furnace_slag" label="granulated_blast_furnace_slag">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.33" />
+          <attvalue for="10" value="1555.0" />
+        </attvalues>
+      </node>
+      <node id="6000000085" label="6000000085">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Lättklinkerblock, &lt;10 % cement (650-700 kg/m³)" />
+          <attvalue for="12" value="0.24" />
+          <attvalue for="13" value="0.192" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR_STRUCTURE_1" label="CMF_1950_TOPFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0606" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_TOPFLOOR_CONCRETE_T140_S" label="CMF_1950_TOPFLOOR_CONCRETE_T140_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.14" />
+          <attvalue for="7" value="0.0606" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.6" label="CMF_1950_EXTERNALWALL1.6">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="2.16724" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.6_SKIN_1" label="CMF_1950_EXTERNALWALL1.6_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S" label="CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="terrasit_plaster" label="terrasit_plaster">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.6913373548329222" />
+          <attvalue for="10" value="1858.004248296516" />
+        </attvalues>
+      </node>
+      <node id="6000000131" label="6000000131">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="EPS, expanderad polystyren" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="3.2" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.6_SPACE_1" label="CMF_1950_EXTERNALWALL1.6_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S" label="CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="lime_plaster" label="lime_plaster">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.6913373548329222" />
+          <attvalue for="10" value="1858.004248296516" />
+        </attvalues>
+      </node>
+      <node id="6000000094" label="6000000094">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Kalkbruk D (CS I)" />
+          <attvalue for="12" value="0.153" />
+          <attvalue for="13" value="0.122" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3" label="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.277" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C" label="CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.125" />
+          <attvalue for="7" value="0.2048" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="lightweight_concrete" label="lightweight_concrete">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.5296455594990593" />
+          <attvalue for="10" value="1280.0029267058849" />
+        </attvalues>
+      </node>
+      <node id="6000000096" label="6000000096">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Gasbetongblock" />
+          <attvalue for="12" value="0.539" />
+          <attvalue for="13" value="0.431" />
+        </attvalues>
+      </node>
+      <node id="mortar" label="mortar">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.6913373548329222" />
+          <attvalue for="10" value="1858.004248296516" />
+        </attvalues>
+      </node>
+      <node id="6000000092" label="6000000092">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Mur- och putsbruk C (CS II)" />
+          <attvalue for="12" value="0.203" />
+          <attvalue for="13" value="0.162" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S" label="CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S" label="CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.065" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL7.10" label="CMF_1950_EXTERNALWALL7.10">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="5.42109" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL7.10_SKIN_1" label="CMF_1950_EXTERNALWALL7.10_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S" label="CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL7.10_SPACE_1" label="CMF_1950_EXTERNALWALL7.10_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S" label="CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.7" label="CMF_1950_EXTERNALWALL1.7">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="1.72561" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL1.7_STRUCTURE_1" label="CMF_1950_EXTERNALWALL1.7_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.4095" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C" label="CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.25" />
+          <attvalue for="7" value="0.4095" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL11" label="CMF_1950_EXTERNALWALL11">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="1.98084" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL11_SKIN_1" label="CMF_1950_EXTERNALWALL11_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S" label="CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERNALWALL11_STRUCTURE_1" label="CMF_1950_EXTERNALWALL11_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.3276" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C" label="CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.2" />
+          <attvalue for="7" value="0.3276" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR" label="CMF_1950_BOTTOMFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="1.0321" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_SPACE_2" label="CMF_1950_BOTTOMFLOOR_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.1349" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S" label="CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.01" />
+          <attvalue for="7" value="0.0625" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="plastic_mat" label="plastic_mat">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="1121.29256381722" />
+        </attvalues>
+      </node>
+      <node id="6000000224" label="6000000224">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Takduk, PVC" />
+          <attvalue for="12" value="5.69" />
+          <attvalue for="13" value="4.55" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_PLASTER_T050_S" label="CMF_1950_BOTTOMFLOOR_PLASTER_T050_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.0723" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="plaster" label="plaster">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.6913373548329222" />
+          <attvalue for="10" value="1858.004248296516" />
+        </attvalues>
+      </node>
+      <node id="6000000091" label="6000000091">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Mur- och putsbruk B (CS III)" />
+          <attvalue for="12" value="0.209" />
+          <attvalue for="13" value="0.167" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_STRUCTURE_3" label="CMF_1950_BOTTOMFLOOR_STRUCTURE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.664" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S" label="CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.0944" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="concrete_mixed_with_sawdust" label="concrete_mixed_with_sawdust">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.5296455594990593" />
+          <attvalue for="10" value="1280.0029267058849" />
+        </attvalues>
+      </node>
+      <node id="6000000222" label="6000000222">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Cementbunden träullsplatta" />
+          <attvalue for="12" value="0.715" />
+          <attvalue for="13" value="0.572" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_COKEASH_T080_S" label="CMF_1950_BOTTOMFLOOR_COKEASH_T080_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.08" />
+          <attvalue for="7" value="0.5003" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="coke_ash" label="coke_ash">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="784.9017946651944" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S" label="CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLBEARING" label="CMF_1950_INTERIORWALLBEARING">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="2.32408" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLBEARING_SKIN_1" label="CMF_1950_INTERIORWALLBEARING_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S" label="CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLBEARING_STRUCTURE_1" label="CMF_1950_INTERIORWALLBEARING_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.253" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLBEARING_BRICK_T02_C" label="CMF_1950_INTERIORWALLBEARING_BRICK_T02_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.2" />
+          <attvalue for="7" value="0.253" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="brick" label="brick">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.8894048074606842" />
+          <attvalue for="10" value="1920.0043900588325" />
+        </attvalues>
+      </node>
+      <node id="6000000082" label="6000000082">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Tegelsten" />
+          <attvalue for="12" value="0.314" />
+          <attvalue for="13" value="0.251" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLNONBEARING" label="CMF_1950_INTERIORWALLNONBEARING">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="0.8437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLNONBEARING_SPACE_1" label="CMF_1950_INTERIORWALLNONBEARING_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0813" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S" label="CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.0813" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="gypsum_board" label="gypsum_board">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405463" />
+          <attvalue for="10" value="800.0018291911765" />
+        </attvalues>
+      </node>
+      <node id="6000000020" label="6000000020">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Gipsskiva, standardskiva" />
+          <attvalue for="12" value="0.284" />
+          <attvalue for="13" value="0.227" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1" label="CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.934" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C" label="CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.07" />
+          <attvalue for="7" value="0.934" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="mineral_wool" label="mineral_wool">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.029979937330135372" />
+          <attvalue for="10" value="43.000098319025845" />
+        </attvalues>
+      </node>
+      <node id="6000000002" label="6000000002">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Glasull, fasadskivor" />
+          <attvalue for="12" value="1.08" />
+          <attvalue for="13" value="0.86" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR" label="CMF_1950_INTERMEDIATEFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="2" value="1950" />
+          <attvalue for="3" value="1.10643" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_SPACE_3" label="CMF_1950_INTERMEDIATEFLOOR_SPACE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.6573" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S" label="CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.01" />
+          <attvalue for="7" value="0.0625" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S" label="CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.0944" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S" label="CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.08" />
+          <attvalue for="7" value="0.5003" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_SPACE_1" label="CMF_1950_INTERMEDIATEFLOOR_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S" label="CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1" label="CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0693" />
+        </attvalues>
+      </node>
+      <node id="CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S" label="CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1950" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF" label="CMF_1960_1_ROOF">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="1.2255" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_SKIN_5" label="CMF_1960_1_ROOF_SKIN_5">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.646" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_METALSHEET_T003_S" label="CMF_1960_1_ROOF_METALSHEET_T003_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.003" />
+          <attvalue for="7" value="0.0001" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="metal_sheet" label="metal_sheet">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="45.24971874361766" />
+          <attvalue for="10" value="7824.017889489713" />
+        </attvalues>
+      </node>
+      <node id="6000000153" label="6000000153">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Tunnplåt för beklädnad, 80 % primär" />
+          <attvalue for="12" value="3.24" />
+          <attvalue for="13" value="2.59" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_BATTENS1_T023_S" label="CMF_1960_1_ROOF_BATTENS1_T023_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.023" />
+          <attvalue for="7" value="0.1918" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="battens_1" label="battens_1">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_BATTENS2_T023_S" label="CMF_1960_1_ROOF_BATTENS2_T023_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.023" />
+          <attvalue for="7" value="0.1918" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="battens_2" label="battens_2">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_ROOFINGFELT_T005_S" label="CMF_1960_1_ROOF_ROOFINGFELT_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0313" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="roofing_felt" label="roofing_felt">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="1121.29256381722" />
+        </attvalues>
+      </node>
+      <node id="6000000140" label="6000000140">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Underlagspapp" />
+          <attvalue for="12" value="0.85" />
+          <attvalue for="13" value="0.68" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_ROOF_WOODENPANEL_T025_S" label="CMF_1960_1_ROOF_WOODENPANEL_T025_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.0254" />
+          <attvalue for="7" value="0.2311" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL075" label="CMF_1960_1_EXTERIORWALL075">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="0.41516" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL075_SKIN_1" label="CMF_1960_1_EXTERIORWALL075_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.1582" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C" label="CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.125" />
+          <attvalue for="7" value="0.1582" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL075_SPACE_1" label="CMF_1960_1_EXTERIORWALL075_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.813" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S" label="CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.13" />
+          <attvalue for="7" value="0.813" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="plaster_board" label="plaster_board">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405463" />
+          <attvalue for="10" value="800.0018291911765" />
+        </attvalues>
+      </node>
+      <node id="6000000015" label="6000000015">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Gipsskiva, vindsskyddsskiva" />
+          <attvalue for="12" value="0.333" />
+          <attvalue for="13" value="0.266" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL075_STRUCTURE_1" label="CMF_1960_1_EXTERIORWALL075_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="1.2675" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C" label="CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.095" />
+          <attvalue for="7" value="1.2675" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL025" label="CMF_1960_1_EXTERIORWALL025">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="0.58044" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL025_SKIN_1" label="CMF_1960_1_EXTERIORWALL025_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.18" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S" label="CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.09" />
+          <attvalue for="7" value="0.18" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="eternit_board" label="eternit_board">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.5" />
+          <attvalue for="10" value="1600.0" />
+        </attvalues>
+      </node>
+      <node id="6000000180" label="6000000180">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Fibercementskivor, byggskiva, ≤ 60 vikt-% cement" />
+          <attvalue for="12" value="0.849" />
+          <attvalue for="13" value="0.679" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL025_SPACE_2" label="CMF_1960_1_EXTERIORWALL025_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.1053" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S" label="CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.012" />
+          <attvalue for="7" value="0.024" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="asphalt_board" label="asphalt_board">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.5" />
+          <attvalue for="10" value="1600.0" />
+        </attvalues>
+      </node>
+      <node id="6000000141" label="6000000141">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Takpapp, enskiktstätning" />
+          <attvalue for="12" value="0.813" />
+          <attvalue for="13" value="0.65" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S" label="CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.0813" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALL025_STRUCTURE_1" label="CMF_1960_1_EXTERIORWALL025_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="1.2675" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C" label="CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.095" />
+          <attvalue for="7" value="1.2675" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR" label="CMF_1960_1_BOTTOMFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="1.16227" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_SKIN_1" label="CMF_1960_1_BOTTOMFLOOR_SKIN_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.4545" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_LECA_T150_S" label="CMF_1960_1_BOTTOMFLOOR_LECA_T150_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.4545" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="leca" label="leca">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.33" />
+          <attvalue for="10" value="1555.0" />
+        </attvalues>
+      </node>
+      <node id="6000000089" label="6000000089">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Lättklinkerkulor" />
+          <attvalue for="12" value="0.324" />
+          <attvalue for="13" value="0.259" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_SPACE_2" label="CMF_1960_1_BOTTOMFLOOR_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.1709" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S" label="CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.01" />
+          <attvalue for="7" value="0.0625" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="linoleum" label="linoleum">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="1121.29256381722" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S" label="CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.1083" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="woodfiber_board" label="woodfiber_board">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11999950937659305" />
+          <attvalue for="10" value="480.555" />
+        </attvalues>
+      </node>
+      <node id="6000000215" label="6000000215">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="HDF-skiva, HDF (torr process)" />
+          <attvalue for="12" value="0.638" />
+          <attvalue for="13" value="0.51" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1" label="CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.065" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S" label="CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.065" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR" label="CMF_1960_1_TOPFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="0.30074" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_SPACE_3" label="CMF_1960_1_TOPFLOOR_SPACE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="3.0945" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S" label="CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0313" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="cardboard" label="cardboard">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="1121.29256381722" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S" label="CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.03" />
+          <attvalue for="7" value="0.6127" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="mineral_wool_blanket" label="mineral_wool_blanket">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.04896723097255453" />
+          <attvalue for="10" value="265.0006059195773" />
+        </attvalues>
+      </node>
+      <node id="6000000128" label="6000000128">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Stenull, lösull, vindsbjälklag" />
+          <attvalue for="12" value="1.6" />
+          <attvalue for="13" value="1.28" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S" label="CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.12" />
+          <attvalue for="7" value="2.4506" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="mineral_wool_carpet" label="mineral_wool_carpet">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.04896723097255453" />
+          <attvalue for="10" value="265.0006059195773" />
+        </attvalues>
+      </node>
+      <node id="6000000005" label="6000000005">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Glasull, lösull, vindsbjälklag" />
+          <attvalue for="12" value="1.13" />
+          <attvalue for="13" value="0.9" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_STRUCTURE_1" label="CMF_1960_1_TOPFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0606" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_TOPFLOOR_CONCRETE_T140_S" label="CMF_1960_1_TOPFLOOR_CONCRETE_T140_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.14" />
+          <attvalue for="7" value="0.0606" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLBEARING" label="CMF_1960_1_INTERIORWALLBEARING">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="4.05631" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLBEARING_SPACE_1" label="CMF_1960_1_INTERIORWALLBEARING_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S" label="CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1" label="CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0693" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S" label="CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLNONBEARING" label="CMF_1960_1_INTERIORWALLNONBEARING">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="2.90107" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1" label="CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0813" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S" label="CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.0813" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1" label="CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0934" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C" label="CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.007" />
+          <attvalue for="7" value="0.0934" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR" label="CMF_1960_1_INTERMEDIATEFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="2.72204" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2" label="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.1208" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S" label="CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.002" />
+          <attvalue for="7" value="0.0125" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S" label="CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.1083" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1" label="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0072" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S" label="CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.005" />
+          <attvalue for="7" value="0.0072" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1" label="CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0693" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S" label="CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_1" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF" label="CMF_1960_2_ROOF">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="1.14028" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_SKIN_3" label="CMF_1960_2_ROOF_SKIN_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Skin" />
+          <attvalue for="5" value="0.29" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_SHEETMETAL_T003_S" label="CMF_1960_2_ROOF_SHEETMETAL_T003_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.003" />
+          <attvalue for="7" value="0.0001" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="sheet_metal" label="sheet_metal">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="45.24971874361766" />
+          <attvalue for="10" value="7824.017889489713" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_ROOFINGFELT_T010_S" label="CMF_1960_2_ROOF_ROOFINGFELT_T010_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.01" />
+          <attvalue for="7" value="0.0625" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_WOODENPANEL_T025_S" label="CMF_1960_2_ROOF_WOODENPANEL_T025_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.025" />
+          <attvalue for="7" value="0.2274" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_STRUCTURE_3" label="CMF_1960_2_ROOF_STRUCTURE_3">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.4169" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_ROOF_TRUSS_T050_S" label="CMF_1960_2_ROOF_TRUSS_T050_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.4169" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="wooden_truss" label="wooden_truss">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.11991974932054163" />
+          <attvalue for="10" value="540.0012347040437" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR" label="CMF_1960_2_TOPFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="0.30279" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR_SPACE_2" label="CMF_1960_2_TOPFLOOR_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="3.0633" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S" label="CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.12" />
+          <attvalue for="7" value="2.4506" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S" label="CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.03" />
+          <attvalue for="7" value="0.6127" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR_STRUCTURE_1" label="CMF_1960_2_TOPFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0693" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S" label="CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL085" label="CMF_1960_2_EXTERIORWALL085">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="2.01965" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL085_SPACE_1" label="CMF_1960_2_EXTERIORWALL085_SPACE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0145" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S" label="CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.01" />
+          <attvalue for="7" value="0.0145" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL085_STRUCTURE_2" label="CMF_1960_2_EXTERIORWALL085_STRUCTURE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.3107" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C" label="CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.2457" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S" label="CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.15" />
+          <attvalue for="7" value="0.065" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL015" label="CMF_1960_2_EXTERIORWALL015">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="2" value="1960" />
+          <attvalue for="3" value="1.08147" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL015_SPACE_2" label="CMF_1960_2_EXTERIORWALL015_SPACE_2">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Space" />
+          <attvalue for="5" value="0.0876" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL15_FOIL_T001_S" label="CMF_1960_2_EXTERIORWALL15_FOIL_T001_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.001" />
+          <attvalue for="7" value="0.0063" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="foil" label="foil">
+        <attvalues>
+          <attvalue for="0" value="OpaqueMaterial" />
+          <attvalue for="9" value="0.15989299909405608" />
+          <attvalue for="10" value="1121.29256381722" />
+        </attvalues>
+      </node>
+      <node id="6000000198" label="6000000198">
+        <attvalues>
+          <attvalue for="0" value="EmbodiedCarbon" />
+          <attvalue for="11" value="Plastfolie, ångspärr" />
+          <attvalue for="12" value="2.75" />
+          <attvalue for="13" value="2.2" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S" label="CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.013" />
+          <attvalue for="7" value="0.0813" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL015_STRUCTURE_1" label="CMF_1960_2_EXTERIORWALL015_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.6671" />
+        </attvalues>
+      </node>
+      <node id="CMF_1960_2_EXTERIORWALL15_STUDS_T050_C" label="CMF_1960_2_EXTERIORWALL15_STUDS_T050_C">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1960_2" />
+          <attvalue for="6" value="0.05" />
+          <attvalue for="7" value="0.6671" />
+          <attvalue for="8" value="true" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_TOPFLOOR" label="CMF_1940_1_TOPFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="2" value="1940" />
+          <attvalue for="3" value="4.33586" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_TOPFLOOR_STRUCTURE_1" label="CMF_1940_1_TOPFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0606" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S" label="CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="6" value="0.14" />
+          <attvalue for="7" value="0.0606" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_BOTTOMFLOOR" label="CMF_1940_1_BOTTOMFLOOR">
+        <attvalues>
+          <attvalue for="0" value="Element" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="2" value="1940" />
+          <attvalue for="3" value="4.17891" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1" label="CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1">
+        <attvalues>
+          <attvalue for="0" value="Components" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="4" value="Structure" />
+          <attvalue for="5" value="0.0693" />
+        </attvalues>
+      </node>
+      <node id="CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S" label="CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S">
+        <attvalues>
+          <attvalue for="0" value="Layer" />
+          <attvalue for="1" value="CMF_1940_1" />
+          <attvalue for="6" value="0.16" />
+          <attvalue for="7" value="0.0693" />
+          <attvalue for="8" value="false" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="CMF_1950_ROOF" target="CMF_1950_ROOF_SKIN_2" id="0">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF" target="CMF_1950_ROOF_STRUCTURE_3" id="1">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_SKIN_2" target="CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S" id="2">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_SKIN_2" target="CMF_1950_ROOF_WOODENPANEL_T038_S" id="3">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S" target="galvanized_sheet_metal" id="4">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.003" />
+        </attvalues>
+      </edge>
+      <edge source="galvanized_sheet_metal" target="6000000221" id="5">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_WOODENPANEL_T038_S" target="wooden_panel" id="6">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.038" />
+        </attvalues>
+      </edge>
+      <edge source="wooden_panel" target="6000000007" id="7">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_STRUCTURE_3" target="CMF_1950_ROOF_WOODENRAFTER2X4_T102_S" id="8">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_STRUCTURE_3" target="CMF_1950_ROOF_WOODENBEAM2X6_T152_S" id="9">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_STRUCTURE_3" target="CMF_1950_ROOF_WOODENSTUD4X4_T102_S" id="10">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_WOODENRAFTER2X4_T102_S" target="wooden_rafter" id="11">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.1016" />
+        </attvalues>
+      </edge>
+      <edge source="wooden_rafter" target="6000000007" id="12">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_WOODENBEAM2X6_T152_S" target="wooden_beam" id="13">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.1524" />
+        </attvalues>
+      </edge>
+      <edge source="wooden_beam" target="6000000007" id="14">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_ROOF_WOODENSTUD4X4_T102_S" target="wooden_stud" id="15">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.1016" />
+        </attvalues>
+      </edge>
+      <edge source="wooden_stud" target="6000000007" id="16">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR" target="CMF_1950_TOPFLOOR_SPACE_2" id="17">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR" target="CMF_1950_TOPFLOOR_STRUCTURE_1" id="18">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_SPACE_2" target="CMF_1950_TOPFLOOR_CONCRETE_T050_S" id="19">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_SPACE_2" target="CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S" id="20">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_CONCRETE_T050_S" target="concrete" id="21">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="concrete" target="6000000029" id="22">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S" target="granulated_blast_furnace_slag" id="23">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="granulated_blast_furnace_slag" target="6000000085" id="24">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_STRUCTURE_1" target="CMF_1950_TOPFLOOR_CONCRETE_T140_S" id="25">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_TOPFLOOR_CONCRETE_T140_S" target="concrete" id="26">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.14" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6" target="CMF_1950_EXTERNALWALL1.6_SKIN_1" id="27">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6" target="CMF_1950_EXTERNALWALL1.6_SPACE_1" id="28">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6" target="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3" id="29">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6_SKIN_1" target="CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S" id="30">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S" target="terrasit_plaster" id="31">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="terrasit_plaster" target="6000000131" id="32">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6_SPACE_1" target="CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S" id="33">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S" target="lime_plaster" id="34">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="lime_plaster" target="6000000094" id="35">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3" target="CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C" id="36">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3" target="CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S" id="37">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.6_STRUCTURE_3" target="CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S" id="38">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C" target="lightweight_concrete" id="39">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.125" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C" target="mortar" id="40">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.125" />
+        </attvalues>
+      </edge>
+      <edge source="lightweight_concrete" target="6000000096" id="41">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="mortar" target="6000000092" id="42">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S" target="mortar" id="43">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S" target="concrete" id="44">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL7.10" target="CMF_1950_EXTERNALWALL7.10_SKIN_1" id="45">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL7.10" target="CMF_1950_EXTERNALWALL7.10_SPACE_1" id="46">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL7.10_SKIN_1" target="CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S" id="47">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S" target="terrasit_plaster" id="48">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL7.10_SPACE_1" target="CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S" id="49">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S" target="lime_plaster" id="50">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.7" target="CMF_1950_EXTERNALWALL1.7_STRUCTURE_1" id="51">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL1.7_STRUCTURE_1" target="CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C" id="52">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C" target="lightweight_concrete" id="53">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.25" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C" target="mortar" id="54">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.25" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL11" target="CMF_1950_EXTERNALWALL11_SKIN_1" id="55">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL11" target="CMF_1950_EXTERNALWALL11_STRUCTURE_1" id="56">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL11_SKIN_1" target="CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S" id="57">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S" target="terrasit_plaster" id="58">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERNALWALL11_STRUCTURE_1" target="CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C" id="59">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C" target="lightweight_concrete" id="60">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C" target="mortar" id="61">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR" target="CMF_1950_BOTTOMFLOOR_SPACE_2" id="62">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR" target="CMF_1950_BOTTOMFLOOR_STRUCTURE_3" id="63">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_SPACE_2" target="CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S" id="64">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_SPACE_2" target="CMF_1950_BOTTOMFLOOR_PLASTER_T050_S" id="65">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S" target="plastic_mat" id="66">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.01" />
+        </attvalues>
+      </edge>
+      <edge source="plastic_mat" target="6000000224" id="67">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_PLASTER_T050_S" target="plaster" id="68">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="plaster" target="6000000091" id="69">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_STRUCTURE_3" target="CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S" id="70">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_STRUCTURE_3" target="CMF_1950_BOTTOMFLOOR_COKEASH_T080_S" id="71">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_STRUCTURE_3" target="CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S" id="72">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S" target="concrete_mixed_with_sawdust" id="73">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="concrete_mixed_with_sawdust" target="6000000222" id="74">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_COKEASH_T080_S" target="coke_ash" id="75">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.08" />
+        </attvalues>
+      </edge>
+      <edge source="coke_ash" target="6000000085" id="76">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S" target="concrete" id="77">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING" target="CMF_1950_INTERIORWALLBEARING_SKIN_1" id="78">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING" target="CMF_1950_INTERIORWALLBEARING_STRUCTURE_1" id="79">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING_SKIN_1" target="CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S" id="80">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S" target="plaster" id="81">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING_STRUCTURE_1" target="CMF_1950_INTERIORWALLBEARING_BRICK_T02_C" id="82">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING_BRICK_T02_C" target="brick" id="83">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLBEARING_BRICK_T02_C" target="mortar" id="84">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.2" />
+        </attvalues>
+      </edge>
+      <edge source="brick" target="6000000082" id="85">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING" target="CMF_1950_INTERIORWALLNONBEARING_SPACE_1" id="86">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING" target="CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1" id="87">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING_SPACE_1" target="CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S" id="88">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S" target="gypsum_board" id="89">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="gypsum_board" target="6000000020" id="90">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1" target="CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C" id="91">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C" target="mineral_wool" id="92">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.07" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C" target="wooden_stud" id="93">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.07" />
+        </attvalues>
+      </edge>
+      <edge source="mineral_wool" target="6000000002" id="94">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR" target="CMF_1950_INTERMEDIATEFLOOR_SPACE_3" id="95">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR" target="CMF_1950_INTERMEDIATEFLOOR_SPACE_1" id="96">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR" target="CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1" id="97">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_SPACE_3" target="CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S" id="98">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_SPACE_3" target="CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S" id="99">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_SPACE_3" target="CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S" id="100">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S" target="plastic_mat" id="101">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.01" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S" target="concrete_mixed_with_sawdust" id="102">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S" target="coke_ash" id="103">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.08" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_SPACE_1" target="CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S" id="104">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S" target="plaster" id="105">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1" target="CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S" id="106">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S" target="concrete" id="107">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF" target="CMF_1960_1_ROOF_SKIN_5" id="108">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_SKIN_5" target="CMF_1960_1_ROOF_METALSHEET_T003_S" id="109">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_SKIN_5" target="CMF_1960_1_ROOF_BATTENS1_T023_S" id="110">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_SKIN_5" target="CMF_1960_1_ROOF_BATTENS2_T023_S" id="111">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_SKIN_5" target="CMF_1960_1_ROOF_ROOFINGFELT_T005_S" id="112">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_SKIN_5" target="CMF_1960_1_ROOF_WOODENPANEL_T025_S" id="113">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_METALSHEET_T003_S" target="metal_sheet" id="114">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.003" />
+        </attvalues>
+      </edge>
+      <edge source="metal_sheet" target="6000000153" id="115">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_BATTENS1_T023_S" target="battens_1" id="116">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.023" />
+        </attvalues>
+      </edge>
+      <edge source="battens_1" target="6000000007" id="117">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_BATTENS2_T023_S" target="battens_2" id="118">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.023" />
+        </attvalues>
+      </edge>
+      <edge source="battens_2" target="6000000007" id="119">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_ROOFINGFELT_T005_S" target="roofing_felt" id="120">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="roofing_felt" target="6000000140" id="121">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_ROOF_WOODENPANEL_T025_S" target="wooden_panel" id="122">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.0254" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075" target="CMF_1960_1_EXTERIORWALL075_SKIN_1" id="123">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075" target="CMF_1960_1_EXTERIORWALL075_SPACE_1" id="124">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075" target="CMF_1960_1_EXTERIORWALL075_STRUCTURE_1" id="125">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075_SKIN_1" target="CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C" id="126">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C" target="brick" id="127">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.125" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C" target="mortar" id="128">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.125" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075_SPACE_1" target="CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S" id="129">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S" target="plaster_board" id="130">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.13" />
+        </attvalues>
+      </edge>
+      <edge source="plaster_board" target="6000000015" id="131">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL075_STRUCTURE_1" target="CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C" id="132">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C" target="mineral_wool" id="133">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.095" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C" target="wooden_stud" id="134">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.095" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025" target="CMF_1960_1_EXTERIORWALL025_SKIN_1" id="135">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025" target="CMF_1960_1_EXTERIORWALL025_SPACE_2" id="136">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025" target="CMF_1960_1_EXTERIORWALL025_STRUCTURE_1" id="137">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025_SKIN_1" target="CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S" id="138">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S" target="eternit_board" id="139">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.09" />
+        </attvalues>
+      </edge>
+      <edge source="eternit_board" target="6000000180" id="140">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025_SPACE_2" target="CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S" id="141">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025_SPACE_2" target="CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S" id="142">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S" target="asphalt_board" id="143">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.012" />
+        </attvalues>
+      </edge>
+      <edge source="asphalt_board" target="6000000141" id="144">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S" target="plaster_board" id="145">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALL025_STRUCTURE_1" target="CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C" id="146">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C" target="mineral_wool" id="147">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.095" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C" target="wooden_stud" id="148">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.095" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR" target="CMF_1960_1_BOTTOMFLOOR_SKIN_1" id="149">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR" target="CMF_1960_1_BOTTOMFLOOR_SPACE_2" id="150">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR" target="CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1" id="151">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_SKIN_1" target="CMF_1960_1_BOTTOMFLOOR_LECA_T150_S" id="152">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_LECA_T150_S" target="leca" id="153">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="leca" target="6000000089" id="154">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_SPACE_2" target="CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S" id="155">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_SPACE_2" target="CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S" id="156">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S" target="linoleum" id="157">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.01" />
+        </attvalues>
+      </edge>
+      <edge source="linoleum" target="6000000224" id="158">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S" target="woodfiber_board" id="159">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="woodfiber_board" target="6000000215" id="160">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1" target="CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S" id="161">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S" target="concrete" id="162">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR" target="CMF_1960_1_TOPFLOOR_SPACE_3" id="163">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR" target="CMF_1960_1_TOPFLOOR_STRUCTURE_1" id="164">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_SPACE_3" target="CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S" id="165">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_SPACE_3" target="CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S" id="166">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_SPACE_3" target="CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S" id="167">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S" target="cardboard" id="168">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="cardboard" target="6000000141" id="169">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S" target="mineral_wool_blanket" id="170">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.03" />
+        </attvalues>
+      </edge>
+      <edge source="mineral_wool_blanket" target="6000000128" id="171">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S" target="mineral_wool_carpet" id="172">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.12" />
+        </attvalues>
+      </edge>
+      <edge source="mineral_wool_carpet" target="6000000005" id="173">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_STRUCTURE_1" target="CMF_1960_1_TOPFLOOR_CONCRETE_T140_S" id="174">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_TOPFLOOR_CONCRETE_T140_S" target="concrete" id="175">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.14" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING" target="CMF_1960_1_INTERIORWALLBEARING_SPACE_1" id="176">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING" target="CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1" id="177">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING_SPACE_1" target="CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S" id="178">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S" target="plaster" id="179">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1" target="CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S" id="180">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S" target="concrete" id="181">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING" target="CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1" id="182">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING" target="CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1" id="183">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1" target="CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S" id="184">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S" target="gypsum_board" id="185">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1" target="CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C" id="186">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C" target="mineral_wool" id="187">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.007" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C" target="wooden_stud" id="188">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.007" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR" target="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2" id="189">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR" target="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1" id="190">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR" target="CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1" id="191">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2" target="CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S" id="192">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2" target="CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S" id="193">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S" target="linoleum" id="194">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.002" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S" target="woodfiber_board" id="195">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1" target="CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S" id="196">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S" target="plaster" id="197">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.005" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1" target="CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S" id="198">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S" target="concrete" id="199">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF" target="CMF_1960_2_ROOF_SKIN_3" id="200">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF" target="CMF_1960_2_ROOF_STRUCTURE_3" id="201">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_SKIN_3" target="CMF_1960_2_ROOF_SHEETMETAL_T003_S" id="202">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_SKIN_3" target="CMF_1960_2_ROOF_ROOFINGFELT_T010_S" id="203">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_SKIN_3" target="CMF_1960_2_ROOF_WOODENPANEL_T025_S" id="204">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_SHEETMETAL_T003_S" target="sheet_metal" id="205">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.003" />
+        </attvalues>
+      </edge>
+      <edge source="sheet_metal" target="6000000153" id="206">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_ROOFINGFELT_T010_S" target="roofing_felt" id="207">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.01" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_WOODENPANEL_T025_S" target="wooden_panel" id="208">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.025" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_STRUCTURE_3" target="CMF_1960_2_ROOF_TRUSS_T050_S" id="209">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_ROOF_TRUSS_T050_S" target="wooden_truss" id="210">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="wooden_truss" target="6000000007" id="211">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR" target="CMF_1960_2_TOPFLOOR_SPACE_2" id="212">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR" target="CMF_1960_2_TOPFLOOR_STRUCTURE_1" id="213">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_SPACE_2" target="CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S" id="214">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_SPACE_2" target="CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S" id="215">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S" target="mineral_wool_carpet" id="216">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.12" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S" target="mineral_wool_blanket" id="217">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.03" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_STRUCTURE_1" target="CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S" id="218">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S" target="concrete" id="219">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL085" target="CMF_1960_2_EXTERIORWALL085_SPACE_1" id="220">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL085" target="CMF_1960_2_EXTERIORWALL085_STRUCTURE_2" id="221">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL085_SPACE_1" target="CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S" id="222">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S" target="plaster" id="223">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.01" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL085_STRUCTURE_2" target="CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C" id="224">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL085_STRUCTURE_2" target="CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S" id="225">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C" target="lightweight_concrete" id="226">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C" target="mortar" id="227">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S" target="concrete" id="228">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.15" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL015" target="CMF_1960_2_EXTERIORWALL015_SPACE_2" id="229">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL015" target="CMF_1960_2_EXTERIORWALL015_STRUCTURE_1" id="230">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL015_SPACE_2" target="CMF_1960_2_EXTERIORWALL15_FOIL_T001_S" id="231">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL015_SPACE_2" target="CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S" id="232">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL15_FOIL_T001_S" target="foil" id="233">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.001" />
+        </attvalues>
+      </edge>
+      <edge source="foil" target="6000000198" id="234">
+        <attvalues>
+          <attvalue for="14" value="has_embodied_carbon" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S" target="gypsum_board" id="235">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.013" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL015_STRUCTURE_1" target="CMF_1960_2_EXTERIORWALL15_STUDS_T050_C" id="236">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL15_STUDS_T050_C" target="mineral_wool" id="237">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1960_2_EXTERIORWALL15_STUDS_T050_C" target="wooden_stud" id="238">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="0.5" />
+          <attvalue for="17" value="0.05" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_TOPFLOOR" target="CMF_1940_1_TOPFLOOR_STRUCTURE_1" id="239">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_TOPFLOOR_STRUCTURE_1" target="CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S" id="240">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S" target="concrete" id="241">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.14" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_BOTTOMFLOOR" target="CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1" id="242">
+        <attvalues>
+          <attvalue for="14" value="contains_component" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1" target="CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S" id="243">
+        <attvalues>
+          <attvalue for="14" value="contains_layer" />
+          <attvalue for="15" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S" target="concrete" id="244">
+        <attvalues>
+          <attvalue for="14" value="contains_material" />
+          <attvalue for="16" value="1.0" />
+          <attvalue for="17" value="0.16" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

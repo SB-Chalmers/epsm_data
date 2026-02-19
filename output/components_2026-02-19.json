@@ -1,0 +1,814 @@
+{
+  "CMF_1950_ROOF_SKIN_2": {
+    "name": "CMF_1950_ROOF_SKIN_2",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Skin",
+    "r_sum": 0.345752,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_ROOF_GALVANICEDSHEETMETAL_T003_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_ROOF_WOODENPANEL_T038_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1950_ROOF_STRUCTURE_3": {
+    "name": "CMF_1950_ROOF_STRUCTURE_3",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 2.965316,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_ROOF_WOODENRAFTER2X4_T102_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_ROOF_WOODENBEAM2X6_T152_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1950_ROOF_WOODENSTUD4X4_T102_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1950_TOPFLOOR_SPACE_2": {
+    "name": "CMF_1950_TOPFLOOR_SPACE_2",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.476201,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_TOPFLOOR_CONCRETE_T050_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_TOPFLOOR_GRANULATEDBLASTFURNACESLAG_T150_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1950_TOPFLOOR_STRUCTURE_1": {
+    "name": "CMF_1950_TOPFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.060635,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_TOPFLOOR_CONCRETE_T140_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL1.6_SKIN_1": {
+    "name": "CMF_1950_EXTERNALWALL1.6_SKIN_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Skin",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR16_TERRASITPLASTER_T005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL1.6_STRUCTURE_3": {
+    "name": "CMF_1950_EXTERNALWALL1.6_STRUCTURE_3",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.276951,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR16_LIGHTWEIGHTCONCRETE12_T125_C",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR16_MORTAR5MM_T005_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR16_CONCRETE_T150_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL1.6_SPACE_1": {
+    "name": "CMF_1950_EXTERNALWALL1.6_SPACE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR16_LIMEPLASTER_T005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL7.10_SKIN_1": {
+    "name": "CMF_1950_EXTERNALWALL7.10_SKIN_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Skin",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR710_TERRASITPLASTER_T005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL1.7_STRUCTURE_1": {
+    "name": "CMF_1950_EXTERNALWALL1.7_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.409506,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR710_LIGHTWEIGHTCONCRETE25CM_T250_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL7.10_SPACE_1": {
+    "name": "CMF_1950_EXTERNALWALL7.10_SPACE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR710_LIMEPLASTER_T005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL11_SKIN_1": {
+    "name": "CMF_1950_EXTERNALWALL11_SKIN_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Skin",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR11_TERRASITPLASTER_T005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_EXTERNALWALL11_STRUCTURE_1": {
+    "name": "CMF_1950_EXTERNALWALL11_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.327605,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_EXTERIORWALLFLOOR11_MORTAR20CM_T200_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_BOTTOMFLOOR_SPACE_2": {
+    "name": "CMF_1950_BOTTOMFLOOR_SPACE_2",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.134865,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_BOTTOMFLOOR_PLASTICMAT_T010_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_BOTTOMFLOOR_PLASTER_T050_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1950_BOTTOMFLOOR_STRUCTURE_3": {
+    "name": "CMF_1950_BOTTOMFLOOR_STRUCTURE_3",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.664034,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_BOTTOMFLOOR_CONCRETEMIXEDWITHSAWDUST_T050_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_BOTTOMFLOOR_COKEASH_T080_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1950_BOTTOMFLOOR_CONCRETE16CM_T160_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1950_INTERIORWALLBEARING_SKIN_1": {
+    "name": "CMF_1950_INTERIORWALLBEARING_SKIN_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Skin",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERIORWALLBEARING_PLASTER_T0005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_INTERIORWALLBEARING_STRUCTURE_1": {
+    "name": "CMF_1950_INTERIORWALLBEARING_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.253046,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERIORWALLBEARING_BRICK_T02_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_INTERIORWALLNONBEARING_SPACE_1": {
+    "name": "CMF_1950_INTERIORWALLNONBEARING_SPACE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.081304,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERIORWALLNONBEARING_GYPSUM_T0013_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1": {
+    "name": "CMF_1950_INTERIORWALLNONBEARING_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.933958,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERIORWALLNONBEARING_MINERALWOOL_T007_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_INTERMEDIATEFLOOR_SPACE_3": {
+    "name": "CMF_1950_INTERMEDIATEFLOOR_SPACE_3",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.657279,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERMEDIATEFLOOR_PLASTICMAT_T001_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1950_INTERMEDIATEFLOOR_CONCRETESAWDUST_T005_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1950_INTERMEDIATEFLOOR_COKEASH_T008_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1": {
+    "name": "CMF_1950_INTERMEDIATEFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERMEDIATEFLOOR_CONCRETE_T016_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1950_INTERMEDIATEFLOOR_SPACE_1": {
+    "name": "CMF_1950_INTERMEDIATEFLOOR_SPACE_1",
+    "archetype": "CMF_1950",
+    "shearing_layer": "Space",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1950_INTERMEDIATEFLOOR_PLASTER_T0005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_ROOF_SKIN_5": {
+    "name": "CMF_1960_1_ROOF_SKIN_5",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Skin",
+    "r_sum": 0.645991,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_ROOF_METALSHEET_T003_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_1_ROOF_BATTENS1_T023_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1960_1_ROOF_BATTENS2_T023_S",
+        "layer_index": 2
+      },
+      {
+        "layer_code": "CMF_1960_1_ROOF_ROOFINGFELT_T005_S",
+        "layer_index": 3
+      },
+      {
+        "layer_code": "CMF_1960_1_ROOF_WOODENPANEL_T025_S",
+        "layer_index": 4
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL075_SKIN_1": {
+    "name": "CMF_1960_1_EXTERIORWALL075_SKIN_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Skin",
+    "r_sum": 0.158154,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBRICK75_BRICK_T125_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL075_STRUCTURE_1": {
+    "name": "CMF_1960_1_EXTERIORWALL075_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 1.267514,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBRICK75_MINERALWOOL_T095_C",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL075_SPACE_1": {
+    "name": "CMF_1960_1_EXTERIORWALL075_SPACE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.813044,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBRICK75_PLASTERBOARD_T130_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL025_SKIN_1": {
+    "name": "CMF_1960_1_EXTERIORWALL025_SKIN_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Skin",
+    "r_sum": 0.18,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBALCONY25_ETERNITBOARD_T090_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL025_STRUCTURE_1": {
+    "name": "CMF_1960_1_EXTERIORWALL025_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 1.267514,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBALCONY25_MINERALWOOL_T095_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_EXTERIORWALL025_SPACE_2": {
+    "name": "CMF_1960_1_EXTERIORWALL025_SPACE_2",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.105304,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBALCONY25_APSHALTBOARD_T012_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_1_EXTERIORWALLBALCONY25_PLASTERBOARD_T013_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_1_BOTTOMFLOOR_SPACE_2": {
+    "name": "CMF_1960_1_BOTTOMFLOOR_SPACE_2",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.170876,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_BOTTOMFLOOR_LINOLEUM_T010_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_1_BOTTOMFLOOR_WOODFIBERBOARD_T013_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1": {
+    "name": "CMF_1960_1_BOTTOMFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.064966,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T150_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_BOTTOMFLOOR_SKIN_1": {
+    "name": "CMF_1960_1_BOTTOMFLOOR_SKIN_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Skin",
+    "r_sum": 0.454545,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_BOTTOMFLOOR_LECA_T150_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_TOPFLOOR_SPACE_3": {
+    "name": "CMF_1960_1_TOPFLOOR_SPACE_3",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 3.094544,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_TOPFLOOR_CARDBOARD_T005_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_1_TOPFLOOR_MINERALWOOLBLANKET_T030_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1960_1_TOPFLOOR_MINERALWOOLCARPET_T120_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1960_1_TOPFLOOR_STRUCTURE_1": {
+    "name": "CMF_1960_1_TOPFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.060635,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_TOPFLOOR_CONCRETE_T140_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERIORWALLBEARING_SPACE_1": {
+    "name": "CMF_1960_1_INTERIORWALLBEARING_SPACE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERIORWALLBEARING_PLASTER_T0005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1": {
+    "name": "CMF_1960_1_INTERIORWALLBEARING_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERIORWALLBEARING_CONCRETE_T016_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1": {
+    "name": "CMF_1960_1_INTERIORWALLNONBEARING_SPACE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.081304,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERIORWALLNONBEARING_GYPSUM_T0013_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1": {
+    "name": "CMF_1960_1_INTERIORWALLNONBEARING_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.093396,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERIORWALLNONBEARING_MINERALWOOL_T0007_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2": {
+    "name": "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_2",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.120842,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERMEDIATEFLOOR_LINOLEUM_T0002_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_1_INTERMEDIATEFLOOR_WOODFRIBERBOARD_T0013_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1": {
+    "name": "CMF_1960_1_INTERMEDIATEFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERMEDIATEFLOOR_CONCRETE_T016_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1": {
+    "name": "CMF_1960_1_INTERMEDIATEFLOOR_SPACE_1",
+    "archetype": "CMF_1960_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.007232,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_1_INTERMEDIATEFLOOR_PLASTER_T0005_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_ROOF_SKIN_3": {
+    "name": "CMF_1960_2_ROOF_SKIN_3",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Skin",
+    "r_sum": 0.290033,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_ROOF_SHEETMETAL_T003_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_2_ROOF_ROOFINGFELT_T010_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1960_2_ROOF_WOODENPANEL_T025_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "CMF_1960_2_ROOF_STRUCTURE_3": {
+    "name": "CMF_1960_2_ROOF_STRUCTURE_3",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Structure",
+    "r_sum": 0.416946,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_ROOF_TRUSS_T050_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_TOPFLOOR_SPACE_2": {
+    "name": "CMF_1960_2_TOPFLOOR_SPACE_2",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Space",
+    "r_sum": 3.063273,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_TOPFLOOR_MINERALWOOLCARPET_T120_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_2_TOPFLOOR_MINERALWOOLBLANKET_T030_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_2_TOPFLOOR_STRUCTURE_1": {
+    "name": "CMF_1960_2_TOPFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_TOPFLOOR_REINFORCEDCONCRETE_T160_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_EXTERIORWALL085_STRUCTURE_2": {
+    "name": "CMF_1960_2_EXTERIORWALL085_STRUCTURE_2",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Structure",
+    "r_sum": 0.31067,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL85_LIGHTWEIGHTCONCRETE_T150_C",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL85_CONCRETE_T150_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1960_2_EXTERIORWALL085_SPACE_1": {
+    "name": "CMF_1960_2_EXTERIORWALL085_SPACE_1",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Space",
+    "r_sum": 0.014465,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL85_PLASTERINT_T010_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_EXTERIORWALL015_STRUCTURE_1": {
+    "name": "CMF_1960_2_EXTERIORWALL015_STRUCTURE_1",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Structure",
+    "r_sum": 0.667113,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL15_STUDS_T050_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_EXTERIORWALL015_SPACE_2": {
+    "name": "CMF_1960_2_EXTERIORWALL015_SPACE_2",
+    "archetype": "CMF_1960_2",
+    "shearing_layer": "Space",
+    "r_sum": 0.087559,
+    "layers": [
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL15_FOIL_T001_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1960_2_EXTERIORWALL15_GYPSUMBOARD_T013_S",
+        "layer_index": 1
+      }
+    ]
+  },
+  "CMF_1940_1_TOPFLOOR_STRUCTURE_1": {
+    "name": "CMF_1940_1_TOPFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.060635,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_TOPFLOOR_REINFORCEDCONCRETE_T140_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Intermediate Floor: Space (living room)": {
+    "name": "Intermediate Floor: Space (living room)",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Space",
+    "r_sum": 1.406243,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_FLOORBOARD_T040_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_STUDS_T050_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOORLIVINGROOM_COKEASH_T100_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "Intermediate Floor: Structure": {
+    "name": "Intermediate Floor: Structure",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOOR_REINFORCEDCONCRETE_T160_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Intermediate Floor: Space": {
+    "name": "Intermediate Floor: Space",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.772157,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOOR_VINYLFLOORING_T040_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOOR_CONCRETE_T050_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "CMF_1940_1_INTERMEDIATEFLOOR_COKEASH_T080_S",
+        "layer_index": 2
+      }
+    ]
+  },
+  "Exterior Wall: Skin": {
+    "name": "Exterior Wall: Skin",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Skin",
+    "r_sum": 0.014465,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_EXTERIORWALL_PLASTEREXT_T010_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Exterior Wall: Structure": {
+    "name": "Exterior Wall: Structure",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.409506,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_EXTERIORWALL_LIGHTWEIGHTCONCRETE_T250_C",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Exterior Wall: Space": {
+    "name": "Exterior Wall: Space",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.014465,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_EXTERIORWALL_PLASTERINT_T010_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Interior Wall, bearing: Space": {
+    "name": "Interior Wall, bearing: Space",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Space",
+    "r_sum": 0.014465,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_INTERIORWALLBEARING_PLASTER_T010_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "Interior Wall, bearing: Structure": {
+    "name": "Interior Wall, bearing: Structure",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.086621,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_INTERIORWALLBEARING_CONCRETE_T200_S",
+        "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1": {
+    "name": "CMF_1940_1_BOTTOMFLOOR_STRUCTURE_1",
+    "archetype": "CMF_1940_1",
+    "shearing_layer": "Structure",
+    "r_sum": 0.069297,
+    "layers": [
+      {
+        "layer_code": "CMF_1940_1_BOTTOMFLOOR_REINFORCEDCONCRETE_T160_S",
+        "layer_index": 0
+      }
+    ]
+  }
+}
