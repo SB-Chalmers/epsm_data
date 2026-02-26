@@ -1,9 +1,9 @@
 import os
 import json
 import pandas as pd
-from Classes import (OpaqueMaterial, Roughness,
-    Layer, Components, ShearingLayer, Element,
-    TABULA_CMF
+from Classes import (OpaqueMaterial, Roughness, 
+    Layer, Components, ShearingLayer, Elements,
+    TABULA_CMF, BuildingElementType, Buildings
 )
 from DataFetcher import fetch_all_materials, parse_material_api
 
@@ -249,7 +249,7 @@ def load_components(layer_lookup: dict[str, Layer]) -> list[Components]:
     return results
 
 
-def load_elements(components_lookup: dict[str, Components]) -> list[Element]:
+def load_elements(components_lookup: dict[str, Components]) -> list[Elements]:
     groups: dict[str, list[Components]] = {}
     skipped, tabula_warnings = [], []
 
@@ -277,10 +277,18 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Element]:
         if age is None:
             skipped.append((base_name, f"Could not parse age from '{archetype}'")); continue
 
+        # Resolve element type BEFORE construction
+        element_type = BuildingElementType.from_name(base_name)
+        if element_type is None:
+            skipped.append((base_name, "Unrecognised element type")); continue
+
         try:
-            element = Element(
-                name=base_name, archetype=archetype,
-                age=age, components=tuple(comps_sorted),
+            element = Elements(
+                name=base_name,
+                archetype=archetype,
+                age=age,
+                components=tuple(comps_sorted),
+                element_type=element_type,
             )
         except Exception as e:
             skipped.append((base_name, str(e))); continue
@@ -298,4 +306,37 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Element]:
     if tabula_warnings:
         for name, reason in tabula_warnings:
             print(f"  [TABULA] '{name}': {reason}")
+    return results
+
+def load_buildings(elements: list[Elements]) -> list[Buildings]:
+    groups: dict[str, list[Elements]] = {}
+
+    for el in elements:
+        groups.setdefault(el.archetype, []).append(el)
+
+    results, skipped = [], []
+
+    for archetype, els in groups.items():
+        # Oldest = lowest age value
+        age = min(el.age for el in els)
+
+        elements_tuple = tuple(
+            (el.name, el.element_type)
+            for el in els
+        )
+
+        try:
+            building = Buildings(
+                name=archetype,
+                age=age,
+                elements=elements_tuple,
+            )
+            results.append(building)
+        except Exception as e:
+            skipped.append((archetype, str(e)))
+
+    print(f"\nBuilding — loaded: {len(results)}, skipped: {len(skipped)}")
+    if skipped:
+        for name, reason in skipped:
+            print(f"  '{name}': {reason}")
     return results

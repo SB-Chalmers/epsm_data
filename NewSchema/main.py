@@ -1,9 +1,10 @@
 from InstanceLoader import (
     load_opaque_materials, load_layers,
-    load_components, load_elements
+    load_components, load_elements, load_buildings
 )
 
 from Exporter import export_all
+from DBExporter import export_to_db
 
 if __name__ == "__main__":
     opaque_materials = load_opaque_materials()
@@ -16,5 +17,7 @@ if __name__ == "__main__":
     components_lookup = {comp.name: comp for comp in components}
 
     elements = load_elements(components_lookup)
+    buildings = load_buildings(elements)
     
-    export_all(opaque_materials, layers, components, elements)
+    export_all(opaque_materials, layers, components, elements, buildings)
+    # export_to_db(opaque_materials, layers, components, elements, buildings) ()

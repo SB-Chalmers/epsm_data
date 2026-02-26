@@ -19,6 +19,29 @@ class ShearingLayer(Enum):
     Space = "Space"
     Stuff = "Stuff"
 
+class BuildingElementType(Enum):
+    EXTERNALWALL = "ExternalWall"
+    EXTERIORWALL = "ExteriorWall"
+    INTERIORWALLBEARING = "InteriorWallBearing"
+    INTERIORWALLNONBEARING = "InteriorWallNonBearing"
+    BOTTOMFLOOR = "BottomFloor"
+    INTERMEDIATEFLOOR = "IntermediateFloor"
+    TOPFLOOR = "TopFloor"
+    ROOF = "Roof"
+
+    @classmethod
+    def from_name(cls, name: str) -> "BuildingElementType | None":
+        """
+        Case-insensitive search for a known element type substring within name.
+        Tries longer matches first to avoid WALL matching EXTERNALWALL early.
+        """
+        name_upper = name.upper()
+        # Sort by length descending so more specific matches win
+        for member in sorted(cls, key=lambda m: len(m.name), reverse=True):
+            if member.name.upper() in name_upper:
+                return member
+        return None
+
 # Tabula reference U-values, make this into class maybe
 TABULA_CMF = {
     "CMF_1940": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32},
@@ -117,6 +140,51 @@ class OpaqueMaterial:
             "solar_absorptance": self.solar_absorptance,
             "visible_absorptance": self.visible_absorptance,
             "conductivity": self.conductivity,
+            "embodied_carbon": self.embodied_carbon.to_dict(),
+        }
+
+@dataclass(frozen=True)
+class WindowMaterial: #Need to implement this class 
+    name: str
+    json_id: str
+    boverket_id: str
+    material_type: str
+    conductivity: float
+    solar_transmittance: float
+    solar_reflectance_front: float
+    solar_reflectance_back: float
+    emissivity: float
+    dirt_correction: float
+    solar_diffusing: bool
+    embodied_carbon: EmbodiedCarbon
+    uuid: UUID = field(default_factory=uuid4)  # generates one UUID per instance
+
+    def __post_init__(self):
+        if self.embodied_carbon is None:
+            raise ValueError("Embodied carbon data missing.")
+        
+        if not self.name:
+            raise ValueError("Material name cannot be empty.")
+
+        if self.conductivity is None or self.conductivity <= 0:
+            raise ValueError("Conductivity must be positive.")
+        elif not (0.01 <= self.conductivity <= 400):
+            raise ValueError("Conductivity outside realistic range (0.01–400 W/mK).")
+    
+    def to_dict(self) -> dict:
+        return {
+            "name": self.name,
+            "uuid": str(self.uuid),
+            "json_id": self.json_id,
+            "boverket_id": self.boverket_id,
+            "material_type": self.material_type,
+            "conductivity": self.conductivity,
+            "solar_transmittance": self.solar_transmittance,
+            "solar_reflectance_front": self.solar_reflectance_front,
+            "solar_reflectance_back": self.solar_reflectance_back,
+            "emissivity": self.emissivity,
+            "dirt_correction": self.dirt_correction,
+            "solar_diffusing": self.solar_diffusing,
             "embodied_carbon": self.embodied_carbon.to_dict(),
         }
         
@@ -253,16 +321,16 @@ class Components:
          
 ####################################
 @dataclass(frozen=True)
-class Element:
+class Elements:
     name: str
     archetype: str
-    age: int # Check the handling
-    components: Tuple[Components, ...] 
+    age: int
+    components: Tuple[Components, ...]
+    element_type: BuildingElementType  # new field
 
     def __post_init__(self):
         if not self.components:
             raise ValueError(f"Element '{self.name}': missing components.")
-        
 
     @property
     def u_value(self) -> float:
@@ -274,28 +342,34 @@ class Element:
         return 1 / r_total
 
     def check_tabula(self, tabula_data: dict) -> str | None:
-        """
-        Compare U-value against Tabula threshold.
-        Returns warning string if exceeded, None if OK or not found.
-        """
-        name_upper = self.name.upper()
+        type_to_tabula = {
+            BuildingElementType.EXTERNALWALL:           "wall",
+            BuildingElementType.EXTERIORWALL:           "wall",
+            BuildingElementType.INTERIORWALLBEARING:    "wall",
+            BuildingElementType.INTERIORWALLNONBEARING: "wall",
+            BuildingElementType.BOTTOMFLOOR:            "floor",
+            BuildingElementType.INTERMEDIATEFLOOR:      "floor",
+            BuildingElementType.TOPFLOOR:               "roof",
+            BuildingElementType.ROOF:                   "roof",
+        } #Best way?
 
+        name_upper = self.name.upper()
         matched_archetype = next(
             (k for k in tabula_data if k.upper() in name_upper), None
         )
         if matched_archetype is None:
-            return f"Archetype not found in Tabula data"
+            return "Archetype not found in Tabula data"
 
-        matched_type = next(
-            (t for t in ["roof", "wall", "window", "floor"] if t.upper() in name_upper), None
-        )
+        matched_type = type_to_tabula.get(self.element_type)
         if matched_type is None:
-            return f"Element type (roof/wall/floor/window) not found in name"
+            return f"No Tabula mapping for element type '{self.element_type.value}'"
 
         tabula_u = tabula_data[matched_archetype][matched_type]
         if self.u_value > tabula_u:
-            return f"U-value {self.u_value:.4f} exceeds Tabula threshold {tabula_u} for {matched_archetype} {matched_type}"
-
+            return (
+                f"U-value {self.u_value:.4f} exceeds Tabula threshold "
+                f"{tabula_u} for {matched_archetype} {matched_type}"
+            )
         return None
     
     def to_dict(self) -> dict:
@@ -303,9 +377,30 @@ class Element:
             "name": self.name,
             "archetype": self.archetype,
             "age": self.age,
+            "element_type": self.element_type.value, 
             "u_value": round(self.u_value, 6),
             "r_total": round(0.13 + sum(c.r_sum for c in self.components) + 0.04, 6),
             "components": [comp.name for comp in self.components],
         }
+    
+####################################
+@dataclass(frozen=True)
+class Buildings:
+    name: str
+    age: int
+    elements: Tuple[Tuple[str, BuildingElementType], ...]  # (element_name, element_type)
 
+    def __post_init__(self):
+        if not self.elements:
+            raise ValueError(f"Building '{self.name}': has no elements.")
+
+    def to_dict(self) -> dict:
+        return {
+            "name": self.name,
+            "age": self.age,
+            "elements": [
+                {"element_name": el_name, "element_type": el_type.value}
+                for el_name, el_type in self.elements
+            ],
+        }
         

@@ -1,15 +1,23 @@
 # graph.py
 import networkx as nx
 from pyvis.network import Network
-from Classes import Element
+from Classes import Elements, Buildings
 
-# Build Graph
-def build_graph(elements: list[Element]) -> nx.DiGraph: # Diff between directed and regular?
+def build_graph(buildings: list[Buildings], elements: list[Elements]) -> nx.DiGraph:
     """
-    Build a directed graph of all relationships in the data hierarchy.
-    Element2 → Components2 → Layer2 → OpaqueMaterial2 ( → EmbodiedCarbon2)
+    Building → Element → Components → Layer → OpaqueMaterial → EmbodiedCarbon
     """
     G = nx.DiGraph()
+
+    # Build element lookup for wiring Building → Element edges
+    for building in buildings:
+        G.add_node(
+            building.name,
+            type="Building",
+            age=building.age,
+        )
+        for el_name,el_type in building.elements:
+            G.add_edge(building.name, el_name, relationship="contains_element", element_type=el_type.value)
 
     for element in elements:
         G.add_node(
@@ -18,6 +26,7 @@ def build_graph(elements: list[Element]) -> nx.DiGraph: # Diff between directed 
             type="Element",
             archetype=element.archetype,
             age=element.age,
+            element_type=element.element_type.value,
             u_value=round(element.u_value, 5),
         )
 
@@ -82,7 +91,7 @@ def build_graph(elements: list[Element]) -> nx.DiGraph: # Diff between directed 
 
     return G
 
-# Summary
+
 def print_graph_summary(G: nx.DiGraph) -> None:
     from collections import Counter
     type_counts = Counter(data["type"] for _, data in G.nodes(data=True))
@@ -93,9 +102,10 @@ def print_graph_summary(G: nx.DiGraph) -> None:
     for t, count in type_counts.items():
         print(f"    {t}: {count}")
 
-# Pyvis Visualisation
+
 def visualise_pyvis(G: nx.DiGraph, output: str = "graph.html") -> None:
     color_map = {
+        "Building":      "#fffb00",  # yellow
         "Element":       "#ff1900",  # red
         "Components":    "#e67e22",  # orange
         "Layer":         "#3498db",  # blue
@@ -103,11 +113,12 @@ def visualise_pyvis(G: nx.DiGraph, output: str = "graph.html") -> None:
         "EmbodiedCarbon":"#9b59b6",  # purple
     }
     size_map = {
+        "Building":      50,
         "Element":       40,
         "Components":    30,
         "Layer":         20,
         "OpaqueMaterial":15,
-        "EmbodiedCarbon":10, #Maybe reverse?
+        "EmbodiedCarbon":10,
     }
 
     net = Network(height="900px", width="100%", directed=True, notebook=False)
@@ -115,14 +126,11 @@ def visualise_pyvis(G: nx.DiGraph, output: str = "graph.html") -> None:
 
     for node, data in G.nodes(data=True):
         node_type = data.get("type", "Unknown")
-
-        # Build hover tooltip from node attributes
         tooltip = f"<b>{node}</b><br>Type: {node_type}<br>" + "<br>".join(
             f"{k}: {v}"
             for k, v in data.items()
             if k not in ("instance", "type")
         )
-
         net.add_node(
             node,
             label=node,
@@ -143,7 +151,7 @@ def visualise_pyvis(G: nx.DiGraph, output: str = "graph.html") -> None:
     net.show(output, notebook=False)
     print(f"Graph saved to {output} — opening in browser.")
 
-# Gephi Export
+
 def export_gephi(G: nx.DiGraph, output: str = "graph.gexf") -> None:
     G_export = G.copy()
     for node in G_export.nodes:
@@ -151,21 +159,12 @@ def export_gephi(G: nx.DiGraph, output: str = "graph.gexf") -> None:
     nx.write_gexf(G_export, output)
     print(f"Exported to {output} — open in Gephi")
 
-# # Example Query
-# def query_element_materials(G: nx.DiGraph, element_name: str) -> list[str]:
-#     """Get all material names reachable from an element."""
-#     return [
-#         node for node, data in G.nodes(data=True)
-#         if data.get("type") == "OpaqueMaterial"
-#         and nx.has_path(G, element_name, node)
-#     ]
 
-# Run
 if __name__ == "__main__":
     from InstanceLoader import (
-    load_opaque_materials, load_layers,
-    load_components, load_elements
-)
+        load_opaque_materials, load_layers,
+        load_components, load_elements, load_buildings
+    )
 
     opaque_materials = load_opaque_materials()
     opaque_lookup = {mat.name: mat for mat in opaque_materials}
@@ -177,16 +176,9 @@ if __name__ == "__main__":
     components_lookup = {comp.name: comp for comp in components}
 
     elements = load_elements(components_lookup)
+    buildings = load_buildings(elements)
 
-    G = build_graph(elements)
+    G = build_graph(buildings, elements)
     print_graph_summary(G)
-
-    # Example condition
-    # if elements:
-    #     example = elements[0].name
-    #     print(f"\nMaterials in '{example}':")
-    #     for mat in query_element_materials(G, example):
-    #         print(f"  {mat}")
-
     visualise_pyvis(G)
     export_gephi(G)

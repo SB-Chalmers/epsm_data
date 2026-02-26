@@ -1,50 +1,40 @@
 # Energy Database – Working Repository
 
-This repository contains the working structure for the EPSM energy and material database. It includes class definitions, material extraction scripts, and generated JSON files used for energy and embodied carbon calculations.
+This repository contains the working structure for the EPSM energy and material database. It includes class definitions, material extraction scripts, and generated JSON files as well as a database used for energy and embodied carbon calculations.
+
+Any class specific checks should be defined within the class however anything cross-field is done externally in the instance loader. 
 
 ---
 
+## Class Structure
+![WindowMaterial will be implemented so that it can ideally be used interchangeably with OpaqueMaterial](image.png)
+
 # Repository Structure
 
-```
-EPSM DATA
-├── ClassDefinitions/
-│   ├── Components.py 
-│   ├── Elements.py
-│   ├── EmbodiedCarbon.py
-│   ├── Layers.py
-│   └── Materials.py
-│
-├── ExtractingMaterials/
-│   ├── output/
-│   │   ├── generated .json
-│   ├── ExtractAll.py
-│   ├── ExtractElements.py
-│   └── ExtractEnergyPlus.py 
-│
-├── Boverket.json
-├── EPSM_Enums.py
-├── Legend.md
-├── opaque_material.json
-└── Material_Database.xlsx
-```
-
+All scripts are in the NewSchema folder
+- Classes.py contains all class defintions and enums.
+- DataFetcher.py makes an API request to the klimatdatabas as well as creates EmbodiedCarbon objects based up on the Material_Database.xlsx
+- InstanceLoader.py instantiates all other objects (OpaqueMaterial, Layers, Components, Elements, Buildings). Currently WindowMaterial has not been implemented. 
+- Exporter.py serialses every object for .json files
+- DB.py defines epsm.db
+- DBExporter.py
+- main.py is the main entrypoint and executes InstanceLoader, Exporter and DBexporter.
+- Graph.py defines and loads a graph of the database, it needs to be run separately. 
 ---
 
 # Class Definitions
 
-The `ClassDefinitions` folder contains all core classes used in the database.  
+The `Classes` folder contains all core classes used in the database.  
 
 Each class defines:
 
 - Properties  
 - Validation checks  
-- Calculation methods  
-- Serialization to JSON  
+- Calculation methods (for calculated properties)  
+- Serialization to JSON (to dict method) 
 
-Additional functionality (e.g., diagrams or derived attributes) can be implemented within the relevant class.
+Additional functionality (e.g., diagrams or derived attributes) can be implemented within the relevant class. 
 
-**Note:** `Elements.py` is not yet fully integrated.
 
 ---
 
@@ -68,59 +58,23 @@ These methods are based on:
 
 https://api-portal.boverket.se/reference#api=klimatdatabas
 
-If a newer version is released, the file can be replaced with the updated API export.
-
 ---
 
-# Extraction and JSON Generation
+# JSON Generation
 
 All extraction scripts are located in:
 
 ```
-ExtractingMaterials/
+output/
 ```
-
-## ExtractAll.py
-
-Generates:
-
-- Materials  
-- Layers  
-- Components  
-
-It uses:
-
-- `Material_Database.xlsx`  
-- `Boverket.json`  
-- `opaque_material.json`  
-
-The script outputs generated JSON files into the `/output` folder.
-
-If files are generated multiple times on the same day, the previous file will be overwritten unless renamed.
-
-You can choose which files to generate inside the `__main__` block.
-
 ---
 
-## ExtractElements.py
 
-Uses:
 
-- `Components_YYYY_MM_DD.json`
-
-to construct element definitions and generate:
-
-- `Elements_YYYY_MM_DD.json`
-
-Ensure Components have been generated before running this script.
-
----
-
-## ExtractEnergyPlus.py
+## EnergyPlusConverter.py
 
 Rewrites `opaque_material.json` to match the naming convention used in `Material_Database.xlsx`.
-
-The output can be used with Honeybee / EnergyPlus workflows.
+The output is utilised in grasshopper.
 
 ---
 

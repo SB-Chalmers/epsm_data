@@ -259,3 +259,47 @@ build_graph + visualise_pyvis + export_gephi
 ### Other
 - /demos & /Tests need to be built.
 - Update README.md
+
+# 02/26 2026 Progress Notes 
+
+## General Update
+Added database and Building (archetype). WindowMaterials is not implemented anywhere, ideally it can be used interchangeably with OpaqueMaterials, how is currently a bit vague. 
+
+### DB.py
+Contains Database Framework including Junction Tables
+
+### DBExporter.py
+Handles DB exporting logic
+- all main entities (material, layers, components, elements, buildings) are refreshed when reexported
+- Junction tables get wiped and rewritten when reexported.
+- Anything deleted from excel will stay in the database if not manually removed
+
+### InstanceLoader.py 
+all load_ functions
+- Prints all warnings (warning handling needs to be looked through)
+- Currently a bit repetitive (can probably be done more efficiently) 
+- Docstrings missing
+- Missing WindowMaterials
+
+### Exporter.py 
+outputs json for ease of search/debugging
+- Currently Outputs to output in EPSM_DATA and not to ExtractingMaterials/
+- Check if to_dict of the classes outputs what makes sense.
+
+### main.py 
+entrypoint
+- runs every script but Graph.py (including database)
+
+### Graph.py 
+build_graph + visualise_pyvis + export_gephi
+- Needs some fine tuning in regards to how data is presented (embodied carbon is id etc.)
+- Would be neat to have size
+- Outputs a relationship graph
+
+### Other
+- /demos & /Tests need to be built.
+- Update README.md
+- UML needs to be redone (classes_NewSchemaDiagram.puml) as it's missing window
+- Add Tabula U-value for better querying?
+- Validation (Missing values don't get marked as None, no weird syntax logic that slips, etc.)
+- remove json handling
