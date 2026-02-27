@@ -1,0 +1,122 @@
+{
+  "CMF_1950": {
+    "name": "CMF_1950",
+    "age": 1950,
+    "elements": [
+      {
+        "element_name": "CMF_1950_ROOF",
+        "element_type": "Roof"
+      },
+      {
+        "element_name": "CMF_1950_TOPFLOOR",
+        "element_type": "TopFloor"
+      },
+      {
+        "element_name": "CMF_1950_EXTERNALWALL1.6",
+        "element_type": "ExternalWall"
+      },
+      {
+        "element_name": "CMF_1950_EXTERNALWALL7.10",
+        "element_type": "ExternalWall"
+      },
+      {
+        "element_name": "CMF_1950_EXTERNALWALL1.7",
+        "element_type": "ExternalWall"
+      },
+      {
+        "element_name": "CMF_1950_EXTERNALWALL11",
+        "element_type": "ExternalWall"
+      },
+      {
+        "element_name": "CMF_1950_BOTTOMFLOOR",
+        "element_type": "BottomFloor"
+      },
+      {
+        "element_name": "CMF_1950_INTERIORWALLBEARING",
+        "element_type": "InteriorWallBearing"
+      },
+      {
+        "element_name": "CMF_1950_INTERIORWALLNONBEARING",
+        "element_type": "InteriorWallNonBearing"
+      },
+      {
+        "element_name": "CMF_1950_INTERMEDIATEFLOOR",
+        "element_type": "IntermediateFloor"
+      }
+    ]
+  },
+  "CMF_1960_1": {
+    "name": "CMF_1960_1",
+    "age": 1960,
+    "elements": [
+      {
+        "element_name": "CMF_1960_1_ROOF",
+        "element_type": "Roof"
+      },
+      {
+        "element_name": "CMF_1960_1_EXTERIORWALL075",
+        "element_type": "ExteriorWall"
+      },
+      {
+        "element_name": "CMF_1960_1_EXTERIORWALL025",
+        "element_type": "ExteriorWall"
+      },
+      {
+        "element_name": "CMF_1960_1_BOTTOMFLOOR",
+        "element_type": "BottomFloor"
+      },
+      {
+        "element_name": "CMF_1960_1_TOPFLOOR",
+        "element_type": "TopFloor"
+      },
+      {
+        "element_name": "CMF_1960_1_INTERIORWALLBEARING",
+        "element_type": "InteriorWallBearing"
+      },
+      {
+        "element_name": "CMF_1960_1_INTERIORWALLNONBEARING",
+        "element_type": "InteriorWallNonBearing"
+      },
+      {
+        "element_name": "CMF_1960_1_INTERMEDIATEFLOOR",
+        "element_type": "IntermediateFloor"
+      }
+    ]
+  },
+  "CMF_1960_2": {
+    "name": "CMF_1960_2",
+    "age": 1960,
+    "elements": [
+      {
+        "element_name": "CMF_1960_2_ROOF",
+        "element_type": "Roof"
+      },
+      {
+        "element_name": "CMF_1960_2_TOPFLOOR",
+        "element_type": "TopFloor"
+      },
+      {
+        "element_name": "CMF_1960_2_EXTERIORWALL085",
+        "element_type": "ExteriorWall"
+      },
+      {
+        "element_name": "CMF_1960_2_EXTERIORWALL015",
+        "element_type": "ExteriorWall"
+      }
+    ]
+  },
+  "CMF_1940_1": {
+    "name": "CMF_1940_1",
+    "age": 1940,
+    "elements": [
+      {
+        "element_name": "CMF_1940_1_TOPFLOOR",
+        "element_type": "TopFloor"
+      },
+      {
+        "element_name": "CMF_1940_1_BOTTOMFLOOR",
+        "element_type": "BottomFloor"
+      }
+    ]
+  }
+}
