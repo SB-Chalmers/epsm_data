@@ -1832,18 +1832,6 @@
     "type": "EnergyMaterial",
     "identifier": "Solid Rock"
   },
-"Created by Johan": {
-    "conductivity": 2.0,
-    "specific_heat": 800.0,
-    "density": 2700.0,
-    "thermal_absorptance": 0.96,
-    "thickness": 0.2,
-    "solar_absorptance": 0.55,
-    "visible_absorptance": 0.55,
-    "roughness": "MediumRough",
-    "type": "EnergyMaterial",
-    "identifier": "Created by Johan"
-  },
   "Grassy Lawn": {
     "specific_heat": 1200.0,
     "leaf_reflectivity": 0.22,
@@ -1864,5 +1852,65 @@
     "residual_vol_moist_cont": 0.01,
     "type": "EnergyMaterialVegetation",
     "identifier": "Grassy Lawn"
-  }
+  },
+  "Cement Bonded Particleboard (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Cement-Bonded Particleboard",
+    "roughness": "MediumRough",
+    "thickness": 0.012,
+    "conductivity": 0.23,
+    "density": 1200.0,
+    "specific_heat": 1500.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.6,
+    "visible_absorptance": 0.6
+},
+  "Asphalt Board (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Asphalt Board",
+    "roughness": "Rough",
+    "thickness": 0.01,
+    "conductivity": 0.23,
+    "density": 1100.0,
+    "specific_heat": 1000.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.9,
+    "visible_absorptance": 0.8
+},
+"Woodfiber Board (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Woodfiber Board",
+    "roughness": "MediumRough",
+    "thickness": 0.025,
+    "conductivity": 0.07,
+    "density": 250.0,
+    "specific_heat": 1700.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.65,
+    "visible_absorptance": 0.65
+},
+"Leca (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Leca",
+    "roughness": "VeryRough",
+    "thickness": 0.1,
+    "conductivity": 0.16,
+    "density": 400.0,
+    "specific_heat": 1000.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.7,
+    "visible_absorptance": 0.7
+}, 
+"Wood Shavings (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Wood Shavings",
+    "roughness": "VeryRough",
+    "thickness": 0.05,
+    "conductivity": 0.062,
+    "density": 100.0,
+    "specific_heat": 1700.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.65,
+    "visible_absorptance": 0.65
+}
 }

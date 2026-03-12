@@ -39,7 +39,7 @@ def load_opaque_materials_from_excel(filename: str):
             f"Found: {set(df.columns)}"
         )
 
-    opaque_json = load_json(os.path.join(PROJECT_ROOT, "opaque_material.json"))
+    opaque_json = load_json(os.path.join(PROJECT_ROOT, "Data", "opaque_material.json"))
 
     extracted = {}
     skipped = []
@@ -115,13 +115,13 @@ def export_materials(materials: dict):
 
 
 if __name__ == "__main__":
-    excel_file = "Material_Database.xlsx"
+    excel_file = "Data/Material_Database.xlsx"
 
     # Load all opaque materials
     materials, skipped = load_opaque_materials_from_excel(excel_file)
 
     # Choose archetype to extract, or None to export all materials
-    archetype_to_extract = "CMF_1950"  # <-- change to "CMF_1940_1" or None for all
+    archetype_to_extract = None  # <-- change to "CMF_1940_1" or None for all
 
     filtered_materials = filter_materials_by_archetype(
         excel_file=os.path.join(PROJECT_ROOT, excel_file),

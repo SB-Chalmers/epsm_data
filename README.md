@@ -2,9 +2,16 @@
 
 This repository contains the working structure for the EPSM energy and material database. It includes class definitions, material extraction scripts, and generated JSON files as well as a database used for energy and embodied carbon calculations.
 
-Any class specific checks should be defined within the class however anything cross-field is done externally in the instance loader. 
+Any class specific checks should be defined within the class however anything cross-field is done externally in the instance loader, for example a check with excel is done in the instance loader. 
+
+If any relational changes are made within the classes this needs to be updated in both the DB.py and Graph.py as relationships aren't passed down, but instead defined for each. 
 
 ---
+
+## Utilising the EPSM_DATA package
+
+Ensure the latest version of excel is in Data/, and that it's named **Material_Database**.
+Everytime main is run, anything generated gets overwritten however if changes are made to the database regarding it's structure the old file must be deleted from python and then rerun, otherwise the script will crash and new changes won't be pushed as it expects the old schema.
 
 ## Class Structure
 

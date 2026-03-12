@@ -48,7 +48,6 @@ class DBLayer(Base):
     layer_code   = Column(String, primary_key=True)
     name         = Column(String)
     thickness    = Column(Float)
-    archetype    = Column(String)
     is_composite = Column(Boolean)
     r_value      = Column(Float)
 
@@ -69,9 +68,10 @@ class DBLayerMaterial(Base):
 
 
 class DBComponent(Base):
-    __tablename__ = "component"
+    __tablename__  = "component"
     name           = Column(String, primary_key=True)
     archetype      = Column(String)
+    application    = Column(String)
     shearing_layer = Column(String)
     r_sum          = Column(Float)
 
@@ -92,16 +92,17 @@ class DBComponentLayer(Base):
 
 class DBElement(Base):
     __tablename__ = "element"
-    name         = Column(String, primary_key=True)
-    archetype    = Column(String)
-    age          = Column(Integer)
-    element_type = Column(String)
-    u_value      = Column(Float)
-    r_total      = Column(Float)
+    name            = Column(String, primary_key=True)
+    archetype       = Column(String)
+    age             = Column(Integer)
+    element_type    = Column(String)
+    u_value         = Column(Float)
+    r_total         = Column(Float)
+    tabula_u_value  = Column(Float, nullable=True)
+    tabula_warning  = Column(String, nullable=True)
 
     components = relationship("DBElementComponent", back_populates="element")
     buildings  = relationship("DBBuildingElement", back_populates="element")
-
 
 class DBElementComponent(Base):
     __tablename__ = "element_component"

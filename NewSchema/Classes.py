@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from uuid import UUID, uuid4
-from typing import Tuple
 from enum import Enum
+from typing import Tuple, ClassVar
 
 # Roughness enum for material surface texture
 class Roughness(Enum):
@@ -11,6 +11,28 @@ class Roughness(Enum):
     ROUGH = "Rough"
     VERY_ROUGH = "VeryRough"
 
+class BuildingElement(Enum): ## translate more properlyy
+    ROOF = "ROOF"
+    TOP_FLOOR = "TOP_FLOOR"
+    INTERMEDIATE_FLOOR = "INTERMEDIATE_FLOOR"
+    GROUND_FLOOR = "GROUND_FLOOR"
+    BASEMENT_FLOOR = "BASEMENT_FLOOR"
+    EXT_WALL = "EXT_WALL"
+    EXT_WALL_LOW = "EXT_WALL_LOW"
+    EXT_WALL_MEDIUM = "EXT_WALL_MEDIUM"
+    EXT_WALL_HIGH = "EXT_WALL_HIGH"
+    BASEMENT_WALL = "BASEMENT_WALL"
+    INT_WALL_LOADBEARING = "INT_WALL_LOADBEARING"
+    INT_WALL_NONLOADBEARING = "INT_WALL_NONLOADBEARING"
+
+    @classmethod
+    def from_name(cls, name: str) -> "BuildingElement | None":
+        name_upper = name.strip().upper()
+        for member in sorted(cls, key=lambda m: len(m.value), reverse=True):
+            if member.value == name_upper:
+                return member
+        return None
+
 # Brands Shearing Layers 
 class ShearingLayer(Enum):
     Skin = "Skin"
@@ -19,33 +41,10 @@ class ShearingLayer(Enum):
     Space = "Space"
     Stuff = "Stuff"
 
-class BuildingElementType(Enum):
-    EXTERNALWALL = "ExternalWall"
-    EXTERIORWALL = "ExteriorWall"
-    INTERIORWALLBEARING = "InteriorWallBearing"
-    INTERIORWALLNONBEARING = "InteriorWallNonBearing"
-    BOTTOMFLOOR = "BottomFloor"
-    INTERMEDIATEFLOOR = "IntermediateFloor"
-    TOPFLOOR = "TopFloor"
-    ROOF = "Roof"
-
-    @classmethod
-    def from_name(cls, name: str) -> "BuildingElementType | None":
-        """
-        Case-insensitive search for a known element type substring within name.
-        Tries longer matches first to avoid WALL matching EXTERNALWALL early.
-        """
-        name_upper = name.upper()
-        # Sort by length descending so more specific matches win
-        for member in sorted(cls, key=lambda m: len(m.name), reverse=True):
-            if member.name.upper() in name_upper:
-                return member
-        return None
-
-# Tabula reference U-values, make this into class maybe
+# Tabula reference U-values, make this into class maybe  #Add them in ######################
 TABULA_CMF = {
-    "CMF_1940": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32},
-    "CMF_1950": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32},
+    "CMF_1940": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, "basement_wall": 0.70 },
+    "CMF_1950": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, },
     "CMF_1960": {"roof": 0.20, "wall": 0.41, "window": 2.22, "floor": 0.26},
 }
 
@@ -195,8 +194,7 @@ class Layer:
     name: str
     layer_code: str
     thickness: float
-    materials: Tuple[Tuple[OpaqueMaterial, float, float], ...]  # (material, area_fraction, thickness)
-    archetype: str
+    materials: Tuple[Tuple[OpaqueMaterial, float], ...]  # (material, area_fraction)
     is_composite: bool = False
 
     def __post_init__(self):
@@ -221,29 +219,6 @@ class Layer:
                 f"Layer '{self.name}': has {len(self.materials)} materials but not marked as composite."
             )
 
-    def check_thickness_consistency(self) -> str | None:
-        """
-        Soft thickness check — returns a warning string if inconsistent, None if OK.
-        Kept separate from __post_init__ so the loader can treat it as a warning
-        and still keep the instance rather than discarding it.
-        """
-        mat_thicknesses = [t for _, _, t in self.materials]
-
-        if not self.is_composite:
-            mat_t = mat_thicknesses[0]
-            if abs(mat_t - self.thickness) > 0.0001:
-                return (
-                    f"Single material thickness {mat_t:.4f} m "
-                    f"does not match layer thickness {self.thickness:.4f} m"
-                )
-        else:
-            total = sum(mat_thicknesses)
-            if abs(total - self.thickness) > 0.0001:
-                return (
-                    f"Material thicknesses sum to {total:.4f} m "
-                    f"but layer thickness is {self.thickness:.4f} m"
-                )
-        return None
 
     @property
     def r_value(self) -> float:
@@ -257,7 +232,9 @@ class Layer:
         if len(self.materials) == 1:
             mat, _, _ = self.materials[0]
             if mat.conductivity <= 0:
-                return 0.0
+                raise ValueError(
+                f"Invalid average conductivity ({mat.conductivity}) in layer {self.name}"
+            )
             return d / mat.conductivity
 
         avg_lambda = sum(mat.conductivity * frac for mat, frac, _ in self.materials)
@@ -277,7 +254,6 @@ class Layer:
             "name": self.name,
             "layer_code": self.layer_code,
             "thickness": self.thickness,
-            "archetype": self.archetype,
             "is_composite": self.is_composite,
             "r_value": round(self.r_value, 6),
             "materials": [
@@ -295,6 +271,7 @@ class Layer:
 class Components:
     name: str
     archetype: str
+    application: BuildingElement
     layers: Tuple[Tuple[Layer, int], ...]
     shearing_layer: ShearingLayer
 
@@ -311,7 +288,8 @@ class Components:
         return {
             "name": self.name,
             "archetype": self.archetype,
-            "shearing_layer": self.shearing_layer.value,  # Enum → string ?
+            "application": self.application.value,
+            "shearing_layer": self.shearing_layer.value,
             "r_sum": round(self.r_sum, 6),
             "thickness": self.thickness,
             "layers": [
@@ -332,60 +310,94 @@ class Elements:
     archetype: str
     age: int
     components: Tuple[Components, ...]
-    element_type: BuildingElementType  # new field
+    application: BuildingElement
+
+    TABULA_TYPE_MAP: ClassVar[dict] = {
+    BuildingElement.EXT_WALL:        "wall",
+    BuildingElement.EXT_WALL_LOW:    "wall",
+    BuildingElement.EXT_WALL_MEDIUM: "wall",
+    BuildingElement.EXT_WALL_HIGH:   "wall",
+    BuildingElement.GROUND_FLOOR:    "floor",
+    # BuildingElement.BASEMENT_FLOOR:  "floor",
+    BuildingElement.ROOF:            "roof",
+}
 
     def __post_init__(self):
         if not self.components:
             raise ValueError(f"Element '{self.name}': missing components.")
 
     @property
+    def r_total(self) -> float:
+        rse = 0.13 if self.application in (
+            BuildingElement.INT_WALL_LOADBEARING,
+            BuildingElement.INT_WALL_NONLOADBEARING,
+            BuildingElement.INTERMEDIATE_FLOOR,
+        ) else 0.04
+        return 0.13 + sum(c.r_sum for c in self.components) + rse
+
+    @property
     def u_value(self) -> float:
-        rsi = 0.13
-        rse = 0.04
-        r_total = rsi + sum(component.r_sum for component in self.components) + rse
-        if r_total <= 0:
+        if self.r_total <= 0:
             raise ValueError(f"Element '{self.name}': R-value <= 0.")
-        return 1 / r_total
+        return 1 / self.r_total
+    @property
+    def total_components(self) -> int:
+        return len(self.components)
 
-    def check_tabula(self, tabula_data: dict) -> str | None:
-        type_to_tabula = {
-            BuildingElementType.EXTERNALWALL:           "wall",
-            BuildingElementType.EXTERIORWALL:           "wall",
-            BuildingElementType.INTERIORWALLBEARING:    "wall",
-            BuildingElementType.INTERIORWALLNONBEARING: "wall",
-            BuildingElementType.BOTTOMFLOOR:            "floor",
-            BuildingElementType.INTERMEDIATEFLOOR:      "floor",
-            BuildingElementType.TOPFLOOR:               "roof",
-            BuildingElementType.ROOF:                   "roof",
-        } #Best way?
-
+    def match_tabula(self, tabula_data: dict) -> tuple[str, str] | None:
+        """
+        Shared logic for resolving archetype and element type keys.
+        Returns (matched_archetype, matched_type) or None if no match.
+        """
         name_upper = self.name.upper()
         matched_archetype = next(
             (k for k in tabula_data if k.upper() in name_upper), None
         )
         if matched_archetype is None:
-            return "Archetype not found in Tabula data"
-
-        matched_type = type_to_tabula.get(self.element_type)
+            return None
+        matched_type = self.TABULA_TYPE_MAP.get(self.application)
         if matched_type is None:
-            return f"No Tabula mapping for element type '{self.element_type.value}'"
+            return None
+        return matched_archetype, matched_type
 
+    @property
+    def tabula_u_value(self) -> float | None:
+        match = self.match_tabula(TABULA_CMF)  # was _match_tabula
+        if match is None:
+            return None
+        matched_archetype, matched_type = match
+        return TABULA_CMF[matched_archetype][matched_type]
+
+    def check_tabula(self, tabula_data: dict) -> str | None:
+        match = self.match_tabula(tabula_data)
+        threshold = 0.2 # 10% range
+        if match is None:
+            return None
+        matched_archetype, matched_type = match
         tabula_u = tabula_data[matched_archetype][matched_type]
-        if self.u_value > tabula_u:
+        if self.u_value > tabula_u * (1+threshold ) or  self.u_value < tabula_u * (1-threshold ):  # only warn if outside of range
             return (
-                f"U-value {self.u_value:.4f} exceeds Tabula threshold "
+                f"U-value {self.u_value:.4f} is not within Tabula Range (+- {threshold*100:.0f}%) of "
                 f"{tabula_u} for {matched_archetype} {matched_type}"
             )
         return None
-    
+
+    @property
+    def tabula_warning(self) -> str | None:
+        return self.check_tabula(TABULA_CMF)
+
     def to_dict(self) -> dict:
+        tabula = self.tabula_warning
         return {
             "name": self.name,
             "archetype": self.archetype,
             "age": self.age,
-            "element_type": self.element_type.value, 
+            "application": self.application.value,
             "u_value": round(self.u_value, 6),
-            "r_total": round(0.13 + sum(c.r_sum for c in self.components) + 0.04, 6),
+            "tabula_u_value": self.tabula_u_value,
+            "tabula_warning": tabula if tabula else "Pass",
+            "r_total": round(self.r_total, 6),
+            "total_components": self.total_components,
             "components": [comp.name for comp in self.components],
         }
     
@@ -394,16 +406,21 @@ class Elements:
 class Buildings:
     name: str
     age: int
-    elements: Tuple[Tuple[str, BuildingElementType], ...]  # (element_name, element_type)
+    elements: Tuple[Tuple[str, BuildingElement], ...]  # (element_name, element_type)
 
     def __post_init__(self):
         if not self.elements:
             raise ValueError(f"Building '{self.name}': has no elements.")
+    
+    @property
+    def total_elements(self) -> int:
+        return len(self.elements)
 
     def to_dict(self) -> dict:
         return {
             "name": self.name,
             "age": self.age,
+            "total_elements": self.total_elements,
             "elements": [
                 {"element_name": el_name, "element_type": el_type.value}
                 for el_name, el_type in self.elements

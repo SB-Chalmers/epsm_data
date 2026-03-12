@@ -1,0 +1,439 @@
+{
+  "CMF_1950_ROOF": {
+    "name": "CMF_1950_ROOF",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "ROOF",
+    "u_value": 0.19841,
+    "tabula_u_value": 0.36,
+    "tabula_warning": "U-value 0.1984 is not within Tabula Range (+- 20%) of 0.36 for CMF_1950 roof",
+    "r_total": 5.040056,
+    "total_components": 4,
+    "components": [
+      "CMF_1950_ROOF_SKIN",
+      "CMF_1950_ROOF_SKIN",
+      "CMF_1950_ROOF_STRUCTURE",
+      "CMF_1950_ROOF_STRUCTURE"
+    ]
+  },
+  "CMF_1950_TOP_FLOOR": {
+    "name": "CMF_1950_TOP_FLOOR",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "TOP_FLOOR",
+    "u_value": 1.189963,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.840362,
+    "total_components": 3,
+    "components": [
+      "CMF_1950_TOP_FLOOR_SPACE",
+      "CMF_1950_TOP_FLOOR_SPACE",
+      "CMF_1950_TOP_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1950_INTERMEDIATE_FLOOR": {
+    "name": "CMF_1950_INTERMEDIATE_FLOOR",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "INTERMEDIATE_FLOOR",
+    "u_value": 0.287414,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 3.479297,
+    "total_components": 5,
+    "components": [
+      "CMF_1950_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1950_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1950_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1950_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1950_INTERMEDIATE_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1950_GROUND_FLOOR": {
+    "name": "CMF_1950_GROUND_FLOOR",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "GROUND_FLOOR",
+    "u_value": 0.357041,
+    "tabula_u_value": 0.32,
+    "tabula_warning": "Pass",
+    "r_total": 2.8008,
+    "total_components": 5,
+    "components": [
+      "CMF_1950_GROUND_FLOOR_SPACE",
+      "CMF_1950_GROUND_FLOOR_SPACE",
+      "CMF_1950_GROUND_FLOOR_STRUCTURE",
+      "CMF_1950_GROUND_FLOOR_STRUCTURE",
+      "CMF_1950_GROUND_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1950_BASEMENT_FLOOR": {
+    "name": "CMF_1950_BASEMENT_FLOOR",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "BASEMENT_FLOOR",
+    "u_value": 3.33409,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.299932,
+    "total_components": 1,
+    "components": [
+      "CMF_1950_BASEMENT_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1950_EXT_WALL_LOW": {
+    "name": "CMF_1950_EXT_WALL_LOW",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "EXT_WALL_LOW",
+    "u_value": 0.414853,
+    "tabula_u_value": 0.58,
+    "tabula_warning": "U-value 0.4149 is not within Tabula Range (+- 20%) of 0.58 for CMF_1950 wall",
+    "r_total": 2.410493,
+    "total_components": 5,
+    "components": [
+      "CMF_1950_EXT_WALL_LOW_SKIN",
+      "CMF_1950_EXT_WALL_LOW_SPACE",
+      "CMF_1950_EXT_WALL_LOW_STRUCTURE",
+      "CMF_1950_EXT_WALL_LOW_STRUCTURE",
+      "CMF_1950_EXT_WALL_LOW_STRUCTURE"
+    ]
+  },
+  "CMF_1950_EXT_WALL_MEDIUM": {
+    "name": "CMF_1950_EXT_WALL_MEDIUM",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "EXT_WALL_MEDIUM",
+    "u_value": 0.656212,
+    "tabula_u_value": 0.58,
+    "tabula_warning": "Pass",
+    "r_total": 1.523898,
+    "total_components": 3,
+    "components": [
+      "CMF_1950_EXT_WALL_MEDIUM_SKIN",
+      "CMF_1950_EXT_WALL_MEDIUM_SPACE",
+      "CMF_1950_EXT_WALL_MEDIUM_STRUCTURE"
+    ]
+  },
+  "CMF_1950_EXT_WALL_HIGH": {
+    "name": "CMF_1950_EXT_WALL_HIGH",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "EXT_WALL_HIGH",
+    "u_value": 0.800673,
+    "tabula_u_value": 0.58,
+    "tabula_warning": "U-value 0.8007 is not within Tabula Range (+- 20%) of 0.58 for CMF_1950 wall",
+    "r_total": 1.248949,
+    "total_components": 2,
+    "components": [
+      "CMF_1950_EXT_WALL_HIGH_SKIN",
+      "CMF_1950_EXT_WALL_HIGH_STRUCTURE"
+    ]
+  },
+  "CMF_1950_BASEMENT_WALL": {
+    "name": "CMF_1950_BASEMENT_WALL",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "BASEMENT_WALL",
+    "u_value": 0.703,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 1.422475,
+    "total_components": 3,
+    "components": [
+      "CMF_1950_BASEMENT_WALL_SPACE",
+      "CMF_1950_BASEMENT_WALL_STRUCTURE",
+      "CMF_1950_BASEMENT_WALL_STRUCTURE"
+    ]
+  },
+  "CMF_1940_1_ROOF": {
+    "name": "CMF_1940_1_ROOF",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "ROOF",
+    "u_value": 0.254408,
+    "tabula_u_value": 0.36,
+    "tabula_warning": "U-value 0.2544 is not within Tabula Range (+- 20%) of 0.36 for CMF_1940 roof",
+    "r_total": 3.930697,
+    "total_components": 4,
+    "components": [
+      "CMF_1940_1_ROOF_SKIN",
+      "CMF_1940_1_ROOF_SKIN",
+      "CMF_1940_1_ROOF_SKIN",
+      "CMF_1940_1_ROOF_SKIN"
+    ]
+  },
+  "CMF_1940_1_TOP_FLOOR": {
+    "name": "CMF_1940_1_TOP_FLOOR",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "TOP_FLOOR",
+    "u_value": 0.106781,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 9.364954,
+    "total_components": 4,
+    "components": [
+      "CMF_1940_1_TOP_FLOOR_SPACE",
+      "CMF_1940_1_TOP_FLOOR_SPACE",
+      "CMF_1940_1_TOP_FLOOR_SPACE",
+      "CMF_1940_1_TOP_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1940_1_INTERMEDIATE_FLOOR": {
+    "name": "CMF_1940_1_INTERMEDIATE_FLOOR",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "INTERMEDIATE_FLOOR",
+    "u_value": 0.088134,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 11.346355,
+    "total_components": 7,
+    "components": [
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1940_1_INTERMEDIATE_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1940_1_GROUND_FLOOR": {
+    "name": "CMF_1940_1_GROUND_FLOOR",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "GROUND_FLOOR",
+    "u_value": 0.391272,
+    "tabula_u_value": 0.32,
+    "tabula_warning": "U-value 0.3913 is not within Tabula Range (+- 20%) of 0.32 for CMF_1940 floor",
+    "r_total": 2.555769,
+    "total_components": 4,
+    "components": [
+      "CMF_1940_1_GROUND_FLOOR_SPACE",
+      "CMF_1940_1_GROUND_FLOOR_SPACE",
+      "CMF_1940_1_GROUND_FLOOR_SPACE",
+      "CMF_1940_1_GROUND_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1940_1_INT_WALL_LOADBEARING": {
+    "name": "CMF_1940_1_INT_WALL_LOADBEARING",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "INT_WALL_LOADBEARING",
+    "u_value": 2.769423,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.361086,
+    "total_components": 2,
+    "components": [
+      "CMF_1940_1_INT_WALL_LOADBEARING_SPACE",
+      "CMF_1940_1_INT_WALL_LOADBEARING_STRUCTURE"
+    ]
+  },
+  "CMF_1940_1_INT_WALL_NONLOADBEARING": {
+    "name": "CMF_1940_1_INT_WALL_NONLOADBEARING",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "INT_WALL_NONLOADBEARING",
+    "u_value": 2.860704,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.349564,
+    "total_components": 2,
+    "components": [
+      "CMF_1940_1_INT_WALL_NONLOADBEARING_SPACE",
+      "CMF_1940_1_INT_WALL_NONLOADBEARING_SPACE"
+    ]
+  },
+  "CMF_1940_1_EXT_WALL": {
+    "name": "CMF_1940_1_EXT_WALL",
+    "archetype": "CMF_1940_1",
+    "age": 1940,
+    "application": "EXT_WALL",
+    "u_value": 0.649802,
+    "tabula_u_value": 0.58,
+    "tabula_warning": "Pass",
+    "r_total": 1.538929,
+    "total_components": 3,
+    "components": [
+      "CMF_1940_1_EXT_WALL_SKIN",
+      "CMF_1940_1_EXT_WALL_SPACE",
+      "CMF_1940_1_EXT_WALL_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_ROOF": {
+    "name": "CMF_1960_1_ROOF",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "ROOF",
+    "u_value": 0.286084,
+    "tabula_u_value": 0.2,
+    "tabula_warning": "U-value 0.2861 is not within Tabula Range (+- 20%) of 0.2 for CMF_1960 roof",
+    "r_total": 3.495472,
+    "total_components": 5,
+    "components": [
+      "CMF_1960_1_ROOF_SKIN",
+      "CMF_1960_1_ROOF_SKIN",
+      "CMF_1960_1_ROOF_SKIN",
+      "CMF_1960_1_ROOF_SKIN",
+      "CMF_1960_1_ROOF_SKIN"
+    ]
+  },
+  "CMF_1960_1_TOP_FLOOR": {
+    "name": "CMF_1960_1_TOP_FLOOR",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "TOP_FLOOR",
+    "u_value": 0.104636,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 9.556909,
+    "total_components": 4,
+    "components": [
+      "CMF_1960_1_TOP_FLOOR_SPACE",
+      "CMF_1960_1_TOP_FLOOR_SPACE",
+      "CMF_1960_1_TOP_FLOOR_SPACE",
+      "CMF_1960_1_TOP_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_INTERMEDIATE_FLOOR": {
+    "name": "CMF_1960_1_INTERMEDIATE_FLOOR",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "INTERMEDIATE_FLOOR",
+    "u_value": 0.912607,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 1.095762,
+    "total_components": 4,
+    "components": [
+      "CMF_1960_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1960_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1960_1_INTERMEDIATE_FLOOR_SPACE",
+      "CMF_1960_1_INTERMEDIATE_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_GROUND_FLOOR": {
+    "name": "CMF_1960_1_GROUND_FLOOR",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "GROUND_FLOOR",
+    "u_value": 0.599169,
+    "tabula_u_value": 0.26,
+    "tabula_warning": "U-value 0.5992 is not within Tabula Range (+- 20%) of 0.26 for CMF_1960 floor",
+    "r_total": 1.668978,
+    "total_components": 4,
+    "components": [
+      "CMF_1960_1_GROUND_FLOOR_SKIN",
+      "CMF_1960_1_GROUND_FLOOR_SPACE",
+      "CMF_1960_1_GROUND_FLOOR_SPACE",
+      "CMF_1960_1_GROUND_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_INT_WALL_LOADBEARING": {
+    "name": "CMF_1960_1_INT_WALL_LOADBEARING",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "INT_WALL_LOADBEARING",
+    "u_value": 2.971509,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.336529,
+    "total_components": 2,
+    "components": [
+      "CMF_1960_1_INT_WALL_LOADBEARING_SPACE",
+      "CMF_1960_1_INT_WALL_LOADBEARING_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_INT_WALL_NONLOADBEARING": {
+    "name": "CMF_1960_1_INT_WALL_NONLOADBEARING",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "INT_WALL_NONLOADBEARING",
+    "u_value": 0.467863,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 2.137377,
+    "total_components": 2,
+    "components": [
+      "CMF_1960_1_INT_WALL_NONLOADBEARING_SPACE",
+      "CMF_1960_1_INT_WALL_NONLOADBEARING_STRUCTURE"
+    ]
+  },
+  "CMF_1960_1_EXT_WALL": {
+    "name": "CMF_1960_1_EXT_WALL",
+    "archetype": "CMF_1960_1",
+    "age": 1960,
+    "application": "EXT_WALL",
+    "u_value": 0.089164,
+    "tabula_u_value": 0.41,
+    "tabula_warning": "U-value 0.0892 is not within Tabula Range (+- 20%) of 0.41 for CMF_1960 wall",
+    "r_total": 11.215259,
+    "total_components": 7,
+    "components": [
+      "CMF_1960_1_EXT_WALL_SKIN",
+      "CMF_1960_1_EXT_WALL_SKIN",
+      "CMF_1960_1_EXT_WALL_SPACE",
+      "CMF_1960_1_EXT_WALL_SPACE",
+      "CMF_1960_1_EXT_WALL_SPACE",
+      "CMF_1960_1_EXT_WALL_STRUCTURE",
+      "CMF_1960_1_EXT_WALL_STRUCTURE"
+    ]
+  },
+  "CMF_1960_2_TOP_FLOOR": {
+    "name": "CMF_1960_2_TOP_FLOOR",
+    "archetype": "CMF_1960_2",
+    "age": 1960,
+    "application": "TOP_FLOOR",
+    "u_value": 0.157088,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 6.365843,
+    "total_components": 3,
+    "components": [
+      "CMF_1960_2_TOP_FLOOR_SPACE",
+      "CMF_1960_2_TOP_FLOOR_SPACE",
+      "CMF_1960_2_TOP_FLOOR_STRUCTURE"
+    ]
+  },
+  "CMF_1960_2_INT_WALL_LOADBEARING": {
+    "name": "CMF_1960_2_INT_WALL_LOADBEARING",
+    "archetype": "CMF_1960_2",
+    "age": 1960,
+    "application": "INT_WALL_LOADBEARING",
+    "u_value": 2.94611,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.339431,
+    "total_components": 2,
+    "components": [
+      "CMF_1960_2_INT_WALL_LOADBEARING_SPACE",
+      "CMF_1960_2_INT_WALL_LOADBEARING_STRUCTURE"
+    ]
+  },
+  "CMF_1960_2_EXT_WALL": {
+    "name": "CMF_1960_2_EXT_WALL",
+    "archetype": "CMF_1960_2",
+    "age": 1960,
+    "application": "EXT_WALL",
+    "u_value": 0.140407,
+    "tabula_u_value": 0.41,
+    "tabula_warning": "U-value 0.1404 is not within Tabula Range (+- 20%) of 0.41 for CMF_1960 wall",
+    "r_total": 7.12213,
+    "total_components": 9,
+    "components": [
+      "CMF_1960_2_EXT_WALL_SKIN",
+      "CMF_1960_2_EXT_WALL_SKIN",
+      "CMF_1960_2_EXT_WALL_SKIN",
+      "CMF_1960_2_EXT_WALL_SPACE",
+      "CMF_1960_2_EXT_WALL_SPACE",
+      "CMF_1960_2_EXT_WALL_SPACE",
+      "CMF_1960_2_EXT_WALL_STRUCTURE",
+      "CMF_1960_2_EXT_WALL_STRUCTURE",
+      "CMF_1960_2_EXT_WALL_STRUCTURE"
+    ]
+  }
+}

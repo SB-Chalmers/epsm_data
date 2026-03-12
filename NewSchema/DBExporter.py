@@ -68,7 +68,6 @@ def export_to_db(
                 layer_code=layer.layer_code,
                 name=layer.name,
                 thickness=layer.thickness,
-                archetype=layer.archetype,
                 is_composite=layer.is_composite,
                 r_value=round(layer.r_value, 6),
             ))
@@ -84,6 +83,7 @@ def export_to_db(
             session.merge(DBComponent(
                 name=comp.name,
                 archetype=comp.archetype,
+                application=comp.application.value,
                 shearing_layer=comp.shearing_layer.value,
                 r_sum=round(comp.r_sum, 6),
             ))
@@ -92,22 +92,24 @@ def export_to_db(
                     component_id=comp.name,
                     layer_code=layer.layer_code,
                     layer_index=idx,
-                ))
+                    ))
 
         for el in elements:
             session.merge(DBElement(
                 name=el.name,
                 archetype=el.archetype,
                 age=el.age,
-                element_type=el.element_type.value,
+                element_type=el.application.value,
                 u_value=round(el.u_value, 6),
                 r_total=round(0.13 + sum(c.r_sum for c in el.components) + 0.04, 6),
-            ))
+                tabula_u_value=el.tabula_u_value,
+                tabula_warning=el.tabula_warning if el.tabula_warning else "Pass",
+                ))
             for comp in el.components:
                 session.add(DBElementComponent(
                     element_name=el.name,
                     component_id=comp.name,
-                ))
+                    ))
 
         for building in buildings:
             session.merge(DBBuilding(
