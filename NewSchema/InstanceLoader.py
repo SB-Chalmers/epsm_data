@@ -266,7 +266,7 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Elements]:
         ShearingLayer.Structure, ShearingLayer.Services, ShearingLayer.Stuff,
     ]
 
-    results, skipped, tabula_warnings, no_matches = [], [], [], []
+    results, skipped, tabula_warnings, no_matches, dup_warnings = [], [], [], [], []
 
     for _, row in df.iterrows():
         element_code = row.get("Element Code")
@@ -308,6 +308,9 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Elements]:
             comp = components_lookup.get(code)
             if comp is None:
                 parse_error = f"Component '{code}' not found"; break
+            if any(c.name == comp.name for c in comps):
+                dup_warnings.append((element_code, comp.name))
+                continue
             comps.append(comp)
 
         if parse_error:
@@ -336,7 +339,7 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Elements]:
 
         results.append(element)
 
-    print(f"\nElement — loaded: {len(results)}, skipped: {len(skipped)}, no matches: {len(no_matches)}, Tabula warnings: {len(tabula_warnings)}")
+    print(f"\nElement — loaded: {len(results)}, skipped: {len(skipped)}, no matches: {len(no_matches)}, Tabula warnings: {len(tabula_warnings)}, dup warnings: {len(dup_warnings)}")
     if skipped:
         for name, reason in skipped:
             print(f"  '{name}': {reason}")
@@ -347,6 +350,10 @@ def load_elements(components_lookup: dict[str, Components]) -> list[Elements]:
     if tabula_warnings:
         for name, reason in tabula_warnings:
             print(f"  [TABULA] '{name}': {reason}")
+    if dup_warnings:
+        print(f"\n  Duplicate components (kept one):")
+        for element, component in dup_warnings:
+            print(f"  [DUP] '{element}': duplicate component '{component}'")
     return results
 
 def load_buildings(elements_lookup: dict[str, Elements]) -> list[Buildings]:

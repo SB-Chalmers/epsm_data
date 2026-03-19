@@ -30,7 +30,7 @@ def load_opaque_materials_from_excel(filename: str):
 
     required_columns = {
         "material name",
-        "energyplus identifier",
+        "honeybee identifier",
     }
 
     if not required_columns.issubset(df.columns):
@@ -46,7 +46,7 @@ def load_opaque_materials_from_excel(filename: str):
 
     for _, row in df.iterrows():
         material_name = row.get("material name")
-        ep_id = row.get("energyplus identifier")
+        ep_id = row.get("honeybee identifier")
 
         # Skip empty or NaN cells
         if pd.isna(material_name) or pd.isna(ep_id):

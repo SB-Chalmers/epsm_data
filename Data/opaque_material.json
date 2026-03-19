@@ -1912,5 +1912,17 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.65,
     "visible_absorptance": 0.65
+},
+"Air Wall (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Air Wall",
+    "roughness": "Smooth",
+    "thickness": 0.05,
+    "conductivity": 0.026,
+    "density": 1.2,
+    "specific_heat": 1005.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.0,
+    "visible_absorptance": 0.0
 }
 }

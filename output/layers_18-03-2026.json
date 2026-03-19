@@ -963,5 +963,211 @@
         "thickness": 0.3
       }
     ]
+  },
+  "CONCRETE_08_S": {
+    "name": "CONCRETE_08_S",
+    "layer_code": "CONCRETE_08_S",
+    "thickness": 0.08,
+    "is_composite": false,
+    "r_value": 0.034649,
+    "materials": [
+      {
+        "material_name": "concrete",
+        "area_fraction": 1.0,
+        "thickness": 0.08
+      }
+    ]
+  },
+  "WOOD_WOOL_BOARD_025_S": {
+    "name": "WOOD_WOOL_BOARD_025_S",
+    "layer_code": "WOOD_WOOL_BOARD_025_S",
+    "thickness": 0.025,
+    "is_composite": false,
+    "r_value": 0.108696,
+    "materials": [
+      {
+        "material_name": "wood_wool_board",
+        "area_fraction": 1.0,
+        "thickness": 0.025
+      }
+    ]
+  },
+  "CONCRETE_23_S": {
+    "name": "CONCRETE_23_S",
+    "layer_code": "CONCRETE_23_S",
+    "thickness": 0.23,
+    "is_composite": false,
+    "r_value": 0.099614,
+    "materials": [
+      {
+        "material_name": "concrete",
+        "area_fraction": 1.0,
+        "thickness": 0.23
+      }
+    ]
+  },
+  "MINERAL_WOOL_BLANKET_12_S": {
+    "name": "MINERAL_WOOL_BLANKET_12_S",
+    "layer_code": "MINERAL_WOOL_BLANKET_12_S",
+    "thickness": 0.12,
+    "is_composite": false,
+    "r_value": 2.450618,
+    "materials": [
+      {
+        "material_name": "mineral_wool_blanket",
+        "area_fraction": 1.0,
+        "thickness": 0.12
+      }
+    ]
+  },
+  "MINERAL_WOOL_CARPET_03_S": {
+    "name": "MINERAL_WOOL_CARPET_03_S",
+    "layer_code": "MINERAL_WOOL_CARPET_03_S",
+    "thickness": 0.03,
+    "is_composite": false,
+    "r_value": 0.612655,
+    "materials": [
+      {
+        "material_name": "mineral_wool_carpet",
+        "area_fraction": 1.0,
+        "thickness": 0.03
+      }
+    ]
+  },
+  "SAND_05_S": {
+    "name": "SAND_05_S",
+    "layer_code": "SAND_05_S",
+    "thickness": 0.05,
+    "is_composite": false,
+    "r_value": 0.151515,
+    "materials": [
+      {
+        "material_name": "sand",
+        "area_fraction": 1.0,
+        "thickness": 0.05
+      }
+    ]
+  },
+  "CELLULAR_PLASTIC_06_S": {
+    "name": "CELLULAR_PLASTIC_06_S",
+    "layer_code": "CELLULAR_PLASTIC_06_S",
+    "thickness": 0.06,
+    "is_composite": false,
+    "r_value": 0.375251,
+    "materials": [
+      {
+        "material_name": "cellular_plastic",
+        "area_fraction": 1.0,
+        "thickness": 0.06
+      }
+    ]
+  },
+  "GRAVEL_15_S": {
+    "name": "GRAVEL_15_S",
+    "layer_code": "GRAVEL_15_S",
+    "thickness": 0.15,
+    "is_composite": false,
+    "r_value": 0.05,
+    "materials": [
+      {
+        "material_name": "gravel",
+        "area_fraction": 1.0,
+        "thickness": 0.15
+      }
+    ]
+  },
+  "PLYWOOD_017_S": {
+    "name": "PLYWOOD_017_S",
+    "layer_code": "PLYWOOD_017_S",
+    "thickness": 0.017,
+    "is_composite": false,
+    "r_value": 0.141667,
+    "materials": [
+      {
+        "material_name": "plywood",
+        "area_fraction": 1.0,
+        "thickness": 0.017
+      }
+    ]
+  },
+  "MINERAL_WOOL_3_S": {
+    "name": "MINERAL_WOOL_3_S",
+    "layer_code": "MINERAL_WOOL_3_S",
+    "thickness": 0.3,
+    "is_composite": false,
+    "r_value": 10.006692,
+    "materials": [
+      {
+        "material_name": "mineral_wool",
+        "area_fraction": 1.0,
+        "thickness": 0.3
+      }
+    ]
+  },
+  "CONCRETE_19_S": {
+    "name": "CONCRETE_19_S",
+    "layer_code": "CONCRETE_19_S",
+    "thickness": 0.19,
+    "is_composite": false,
+    "r_value": 0.08229,
+    "materials": [
+      {
+        "material_name": "concrete",
+        "area_fraction": 1.0,
+        "thickness": 0.19
+      }
+    ]
+  },
+  "LIGHTWEIGHT_CONCRETE_MORTAR_3_C": {
+    "name": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C",
+    "layer_code": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C",
+    "thickness": 0.3,
+    "is_composite": true,
+    "r_value": 1.608,
+    "materials": [
+      {
+        "material_name": "lightweight_concrete",
+        "area_fraction": 0.95,
+        "thickness": 0.3
+      },
+      {
+        "material_name": "mortar",
+        "area_fraction": 0.05,
+        "thickness": 0.3
+      }
+    ]
+  },
+  "AIR_GAP_WOODEN_RAFTER_05_C": {
+    "name": "AIR_GAP_WOODEN_RAFTER_05_C",
+    "layer_code": "AIR_GAP_WOODEN_RAFTER_05_C",
+    "thickness": 0.05,
+    "is_composite": true,
+    "r_value": 1.628877,
+    "materials": [
+      {
+        "material_name": "air_gap",
+        "area_fraction": 0.95,
+        "thickness": 0.05
+      },
+      {
+        "material_name": "wooden_rafter",
+        "area_fraction": 0.05,
+        "thickness": 0.05
+      }
+    ]
+  },
+  "SAND_2_S": {
+    "name": "SAND_2_S",
+    "layer_code": "SAND_2_S",
+    "thickness": 0.2,
+    "is_composite": false,
+    "r_value": 0.606061,
+    "materials": [
+      {
+        "material_name": "sand",
+        "area_fraction": 1.0,
+        "thickness": 0.2
+      }
+    ]
   }
 }

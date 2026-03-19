@@ -43,9 +43,12 @@ class ShearingLayer(Enum):
 
 # Tabula reference U-values, make this into class maybe  #Add them in ######################
 TABULA_CMF = {
-    "CMF_1940": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, "basement_wall": 0.70 },
-    "CMF_1950": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, },
-    "CMF_1960": {"roof": 0.20, "wall": 0.41, "window": 2.22, "floor": 0.26},
+    "CMF_1940": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, "basement_wall": 0.70 },#...1960
+    "CMF_1950": {"roof": 0.36, "wall": 0.58, "window": 2.22, "floor": 0.32, "basement_wall": 0.70 },#...1960
+    "CMF_1960": {"roof": 0.20, "wall": 0.41, "window": 2.22, "floor": 0.26, "basement_wall": 0.70},# 1961 - 1975
+    "CMF_1970": {"roof": 0.20, "wall": 0.41, "window": 2.22, "floor": 0.26, "basement_wall": 0.70},# 1961 - 1975
+    "CMF_1980": {"roof": 0.17, "wall": 0.33, "window": 2.04, "floor": 0.27, "basement_wall": 0.70},# 1976 - 1985
+    "CMF_1990": {"roof": 0.15, "wall": 0.22, "window": 1.80, "floor": 0.24, "basement_wall": 0.70},# 1986 - 1995
 }
 
 ###########################################
