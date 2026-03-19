@@ -7,8 +7,8 @@
     "r_value": 1.27085,
     "materials": [
       {
-        "material_name": "wooden_beam",
-        "area_fraction": 1.0,
+        "material name": "wooden_beam",
+        "area fraction": 1.0,
         "thickness": 0.1524
       }
     ]
@@ -21,8 +21,8 @@
     "r_value": 0.847233,
     "materials": [
       {
-        "material_name": "wooden_rafter",
-        "area_fraction": 1.0,
+        "material name": "wooden_rafter",
+        "area fraction": 1.0,
         "thickness": 0.1016
       }
     ]
@@ -35,8 +35,8 @@
     "r_value": 0.316879,
     "materials": [
       {
-        "material_name": "wooden_panel",
-        "area_fraction": 1.0,
+        "material name": "wooden_panel",
+        "area fraction": 1.0,
         "thickness": 0.038
       }
     ]
@@ -49,8 +49,8 @@
     "r_value": 6.6e-05,
     "materials": [
       {
-        "material_name": "galvanized_sheet_metal",
-        "area_fraction": 1.0,
+        "material name": "galvanized_sheet_metal",
+        "area fraction": 1.0,
         "thickness": 0.003
       }
     ]
@@ -63,8 +63,8 @@
     "r_value": 0.283208,
     "materials": [
       {
-        "material_name": "granulated_blast_furnace_slag",
-        "area_fraction": 1.0,
+        "material name": "granulated_blast_furnace_slag",
+        "area fraction": 1.0,
         "thickness": 0.15
       }
     ]
@@ -77,8 +77,8 @@
     "r_value": 0.060635,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.14
       }
     ]
@@ -91,8 +91,8 @@
     "r_value": 0.064966,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.15
       }
     ]
@@ -105,13 +105,13 @@
     "r_value": 0.67,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.125
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.125
       }
     ]
@@ -124,8 +124,8 @@
     "r_value": 0.006949,
     "materials": [
       {
-        "material_name": "terrasit_plaster",
-        "area_fraction": 1.0,
+        "material name": "terrasit_plaster",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -138,8 +138,8 @@
     "r_value": 0.007232,
     "materials": [
       {
-        "material_name": "mortar",
-        "area_fraction": 1.0,
+        "material name": "mortar",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -152,8 +152,8 @@
     "r_value": 0.006949,
     "materials": [
       {
-        "material_name": "lime_plaster",
-        "area_fraction": 1.0,
+        "material name": "lime_plaster",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -166,13 +166,13 @@
     "r_value": 1.072,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.2
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.2
       }
     ]
@@ -185,8 +185,8 @@
     "r_value": 0.062542,
     "materials": [
       {
-        "material_name": "plastic_mat",
-        "area_fraction": 1.0,
+        "material name": "plastic_mat",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -199,8 +199,8 @@
     "r_value": 0.007232,
     "materials": [
       {
-        "material_name": "plaster",
-        "area_fraction": 1.0,
+        "material name": "plaster",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -213,8 +213,8 @@
     "r_value": 0.069297,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.16
       }
     ]
@@ -227,8 +227,8 @@
     "r_value": 6.6e-05,
     "materials": [
       {
-        "material_name": "metal_sheet",
-        "area_fraction": 1.0,
+        "material name": "metal_sheet",
+        "area fraction": 1.0,
         "thickness": 0.003
       }
     ]
@@ -241,8 +241,8 @@
     "r_value": 0.191795,
     "materials": [
       {
-        "material_name": "battens_1",
-        "area_fraction": 1.0,
+        "material name": "battens_1",
+        "area fraction": 1.0,
         "thickness": 0.023
       }
     ]
@@ -255,8 +255,8 @@
     "r_value": 0.191795,
     "materials": [
       {
-        "material_name": "battens_2",
-        "area_fraction": 1.0,
+        "material name": "battens_2",
+        "area fraction": 1.0,
         "thickness": 0.023
       }
     ]
@@ -269,8 +269,8 @@
     "r_value": 0.031271,
     "materials": [
       {
-        "material_name": "roofing_felt",
-        "area_fraction": 1.0,
+        "material name": "roofing_felt",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -283,8 +283,8 @@
     "r_value": 0.211808,
     "materials": [
       {
-        "material_name": "wooden_panel",
-        "area_fraction": 1.0,
+        "material name": "wooden_panel",
+        "area fraction": 1.0,
         "thickness": 0.0254
       }
     ]
@@ -297,13 +297,13 @@
     "r_value": 0.1454,
     "materials": [
       {
-        "material_name": "brick",
-        "area_fraction": 0.85,
+        "material name": "brick",
+        "area fraction": 0.85,
         "thickness": 0.125
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.15,
+        "material name": "mortar",
+        "area fraction": 0.15,
         "thickness": 0.125
       }
     ]
@@ -316,13 +316,13 @@
     "r_value": 2.437528,
     "materials": [
       {
-        "material_name": "mineral_wool",
-        "area_fraction": 0.9,
+        "material name": "mineral_wool",
+        "area fraction": 0.9,
         "thickness": 0.095
       },
       {
-        "material_name": "wooden_stud",
-        "area_fraction": 0.1,
+        "material name": "wooden_stud",
+        "area fraction": 0.1,
         "thickness": 0.095
       }
     ]
@@ -335,8 +335,8 @@
     "r_value": 0.18,
     "materials": [
       {
-        "material_name": "eternit_board",
-        "area_fraction": 1.0,
+        "material name": "eternit_board",
+        "area fraction": 1.0,
         "thickness": 0.09
       }
     ]
@@ -349,8 +349,8 @@
     "r_value": 0.052174,
     "materials": [
       {
-        "material_name": "asphalt_board",
-        "area_fraction": 1.0,
+        "material name": "asphalt_board",
+        "area fraction": 1.0,
         "thickness": 0.012
       }
     ]
@@ -363,8 +363,8 @@
     "r_value": 0.081304,
     "materials": [
       {
-        "material_name": "plaster_board",
-        "area_fraction": 1.0,
+        "material name": "plaster_board",
+        "area fraction": 1.0,
         "thickness": 0.013
       }
     ]
@@ -377,8 +377,8 @@
     "r_value": 0.062542,
     "materials": [
       {
-        "material_name": "linoleum",
-        "area_fraction": 1.0,
+        "material name": "linoleum",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -391,8 +391,8 @@
     "r_value": 0.9375,
     "materials": [
       {
-        "material_name": "leca",
-        "area_fraction": 1.0,
+        "material name": "leca",
+        "area fraction": 1.0,
         "thickness": 0.15
       }
     ]
@@ -405,8 +405,8 @@
     "r_value": 0.045485,
     "materials": [
       {
-        "material_name": "cardboard",
-        "area_fraction": 1.0,
+        "material name": "cardboard",
+        "area fraction": 1.0,
         "thickness": 0.005
       }
     ]
@@ -419,8 +419,8 @@
     "r_value": 0.612655,
     "materials": [
       {
-        "material_name": "mineral_wool_blanket",
-        "area_fraction": 1.0,
+        "material name": "mineral_wool_blanket",
+        "area fraction": 1.0,
         "thickness": 0.03
       }
     ]
@@ -433,8 +433,8 @@
     "r_value": 2.450618,
     "materials": [
       {
-        "material_name": "mineral_wool_carpet",
-        "area_fraction": 1.0,
+        "material name": "mineral_wool_carpet",
+        "area fraction": 1.0,
         "thickness": 0.12
       }
     ]
@@ -447,8 +447,8 @@
     "r_value": 0.062542,
     "materials": [
       {
-        "material_name": "roofing_felt",
-        "area_fraction": 1.0,
+        "material name": "roofing_felt",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -461,13 +461,13 @@
     "r_value": 0.804,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.15
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.15
       }
     ]
@@ -480,8 +480,8 @@
     "r_value": 0.02,
     "materials": [
       {
-        "material_name": "asbestos_cement_board",
-        "area_fraction": 1.0,
+        "material name": "asbestos_cement_board",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -494,8 +494,8 @@
     "r_value": 0.043478,
     "materials": [
       {
-        "material_name": "asphalt_board",
-        "area_fraction": 1.0,
+        "material name": "asphalt_board",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -508,13 +508,13 @@
     "r_value": 1.282909,
     "materials": [
       {
-        "material_name": "mineral_wool",
-        "area_fraction": 0.9,
+        "material name": "mineral_wool",
+        "area fraction": 0.9,
         "thickness": 0.05
       },
       {
-        "material_name": "wooden_stud",
-        "area_fraction": 0.1,
+        "material name": "wooden_stud",
+        "area fraction": 0.1,
         "thickness": 0.05
       }
     ]
@@ -527,8 +527,8 @@
     "r_value": 0.006254,
     "materials": [
       {
-        "material_name": "foil",
-        "area_fraction": 1.0,
+        "material name": "foil",
+        "area fraction": 1.0,
         "thickness": 0.001
       }
     ]
@@ -541,8 +541,8 @@
     "r_value": 0.333556,
     "materials": [
       {
-        "material_name": "battens_1",
-        "area_fraction": 1.0,
+        "material name": "battens_1",
+        "area fraction": 1.0,
         "thickness": 0.04
       }
     ]
@@ -555,8 +555,8 @@
     "r_value": 0.333556,
     "materials": [
       {
-        "material_name": "battens_2",
-        "area_fraction": 1.0,
+        "material name": "battens_2",
+        "area fraction": 1.0,
         "thickness": 0.04
       }
     ]
@@ -569,8 +569,8 @@
     "r_value": 0.250167,
     "materials": [
       {
-        "material_name": "wooden_panel",
-        "area_fraction": 1.0,
+        "material name": "wooden_panel",
+        "area fraction": 1.0,
         "thickness": 0.03
       }
     ]
@@ -583,8 +583,8 @@
     "r_value": 0.022894,
     "materials": [
       {
-        "material_name": "concrete_tile",
-        "area_fraction": 1.0,
+        "material name": "concrete_tile",
+        "area fraction": 1.0,
         "thickness": 0.03
       }
     ]
@@ -597,8 +597,8 @@
     "r_value": 2.419355,
     "materials": [
       {
-        "material_name": "wood_shavings",
-        "area_fraction": 1.0,
+        "material name": "wood_shavings",
+        "area fraction": 1.0,
         "thickness": 0.15
       }
     ]
@@ -611,8 +611,8 @@
     "r_value": 0.36388,
     "materials": [
       {
-        "material_name": "floorboard",
-        "area_fraction": 1.0,
+        "material name": "floorboard",
+        "area fraction": 1.0,
         "thickness": 0.04
       }
     ]
@@ -625,8 +625,8 @@
     "r_value": 0.625418,
     "materials": [
       {
-        "material_name": "coke_ash",
-        "area_fraction": 1.0,
+        "material name": "coke_ash",
+        "area fraction": 1.0,
         "thickness": 0.1
       }
     ]
@@ -639,8 +639,8 @@
     "r_value": 0.416946,
     "materials": [
       {
-        "material_name": "stud",
-        "area_fraction": 1.0,
+        "material name": "stud",
+        "area fraction": 1.0,
         "thickness": 0.05
       }
     ]
@@ -653,8 +653,8 @@
     "r_value": 0.250167,
     "materials": [
       {
-        "material_name": "vinyl_flooring",
-        "area_fraction": 1.0,
+        "material name": "vinyl_flooring",
+        "area fraction": 1.0,
         "thickness": 0.04
       }
     ]
@@ -667,8 +667,8 @@
     "r_value": 0.004579,
     "materials": [
       {
-        "material_name": "ceramic_tile",
-        "area_fraction": 1.0,
+        "material name": "ceramic_tile",
+        "area fraction": 1.0,
         "thickness": 0.006
       }
     ]
@@ -681,8 +681,8 @@
     "r_value": 0.187625,
     "materials": [
       {
-        "material_name": "waterproof_membrane",
-        "area_fraction": 1.0,
+        "material name": "waterproof_membrane",
+        "area fraction": 1.0,
         "thickness": 0.03
       }
     ]
@@ -695,8 +695,8 @@
     "r_value": 0.017324,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.04
       }
     ]
@@ -709,13 +709,13 @@
     "r_value": 1.34,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.25
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.25
       }
     ]
@@ -728,8 +728,8 @@
     "r_value": 0.086621,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.2
       }
     ]
@@ -742,8 +742,8 @@
     "r_value": 0.014465,
     "materials": [
       {
-        "material_name": "plaster",
-        "area_fraction": 1.0,
+        "material name": "plaster",
+        "area fraction": 1.0,
         "thickness": 0.01
       }
     ]
@@ -756,8 +756,8 @@
     "r_value": 0.030317,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.07
       }
     ]
@@ -770,13 +770,13 @@
     "r_value": 0.232641,
     "materials": [
       {
-        "material_name": "brick",
-        "area_fraction": 0.85,
+        "material name": "brick",
+        "area fraction": 0.85,
         "thickness": 0.2
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.15,
+        "material name": "mortar",
+        "area fraction": 0.15,
         "thickness": 0.2
       }
     ]
@@ -789,13 +789,13 @@
     "r_value": 1.796073,
     "materials": [
       {
-        "material_name": "mineral_wool",
-        "area_fraction": 0.9,
+        "material name": "mineral_wool",
+        "area fraction": 0.9,
         "thickness": 0.07
       },
       {
-        "material_name": "wooden_stud",
-        "area_fraction": 0.1,
+        "material name": "wooden_stud",
+        "area fraction": 0.1,
         "thickness": 0.07
       }
     ]
@@ -808,8 +808,8 @@
     "r_value": 0.081304,
     "materials": [
       {
-        "material_name": "gypsum_board",
-        "area_fraction": 1.0,
+        "material name": "gypsum_board",
+        "area fraction": 1.0,
         "thickness": 0.013
       }
     ]
@@ -822,13 +822,13 @@
     "r_value": 0.179607,
     "materials": [
       {
-        "material_name": "mineral_wool",
-        "area_fraction": 0.9,
+        "material name": "mineral_wool",
+        "area fraction": 0.9,
         "thickness": 0.007
       },
       {
-        "material_name": "wooden_stud",
-        "area_fraction": 0.1,
+        "material name": "wooden_stud",
+        "area fraction": 0.1,
         "thickness": 0.007
       }
     ]
@@ -841,8 +841,8 @@
     "r_value": 0.012508,
     "materials": [
       {
-        "material_name": "linoleum",
-        "area_fraction": 1.0,
+        "material name": "linoleum",
+        "area fraction": 1.0,
         "thickness": 0.002
       }
     ]
@@ -855,8 +855,8 @@
     "r_value": 0.185714,
     "materials": [
       {
-        "material_name": "woodfiber_board",
-        "area_fraction": 1.0,
+        "material name": "woodfiber_board",
+        "area fraction": 1.0,
         "thickness": 0.013
       }
     ]
@@ -869,8 +869,8 @@
     "r_value": 0.217391,
     "materials": [
       {
-        "material_name": "concrete_mixed_with_sawdust",
-        "area_fraction": 1.0,
+        "material name": "concrete_mixed_with_sawdust",
+        "area fraction": 1.0,
         "thickness": 0.05
       }
     ]
@@ -883,8 +883,8 @@
     "r_value": 0.500335,
     "materials": [
       {
-        "material_name": "coke_ash",
-        "area_fraction": 1.0,
+        "material name": "coke_ash",
+        "area fraction": 1.0,
         "thickness": 0.08
       }
     ]
@@ -897,8 +897,8 @@
     "r_value": 5.003346,
     "materials": [
       {
-        "material_name": "coke_ash",
-        "area_fraction": 1.0,
+        "material name": "coke_ash",
+        "area fraction": 1.0,
         "thickness": 0.8
       }
     ]
@@ -911,8 +911,8 @@
     "r_value": 0.021655,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.05
       }
     ]
@@ -925,8 +925,8 @@
     "r_value": 0.072324,
     "materials": [
       {
-        "material_name": "plaster",
-        "area_fraction": 1.0,
+        "material name": "plaster",
+        "area fraction": 1.0,
         "thickness": 0.05
       }
     ]
@@ -939,13 +939,13 @@
     "r_value": 0.536,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.1
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.1
       }
     ]
@@ -958,8 +958,8 @@
     "r_value": 0.129932,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.3
       }
     ]
@@ -972,8 +972,8 @@
     "r_value": 0.034649,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.08
       }
     ]
@@ -986,8 +986,8 @@
     "r_value": 0.108696,
     "materials": [
       {
-        "material_name": "wood_wool_board",
-        "area_fraction": 1.0,
+        "material name": "wood_wool_board",
+        "area fraction": 1.0,
         "thickness": 0.025
       }
     ]
@@ -1000,8 +1000,8 @@
     "r_value": 0.099614,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.23
       }
     ]
@@ -1014,8 +1014,8 @@
     "r_value": 2.450618,
     "materials": [
       {
-        "material_name": "mineral_wool_blanket",
-        "area_fraction": 1.0,
+        "material name": "mineral_wool_blanket",
+        "area fraction": 1.0,
         "thickness": 0.12
       }
     ]
@@ -1028,8 +1028,8 @@
     "r_value": 0.612655,
     "materials": [
       {
-        "material_name": "mineral_wool_carpet",
-        "area_fraction": 1.0,
+        "material name": "mineral_wool_carpet",
+        "area fraction": 1.0,
         "thickness": 0.03
       }
     ]
@@ -1042,8 +1042,8 @@
     "r_value": 0.151515,
     "materials": [
       {
-        "material_name": "sand",
-        "area_fraction": 1.0,
+        "material name": "sand",
+        "area fraction": 1.0,
         "thickness": 0.05
       }
     ]
@@ -1056,8 +1056,8 @@
     "r_value": 0.375251,
     "materials": [
       {
-        "material_name": "cellular_plastic",
-        "area_fraction": 1.0,
+        "material name": "cellular_plastic",
+        "area fraction": 1.0,
         "thickness": 0.06
       }
     ]
@@ -1070,8 +1070,8 @@
     "r_value": 0.05,
     "materials": [
       {
-        "material_name": "gravel",
-        "area_fraction": 1.0,
+        "material name": "gravel",
+        "area fraction": 1.0,
         "thickness": 0.15
       }
     ]
@@ -1084,8 +1084,8 @@
     "r_value": 0.141667,
     "materials": [
       {
-        "material_name": "plywood",
-        "area_fraction": 1.0,
+        "material name": "plywood",
+        "area fraction": 1.0,
         "thickness": 0.017
       }
     ]
@@ -1098,8 +1098,8 @@
     "r_value": 10.006692,
     "materials": [
       {
-        "material_name": "mineral_wool",
-        "area_fraction": 1.0,
+        "material name": "mineral_wool",
+        "area fraction": 1.0,
         "thickness": 0.3
       }
     ]
@@ -1112,8 +1112,8 @@
     "r_value": 0.08229,
     "materials": [
       {
-        "material_name": "concrete",
-        "area_fraction": 1.0,
+        "material name": "concrete",
+        "area fraction": 1.0,
         "thickness": 0.19
       }
     ]
@@ -1126,13 +1126,13 @@
     "r_value": 1.608,
     "materials": [
       {
-        "material_name": "lightweight_concrete",
-        "area_fraction": 0.95,
+        "material name": "lightweight_concrete",
+        "area fraction": 0.95,
         "thickness": 0.3
       },
       {
-        "material_name": "mortar",
-        "area_fraction": 0.05,
+        "material name": "mortar",
+        "area fraction": 0.05,
         "thickness": 0.3
       }
     ]
@@ -1145,13 +1145,13 @@
     "r_value": 1.628877,
     "materials": [
       {
-        "material_name": "air_gap",
-        "area_fraction": 0.95,
+        "material name": "air_gap",
+        "area fraction": 0.95,
         "thickness": 0.05
       },
       {
-        "material_name": "wooden_rafter",
-        "area_fraction": 0.05,
+        "material name": "wooden_rafter",
+        "area fraction": 0.05,
         "thickness": 0.05
       }
     ]
@@ -1164,8 +1164,8 @@
     "r_value": 0.606061,
     "materials": [
       {
-        "material_name": "sand",
-        "area_fraction": 1.0,
+        "material name": "sand",
+        "area fraction": 1.0,
         "thickness": 0.2
       }
     ]

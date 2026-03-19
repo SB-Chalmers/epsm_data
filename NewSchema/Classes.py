@@ -33,7 +33,7 @@ class BuildingElement(Enum): ## translate more properlyy
                 return member
         return None
 
-# Brands Shearing Layers 
+# Brand's Shearing Layers 
 class ShearingLayer(Enum):
     Skin = "Skin"
     Structure = "Structure"
@@ -79,10 +79,6 @@ class EmbodiedCarbon:
             raise ValueError(
                 "A1-A3 conservative value cannot be lower than typical value."
             )
-        # if not (1 <= self.technical_service_life <= 200):
-        #     raise ValueError(
-        #         "Technical service life must be between 1 and 200 years."
-        #     ) # need to convert from string :))))
         
     def to_dict(self) -> dict:
         return {
@@ -261,8 +257,8 @@ class Layer:
             "r_value": round(self.r_value, 6),
             "materials": [
                 {
-                    "material_name": mat.name,  # reference by name, not nested
-                    "area_fraction": frac,
+                    "material name": mat.name,  # reference by name, not nested
+                    "area fraction": frac,
                     "thickness": t,
                 }
                 for mat, frac, t in self.materials

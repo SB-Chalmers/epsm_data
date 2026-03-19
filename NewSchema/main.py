@@ -6,8 +6,6 @@ from InstanceLoader import (
 from Exporter import export_all
 from DBExporter import export_to_db
 
-from TabulaCheck import analyse_tabula_failures 
-
 if __name__ == "__main__":
     opaque_materials = load_opaque_materials()
     
@@ -20,7 +18,6 @@ if __name__ == "__main__":
     components_lookup = {comp.name: comp for comp in components}
     elements = load_elements(components_lookup)
 
-    analyse_tabula_failures(elements)
     elements_lookup = {el.name: el for el in elements}
     buildings = load_buildings(elements_lookup)
     
