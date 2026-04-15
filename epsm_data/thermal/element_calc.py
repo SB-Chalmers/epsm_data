@@ -1,11 +1,57 @@
-"""Element thermal calculations placeholder.
+"""Element-level thermal calculations.
 
-Expected contents:
-- Apply interior/exterior boundary resistances by element application.
-- Compute final element U-value and diagnostics.
+Applies boundary resistances, computes final U-value, and validates
+against TABULA reference data.
 """
 
+from __future__ import annotations
 
-def compute_element_u_value(*args, **kwargs):
-    """Return final U-value and detailed breakdown."""
-    raise NotImplementedError("Implement element thermal calculations")
+from dataclasses import dataclass
+
+from epsm_data.domain.element import Element
+
+from .boundary_conditions import get_boundary_resistances
+from .component_calc import ComponentThermalResult, compute_component_thermal
+from .standards import validate_against_reference
+
+
+@dataclass
+class ElementThermalResult:
+    """Full thermal breakdown for an element."""
+
+    element_name: str
+    archetype: str
+    application: str
+    rsi: float  # m²·K/W
+    rse: float  # m²·K/W
+    r_total: float  # m²·K/W  (rsi + components + rse)
+    u_value: float  # W/(m²·K)
+    tabula_u_value: float | None
+    tabula_warning: str | None
+    component_results: list[ComponentThermalResult]
+
+
+def compute_element_thermal(element: Element) -> ElementThermalResult:
+    """Compute the full thermal profile for an element.
+
+    Includes boundary resistances, per-component breakdown, and
+    TABULA reference validation.
+    """
+    rsi, rse = get_boundary_resistances(element.application)
+    comp_results = [compute_component_thermal(c) for c in element.components]
+
+    r_total = rsi + sum(cr.r_sum for cr in comp_results) + rse
+    u_value = 1.0 / r_total if r_total > 0 else float("inf")
+
+    return ElementThermalResult(
+        element_name=element.name,
+        archetype=element.archetype,
+        application=element.application.value,
+        rsi=rsi,
+        rse=rse,
+        r_total=r_total,
+        u_value=u_value,
+        tabula_u_value=element.tabula_u_value,
+        tabula_warning=validate_against_reference(element),
+        component_results=comp_results,
+    )
