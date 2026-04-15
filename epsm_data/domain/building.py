@@ -3,141 +3,142 @@
 The BuildingArchetype is the central stateful container in THIS library.
 It is a reusable template — NOT a geolocated building instance.
 
-─────────────────────────────────────────────────────────────────────
-ARCHITECTURAL BOUNDARY
-─────────────────────────────────────────────────────────────────────
-epsm_data defines *archetypes*: material stacks, thermal properties,
-renovation histories, and aging behavior — independent of geometry,
-orientation, climate zone, or site.
-
 A downstream library (e.g. building_sim) instantiates a
-*GeolocatedBuilding* by combining:
+GeolocatedBuilding by combining:
 
     GeolocatedBuilding = BuildingArchetype + FootprintGeometry + SiteContext
 
-This means the archetype must expose a clean, serializable contract
-that the downstream library can consume without importing epsm_data
-internals.
+The archetype exposes a clean, serializable consumption contract that
+downstream libraries consume without importing epsm_data internals.
+"""
 
-─────────────────────────────────────────────────────────────────────
-CORE CONCEPT
-─────────────────────────────────────────────────────────────────────
-A BuildingArchetype holds a *construction set* — the full collection
-of elements that define its thermal envelope and internal partitions
-at a point in time.  Renovation measures mutate the construction set
-and produce a new version while preserving the previous one.
+from __future__ import annotations
 
-─────────────────────────────────────────────────────────────────────
-DATASTRUCTURE GUIDANCE
-─────────────────────────────────────────────────────────────────────
+from dataclasses import dataclass, field
+from uuid import UUID, uuid4
 
-class BuildingArchetype:
-    # ── identity ──
-    archetype_id: str                  # e.g. "CMF_1950"
-    display_name: str                  # human-readable label
-    construction_year: int             # original year built
-    building_typology: str             # e.g. "multi_family" | "single_family"
-
-    # ── current construction set (mutable over time) ──
-    construction_set: ConstructionSet  # see below
-
-    # ── renovation history (append-only log) ──
-    renovation_log: list[RenovationEvent]  # ordered by applied_year
-
-    # ── derived / cached ──
-    @property
-    def current_year(self) -> int:
-        '''Latest year reflected in the state (construction_year + events).'''
-        ...
-
-    @property
-    def envelope_u_values(self) -> dict[str, float]:
-        '''Current U-values keyed by element role.'''
-        ...
-
-    def to_consumption_contract(self) -> dict:
-        '''Export archetype state as a flat, serializable dict that the
-        downstream geolocated-building library can consume.
-
-        Must include:
-        - archetype_id, construction_year
-        - per-element-role: U-value, component list, layer stack
-        - renovation_log summary
-        - service-life metadata per component
-        - degradation state / performance factors
-        '''
-        ...
+from .element import Element
+from .enums import BuildingElement
 
 
+@dataclass(frozen=True)
 class ConstructionSet:
-    '''Immutable snapshot of the archetype's physical makeup at one point.
+    """Immutable snapshot of the archetype's physical makeup at one point."""
 
     version_id: UUID
     valid_from_year: int
-    elements: dict[BuildingElement, Element]   # role -> element instance
-    '''
-    ...
+    elements: dict[BuildingElement, Element]  # role -> element
+
+    def to_dict(self) -> dict:
+        return {
+            "version_id": str(self.version_id),
+            "valid_from_year": self.valid_from_year,
+            "elements": {
+                role.value: elem.to_dict() for role, elem in self.elements.items()
+            },
+        }
 
 
+@dataclass(frozen=True)
 class RenovationEvent:
-    '''One applied measure with full provenance.
+    """One applied renovation measure with provenance."""
 
-    measure_id: str               # catalog key, e.g. "ventilation.install_ftx"
+    measure_id: str  # catalog key, e.g. "ventilation.install_ftx"
     applied_year: int
-    trigger: str                  # "end_of_life" | "policy" | "piggyback" | "user"
-    removed_components: list      # what was taken out
-    added_components: list        # what was put in
-    construction_set_before: UUID # version ref
-    construction_set_after: UUID  # version ref
-    cost_sek: float | None
-    embodied_carbon_delta: float | None
-    '''
-    ...
+    trigger: str  # "end_of_life" | "policy" | "piggyback" | "user"
+    removed_components: tuple[str, ...]  # component names removed
+    added_components: tuple[str, ...]  # component names added
+    construction_set_before: UUID
+    construction_set_after: UUID
+    cost_sek: float | None = None
+    embodied_carbon_delta: float | None = None
 
-─────────────────────────────────────────────────────────────────────
-DOWNSTREAM CONSUMPTION CONTRACT
-─────────────────────────────────────────────────────────────────────
-The downstream library should be able to do:
+    def to_dict(self) -> dict:
+        return {
+            "measure_id": self.measure_id,
+            "applied_year": self.applied_year,
+            "trigger": self.trigger,
+            "removed_components": list(self.removed_components),
+            "added_components": list(self.added_components),
+            "construction_set_before": str(self.construction_set_before),
+            "construction_set_after": str(self.construction_set_after),
+            "cost_sek": self.cost_sek,
+            "embodied_carbon_delta": self.embodied_carbon_delta,
+        }
 
-    from epsm_data import load_archetype
 
-    archetype = load_archetype("CMF_1950")
-    contract  = archetype.to_consumption_contract()
+@dataclass
+class BuildingArchetype:
+    """Central container: archetype identity + construction set + renovation log."""
 
-    # In downstream library:
-    building = GeolocatedBuilding(
-        archetype=contract,
-        footprint=footprint_polygon,
-        orientation_deg=45,
-        climate_zone="Stockholm",
-        num_floors=4,
-        heated_area_m2=2400,
+    archetype_id: str  # e.g. "CMF_1950"
+    display_name: str
+    construction_year: int
+    building_typology: str  # e.g. "multi_family" | "single_family"
+    construction_set: ConstructionSet
+    renovation_log: list[RenovationEvent] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if not self.construction_set.elements:
+            raise ValueError(
+                f"Building '{self.archetype_id}': construction set has no elements."
+            )
+
+    @property
+    def current_year(self) -> int:
+        """Latest year reflected in the archetype state."""
+        if self.renovation_log:
+            return max(e.applied_year for e in self.renovation_log)
+        return self.construction_year
+
+    @property
+    def envelope_u_values(self) -> dict[str, float]:
+        """Current U-values keyed by element role."""
+        return {
+            role.value: elem.u_value
+            for role, elem in self.construction_set.elements.items()
+        }
+
+    @property
+    def total_elements(self) -> int:
+        return len(self.construction_set.elements)
+
+    def to_consumption_contract(self) -> dict:
+        """Export archetype state as a flat, serializable dict.
+
+        Self-contained — no object references back into epsm_data.
+        """
+        return {
+            "archetype_id": self.archetype_id,
+            "display_name": self.display_name,
+            "construction_year": self.construction_year,
+            "building_typology": self.building_typology,
+            "current_year": self.current_year,
+            "envelope_u_values": self.envelope_u_values,
+            "construction_set": self.construction_set.to_dict(),
+            "renovation_log": [e.to_dict() for e in self.renovation_log],
+        }
+
+    def to_dict(self) -> dict:
+        """Simplified dict for JSON export (backwards-compatible with NewSchema)."""
+        return {
+            "name": self.archetype_id,
+            "age": self.construction_year,
+            "total_elements": self.total_elements,
+            "elements": [
+                {"element_name": elem.name, "element_type": role.value}
+                for role, elem in self.construction_set.elements.items()
+            ],
+        }
+
+
+def build_construction_set(
+    elements: dict[BuildingElement, Element],
+    construction_year: int,
+) -> ConstructionSet:
+    """Convenience factory for the initial construction set."""
+    return ConstructionSet(
+        version_id=uuid4(),
+        valid_from_year=construction_year,
+        elements=elements,
     )
-    results = building.run_energy_simulation()
-
-The contract dict must be self-contained — no object references back
-into epsm_data internals.
-
-─────────────────────────────────────────────────────────────────────
-KEY DESIGN RULES
-─────────────────────────────────────────────────────────────────────
-1. The BuildingArchetype must hold ACTUAL Element/Component objects,
-   not just name strings.  U-values must be computable at any point.
-
-2. ConstructionSet is immutable.  Applying a measure creates a NEW
-   ConstructionSet and appends a RenovationEvent to the log.
-
-3. The renovation_log is the audit trail.  It must never be cleared.
-
-4. Multiple scenarios can share the same archetype identity but diverge
-   at different RenovationEvents (branching history).
-
-5. The consumption contract is the ONLY coupling point between
-   epsm_data and the downstream geolocated-building library.
-   Keep it stable and versioned.
-"""
-
-
-def define_building_archetype_model() -> None:
-    """Implement BuildingArchetype model per guidance above."""
-    raise NotImplementedError("Define BuildingArchetype in domain/building.py")
