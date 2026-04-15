@@ -205,7 +205,6 @@ def assemble_elements(
             continue
 
         comps: list[Component] = []
-        error: str | None = None
         seen: set[str] = set()
 
         for code in row.component_codes:
@@ -214,13 +213,13 @@ def assemble_elements(
             seen.add(code)
             comp = comp_lookup.get(code)
             if comp is None:
-                error = f"Component '{code}' not found"
-                break
+                logger.warning(
+                    "%s: component '%s' not loaded — skipping component",
+                    row.element_code, code,
+                )
+                continue
             comps.append(comp)
 
-        if error:
-            skipped.append((row.element_code, error))
-            continue
         if not comps:
             skipped.append((row.element_code, "No components found"))
             continue

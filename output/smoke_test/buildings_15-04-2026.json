@@ -45,7 +45,7 @@
   "CMF_1950": {
     "name": "CMF_1950",
     "age": 1950,
-    "total_elements": 10,
+    "total_elements": 11,
     "elements": [
       {
         "element_name": "CMF_1950_ROOF",
@@ -86,6 +86,10 @@
       {
         "element_name": "CMF_1950_INT_WALL_LOADBEARING",
         "element_type": "INT_WALL_LOADBEARING"
+      },
+      {
+        "element_name": "CMF_1950_INT_WALL_NONLOADBEARING",
+        "element_type": "INT_WALL_NONLOADBEARING"
       }
     ]
   },
@@ -127,8 +131,12 @@
   "CMF_1960_2": {
     "name": "CMF_1960_2",
     "age": 1960,
-    "total_elements": 7,
+    "total_elements": 8,
     "elements": [
+      {
+        "element_name": "CMF_1960_2_ROOF",
+        "element_type": "ROOF"
+      },
       {
         "element_name": "CMF_1960_2_TOP_FLOOR",
         "element_type": "TOP_FLOOR"

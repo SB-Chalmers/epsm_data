@@ -157,6 +157,7 @@
       "BASEMENT_FLOOR": 3.3340900626270504,
       "BASEMENT_WALL": 1.2502287186520114,
       "INT_WALL_LOADBEARING": 2.884993153267904,
+      "INT_WALL_NONLOADBEARING": 3.0091152945231694,
       "wall": 0.845561997866285
     },
     "roof": [
@@ -531,6 +532,7 @@
   "CMF_1960_2": {
     "construction_year": 1960,
     "u_values": {
+      "ROOF": 2.071356470787869,
       "TOP_FLOOR": 0.30279448213851723,
       "INTERMEDIATE_FLOOR": 0.8491386858351029,
       "GROUND_FLOOR": 0.9194016409377493,
@@ -540,6 +542,30 @@
       "wall": 0.40086440717183836
     },
     "roof": [
+      {
+        "name": "metal_sheet",
+        "thickness": 0.003,
+        "conductivity": 45.2497,
+        "density": 7824.0179,
+        "specific_heat": 499.6776,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "roofing_felt",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "wooden_panel",
+        "thickness": 0.03,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
       {
         "name": "mineral_wool_carpet",
         "thickness": 0.12,

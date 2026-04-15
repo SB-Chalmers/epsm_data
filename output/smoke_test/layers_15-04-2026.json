@@ -776,6 +776,20 @@
       }
     ]
   },
+  "ROOFING_FELT_01_S": {
+    "name": "ROOFING_FELT_01_S",
+    "layer_code": "ROOFING_FELT_01_S",
+    "thickness": 0.01,
+    "is_composite": false,
+    "r_value": 0.062542,
+    "materials": [
+      {
+        "material_name": "roofing_felt",
+        "area_fraction": 1.0,
+        "thickness": 0.01
+      }
+    ]
+  },
   "SAND_05_S": {
     "name": "SAND_05_S",
     "layer_code": "SAND_05_S",

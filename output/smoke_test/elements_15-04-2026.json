@@ -283,6 +283,20 @@
       "CMF_1950_INT_WALL_LOADBEARING_STRUCTURE"
     ]
   },
+  "CMF_1950_INT_WALL_NONLOADBEARING": {
+    "name": "CMF_1950_INT_WALL_NONLOADBEARING",
+    "archetype": "CMF_1950",
+    "age": 1950,
+    "application": "INT_WALL_NONLOADBEARING",
+    "u_value": 3.009115,
+    "tabula_u_value": null,
+    "tabula_warning": "Pass",
+    "r_total": 0.332324,
+    "total_components": 1,
+    "components": [
+      "CMF_1950_INT_WALL_NONLOADBEARING_SKIN"
+    ]
+  },
   "CMF_1960_1_ROOF": {
     "name": "CMF_1960_1_ROOF",
     "archetype": "CMF_1960_1",
@@ -387,6 +401,20 @@
     "components": [
       "CMF_1960_1_INT_WALL_NONLOADBEARING_SPACE",
       "CMF_1960_1_INT_WALL_NONLOADBEARING_STRUCTURE"
+    ]
+  },
+  "CMF_1960_2_ROOF": {
+    "name": "CMF_1960_2_ROOF",
+    "archetype": "CMF_1960_2",
+    "age": 1960,
+    "application": "ROOF",
+    "u_value": 2.071356,
+    "tabula_u_value": 0.2,
+    "tabula_warning": "U-value 2.0714 outside TABULA range (+/-20%) of 0.2 for CMF_1960 roof",
+    "r_total": 0.482775,
+    "total_components": 1,
+    "components": [
+      "CMF_1960_2_ROOF_SKIN"
     ]
   },
   "CMF_1960_2_TOP_FLOOR": {

@@ -617,6 +617,20 @@
       }
     ]
   },
+  "CMF_1950_INT_WALL_NONLOADBEARING_SKIN": {
+    "name": "CMF_1950_INT_WALL_NONLOADBEARING_SKIN",
+    "archetype": "CMF_1950",
+    "application": "INT_WALL_NONLOADBEARING",
+    "shearing_layer": "Skin",
+    "r_sum": 0.072324,
+    "thickness": 0.05,
+    "layers": [
+      {
+        "layer_code": "PLASTER_05_S",
+        "layer_index": 0
+      }
+    ]
+  },
   "CMF_1960_1_ROOF_SKIN": {
     "name": "CMF_1960_1_ROOF_SKIN",
     "archetype": "CMF_1960_1",
@@ -876,6 +890,28 @@
       {
         "layer_code": "MINERAL_WOOL_WOODEN_STUD_07_C",
         "layer_index": 0
+      }
+    ]
+  },
+  "CMF_1960_2_ROOF_SKIN": {
+    "name": "CMF_1960_2_ROOF_SKIN",
+    "archetype": "CMF_1960_2",
+    "application": "ROOF",
+    "shearing_layer": "Skin",
+    "r_sum": 0.312775,
+    "thickness": 0.043,
+    "layers": [
+      {
+        "layer_code": "METAL_SHEET_003_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "ROOFING_FELT_01_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "WOODEN_PANEL_03_S",
+        "layer_index": 2
       }
     ]
   },
