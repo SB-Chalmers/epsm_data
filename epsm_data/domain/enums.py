@@ -1,17 +1,76 @@
-"""Domain enums placeholder.
+"""Domain enumerations used across the epsm_data library."""
 
-Expected contents:
-- BuildingElement
-- ShearingLayer
-- Roughness
-- RenovationMeasureType
-- ComponentState
-"""
+from __future__ import annotations
 
 from enum import Enum
 
 
-class PlaceholderEnum(Enum):
-    """Replace this enum with domain-specific enumerations."""
+class Roughness(Enum):
+    """Material surface texture (EnergyPlus convention)."""
 
-    TODO = "TODO"
+    SMOOTH = "Smooth"
+    MEDIUM_SMOOTH = "MediumSmooth"
+    MEDIUM_ROUGH = "MediumRough"
+    ROUGH = "Rough"
+    VERY_ROUGH = "VeryRough"
+
+
+class BuildingElement(Enum):
+    """Role a component/element plays within the building envelope."""
+
+    ROOF = "ROOF"
+    TOP_FLOOR = "TOP_FLOOR"
+    INTERMEDIATE_FLOOR = "INTERMEDIATE_FLOOR"
+    GROUND_FLOOR = "GROUND_FLOOR"
+    BASEMENT_FLOOR = "BASEMENT_FLOOR"
+    EXT_WALL = "EXT_WALL"
+    EXT_WALL_LOW = "EXT_WALL_LOW"
+    EXT_WALL_MEDIUM = "EXT_WALL_MEDIUM"
+    EXT_WALL_HIGH = "EXT_WALL_HIGH"
+    BASEMENT_WALL = "BASEMENT_WALL"
+    INT_WALL_LOADBEARING = "INT_WALL_LOADBEARING"
+    INT_WALL_NONLOADBEARING = "INT_WALL_NONLOADBEARING"
+
+    @classmethod
+    def from_name(cls, name: str) -> BuildingElement | None:
+        """Match by value, longest-first to avoid partial hits."""
+        upper = name.strip().upper()
+        for member in sorted(cls, key=lambda m: len(m.value), reverse=True):
+            if member.value == upper:
+                return member
+        return None
+
+
+class ShearingLayer(Enum):
+    """Brand's shearing layers of change."""
+
+    SKIN = "Skin"
+    STRUCTURE = "Structure"
+    SERVICES = "Services"
+    SPACE = "Space"
+    STUFF = "Stuff"
+
+    # Ordered from outermost to innermost (useful for sorting).
+    @classmethod
+    def sort_order(cls) -> list[ShearingLayer]:
+        return [cls.SKIN, cls.SPACE, cls.STRUCTURE, cls.SERVICES, cls.STUFF]
+
+
+class ComponentState(Enum):
+    """Lifecycle state of a component."""
+
+    ORIGINAL = "original"
+    RENOVATED = "renovated"
+    DEGRADED = "degraded"
+    REPLACED = "replaced"
+
+
+class RenovationMeasureType(Enum):
+    """Category of renovation measure."""
+
+    INSULATION_ADD = "insulation_add"
+    INSULATION_REPLACE = "insulation_replace"
+    WINDOW_REPLACE = "window_replace"
+    ROOF_REPLACE = "roof_replace"
+    VENTILATION_INSTALL_FTX = "ventilation_install_ftx"
+    FACADE_RECLADDING = "facade_recladding"
