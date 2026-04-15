@@ -80,6 +80,7 @@ class ElementRow:
     element_code: str
     element_type: str
     archetype: str
+    construction_year: int
     component_codes: tuple[str, ...]
 
 
@@ -88,6 +89,7 @@ class BuildingRow:
     """Row from the Building sheet."""
 
     archetype: str
+    construction_year: int
     multiple_ext_walls: bool
     element_assignments: tuple[tuple[str, str], ...]  # (role, element_code)
 

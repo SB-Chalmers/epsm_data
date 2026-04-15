@@ -25,6 +25,14 @@ from .dto import (
 
 logger = logging.getLogger(__name__)
 
+
+def _parse_construction_year(archetype: str) -> int | None:
+    """Extract a 4-digit year from an archetype name (e.g. 'CMF_1960_1' → 1960)."""
+    for part in archetype.split("_"):
+        if part.isdigit() and len(part) == 4:
+            return int(part)
+    return None
+
 # ── column templates per sheet ────────────────────────────────────
 
 _MATERIAL_COLS = [
@@ -290,6 +298,11 @@ def read_element_sheet(path: Path) -> ReadResult[ElementRow]:
         archetype = _clean(row.get("Archetype")) or ""
         el_type = (_clean(row.get("Element Type")) or "").upper()
 
+        year = _parse_construction_year(archetype)
+        if year is None:
+            skipped.append((code, f"Could not parse year from '{archetype}'"))
+            continue
+
         comp_codes: list[str] = []
         no_match = False
 
@@ -314,6 +327,7 @@ def read_element_sheet(path: Path) -> ReadResult[ElementRow]:
                 element_code=code,
                 element_type=el_type,
                 archetype=archetype,
+                construction_year=year,
                 component_codes=tuple(comp_codes),
             )
         )
@@ -338,6 +352,11 @@ def read_building_sheet(path: Path) -> ReadResult[BuildingRow]:
         if not archetype:
             continue
 
+        year = _parse_construction_year(archetype)
+        if year is None:
+            skipped.append((archetype, f"Could not parse year from '{archetype}'"))
+            continue
+
         multi = str(row.get("Multiple Ext Walls", "")).strip().lower() == "yes"
 
         assignments: list[tuple[str, str]] = []
@@ -354,6 +373,7 @@ def read_building_sheet(path: Path) -> ReadResult[BuildingRow]:
         records.append(
             BuildingRow(
                 archetype=archetype,
+                construction_year=year,
                 multiple_ext_walls=multi,
                 element_assignments=tuple(assignments),
             )

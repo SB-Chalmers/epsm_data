@@ -12,6 +12,21 @@ from typing import Tuple
 from .material import OpaqueMaterial
 
 
+def resolve_fractions(raw: list[float | None]) -> list[float]:
+    """Fill in missing area fractions so they sum to 1.0."""
+    missing = [i for i, f in enumerate(raw) if f is None]
+    if not missing:
+        return list(raw)  # type: ignore[arg-type]
+    known_sum = sum(f for f in raw if f is not None)
+    if known_sum > 1.0:
+        raise ValueError(f"Known fractions sum to {known_sum:.4f}, exceeds 1.0.")
+    fill = (1.0 - known_sum) / len(missing)
+    result = list(raw)
+    for i in missing:
+        result[i] = fill
+    return result  # type: ignore[return-value]
+
+
 @dataclass(frozen=True)
 class LayerMaterial:
     """One material slot within a layer."""

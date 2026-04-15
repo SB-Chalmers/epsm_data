@@ -1,5 +1,12 @@
-"""I/O adapters — Excel and JSON readers."""
+"""I/O adapters — Excel and JSON readers, plus domain assemblers."""
 
+from .assembler import (
+    assemble_buildings,
+    assemble_components,
+    assemble_elements,
+    assemble_layers,
+    assemble_materials,
+)
 from .dto import (
     BuildingRow,
     ComponentLayerRef,
@@ -23,6 +30,12 @@ from .excel_reader import (
 from .json_reader import read_opaque_material_json, read_window_material_json
 
 __all__ = [
+    # Assemblers
+    "assemble_buildings",
+    "assemble_components",
+    "assemble_elements",
+    "assemble_layers",
+    "assemble_materials",
     # DTOs
     "BuildingRow",
     "ComponentLayerRef",
