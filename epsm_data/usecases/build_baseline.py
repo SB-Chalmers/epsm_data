@@ -48,13 +48,17 @@ class PipelineResult:
 
         for arch in self.archetypes:
             u = arch.envelope_u_values
-            wall_s = f"wall={u['wall']:.3f}" if "wall" in u else "wall=N/A"
-            roof_s = f"roof={u.get('ROOF', 0):.3f}" if "ROOF" in u else "roof=N/A"
+            n_elem = len(arch.construction_set.elements)
             logger.info(
-                "    %s (%d) — %s, %s, elements=%d",
-                arch.archetype_id, arch.construction_year,
-                wall_s, roof_s, len(arch.construction_set.elements),
+                "    %s (%d) — %d elements",
+                arch.archetype_id, arch.construction_year, n_elem,
             )
+            if u:
+                max_key_len = max(len(k) for k in u)
+                for k, v in sorted(u.items()):
+                    logger.info("      %-*s  %.3f W/(m²·K)", max_key_len, k, v)
+            else:
+                logger.info("      (no U-values)")
 
         if self.total_skipped:
             logger.info("  Total skipped: %d (see DEBUG for details)", self.total_skipped)

@@ -1,7 +1,7 @@
 {
   "concrete_tile": {
     "name": "concrete_tile",
-    "uuid": "5a745792-9e30-4b10-9f48-793a0a7b3385",
+    "uuid": "4fc2910f-94d2-4e91-ae17-7a3a0013d64c",
     "json_id": "HW CONCRETE",
     "boverket_id": "6000000081",
     "material_type": "EnergyMaterial",
@@ -28,7 +28,7 @@
   },
   "battens_1": {
     "name": "battens_1",
-    "uuid": "a501de61-bb73-47a3-8c42-999af4f618b0",
+    "uuid": "40ef88fc-a929-4124-a87c-88dea7e2068f",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -55,7 +55,7 @@
   },
   "battens_2": {
     "name": "battens_2",
-    "uuid": "ccab4be2-bcde-4246-93b1-3a402eab5eeb",
+    "uuid": "c97fa667-e4d6-4884-bea7-2dec00f84607",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -82,7 +82,7 @@
   },
   "wooden_panel": {
     "name": "wooden_panel",
-    "uuid": "a001ebf5-7f3e-4e2a-b810-91f361bb26bb",
+    "uuid": "79b41516-f735-4873-ae63-5542e1585eb7",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -109,7 +109,7 @@
   },
   "coke_ash": {
     "name": "coke_ash",
-    "uuid": "4b96c8ea-b007-4831-be50-6edbf9108fd0",
+    "uuid": "bcfadc43-03b6-4ca1-b3f1-b6c804f5353c",
     "json_id": "1/2IN Gypsum",
     "boverket_id": "6000000085",
     "material_type": "EnergyMaterial",
@@ -136,7 +136,7 @@
   },
   "cardboard": {
     "name": "cardboard",
-    "uuid": "d281782d-08df-471a-b779-1127f7adb14a",
+    "uuid": "030e8d74-c4ff-4b07-ad3f-cfec3b358551",
     "json_id": "Wood Siding",
     "boverket_id": "6000000141",
     "material_type": "EnergyMaterial",
@@ -163,7 +163,7 @@
   },
   "wood_shavings": {
     "name": "wood_shavings",
-    "uuid": "9719ce57-f921-44dd-809d-2033349369fd",
+    "uuid": "cd40c59e-03bd-46cd-8f03-581a95242d81",
     "json_id": "Wood Shavings (created)",
     "boverket_id": "6000000000",
     "material_type": "EnergyMaterial",
@@ -190,7 +190,7 @@
   },
   "concrete": {
     "name": "concrete",
-    "uuid": "64a3a915-5447-44e3-9ad3-082d801ce11c",
+    "uuid": "edd4bc22-0567-4347-a2fc-e37be946838d",
     "json_id": "100mm Normalweight concrete floor",
     "boverket_id": "6000000029",
     "material_type": "EnergyMaterial",
@@ -217,7 +217,7 @@
   },
   "vinyl_flooring": {
     "name": "vinyl_flooring",
-    "uuid": "2a6db683-ebac-4e63-a574-e2e7f7c73620",
+    "uuid": "a4a63e7c-cf41-4472-b2cc-d10a274e96ef",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000224",
     "material_type": "EnergyMaterial",
@@ -244,7 +244,7 @@
   },
   "stud": {
     "name": "stud",
-    "uuid": "44a1db12-080f-42ac-a4e4-7368a6044918",
+    "uuid": "f6da0712-9560-4a49-8f73-11211877a123",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -271,7 +271,7 @@
   },
   "plaster": {
     "name": "plaster",
-    "uuid": "b8da3315-21df-4ee5-aeec-c0faf1b6b4df",
+    "uuid": "33f3e8ad-daaa-40d1-bd8b-8f288119c249",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000091",
     "material_type": "EnergyMaterial",
@@ -298,7 +298,7 @@
   },
   "lightweight_concrete": {
     "name": "lightweight_concrete",
-    "uuid": "c15b6092-8197-49d1-94d6-7fbee43f2aea",
+    "uuid": "3f6c6cae-ce49-4d79-adf2-07ed83bb3dbf",
     "json_id": "NACM_Gypsum Board 5/8in",
     "boverket_id": "6000000096",
     "material_type": "EnergyMaterial",
@@ -325,7 +325,7 @@
   },
   "mortar": {
     "name": "mortar",
-    "uuid": "d672e3ad-0e58-47a5-8d5e-90edf2768c45",
+    "uuid": "fc4af993-98b4-4ac8-977d-5fcdf07370de",
     "json_id": "1IN Stucco",
     "boverket_id": "6000000092",
     "material_type": "EnergyMaterial",
@@ -352,7 +352,7 @@
   },
   "wood_wool_board": {
     "name": "wood_wool_board",
-    "uuid": "2a095b87-4230-4f2b-91ee-b2728eb5b8de",
+    "uuid": "90307d15-2e6d-4f81-9241-b6aec18d8eb6",
     "json_id": "Cement Bonded Particleboard (created)",
     "boverket_id": "6000000222",
     "material_type": "EnergyMaterial",
@@ -379,7 +379,7 @@
   },
   "galvanized_sheet_metal": {
     "name": "galvanized_sheet_metal",
-    "uuid": "6f135927-b925-4656-9a0f-901e69803988",
+    "uuid": "f47b67a7-f2da-432d-a678-56b6a00c1251",
     "json_id": "F08 Metal surface",
     "boverket_id": "6000000221",
     "material_type": "EnergyMaterial",
@@ -406,7 +406,7 @@
   },
   "wooden_rafter": {
     "name": "wooden_rafter",
-    "uuid": "4440dd03-7a61-4652-a866-8c3189c93a77",
+    "uuid": "a8fe3382-3613-4f33-800a-c241ae9a8877",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -433,7 +433,7 @@
   },
   "wooden_beam": {
     "name": "wooden_beam",
-    "uuid": "ab8fce7a-4d3d-43fd-b055-b811dce29195",
+    "uuid": "9bfbf2f2-3a3c-48a9-b9fb-5e3eb6b9efe7",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -460,7 +460,7 @@
   },
   "granulated_blast_furnace_slag": {
     "name": "granulated_blast_furnace_slag",
-    "uuid": "4d6350bd-53e0-4336-9692-61b7023f65b2",
+    "uuid": "cfff0204-f247-4796-8c85-b11cabb721cd",
     "json_id": "M11 100mm lightweight concrete",
     "boverket_id": "6000000085",
     "material_type": "EnergyMaterial",
@@ -487,7 +487,7 @@
   },
   "plastic_mat": {
     "name": "plastic_mat",
-    "uuid": "206fe842-b6ef-4b04-a056-8bc6d304d619",
+    "uuid": "5a8c1a24-3a17-4216-ad3b-07242aeed7f7",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000210",
     "material_type": "EnergyMaterial",
@@ -514,7 +514,7 @@
   },
   "concrete_mixed_with_sawdust": {
     "name": "concrete_mixed_with_sawdust",
-    "uuid": "4c4561d0-de08-4901-a68c-9dc1eae8f991",
+    "uuid": "33b0713a-6953-43c0-98e9-496cca4fa7b9",
     "json_id": "Cement Bonded Particleboard (created)",
     "boverket_id": "6000000222",
     "material_type": "EnergyMaterial",
@@ -541,7 +541,7 @@
   },
   "terrasit_plaster": {
     "name": "terrasit_plaster",
-    "uuid": "e3b22597-bd8b-4171-b6c7-6c8e5f17908f",
+    "uuid": "163e5d4f-03cb-46c5-b51d-364976a88c73",
     "json_id": "25mm Stucco",
     "boverket_id": "6000000092",
     "material_type": "EnergyMaterial",
@@ -568,7 +568,7 @@
   },
   "lime_plaster": {
     "name": "lime_plaster",
-    "uuid": "beb86375-6022-417d-980e-2d9195f415b4",
+    "uuid": "afd77ec8-fd2a-49a8-983a-8181d6351426",
     "json_id": "25mm Stucco",
     "boverket_id": "6000000094",
     "material_type": "EnergyMaterial",
@@ -595,7 +595,7 @@
   },
   "metal_sheet": {
     "name": "metal_sheet",
-    "uuid": "389b92fb-3aac-49d2-97bc-2afc53df58ff",
+    "uuid": "69fc08be-692f-47cc-abc1-01b69e771051",
     "json_id": "Metal Surface",
     "boverket_id": "6000000153",
     "material_type": "EnergyMaterial",
@@ -622,7 +622,7 @@
   },
   "roofing_felt": {
     "name": "roofing_felt",
-    "uuid": "c89dbce4-b28d-4990-af37-f2a8127d6683",
+    "uuid": "45bbc32e-0fa9-43fb-b82a-883498977734",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000140",
     "material_type": "EnergyMaterial",
@@ -649,7 +649,7 @@
   },
   "mineral_wool_blanket": {
     "name": "mineral_wool_blanket",
-    "uuid": "511741c1-ea2b-4783-a265-e28defb43eb1",
+    "uuid": "a57f4e7a-696f-448f-b504-4c42e12274ed",
     "json_id": "AtticFloor Insulation",
     "boverket_id": "6000000128",
     "material_type": "EnergyMaterial",
@@ -676,7 +676,7 @@
   },
   "mineral_wool_carpet": {
     "name": "mineral_wool_carpet",
-    "uuid": "f8d5908a-b708-458e-a354-f4eb5477def2",
+    "uuid": "633f0908-2812-4e12-b35d-ba51ad424cc2",
     "json_id": "AtticFloor Insulation",
     "boverket_id": "6000000005",
     "material_type": "EnergyMaterial",
@@ -703,7 +703,7 @@
   },
   "linoleum": {
     "name": "linoleum",
-    "uuid": "8f8d988a-3ce4-41d6-b5b1-a06825d92bef",
+    "uuid": "e4930ec6-987b-436e-b848-ae8e449a7978",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000210",
     "material_type": "EnergyMaterial",
@@ -730,7 +730,7 @@
   },
   "woodfiber_board": {
     "name": "woodfiber_board",
-    "uuid": "60d14fec-13d8-4a5f-89fe-b7fbc78953cb",
+    "uuid": "f32f35a9-5a63-4cea-95d8-2b1e1a4dd303",
     "json_id": "Woodfiber Board (created)",
     "boverket_id": "6000000215",
     "material_type": "EnergyMaterial",
@@ -757,7 +757,7 @@
   },
   "leca": {
     "name": "leca",
-    "uuid": "4713ef14-c288-4f73-addb-a4747f0d7813",
+    "uuid": "ae4d3e2a-be08-4435-acb6-59f268f9f489",
     "json_id": "Leca (created)",
     "boverket_id": "6000000089",
     "material_type": "EnergyMaterial",
@@ -784,7 +784,7 @@
   },
   "brick": {
     "name": "brick",
-    "uuid": "eebd0460-4c1d-4d84-9e90-8c68fb1e965a",
+    "uuid": "2224394f-1b9b-4bb3-91e8-0a3ac11f3dee",
     "json_id": "M01 100mm brick",
     "boverket_id": "6000000082",
     "material_type": "EnergyMaterial",
@@ -811,7 +811,7 @@
   },
   "eternit_board": {
     "name": "eternit_board",
-    "uuid": "679264d5-1473-4c8b-b6f4-995935dbffc0",
+    "uuid": "fe8d4c00-7af1-4c37-85ea-c3544a7c1e85",
     "json_id": "Dry Dust",
     "boverket_id": "6000000180",
     "material_type": "EnergyMaterial",
@@ -838,7 +838,7 @@
   },
   "plaster_board": {
     "name": "plaster_board",
-    "uuid": "fec51928-347b-4104-bd7c-43c02516ce15",
+    "uuid": "5bb3ece8-cf65-486d-99d9-4c5a4e042007",
     "json_id": "1/2 in. Gypsum Board",
     "boverket_id": "6000000015",
     "material_type": "EnergyMaterial",
@@ -865,7 +865,7 @@
   },
   "asphalt_board": {
     "name": "asphalt_board",
-    "uuid": "11b25b33-f639-4671-8ef7-83ec8fe07f74",
+    "uuid": "b46fcd42-a02c-40b4-8ca8-9827edc2e373",
     "json_id": "Asphalt Board (created)",
     "boverket_id": "6000000141",
     "material_type": "EnergyMaterial",
@@ -892,7 +892,7 @@
   },
   "mineral_wool": {
     "name": "mineral_wool",
-    "uuid": "5159710f-741e-419c-b8d3-967eb5a7df02",
+    "uuid": "65db0995-4ee2-4a6b-971f-8806e0a93cc5",
     "json_id": "I02 50mm insulation board",
     "boverket_id": "6000000002",
     "material_type": "EnergyMaterial",
@@ -919,7 +919,7 @@
   },
   "wooden_stud": {
     "name": "wooden_stud",
-    "uuid": "d7e48d1f-b018-4501-b815-52a9499114d4",
+    "uuid": "1016d2d5-6828-4f7c-85b9-893e999d759f",
     "json_id": "Std Wood 6 in.",
     "boverket_id": "6000000007",
     "material_type": "EnergyMaterial",
@@ -946,7 +946,7 @@
   },
   "gypsum_board": {
     "name": "gypsum_board",
-    "uuid": "4e45317a-28c0-4387-96eb-93841e20c4a1",
+    "uuid": "2d2f5175-d70d-4ee8-9cde-b821b329086d",
     "json_id": "5/8 in. Gypsum Board",
     "boverket_id": "6000000020",
     "material_type": "EnergyMaterial",
@@ -973,7 +973,7 @@
   },
   "sand": {
     "name": "sand",
-    "uuid": "849ecd94-9b06-4b75-a4dd-bf519f20ae55",
+    "uuid": "67f7a4f8-3539-4748-845d-5152dafd42ae",
     "json_id": "Dry Sand",
     "boverket_id": "6000000084",
     "material_type": "EnergyMaterial",
@@ -1000,7 +1000,7 @@
   },
   "cellular_plastic": {
     "name": "cellular_plastic",
-    "uuid": "e1059738-d96d-4019-af5e-23b0e1e4c659",
+    "uuid": "25fbc89c-a3ba-4ce0-af3d-6c74943c3b1f",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000210",
     "material_type": "EnergyMaterial",
@@ -1027,7 +1027,7 @@
   },
   "foil": {
     "name": "foil",
-    "uuid": "2df9b6ff-61f8-4ba3-9272-addc1476ffdd",
+    "uuid": "ef83118a-91f3-4739-abd6-0d098a763e39",
     "json_id": "Roof Membrane",
     "boverket_id": "6000000198",
     "material_type": "EnergyMaterial",
@@ -1054,7 +1054,7 @@
   },
   "gravel": {
     "name": "gravel",
-    "uuid": "7a846dda-837b-4137-89f8-fae238f06ebf",
+    "uuid": "bdd1c2ac-a2bb-4845-bf47-3e1c011c9329",
     "json_id": "Solid Rock",
     "boverket_id": "6000000084",
     "material_type": "EnergyMaterial",
@@ -1081,7 +1081,7 @@
   },
   "asbestos_cement_board": {
     "name": "asbestos_cement_board",
-    "uuid": "6848020e-3561-41b1-b903-c3b8fd194bf4",
+    "uuid": "d6919a95-7c47-4bef-ae0f-f2aeb59dd6bb",
     "json_id": "Dry Dust",
     "boverket_id": "6000000193",
     "material_type": "EnergyMaterial",
@@ -1108,7 +1108,7 @@
   },
   "plywood": {
     "name": "plywood",
-    "uuid": "05a17007-eef3-43c1-bf4f-4295757b45e4",
+    "uuid": "c5df811c-c220-4eaf-9681-10305f92745b",
     "json_id": "Plywood - 5/8 in. CBES",
     "boverket_id": "6000000023",
     "material_type": "EnergyMaterial",
@@ -1135,7 +1135,7 @@
   },
   "air_gap": {
     "name": "air_gap",
-    "uuid": "2324ff91-57c1-44db-8473-1f04c9145b1b",
+    "uuid": "4610b415-0e79-4b14-bafd-68e1abee35b4",
     "json_id": "Air Wall (created)",
     "boverket_id": "6000000174",
     "material_type": "EnergyMaterial",
