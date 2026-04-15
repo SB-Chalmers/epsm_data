@@ -1,0 +1,919 @@
+{
+  "CMF_1940_1": {
+    "construction_year": 1940,
+    "u_values": {
+      "ROOF": 0.9007594704112454,
+      "TOP_FLOOR": 0.3011238291445818,
+      "INTERMEDIATE_FLOOR": 0.4617928075883762,
+      "GROUND_FLOOR": 0.9886754745525105,
+      "BASEMENT_FLOOR": 4.886426993729163,
+      "BASEMENT_WALL": 2.5937479361139877,
+      "INT_WALL_LOADBEARING": 2.76942341672888,
+      "INT_WALL_NONLOADBEARING": 3.281031893531181,
+      "wall": 0.649802357899262
+    },
+    "roof": [
+      {
+        "name": "concrete_tile",
+        "thickness": 0.03,
+        "conductivity": 1.3104,
+        "density": 2240.0065,
+        "specific_heat": 836.8201,
+        "roughness": "Rough"
+      },
+      {
+        "name": "battens_1",
+        "thickness": 0.04,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "battens_2",
+        "thickness": 0.04,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "wooden_panel",
+        "thickness": 0.03,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "coke_ash",
+        "thickness": 0.1,
+        "conductivity": 0.1599,
+        "density": 784.9018,
+        "specific_heat": 829.4648,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "cardboard",
+        "thickness": 0.005,
+        "conductivity": 0.1099,
+        "density": 544.6212,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "wood_shavings",
+        "thickness": 0.15,
+        "conductivity": 0.062,
+        "density": 100.0,
+        "specific_heat": 1700.0,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.14,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "coke_ash",
+        "thickness": 0.08,
+        "conductivity": 0.1599,
+        "density": 784.9018,
+        "specific_heat": 829.4648,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.05,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "vinyl_flooring",
+        "thickness": 0.04,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.16,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.08,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "wall": [
+      {
+        "name": "plaster",
+        "thickness": 0.01,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "plaster",
+        "thickness": 0.01,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_25_C_eff",
+        "thickness": 0.25,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      }
+    ]
+  },
+  "CMF_1950": {
+    "construction_year": 1950,
+    "u_values": {
+      "ROOF": 0.3838730293170138,
+      "TOP_FLOOR": 1.8674189515300434,
+      "INTERMEDIATE_FLOOR": 0.8954177908570271,
+      "GROUND_FLOOR": 0.9158445628864207,
+      "BASEMENT_FLOOR": 3.3340900626270504,
+      "BASEMENT_WALL": 1.2502287186520114,
+      "INT_WALL_LOADBEARING": 2.884993153267904,
+      "wall": 0.845561997866285
+    },
+    "roof": [
+      {
+        "name": "galvanized_sheet_metal",
+        "thickness": 0.003,
+        "conductivity": 45.2497,
+        "density": 7824.0179,
+        "specific_heat": 499.6776,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "wooden_panel",
+        "thickness": 0.038,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "wooden_rafter",
+        "thickness": 0.1016,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "wooden_beam",
+        "thickness": 0.1524,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.05,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "granulated_blast_furnace_slag",
+        "thickness": 0.15,
+        "conductivity": 0.5296,
+        "density": 1280.0029,
+        "specific_heat": 839.4584,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.14,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "plastic_mat",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "plaster",
+        "thickness": 0.05,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "concrete_mixed_with_sawdust",
+        "thickness": 0.05,
+        "conductivity": 0.23,
+        "density": 1200.0,
+        "specific_heat": 1500.0,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "coke_ash",
+        "thickness": 0.08,
+        "conductivity": 0.1599,
+        "density": 784.9018,
+        "specific_heat": 829.4648,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.16,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.3,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "wall": [
+      {
+        "name": "terrasit_plaster",
+        "thickness": 0.005,
+        "conductivity": 0.7195,
+        "density": 1856.0042,
+        "specific_heat": 839.4584,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "lime_plaster",
+        "thickness": 0.005,
+        "conductivity": 0.7195,
+        "density": 1856.0042,
+        "specific_heat": 839.4584,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_125_C_eff",
+        "thickness": 0.125,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "mortar",
+        "thickness": 0.005,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.15,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "terrasit_plaster",
+        "thickness": 0.005,
+        "conductivity": 0.7195,
+        "density": 1856.0042,
+        "specific_heat": 839.4584,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "lime_plaster",
+        "thickness": 0.005,
+        "conductivity": 0.7195,
+        "density": 1856.0042,
+        "specific_heat": 839.4584,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_25_C_eff",
+        "thickness": 0.25,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "terrasit_plaster",
+        "thickness": 0.005,
+        "conductivity": 0.7195,
+        "density": 1856.0042,
+        "specific_heat": 839.4584,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_2_C_eff",
+        "thickness": 0.2,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      }
+    ]
+  },
+  "CMF_1960_1": {
+    "construction_year": 1960,
+    "u_values": {
+      "ROOF": 1.197469450014997,
+      "TOP_FLOOR": 0.29945562626148103,
+      "INTERMEDIATE_FLOOR": 1.7100287533507132,
+      "GROUND_FLOOR": 0.703867437590296,
+      "INT_WALL_LOADBEARING": 2.9715087786984156,
+      "INT_WALL_NONLOADBEARING": 0.46786311395017427,
+      "wall": 0.17904339312024486
+    },
+    "roof": [
+      {
+        "name": "metal_sheet",
+        "thickness": 0.003,
+        "conductivity": 45.2497,
+        "density": 7824.0179,
+        "specific_heat": 499.6776,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "battens_1",
+        "thickness": 0.023,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "battens_2",
+        "thickness": 0.023,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "roofing_felt",
+        "thickness": 0.005,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "wooden_panel",
+        "thickness": 0.03,
+        "conductivity": 0.1199,
+        "density": 540.0012,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "cardboard",
+        "thickness": 0.005,
+        "conductivity": 0.1099,
+        "density": 544.6212,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "mineral_wool_blanket",
+        "thickness": 0.03,
+        "conductivity": 0.049,
+        "density": 265.0006,
+        "specific_heat": 836.2604,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "mineral_wool_carpet",
+        "thickness": 0.12,
+        "conductivity": 0.049,
+        "density": 265.0006,
+        "specific_heat": 836.2604,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.14,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "leca",
+        "thickness": 0.15,
+        "conductivity": 0.16,
+        "density": 400.0,
+        "specific_heat": 1000.0,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "linoleum",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "woodfiber_board",
+        "thickness": 0.013,
+        "conductivity": 0.07,
+        "density": 250.0,
+        "specific_heat": 1700.0,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.15,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "wall": [
+      {
+        "name": "BRICK_MORTAR_125_C_eff",
+        "thickness": 0.125,
+        "conductivity": 0.8597,
+        "density": 1910.7044,
+        "specific_heat": 796.5361,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "eternit_board",
+        "thickness": 0.09,
+        "conductivity": 0.5,
+        "density": 1600.0,
+        "specific_heat": 1026.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "plaster_board",
+        "thickness": 0.013,
+        "conductivity": 0.1599,
+        "density": 800.0018,
+        "specific_heat": 1089.2972,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "asphalt_board",
+        "thickness": 0.012,
+        "conductivity": 0.23,
+        "density": 1100.0,
+        "specific_heat": 1000.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "plaster_board",
+        "thickness": 0.013,
+        "conductivity": 0.1599,
+        "density": 800.0018,
+        "specific_heat": 1089.2972,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "MINERAL_WOOL_WOODEN_STUD_095_C_eff",
+        "thickness": 0.095,
+        "conductivity": 0.039,
+        "density": 92.7002,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "MINERAL_WOOL_WOODEN_STUD_095_C_eff",
+        "thickness": 0.095,
+        "conductivity": 0.039,
+        "density": 92.7002,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      }
+    ]
+  },
+  "CMF_1960_2": {
+    "construction_year": 1960,
+    "u_values": {
+      "TOP_FLOOR": 0.30279448213851723,
+      "INTERMEDIATE_FLOOR": 0.8491386858351029,
+      "GROUND_FLOOR": 0.9194016409377493,
+      "BASEMENT_FLOOR": 1.2765885780889519,
+      "BASEMENT_WALL": 3.3340900626270504,
+      "INT_WALL_LOADBEARING": 2.9461097045701297,
+      "wall": 0.40086440717183836
+    },
+    "roof": [
+      {
+        "name": "mineral_wool_carpet",
+        "thickness": 0.12,
+        "conductivity": 0.049,
+        "density": 265.0006,
+        "specific_heat": 836.2604,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "mineral_wool_blanket",
+        "thickness": 0.03,
+        "conductivity": 0.049,
+        "density": 265.0006,
+        "specific_heat": 836.2604,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.16,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "linoleum",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.05,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "sand",
+        "thickness": 0.05,
+        "conductivity": 0.33,
+        "density": 1555.0,
+        "specific_heat": 800.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "mineral_wool_carpet",
+        "thickness": 0.03,
+        "conductivity": 0.049,
+        "density": 265.0006,
+        "specific_heat": 836.2604,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.16,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.07,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "cellular_plastic",
+        "thickness": 0.06,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "foil",
+        "thickness": 0.001,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "sand",
+        "thickness": 0.05,
+        "conductivity": 0.33,
+        "density": 1555.0,
+        "specific_heat": 800.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "gravel",
+        "thickness": 0.15,
+        "conductivity": 3.0,
+        "density": 2700.0,
+        "specific_heat": 790.0,
+        "roughness": "MediumRough"
+      }
+    ],
+    "wall": [
+      {
+        "name": "plaster",
+        "thickness": 0.005,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "asbestos_cement_board",
+        "thickness": 0.01,
+        "conductivity": 0.5,
+        "density": 1600.0,
+        "specific_heat": 1026.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "asphalt_board",
+        "thickness": 0.01,
+        "conductivity": 0.23,
+        "density": 1100.0,
+        "specific_heat": 1000.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "plaster",
+        "thickness": 0.01,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "foil",
+        "thickness": 0.001,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "gypsum_board",
+        "thickness": 0.013,
+        "conductivity": 0.1599,
+        "density": 800.0018,
+        "specific_heat": 1089.2972,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "MINERAL_WOOL_WOODEN_STUD_05_C_eff",
+        "thickness": 0.05,
+        "conductivity": 0.039,
+        "density": 92.7002,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_15_C_eff",
+        "thickness": 0.15,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.15,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ]
+  },
+  "CMF_1970": {
+    "construction_year": 1970,
+    "u_values": {
+      "ROOF": 3.2078677999859444,
+      "TOP_FLOOR": 0.09747555619638928,
+      "INTERMEDIATE_FLOOR": 2.470160249570117,
+      "GROUND_FLOOR": 0.5133363526392154,
+      "INT_WALL_LOADBEARING": 3.0772454310634734,
+      "wall": 0.5357515657566531
+    },
+    "roof": [
+      {
+        "name": "plywood",
+        "thickness": 0.017,
+        "conductivity": 0.12,
+        "density": 480.555,
+        "specific_heat": 1882.8452,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "galvanized_sheet_metal",
+        "thickness": 0.003,
+        "conductivity": 45.2497,
+        "density": 7824.0179,
+        "specific_heat": 499.6776,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "mineral_wool",
+        "thickness": 0.3,
+        "conductivity": 0.03,
+        "density": 43.0001,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.19,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "plastic_mat",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.2,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "AIR_GAP_WOODEN_RAFTER_05_C_eff",
+        "thickness": 0.05,
+        "conductivity": 0.0307,
+        "density": 28.1401,
+        "specific_heat": 1015.211,
+        "roughness": "Smooth"
+      }
+    ],
+    "wall": [
+      {
+        "name": "plaster",
+        "thickness": 0.005,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "gypsum_board",
+        "thickness": 0.013,
+        "conductivity": 0.1599,
+        "density": 800.0018,
+        "specific_heat": 1089.2972,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C_eff",
+        "thickness": 0.3,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      }
+    ]
+  },
+  "CMF_1980": {
+    "construction_year": 1980,
+    "u_values": {
+      "ROOF": 3.2078677999859444,
+      "TOP_FLOOR": 0.09747555619638928,
+      "INTERMEDIATE_FLOOR": 2.470160249570117,
+      "GROUND_FLOOR": 0.5133363526392154,
+      "INT_WALL_LOADBEARING": 3.0772454310634734,
+      "wall": 0.5357515657566531
+    },
+    "roof": [
+      {
+        "name": "plywood",
+        "thickness": 0.017,
+        "conductivity": 0.12,
+        "density": 480.555,
+        "specific_heat": 1882.8452,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "galvanized_sheet_metal",
+        "thickness": 0.003,
+        "conductivity": 45.2497,
+        "density": 7824.0179,
+        "specific_heat": 499.6776,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "mineral_wool",
+        "thickness": 0.3,
+        "conductivity": 0.03,
+        "density": 43.0001,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.19,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      }
+    ],
+    "floor": [
+      {
+        "name": "plastic_mat",
+        "thickness": 0.01,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.2,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "AIR_GAP_WOODEN_RAFTER_05_C_eff",
+        "thickness": 0.05,
+        "conductivity": 0.0307,
+        "density": 28.1401,
+        "specific_heat": 1015.211,
+        "roughness": "Smooth"
+      }
+    ],
+    "wall": [
+      {
+        "name": "plaster",
+        "thickness": 0.005,
+        "conductivity": 0.6913,
+        "density": 1858.0042,
+        "specific_heat": 836.4603,
+        "roughness": "Smooth"
+      },
+      {
+        "name": "gypsum_board",
+        "thickness": 0.013,
+        "conductivity": 0.1599,
+        "density": 800.0018,
+        "specific_heat": 1089.2972,
+        "roughness": "MediumSmooth"
+      },
+      {
+        "name": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C_eff",
+        "thickness": 0.3,
+        "conductivity": 0.1866,
+        "density": 701.6032,
+        "specific_heat": 1115.0448,
+        "roughness": "MediumRough"
+      }
+    ]
+  }
+}

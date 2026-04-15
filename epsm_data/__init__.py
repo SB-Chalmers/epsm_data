@@ -15,6 +15,7 @@ Workflow:
     export_json(archetypes, output_dir)
 """
 
+from epsm_data.config.logging import setup_logging
 from epsm_data.domain import (
     BuildingArchetype,
     BuildingElement,
@@ -31,7 +32,7 @@ from epsm_data.domain import (
     ShearingLayer,
     WindowMaterial,
 )
-from epsm_data.usecases.build_baseline import run_build_baseline
+from epsm_data.usecases.build_baseline import PipelineResult, run_build_baseline
 from epsm_data.usecases.export_outputs import (
     export_construction_sets,
     export_consumption_contracts,
@@ -39,8 +40,11 @@ from epsm_data.usecases.export_outputs import (
 )
 
 __all__ = [
+    # config
+    "setup_logging",
     # usecases
     "run_build_baseline",
+    "PipelineResult",
     "export_json",
     "export_consumption_contracts",
     "export_construction_sets",

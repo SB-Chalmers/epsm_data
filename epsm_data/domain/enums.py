@@ -40,6 +40,16 @@ class BuildingElement(Enum):
                 return member
         return None
 
+    @property
+    def is_ext_wall(self) -> bool:
+        """True for any exterior wall variant (single or multi)."""
+        return self in (
+            BuildingElement.EXT_WALL,
+            BuildingElement.EXT_WALL_LOW,
+            BuildingElement.EXT_WALL_MEDIUM,
+            BuildingElement.EXT_WALL_HIGH,
+        )
+
 
 class ShearingLayer(Enum):
     """Brand's shearing layers of change."""

@@ -93,11 +93,24 @@ class BuildingArchetype:
 
     @property
     def envelope_u_values(self) -> dict[str, float]:
-        """Current U-values keyed by element role."""
-        return {
-            role.value: elem.u_value
-            for role, elem in self.construction_set.elements.items()
-        }
+        """Current U-values keyed by normalized role.
+
+        Exterior wall variants (LOW/MEDIUM/HIGH) are averaged into a
+        single 'wall' key.  A single EXT_WALL also maps to 'wall'.
+        """
+        result: dict[str, float] = {}
+        wall_values: list[float] = []
+
+        for role, elem in self.construction_set.elements.items():
+            if role.is_ext_wall:
+                wall_values.append(elem.u_value)
+            else:
+                result[role.value] = elem.u_value
+
+        if wall_values:
+            result["wall"] = sum(wall_values) / len(wall_values)
+
+        return result
 
     @property
     def total_elements(self) -> int:
