@@ -50,6 +50,14 @@ class BuildingElement(Enum):
             BuildingElement.EXT_WALL_HIGH,
         )
 
+    @property
+    def is_int_wall(self) -> bool:
+        """True for any interior wall variant."""
+        return self in (
+            BuildingElement.INT_WALL_LOADBEARING,
+            BuildingElement.INT_WALL_NONLOADBEARING,
+        )
+
 
 class ShearingLayer(Enum):
     """Brand's shearing layers of change."""

@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from epsm_data.domain.building import BuildingArchetype
+from epsm_data.domain.enums import BuildingElement
 from epsm_data.infra.api.boverket_client import build_resource_lookup, fetch_all_materials
 from epsm_data.infra.io.assembler import (
     assemble_buildings,
@@ -47,18 +48,12 @@ class PipelineResult:
         logger.info("  %-14s  %d archetype(s)", "Result", len(self.archetypes))
 
         for arch in self.archetypes:
-            u = arch.envelope_u_values
             n_elem = len(arch.construction_set.elements)
             logger.info(
                 "    %s (%d) — %d elements",
                 arch.archetype_id, arch.construction_year, n_elem,
             )
-            if u:
-                max_key_len = max(len(k) for k in u)
-                for k, v in sorted(u.items()):
-                    logger.info("      %-*s  %.3f W/(m²·K)", max_key_len, k, v)
-            else:
-                logger.info("      (no U-values)")
+            self._log_u_values(arch)
 
         if self.total_skipped:
             logger.info("  Total skipped: %d (see DEBUG for details)", self.total_skipped)
@@ -68,6 +63,52 @@ class PipelineResult:
 
         logger.info("  Elapsed: %.1fs", self.elapsed_seconds)
         logger.info("─────────────────────────────────────────────────")
+
+    @staticmethod
+    def _log_u_values(arch: BuildingArchetype) -> None:
+        elements = arch.construction_set.elements
+        if not elements:
+            logger.info("      (no U-values)")
+            return
+
+        ext_walls: list[tuple[str, float]] = []
+        int_walls: list[tuple[str, float]] = []
+        others: list[tuple[str, float]] = []
+
+        for role, elem in elements.items():
+            if role.is_ext_wall:
+                ext_walls.append((role.value, elem.u_value))
+            elif role.is_int_wall:
+                int_walls.append((role.value, elem.u_value))
+            else:
+                others.append((role.value, elem.u_value))
+
+        # Collect all leaf names for column alignment
+        all_names = (
+            [n for n, _ in others]
+            + ["EXT_WALL"]
+            + [n for n, _ in ext_walls]
+            + ["INT_WALL"]
+            + [n for n, _ in int_walls]
+        )
+        pad = max(len(n) for n in all_names) if all_names else 0
+
+        for name, u in sorted(others):
+            logger.info("      %-*s  %.3f W/(m\u00b2\u00b7K)", pad, name, u)
+
+        if ext_walls:
+            avg = sum(v for _, v in ext_walls) / len(ext_walls)
+            logger.info("      %-*s  %.3f W/(m\u00b2\u00b7K)", pad, "EXT_WALL", avg)
+            if len(ext_walls) > 1:
+                for name, u in sorted(ext_walls):
+                    logger.info("        %-*s  %.3f", pad, name, u)
+
+        if int_walls:
+            avg = sum(v for _, v in int_walls) / len(int_walls)
+            logger.info("      %-*s  %.3f W/(m\u00b2\u00b7K)", pad, "INT_WALL", avg)
+            if len(int_walls) > 1:
+                for name, u in sorted(int_walls):
+                    logger.info("        %-*s  %.3f", pad, name, u)
 
 
 def run_build_baseline(
