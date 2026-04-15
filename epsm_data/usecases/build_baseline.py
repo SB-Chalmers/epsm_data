@@ -30,6 +30,7 @@ from epsm_data.infra.io.excel_reader import (
     read_material_sheet,
 )
 from epsm_data.infra.io.json_reader import read_opaque_material_json
+from epsm_data.thermal import compute_element_thermal
 
 logger = logging.getLogger(__name__)
 
@@ -275,6 +276,16 @@ def _load_elements(
                 components=tuple(comps),
                 application=el_type,
             )
+            # Thermal validation
+            thermal = compute_element_thermal(element)
+            logger.info(
+                "%s: U=%.3f W/(m²·K)%s",
+                element.name,
+                thermal.u_value,
+                f" [TABULA ref={thermal.tabula_u_value:.3f}]" if thermal.tabula_u_value else "",
+            )
+            if thermal.tabula_warning:
+                logger.warning("%s: %s", element.name, thermal.tabula_warning)
             results.append(element)
         except Exception as exc:
             skipped.append((row.element_code, str(exc)))
