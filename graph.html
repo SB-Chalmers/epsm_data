@@ -303,30 +303,27 @@
 </style>
 
 <div id="export-panel">
-  <div class="panel-title">⬇ Export Graph</div>
-
+  <div class="panel-title">Export Graph</div>
   <div>
     <div class="row-label">PNG resolution</div>
     <select id="scale-select">
-      <option value="2">2× — 2K (fast)</option>
-      <option value="4" selected>4× — 4K (recommended)</option>
-      <option value="6">6× — 6K</option>
-      <option value="8">8× — 8K (ultra)</option>
+      <option value="2">2x - 2K (fast)</option>
+      <option value="4" selected>4x - 4K (recommended)</option>
+      <option value="6">6x - 6K</option>
+      <option value="8">8x - 8K (ultra)</option>
     </select>
   </div>
-
   <div>
     <div class="row-label">Background</div>
     <select id="bg-select">
       <option value="white" selected>White</option>
       <option value="transparent">Transparent</option>
       <option value="black">Black</option>
-      <option value="custom">Custom colour…</option>
+      <option value="custom">Custom colour...</option>
     </select>
     <input type="color" id="bg-custom" value="#ffffff"
            style="display:none; margin-top:5px;">
   </div>
-
   <div class="btn-row">
     <button id="png-btn" class="export-btn" onclick="exportPNG()">PNG</button>
     <button id="svg-btn" class="export-btn" onclick="exportSVG()">SVG</button>
@@ -339,31 +336,22 @@ document.getElementById('bg-select').addEventListener('change', function() {
   document.getElementById('bg-custom').style.display =
     this.value === 'custom' ? 'block' : 'none';
 });
-
 function getBgColor() {
   const sel = document.getElementById('bg-select').value;
-  return sel === 'white'  ? '#ffffff'
-       : sel === 'black'  ? '#000000'
-       : sel === 'custom' ? document.getElementById('bg-custom').value
-       : null;
+  return sel === 'white' ? '#ffffff' : sel === 'black' ? '#000000'
+       : sel === 'custom' ? document.getElementById('bg-custom').value : null;
 }
-
 function setStatus(msg) {
   document.getElementById('export-status').textContent = msg;
   if (msg) setTimeout(() => document.getElementById('export-status').textContent = '', 5000);
 }
-
-// ── PNG: direct canvas pixel copy ────────────────────────────────────────────
 function exportPNG() {
-  const scale   = parseInt(document.getElementById('scale-select').value);
+  const scale = parseInt(document.getElementById('scale-select').value);
   const bgColor = getBgColor();
-  const btn     = document.getElementById('png-btn');
-  const visCvs  = document.querySelector('#mynetwork canvas');
+  const btn = document.getElementById('png-btn');
+  const visCvs = document.querySelector('#mynetwork canvas');
   if (!visCvs) { setStatus('Canvas not found.'); return; }
-
-  btn.disabled = true;
-  setStatus('Rendering PNG…');
-
+  btn.disabled = true; setStatus('Rendering PNG...');
   requestAnimationFrame(() => {
     const w = visCvs.width, h = visCvs.height;
     const out = document.createElement('canvas');
@@ -378,27 +366,21 @@ function exportPNG() {
       a.download = `graph_${scale}x.png`;
       a.href = URL.createObjectURL(blob); a.click();
       btn.disabled = false;
-      setStatus(`PNG saved — ${out.width}×${out.height}px`);
+      setStatus(`PNG saved - ${out.width}x${out.height}px`);
     }, 'image/png');
   });
 }
-
-// ── SVG: reconstruct vector from vis.js network positions ────────────────────
 function exportSVG() {
-  const btn     = document.getElementById('svg-btn');
+  const btn = document.getElementById('svg-btn');
   const bgColor = getBgColor() || '#ffffff';
-  const net     = window.network;
+  const net = window.network;
   if (!net) { setStatus('vis.js network not found.'); return; }
-
-  btn.disabled = true;
-  setStatus('Building SVG…');
-
+  btn.disabled = true; setStatus('Building SVG...');
   requestAnimationFrame(() => {
     try {
       const positions = net.getPositions();
-      const allNodes  = net.body.data.nodes.get();
-      const allEdges  = net.body.data.edges.get();
-
+      const allNodes = net.body.data.nodes.get();
+      const allEdges = net.body.data.edges.get();
       const xs = Object.values(positions).map(p => p.x);
       const ys = Object.values(positions).map(p => p.y);
       const pad = 80;
@@ -407,12 +389,10 @@ function exportSVG() {
       const minX = Math.min(...xs), minY = Math.min(...ys);
       const toX = x => x - minX + pad;
       const toY = y => y - minY + pad;
-
       let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
 `;
       svg += `<rect width="100%" height="100%" fill="${bgColor}"/>
 `;
-
       allEdges.forEach(e => {
         const from = positions[e.from], to = positions[e.to];
         if (!from || !to) return;
@@ -425,7 +405,6 @@ function exportSVG() {
         svg += `stroke="${color}" stroke-width="${e.width || 1}" stroke-opacity="0.7" marker-end="url(#${mid})"/>
 `;
       });
-
       allNodes.forEach(n => {
         const pos = positions[n.id]; if (!pos) return;
         const cx = toX(pos.x), cy = toY(pos.y);
@@ -436,16 +415,13 @@ function exportSVG() {
         if (n.label) svg += `<text x="${cx}" y="${cy - r - 4}" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">${n.label}</text>
 `;
       });
-
       svg += `</svg>`;
       const a = document.createElement('a');
       a.download = 'graph.svg';
       a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
       a.click();
-      setStatus('SVG saved — infinitely scalable ✓');
-    } catch(err) {
-      setStatus('SVG error: ' + err.message);
-    }
+      setStatus('SVG saved - infinitely scalable');
+    } catch(err) { setStatus('SVG error: ' + err.message); }
     btn.disabled = false;
   });
 }

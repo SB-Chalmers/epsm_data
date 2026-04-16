@@ -4,8 +4,9 @@ Expected contents:
 - Ordered layer aggregation to component-level R/U.
 - Optional correction factors and bridge adjustments.
 """
+from epsm_data.domain.component import Components
 
+def compute_r_sum(component: Components) -> float:
+    """Sum of all layer R-values. RSI/RSE are applied at element level."""
+    return sum(layer.r_value for layer, _ in component.layers)
 
-def compute_component_thermal_properties(*args, **kwargs):
-    """Return component-level thermal metrics."""
-    raise NotImplementedError("Implement component thermal calculations")

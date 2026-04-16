@@ -1,0 +1,26 @@
+{
+  "DGU_2_PANE_CMF": {
+    "name": "DGU_2_PANE_CMF",
+    "archetype": "DGU_2_PANE_CMF",
+    "age": 1950,
+    "application": "WINDOW",
+    "u_value": 2.0,
+    "tabula_u_value": 2.0,
+    "tabula_warning": "Pass",
+    "pane_count": 2,
+    "total_thickness": 0.012299999999999974,
+    "construction": "Window_DGU_two_pane (created)"
+  },
+  "TGU_2_PANE_CMF": {
+    "name": "TGU_2_PANE_CMF",
+    "archetype": "TGU_2_PANE_CMF",
+    "age": 1950,
+    "application": "WINDOW",
+    "u_value": 2.0,
+    "tabula_u_value": 2.0,
+    "tabula_warning": "Pass",
+    "pane_count": 3,
+    "total_thickness": 0.02159999999999996,
+    "construction": "Window_TGU_two_pane (created)"
+  }
+}

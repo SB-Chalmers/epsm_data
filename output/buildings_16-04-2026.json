@@ -1,0 +1,662 @@
+{
+  "CMF_1940_1": {
+    "archetype_id": "CMF_1940_1",
+    "display_name": "CMF_1940_1",
+    "construction_year": 1940,
+    "building_typology": "multi_family",
+    "current_year": 1940,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "fbe6a12e-2f56-4779-809c-893836b7b0d1",
+      "valid_from_year": 1940,
+      "elements": [
+        {
+          "element_name": "CMF_1940_1_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "CMF_1940_1_TOP_FLOOR",
+          "element_type": "TOP_FLOOR"
+        },
+        {
+          "element_name": "CMF_1940_1_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "CMF_1940_1_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "CMF_1940_1_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "CMF_1940_1_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "CMF_1940_1_INT_WALL_NONLOADBEARING",
+          "element_type": "INT_WALL_NONLOADBEARING"
+        },
+        {
+          "element_name": "DGU_2_PANE_CMF",
+          "element_type": "WINDOW"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "CMF_1950": {
+    "archetype_id": "CMF_1950",
+    "display_name": "CMF_1950",
+    "construction_year": 1950,
+    "building_typology": "multi_family",
+    "current_year": 1950,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "95fb7abe-beee-4978-9eca-3ef13e3d0f1c",
+      "valid_from_year": 1950,
+      "elements": [
+        {
+          "element_name": "CMF_1950_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "CMF_1950_INTERMEDIATE_FLOOR",
+          "element_type": "INTERMEDIATE_FLOOR"
+        },
+        {
+          "element_name": "CMF_1950_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "CMF_1950_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "CMF_1950_EXT_WALL_LOW",
+          "element_type": "EXT_WALL_LOW"
+        },
+        {
+          "element_name": "CMF_1950_EXT_WALL_MEDIUM",
+          "element_type": "EXT_WALL_MEDIUM"
+        },
+        {
+          "element_name": "CMF_1950_EXT_WALL_HIGH",
+          "element_type": "EXT_WALL_HIGH"
+        },
+        {
+          "element_name": "CMF_1950_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "CMF_1950_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "CMF_1950_INT_WALL_NONLOADBEARING",
+          "element_type": "INT_WALL_NONLOADBEARING"
+        },
+        {
+          "element_name": "DGU_2_PANE_CMF",
+          "element_type": "WINDOW"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "CMF_1960_1": {
+    "archetype_id": "CMF_1960_1",
+    "display_name": "CMF_1960_1",
+    "construction_year": 1960,
+    "building_typology": "multi_family",
+    "current_year": 1960,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "3a012ad5-9d21-4685-ad18-ad8f2812266a",
+      "valid_from_year": 1960,
+      "elements": [
+        {
+          "element_name": "CMF_1960_1_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "CMF_1960_1_TOP_FLOOR",
+          "element_type": "TOP_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_1_INTERMEDIATE_FLOOR",
+          "element_type": "INTERMEDIATE_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_1_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_1_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_1_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "CMF_1960_1_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "CMF_1960_1_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "CMF_1960_1_INT_WALL_NONLOADBEARING",
+          "element_type": "INT_WALL_NONLOADBEARING"
+        },
+        {
+          "element_name": "DGU_2_PANE_CMF",
+          "element_type": "WINDOW"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "CMF_1960_2": {
+    "archetype_id": "CMF_1960_2",
+    "display_name": "CMF_1960_2",
+    "construction_year": 1960,
+    "building_typology": "multi_family",
+    "current_year": 1960,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "89a81d0a-b97e-42dd-880f-c14c7e5d7aae",
+      "valid_from_year": 1960,
+      "elements": [
+        {
+          "element_name": "CMF_1960_2_TOP_FLOOR",
+          "element_type": "TOP_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_2_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "CMF_1960_2_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "CMF_1960_2_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "CMF_1960_2_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "CMF_1960_2_INT_WALL_NONLOADBEARING",
+          "element_type": "INT_WALL_NONLOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "CMF_1970": {
+    "archetype_id": "CMF_1970",
+    "display_name": "CMF_1970",
+    "construction_year": 1970,
+    "building_typology": "multi_family",
+    "current_year": 1970,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "c0fa0ca0-2cb0-4eea-bb5c-32a2f5398476",
+      "valid_from_year": 1970,
+      "elements": [
+        {
+          "element_name": "CMF_1970_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "CMF_1970_TOP_FLOOR",
+          "element_type": "TOP_FLOOR"
+        },
+        {
+          "element_name": "CMF_1970_INTERMEDIATE_FLOOR",
+          "element_type": "INTERMEDIATE_FLOOR"
+        },
+        {
+          "element_name": "CMF_1970_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "CMF_1970_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "CMF_1970_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "TGU_2_PANE_CMF",
+          "element_type": "WINDOW"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "CMF_1980": {
+    "archetype_id": "CMF_1980",
+    "display_name": "CMF_1980",
+    "construction_year": 1980,
+    "building_typology": "multi_family",
+    "current_year": 1980,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "57b61830-5e7d-4b2d-bcf2-cd72ab9bdfe8",
+      "valid_from_year": 1980,
+      "elements": [
+        {
+          "element_name": "CMF_1980_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "CMF_1980_TOP_FLOOR",
+          "element_type": "TOP_FLOOR"
+        },
+        {
+          "element_name": "CMF_1980_INTERMEDIATE_FLOOR",
+          "element_type": "INTERMEDIATE_FLOOR"
+        },
+        {
+          "element_name": "CMF_1980_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "CMF_1980_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "CMF_1980_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        },
+        {
+          "element_name": "TGU_2_PANE_CMF",
+          "element_type": "WINDOW"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "WMF_1880_1": {
+    "archetype_id": "WMF_1880_1",
+    "display_name": "WMF_1880_1",
+    "construction_year": 1880,
+    "building_typology": "multi_family",
+    "current_year": 1880,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "f2bd6378-1f88-4578-9951-cd4022f23264",
+      "valid_from_year": 1880,
+      "elements": [
+        {
+          "element_name": "WMF_1880_1_ROOF",
+          "element_type": "ROOF"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "WMF_1890": {
+    "archetype_id": "WMF_1890",
+    "display_name": "WMF_1890",
+    "construction_year": 1890,
+    "building_typology": "multi_family",
+    "current_year": 1890,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "67da2a7a-3e63-4009-ab08-e432fe3a4c96",
+      "valid_from_year": 1890,
+      "elements": [
+        {
+          "element_name": "WMF_1890_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "WMF_1890_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "WMF_1890_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "WMF_1920": {
+    "archetype_id": "WMF_1920",
+    "display_name": "WMF_1920",
+    "construction_year": 1920,
+    "building_typology": "multi_family",
+    "current_year": 1920,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "b23e8f24-fd1b-4d5f-a55a-bf1df45fd422",
+      "valid_from_year": 1920,
+      "elements": [
+        {
+          "element_name": "WMF_1920_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "WMF_1920_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "WMF_1920_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "WMF_1930": {
+    "archetype_id": "WMF_1930",
+    "display_name": "WMF_1930",
+    "construction_year": 1930,
+    "building_typology": "multi_family",
+    "current_year": 1930,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "47bd071b-8144-4a68-9d7e-2cbf8146f0d8",
+      "valid_from_year": 1930,
+      "elements": [
+        {
+          "element_name": "WMF_1930_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "WMF_1930_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1880": {
+    "archetype_id": "BMF_1880",
+    "display_name": "BMF_1880",
+    "construction_year": 1880,
+    "building_typology": "multi_family",
+    "current_year": 1880,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "27bf69a6-6563-4e5e-a580-a4d9db0b2124",
+      "valid_from_year": 1880,
+      "elements": [
+        {
+          "element_name": "BMF_1880_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "BMF_1880_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "BMF_1880_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1880_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "BMF_1880_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1890_1": {
+    "archetype_id": "BMF_1890_1",
+    "display_name": "BMF_1890_1",
+    "construction_year": 1890,
+    "building_typology": "multi_family",
+    "current_year": 1890,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "26afeedf-440e-4d5f-a6de-f477b9887a1b",
+      "valid_from_year": 1890,
+      "elements": [
+        {
+          "element_name": "BMF_1890_1_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1890_1_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "BMF_1890_1_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "BMF_1890_1_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1900": {
+    "archetype_id": "BMF_1900",
+    "display_name": "BMF_1900",
+    "construction_year": 1900,
+    "building_typology": "multi_family",
+    "current_year": 1900,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "bf4c010e-2c57-4d21-a14f-5a10ee38f2ff",
+      "valid_from_year": 1900,
+      "elements": [
+        {
+          "element_name": "BMF_1900_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "BMF_1900_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "BMF_1900_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1900_EXT_WALL_LOW",
+          "element_type": "EXT_WALL_LOW"
+        },
+        {
+          "element_name": "BMF_1900_EXT_WALL_MEDIUM",
+          "element_type": "EXT_WALL_MEDIUM"
+        },
+        {
+          "element_name": "BMF_1900_EXT_WALL_HIGH",
+          "element_type": "EXT_WALL_HIGH"
+        },
+        {
+          "element_name": "BMF_1900_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "BMF_1900_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1910": {
+    "archetype_id": "BMF_1910",
+    "display_name": "BMF_1910",
+    "construction_year": 1910,
+    "building_typology": "multi_family",
+    "current_year": 1910,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "bf3e9372-f3b5-46fd-b4bc-5e10501924db",
+      "valid_from_year": 1910,
+      "elements": [
+        {
+          "element_name": "BMF_1910_GROUND_FLOOR",
+          "element_type": "GROUND_FLOOR"
+        },
+        {
+          "element_name": "BMF_1910_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1910_EXT_WALL_LOW",
+          "element_type": "EXT_WALL_LOW"
+        },
+        {
+          "element_name": "BMF_1910_EXT_WALL_MEDIUM",
+          "element_type": "EXT_WALL_MEDIUM"
+        },
+        {
+          "element_name": "BMF_1910_EXT_WALL_HIGH",
+          "element_type": "EXT_WALL_HIGH"
+        },
+        {
+          "element_name": "BMF_1910_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1920_2": {
+    "archetype_id": "BMF_1920_2",
+    "display_name": "BMF_1920_2",
+    "construction_year": 1920,
+    "building_typology": "multi_family",
+    "current_year": 1920,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "79590727-a53f-4639-8f88-c21ece8c2668",
+      "valid_from_year": 1920,
+      "elements": [
+        {
+          "element_name": "BMF_1920_2_ROOF",
+          "element_type": "ROOF"
+        },
+        {
+          "element_name": "BMF_1920_2_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1920_2_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "BMF_1920_2_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  },
+  "BMF_1930_2": {
+    "archetype_id": "BMF_1930_2",
+    "display_name": "BMF_1930_2",
+    "construction_year": 1930,
+    "building_typology": "multi_family",
+    "current_year": 1930,
+    "heating_system": "unknown",
+    "ventilation_system": "unknown",
+    "cold_attic": false,
+    "window_to_wall_ratio": 0.2,
+    "infiltration_rate": 0.5,
+    "construction_set": {
+      "version_id": "e17e0ec0-d14a-4181-a7da-538406299d9d",
+      "valid_from_year": 1930,
+      "elements": [
+        {
+          "element_name": "BMF_1930_2_BASEMENT_FLOOR",
+          "element_type": "BASEMENT_FLOOR"
+        },
+        {
+          "element_name": "BMF_1930_2_EXT_WALL",
+          "element_type": "EXT_WALL"
+        },
+        {
+          "element_name": "BMF_1930_2_BASEMENT_WALL",
+          "element_type": "BASEMENT_WALL"
+        },
+        {
+          "element_name": "BMF_1930_2_INT_WALL_LOADBEARING",
+          "element_type": "INT_WALL_LOADBEARING"
+        }
+      ]
+    },
+    "renovation_log": []
+  }
+}
