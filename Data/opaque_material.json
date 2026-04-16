@@ -1772,6 +1772,18 @@
     "type": "EnergyMaterial",
     "identifier": "Dry Dust"
   },
+  "Eternit Asbestos Cement Board (created)": {
+    "conductivity": 0.25,
+    "specific_heat": 1000.0,
+    "density": 1750.0,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.006,
+    "solar_absorptance": 0.6,
+    "visible_absorptance": 0.6,
+    "roughness": "MediumSmooth",
+    "type": "EnergyMaterial",
+    "identifier": "Eternit Asbestos Cement Board (created)"
+  },
   "Moist Soil": {
     "conductivity": 1.0,
     "specific_heat": 1252.0,

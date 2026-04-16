@@ -12,7 +12,7 @@ from pathlib import Path
 
 from epsm_data.domain.building import BuildingArchetype, build_construction_set
 from epsm_data.domain.component import Component
-from epsm_data.domain.element import Element
+from epsm_data.domain.element import Element, WindowElement
 from epsm_data.domain.enums import BuildingElement, Roughness, ShearingLayer
 from epsm_data.domain.layer import Layer, LayerMaterial, resolve_fractions
 from epsm_data.domain.material import OpaqueMaterial
@@ -268,13 +268,24 @@ def assemble_buildings(
     skipped: list[tuple[str, str]] = []
 
     for row in bldg_rows.records:
-        elements: dict[BuildingElement, Element] = {}
+        elements: dict[BuildingElement, Element | WindowElement] = {}
         for role_str, elem_code in row.element_assignments:
             elem = elem_lookup.get(elem_code)
             if elem is None:
                 logger.warning("'%s': element '%s' not loaded — skipping role", row.archetype, elem_code)
                 continue
             elements[elem.application] = elem
+
+        # ── window element (simple glazing) ──────────────────────
+        if row.window_u_value is not None:
+            win = WindowElement(
+                name=f"{row.archetype}_WINDOW",
+                archetype=row.archetype,
+                u_value=row.window_u_value,
+                shgc=row.window_shgc or 0.70,
+                boverket_id=row.window_boverket_id,
+            )
+            elements[BuildingElement.WINDOW] = win
 
         if not elements:
             skipped.append((row.archetype, "No elements resolved"))

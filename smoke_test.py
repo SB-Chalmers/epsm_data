@@ -17,6 +17,7 @@ setup_logging(log_file=Path("logs/smoke_test.log"))
 
 # Run the full pipeline
 result = run_build_baseline(EXCEL, JSON)
+result.log_summary()
 
 # Export
 export_json(result.archetypes, OUT)

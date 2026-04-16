@@ -96,7 +96,7 @@
   "CMF_1960_1": {
     "name": "CMF_1960_1",
     "age": 1960,
-    "total_elements": 7,
+    "total_elements": 9,
     "elements": [
       {
         "element_name": "CMF_1960_1_ROOF",
@@ -115,8 +115,16 @@
         "element_type": "GROUND_FLOOR"
       },
       {
+        "element_name": "CMF_1960_1_BASEMENT_FLOOR",
+        "element_type": "BASEMENT_FLOOR"
+      },
+      {
         "element_name": "CMF_1960_1_EXT_WALL",
         "element_type": "EXT_WALL"
+      },
+      {
+        "element_name": "CMF_1960_1_BASEMENT_WALL",
+        "element_type": "BASEMENT_WALL"
       },
       {
         "element_name": "CMF_1960_1_INT_WALL_LOADBEARING",

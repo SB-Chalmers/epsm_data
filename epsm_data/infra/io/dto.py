@@ -92,6 +92,9 @@ class BuildingRow:
     construction_year: int
     multiple_ext_walls: bool
     element_assignments: tuple[tuple[str, str], ...]  # (role, element_code)
+    window_u_value: float | None = None   # BETSI/TABULA window U [W/(m²·K)]
+    window_shgc: float | None = None      # Solar heat gain coefficient
+    window_boverket_id: int | None = None  # Boverket klimatdatabas ID
 
 
 # ── JSON DTOs ─────────────────────────────────────────────────────

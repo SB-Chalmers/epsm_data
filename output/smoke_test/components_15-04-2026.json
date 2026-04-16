@@ -192,7 +192,7 @@
     "archetype": "CMF_1940_1",
     "application": "EXT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 1.34,
+    "r_sum": 0.464917,
     "thickness": 0.25,
     "layers": [
       {
@@ -484,7 +484,7 @@
     "archetype": "CMF_1950",
     "application": "EXT_WALL_LOW",
     "shearing_layer": "Structure",
-    "r_sum": 0.742198,
+    "r_sum": 0.304657,
     "thickness": 0.27999999999999997,
     "layers": [
       {
@@ -534,7 +534,7 @@
     "archetype": "CMF_1950",
     "application": "EXT_WALL_MEDIUM",
     "shearing_layer": "Structure",
-    "r_sum": 1.34,
+    "r_sum": 0.464917,
     "thickness": 0.25,
     "layers": [
       {
@@ -562,7 +562,7 @@
     "archetype": "CMF_1950",
     "application": "EXT_WALL_HIGH",
     "shearing_layer": "Structure",
-    "r_sum": 1.072,
+    "r_sum": 0.371934,
     "thickness": 0.2,
     "layers": [
       {
@@ -590,7 +590,7 @@
     "archetype": "CMF_1950",
     "application": "BASEMENT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 0.622621,
+    "r_sum": 0.272588,
     "thickness": 0.30000000000000004,
     "layers": [
       {
@@ -666,8 +666,8 @@
     "archetype": "CMF_1960_1",
     "application": "TOP_FLOOR",
     "shearing_layer": "Space",
-    "r_sum": 3.108758,
-    "thickness": 0.155,
+    "r_sum": 4.742504,
+    "thickness": 0.23500000000000001,
     "layers": [
       {
         "layer_code": "CARDBOARD_005_S",
@@ -678,7 +678,7 @@
         "layer_index": 1
       },
       {
-        "layer_code": "MINERAL_WOOL_CARPET_12_S",
+        "layer_code": "MINERAL_WOOL_CARPET_2_S",
         "layer_index": 2
       }
     ]
@@ -738,12 +738,16 @@
     "archetype": "CMF_1960_1",
     "application": "GROUND_FLOOR",
     "shearing_layer": "Skin",
-    "r_sum": 0.9375,
-    "thickness": 0.15,
+    "r_sum": 3.772729,
+    "thickness": 0.235,
     "layers": [
       {
         "layer_code": "LECA_15_S",
         "layer_index": 0
+      },
+      {
+        "layer_code": "CELLULAR_PLASTIC_085_S",
+        "layer_index": 1
       }
     ]
   },
@@ -779,20 +783,50 @@
       }
     ]
   },
+  "CMF_1960_1_BASEMENT_FLOOR_STRUCTURE": {
+    "name": "CMF_1960_1_BASEMENT_FLOOR_STRUCTURE",
+    "archetype": "CMF_1960_1",
+    "application": "BASEMENT_FLOOR",
+    "shearing_layer": "Structure",
+    "r_sum": 2.239425,
+    "thickness": 0.331,
+    "layers": [
+      {
+        "layer_code": "CONCRETE_07_S",
+        "layer_index": 0
+      },
+      {
+        "layer_code": "CELLULAR_PLASTIC_06_S",
+        "layer_index": 1
+      },
+      {
+        "layer_code": "FOIL_001_S",
+        "layer_index": 2
+      },
+      {
+        "layer_code": "SAND_05_S",
+        "layer_index": 3
+      },
+      {
+        "layer_code": "GRAVEL_15_S",
+        "layer_index": 4
+      }
+    ]
+  },
   "CMF_1960_1_EXT_WALL_SKIN": {
     "name": "CMF_1960_1_EXT_WALL_SKIN",
     "archetype": "CMF_1960_1",
     "application": "EXT_WALL",
     "shearing_layer": "Skin",
-    "r_sum": 0.3254,
-    "thickness": 0.215,
+    "r_sum": 0.1814,
+    "thickness": 0.134,
     "layers": [
       {
         "layer_code": "BRICK_MORTAR_125_C",
         "layer_index": 0
       },
       {
-        "layer_code": "ETERNIT_BOARD_09_S",
+        "layer_code": "ETERNIT_BOARD_009_S",
         "layer_index": 0
       }
     ]
@@ -824,16 +858,26 @@
     "archetype": "CMF_1960_1",
     "application": "EXT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 4.875055,
-    "thickness": 0.19,
+    "r_sum": 1.868388,
+    "thickness": 0.095,
     "layers": [
       {
         "layer_code": "MINERAL_WOOL_WOODEN_STUD_095_C",
         "layer_index": 0
-      },
+      }
+    ]
+  },
+  "CMF_1960_1_BASEMENT_WALL_STRUCTURE": {
+    "name": "CMF_1960_1_BASEMENT_WALL_STRUCTURE",
+    "archetype": "CMF_1960_1",
+    "application": "BASEMENT_WALL",
+    "shearing_layer": "Structure",
+    "r_sum": 0.129932,
+    "thickness": 0.3,
+    "layers": [
       {
-        "layer_code": "MINERAL_WOOL_WOODEN_STUD_095_C",
-        "layer_index": 1
+        "layer_code": "CONCRETE_3_S",
+        "layer_index": 0
       }
     ]
   },
@@ -884,7 +928,7 @@
     "archetype": "CMF_1960_1",
     "application": "INT_WALL_NONLOADBEARING",
     "shearing_layer": "Structure",
-    "r_sum": 1.796073,
+    "r_sum": 1.376707,
     "thickness": 0.07,
     "layers": [
       {
@@ -912,24 +956,6 @@
       {
         "layer_code": "WOODEN_PANEL_03_S",
         "layer_index": 2
-      }
-    ]
-  },
-  "CMF_1960_2_TOP_FLOOR_SPACE": {
-    "name": "CMF_1960_2_TOP_FLOOR_SPACE",
-    "archetype": "CMF_1960_2",
-    "application": "TOP_FLOOR",
-    "shearing_layer": "Space",
-    "r_sum": 3.063273,
-    "thickness": 0.15,
-    "layers": [
-      {
-        "layer_code": "MINERAL_WOOL_CARPET_12_S",
-        "layer_index": 0
-      },
-      {
-        "layer_code": "MINERAL_WOOL_BLANKET_03_S",
-        "layer_index": 1
       }
     ]
   },
@@ -1032,7 +1058,7 @@
     "archetype": "CMF_1960_2",
     "application": "BASEMENT_FLOOR",
     "shearing_layer": "Structure",
-    "r_sum": 0.613338,
+    "r_sum": 2.239425,
     "thickness": 0.331,
     "layers": [
       {
@@ -1106,7 +1132,7 @@
     "archetype": "CMF_1960_2",
     "application": "EXT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 2.151875,
+    "r_sum": 1.327278,
     "thickness": 0.35,
     "layers": [
       {
@@ -1188,7 +1214,7 @@
     "archetype": "CMF_1970",
     "application": "TOP_FLOOR",
     "shearing_layer": "Skin",
-    "r_sum": 10.006692,
+    "r_sum": 6.949092,
     "thickness": 0.3,
     "layers": [
       {
@@ -1304,7 +1330,7 @@
     "archetype": "CMF_1970",
     "application": "EXT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 1.608,
+    "r_sum": 0.557901,
     "thickness": 0.3,
     "layers": [
       {
@@ -1350,7 +1376,7 @@
     "archetype": "CMF_1980",
     "application": "TOP_FLOOR",
     "shearing_layer": "Skin",
-    "r_sum": 10.006692,
+    "r_sum": 6.949092,
     "thickness": 0.3,
     "layers": [
       {
@@ -1466,7 +1492,7 @@
     "archetype": "CMF_1980",
     "application": "EXT_WALL",
     "shearing_layer": "Structure",
-    "r_sum": 1.608,
+    "r_sum": 0.557901,
     "thickness": 0.3,
     "layers": [
       {

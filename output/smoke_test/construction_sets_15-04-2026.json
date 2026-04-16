@@ -10,7 +10,7 @@
       "BASEMENT_WALL": 2.5937479361139877,
       "INT_WALL_LOADBEARING": 2.76942341672888,
       "INT_WALL_NONLOADBEARING": 3.281031893531181,
-      "wall": 0.649802357899262
+      "wall": 1.5063720025527965
     },
     "roof": [
       {
@@ -140,9 +140,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_25_C_eff",
         "thickness": 0.25,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       }
     ]
@@ -155,10 +155,10 @@
       "INTERMEDIATE_FLOOR": 0.8954177908570271,
       "GROUND_FLOOR": 0.9158445628864207,
       "BASEMENT_FLOOR": 3.3340900626270504,
-      "BASEMENT_WALL": 1.2502287186520114,
+      "BASEMENT_WALL": 2.2231089178202175,
       "INT_WALL_LOADBEARING": 2.884993153267904,
       "INT_WALL_NONLOADBEARING": 3.0091152945231694,
-      "wall": 0.845561997866285
+      "wall": 1.8033349513698225
     },
     "roof": [
       {
@@ -288,9 +288,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_125_C_eff",
         "thickness": 0.125,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       },
       {
@@ -328,9 +328,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_25_C_eff",
         "thickness": 0.25,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       },
       {
@@ -344,9 +344,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_2_C_eff",
         "thickness": 0.2,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       }
     ]
@@ -355,12 +355,14 @@
     "construction_year": 1960,
     "u_values": {
       "ROOF": 1.197469450014997,
-      "TOP_FLOOR": 0.29945562626148103,
+      "TOP_FLOOR": 0.20108026091555822,
       "INTERMEDIATE_FLOOR": 1.7100287533507132,
-      "GROUND_FLOOR": 0.703867437590296,
+      "GROUND_FLOOR": 0.2349650849880696,
+      "BASEMENT_FLOOR": 0.41503675058650524,
+      "BASEMENT_WALL": 3.3340900626270504,
       "INT_WALL_LOADBEARING": 2.9715087786984156,
-      "INT_WALL_NONLOADBEARING": 0.46786311395017427,
-      "wall": 0.17904339312024486
+      "INT_WALL_NONLOADBEARING": 0.5820683766401754,
+      "wall": 0.4107499886014936
     },
     "roof": [
       {
@@ -421,7 +423,7 @@
       },
       {
         "name": "mineral_wool_carpet",
-        "thickness": 0.12,
+        "thickness": 0.2,
         "conductivity": 0.049,
         "density": 265.0006,
         "specific_heat": 836.2604,
@@ -446,6 +448,14 @@
         "roughness": "VeryRough"
       },
       {
+        "name": "cellular_plastic",
+        "thickness": 0.085,
+        "conductivity": 0.03,
+        "density": 43.0001,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
         "name": "linoleum",
         "thickness": 0.01,
         "conductivity": 0.1599,
@@ -468,6 +478,46 @@
         "density": 2322.0068,
         "specific_heat": 832.02,
         "roughness": "MediumRough"
+      },
+      {
+        "name": "concrete",
+        "thickness": 0.07,
+        "conductivity": 2.3089,
+        "density": 2322.0068,
+        "specific_heat": 832.02,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "cellular_plastic",
+        "thickness": 0.06,
+        "conductivity": 0.03,
+        "density": 43.0001,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
+      },
+      {
+        "name": "foil",
+        "thickness": 0.001,
+        "conductivity": 0.1599,
+        "density": 1121.2926,
+        "specific_heat": 1459.0586,
+        "roughness": "VeryRough"
+      },
+      {
+        "name": "sand",
+        "thickness": 0.05,
+        "conductivity": 0.33,
+        "density": 1555.0,
+        "specific_heat": 800.0,
+        "roughness": "Rough"
+      },
+      {
+        "name": "gravel",
+        "thickness": 0.15,
+        "conductivity": 3.0,
+        "density": 2700.0,
+        "specific_heat": 790.0,
+        "roughness": "MediumRough"
       }
     ],
     "wall": [
@@ -481,11 +531,11 @@
       },
       {
         "name": "eternit_board",
-        "thickness": 0.09,
-        "conductivity": 0.5,
-        "density": 1600.0,
-        "specific_heat": 1026.0,
-        "roughness": "Rough"
+        "thickness": 0.009,
+        "conductivity": 0.25,
+        "density": 1750.0,
+        "specific_heat": 1000.0,
+        "roughness": "MediumSmooth"
       },
       {
         "name": "plaster_board",
@@ -514,17 +564,9 @@
       {
         "name": "MINERAL_WOOL_WOODEN_STUD_095_C_eff",
         "thickness": 0.095,
-        "conductivity": 0.039,
-        "density": 92.7002,
-        "specific_heat": 1209.2198,
-        "roughness": "MediumRough"
-      },
-      {
-        "name": "MINERAL_WOOL_WOODEN_STUD_095_C_eff",
-        "thickness": 0.095,
-        "conductivity": 0.039,
-        "density": 92.7002,
-        "specific_heat": 1209.2198,
+        "conductivity": 0.0508,
+        "density": 135.9003,
+        "specific_heat": 873.7363,
         "roughness": "MediumRough"
       }
     ]
@@ -533,13 +575,13 @@
     "construction_year": 1960,
     "u_values": {
       "ROOF": 2.071356470787869,
-      "TOP_FLOOR": 0.30279448213851723,
+      "TOP_FLOOR": 4.178907058558939,
       "INTERMEDIATE_FLOOR": 0.8491386858351029,
       "GROUND_FLOOR": 0.9194016409377493,
-      "BASEMENT_FLOOR": 1.2765885780889519,
+      "BASEMENT_FLOOR": 0.41503675058650524,
       "BASEMENT_WALL": 3.3340900626270504,
       "INT_WALL_LOADBEARING": 2.9461097045701297,
-      "wall": 0.40086440717183836
+      "wall": 0.5987980189830875
     },
     "roof": [
       {
@@ -565,22 +607,6 @@
         "density": 540.0012,
         "specific_heat": 1209.2198,
         "roughness": "MediumSmooth"
-      },
-      {
-        "name": "mineral_wool_carpet",
-        "thickness": 0.12,
-        "conductivity": 0.049,
-        "density": 265.0006,
-        "specific_heat": 836.2604,
-        "roughness": "MediumRough"
-      },
-      {
-        "name": "mineral_wool_blanket",
-        "thickness": 0.03,
-        "conductivity": 0.049,
-        "density": 265.0006,
-        "specific_heat": 836.2604,
-        "roughness": "MediumRough"
       },
       {
         "name": "concrete",
@@ -643,10 +669,10 @@
       {
         "name": "cellular_plastic",
         "thickness": 0.06,
-        "conductivity": 0.1599,
-        "density": 1121.2926,
-        "specific_heat": 1459.0586,
-        "roughness": "VeryRough"
+        "conductivity": 0.03,
+        "density": 43.0001,
+        "specific_heat": 1209.2198,
+        "roughness": "MediumRough"
       },
       {
         "name": "foil",
@@ -725,17 +751,17 @@
       {
         "name": "MINERAL_WOOL_WOODEN_STUD_05_C_eff",
         "thickness": 0.05,
-        "conductivity": 0.039,
-        "density": 92.7002,
-        "specific_heat": 1209.2198,
+        "conductivity": 0.0508,
+        "density": 135.9003,
+        "specific_heat": 873.7363,
         "roughness": "MediumRough"
       },
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_15_C_eff",
         "thickness": 0.15,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       },
       {
@@ -752,11 +778,11 @@
     "construction_year": 1970,
     "u_values": {
       "ROOF": 3.2078677999859444,
-      "TOP_FLOOR": 0.09747555619638928,
+      "TOP_FLOOR": 0.13886223701322606,
       "INTERMEDIATE_FLOOR": 2.470160249570117,
       "GROUND_FLOOR": 0.5133363526392154,
       "INT_WALL_LOADBEARING": 3.0772454310634734,
-      "wall": 0.5357515657566531
+      "wall": 1.2248336758947118
     },
     "roof": [
       {
@@ -778,9 +804,9 @@
       {
         "name": "mineral_wool",
         "thickness": 0.3,
-        "conductivity": 0.03,
-        "density": 43.0001,
-        "specific_heat": 1209.2198,
+        "conductivity": 0.0432,
+        "density": 91.0002,
+        "specific_heat": 836.4603,
         "roughness": "MediumRough"
       },
       {
@@ -838,9 +864,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C_eff",
         "thickness": 0.3,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       }
     ]
@@ -849,11 +875,11 @@
     "construction_year": 1980,
     "u_values": {
       "ROOF": 3.2078677999859444,
-      "TOP_FLOOR": 0.09747555619638928,
+      "TOP_FLOOR": 0.13886223701322606,
       "INTERMEDIATE_FLOOR": 2.470160249570117,
       "GROUND_FLOOR": 0.5133363526392154,
       "INT_WALL_LOADBEARING": 3.0772454310634734,
-      "wall": 0.5357515657566531
+      "wall": 1.2248336758947118
     },
     "roof": [
       {
@@ -875,9 +901,9 @@
       {
         "name": "mineral_wool",
         "thickness": 0.3,
-        "conductivity": 0.03,
-        "density": 43.0001,
-        "specific_heat": 1209.2198,
+        "conductivity": 0.0432,
+        "density": 91.0002,
+        "specific_heat": 836.4603,
         "roughness": "MediumRough"
       },
       {
@@ -935,9 +961,9 @@
       {
         "name": "LIGHTWEIGHT_CONCRETE_MORTAR_3_C_eff",
         "thickness": 0.3,
-        "conductivity": 0.1866,
-        "density": 701.6032,
-        "specific_heat": 1115.0448,
+        "conductivity": 0.5377,
+        "density": 1308.903,
+        "specific_heat": 839.3085,
         "roughness": "MediumRough"
       }
     ]

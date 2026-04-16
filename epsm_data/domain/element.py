@@ -3,11 +3,14 @@
 An Element aggregates components into a full envelope or partition
 assembly with boundary-condition metadata and TABULA reference
 validation.
+
+WindowElement models glazing — currently via simple U/SHGC properties,
+extensible to full glazing-layer construction.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import ClassVar, Tuple
 
 from .component import Component
@@ -129,4 +132,64 @@ class Element:
             "r_total": round(self.r_total, 6),
             "total_components": self.total_components,
             "components": [comp.name for comp in self.components],
+        }
+
+
+# ---------------------------------------------------------------------------
+# Window element — simple glazing system, extensible to layered
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class WindowElement:
+    """Window envelope element.
+
+    Phase 1 (current): whole-window U-value + SHGC from BETSI/TABULA.
+    Phase 2 (future):  ``glazing_layers`` list of pane/gas objects built
+                       from ``window_material.json`` for full spectral
+                       simulation in EnergyPlus.
+
+    The ``boverket_id`` connects to the Klimatdatabas for embodied
+    carbon (LCA) regardless of which phase is active.
+    """
+
+    name: str
+    archetype: str
+    u_value: float          # whole-window U [W/(m²·K)]
+    shgc: float             # solar heat gain coefficient
+    vt: float = 0.65        # visible transmittance (default for 2-pane clear)
+    boverket_id: int | None = None  # Klimatdatabas resource ID
+    # Future: glazing_layers: tuple[GlazingLayer, ...] = ()
+
+    application: BuildingElement = field(
+        default=BuildingElement.WINDOW, init=False,
+    )
+
+    def __post_init__(self) -> None:
+        if self.u_value <= 0:
+            raise ValueError(f"WindowElement '{self.name}': U-value must be positive.")
+        if not 0 < self.shgc <= 1:
+            raise ValueError(f"WindowElement '{self.name}': SHGC must be in (0, 1].")
+        if not 0 < self.vt <= 1:
+            raise ValueError(f"WindowElement '{self.name}': VT must be in (0, 1].")
+
+    @property
+    def tabula_u_value(self) -> float | None:
+        """TABULA reference window U-value, if archetype is known."""
+        matched = next(
+            (k for k in TABULA_CMF if k.upper() in self.name.upper()), None
+        )
+        if matched and "window" in TABULA_CMF[matched]:
+            return TABULA_CMF[matched]["window"]
+        return None
+
+    def to_dict(self) -> dict:
+        return {
+            "name": self.name,
+            "archetype": self.archetype,
+            "application": self.application.value,
+            "u_value": round(self.u_value, 6),
+            "shgc": round(self.shgc, 4),
+            "vt": round(self.vt, 4),
+            "boverket_id": self.boverket_id,
+            "tabula_u_value": self.tabula_u_value,
         }

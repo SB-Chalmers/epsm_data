@@ -342,7 +342,11 @@ def read_element_sheet(path: Path) -> ReadResult[ElementRow]:
 def read_building_sheet(path: Path) -> ReadResult[BuildingRow]:
     """Read the *Building* sheet."""
     df = pd.read_excel(path, sheet_name="Building", header=1)
-    df.columns = ["Archetype", "Multiple Ext Walls"] + _BUILDING_ELEMENT_ROLES
+    # Column mapping: first 2 fixed cols, then element roles, then optional window cols
+    base_cols = ["Archetype", "Multiple Ext Walls"] + _BUILDING_ELEMENT_ROLES
+    # Pad or trim to match actual column count (window cols may be present)
+    extra_cols = max(0, len(df.columns) - len(base_cols))
+    df.columns = base_cols + [f"_extra_{i}" for i in range(extra_cols)]
 
     records: list[BuildingRow] = []
     skipped: list[tuple[str, str]] = []
@@ -370,12 +374,23 @@ def read_building_sheet(path: Path) -> ReadResult[BuildingRow]:
             skipped.append((archetype, "No elements assigned"))
             continue
 
+        # Optional window columns (after the element role columns)
+        win_u_raw = row.get("_extra_0")
+        win_shgc_raw = row.get("_extra_1")
+        win_bov_raw = row.get("_extra_2")
+        win_u = float(win_u_raw) if pd.notna(win_u_raw) else None
+        win_shgc = float(win_shgc_raw) if pd.notna(win_shgc_raw) else None
+        win_bov = int(win_bov_raw) if pd.notna(win_bov_raw) else None
+
         records.append(
             BuildingRow(
                 archetype=archetype,
                 construction_year=year,
                 multiple_ext_walls=multi,
                 element_assignments=tuple(assignments),
+                window_u_value=win_u,
+                window_shgc=win_shgc,
+                window_boverket_id=win_bov,
             )
         )
 

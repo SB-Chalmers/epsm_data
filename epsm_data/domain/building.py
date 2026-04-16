@@ -17,7 +17,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from uuid import UUID, uuid4
 
-from .element import Element
+from .element import Element, WindowElement
 from .enums import BuildingElement
 
 
@@ -27,7 +27,7 @@ class ConstructionSet:
 
     version_id: UUID
     valid_from_year: int
-    elements: dict[BuildingElement, Element]  # role -> element
+    elements: dict[BuildingElement, Element | WindowElement]  # role -> element
 
     def to_dict(self) -> dict:
         return {
@@ -102,7 +102,9 @@ class BuildingArchetype:
         wall_values: list[float] = []
 
         for role, elem in self.construction_set.elements.items():
-            if role.is_ext_wall:
+            if role == BuildingElement.WINDOW:
+                result["WINDOW"] = elem.u_value
+            elif role.is_ext_wall:
                 wall_values.append(elem.u_value)
             else:
                 result[role.value] = elem.u_value
@@ -111,6 +113,12 @@ class BuildingArchetype:
             result["wall"] = sum(wall_values) / len(wall_values)
 
         return result
+
+    @property
+    def window(self) -> WindowElement | None:
+        """Shortcut to the window element, if present."""
+        elem = self.construction_set.elements.get(BuildingElement.WINDOW)
+        return elem if isinstance(elem, WindowElement) else None
 
     @property
     def total_elements(self) -> int:
@@ -146,7 +154,7 @@ class BuildingArchetype:
 
 
 def build_construction_set(
-    elements: dict[BuildingElement, Element],
+    elements: dict[BuildingElement, Element | WindowElement],
     construction_year: int,
 ) -> ConstructionSet:
     """Convenience factory for the initial construction set."""

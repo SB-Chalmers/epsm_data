@@ -11,7 +11,7 @@ from .building import (
     build_construction_set,
 )
 from .component import Component
-from .element import Element, TABULA_CMF
+from .element import Element, WindowElement, TABULA_CMF
 from .enums import (
     BuildingElement,
     ComponentState,
@@ -40,6 +40,7 @@ __all__ = [
     "Component",
     # element
     "Element",
+    "WindowElement",
     "TABULA_CMF",
     # building
     "BuildingArchetype",

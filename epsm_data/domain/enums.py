@@ -30,6 +30,7 @@ class BuildingElement(Enum):
     BASEMENT_WALL = "BASEMENT_WALL"
     INT_WALL_LOADBEARING = "INT_WALL_LOADBEARING"
     INT_WALL_NONLOADBEARING = "INT_WALL_NONLOADBEARING"
+    WINDOW = "WINDOW"
 
     @classmethod
     def from_name(cls, name: str) -> BuildingElement | None:

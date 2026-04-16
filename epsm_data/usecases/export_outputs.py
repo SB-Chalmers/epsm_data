@@ -51,6 +51,8 @@ def export_json(
         all_buildings[arch.archetype_id] = arch.to_dict()
         for _role, elem in arch.construction_set.elements.items():
             all_elements[elem.name] = elem.to_dict()
+            if not hasattr(elem, 'components'):
+                continue
             for comp in elem.components:
                 all_components[comp.name] = comp.to_dict()
                 for layer, _idx in comp.layers:

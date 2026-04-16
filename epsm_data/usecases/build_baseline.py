@@ -180,6 +180,5 @@ def run_build_baseline(
         stage_skipped=skipped,
         elapsed_seconds=time.monotonic() - t0,
     )
-    result.log_summary()
 
     return result
