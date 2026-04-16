@@ -14,13 +14,21 @@ from .layer import Layer
 
 
 @dataclass(frozen=True)
+class LayerSlot:
+    """One layer positioned within a component stack."""
+
+    layer: Layer
+    position: int
+
+
+@dataclass(frozen=True)
 class Component:
     """An ordered stack of layers belonging to one shearing layer."""
 
     name: str
     archetype: str
     application: BuildingElement
-    layers: Tuple[Tuple[Layer, int], ...]  # (layer, layer_index)
+    layers: Tuple[LayerSlot, ...]
     shearing_layer: ShearingLayer
 
     def __post_init__(self) -> None:
@@ -30,12 +38,12 @@ class Component:
     @property
     def r_sum(self) -> float:
         """Sum of all layer R-values (no boundary resistances)."""
-        return sum(layer.r_value for layer, _ in self.layers)
+        return sum(slot.layer.r_value for slot in self.layers)
 
     @property
     def thickness(self) -> float:
         """Total thickness of all layers [m]."""
-        return sum(layer.thickness for layer, _ in self.layers)
+        return sum(slot.layer.thickness for slot in self.layers)
 
     def to_dict(self) -> dict:
         return {
@@ -46,7 +54,7 @@ class Component:
             "r_sum": round(self.r_sum, 6),
             "thickness": self.thickness,
             "layers": [
-                {"layer_code": layer.layer_code, "layer_index": idx}
-                for layer, idx in self.layers
+                {"layer_code": slot.layer.layer_code, "layer_index": slot.position}
+                for slot in self.layers
             ],
         }

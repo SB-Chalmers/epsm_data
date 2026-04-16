@@ -10,8 +10,8 @@ from .building import (
     RenovationEvent,
     build_construction_set,
 )
-from .component import Component
-from .element import Element, WindowElement, TABULA_CMF
+from .component import Component, LayerSlot
+from .element import Element, WindowElement
 from .enums import (
     BuildingElement,
     ComponentState,
@@ -38,10 +38,10 @@ __all__ = [
     "LayerMaterial",
     # component
     "Component",
+    "LayerSlot",
     # element
     "Element",
     "WindowElement",
-    "TABULA_CMF",
     # building
     "BuildingArchetype",
     "ConstructionSet",

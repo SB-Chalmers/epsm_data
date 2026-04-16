@@ -12,7 +12,7 @@ from epsm_data.domain.element import Element
 
 from .boundary_conditions import get_boundary_resistances
 from .component_calc import ComponentThermalResult, compute_component_thermal
-from .standards import validate_against_reference
+from .standards import get_tabula_u_value, validate_against_reference
 
 
 @dataclass
@@ -51,7 +51,9 @@ def compute_element_thermal(element: Element) -> ElementThermalResult:
         rse=rse,
         r_total=r_total,
         u_value=u_value,
-        tabula_u_value=element.tabula_u_value,
-        tabula_warning=validate_against_reference(element),
+        tabula_u_value=get_tabula_u_value(element.name, element.application),
+        tabula_warning=validate_against_reference(
+            element.name, element.application, u_value,
+        ),
         component_results=comp_results,
     )

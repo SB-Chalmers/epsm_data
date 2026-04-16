@@ -11,7 +11,7 @@ import logging
 from pathlib import Path
 
 from epsm_data.domain.building import BuildingArchetype, build_construction_set
-from epsm_data.domain.component import Component
+from epsm_data.domain.component import Component, LayerSlot
 from epsm_data.domain.element import Element, WindowElement
 from epsm_data.domain.enums import BuildingElement, Roughness, ShearingLayer
 from epsm_data.domain.layer import Layer, LayerMaterial, resolve_fractions
@@ -139,7 +139,7 @@ def assemble_components(
     skipped: list[tuple[str, str]] = []
 
     for row in comp_rows.records:
-        layers: list[tuple[Layer, int]] = []
+        layers: list[LayerSlot] = []
         error: str | None = None
 
         for ref in row.layers:
@@ -147,7 +147,7 @@ def assemble_components(
             if layer is None:
                 error = f"Layer '{ref.layer_code}' not found"
                 break
-            layers.append((layer, ref.layer_index))
+            layers.append(LayerSlot(layer=layer, position=ref.layer_index))
 
         if error:
             skipped.append((row.component_code, error))

@@ -55,9 +55,9 @@ def export_json(
                 continue
             for comp in elem.components:
                 all_components[comp.name] = comp.to_dict()
-                for layer, _idx in comp.layers:
-                    all_layers[layer.layer_code] = layer.to_dict()
-                    for lm in layer.materials:
+                for slot in comp.layers:
+                    all_layers[slot.layer.layer_code] = slot.layer.to_dict()
+                    for lm in slot.layer.materials:
                         all_materials[lm.material.name] = lm.material.to_dict()
 
     files = {
@@ -120,7 +120,8 @@ def export_construction_sets(
 
             layers: list[dict] = []
             for comp in elem.components:
-                for layer, _idx in comp.layers:
+                for slot in comp.layers:
+                    layer = slot.layer
                     # For composite layers, use area-weighted effective properties
                     if layer.is_composite:
                         eff_conductivity = sum(

@@ -18,7 +18,10 @@ from .layer_calc import LayerThermalResult, compute_layer_thermal
 from .standards import (
     DEFAULT_TOLERANCE,
     REFERENCE_U_VALUES,
+    TABULA_CMF,
     get_reference_u_value,
+    get_tabula_u_value,
+    get_window_reference_u_value,
     validate_against_reference,
 )
 
@@ -41,7 +44,10 @@ __all__ = [
     "compute_element_thermal",
     # standards
     "REFERENCE_U_VALUES",
+    "TABULA_CMF",
     "DEFAULT_TOLERANCE",
     "get_reference_u_value",
+    "get_tabula_u_value",
+    "get_window_reference_u_value",
     "validate_against_reference",
 ]

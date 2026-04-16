@@ -27,7 +27,7 @@ class ComponentThermalResult:
 
 def compute_component_thermal(component: Component) -> ComponentThermalResult:
     """Sum layer resistances for a component and return per-layer breakdown."""
-    layer_results = [compute_layer_thermal(layer) for layer, _ in component.layers]
+    layer_results = [compute_layer_thermal(slot.layer) for slot in component.layers]
     return ComponentThermalResult(
         component_name=component.name,
         archetype=component.archetype,
