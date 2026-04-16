@@ -14,7 +14,7 @@ downstream libraries consume without importing epsm_data internals.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from uuid import UUID, uuid4
 
 from .element import Element, WindowElement
@@ -67,7 +67,7 @@ class RenovationEvent:
         }
 
 
-@dataclass
+@dataclass(frozen=True)
 class BuildingArchetype:
     """Central container: archetype identity + construction set + renovation log."""
 
@@ -76,7 +76,7 @@ class BuildingArchetype:
     construction_year: int
     building_typology: str  # e.g. "multi_family" | "single_family"
     construction_set: ConstructionSet
-    renovation_log: list[RenovationEvent] = field(default_factory=list)
+    renovation_log: tuple[RenovationEvent, ...] = ()
 
     def __post_init__(self) -> None:
         if not self.construction_set.elements:
@@ -90,6 +90,21 @@ class BuildingArchetype:
         if self.renovation_log:
             return max(e.applied_year for e in self.renovation_log)
         return self.construction_year
+
+    def with_renovation(
+        self,
+        event: RenovationEvent,
+        new_construction_set: ConstructionSet,
+    ) -> BuildingArchetype:
+        """Return a new archetype with the renovation applied."""
+        return BuildingArchetype(
+            archetype_id=self.archetype_id,
+            display_name=self.display_name,
+            construction_year=self.construction_year,
+            building_typology=self.building_typology,
+            construction_set=new_construction_set,
+            renovation_log=self.renovation_log + (event,),
+        )
 
     @property
     def envelope_u_values(self) -> dict[str, float]:
