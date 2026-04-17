@@ -33,6 +33,13 @@ from epsm_data.domain import (
     WindowMaterial,
 )
 from epsm_data.usecases.build_baseline import PipelineResult, run_build_baseline
+from epsm_data.usecases.build_from_spec import build_archetype_from_spec
+from epsm_data.usecases.material_search import (
+    list_boverket_materials,
+    list_honeybee_materials,
+    search_boverket_materials,
+    search_honeybee_materials,
+)
 from epsm_data.usecases.export_outputs import (
     export_construction_sets,
     export_consumption_contracts,
@@ -44,10 +51,16 @@ __all__ = [
     "setup_logging",
     # usecases
     "run_build_baseline",
+    "build_archetype_from_spec",
     "PipelineResult",
     "export_json",
     "export_consumption_contracts",
     "export_construction_sets",
+    # material search
+    "search_honeybee_materials",
+    "list_honeybee_materials",
+    "search_boverket_materials",
+    "list_boverket_materials",
     # domain — core types
     "BuildingArchetype",
     "ConstructionSet",
