@@ -1876,7 +1876,7 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.6,
     "visible_absorptance": 0.6
-},
+  },
   "Asphalt Board (created)": {
     "type": "EnergyMaterial",
     "identifier": "Asphalt Board",
@@ -1888,8 +1888,8 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.9,
     "visible_absorptance": 0.8
-},
-"Woodfiber Board (created)": {
+  },
+  "Woodfiber Board (created)": {
     "type": "EnergyMaterial",
     "identifier": "Woodfiber Board",
     "roughness": "MediumRough",
@@ -1900,8 +1900,8 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.65,
     "visible_absorptance": 0.65
-},
-"Leca (created)": {
+  },
+  "Leca (created)": {
     "type": "EnergyMaterial",
     "identifier": "Leca",
     "roughness": "VeryRough",
@@ -1912,8 +1912,8 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.7,
     "visible_absorptance": 0.7
-}, 
-"Wood Shavings (created)": {
+  },
+  "Wood Shavings (created)": {
     "type": "EnergyMaterial",
     "identifier": "Wood Shavings",
     "roughness": "VeryRough",
@@ -1924,8 +1924,8 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.65,
     "visible_absorptance": 0.65
-},
-"Air Wall (created)": {
+  },
+  "Air Wall (created)": {
     "type": "EnergyMaterial",
     "identifier": "Air Wall",
     "roughness": "Smooth",
@@ -1936,5 +1936,29 @@
     "thermal_absorptance": 0.9,
     "solar_absorptance": 0.0,
     "visible_absorptance": 0.0
-}
+  },
+  "Mineral Wool Old (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Mineral Wool Old",
+    "roughness": "MediumRough",
+    "thickness": 0.1,
+    "conductivity": 0.042,
+    "density": 30.0,
+    "specific_heat": 840.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.7,
+    "visible_absorptance": 0.7
+  },
+  "Mineral Wool New (created)": {
+    "type": "EnergyMaterial",
+    "identifier": "Mineral Wool New",
+    "roughness": "MediumRough",
+    "thickness": 0.1,
+    "conductivity": 0.036,
+    "density": 30.0,
+    "specific_heat": 840.0,
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.7,
+    "visible_absorptance": 0.7
+  }
 }
