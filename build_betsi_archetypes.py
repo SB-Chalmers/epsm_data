@@ -76,12 +76,12 @@ def composite(mat_keys, thickness, fractions):
 # ══════════════════════════════════════════════════════════════════
 
 def make_standard_roof(insul_mm, mw_key="mw_old", has_concrete_deck=True):
-    """Flat/attic floor roof: optional concrete deck + insulation + felt."""
+    """Warm/compact roof: felt membrane (outside) + insulation + deck (inside)."""
     layers = []
-    if has_concrete_deck:
-        layers.append(L("conc_roof", 0.150))
+    layers.append(L("roof_felt", 0.006))          # waterproofing membrane (outside)
     layers.append(L(mw_key, insul_mm / 1000))
-    layers.append(L("roof_felt", 0.006))
+    if has_concrete_deck:
+        layers.append(L("conc_roof", 0.150))       # structural deck (inside)
     return {"components": [{"shearing_layer": "Skin", "layers": layers}]}
 
 def make_standard_floor(concrete_mm, insul_mm=0, insul_type="eps"):
@@ -132,8 +132,8 @@ ARCHETYPES = {}
 # ── 1. Masonry Slab Block (pre-1960, n=38) ────────────────────
 # Target: wall=0.46, roof=0.21, floor=0.27, win=2.50, bwall=0.85
 # Brick masonry 1.5-sten (380mm) + added interior MW insulation
-# Wall calc: Rsurf=0.17, plaster=0.028, brick=0.427, mw_old=t/0.042, plaster=0.021
-#   1/0.46 = 2.174 → R_insul=1.53 → t=64mm
+# Wall calc: Rsurf=0.17, plaster=0.028, brick=0.427, mw_old=t/0.042, gypsum=0.081
+#   1/0.46 = 2.174 → R_insul=1.47 → t=62mm
 ARCHETYPES["BETSI_MASONRY_SLAB"] = {
     "archetype_id": "BETSI_MASONRY_SLAB",
     "display_name": "Masonry slab block (pre-1960)",
@@ -143,8 +143,8 @@ ARCHETYPES["BETSI_MASONRY_SLAB"] = {
         "EXT_WALL": {"components": [{"shearing_layer": "Skin", "layers": [
             L("plaster", 0.020),     # exterior render
             L("brick", 0.380),       # 1.5-sten masonry
-            L("mw_old", 0.064),      # added MW insulation → U≈0.46
-            L("plaster", 0.015),     # interior plaster
+            L("mw_old", 0.062),      # added MW insulation → U≈0.46
+            L("gypsum", 0.013),      # interior gypsum board
         ]}]},
         "ROOF": make_standard_roof(insul_mm=190, mw_key="mw_old"),  # → U≈0.21
         "TOP_FLOOR": make_top_floor(concrete_mm=150, insul_mm=190, mw_key="mw_old"),
@@ -159,7 +159,7 @@ ARCHETYPES["BETSI_MASONRY_SLAB"] = {
 # ── 2. Masonry Tower Slab (pre-1940, n=12) ───────────────────
 # Target: wall=0.73, roof=0.63, floor=0.38, win=2.50
 # Thick masonry (380mm) with minimal added insulation
-# Wall calc: R_other=0.646, 1/0.73=1.370 → R_insul=0.724 → t=30mm
+# Wall calc: R_other=0.706, 1/0.73=1.370 → R_insul=0.664 → t=28mm
 ARCHETYPES["BETSI_MASONRY_TOWER"] = {
     "archetype_id": "BETSI_MASONRY_TOWER",
     "display_name": "Masonry tower slab (pre-1940)",
@@ -169,8 +169,8 @@ ARCHETYPES["BETSI_MASONRY_TOWER"] = {
         "EXT_WALL": {"components": [{"shearing_layer": "Skin", "layers": [
             L("plaster", 0.020),
             L("brick", 0.380),       # 1.5-sten masonry
-            L("mw_old", 0.030),      # minimal added insulation → U≈0.73
-            L("plaster", 0.015),
+            L("mw_old", 0.028),      # minimal added insulation → U≈0.73
+            L("gypsum", 0.013),      # interior gypsum board
         ]}]},
         "ROOF": make_standard_roof(insul_mm=55, mw_key="mw_old"),   # → U≈0.63
         "TOP_FLOOR": make_top_floor(concrete_mm=150, insul_mm=55, mw_key="mw_old"),
@@ -408,9 +408,9 @@ ARCHETYPES["BETSI_ALLCONC_PREFAB"] = {
 
 # ── 12. Timber MF Villa (mixed era, n=21) ─────────────────────
 # Target: wall=0.20, roof=0.15, floor=0.41, win=2.00, bwall=0.81
-# Timber stud wall: wood cladding + plywood + 195mm stud+MW composite + extra MW + gypsum
-# Composite k_eff = 0.15×0.1499 + 0.85×0.042 = 0.0582
-# Wall calc: R_other=0.498, R_stud(195mm)=3.35, need extra 45mm MW → total R≈4.92 → U≈0.20
+# Timber stud wall: wood cladding + plywood + 145mm stud+MW composite + extra MW + gypsum
+# Composite k_eff = 0.12×0.1499 + 0.88×0.042 = 0.0550
+# Wall calc: R_other=0.498, R_stud(145mm)=2.64, need extra 78mm MW → total R≈5.00 → U≈0.20
 ARCHETYPES["BETSI_TIMBER_VILLA"] = {
     "archetype_id": "BETSI_TIMBER_VILLA",
     "display_name": "Timber multi-family villa (mixed era)",
@@ -420,9 +420,9 @@ ARCHETYPES["BETSI_TIMBER_VILLA"] = {
         "EXT_WALL": {"components": [{"shearing_layer": "Skin", "layers": [
             L("wood", 0.022),        # wood cladding
             L("plywood", 0.012),     # wind barrier
-            # 195mm stud wall: 15% timber, 85% mineral wool
-            composite(["wood", "mw_old"], 0.195, [0.15, 0.85]),
-            L("mw_old", 0.045),      # extra interior insulation board
+            # 145mm stud wall: 12% timber, 88% mineral wool (45×145 @ 600 c/c)
+            composite(["wood", "mw_old"], 0.145, [0.12, 0.88]),
+            L("mw_old", 0.078),      # extra interior insulation (horizontal battens)
             L("gypsum", 0.013),
         ]}]},
         "ROOF": make_standard_roof(insul_mm=270, mw_key="mw_old", has_concrete_deck=False),  # → U≈0.15
@@ -444,8 +444,8 @@ ARCHETYPES["BETSI_TIMBER_VILLA"] = {
 # ── 13. Timber Terraced (1975+, n=12) ─────────────────────────
 # Target: wall=0.20, roof=0.13, floor=0.20, win=2.00, bwall=0.81
 # Uses mw_new (k=0.036) for post-1975 construction
-# Composite k_eff = 0.15×0.1499 + 0.85×0.036 = 0.0531
-# Wall calc: R_other=0.498, R_stud(195mm)=3.67, need extra 30mm MW → total R≈5.00 → U≈0.20
+# Composite k_eff = 0.12×0.1499 + 0.88×0.036 = 0.0497
+# Wall calc: R_other=0.498, R_stud(195mm)=3.93, need extra 21mm MW → total R≈5.00 → U≈0.20
 ARCHETYPES["BETSI_TIMBER_TERRACE"] = {
     "archetype_id": "BETSI_TIMBER_TERRACE",
     "display_name": "Timber terraced house (1975+)",
@@ -455,8 +455,9 @@ ARCHETYPES["BETSI_TIMBER_TERRACE"] = {
         "EXT_WALL": {"components": [{"shearing_layer": "Skin", "layers": [
             L("wood", 0.022),
             L("plywood", 0.012),
-            composite(["wood", "mw_new"], 0.195, [0.15, 0.85]),
-            L("mw_new", 0.030),      # extra interior insulation
+            # 195mm stud wall: 12% timber, 88% mineral wool (45×195 @ 600 c/c)
+            composite(["wood", "mw_new"], 0.195, [0.12, 0.88]),
+            L("mw_new", 0.021),      # extra interior insulation
             L("gypsum", 0.013),
         ]}]},
         "ROOF": make_standard_roof(insul_mm=270, mw_key="mw_new", has_concrete_deck=False),  # → U≈0.13
