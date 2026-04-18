@@ -45,6 +45,7 @@ from epsm_data.usecases.export_outputs import (
     export_consumption_contracts,
     export_json,
 )
+from epsm_data.reporting.section_drawing import plot_sections
 
 __all__ = [
     # config
@@ -56,6 +57,8 @@ __all__ = [
     "export_json",
     "export_consumption_contracts",
     "export_construction_sets",
+    # reporting / visualization
+    "plot_sections",
     # material search
     "search_honeybee_materials",
     "list_honeybee_materials",

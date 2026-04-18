@@ -167,6 +167,16 @@ class BuildingArchetype:
             ],
         }
 
+    def plot(self, **kwargs):
+        """Draw architectural section drawings for all elements.
+
+        Keyword arguments are forwarded to
+        ``epsm_data.reporting.section_drawing.plot_sections``.
+        """
+        from epsm_data.reporting.section_drawing import plot_sections
+
+        return plot_sections(self, **kwargs)
+
 
 def build_construction_set(
     elements: dict[BuildingElement, Element | WindowElement],
