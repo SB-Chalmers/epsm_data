@@ -134,4 +134,12 @@ dmypy.json
 Thumbs.db
 
 
-_*
+# Local runtime and retired development material
+/ARCHIVE/
+/output/
+/logs/
+/tmp/
+/data/local/
+/data/**/*.db
+/data/**/*.sqlite*
+.ruff_cache/

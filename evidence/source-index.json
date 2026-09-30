@@ -1,0 +1,35 @@
+{
+  "note": "Frozen dataset locators are unchanged. These tracked copies preserve cited historical source artifacts without requiring the local archive. Wildcard locators cover all matching entries below.",
+  "files": [
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/buildings_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/buildings_18-04-2026.json",
+      "sha256": "bc096bccde2337cfd62c30b42b171e54986b3642f9d9ecdb6258d4dfe4dee750"
+    },
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/components_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/components_18-04-2026.json",
+      "sha256": "0338c4a73e250d602d9931d1a154589ee07d653b4c94322f9dbbf605421489fe"
+    },
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/construction_sets_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/construction_sets_18-04-2026.json",
+      "sha256": "cf7cf7ce97bc4bef57106245f6624444fe204698e0d8234bdfc18d713083c0c6"
+    },
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/elements_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/elements_18-04-2026.json",
+      "sha256": "5894acd4024650f2f44bb36f571f29e08e04c9a5e1ee91c95478223bbcff918a"
+    },
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/layers_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/layers_18-04-2026.json",
+      "sha256": "f62343630094b3df02f3c01980151d03aa80ea52a06e35f323f00e18b5455ac9"
+    },
+    {
+      "original_locator": "ARCHIVE/artifacts/output/smoke_test/materials_18-04-2026.json",
+      "retained_path": "evidence/historical_sources/materials_18-04-2026.json",
+      "sha256": "1ab669d16e60400bde5ee190464f7160c875f62a77e8a8747872f1049e044f30"
+    }
+  ]
+}

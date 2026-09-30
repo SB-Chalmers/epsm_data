@@ -1,0 +1,495 @@
+Below are the current **MFH baseline** stacks in EPSM. They are the selected baseline constructions, before renovation. Thicknesses are in metres. Layers are listed from the conditioned side toward the exterior or adjacent space.
+
+These are modelled representative stacks; only MFH-P03 has a source-specific construction replacement currently prepared in the review work.
+
+## MFH-P01 — before 1945
+
+External wall:
+
+- 15 mm internal plaster
+- 510 mm solid brick masonry
+- 20 mm external render
+
+Attic floor:
+
+- 15 mm plaster ceiling
+- 22 mm timber ceiling boards
+- 0.2 mm paper air/vapour-control layer, thermally omitted
+- 150 mm ceiling-joist zone:
+  - 15% timber
+  - 85% wood shavings
+
+Ground/basement slab:
+
+- 100 mm concrete slab
+- 3 mm bituminous damp-proofing, omitted from thermal calculation
+- 150 mm gravel subbase, omitted
+
+Buried basement wall:
+
+- 15 mm internal plaster
+- 380 mm brick basement structure
+- 3 mm external damp-proofing, omitted
+
+Exposed basement wall:
+
+- 15 mm internal plaster
+- 380 mm brick
+- 15 mm plinth render
+
+Basement ceiling:
+
+- 25 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm ceiling plaster
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm intermediate-joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm plaster lining
+
+Internal load-bearing wall:
+
+- 250 mm brick masonry
+
+Internal partition:
+
+- 15 mm plaster
+- 8 mm timber lath
+- 70 mm partition zone:
+  - 15% timber
+  - 85% wood shavings
+- 8 mm timber lath
+- 15 mm plaster
+
+Roof shell:
+
+- 195 mm rafter/air zone, thermally omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## MFH-P02 — 1945–1960
+
+External wall:
+
+- 15 mm internal plaster
+- 300 mm autoclaved aerated concrete
+- 20 mm external render
+
+Attic floor:
+
+- 180 mm concrete ceiling slab
+- 0.2 mm paper vapour-control layer, omitted
+- 120 mm historic mineral-wool insulation
+
+Ground/basement slab:
+
+- 100 mm concrete
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Buried basement wall:
+
+- 15 mm internal plaster
+- 250 mm concrete
+- 3 mm external damp-proofing, omitted
+
+Exposed basement wall:
+
+- 15 mm internal plaster
+- 250 mm concrete
+- 15 mm plinth render
+
+Basement ceiling:
+
+- 10 mm timber floor finish
+- 180 mm concrete floor
+
+Intermediate floor:
+
+- 10 mm timber floor finish
+- 200 mm concrete floor
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum board
+- 70 mm partition zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum board
+
+Roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## MFH-P03 — 1961–1970
+
+This period has three external-wall subtypes.
+
+Main timber-infill wall:
+
+- 13 mm gypsum lining
+- 100 mm parallel structural/infill zone:
+  - 15% timber
+  - 85% mineral wool
+- 3 mm hardboard
+- 10 mm original air gap, omitted
+- 100 mm brick veneer, omitted
+
+Balcony/clapboard wall:
+
+- 13 mm gypsum lining
+- 100 mm parallel structural/infill zone:
+  - 15% timber
+  - 85% mineral wool
+- 3 mm hardboard
+- 10 mm original air gap, omitted
+- 37 mm timber cladding, omitted
+
+Gable wall:
+
+- 150 mm structural concrete
+- 100 mm mineral wool
+- 10 mm original air gap, omitted
+- 100 mm brick veneer, omitted
+
+Attic floor:
+
+- 160 mm concrete ceiling slab
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 130 mm historic mineral wool
+
+Ground floor:
+
+- 10 mm timber floor finish
+- 160 mm concrete slab
+- 125 mm LECA bed
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Intermediate floor:
+
+- 10 mm timber floor finish
+- 200 mm concrete floor
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum board
+- 44 mm parallel partition zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum board
+
+Roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## MFH-P04 — 1971–1980
+
+External wall:
+
+- 10 mm internal plaster
+- 150 mm structural concrete
+- 100 mm mineral wool
+- 70 mm external concrete leaf
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 150 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 50 mm EPS
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 2.5 W/(m²K)`.
+
+## MFH-P05 — 1981–1990
+
+External wall:
+
+- 10 mm internal plaster
+- 150 mm structural concrete
+- 120 mm mineral wool
+- 70 mm external concrete leaf
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 200 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 70 mm EPS
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel, omitted
+- 0.2 mm geotextile, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 2.2 W/(m²K)`.
+
+## MFH-P06 — 1991–2000
+
+External wall:
+
+- 10 mm internal plaster
+- 180 mm structural concrete
+- 150 mm mineral wool
+- 20 mm external render
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 250 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 100 mm EPS
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel, omitted
+- 0.2 mm geotextile, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 1.8 W/(m²K)`.
+
+## MFH-P07 — 2001–2010
+
+External wall:
+
+- 10 mm internal plaster
+- 180 mm structural concrete
+- 200 mm mineral wool
+- 20 mm external render
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 300 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 150 mm EPS
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel, omitted
+- 0.2 mm geotextile, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 1.4 W/(m²K)`.
+
+## MFH-P08 — 2011–2020
+
+External wall:
+
+- 10 mm internal plaster
+- 200 mm structural concrete
+- 220 mm mineral wool
+- 20 mm external render
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 350 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 200 mm EPS
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel, omitted
+- 0.2 mm geotextile, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 1.1 W/(m²K)`.
+
+## MFH-P09 — 2021–2026
+
+External wall:
+
+- 10 mm internal plaster
+- 200 mm structural concrete
+- 240 mm mineral wool
+- 20 mm external render
+
+Attic floor:
+
+- 180 mm concrete
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 350 mm mineral wool
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 250 mm EPS
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel, omitted
+- 0.2 mm geotextile, omitted
+
+Intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Internal load-bearing wall:
+
+- 150 mm concrete
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding, omitted
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 1.0 W/(m²K)`.
+
+The main evidence limitation is that most of P01–P02 and P04–P09 are representative modelled families. P03 is the important exception under review: its current PUB-353 stack is being replaced with the documented 1961 lightweight-concrete family from PUB-001/PUB-464, while the former PUB-353 construction remains traceable in the review record.

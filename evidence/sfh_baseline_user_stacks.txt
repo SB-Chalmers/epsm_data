@@ -1,0 +1,270 @@
+Below are the current **SFH baseline stacks** in EPSM, followed by the material crosswalk. These are representative modelled constructions, not a claim that every Swedish single-family house used the same assembly.
+
+Layer order is from the conditioned side toward the exterior or adjacent space. Framing and insulation in the same layer group share one depth.
+
+## SFH-P01 — before 1945
+
+External wall:
+
+- 15 mm interior plaster
+- 100 mm solid timber plank
+- 0.3 mm historic paper air-control layer, omitted
+- 0.3 mm paper wind barrier, omitted
+- 25 mm ventilated batten cavity, omitted:
+  - 10% timber
+  - 90% air
+- 22 mm timber cladding, omitted
+
+Suspended floor:
+
+- 28 mm timber floorboards
+- 200 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm subfloor boards
+- 0.3 mm paper wind protection, omitted
+
+Attic floor:
+
+- 15 mm plaster ceiling
+- 22 mm timber ceiling boards
+- 0.2 mm paper air/vapour layer, omitted
+- 150 mm ceiling-joist zone:
+  - 15% timber
+  - 85% wood shavings
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm plaster lining
+
+Internal partition:
+
+- 15 mm plaster
+- 8 mm timber lath
+- 70 mm partition zone:
+  - 15% timber
+  - 85% wood shavings
+- 8 mm timber lath
+- 15 mm plaster
+
+Roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## SFH-P02 — 1945–1960
+
+External wall:
+
+- 13 mm gypsum lining
+- 0.2 mm paper vapour-control layer, omitted
+- 100 mm parallel timber/mineral-wool frame:
+  - 15% timber
+  - 85% historic mineral wool
+- 0.3 mm paper wind barrier, omitted
+- 25 mm ventilated cavity, omitted:
+  - 10% timber
+  - 90% air
+- 22 mm timber cladding, omitted
+
+Suspended floor:
+
+- 28 mm timber floorboards
+- 200 mm joist zone:
+  - 15% timber
+  - 85% historic mineral wool
+- 22 mm subfloor boards
+- 0.3 mm wind barrier, omitted
+
+Attic floor:
+
+- 13 mm gypsum lining
+- 22 mm timber boards
+- 0.2 mm paper vapour layer, omitted
+- 150 mm joist zone:
+  - 15% timber
+  - 85% historic mineral wool
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% mineral wool
+- 22 mm ceiling boards
+- 13 mm gypsum lining
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## SFH-P03 — 1961–1970
+
+External wall:
+
+- 13 mm gypsum lining
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 100 mm parallel timber/mineral-wool frame:
+  - 15% timber
+  - 85% historic mineral wool
+- 0.2 mm wind barrier, omitted
+- 25 mm ventilated cavity, omitted:
+  - 10% timber
+  - 90% air
+- 22 mm timber cladding, omitted
+
+Ground floor:
+
+- 10 mm timber floor finish
+- 120 mm concrete slab
+- 50 mm EPS
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Attic floor:
+
+- 13 mm gypsum lining
+- 22 mm timber ceiling boards
+- 0.2 mm polyethylene vapour layer, omitted
+- 150 mm joist zone:
+  - 15% timber
+  - 85% historic mineral wool
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% mineral wool
+- 22 mm ceiling boards
+- 13 mm gypsum lining
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted roof boarding
+- 5 mm omitted bituminous waterproofing
+
+Window: `Uw = 2.8 W/(m²K)`.
+
+## SFH-P04 to SFH-P09
+
+These periods use the same timber-frame family. The period changes are the frame/infill depth, attic insulation depth, slab insulation depth and window performance.
+
+| Period | Wall frame/infill | Attic insulation | Under-slab EPS | Mineral wool | Window Uw |
+|---|---:|---:|---:|---:|---:|
+| P04, 1971–1980 | 145 mm | 200 mm | 70 mm | λ≈0.040 | 2.5 |
+| P05, 1981–1990 | 170 mm | 250 mm | 100 mm | λ≈0.040 | 2.0 |
+| P06, 1991–2000 | 195 mm | 300 mm | 150 mm | λ≈0.040 | 1.8 |
+| P07, 2001–2010 | 220 mm | 350 mm | 200 mm | λ≈0.036 | 1.4 |
+| P08, 2011–2020 | 245 mm | 400 mm | 250 mm | λ≈0.036 | 1.1 |
+| P09, 2021–2026 | 245 mm | 400 mm | 250 mm | λ≈0.036 | 1.0 |
+
+For each of P04–P09, the external wall is:
+
+- 13 mm gypsum lining
+- 0.2 mm polyethylene vapour-control layer, omitted
+- period-specific parallel timber/mineral-wool frame above
+- 0.2 mm wind barrier, omitted
+- 25 mm ventilated cavity, omitted:
+  - 10% timber
+  - 90% air
+- 22 mm timber cladding, omitted
+
+The ground floor is:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- period-specific EPS thickness
+- 0.2 mm polyethylene damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+- 0.2 mm geotextile, omitted
+
+The attic floor is:
+
+- 13 mm gypsum lining
+- 22 mm timber ceiling boards
+- 0.2 mm polyethylene vapour-control layer, omitted
+- period-specific parallel timber/mineral-wool joist zone:
+  - 15% timber
+  - 85% mineral wool
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% mineral wool
+- 22 mm ceiling boards
+- 13 mm gypsum lining
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm parallel timber/mineral-wool zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum
+
+Roof shell for all periods:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+## SFH material crosswalk
+
+| EPSM material | Honeybee identifier | HB status | Boverket ID | Boverket status |
+|---|---|---|---|---|
+| Timber | `G05 25mm wood` | proxy | `6000000007` | proxy |
+| Historic/mineral wool | `Wall Insulation [31]` | proxy | `6000000123` | proxy |
+| EPS | `I02 50mm insulation board` | proxy | `6000000131` | exact |
+| Gypsum | `G01 13mm gypsum board` | proxy | `6000000020` | exact |
+| Interior plaster | `1IN Stucco` | proxy | `6000000094` | proxy |
+| Bitumen | `Roof Membrane` | proxy | `6000000141` | proxy |
+| Polyethylene film | unresolved | unresolved | `6000000198` | exact |
+| Wind barrier | unresolved | unresolved | `6000000199` | exact |
+| Wood shavings | unresolved | unresolved | `6000000135` | proxy |
+| Paper air-control layer | unresolved | unresolved | unresolved | unresolved |
+| Gravel | unresolved | unresolved | unresolved | unresolved |
+| Geotextile | unresolved | unresolved | `6000000210` | proxy |
+| Air cavity | `F04 Wall air space resistance` | proxy | not applicable | not applicable |
+| Concrete | `M15 200mm heavyweight concrete` | proxy | `6000000026` | proxy |
+
+Boverket is intentionally required only for incoming renovation materials. For SFH renovation and advanced scenarios, the current incoming mappings are:
+
+- wind barrier: exact Boverket resource;
+- EPS: exact Boverket resource;
+- polyethylene film: exact Boverket resource;
+- mineral wool facade board: Boverket proxy `6000000125`;
+- mineral wool: proxy `6000000123`;
+- timber cladding/wood: proxy `6000000007`;
+- replacement windows: unresolved because the model stores whole-window `Uw`, not a selected Boverket window product.
+
+The Honeybee entries are existing library templates. Their nominal thicknesses are not the installed SFH layer thicknesses, and the proxy status does not establish historical product equivalence.

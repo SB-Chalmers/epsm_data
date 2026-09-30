@@ -1,0 +1,163 @@
+{
+  "source": "ARCHIVE/catalogue_before_parametric/src/epsm_data/datasets/tabula_se/source_tables.json.gz",
+  "official_download_page": "https://episcope.eu/communication/download/",
+  "measure_table": [
+    {
+      "worksheet_row": 213,
+      "Code_Measure": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Description_Measure_Input": "add 45 mm of insulation and wood panel",
+      "d_Insulation_Nominal": 0.045,
+      "lambda_Layer_1": null,
+      "U_measure": 0.72
+    },
+    {
+      "worksheet_row": 214,
+      "Code_Measure": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Description_Measure_Input": "add 70 mm of insulation and wood panel",
+      "d_Insulation_Nominal": 0.07,
+      "lambda_Layer_1": null,
+      "U_measure": 0.47000000000000003
+    },
+    {
+      "worksheet_row": 227,
+      "Code_Measure": "SE.Window.Wood and aluminium (2+1, 2+2).01",
+      "Description_Measure_Input": "new window, 2 + 2 glazed ",
+      "d_Insulation_Nominal": "",
+      "lambda_Layer_1": null,
+      "U_measure": 0.7599999999999999
+    },
+    {
+      "worksheet_row": 229,
+      "Code_Measure": "SE.Window.Wood 3p.01",
+      "Description_Measure_Input": "new window,3 glazed ",
+      "d_Insulation_Nominal": "",
+      "lambda_Layer_1": null,
+      "U_measure": 0.8999999999999999
+    },
+    {
+      "worksheet_row": 236,
+      "Code_Measure": "SE.Ceiling.Add 200 mm.01",
+      "Description_Measure_Input": "Add 200 mm insulation, loose wool",
+      "d_Insulation_Nominal": 0.2,
+      "lambda_Layer_1": 0.037,
+      "U_measure": 0.18499999999999997
+    },
+    {
+      "worksheet_row": 242,
+      "Code_Measure": "SE.Ceiling.Add 500 mm.01",
+      "Description_Measure_Input": "Add 500 mm insulation, loose wool",
+      "d_Insulation_Nominal": 0.5,
+      "lambda_Layer_1": 0.037,
+      "U_measure": 0.074
+    },
+    {
+      "worksheet_row": 243,
+      "Code_Measure": "SE.Floor.Add 40 mm.01",
+      "Description_Measure_Input": "Add 40 mm insulation",
+      "d_Insulation_Nominal": 0.04,
+      "lambda_Layer_1": 0.036,
+      "U_measure": 0.8999999999999999
+    },
+    {
+      "worksheet_row": 244,
+      "Code_Measure": "SE.Floor.Add 45 mm.01",
+      "Description_Measure_Input": "Add 45 mm insulation",
+      "d_Insulation_Nominal": 0.045,
+      "lambda_Layer_1": 0.036,
+      "U_measure": 0.8
+    }
+  ],
+  "building_variants": [
+    {
+      "worksheet_row": 2626,
+      "code": "SE.N.SFH.01.Gen.ReEx.001.002",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 200 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 40 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood 3p.01"
+    },
+    {
+      "worksheet_row": 2627,
+      "code": "SE.N.SFH.02.Gen.ReEx.001.002",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 200 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 40 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood 3p.01"
+    },
+    {
+      "worksheet_row": 2628,
+      "code": "SE.N.SFH.03.Gen.ReEx.001.002",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 200 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 40 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood 3p.01"
+    },
+    {
+      "worksheet_row": 2629,
+      "code": "SE.N.SFH.04.Gen.ReEx.001.002",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 200 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 40 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood 3p.01"
+    },
+    {
+      "worksheet_row": 2630,
+      "code": "SE.N.SFH.05.Gen.ReEx.001.002",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 200 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 45mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 40 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood 3p.01"
+    },
+    {
+      "worksheet_row": 2631,
+      "code": "SE.N.SFH.01.Gen.ReEx.001.003",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 500 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 45 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood and aluminium (2+1, 2+2).01"
+    },
+    {
+      "worksheet_row": 2632,
+      "code": "SE.N.SFH.02.Gen.ReEx.001.003",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 500 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 45 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood and aluminium (2+1, 2+2).01"
+    },
+    {
+      "worksheet_row": 2633,
+      "code": "SE.N.SFH.03.Gen.ReEx.001.003",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 500 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 45 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood and aluminium (2+1, 2+2).01"
+    },
+    {
+      "worksheet_row": 2634,
+      "code": "SE.N.SFH.04.Gen.ReEx.001.003",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 500 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 45 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood and aluminium (2+1, 2+2).01"
+    },
+    {
+      "worksheet_row": 2635,
+      "code": "SE.N.SFH.05.Gen.ReEx.001.003",
+      "Code_Measure_Roof_1": "SE.Ceiling.Add 500 mm.01",
+      "Code_Measure_Wall_1": "SE.Wall.Insulation 70mm wood_panelling.01",
+      "Code_Measure_Wall_2": null,
+      "Code_Measure_Floor_1": "SE.Floor.Add 45 mm.01",
+      "Code_Measure_Window_1": "SE.Window.Wood and aluminium (2+1, 2+2).01"
+    }
+  ],
+  "note": "SE.06 has no Swedish TABULA SFH row; its renovation measures are EPSM extrapolations."
+}

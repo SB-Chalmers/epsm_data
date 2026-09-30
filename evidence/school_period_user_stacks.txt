@@ -1,0 +1,373 @@
+Below is the current **school baseline, renovated and advanced structure**, with the material crosswalk. The baseline stacks are the same school families described earlier; renovated and advanced scenarios derive from those baselines through explicit interventions.
+
+The source-matrix window assumptions should be used as the school baseline central values:
+
+| EPSM period | School baseline Uw |
+|---|---:|
+| P01–P02, ≤1960 | 2.80 |
+| P03, 1961–1970 | 2.70 |
+| P04, 1971–1980 | 2.70 or 2.25 depending on mapping |
+| P05, 1981–1990 | 2.25 |
+| P06, 1991–2000 | 1.90 or 1.60 |
+| P07–P09, 2001 onward | 1.14 |
+
+These are assumed whole-window values from the source matrix, not universal measured values.
+
+## P01 — before 1945
+
+Baseline family: solid masonry school with unheated basement and cold attic.
+
+External wall:
+
+- 15 mm interior plaster
+- 380 mm brick masonry
+- 20 mm exterior render
+
+Attic floor:
+
+- 15 mm plaster
+- 22 mm timber ceiling boards
+- 0.2 mm paper air/vapour layer, omitted
+- 150 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+
+Ground/basement slab:
+
+- 100 mm concrete
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Basement walls:
+
+- 15 mm internal plaster
+- 380 mm brick
+- 3 mm external damp-proofing on buried areas, omitted
+- 15 mm exposed plinth render
+
+Basement ceiling:
+
+- 25 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm plaster
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm plaster lining
+
+Internal partition:
+
+- 15 mm plaster
+- 8 mm timber lath
+- 70 mm timber/wood-shaving zone
+- 8 mm timber lath
+- 15 mm plaster
+
+Roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Renovated:
+
+- add 100 mm external mineral-wool facade insulation;
+- add reinforced exterior render;
+- add 100 mm attic mineral wool;
+- add 80 mm external basement-wall EPS where applicable;
+- add 80 mm basement-ceiling mineral wool;
+- add 13 mm new gypsum fire lining below the basement ceiling;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 180 mm external facade mineral wool;
+- add 200 mm attic insulation;
+- add 120 mm basement-wall EPS;
+- add 140 mm basement-ceiling mineral wool;
+- retain structural masonry and timber floors;
+- replace windows with `Uw = 0.9`.
+
+## P02 — 1945–1960
+
+Baseline family: masonry/concrete school with unheated basement and cold attic.
+
+External wall:
+
+- 15 mm interior plaster
+- 380 mm brick masonry
+- 20 mm exterior render
+
+Attic floor:
+
+- 13 mm gypsum
+- 22 mm timber ceiling boards
+- 0.2 mm paper vapour layer, omitted
+- 120 mm historic mineral wool in the joist zone
+
+Basement wall:
+
+- 15 mm internal plaster
+- 250 mm concrete
+- 3 mm external damp-proofing, omitted
+- 15 mm exposed plinth render
+
+Basement ceiling:
+
+- 10 mm timber finish
+- 180 mm concrete
+
+Intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm timber/mineral-wool joist zone
+- 22 mm ceiling boards
+- 13 mm gypsum lining
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm timber/mineral-wool zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum
+
+Renovated:
+
+- add 100 mm facade mineral wool;
+- add 100 mm attic mineral wool;
+- add 80 mm basement-wall EPS;
+- add 80 mm basement-ceiling mineral wool and 13 mm gypsum lining;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 180 mm facade mineral wool;
+- add 200 mm attic mineral wool;
+- add 120 mm basement-wall EPS;
+- add 140 mm basement-ceiling mineral wool and new gypsum lining;
+- replace windows with `Uw = 0.9`.
+
+## P03 — 1961–1970
+
+Baseline family: single-storey timber-frame school on a slab.
+
+External wall:
+
+- 13 mm gypsum lining
+- 0.2 mm polyethylene vapour-control layer, omitted
+- 100 mm parallel frame/infill zone:
+  - 15% timber
+  - 85% historic mineral wool
+- 0.2 mm wind barrier, omitted
+- 25 mm ventilated cavity, omitted
+- 22 mm timber cladding, omitted
+
+Ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 50 mm EPS
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel subbase, omitted
+
+Attic floor:
+
+- 13 mm gypsum
+- 22 mm timber ceiling boards
+- 0.2 mm polyethylene vapour layer, omitted
+- 150 mm timber/mineral-wool joist zone
+
+Internal partition:
+
+- 13 mm gypsum
+- 70 mm timber/mineral-wool zone
+- 13 mm gypsum
+
+Roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Renovated:
+
+- add 100 mm external facade mineral wool;
+- add 100 mm attic insulation;
+- retain slab and internal partitions;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 180 mm external facade mineral wool;
+- add 200 mm attic insulation;
+- add new wind protection and ventilated rainscreen detailing;
+- replace windows with `Uw = 0.9`.
+
+## P04 — 1971–1980
+
+Baseline:
+
+- same wall build-up as P03;
+- 145 mm timber/mineral-wool wall zone;
+- 200 mm attic insulation;
+- 70 mm EPS below slab;
+- 70 mm timber/mineral-wool internal partition zone;
+- `Uw = 2.25–2.70`, depending on source-bin assignment.
+
+Renovated:
+
+- add 100 mm facade mineral wool;
+- add 100 mm attic mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 160 mm facade mineral wool;
+- add 200 mm attic mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P05 — 1981–1990
+
+Baseline:
+
+- 13 mm gypsum
+- polyethylene vapour layer, omitted
+- 170 mm timber/mineral-wool frame zone
+- wind barrier, omitted
+- 25 mm ventilated cavity, omitted
+- 22 mm timber cladding, omitted
+- 250 mm attic mineral wool
+- 100 mm EPS below the concrete slab
+- 70 mm internal timber/mineral-wool partition
+- `Uw = 2.25`.
+
+Renovated:
+
+- add 80 mm facade mineral wool;
+- add 50 mm attic mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 120 mm facade mineral wool;
+- add 100 mm attic mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P06 — 1991–2000
+
+Baseline:
+
+- 195 mm timber/mineral-wool wall zone;
+- 300 mm attic mineral wool;
+- 150 mm EPS below slab;
+- gypsum internal linings;
+- omitted vapour and wind-control membranes;
+- ventilated timber-cladding cavity;
+- `Uw = 1.90` or `1.60`, depending on source-bin assignment.
+
+Renovated:
+
+- add 60 mm facade mineral wool;
+- add 50 mm attic mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 100 mm facade mineral wool;
+- add 100 mm attic mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P07 — 2001–2010
+
+Baseline:
+
+- 220 mm timber/mineral-wool wall zone;
+- 350 mm attic mineral wool;
+- 200 mm EPS below slab;
+- 70 mm timber/mineral-wool internal partition;
+- `Uw = 1.14`.
+
+Renovated:
+
+- add 40 mm facade mineral wool;
+- add 50 mm attic mineral wool;
+- replace windows with `Uw = 1.2`, unless the source matrix value is retained as the building-specific value.
+
+Advanced:
+
+- add 80 mm facade mineral wool;
+- add 100 mm attic mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P08 — 2011–2020
+
+Baseline:
+
+- 245 mm timber/mineral-wool wall zone;
+- 400 mm attic mineral wool;
+- 250 mm EPS below slab;
+- 70 mm timber/mineral-wool internal partition;
+- `Uw = 1.14`.
+
+Renovated and advanced:
+
+The opaque construction remains unchanged by default. Recent buildings should not receive additional insulation solely to create three different values. Building-specific windows or documented retrofit work may override the baseline.
+
+## P09 — 2021–2026
+
+Baseline:
+
+- same physical family as P08;
+- 245 mm timber/mineral-wool wall zone;
+- 400 mm attic mineral wool;
+- 250 mm EPS below slab;
+- 70 mm timber/mineral-wool internal partition;
+- `Uw = 1.14`.
+
+Renovated and advanced:
+
+Remain unchanged unless building-specific evidence identifies a real intervention. A new building should not be assigned a fictitious retrofit package.
+
+## School material mappings
+
+| EPSM material | Honeybee identifier | HB status | Boverket ID | Boverket status |
+|---|---|---|---|---|
+| Timber | `G05 25mm wood` | proxy | `6000000007` | proxy |
+| Brick | `M01 100mm brick` | proxy | `6000000082` | proxy |
+| Concrete | `M15 200mm heavyweight concrete` | proxy | `6000000026` | proxy |
+| Historic/mineral wool | `Wall Insulation [31]` | proxy | `6000000123` | proxy |
+| EPS | `I02 50mm insulation board` | proxy | `6000000131` | exact |
+| Gypsum | `G01 13mm gypsum board` | proxy | `6000000020` | exact |
+| Interior plaster | `1IN Stucco` | proxy | `6000000094` | proxy |
+| Exterior render | `25mm Stucco` | proxy | `6000000093` | proxy |
+| Bituminous membrane | `Roof Membrane` | proxy | `6000000141` | proxy |
+| Polyethylene film | unresolved | unresolved | `6000000198` | exact |
+| Wind barrier | unresolved | unresolved | `6000000199` | exact |
+| Historic paper | unresolved | unresolved | unresolved | unresolved |
+| Wood shavings | unresolved | unresolved | `6000000135` | proxy |
+| Gravel | unresolved | unresolved | unresolved | unresolved |
+| Geotextile | unresolved | unresolved | `6000000210` | proxy |
+| Air cavity | `F04 Wall air space resistance` | proxy | not applicable | not applicable |
+
+For renovated and advanced school scenarios, incoming Boverket mappings are required for:
+
+- facade mineral wool: proxy `6000000125`;
+- mineral wool: proxy `6000000123`;
+- EPS: exact `6000000131`;
+- polyethylene vapour-control film: exact `6000000198`;
+- wind barrier: exact `6000000199`;
+- gypsum lining: exact `6000000020`;
+- timber cladding: proxy `6000000007`;
+- render: proxy `6000000093`;
+- replacement windows: unresolved because the model stores whole-element `Uw`, not a selected Boverket window product.
+
+The main evidence limitation remains that P03 is informed by actual Gävle school evidence, while most other school periods use explicit representative assumptions. Sörbyskolan and Fridhemsskolan provide useful material and retrofit context, but their audited or modernised states must not be labelled as universally original construction.

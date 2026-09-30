@@ -1,0 +1,36 @@
+{
+  "catalogue_id": "epsm-lod2-v1.3",
+  "previous_release": "epsm-lod2-v1.2",
+  "canonical_states": 90,
+  "classification_slots": 1080,
+  "status": "frozen",
+  "empirical_validation": "pending",
+  "files": {
+    "evidence/lod2_v1_3/release/layered/assemblies.json": "2e206d9bf82eb5b7bb0a0694edccd1f650c09eca526913020e0f42ad540ad2ed",
+    "evidence/lod2_v1_3/release/layered/materials.json": "e85f67f48fc4ce5ae147cde4c261c07863267f50780ff9563aac8f65d17dde6c",
+    "evidence/lod2_v1_3/release/layered/archetypes.json": "fefd6f20ed21042698dcaf8ebddb60453037f92e76f05bdaf0a9b8f447863dfe",
+    "evidence/lod2_v1_3/release/layered/honeybee.json": "76dfb213e44e91d79e4f5df3e3befdfa6fa84e81bb55ec935639802f2ccc461c",
+    "evidence/lod2_v1_3/release/layered/boverket.json": "89b40b1a8b34c900161fc7bf8e7a70466026b3d0826499a0cc8688577ae4786b",
+    "evidence/lod2_v1_3/release/parametric/calibration.json": "ec3a52ebd90846d5f5858a33bacb8a5c3a6784a06a85ae27fcb9a30f2185e7b8",
+    "evidence/lod2_v1_3/release/parametric/catalogue.json": "b24446677d838b0193e6e9d624d91c900e4ab43f174102b7d4dfed2af0a1d7bb",
+    "evidence/lod2_v1_3/policy.json": "e1c7c006d25ffb391ad07789ed9e59fb3ad338aadeae194d5077d0595972d062",
+    "evidence/lod2_v1_3/inputs.json": "c04ee6fcbff2c52f1d2e06b49a7b53f0b20922b8b538e28722c1d8c3398850f2",
+    "evidence/lod2_v1_3/claims.json": "8bd2a3f189b855130d7e28ee835b900f8326270d5a687a15c28426d7ffb3f0b4",
+    "evidence/lod2_v1_3/decisions.json": "96de9814d7cdfdcc23ac2362f9c97aa9ea4433308f9980db46da2de0cdd2b94d",
+    "evidence/lod2_v1_3/report.json": "8849a8e2d6406888564d384c1b67f113f2554a4ecdd33440a066e768b21de9a7",
+    "evidence/lod2_v1_3/integration.json": "b8e1259dec7bee0578799ff7c047450b85acd0cca151353ceb350b526d39bf4a",
+    "evidence/lod2_v1_3/test_results.json": "8ad57c74c93c8d86cebaf72555571326dca2975bc78ccd6244ac32c0b8328733",
+    "evidence/lod2_v1_3/tests.log": "dbf94a739d379beb1bf8a9ac51fceb490a880bf86f41fcd492c23f5d8f3372ab",
+    "evidence/lod2_v1_3/tests.xml": "b7eb5fb3e822ace0028b8a095a25e518447050b5d0e199dfd3b2712c46474038",
+    "evidence/lod2_v1_3/README.md": "12d259211afa6babd7b5cec8bcc00a9061893ec9481c2f9307104b5edf7e91bb"
+  },
+  "live_files": {
+    "src/epsm_data/datasets/layered/assemblies.json": "2e206d9bf82eb5b7bb0a0694edccd1f650c09eca526913020e0f42ad540ad2ed",
+    "src/epsm_data/datasets/layered/materials.json": "e85f67f48fc4ce5ae147cde4c261c07863267f50780ff9563aac8f65d17dde6c",
+    "src/epsm_data/datasets/layered/archetypes.json": "fefd6f20ed21042698dcaf8ebddb60453037f92e76f05bdaf0a9b8f447863dfe",
+    "src/epsm_data/datasets/layered/honeybee.json": "76dfb213e44e91d79e4f5df3e3befdfa6fa84e81bb55ec935639802f2ccc461c",
+    "src/epsm_data/datasets/layered/boverket.json": "89b40b1a8b34c900161fc7bf8e7a70466026b3d0826499a0cc8688577ae4786b",
+    "src/epsm_data/datasets/parametric/calibration.json": "ec3a52ebd90846d5f5858a33bacb8a5c3a6784a06a85ae27fcb9a30f2185e7b8",
+    "src/epsm_data/datasets/parametric/catalogue.json": "b24446677d838b0193e6e9d624d91c900e4ab43f174102b7d4dfed2af0a1d7bb"
+  }
+}

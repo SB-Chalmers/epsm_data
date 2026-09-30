@@ -1,0 +1,1448 @@
+{
+  "purpose": "Curated source and provisional reconstruction; calibrated representative choices live separately in mf_se02_existing.json.",
+  "format_version": 1,
+  "classification": {
+    "category": "multi_family",
+    "era": "SE.02",
+    "state": "existing",
+    "source_variant": "CMF_1960_1"
+  },
+  "status": "provisional_reconstruction_not_lod2_complete",
+  "sources": {
+    "archive": {
+      "title": "Curated CMF_1960_1 archive snapshot",
+      "locator": "ARCHIVE/artifacts/output/smoke_test/*_18-04-2026.json",
+      "note": "Workbook-derived transcription associated with Så byggdes husen. Book edition, page, layer alternatives and exact period not independently verified. This compact copy is self-contained; no runtime archive access."
+    },
+    "era_context": {
+      "title": "Boverket, typical 1960s three-storey lamellhus",
+      "url": "https://www.boverket.se/sv/energiguiden/energieffektivisera-flerbostadshus/energirenovera/byggide/klarlagg-forutsattningarna/atgarder-i-typiska-byggnader/",
+      "note": "General era context, not evidence for this exact typology. Describes 50–100 mm mineral wool in infill walls and ventilated facades, including board at balconies; uses 100 mm attic insulation in its pre-measure example."
+    },
+    "floor_finish": {
+      "title": "Forbo Marmoleum technical dimensions",
+      "url": "https://www.forbo.com/flooring/en-uk/commercial-products/marmoleum/marmoleum-solid/marmoleum-piano/bpvg7w?dnr=3607",
+      "note": "Modern product plausibility comparison for assumed 2.5 mm linoleum, not proof of 1960s original material."
+    },
+    "thermal_conventions": {
+      "title": "BRE BR443 (2019), U-value conventions",
+      "url": "https://www.cibse.org/media/wzrjrf3l/conventions-for-u-value-calculations.pdf",
+      "note": "Additional diagnostic cases use direction-specific surface resistance and ventilated facade exclusions. The retained schema's default films and area-weighted layer calculation are not a full ISO 6946/13370 assessment."
+    }
+  },
+  "review_notes": [
+    "Archive construction_year 1960 is name-derived. Reconstructed year 1965 is an assumed representative year within the provisional 1960s / SE.02 classification, not verified dating.",
+    "Material conductivity, density and heat capacity are copied unchanged for reproducibility. High precision does not imply measured accuracy. Mineral-wool density 265 kg/m3 and EPS conductivity about 0.030 W/(mK) need verification before transient simulation.",
+    "Legacy carbon records are preserved only because OpaqueMaterial requires them. Mappings and values are unreviewed and must not be used for carbon assessment. No carbon mapping services or source dependencies are introduced.",
+    "All physical order corrections are reconstruction assumptions, not recovered book drawing sequences. Floors are ordered upper to lower for internal floor, ground to room for ground/slab, and attic to room for TOP_FLOOR.",
+    "Separate facade variants replace simultaneous brick/board and duplicated gypsum entries. Assume a 25 mm facade cavity geometrically, not encoded as a fictitious solid material. Series-only baseline omits its resistance; dedicated diagnostic scenarios model unventilated and well-ventilated cavity treatments separately.",
+    "TOP_FLOOR, not uninsulated ROOF covering, corresponds to the LoD1 effective Roof property. Archive ROOF covering is retained as an unreviewed physical stack with suspect 3 mm sheet and solid-batten assumptions, not a whole-roof heat-loss result.",
+    "230 mm attic mineral wool and 85/60 mm EPS are preserved as observed archive data, not asserted pristine as-built 1960s values. 100 mm attic and EPS lambda=0.040 cases are sensitivity assumptions, not corrections to the active catalogue.",
+    "Ground/slab and basement-wall calculations are one-dimensional assembly diagnostics. Soil, geometry, ground temperature, thermal bridges and ISO 13370 effective values are not reconstructed. Soil layers in the legacy basement slab are particularly provisional.",
+    "Window layers, SHGC and VT remain pending. No glazing system is invented; only the existing LoD1 whole-window reference is shown.",
+    "Do not fit insulation thickness to the LoD1 target. Active LoD1 anchors, curves, guardrails, explorer data and review notes remain unchanged."
+  ],
+  "materials": {
+    "asphalt_board": {
+      "name": "asphalt_board",
+      "uuid": "549a6dd5-03b2-4ac3-88dd-2117e5fdd913",
+      "json_id": "Asphalt Board (created)",
+      "boverket_id": "6000000141",
+      "material_type": "EnergyMaterial",
+      "roughness": "Rough",
+      "density": 1100,
+      "specific_heat": 1000,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.9,
+      "visible_absorptance": 0.8,
+      "conductivity": 0.23,
+      "embodied_carbon": {
+        "name": "asphalt_board",
+        "resource_id": "6000000141",
+        "boverket_name": "Bitumen waterproofing membrane, single layer ",
+        "A1_A3_conservative": 0.813,
+        "A1_A3_typical": 0.65,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0429,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1,
+        "technical_service_life": "<40 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "battens_1": {
+      "name": "battens_1",
+      "uuid": "181c409b-5663-4711-8630-b1220d458930",
+      "json_id": "Std Wood 6 in.",
+      "boverket_id": "6000000007",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.11991974932054163,
+      "embodied_carbon": {
+        "name": "battens_1",
+        "resource_id": "6000000007",
+        "boverket_name": "Sawn timber, u 16 %, coniferous ",
+        "A1_A3_conservative": 0.08,
+        "A1_A3_typical": 0.064,
+        "A4_transport": 0.0225,
+        "A5_conservative": 0.0103,
+        "conservative_factor": 1.25,
+        "conversion_factor": 455,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.43
+      }
+    },
+    "battens_2": {
+      "name": "battens_2",
+      "uuid": "eae95552-19e3-4872-8ddd-0194b0d70efe",
+      "json_id": "Std Wood 6 in.",
+      "boverket_id": "6000000007",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.11991974932054163,
+      "embodied_carbon": {
+        "name": "battens_2",
+        "resource_id": "6000000007",
+        "boverket_name": "Sawn timber, u 16 %, coniferous ",
+        "A1_A3_conservative": 0.08,
+        "A1_A3_typical": 0.064,
+        "A4_transport": 0.0225,
+        "A5_conservative": 0.0103,
+        "conservative_factor": 1.25,
+        "conversion_factor": 455,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.43
+      }
+    },
+    "brick": {
+      "name": "brick",
+      "uuid": "f3af4870-f040-43d9-9af0-bdd1a3652793",
+      "json_id": "M01 100mm brick",
+      "boverket_id": "6000000082",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 1920.0043900588325,
+      "specific_heat": 789.4906206515565,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.8894048074606842,
+      "embodied_carbon": {
+        "name": "brick",
+        "resource_id": "6000000082",
+        "boverket_name": "Bricks",
+        "A1_A3_conservative": 0.314,
+        "A1_A3_typical": 0.251,
+        "A4_transport": 0.0629,
+        "A5_conservative": 0.0188,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1800,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "cardboard": {
+      "name": "cardboard",
+      "uuid": "5d6dcd07-d873-4266-af8f-e78837805967",
+      "json_id": "Wood Siding",
+      "boverket_id": "6000000141",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 544.6212452676245,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.78,
+      "visible_absorptance": 0.78,
+      "conductivity": 0.10992643687716327,
+      "embodied_carbon": {
+        "name": "cardboard",
+        "resource_id": "6000000141",
+        "boverket_name": "Bitumen waterproofing membrane, single layer ",
+        "A1_A3_conservative": 0.813,
+        "A1_A3_typical": 0.65,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0429,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1,
+        "technical_service_life": "<40 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "cellular_plastic": {
+      "name": "cellular_plastic",
+      "uuid": "30c198ad-1c9b-4a32-9136-4a5f502f827b",
+      "json_id": "I02 50mm insulation board",
+      "boverket_id": "6000000210",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 43.000098319025845,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6,
+      "conductivity": 0.029979937330135372,
+      "embodied_carbon": {
+        "name": "cellular_plastic",
+        "resource_id": "6000000210",
+        "boverket_name": "Plastic products type thermoplastic polyolefins, unspecified",
+        "A1_A3_conservative": 2.78,
+        "A1_A3_typical": 2.22,
+        "A4_transport": 0.0629,
+        "A5_conservative": 0.284,
+        "conservative_factor": 1.25,
+        "conversion_factor": 900,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "concrete": {
+      "name": "concrete",
+      "uuid": "c833f19c-de86-421e-921c-ff750dd04676",
+      "json_id": "100mm Normalweight concrete floor",
+      "boverket_id": "6000000029",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 2.3089016425031033,
+      "embodied_carbon": {
+        "name": "concrete",
+        "resource_id": "6000000029",
+        "boverket_name": "Ready-mix made concrete, buildings C25/30",
+        "A1_A3_conservative": 0.129,
+        "A1_A3_typical": 0.103,
+        "A4_transport": 0.00472,
+        "A5_conservative": 0.004,
+        "conservative_factor": 1.25,
+        "conversion_factor": 2350,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "eternit_board": {
+      "name": "eternit_board",
+      "uuid": "11f1e5b4-d369-4f16-8715-aa279862d3fd",
+      "json_id": "Eternit Asbestos Cement Board (created)",
+      "boverket_id": "6000000180",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 1750,
+      "specific_heat": 1000,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6,
+      "conductivity": 0.25,
+      "embodied_carbon": {
+        "name": "eternit_board",
+        "resource_id": "6000000180",
+        "boverket_name": "Fiber cement boards, construction board ≤ 0.60 w//w cement",
+        "A1_A3_conservative": 0.849,
+        "A1_A3_typical": 0.679,
+        "A4_transport": 0.0989,
+        "A5_conservative": 0.0948,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1550,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.065
+      }
+    },
+    "foil": {
+      "name": "foil",
+      "uuid": "eeb47eb6-6f53-480c-b6b4-bc1dea54550f",
+      "json_id": "Roof Membrane",
+      "boverket_id": "6000000198",
+      "material_type": "EnergyMaterial",
+      "roughness": "VeryRough",
+      "density": 1121.29256381722,
+      "specific_heat": 1459.0586153813556,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.15989299909405608,
+      "embodied_carbon": {
+        "name": "foil",
+        "resource_id": "6000000198",
+        "boverket_name": "Plastic film, vapor barrier",
+        "A1_A3_conservative": 2.75,
+        "A1_A3_typical": 2.2,
+        "A4_transport": 0.0629,
+        "A5_conservative": 0.281,
+        "conservative_factor": 1.25,
+        "conversion_factor": 900,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "gravel": {
+      "name": "gravel",
+      "uuid": "97d58c93-6e3c-401c-b063-2fb4ec2554bf",
+      "json_id": "Solid Rock",
+      "boverket_id": "6000000084",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 2700,
+      "specific_heat": 790,
+      "thermal_absorptance": 0.96,
+      "solar_absorptance": 0.55,
+      "visible_absorptance": 0.55,
+      "conductivity": 3,
+      "embodied_carbon": {
+        "name": "gravel",
+        "resource_id": "6000000084",
+        "boverket_name": "Sand lime bricks",
+        "A1_A3_conservative": 0.158,
+        "A1_A3_typical": 0.126,
+        "A4_transport": 0.0809,
+        "A5_conservative": 0.0119,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1800,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "gypsum_board": {
+      "name": "gypsum_board",
+      "uuid": "7778564f-6f68-4382-b6f0-eeaacfb0dd76",
+      "json_id": "5/8 in. Gypsum Board",
+      "boverket_id": "6000000020",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.15989299909405463,
+      "embodied_carbon": {
+        "name": "gypsum_board",
+        "resource_id": "6000000020",
+        "boverket_name": "Gypsum, standard plasterboard",
+        "A1_A3_conservative": 0.284,
+        "A1_A3_typical": 0.227,
+        "A4_transport": 0.0315,
+        "A5_conservative": 0.0378,
+        "conservative_factor": 1.25,
+        "conversion_factor": 710,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.037
+      }
+    },
+    "leca": {
+      "name": "leca",
+      "uuid": "c4143011-e306-4ee8-ab89-a2f995bf78fd",
+      "json_id": "Leca (created)",
+      "boverket_id": "6000000089",
+      "material_type": "EnergyMaterial",
+      "roughness": "VeryRough",
+      "density": 400,
+      "specific_heat": 1000,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.16,
+      "embodied_carbon": {
+        "name": "leca",
+        "resource_id": "6000000089",
+        "boverket_name": "Lightweight expanded clay clinker",
+        "A1_A3_conservative": 0.324,
+        "A1_A3_typical": 0.259,
+        "A4_transport": 0.036,
+        "A5_conservative": 0.0072,
+        "conservative_factor": 1.25,
+        "conversion_factor": 300,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "linoleum": {
+      "name": "linoleum",
+      "uuid": "fa017cab-98f7-4f7d-a2f8-fc26195ea0a4",
+      "json_id": "Roof Membrane",
+      "boverket_id": "6000000210",
+      "material_type": "EnergyMaterial",
+      "roughness": "VeryRough",
+      "density": 1121.29256381722,
+      "specific_heat": 1459.0586153813556,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.15989299909405608,
+      "embodied_carbon": {
+        "name": "linoleum",
+        "resource_id": "6000000210",
+        "boverket_name": "Plastic products type thermoplastic polyolefins, unspecified",
+        "A1_A3_conservative": 2.78,
+        "A1_A3_typical": 2.22,
+        "A4_transport": 0.0629,
+        "A5_conservative": 0.284,
+        "conservative_factor": 1.25,
+        "conversion_factor": 900,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "metal_sheet": {
+      "name": "metal_sheet",
+      "uuid": "8db19eb5-cb57-4ef5-9392-5b0332066176",
+      "json_id": "Metal Surface",
+      "boverket_id": "6000000153",
+      "material_type": "EnergyMaterial",
+      "roughness": "Smooth",
+      "density": 7824.017889489713,
+      "specific_heat": 499.67760800730963,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 45.24971874361766,
+      "embodied_carbon": {
+        "name": "metal_sheet",
+        "resource_id": "6000000153",
+        "boverket_name": "Steel sheets for cladding, 80 % primary",
+        "A1_A3_conservative": 3.24,
+        "A1_A3_typical": 2.59,
+        "A4_transport": 0.0989,
+        "A5_conservative": 0.167,
+        "conservative_factor": 1.25,
+        "conversion_factor": 7850,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "mineral_wool": {
+      "name": "mineral_wool",
+      "uuid": "46789930-aacb-4fa7-be71-46a954cd3ad3",
+      "json_id": "Wall Insulation [31]",
+      "boverket_id": "6000000002",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 91.0002080704965,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5,
+      "conductivity": 0.043171109755394975,
+      "embodied_carbon": {
+        "name": "mineral_wool",
+        "resource_id": "6000000002",
+        "boverket_name": "Glasswool, facade boards",
+        "A1_A3_conservative": 1.08,
+        "A1_A3_typical": 0.86,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0784,
+        "conservative_factor": 1.25,
+        "conversion_factor": 55,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "mineral_wool_blanket": {
+      "name": "mineral_wool_blanket",
+      "uuid": "79ef87e0-c65d-4e7c-91d5-6dae15a11fc6",
+      "json_id": "AtticFloor Insulation",
+      "boverket_id": "6000000128",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 265.0006059195773,
+      "specific_heat": 836.2604447610418,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.04896723097255453,
+      "embodied_carbon": {
+        "name": "mineral_wool_blanket",
+        "resource_id": "6000000128",
+        "boverket_name": "Stone wool, blowing wool, attic floor",
+        "A1_A3_conservative": 1.6,
+        "A1_A3_typical": 1.28,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0165,
+        "conservative_factor": 1.25,
+        "conversion_factor": 28,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "mineral_wool_carpet": {
+      "name": "mineral_wool_carpet",
+      "uuid": "12c280e3-abcc-4807-8185-623463b72f5d",
+      "json_id": "AtticFloor Insulation",
+      "boverket_id": "6000000005",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 265.0006059195773,
+      "specific_heat": 836.2604447610418,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.04896723097255453,
+      "embodied_carbon": {
+        "name": "mineral_wool_carpet",
+        "resource_id": "6000000005",
+        "boverket_name": "Glasswool, blowing wool, attic floor",
+        "A1_A3_conservative": 1.13,
+        "A1_A3_typical": 0.9,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0117,
+        "conservative_factor": 1.25,
+        "conversion_factor": 15,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "mortar": {
+      "name": "mortar",
+      "uuid": "9932e035-db28-4c61-98ef-2a25ccbcd48b",
+      "json_id": "1IN Stucco",
+      "boverket_id": "6000000092",
+      "material_type": "EnergyMaterial",
+      "roughness": "Smooth",
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92,
+      "conductivity": 0.6913373548329222,
+      "embodied_carbon": {
+        "name": "mortar",
+        "resource_id": "6000000092",
+        "boverket_name": "Plastering and masonry mortar type C (CS II)",
+        "A1_A3_conservative": 0.203,
+        "A1_A3_typical": 0.162,
+        "A4_transport": 0.036,
+        "A5_conservative": 0.0119,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1600,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "plaster": {
+      "name": "plaster",
+      "uuid": "758ac662-928a-49f4-9b1d-01c2544eee05",
+      "json_id": "1IN Stucco",
+      "boverket_id": "6000000091",
+      "material_type": "EnergyMaterial",
+      "roughness": "Smooth",
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92,
+      "conductivity": 0.6913373548329222,
+      "embodied_carbon": {
+        "name": "plaster",
+        "resource_id": "6000000091",
+        "boverket_name": "Masonry mortar and plastering type B (CS III)",
+        "A1_A3_conservative": 0.209,
+        "A1_A3_typical": 0.167,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0127,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1600,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "plaster_board": {
+      "name": "plaster_board",
+      "uuid": "0f1f0352-b87c-497f-a6ec-89f0efa1eb8a",
+      "json_id": "1/2 in. Gypsum Board",
+      "boverket_id": "6000000015",
+      "material_type": "EnergyMaterial",
+      "roughness": "Smooth",
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.5,
+      "conductivity": 0.15989299909405463,
+      "embodied_carbon": {
+        "name": "plaster_board",
+        "resource_id": "6000000015",
+        "boverket_name": "Gypsum, sheathing plasterboard",
+        "A1_A3_conservative": 0.333,
+        "A1_A3_typical": 0.266,
+        "A4_transport": 0.0315,
+        "A5_conservative": 0.0437,
+        "conservative_factor": 1.25,
+        "conversion_factor": 760,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.045
+      }
+    },
+    "roofing_felt": {
+      "name": "roofing_felt",
+      "uuid": "886a1da8-6455-4a3a-a67d-030acc64ec8c",
+      "json_id": "Roof Membrane",
+      "boverket_id": "6000000140",
+      "material_type": "EnergyMaterial",
+      "roughness": "VeryRough",
+      "density": 1121.29256381722,
+      "specific_heat": 1459.0586153813556,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.15989299909405608,
+      "embodied_carbon": {
+        "name": "roofing_felt",
+        "resource_id": "6000000140",
+        "boverket_name": "Bitumen waterproofing membrane, bottom layer ",
+        "A1_A3_conservative": 0.85,
+        "A1_A3_typical": 0.68,
+        "A4_transport": 0.045,
+        "A5_conservative": 0.0448,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1,
+        "technical_service_life": "<40 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "sand": {
+      "name": "sand",
+      "uuid": "a6a7337f-8315-43e5-9191-9cb0c7bd4e43",
+      "json_id": "Dry Sand",
+      "boverket_id": "6000000084",
+      "material_type": "EnergyMaterial",
+      "roughness": "Rough",
+      "density": 1555,
+      "specific_heat": 800,
+      "thermal_absorptance": 0.85,
+      "solar_absorptance": 0.65,
+      "visible_absorptance": 0.65,
+      "conductivity": 0.33,
+      "embodied_carbon": {
+        "name": "sand",
+        "resource_id": "6000000084",
+        "boverket_name": "Sand lime bricks",
+        "A1_A3_conservative": 0.158,
+        "A1_A3_typical": 0.126,
+        "A4_transport": 0.0809,
+        "A5_conservative": 0.0119,
+        "conservative_factor": 1.25,
+        "conversion_factor": 1800,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0
+      }
+    },
+    "wooden_panel": {
+      "name": "wooden_panel",
+      "uuid": "1cad56ec-ed8b-42d2-950e-b3c5db0c7084",
+      "json_id": "Std Wood 6 in.",
+      "boverket_id": "6000000007",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.11991974932054163,
+      "embodied_carbon": {
+        "name": "wooden_panel",
+        "resource_id": "6000000007",
+        "boverket_name": "Sawn timber, u 16 %, coniferous ",
+        "A1_A3_conservative": 0.08,
+        "A1_A3_typical": 0.064,
+        "A4_transport": 0.0225,
+        "A5_conservative": 0.0103,
+        "conservative_factor": 1.25,
+        "conversion_factor": 455,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.43
+      }
+    },
+    "wooden_stud": {
+      "name": "wooden_stud",
+      "uuid": "d37fa460-e0de-4d92-98fa-d0caa6bc8002",
+      "json_id": "Std Wood 6 in.",
+      "boverket_id": "6000000007",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumSmooth",
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "conductivity": 0.11991974932054163,
+      "embodied_carbon": {
+        "name": "wooden_stud",
+        "resource_id": "6000000007",
+        "boverket_name": "Sawn timber, u 16 %, coniferous ",
+        "A1_A3_conservative": 0.08,
+        "A1_A3_typical": 0.064,
+        "A4_transport": 0.0225,
+        "A5_conservative": 0.0103,
+        "conservative_factor": 1.25,
+        "conversion_factor": 455,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.43
+      }
+    },
+    "woodfiber_board": {
+      "name": "woodfiber_board",
+      "uuid": "32bcb6c8-849a-4361-9269-3a75aebe567a",
+      "json_id": "Woodfiber Board (created)",
+      "boverket_id": "6000000215",
+      "material_type": "EnergyMaterial",
+      "roughness": "MediumRough",
+      "density": 250,
+      "specific_heat": 1700,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.65,
+      "visible_absorptance": 0.65,
+      "conductivity": 0.07,
+      "embodied_carbon": {
+        "name": "woodfiber_board",
+        "resource_id": "6000000215",
+        "boverket_name": "High-density fibreboard, HDF (dry process)",
+        "A1_A3_conservative": 0.638,
+        "A1_A3_typical": 0.51,
+        "A4_transport": 0.0809,
+        "A5_conservative": 0.0718,
+        "conservative_factor": 1.25,
+        "conversion_factor": 850,
+        "technical_service_life": ">50 years",
+        "biogenic_carbon": 0.39
+      }
+    }
+  },
+  "archive_recipe": {
+    "archetype_id": "CMF_1960_1_ARCHIVE_DIAGNOSTIC",
+    "display_name": "CMF 1960 archive stack diagnostic",
+    "construction_year": 1960,
+    "building_typology": "multi_family",
+    "elements": {
+      "ROOF": {
+        "components": [
+          {
+            "name": "CMF_1960_1_ROOF_SKIN",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "METAL_SHEET_003_S",
+                "material_id": "metal_sheet",
+                "thickness": 0.003
+              },
+              {
+                "name": "BATTENS_1_023_S",
+                "material_id": "battens_1",
+                "thickness": 0.023
+              },
+              {
+                "name": "BATTENS_2_023_S",
+                "material_id": "battens_2",
+                "thickness": 0.023
+              },
+              {
+                "name": "ROOFING_FELT_005_S",
+                "material_id": "roofing_felt",
+                "thickness": 0.005
+              },
+              {
+                "name": "WOODEN_PANEL_03_S",
+                "material_id": "wooden_panel",
+                "thickness": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "TOP_FLOOR": {
+        "components": [
+          {
+            "name": "CMF_1960_1_TOP_FLOOR_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "CARDBOARD_005_S",
+                "material_id": "cardboard",
+                "thickness": 0.005
+              },
+              {
+                "name": "MINERAL_WOOL_BLANKET_03_S",
+                "material_id": "mineral_wool_blanket",
+                "thickness": 0.03
+              },
+              {
+                "name": "MINERAL_WOOL_CARPET_2_S",
+                "material_id": "mineral_wool_carpet",
+                "thickness": 0.2
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_TOP_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_14_S",
+                "material_id": "concrete",
+                "thickness": 0.14
+              }
+            ]
+          }
+        ]
+      },
+      "INTERMEDIATE_FLOOR": {
+        "components": [
+          {
+            "name": "CMF_1960_1_INTERMEDIATE_FLOOR_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "LINOLEUM_01_S",
+                "material_id": "linoleum",
+                "thickness": 0.01
+              },
+              {
+                "name": "PLASTER_005_S",
+                "material_id": "plaster",
+                "thickness": 0.005
+              },
+              {
+                "name": "WOODFIBER_BOARD_013_S",
+                "material_id": "woodfiber_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_INTERMEDIATE_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_16_S",
+                "material_id": "concrete",
+                "thickness": 0.16
+              }
+            ]
+          }
+        ]
+      },
+      "GROUND_FLOOR": {
+        "components": [
+          {
+            "name": "CMF_1960_1_GROUND_FLOOR_SKIN",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "LECA_15_S",
+                "material_id": "leca",
+                "thickness": 0.15
+              },
+              {
+                "name": "CELLULAR_PLASTIC_085_S",
+                "material_id": "cellular_plastic",
+                "thickness": 0.085
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_GROUND_FLOOR_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "LINOLEUM_01_S",
+                "material_id": "linoleum",
+                "thickness": 0.01
+              },
+              {
+                "name": "WOODFIBER_BOARD_013_S",
+                "material_id": "woodfiber_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_GROUND_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_15_S",
+                "material_id": "concrete",
+                "thickness": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      "BASEMENT_FLOOR": {
+        "components": [
+          {
+            "name": "CMF_1960_1_BASEMENT_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_07_S",
+                "material_id": "concrete",
+                "thickness": 0.07
+              },
+              {
+                "name": "CELLULAR_PLASTIC_06_S",
+                "material_id": "cellular_plastic",
+                "thickness": 0.06
+              },
+              {
+                "name": "FOIL_001_S",
+                "material_id": "foil",
+                "thickness": 0.001
+              },
+              {
+                "name": "SAND_05_S",
+                "material_id": "sand",
+                "thickness": 0.05
+              },
+              {
+                "name": "GRAVEL_15_S",
+                "material_id": "gravel",
+                "thickness": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      "EXT_WALL": {
+        "components": [
+          {
+            "name": "CMF_1960_1_EXT_WALL_SKIN",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "BRICK_MORTAR_125_C",
+                "material_id": [
+                  "brick",
+                  "mortar"
+                ],
+                "thickness": 0.125,
+                "area_fraction": [
+                  0.85,
+                  0.15
+                ]
+              },
+              {
+                "name": "ETERNIT_BOARD_009_S",
+                "material_id": "eternit_board",
+                "thickness": 0.009
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_EXT_WALL_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "PLASTER_BOARD_013_S",
+                "material_id": "plaster_board",
+                "thickness": 0.013
+              },
+              {
+                "name": "ASPHALT_BOARD_012_S",
+                "material_id": "asphalt_board",
+                "thickness": 0.012
+              },
+              {
+                "name": "PLASTER_BOARD_013_S",
+                "material_id": "plaster_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_EXT_WALL_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "MINERAL_WOOL_WOODEN_STUD_095_C",
+                "material_id": [
+                  "mineral_wool",
+                  "wooden_stud"
+                ],
+                "thickness": 0.095,
+                "area_fraction": [
+                  0.9,
+                  0.1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "BASEMENT_WALL": {
+        "components": [
+          {
+            "name": "CMF_1960_1_BASEMENT_WALL_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_3_S",
+                "material_id": "concrete",
+                "thickness": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      "INT_WALL_LOADBEARING": {
+        "components": [
+          {
+            "name": "CMF_1960_1_INT_WALL_LOADBEARING_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "PLASTER_005_S",
+                "material_id": "plaster",
+                "thickness": 0.005
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_INT_WALL_LOADBEARING_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_16_S",
+                "material_id": "concrete",
+                "thickness": 0.16
+              }
+            ]
+          }
+        ]
+      },
+      "INT_WALL_NONLOADBEARING": {
+        "components": [
+          {
+            "name": "CMF_1960_1_INT_WALL_NONLOADBEARING_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "GYPSUM_BOARD_013_S",
+                "material_id": "gypsum_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_INT_WALL_NONLOADBEARING_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "MINERAL_WOOL_WOODEN_STUD_07_C",
+                "material_id": [
+                  "mineral_wool",
+                  "wooden_stud"
+                ],
+                "thickness": 0.07,
+                "area_fraction": [
+                  0.9,
+                  0.1
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "archive_expected_u": {
+    "ROOF": 1.197469450014997,
+    "TOP_FLOOR": 0.20108026091555822,
+    "INTERMEDIATE_FLOOR": 1.7100287533507132,
+    "GROUND_FLOOR": 0.2349650849880696,
+    "BASEMENT_FLOOR": 0.41503675058650524,
+    "BASEMENT_WALL": 3.3340900626270504,
+    "INT_WALL_LOADBEARING": 2.9715087786984156,
+    "INT_WALL_NONLOADBEARING": 0.5820683766401754,
+    "wall": 0.4107499886014936
+  },
+  "reconstructed_recipe": {
+    "archetype_id": "CMF_1960_1_RECONSTRUCTED_DRAFT",
+    "display_name": "CMF 1960s provisional reconstructed assemblies",
+    "construction_year": 1965,
+    "building_typology": "multi_family",
+    "elements": {
+      "ROOF": {
+        "components": [
+          {
+            "name": "CMF_1960_1_ROOF_SKIN",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "METAL_SHEET_003_S",
+                "material_id": "metal_sheet",
+                "thickness": 0.003
+              },
+              {
+                "name": "BATTENS_1_023_S",
+                "material_id": "battens_1",
+                "thickness": 0.023
+              },
+              {
+                "name": "BATTENS_2_023_S",
+                "material_id": "battens_2",
+                "thickness": 0.023
+              },
+              {
+                "name": "ROOFING_FELT_005_S",
+                "material_id": "roofing_felt",
+                "thickness": 0.005
+              },
+              {
+                "name": "WOODEN_PANEL_03_S",
+                "material_id": "wooden_panel",
+                "thickness": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "TOP_FLOOR": {
+        "components": [
+          {
+            "name": "Attic insulation",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "MINERAL_WOOL_CARPET_2_S",
+                "material_id": "mineral_wool_carpet",
+                "thickness": 0.2
+              },
+              {
+                "name": "MINERAL_WOOL_BLANKET_03_S",
+                "material_id": "mineral_wool_blanket",
+                "thickness": 0.03
+              },
+              {
+                "name": "CARDBOARD_005_S",
+                "material_id": "cardboard",
+                "thickness": 0.005
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_TOP_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_14_S",
+                "material_id": "concrete",
+                "thickness": 0.14
+              }
+            ]
+          }
+        ]
+      },
+      "INTERMEDIATE_FLOOR": {
+        "components": [
+          {
+            "name": "Upper floor finish",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Linoleum 2.5 mm assumed",
+                "material_id": "linoleum",
+                "thickness": 0.0025
+              },
+              {
+                "name": "Wood fibre underlay 13 mm",
+                "material_id": "woodfiber_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "Concrete slab 160 mm",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "Concrete 160 mm",
+                "material_id": "concrete",
+                "thickness": 0.16
+              }
+            ]
+          },
+          {
+            "name": "Lower ceiling plaster",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Plaster 5 mm",
+                "material_id": "plaster",
+                "thickness": 0.005
+              }
+            ]
+          }
+        ]
+      },
+      "GROUND_FLOOR": {
+        "components": [
+          {
+            "name": "CMF_1960_1_GROUND_FLOOR_SKIN",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "LECA_15_S",
+                "material_id": "leca",
+                "thickness": 0.15
+              },
+              {
+                "name": "CELLULAR_PLASTIC_085_S",
+                "material_id": "cellular_plastic",
+                "thickness": 0.085
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_GROUND_FLOOR_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_15_S",
+                "material_id": "concrete",
+                "thickness": 0.15
+              }
+            ]
+          },
+          {
+            "name": "Upper floor finish",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Wood fibre underlay 13 mm",
+                "material_id": "woodfiber_board",
+                "thickness": 0.013
+              },
+              {
+                "name": "Linoleum 2.5 mm assumed",
+                "material_id": "linoleum",
+                "thickness": 0.0025
+              }
+            ]
+          }
+        ]
+      },
+      "BASEMENT_FLOOR": {
+        "components": [
+          {
+            "name": "Soil-side subbase",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "Gravel 150 mm",
+                "material_id": "gravel",
+                "thickness": 0.15
+              },
+              {
+                "name": "Sand 50 mm",
+                "material_id": "sand",
+                "thickness": 0.05
+              }
+            ]
+          },
+          {
+            "name": "Insulated slab",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "Foil 0.2 mm assumed",
+                "material_id": "foil",
+                "thickness": 0.0002
+              },
+              {
+                "name": "EPS 60 mm",
+                "material_id": "cellular_plastic",
+                "thickness": 0.06
+              },
+              {
+                "name": "Concrete 70 mm",
+                "material_id": "concrete",
+                "thickness": 0.07
+              }
+            ]
+          }
+        ]
+      },
+      "EXT_WALL": {
+        "components": [
+          {
+            "name": "Brick facade, series-only diagnostic",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "BRICK_MORTAR_125_C",
+                "material_id": [
+                  "brick",
+                  "mortar"
+                ],
+                "thickness": 0.125,
+                "area_fraction": [
+                  0.85,
+                  0.15
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Wind protection",
+            "shearing_layer": "Skin",
+            "layers": [
+              {
+                "name": "Asphalt board 12 mm",
+                "material_id": "asphalt_board",
+                "thickness": 0.012
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_EXT_WALL_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "MINERAL_WOOL_WOODEN_STUD_095_C",
+                "material_id": [
+                  "mineral_wool",
+                  "wooden_stud"
+                ],
+                "thickness": 0.095,
+                "area_fraction": [
+                  0.9,
+                  0.1
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Interior lining",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Gypsum board 13 mm",
+                "material_id": "plaster_board",
+                "thickness": 0.013
+              }
+            ]
+          }
+        ]
+      },
+      "BASEMENT_WALL": {
+        "components": [
+          {
+            "name": "CMF_1960_1_BASEMENT_WALL_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_3_S",
+                "material_id": "concrete",
+                "thickness": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      "INT_WALL_LOADBEARING": {
+        "components": [
+          {
+            "name": "Face A plaster",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Plaster 5 mm",
+                "material_id": "plaster",
+                "thickness": 0.005
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_INT_WALL_LOADBEARING_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "CONCRETE_16_S",
+                "material_id": "concrete",
+                "thickness": 0.16
+              }
+            ]
+          },
+          {
+            "name": "Face B plaster assumed",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Plaster 5 mm assumed second face",
+                "material_id": "plaster",
+                "thickness": 0.005
+              }
+            ]
+          }
+        ]
+      },
+      "INT_WALL_NONLOADBEARING": {
+        "components": [
+          {
+            "name": "CMF_1960_1_INT_WALL_NONLOADBEARING_SPACE",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "GYPSUM_BOARD_013_S",
+                "material_id": "gypsum_board",
+                "thickness": 0.013
+              }
+            ]
+          },
+          {
+            "name": "CMF_1960_1_INT_WALL_NONLOADBEARING_STRUCTURE",
+            "shearing_layer": "Structure",
+            "layers": [
+              {
+                "name": "MINERAL_WOOL_WOODEN_STUD_07_C",
+                "material_id": [
+                  "mineral_wool",
+                  "wooden_stud"
+                ],
+                "thickness": 0.07,
+                "area_fraction": [
+                  0.9,
+                  0.1
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Face B gypsum assumed",
+            "shearing_layer": "Space",
+            "layers": [
+              {
+                "name": "Gypsum 13 mm assumed second face",
+                "material_id": "gypsum_board",
+                "thickness": 0.013
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "element_notes": {
+    "ROOF": "Uninsulated outer covering above attic, not the top thermal boundary; not an envelope U-value.",
+    "TOP_FLOOR": "Attic to room: 200 mm mineral-wool carpet, 30 mm blanket, 5 mm cardboard, 140 mm concrete. Cardboard placement assumed; 230 mm insulation may reflect later alterations.",
+    "INTERMEDIATE_FLOOR": "Upper to lower room: assumed 2.5 mm linoleum, 13 mm wood-fibre board, 160 mm concrete, 5 mm plaster ceiling. Archive's 10 mm linoleum is tested separately, not discarded.",
+    "GROUND_FLOOR": "Ground to room, assumed: 150 mm LECA, 85 mm EPS, 150 mm concrete, 13 mm wood-fibre board, 2.5 mm linoleum. Boundary meaning and original insulation era remain pending.",
+    "BASEMENT_FLOOR": "Ground to room, assumed: 150 mm gravel, 50 mm sand, assumed 0.2 mm foil, 60 mm EPS, 70 mm concrete. Soil layers and thin concrete are not established as a complete structural slab.",
+    "EXT_WALL": "Outside to inside: alternative 125 mm brick/mortar or 9 mm historical facade board, assumed 25 mm cavity, 12 mm asphalt wind board, 95 mm mineral-wool/timber composite (90/10), 13 mm gypsum. Cavity scenario determines thermal treatment; unknown facade-area weights prevent aggregation.",
+    "BASEMENT_WALL": "300 mm concrete unchanged. Bare wall assembly only; the source effective below-ground boundary cannot be inferred.",
+    "INT_WALL_LOADBEARING": "5 mm plaster / 160 mm concrete / assumed second 5 mm plaster face.",
+    "INT_WALL_NONLOADBEARING": "13 mm gypsum / 70 mm mineral-wool/timber composite (90/10) / assumed second 13 mm gypsum face."
+  }
+}

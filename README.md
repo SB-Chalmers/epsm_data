@@ -1,117 +1,119 @@
-# Energy Database – Working Repository
+# EPSM Data
 
-This repository contains the working structure for the EPSM energy and material database. It includes class definitions, material extraction scripts, and generated JSON files as well as a database used for energy and embodied carbon calculations.
+Offline Swedish building-archetype data and construction library. The frozen
+LoD2 v1.3 baseline contains 90 canonical construction states and 1,080
+classification slots: five categories, six eras, three climate zones, three
+renovation states and four ventilation classifications. Seven construction roles
+are available per state; building geometry determines which are present.
 
-Any class specific checks should be defined within the class however anything cross-field is done externally in the instance loader, for example a check with excel is done in the instance loader. 
+## Install and check
 
-If any relational changes are made within the classes this needs to be updated in both the DB.py and Graph.py as relationships aren't passed down, but instead defined for each. 
+Requires Python 3.11 or newer. The core package has no external dependencies.
 
----
+```sh
+python -m pip install -e '.[dev]'
+python -m epsm_data.parametric --check --summary
+python -m epsm_data.detailed --check --lod2
+python -m pytest -q
+```
 
-## Utilising the EPSM_DATA package
+Install `.[visualization]` for section drawings and graph tools. Honeybee Energy
+and `epsm_core` integrations require their respective optional installations.
 
-Ensure the latest version of excel is in Data/, and that it's named **Material_Database**.
-Everytime main is run, anything generated gets overwritten however if changes are made to the database regarding it's structure the old file must be deleted from python and then rerun, otherwise the script will crash and new changes won't be pushed as it expects the old schema.
+## Use the catalogue
 
-## Class Structure
+```python
+from epsm_data import ArchetypeKey, load_parametric_catalogue
 
-Class structure  is detailed in the image below. By utilising this structure
-![WindowMaterial will be implemented so that it can ideally be used interchangeably with OpaqueMaterial](image.png)
+catalogue = load_parametric_catalogue()
+slot = catalogue.get_slot(
+    ArchetypeKey("multi_family", "SE.02", "SE.Zone3", "existing", "FTX")
+)
+print(slot.construction_set.u_values)
+print(slot.infiltration.value)  # effective background air changes per hour
+```
 
-## Repository Structure
+The active data live in `src/epsm_data/datasets/parametric` and
+`src/epsm_data/datasets/layered`. Loading does not require source workbooks,
+a database, an archive, or network access. Caller-owned catalogues remain
+supported through explicit paths and immutable anchor/override operations.
+Use separate copies for experiments to preserve this baseline.
 
-Currently any script is in the **NewSchema** folder. It contains instance, database and graph generation. All .json files are exported to the **output** folder. Data used, such as the Material_Database.xlsx, opaque_material.json & window_material.json are located in **Data**
+Categories are SF, MF, Office, School and Generic. Generic explicitly follows
+the corresponding MF physical construction; it is not a national stock average.
+Climate and ventilation classifications do not modify the construction values.
+Existing describes original period fabric; Standard and Advanced are independent
+renovations of Existing. See [examples](examples) for construction, renovation,
+and section-drawing usage.
 
-Graph and database files are currently in **EPSM_DATA** 
+## Explore and export
 
-## Scripts
+```sh
+python -m explorer.server
+python -m epsm_data.layered --state existing --export
+python -m epsm_data.layered --state advanced --nominal-export
+```
 
-### Classes.py 
+Open [the local explorer](http://127.0.0.1:8765) to browse construction layers,
+thermal values and evidence. [Explorer documentation](explorer/README.md)
+describes filters and remarks. Remarks are stored separately in the ignored
+`data/local/explorer-notes.sqlite`; preserve that file when backing up local work.
 
-Contains all class defintions and supporting types. All core classes are immutable (frozen=True dataclasses), ensuring data integrity once instantiated. Validation logic lives in **__post_init__** methods, with softer warnings (e.g. thickness consistency, etc...). Any warning pertaining to the class is handled within, cross field warnings do not belong here.
+Python callers can use `load_calibrated_archetype` and its `to_nominal_dict()`
+method for role-preserving exports. `epsm_data.release.core_inputs` provides
+optional native `epsm_core` inputs. Geometry, weather, operation, HVAC, ground
+boundaries and attic ventilation remain caller inputs.
 
-### DataFetcher.py
+## Retained calibration tool
 
-Handles communication with the **Boverket Klimatdatabas API**.
+```sh
+python -m tools.recalibrate_mf_se02
+```
 
-- `fetch_all_materials()` — fetches the full resource list from the API, filtering for valid material entries with a `ResourceId`.
-- `parse_material_api()` — maps a raw API response for a single material into an `EmbodiedCarbon` instance
+This existing tool previews a bounded, discrete thickness and framing-fraction
+search for MF SE.02 against nominal U-value targets. Conductivity stays fixed;
+ground roles are excluded. It prints candidate counts and selections as JSON
+and never edits the packaged recipes. Its historical reference choices and
+2% target criterion are specific to this archetype, so a feasible candidate is
+not automatically a replacement for the reviewed current recipe. A null selection
+means no feasible candidate under those bounds.
 
-### InstanceLoader.py
+This is not calibration against EPCs or measured building energy use. Automatic
+sample-based calibration and subsequent building validation are future work.
 
-Reads and assembles the full building model hierarchy from `Material_Database.xlsx` and supporting data sources, building up from materials to complete buildings.
+## Frozen baseline and evidence
 
-Each loader follows the same pattern: parse rows, validate fields, skip and report invalid entries, then return a list of clean instances.
+`epsm-data-baseline-v1.3` identifies the local Git freeze. [BASELINE.json](BASELINE.json)
+records SHA-256 hashes of every packaged dataset file, including packaged evidence.
+The package version remains `0.3.0.dev0`; the construction release is LoD2 v1.3.
+The regression suite checks the manifest and current packaged data.
 
-- `load_opaque_materials()` — cross-references the Excel sheet with the Boverket API and a local EnergyPlus JSON file to construct `OpaqueMaterial` instances.
-- `load_layers()` — assembles `Layer` instances from material references, resolving missing area fractions automatically and flagging thickness inconsistencies as soft warnings.
-- `load_components()` — groups rows by component code, sorts layers by index, and resolves shearing layer assignments.
-- `load_elements()` — infers element type and construction age from component naming conventions, sorts components by shearing layer order, and runs TABULA U-value validation.
-- `load_buildings()` — groups elements by archetype to form `Buildings`, using the earliest age found across its elements.
+[Cited evidence](evidence) and packaged provenance remain maintained. The
+[current release note](evidence/lod2_v1_3/README.md) explains the construction
+review, and the [claim register](evidence/lod2_v1_3/claims.json) records its evidence
+and limitations. Older reports retained here support current citations; they
+are not instructions to rebuild or overwrite the baseline.
 
-Helper functions `resolve_fractions()` and `parse_age_from_archetype()` handle fraction gap-filling and age extraction from archetype strings respectively.
+EPC validation remains pending. Nominal layer U-values and legacy effective
+ground values are distinct. Construction availability does not establish soil,
+moisture, annual-energy or carbon readiness. Source transfers, assumed layer
+choices and unresolved material mappings retain their documented limitations.
 
-Any cross-field validation can be added here. 
+Retired authoring scripts, release workflows, reproduction tests, intermediate
+snapshots and generated outputs are preserved locally under ignored `ARCHIVE/`.
+They are not shipped or available in fresh clones. The dated archive contains
+`relocations.json` and original tests/README for historical context. Git history
+is unchanged; ongoing runtime outputs, caches and local databases stay ignored.
 
-### Exporter.py
+The legacy source-study helpers `load_office_reference()` and
+`load_renovation_package()` predate the current seven-role/full-recipe layout and
+are not compatible with the bundled v1.3 defaults. Their implementations are
+preserved unchanged. For current office and renovation constructions, use
+`load_calibrated_archetype(archetype_id="office_se05", renovation_state="standard")`
+(or the desired archetype/state). Their former reproduction workflows and the
+source-study office drawing example are archived.
 
-Serializes the fully loaded model hierarchy to dated JSON files in the `output/` directory.
-
-`export_all()` takes lists of all model types and writes one JSON file per level (`materials`, `layers`, `components`, `elements`, `buildings`), each keyed by their primary identifier and dated `DD-MM-YYYY`.
-
-### DB.py
-
-Defines the SQLAlchemy ORM schema and initialises the SQLite database. Each class mirrors its counterpart in `Classes.py`, with many-to-many relationships handled through the junction tables.
-
-- `DBEmbodiedCarbon` → `DBOpaqueMaterial` — one-to-many
-- `DBLayer` ↔ `DBOpaqueMaterial` — via `DBLayerMaterial` (stores area fraction and thickness per material)
-- `DBComponent` ↔ `DBLayer` — via `DBComponentLayer` (preserves layer index/order)
-- `DBElement` ↔ `DBComponent` — via `DBElementComponent`
-- `DBBuilding` ↔ `DBElement` — via `DBBuildingElement` (stores element type alongside the reference)
-
-`init_db()` creates the engine and runs `create_all()` to initialise the schema, defaulting to `epsm.db`.
-
-### DBExporter.py
-
-Persists the fully loaded model hierarchy to the SQLite database defined in `DB.py`.
-
-`export_to_db()` opens a single session and writes all records in hierarchy order, using `merge()` for primary-keyed tables (upsert behaviour) and `add()` for junction tables. Junction tables are cleared at the start of each export to avoid stale relationship rows. `EmbodiedCarbon` records are deduplicated by `resource_id` before insertion since multiple materials may share the same EPD entry.
-
-### Graph.py
-
-Builds and visualises the full model hierarchy as a directed graph using NetworkX, with export options for interactive HTML and Gephi.
-
-- `build_graph()` — constructs a `DiGraph` traversing the full hierarchy from `Building` down to `EmbodiedCarbon`, storing instance attributes as node metadata and relationship type as edge metadata.
-- `print_graph_summary()` — prints node and edge counts broken down by type.
-- `visualise_pyvis()` — renders an interactive HTML graph via PyVis, with nodes colour- and size-coded by type.
-- `export_gephi()` — writes a `.gexf` file for use in Gephi, stripping non-serialisable instance references beforehand.
-
-When run directly, loads the full model pipeline and outputs both `graph.html` and `graph.gexf`.
-
-### EnergyPlusConverter.py
-
-Rewrites `opaque_material.json` to match the naming convention used in `Material_Database.xlsx`.
-The output is utilised in grasshopper.
-
-### main.py
-
-Is the entrypoint. By running this script instances, .json files, and database are created. 
-
-# Sources
-
-The `Layers` class, located in classes.py calculates R-values using:
-
-- The Lambda (λ) method  
-- The U-value method  
-
-These methods are based on:
-
-- Persson, B. P.-Å. (2018). *Tillämpad byggnadsfysik*. Studentlitteratur. Sections 8.1 & 9.2.3.  
-- Chalmers lecture material https://chalmers.instructure.com/courses/9012/files/345841?module_item_id=57479 
-
-Tabula values in classes.py are sourced in: 
-
-TABULA Building Typology Webtool  
-https://webtool.building-typology.eu/#bm  
-
-(Charts 1 data)
+Some immutable dataset locators name original archive paths. Their cited source
+JSON files are also retained in `evidence/historical_sources`; the
+[source index](evidence/source-index.json) maps original locators to tracked
+copies and records their hashes. No runtime operation needs `ARCHIVE/`.

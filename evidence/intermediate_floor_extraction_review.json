@@ -1,0 +1,807 @@
+{
+  "review_date": "2026-09-30",
+  "status": "evidence_review_only_no_live_catalogue_changes",
+  "input": "extraction results.json",
+  "sha256": "4e118c3667b25ad342fd4a2f39738a299ec046649e1589eb0ea5706ad8e9b6e1",
+  "record_count": 296,
+  "records_with_intermediate_floor_information": 24,
+  "records_with_layers": 20,
+  "records": [
+    {
+      "record_index_zero_based": 8,
+      "metadata": {
+        "doi": "10.1016/j.enbuild.2007.10.011",
+        "url": null,
+        "title": "Energy simulations for glazed office buildings in Sweden",
+        "author": "Harris Poirazis, Åke Blomsterberg, Maria Wall",
+        "publication_year": 2008
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": null,
+        "location": "Gothenburg, Sweden",
+        "year_of_construction": null,
+        "construction_period": "late 1990s",
+        "building_type": "Office"
+      },
+      "reported_u": 1.74,
+      "layers": null
+    },
+    {
+      "record_index_zero_based": 17,
+      "metadata": {
+        "doi": null,
+        "url": "https://www.lth.se/fileadmin/energi_byggnadsdesign/images/Publikationer/Bok_Dokt_avhandling_HP_G5.pdf",
+        "title": "Single and Double Skin Glazed Office Buildings: Analyses of Energy Use and Indoor Climate",
+        "author": "Harris Poirazis",
+        "publication_year": 2008
+      },
+      "case": {
+        "case_study_id": "virtual_reference_office_building",
+        "case_study": "Reference building",
+        "building_name": "Virtual reference office building",
+        "location": "Gothenburg, Sweden",
+        "year_of_construction": null,
+        "construction_period": "late 1990s",
+        "building_type": "Office"
+      },
+      "reported_u": 1.75,
+      "layers": [
+        {
+          "material": "Linoleum",
+          "thickness_m": 0.0025,
+          "conductivity_w_mk": 0.156
+        },
+        {
+          "material": "Concrete",
+          "thickness_m": 0.3,
+          "conductivity_w_mk": 1.7
+        },
+        {
+          "material": "Acoustic tiles",
+          "thickness_m": 0.012,
+          "conductivity_w_mk": 0.057
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 106,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "A comparative study of embodied and operational environmental impact of a multifamily building with different framework materials",
+        "author": "Hanna Åhlund",
+        "publication_year": 2020
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": null,
+        "location": "Umeå, Sweden",
+        "year_of_construction": 2012,
+        "construction_period": null,
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "reinforced concrete",
+          "thickness_m": 0.22,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 135,
+      "metadata": {
+        "doi": "10.1016/j.enbuild.2017.10.023",
+        "url": null,
+        "title": "Abatement cost of embodied emissions of a residential building in Sweden",
+        "author": "Martin Andersson; Jonas Barkander; Jun Kono; York Ostermeyer",
+        "publication_year": 2018
+      },
+      "case": {
+        "case_study_id": null,
+        "case_study": null,
+        "building_name": "Base house",
+        "location": "Solna, Sweden",
+        "year_of_construction": null,
+        "construction_period": "2012-2013",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "prefabricated concrete",
+          "thickness_m": 0.05,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "cast in-situ concrete",
+          "thickness_m": 0.2,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 136,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Single and Double Skin Glazed Office Buildings: Analyses of Energy Use and Indoor Climate",
+        "author": "Harris Poirazis",
+        "publication_year": 2008
+      },
+      "case": {
+        "case_study_id": "Reference-Long-Facade",
+        "case_study": "Reference office building representative of Swedish office buildings of the late 1990s",
+        "building_name": "Reference Building",
+        "location": "Gothenburg, Sweden",
+        "year_of_construction": null,
+        "construction_period": "late 1990s",
+        "building_type": "Office"
+      },
+      "reported_u": 1.75,
+      "layers": [
+        {
+          "material": "linoleum",
+          "thickness_m": 0.0025,
+          "conductivity_w_mk": 0.156
+        },
+        {
+          "material": "concrete",
+          "thickness_m": 0.3,
+          "conductivity_w_mk": 1.7
+        },
+        {
+          "material": "acoustic tiles",
+          "thickness_m": 0.012,
+          "conductivity_w_mk": 0.057
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 137,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Single and Double Skin Glazed Office Buildings: Analyses of Energy Use and Indoor Climate",
+        "author": "Harris Poirazis",
+        "publication_year": 2008
+      },
+      "case": {
+        "case_study_id": "Reference-Short-Facade",
+        "case_study": "Reference office building representative of Swedish office buildings of the late 1990s",
+        "building_name": "Reference Building",
+        "location": "Gothenburg, Sweden",
+        "year_of_construction": null,
+        "construction_period": "late 1990s",
+        "building_type": "Office"
+      },
+      "reported_u": 1.75,
+      "layers": [
+        {
+          "material": "linoleum",
+          "thickness_m": 0.0025,
+          "conductivity_w_mk": 0.156
+        },
+        {
+          "material": "concrete",
+          "thickness_m": 0.3,
+          "conductivity_w_mk": 1.7
+        },
+        {
+          "material": "acoustic tiles",
+          "thickness_m": 0.012,
+          "conductivity_w_mk": 0.057
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 148,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Mitigation of Thermal Bridge Heat Loss in Swedish Million Programme Residential Buildings: A Case Study",
+        "author": "Anton Carlsson",
+        "publication_year": 2026
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": null,
+        "location": "Malmö, Sweden",
+        "year_of_construction": 1967,
+        "construction_period": "Million Programme",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "concrete",
+          "thickness_m": 0.16,
+          "conductivity_w_mk": 1.7
+        },
+        {
+          "material": "dry sand",
+          "thickness_m": 0.04,
+          "conductivity_w_mk": 0.4
+        },
+        {
+          "material": "masonite",
+          "thickness_m": 0.02,
+          "conductivity_w_mk": 0.14
+        },
+        {
+          "material": "plastic mat",
+          "thickness_m": 0.01,
+          "conductivity_w_mk": 0.16
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 161,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Kalibrering och validering mot uppmätt data med hjälp av IDA ICE: En fallstudie av miljonprogrammets flerbostadshus",
+        "author": "Hussein Moalin & Idris Köylüoglu",
+        "publication_year": 2020
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": null,
+        "location": "Andersberg, Gävle, Sweden",
+        "year_of_construction": 1973,
+        "construction_period": "Million Programme, 1965-1974",
+        "building_type": "MFH"
+      },
+      "reported_u": 0.7205,
+      "layers": [
+        {
+          "material": "lamella parquet flooring",
+          "thickness_m": 0.025,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "sand",
+          "thickness_m": 0.05,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "mineral wool board",
+          "thickness_m": 0.03,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "reinforced concrete",
+          "thickness_m": 0.16,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 164,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Energieffektivisering av ett flerbostadshus i relation till EU:s Energy Performance of Buildings Directive",
+        "author": "Sixten Brännström",
+        "publication_year": 2026
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": "BRF Göta",
+        "location": "Uppsala, Sweden",
+        "year_of_construction": 1943,
+        "construction_period": null,
+        "building_type": "MFH"
+      },
+      "reported_u": 0.301,
+      "layers": [
+        {
+          "material": "concrete",
+          "thickness_m": 0.15,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "wood shavings (kutterspån)",
+          "thickness_m": 0.1,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "floor construction",
+          "thickness_m": 0.05,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 172,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Primary energy use of residential buildings - implications of materials, modelling and design approaches",
+        "author": "Uniben Yao Ayikoe Tettey",
+        "publication_year": 2017
+      },
+      "case": {
+        "case_study_id": "Walludden",
+        "building_name": "Wälludden building",
+        "location": "Växjö, Sweden",
+        "year_of_construction": 1996,
+        "construction_period": null,
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "oak board flooring",
+          "thickness_m": 0.015,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "mineral wool insulation",
+          "thickness_m": 0.3,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "folded steel sheet",
+          "thickness_m": 0.045,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "plasterboard",
+          "thickness_m": 0.013,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 173,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Primary energy use of residential buildings - implications of materials, modelling and design approaches",
+        "author": "Uniben Yao Ayikoe Tettey",
+        "publication_year": 2017
+      },
+      "case": {
+        "case_study_id": "Lindvagen",
+        "building_name": "Lindvägen building",
+        "location": "Ronneby municipality, Sweden",
+        "year_of_construction": 1972,
+        "construction_period": "Million Homes Programme",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "floor boarding",
+          "thickness_m": 0.01,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "concrete",
+          "thickness_m": 0.19,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 174,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Primary energy use of residential buildings - implications of materials, modelling and design approaches",
+        "author": "Uniben Yao Ayikoe Tettey",
+        "publication_year": 2017
+      },
+      "case": {
+        "case_study_id": "Tappan",
+        "building_name": "Täppan building",
+        "location": "Växjö, Sweden",
+        "year_of_construction": 2014,
+        "construction_period": null,
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "concrete slab",
+          "thickness_m": 0.25,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 183,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Jämförelse av VAV- och CAV-ventilationssystem för nybyggd skola och dess känslighet för ökad personbelastning",
+        "author": "Kajsa Hansson",
+        "publication_year": 2019
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": "Stigslundsskolan",
+        "location": "Gävle, Sweden",
+        "year_of_construction": 2019,
+        "construction_period": null,
+        "building_type": "School"
+      },
+      "reported_u": 2.4,
+      "layers": null
+    },
+    {
+      "record_index_zero_based": 184,
+      "metadata": {
+        "doi": "10.3390/en14227584",
+        "url": "https://doi.org/10.3390/en14227584",
+        "title": "Low-Emissivity Window Films as an Energy Retrofit Option for a Historical Stone Building in Cold Climate",
+        "author": "Saman Abolghasemi Moghaddam; Magnus Mattsson; Arman Ameen; Jan Akander; Manuel Gameiro Da Silva; Nuno Simões",
+        "publication_year": 2021
+      },
+      "case": {
+        "case_study_id": null,
+        "case_study": "Rådhuset (City Hall) historical stone building",
+        "building_name": "Rådhuset (City Hall)",
+        "location": "Gävle, Sweden",
+        "year_of_construction": null,
+        "construction_period": "1784-1790",
+        "building_type": "Office"
+      },
+      "reported_u": 0.37,
+      "layers": null
+    },
+    {
+      "record_index_zero_based": 187,
+      "metadata": {
+        "doi": "10.3390/app15084488",
+        "url": "https://doi.org/10.3390/app15084488",
+        "title": "Study of Various Types of Glazing in a Building Constructed Using Hybrid Technology with a Large Window Area",
+        "author": "Miroslaw Zukowski",
+        "publication_year": 2025
+      },
+      "case": {
+        "case_study_id": null,
+        "case_study": "Reference house located in Kiruna",
+        "building_name": null,
+        "location": "Kiruna, Sweden",
+        "year_of_construction": null,
+        "construction_period": null,
+        "building_type": "SFH"
+      },
+      "reported_u": 0.232,
+      "layers": null
+    },
+    {
+      "record_index_zero_based": 211,
+      "metadata": {
+        "doi": "10.3390/en12112072",
+        "url": "https://doi.org/10.3390/en12112072",
+        "title": "Integration of Measurements and Time Diaries as Complementary Measures to Improve Resolution of BES",
+        "author": "Jakob Carlander; Kristina Trygg; Bahram Moshfegh",
+        "publication_year": 2019
+      },
+      "case": {
+        "case_study_id": null,
+        "case_study": "Retirement-home city block",
+        "building_name": "Detached three-story retirement-home building",
+        "location": "Linköping, Sweden",
+        "year_of_construction": 1983,
+        "construction_period": null,
+        "building_type": "Other"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "concrete",
+          "thickness_m": 0.2,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "floor coating",
+          "thickness_m": 0.005,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 224,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Probabilistic Approach to the Assessment of Uncertain Input Parameters When Energy Renovating Existing Buildings",
+        "author": "Milad Hashemi; Reka Mulic",
+        "publication_year": 2016
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": "Typical two-floor Million Program apartment building",
+        "location": "Linköping, Sweden",
+        "year_of_construction": 1969,
+        "construction_period": "Million Programme",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "floor coating",
+          "thickness_m": 0.01,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "concrete",
+          "thickness_m": 0.2,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 228,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Climate Implications of Increased Wood Use in the Construction Sector - Towards an Integrated Modeling Framework",
+        "author": "Ljusk Ola Eriksson; Leif Gustavsson; Riitta Hänninen; Maarit Kallio; Henna Lyhykäinen; Kim Pingoud; Johanna Pohjola; Roger Sathre; Birger Solberg; Jarle Svanaes; Lauri Valsta",
+        "publication_year": 2009
+      },
+      "case": {
+        "case_study_id": "Wälludden",
+        "case_study": "Wälludden building",
+        "building_name": "Wälludden",
+        "location": "Växjö, Sweden",
+        "year_of_construction": null,
+        "construction_period": "After 1994",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "light timber joists",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "parquet flooring",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 268,
+      "metadata": {
+        "doi": "10.1016/j.egypro.2019.01.913",
+        "url": "https://doi.org/10.1016/j.egypro.2019.01.913",
+        "title": "Life Cycle Assessment of Building Materials for a Single-family House in Sweden",
+        "author": "Bojana Petrovic; Jonn Are Myhren; Xingxing Zhang; Marita Wallhagen; Ola Eriksson",
+        "publication_year": 2019
+      },
+      "case": {
+        "case_study_id": "Dalarnas Villa",
+        "building_name": "Dalarnas Villa demonstration house",
+        "location": "Dalarna, Sweden",
+        "year_of_construction": null,
+        "construction_period": "new demonstration house",
+        "building_type": "SFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "internal floor construction",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 270,
+      "metadata": {
+        "doi": "10.3390/buildings5041207",
+        "url": "https://doi.org/10.3390/buildings5041207",
+        "title": "Energy Performance of Two Multi-Story Wood-Frame Passive Houses in Sweden",
+        "author": "Krushna Mahapatra; Stefan Olsson",
+        "publication_year": 2015
+      },
+      "case": {
+        "case_study_id": "Hus 28",
+        "case_study": "Portvakten Söder passive-house building",
+        "building_name": "Portvakten Söder Hus 28",
+        "location": "Växjö, Sweden",
+        "year_of_construction": 2009,
+        "construction_period": "new-built passive house",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "cast-in-situ concrete",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "prefabricated cross-laminated wood frame",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 271,
+      "metadata": {
+        "doi": "10.3390/buildings5041207",
+        "url": "https://doi.org/10.3390/buildings5041207",
+        "title": "Energy Performance of Two Multi-Story Wood-Frame Passive Houses in Sweden",
+        "author": "Krushna Mahapatra; Stefan Olsson",
+        "publication_year": 2015
+      },
+      "case": {
+        "case_study_id": "Hus 30",
+        "case_study": "Portvakten Söder passive-house building",
+        "building_name": "Portvakten Söder Hus 30",
+        "location": "Växjö, Sweden",
+        "year_of_construction": 2009,
+        "construction_period": "new-built passive house",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "cast-in-situ concrete",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        },
+        {
+          "material": "prefabricated cross-laminated wood frame",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 288,
+      "metadata": {
+        "doi": null,
+        "url": null,
+        "title": "Energy renovation of Million Programme houses",
+        "author": "Rickard Nilsson; Mattias Jönsson; Andreas Lätth",
+        "publication_year": 2011
+      },
+      "case": {
+        "case_study_id": "Råslätt",
+        "building_name": "Råslätt residential area",
+        "location": "Råslätt, Jönköping, Sweden",
+        "year_of_construction": 1966,
+        "construction_period": "1966-1972; Million Programme",
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "concrete floor slab",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 293,
+      "metadata": {
+        "doi": "10.3390/en19143273",
+        "url": null,
+        "title": "A Simulation-Based Strategy for Estimating Operative Temperature Using Infrared Surface Temperature Sensors for Thermal Comfort Control",
+        "author": "Musadag El Zein; Assem Al Helwani; Arman Ameen; Jan Akander",
+        "publication_year": 2026
+      },
+      "case": {
+        "case_study_id": "Office 313",
+        "building_name": "Gävle City Hall (Rådhuset)",
+        "location": "Gävle, Sweden",
+        "year_of_construction": 1784,
+        "construction_period": "1784-1790",
+        "building_type": "Office"
+      },
+      "reported_u": 2.9,
+      "layers": [
+        {
+          "material": "wood + sand",
+          "thickness_m": 0.39,
+          "conductivity_w_mk": null
+        }
+      ]
+    },
+    {
+      "record_index_zero_based": 295,
+      "metadata": {
+        "doi": null,
+        "url": "http://publications.lib.chalmers.se/publication/203360",
+        "title": "Air leakages in a retrofitted building from 1930: measurements and numerical simulations",
+        "author": "Pär Johansson; Angela Sasic Kalagasidis",
+        "publication_year": 2014
+      },
+      "case": {
+        "case_study_id": null,
+        "building_name": "Landshövdingehus (County governor's house)",
+        "location": "Gothenburg, Sweden",
+        "year_of_construction": 1930,
+        "construction_period": null,
+        "building_type": "MFH"
+      },
+      "reported_u": null,
+      "layers": [
+        {
+          "material": "intermediate wooden floor",
+          "thickness_m": null,
+          "conductivity_w_mk": null
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "topic": "old_office_source_conflict",
+      "extraction_record": 184,
+      "source_2021": "https://doi.org/10.3390/en14227584",
+      "table_2021": {
+        "internal_floor": 0.37,
+        "external_floor": 2.9
+      },
+      "source_2022": "https://www.mdpi.com/2075-5309/12/10/1667",
+      "table_2022": {
+        "internal_floor": 2.9,
+        "external_floor": 0.37
+      },
+      "assessment": "Published tables reverse assignments. Extraction matches 2021 publication. Suspected source-level role transposition, not proven correction. Neither value should be a universal oldest-office target."
+    },
+    {
+      "topic": "old_office_layer_evidence",
+      "extraction_record": 293,
+      "assessment": "Later study of same City Hall reports 390 mm wood + sand, U 2.9; author full text indexed on ResearchGate confirms table. No constituent depths or conductivities; cannot reconstruct unique LoD2 stack or force layers to this U. Its room ceiling is also extracted as roof, illustrating boundary-role ambiguity."
+    },
+    {
+      "topic": "current_recipe_origin",
+      "assessment": "V1.1 Office/School SE01 copies SF 220 mm timber/shavings infill. Supplied period recipes are model assumptions, not independent extraction evidence for stock prevalence."
+    },
+    {
+      "topic": "concrete_examples",
+      "extraction_records": [
+        17,
+        106,
+        135,
+        148,
+        161,
+        173,
+        174,
+        211,
+        224
+      ],
+      "assessment": "Concrete floors with differing finishes, sand or thin acoustic insulation occur. Do not deduplicate only by record count: Poirazis repeated at 17,136,137 and related article 8."
+    },
+    {
+      "topic": "school_coverage",
+      "extraction_record": 183,
+      "assessment": "Only explicitly School-classified floor record in this extraction; reported 2.4 W/m2K for Stigslundsskolan (2019), no floor layers. Original table not independently verified in this review. Insufficient to establish old school floor."
+    },
+    {
+      "topic": "sf_coverage",
+      "extraction_records": [
+        187,
+        268
+      ],
+      "assessment": "SFH-classified records provide one U-only modern hybrid example and one unspecified internal construction; no support for universal 220 mm fully mineral-wool-filled SF floors."
+    },
+    {
+      "topic": "modern_timber_guidance",
+      "url": "https://www.traguiden.se/konstruktion/konstruktionsexempel/vaggar/barande-yttervagg/konstruktionsvirke-eller-lattreglar/anslutningm/",
+      "assessment": "Example specifies 50-70 mm comfort insulation away from perimeter; full-depth insulation within at least 600 mm of exterior wall. Supports separating joist depth and infill depth. Not historical prevalence or universal acoustic compliance."
+    }
+  ],
+  "recommendation": {
+    "old_office_school": "Develop timber joists with heavy mineral fill and residual cavity as explicit historical engineering default; verify constituent depths/properties before publication. Do not substitute 220 mm low-conductivity shavings or calibrate to disputed U. School transfer remains analogy.",
+    "later_office_school": "Retain coherent concrete family with thin finish/acoustic lining; office Poirazis is stronger layer evidence, school transfer explicit analogy.",
+    "sf": "Partially filled modern timber default justified by construction guidance; historical fill reviewed separately, not blanket modern mineral wool.",
+    "mf_generic": "Retain concrete families pending targeted review of period-appropriate acoustic layers; generic remains explicit MF donor.",
+    "trend": "No imposed monotonic U trend; compute nominal U from representative layers under common films, retain floors across envelope renovation states."
+  }
+}

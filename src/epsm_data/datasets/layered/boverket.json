@@ -1,0 +1,3051 @@
+{
+  "Culture": "en-gb",
+  "Location": "SE",
+  "PublishedDate": "2026-01-21T07:03:11Z",
+  "Publisher": "Boverket, Sweden",
+  "Resources": [
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by national producers, which is why the background data used from Swedish sawmills can be considered representative of this consumption.",
+      "CalculatedBiogenicCarbon": 0.43,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "12",
+          "Text": "Solid woods"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "02001",
+          "Text": "Sawn timber"
+        }
+      ],
+      "ComparativeProperty": "When the products are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 455
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.08
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.064
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0225
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0103
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Input are collected from 44 sawmills and cover the production of 10 190 000 m³ sawn dried timber. Data to produce sawn wood is collected from a representative selection of sawmills in Sweden and weighted to an average. Sawn dried timber that is produced in Sweden is mainly based on domestic logs. The GWP-GHG (A1-A3) for sawn timbers varies between 21-37 kg CO₂e/m³ for the companies that are involved (and based on the methodology and inventory data used).",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Sawn timber, u 16 %, coniferous ",
+      "Names": {
+        "EN": "Sawn timber, u 16 %, coniferous ",
+        "SV": "Sågat virke, u 16 %, barrträ"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "21c597b4-4105-43cb-b868-b6cb3e998c60",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of wood indoors is normally equal to the construction of which it is part of. Wood exposed to outdoors normally needs maintenance during these 50 years lifespan.",
+      "ResourceId": 6000000007,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Sawn timber can be used directly as it is and serves as a raw material for impregnated wood. When it is planed, it is used for other wood-based products. Sawn timber is used in construction for formwork and structural timber, for so-called cladding timber for panels, as well as planed for flooring or joinery timber for windows, doors, and interior fittings, etc. The wood is usually refined by planing, profiling, gluing, finger-jointing, or impregnation depending on the area of use.",
+      "TechnologyDescriptionAndIncludedProcesses": "The climate impact is based on a sector EPD that cover 58 % of the total sawn softwood timber in Sweden. Dried sawn timber has an average density of 455 kg/m³ and moisture content of 16 %. Sawn dried timber of spruce has an average density of 470 kg/m³ and 440 kg/m³ for pine. The moisture content for the dried wood is about 12-18 %. Biogenic carbon storage is 715kg CO₂/m³.",
+      "TimeRepresentativenessDescription": "The data is representative for the major producers and thereby the major consumption of sawn timber used in Sweden. These data represent the year 2020, i.e. after reduction diesel was implemented why the GWP reported is lower than before.",
+      "TimeStamp": "2025-10-23T14:02:13Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 150,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-10-23T14:02:13Z",
+      "UseAdviceForDataSet": "Data is representative of sawn dried timber and can be used as it is, but is mainly used as a raw material in planed wood production.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by national producer, but significantly import occurs from (given in relative order); Norway, Finland and Europe.",
+      "CalculatedBiogenicCarbon": 0.037,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "10",
+          "Text": "Building boards"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01212",
+          "Text": "Gypsum wall boards"
+        }
+      ],
+      "ComparativeProperty": "The specific board is designed to be used indoors and has a common thickness of 12.5 mm.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 710
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.284
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.227
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0315
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0378
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) for gypsum board typically varies between different manufacturers within +/- 0.3 kg CO₂e/kg. The average data values are based on the EPDs and market share of sold products. The products are manufactured in the following countries (in the order of market share): Sweden, Norway, Denmark and Finland.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Gypsum, standard plasterboard",
+      "Names": {
+        "EN": "Gypsum, standard plasterboard",
+        "SV": "Gipsskiva, standardskiva"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "0f341b4f-df49-4d6f-a4cf-1f721ff775f2",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is a part of.",
+      "ResourceId": 6000000020,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 14190:2014",
+      "StdName": "EN 14190:2014",
+      "Synonyms": "Sheathing plasterboard",
+      "TechnologicalApplicability": "The product is particularly suitable for the cladding of internal walls, ceilings and partitions in all types of buildings. This type of plasterboard is usually used as a surface material in a moisture-protected indoor environment.",
+      "TechnologyDescriptionAndIncludedProcesses": "Plasterboards are based on a mixture of virgin gypsum, waste gypsum, and recycled gypsum. Densities between different producers varies +/-2 %. Paperboard surfacing has a typical value of 360 g/m².",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the market. Data are valid until new ones are published.",
+      "TimeStamp": "2025-11-26T22:25:16Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 250,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-26T22:25:16Z",
+      "UseAdviceForDataSet": "Data is representative for a standard gypsum board used for general purpose indoors. ",
+      "Version": "02.07.000",
+      "WasteFactor": 1.12
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Concrete manufacturers are spread across the entire country, and the environmental data can be considered representative since the concrete recipes used, as well as the binder mix, reflect the production of all these manufacturers and are also based on several EPDs.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "6",
+          "Text": "Concrete"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01002",
+          "Text": "Readymade concrete, binders"
+        }
+      ],
+      "ComparativeProperty": "When concrete products are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, i.e. the entire life cycle must be taken into account. ",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 2350
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.129
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.103
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.00472
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.004
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Concrete is made from rock, gravel and cement where the main raw material is limestone. In climate-improved concrete is part of the cement replaced with alternative binders. The data given, based on compressive strength class, represent commonly used concrete recipes on the market. Factory data for module A3 is based on data from a large number of EPDs. Of the reported value for climate impact, the contribution from the manufacturing process (A3) is relatively small in relation to the contribution from the cement, which normally accounts for more than 90 % of the concrete's climate impact in module A1-A3. Environmental data for the cement binders used are based on EPDs for commonly used cement grades on the Swedish market. ",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Ready-mix made concrete, buildings C25/30",
+      "Names": {
+        "EN": "Ready-mix made concrete, buildings C25/30",
+        "SV": "Fabriksbetong, husbyggnad C25/30"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "0e6b96f2-4f84-4f02-8a7d-a1e21e586a60",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "Concrete exposed to outdoors or other wet environment is designed in respect to durability according to Eurocodes. The service life is normally equal with the construction it is part of. Concrete for buildings usually does not need any maintenance during its dimensioned service life.\r\n",
+      "ResourceId": 6000000029,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 206",
+      "StdName": "EN 206",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Concrete for houses is used especially for load-bearing parts of the structure. The concrete composition is controlled, in addition to compressive strength of exposure class, but also of other properties e.g. consistence, time for curing and drying. ",
+      "TechnologyDescriptionAndIncludedProcesses": "The compressive strength class of the concrete follows the standard EN 206:2013+A1:2016 and SS 137003:2015.",
+      "TimeRepresentativenessDescription": "The provided data are representative of the Swedish producers of ready-mixed concrete and the concrete recipes they use. This information was collected in 2020. The environmental impact data are based on current EPDs for binders as well as factory data.",
+      "TimeStamp": "2025-11-19T08:49:39Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17002,
+          "EnergyUseName": "Lorry, region transport",
+          "EnergyUseValue": 1.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 35,
+          "Name": "From factory to construction site",
+          "NameId": 21003,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-19T08:49:39Z",
+      "UseAdviceForDataSet": "The compressive strength classes refer to concrete used for buildings with a concrete composition and binder mix representative of the Swedish market. If more properties are required for a concrete, information from a supplier must be used. Normally, concrete is reinforced. Reinforcement is handled as a separate resource in this database.\r\nFor testing compressive strength, EN 206 refers to the following standard: EN 12390-3, Testing hardened concrete — Part 3: Compressive strength of test specimens. In Table 12 of EN 206 specifies \"Compressive strength classes for normal concrete and heavy concrete\". This is supplemented in SS 137003 with \"Table 1 — Intermediate classes for compressive strength\".",
+      "Version": "02.07.000",
+      "WasteFactor": 1.03
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "All bricks used in Sweden are imported (the last brickyard was located at Haga, Enköping and was closed in 2020. A very small production based on old technology is nowadays left at Horns Tegelbruk). The largest imports come from Denmark and then from Finland, the Netherlands, Belgium and Germany.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "9",
+          "Text": "Blocks and tiles"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01102",
+          "Text": "Bricks/tiles"
+        }
+      ],
+      "ComparativeProperty": "When bricks are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. ",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 1800
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.314
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.251
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0629
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0188
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Bricks are manufactured of clay, sand, lime and sawdust. The bricks are burned in a tunnel furnace at a high temperature, roughly 1050 degrees. The primary energy use varies between 2.0 – 4 MJ/kg of nonrenewable energy and 0.5 MJ/kg of electricity. The use of combustion of fossil fuels is the dominant contribution to the products GHG emissions. Environmental data are based EPD for suppliers to the domestic Swedish market.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Bricks",
+      "Names": {
+        "EN": "Bricks",
+        "SV": "Tegelsten"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "cf44dff7-8841-44c5-b133-e36e399db81d",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of. Bricks in buildings usually does not need any maintenance during its dimensioned service life. Bricks are suitable for reuse.",
+      "ResourceId": 6000000082,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 771-1:2011+A1:2015",
+      "StdName": "EN 771-1:2011+A1:2015",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Bricks are normally used in Sweden without glaze and different size occurs from different producers and common standard formats is produced as well (228x108x54 mm). Brick can be used for load bearing structures or for decorative and functional purpose when used exterior or interior. Brick is used indoor in interior walls, but is not so common in Sweden. Facing bricks is a modern alternative as facade cladding.",
+      "TechnologyDescriptionAndIncludedProcesses": "The technology used by the manufacturers is similar, but the fuel varies, with natural gas and oil being predominant. An addition of limestone powder to the clay produces yellow bricks. For brown or brown-black bricks, manganese is used. Roof tiles are fired in cassettes at 1050°C. The firing process itself takes two days in a modern tunnel kiln. The entire process is monitored to ensure that all roof tiles achieve uniform hardness and are frost-resistant.",
+      "TimeRepresentativenessDescription": "The data given are representative of the bricks that are consumed on the Swedish market. Environmental data is based on the producers EPD collected during 2020.",
+      "TimeStamp": "2025-12-10T14:23:34Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 600,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-10T14:23:34Z",
+      "UseAdviceForDataSet": "Data are representative for bricks used on the Swedish market.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.05
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Lightweight expanded clay concrete blocks used in Sweden are mainly manufactured in Sweden, but import occurs.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "9",
+          "Text": "Blocks and tiles"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01106",
+          "Text": "Lightweight aggregate bulk"
+        }
+      ],
+      "ComparativeProperty": "When expanded clay clinker are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account.  As the environmental impact is given per kg, it is important to check the density with what is actually purchased. The guide value of the density for different fractions can be found below:\n0-32 mm, 280 kg/m³\n2-4 mm 370 kg/m³\n2-6 mm, 400 kg/m³\n4-10, 300 kg/m³\n12-20mm, 260 kg/m³",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 300
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.324
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.259
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.036
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0072
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The environmental impact for manufacturing dominates by the clinker production and the amount of cement content in the lightweight aggregate block. Environmental data are based EPD for suppliers to the domestic Swedish market, with a variation from 0.17 to 2.4 kg CO₂e/kg. The figures used here is based on the EPD and recalulations made based on the material mix reported in these EPDs.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Lightweight expanded clay clinker",
+      "Names": {
+        "EN": "Lightweight expanded clay clinker",
+        "SV": "Lättklinkerkulor"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "38225677-393c-4cf3-a8ff-23b8205ab4e6",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of and usually does not need any maintenance. ",
+      "ResourceId": 6000000089,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 771-1:2011+A1:2015",
+      "StdName": "EN 771-1:2011+A1:2015",
+      "Synonyms": "Lightweight expanded clay aggregate (LECA) or expanded clay",
+      "TechnologicalApplicability": "Lightweight expanded clay is used in house constructions for draining as well as in structural backfill against foundations.",
+      "TechnologyDescriptionAndIncludedProcesses": "The blocks are made from light clinker pellets that is made from low-lime clay, which is shaped into small balls that are then burned in rotating kilns. The clinker pellets are bound with cement, sand and water and are then shaped into blocks. The size and density of the clinker pellets varies, as the binder amount used in the blocks. Some manufacturers use fly ash as complement to cement.",
+      "TimeRepresentativenessDescription": "The data given are representative of the sand lime bricks that are consumed on the Swedish market. Environmental data is based on the producers EPD collected during 2020.",
+      "TimeStamp": "2025-11-26T23:56:49Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 300,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-26T23:56:49Z",
+      "UseAdviceForDataSet": "Data are representative for lightweight expanded clay used on the Swedish market. ",
+      "Version": "02.07.000",
+      "WasteFactor": 1.02
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The manufacturers blend the products in Sweden and the environmental data can be considered representative of the Swedish market.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "2",
+          "Text": "Mineral materials"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01099",
+          "Text": "Binders and mortars in general"
+        }
+      ],
+      "ComparativeProperty": "When mortar is compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. The material use is approximately 20 kg/m² (at 10 mm thickness) for plastering, and about 70 kg/m² for masonry.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 1600
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.209
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.167
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0127
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Mortar is made of cement, lime, sand and other additives. The climate impact contribution from the manufacturing process (A3) is relatively small compared to the various binders such as cement and lime, which normally account for more than 90% of the climate impact in module A1-A3.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Masonry mortar and plastering type B (CS III)",
+      "Names": {
+        "EN": "Masonry mortar and plastering type B (CS III)",
+        "SV": "Mur- och putsbruk B (CS III)"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "a51b022d-1100-4f71-b070-bd671217b0bd",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal to the construction it is part of.  Mortar may require maintenance during the service life, which is determined by the building component of which it is a part. ",
+      "ResourceId": 6000000091,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 998:2016",
+      "StdName": "EN 998:2016",
+      "Synonyms": "",
+      "TechnologicalApplicability": "The product is a combination for use as masonry and plastering work above ground inside and outside.",
+      "TechnologyDescriptionAndIncludedProcesses": "The manufacturers blend the different auxiliary materials that are used for the product. However, sand used may be locally extracted and dried. The technological representativeness is therefore defined by the technical performance declaration that is valid for the product.",
+      "TimeRepresentativenessDescription": "The data given are representative of the Swedish producers and the recipes they use. These data have been produced during the year 2020.",
+      "TimeStamp": "2025-11-27T08:44:23Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-27T08:44:23Z",
+      "UseAdviceForDataSet": "Data are representative of a cement mortar that meets AMA Hus mortar type B (composition: KC 35/65/550).",
+      "Version": "02.07.000",
+      "WasteFactor": 1.05
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The manufacturers blend the products in Sweden and environmental data can be considered representative of the Swedish market.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "2",
+          "Text": "Mineral materials"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01099",
+          "Text": "Binders and mortars in general"
+        }
+      ],
+      "ComparativeProperty": "When mortar/plastering is compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. The material use is approximately 20 kg/m² (at 10 mm thickness) for plastering, and about 70 kg/m² for masonry.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 1600
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.203
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.162
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.036
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0119
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Mortar is made of cement, lime, sand and other additives. The climate impact contribution from the manufacturing process (A3) is relatively small compared to the various binders such as cement and lime, which normally account for more than 90% of the climate impact in module A1-A3.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Plastering and masonry mortar type C (CS II)",
+      "Names": {
+        "EN": "Plastering and masonry mortar type C (CS II)",
+        "SV": "Mur- och putsbruk C (CS II)"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "d0541627-7b0c-41f9-b986-1871a94ca871",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.  Mortar/plastering may require maintenance during the service life, which is determined by the building component of which it is a part. ",
+      "ResourceId": 6000000092,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 998:2016",
+      "StdName": "EN 998:2016",
+      "Synonyms": "",
+      "TechnologicalApplicability": "The product is a combination mortar for masonry and plastering work above ground, as well as interior plastering. Mortar type C is suitable for masonry and plastering of chimneys, but should not be used on lightweight concrete structures. Mortar C is to be applied by hand.",
+      "TechnologyDescriptionAndIncludedProcesses": "The manufacturers blend the different auxiliary materials that are used for the product. However, sand used may be locally extracted and dried. The technological representativeness is therefore defined by the technical performance declaration that is valid for the product.",
+      "TimeRepresentativenessDescription": "The data given are representative of the Swedish producers and the recipes they use. These data have been produced during the year 2020.",
+      "TimeStamp": "2025-11-27T08:44:25Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 300,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-27T08:44:25Z",
+      "UseAdviceForDataSet": "Data are representative of a cement mortar that meets AMA Hus mortar type C (composition: KC 50/50/650)",
+      "Version": "02.07.000",
+      "WasteFactor": 1.05
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by domestic producers, but minor import occurs.",
+      "CalculatedBiogenicCarbon": 0.15,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "4",
+          "Text": "Windows, doors and glass"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "04103",
+          "Text": "Outward-opening windows, wood/aluminium"
+        }
+      ],
+      "ComparativeProperty": "When comparing different window products, it is important to consider differences in U-value. In addition, the surface weight should be taken into account; for the reference window, this is 38.2 kg/m².",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Area",
+          "Unit": "kg/m²",
+          "Value": 38.2
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 2.5
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 2
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0539
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) for a wood window varies between 1.7-2.4 kg CO₂e/kg dependent on type of window. The data values are based on the EPDs from Sweden.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Window, wood, side hung, triple-glazed",
+      "Names": {
+        "EN": "Window, wood, side hung, triple-glazed",
+        "SV": "Fönster, trä, sidhängt, 3-glas"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "8901aa88-fd0e-4486-87da-239ed55ad70b",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life depends on the maintenance of the product but is normally equal to the service life until a future significant rebuild, which here is set at 50 years.",
+      "ResourceId": 6000000104,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 14351-1:2006+A1:2010",
+      "StdName": "EN 14351-1:2006+A1:2010",
+      "Synonyms": "Side guided",
+      "TechnologicalApplicability": "Windows are made fixed or openable. Balcony and terrace doors are also included in this product group.",
+      "TechnologyDescriptionAndIncludedProcesses": "The difference in the manufacturing process and the composition of the windows is small among the Swedish manufacturers. Specific data have been used for window manufacturing and mainly generic LCA data for various inputs.",
+      "TimeRepresentativenessDescription": "The information is representative of the types of window used in the Swedish market. The information is valid until new data are published.",
+      "TimeStamp": "2025-12-03T12:57:02Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 500,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-03T12:57:02Z",
+      "UseAdviceForDataSet": "The data are representative of a painted wooden window with a triple-glazed insulating glass unit.",
+      "Version": "02.07.000",
+      "WasteFactor": 1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by domestic producers, but some imports do occur.",
+      "CalculatedBiogenicCarbon": 0.15,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "4",
+          "Text": "Windows, doors and glass"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "04103",
+          "Text": "Outward-opening windows, wood/aluminium"
+        }
+      ],
+      "ComparativeProperty": "When comparing different window products, it is important to consider differences in U-value. In addition, the surface weight should be taken into account; for the reference window, this is 40.2 kg/m².",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Area",
+          "Unit": "kg/m²",
+          "Value": 40.2
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 2.5
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 2
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0539
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) for a wood/aluminium window varies between 1.8-2.5 kg CO₂e/kg dependent on type of window. The data values are based on the EPDs from Sweden.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Window, wood/aluminium, inward, triple-glazed",
+      "Names": {
+        "EN": "Window, wood/aluminium, inward, triple-glazed",
+        "SV": "Fönster, trä/aluminium, inåtgående, 3-glas"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "a7af5268-690a-4c72-81ef-a57aa7dda7f7",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life depends on the maintenance of the product, but it is generally considered to last until the next significant renovation, which in this case is set at 50 years.",
+      "ResourceId": 6000000106,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 14351-1:2006+A1:2010",
+      "StdName": "EN 14351-1:2006+A1:2010",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Windows can be either fixed or openable. Balcony and terrace doors are also included in this product group.",
+      "TechnologyDescriptionAndIncludedProcesses": "The differences in the manufacturing process and the composition of the windows is small among the Swedish manufacturers. Specific data have been used for window manufacturing and mainly generic LCA data for various inputs.",
+      "TimeRepresentativenessDescription": "The information is representative of the type of window used in the Swedish market. The information is valid until new data are published.",
+      "TimeStamp": "2025-12-03T12:58:03Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 500,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-03T12:58:03Z",
+      "UseAdviceForDataSet": "The data are representative of a painted wooden window with aluminium cladding and a triple-glazed insulating glass unit.",
+      "Version": "02.07.000",
+      "WasteFactor": 1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers and Germany (in the following order): Sweden, Denmark, Germany, Finland and Norway.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. Material data applicable for the generic resource are as follows; density 29 kg/m³ and lambda 0.036 W/(mK).\r\n",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 29
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.6
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 1.28
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.115
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated stone wool, batts and rolls. The GWP may variy between 0.6-1.6 kg CO₂e/kg based on the manufacturer. The average data values are based on market share and EPDs from the following countries (in order of assumed market share): Sweden, Denmark, Germany, Finland and Norway.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Stone wool, batts and rolls",
+      "Names": {
+        "EN": "Stone wool, batts and rolls",
+        "SV": "Stenull, skivor och rullar"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "6a0f7825-d212-4b82-847f-f7ad35679f86",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ResourceId": 6000000123,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 13162",
+      "StdName": "EN 13162",
+      "Synonyms": "Mineral wool, rock wool",
+      "TechnologicalApplicability": "Stone wool is primarily used as thermal insulation, and is sometimes also used for sound insulation or for a combination of both functions. This type of stone wool product is intended for use in a protected environment.",
+      "TechnologyDescriptionAndIncludedProcesses": "Stone wool is produced either in an electric furnace or, more commonly, in a cupola furnace. The process also involves the use of additional energy sources which, together with the primary raw materials, contribute to the GWP. The binder content is typically about 5 to 10%. Minor variations in density for the same lambda value exist between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process  and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-03T16:48:17Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-03T16:48:17Z",
+      "UseAdviceForDataSet": "The data is representative of the stone wool product type in the form of batts and rolls, and includes all types of thermal insulation that do not have any surfacing, coatings, or similar treatments. If surfacing is included, a more precise and specific dataset should be selected, as such products typically have a somewhat higher environmental impact per kilogram.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.07
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers and Germany (in the following order): Sweden, Denmark, Germany, Finland and Norway.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. Material data applicable for the generic resource are as follows; density 80 kg/m³ and lambda 0.033 W/(mK).\r\n",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 80
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.61
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 1.29
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.116
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated stone wool. The GWP may variy between 0.6-1.6 kg CO₂e/kg. The average data values are based on market share and EPDs from the following countries (in order of assumed market share): Sweden, Denmark, Germany, Finland and Norway.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Stone wool, facade board",
+      "Names": {
+        "EN": "Stone wool, facade board",
+        "SV": "Stenull, fasadskiva"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "f8d2501d-e2d5-495d-b9f9-0a572c17c8bc",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ResourceId": 6000000125,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 13162",
+      "StdName": "EN 13162",
+      "Synonyms": "Mineral wool, rock wool",
+      "TechnologicalApplicability": "Stone wool is primarily used as thermal insulation, and is sometimes also used for sound insulation or for a combination of both functions. This type of stone wool product is intended for use in a protected environment.",
+      "TechnologyDescriptionAndIncludedProcesses": "Stone wool is produced either in an electric furnace or, more commonly, in a cupola furnace. The process also involves the use of additional energy sources which, together with the primary raw materials, contribute to the GWP. The binder content is typically about 5 to 10%. Minor variations in density for the same lambda value exist between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process  and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-03T16:57:43Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-03T16:57:43Z",
+      "UseAdviceForDataSet": "The data is representative of the stone wool product type in the form of batts or rolls, and includes all types of thermal insulation that do not have any surfacing, coatings, or similar treatments. If surfacing is included, a more precise and specific dataset should be selected, as such products typically have a somewhat higher environmental impact per kilogram.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.07
+    },
+    {
+      "A4ValueBackground": "\n",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers and Germany (in the following order): Sweden, Denmark, Germany, Finland and Norway.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. Material data applicable for the generic resource are as follows; density 28 kg/m³ and lambda 0.042 W/(mK).\r\n",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 28
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.6
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 1.28
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0165
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated stone wool. The GWP may varies between 0.6-1.6 kg CO₂e/kg. The average data values are based on market share and EPDs from the following countries (in order of assumed market share): Sweden, Denmark, Germany, Finland and Norway.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Stone wool, blowing wool, attic floor",
+      "Names": {
+        "EN": "Stone wool, blowing wool, attic floor",
+        "SV": "Stenull, lösull, vindsbjälklag"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "35d31709-8a66-4d89-9a4b-31953d2eda3a",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ResourceId": 6000000128,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 13162",
+      "StdName": "EN 13162",
+      "Synonyms": "Mineral wool, rock wool",
+      "TechnologicalApplicability": "Stone wool is primarily used as thermal insulation, and is sometimes also used for sound insulation or for a combination of both functions. This type of stone wool product is intended for use in a protected environment.",
+      "TechnologyDescriptionAndIncludedProcesses": "Stone wool is produced either in an electric furnace or, more commonly, in a cupola furnace. The process also involves the use of additional energy sources which, together with the primary raw materials, contribute to the GWP. The binder content is typically about 5 to 10%. Minor variations in density for the same lambda value exist between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-04T08:21:45Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-04T08:21:45Z",
+      "UseAdviceForDataSet": "Data are representative of the product blowing stone wool.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.01
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by nordic producers.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01302",
+          "Text": "Expanded foamed plastic"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation the lambda value need to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. ",
+      "ConservativeDataConversionFactor": 1.25,
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 4
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 3.2
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.283
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "GWP-GHG (A1-A3) differs only marginally between different manufacturers. The majority of greenhouse gas emissions originate from the production of raw materials used in EPS manufacturing. The average data values are based on EPDs.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "EPS, expanded polystyrene",
+      "Names": {
+        "EN": "EPS, expanded polystyrene",
+        "SV": "EPS, expanderad polystyren"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "a52e8b54-b562-4053-8769-d51ab1f08ab2",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ResourceId": 6000000131,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 13163:2012+A1:2015",
+      "StdName": "EN 13163:2012+A1:2015",
+      "Synonyms": "Cellular plastic",
+      "TechnologicalApplicability": "EPS is used as thermal insulation and is applied both outdoors and indoors.",
+      "TechnologyDescriptionAndIncludedProcesses": "Expandable polystyrene is produced in a suspension process by adding a blowing agent, usually pentane, which causes resin to foam during molding.\n\nMaterial properties:\nEPS 60, approx. 15 kg/m³, lambda 0.041 W/(mK), compressive strength (short term) 60 kPa\nEPS 80, approx. 15 kg/m³, lambda 0.038 W/(mK), compressive strength (short term) 80 kPa\nEPS 100, approx. 20 kg/m³, lambda 0.037 W/(mK), compressive strength (short term) 100 kPa\nEPS 150, approx. 25 kg/m³, lambda 0.035 W/(mK), compressive strength (short term) 150 kPa\nEPS 200, approx. 30 kg/m³, lambda 0.034 W/(mK), compressive strength (short term) 200 kPa\nEPS 300, approx. 40 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 300 kPa\nEPS 400, approx. 50 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 400 kPa\n",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process  and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-10T15:36:22Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-10T15:36:22Z",
+      "UseAdviceForDataSet": "The data are represenatative of the EPS product type (most commonly white in colour).",
+      "Version": "02.07.000",
+      "WasteFactor": 1.07
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers.",
+      "CalculatedBiogenicCarbon": 0,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01303",
+          "Text": "Expanded foamed plastic, extruded"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. With other words, thermal insulation cannot be compared per kg, but instead in use conditions. ",
+      "ConservativeDataConversionFactor": 1.25,
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 4.5
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 3.6
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.455
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "GWP-GHG (A1-A3) differs only marginally between different manufacturers. The majority of greenhouse gas emissions originate from the production of raw materials used in EPS manufacturing. The average data values are based on EPDs.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "XPS, extruded polystyrene",
+      "Names": {
+        "EN": "XPS, extruded polystyrene",
+        "SV": "XPS, extruderad polystyren"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "932132d0-6fbc-4e08-a585-2809aae415e6",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ResourceId": 6000000132,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 13163:2012+A1:2015",
+      "StdName": "EN 13163:2012+A1:2015",
+      "Synonyms": "",
+      "TechnologicalApplicability": "XPS is used as thermal insulation and is applied both outdoors and indoors.",
+      "TechnologyDescriptionAndIncludedProcesses": "Extruded polystyrene insulation  is manufactured through an extrusion process. This manufacturing process involves melting together the plastic resin and other ingredients\n\nXPS 200, approx. 30 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 200 kPa\nXPS 250, approx. 31 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 250 kPa\nXPS 300, approx. 32 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 300 kPa\nXPS 400, approx. 34 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 400 kPa\nXPS 500, approx. 37 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 500 kPa\nXPS 600, approx. 40 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 600 kPa\nXPS 700, approx. 43 kg/m³, lambda 0.033 W/(mK), compressive strength (short term) 700 kPa\n",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-04T09:07:59Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-04T09:07:59Z",
+      "UseAdviceForDataSet": "The data are represenatative of the XPS product type (normally colored).",
+      "Version": "02.07.000",
+      "WasteFactor": 1.1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by domestic production, but some imports also occur.",
+      "CalculatedBiogenicCarbon": 0.38,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01399",
+          "Text": "Insulation materials in general"
+        }
+      ],
+      "ComparativeProperty": "In order to assess thermal insulation. the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg but in use conditions. \n\nMaterial data applicable for the generic resource are as follows: 50 kg/m³, lambda 0.038 W/(mK).",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 50
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.371
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.297
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0291
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "GWP-GHG (A1-A3) applies to loose-fill insulation and may vary between different manufacturers, and is based on LCA and available EPD data.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Wood fibre insulation, batts, primary raw material",
+      "Names": {
+        "EN": "Wood fibre insulation, batts, primary raw material",
+        "SV": "Träfiber, primar råvara, skivor"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "0e3601c9-bfac-49b8-a1fe-e6578938aadb",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal withe the construction it is part of.",
+      "ResourceId": 6000000136,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 15101-2:2013",
+      "StdName": "EN 15101-2:2013",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Wood fibre is used as thermal insulation and sometimes also used as sound insulation or a combined function. The insulation has an intended use in a protected environment.",
+      "TechnologyDescriptionAndIncludedProcesses": "Wood fiber batts are produced by defibrillating wood fibers and mixing them with additives that enhance structural integrity, fire resistance, and protection against microbial growth.\nThe amount of fire protection agent is about 8 %. The product is used for thermal insulation of walls, attics and ceilings in buildings. There are minor variations in density for the same lambda value exists between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process and products that is currently consumed on the Swedish market.",
+      "TimeStamp": "2025-12-04T11:18:03Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 400,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-04T11:18:03Z",
+      "UseAdviceForDataSet": "Data is represenatative for a loose-fill wood fibre thermal insulation as batts, where the fibres are made from primary wood. Fire retardants are added to the insulation.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.07
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by national producers, but significant imports occur from (in relative order): Norway, Finland, and Europe.",
+      "CalculatedBiogenicCarbon": 0.045,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "10",
+          "Text": "Building boards"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01212",
+          "Text": "Gypsum wall boards"
+        }
+      ],
+      "ComparativeProperty": "The specific board is designed to be used as a sheathing board and has a common thickness of 9.5 mm.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 760
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.333
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.266
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0315
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0437
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "The GWP-GHG (A1-A3) for gypsum board typically varies between different manufacturers within +/- 0.3 kg CO₂e/kg. The average data values are based on the EPD and market share of sold products. The products are manufactured in the following countries (in the order of market share): Sweden, Norway, Denmark and Finland.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Gypsum, sheathing plasterboard",
+      "Names": {
+        "EN": "Gypsum, sheathing plasterboard",
+        "SV": "Gipsskiva, vindsskyddsskiva"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "dce08795-cc89-4aab-9423-e885c73d4c48",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is part of.",
+      "ResourceId": 6000000015,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 14190:2014",
+      "StdName": "EN 14190:2014",
+      "Synonyms": "Sheathing plasterboard",
+      "TechnologicalApplicability": "Gypsum board is typically used as a surface material in a protected environment from weather exposure.",
+      "TechnologyDescriptionAndIncludedProcesses": "Gypsum boards are based on a mixture of virgin gypsum, waste gypsum, and recycled gypsum. The density varies between different manufacturers by +/-2%. The typical value for the cardboard facing is 360 g/m².",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the market. Data are valid until new ones are published.",
+      "TimeStamp": "2025-10-24T13:23:21Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 250,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-10-24T13:23:21Z",
+      "UseAdviceForDataSet": "Data is representative of a gypsum board used as a sheathing board.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.12
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is partly covered by national production, but significant imports come mainly from Finland and other nearby countries.",
+      "CalculatedBiogenicCarbon": 0.44,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "10",
+          "Text": "Building boards"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01206",
+          "Text": "Structural plywood"
+        }
+      ],
+      "ComparativeProperty": "The specific board is designed to be used indoors and has a common thickness of 12 mm.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 460
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.448
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.358
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0539
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0501
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "GWP (A1-A3) for wood-based panels can vary greatly between different manufacturers. To achieve a comment result, the biogenic carbon stored in products is subtracted, so that the climate impact is reported as GWP-GHG. Even after this, there can be significant differences between manufacturers which, without access to the underlying LCA report, are difficult to explain. One difference may be the environmental impact allocated to the wood raw material. For plywood, climate impact has thus been corrected for a producer (i.e. reduced). The difference after correction is less than 10 % between producers.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Plywood (spruce or pine)",
+      "Names": {
+        "EN": "Plywood (spruce or pine)",
+        "SV": "Plywood"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "528fbf61-88da-4c37-90b2-f4765ad71ee0",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is a part of.",
+      "ResourceId": 6000000023,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "StdDescription": "EN 636:2012+A1:2015",
+      "StdName": "EN 636:2012+A1:2015",
+      "Synonyms": "Spruce, pine",
+      "TechnologicalApplicability": "Plywood is commonly used as a surface material in a protected environment from weather exposure or indoors. Plywood is available as unclassified building plywood and as classified structural plywood. Structural plywood is used, for example, behind plasterboards in standard stud walls to allow heavier items to be screwed onto the finished wall. Structural plywood is manufactured in two different classes: 15/50 and 20/70 (bending strength in MPa/modulus of elasticity in MPa).",
+      "TechnologyDescriptionAndIncludedProcesses": "Data is valid for plywood made of spruce or pine and about 10 % resin . Densities between different producers varies +/-5 %.",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing processes and products that are currently consumed on the market. Data are valid until new ones are published.",
+      "TimeStamp": "2025-11-05T08:47:46Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 500,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-11-05T08:47:46Z",
+      "UseAdviceForDataSet": "The data are representative of a plywood consisting of thin wood veneers that are cross-laminated, glued, heat-treated, and pressed under high pressure. This results in a dimensionally stable and strong board.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden consists of domestic producers and imports.",
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "9",
+          "Text": "Blocks and tiles"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01",
+          "Text": "Building materials"
+        }
+      ],
+      "ComparativeProperty": "The resource serves as proxy data for various types of rubber products when specific climate data (EPD) is unavailable. Since the density of rubber varies greatly, from 180 to 1400 kg/m³, no specific value is given here. Instead, the density needs to be determined based on the type of rubber for which the GWP data will be applied.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 4.56
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 3.65
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0629
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.463
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Data is for different manufacturers who make different plastic products based on ethylene propylene rubber (EPDM) and neoprene (CR), also called polychloroprene or chloroprene rubber. Environmental data for this resource is based on EPDM and GWP-GHG (A1-A3) is based on a few EPDs and database data.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Synthetic rubber type EPDM and SBR, unspecified",
+      "Names": {
+        "EN": "Synthetic rubber type EPDM and SBR, unspecified",
+        "SV": "Syntetiskt gummi typ EPDM och SBR, ospecificerat"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "29a2aedb-196b-4c65-85cb-a1dc3b098fca",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is a part of.",
+      "ResourceId": 6000000211,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Synthetic rubber products are used in a lot of applications in building constructions and this resource is used when specific data is missing.",
+      "TechnologyDescriptionAndIncludedProcesses": "The rubber product is assumed to contain less than 5% additives and fillers.",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the market. Data are valid until new ones are published.",
+      "TimeStamp": "2025-12-16T10:50:57Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 600,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-16T10:50:57Z",
+      "UseAdviceForDataSet": "The resource is a proxy data for all kind of synthetic rubber products whenever specific climate data (EPD) is missing.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.1
+    },
+    {
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption of boards in Sweden is based on import.",
+      "CalculatedBiogenicCarbon": 0.45,
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "10",
+          "Text": "Building boards"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01201",
+          "Text": "Board"
+        }
+      ],
+      "ComparativeProperty": "This specific board is intended for indoor use, and common thicknesses are 1.7 mm, 3 mm, 4.8 mm, or 6 mm.",
+      "ConservativeDataConversionFactor": 1.25,
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 940
+        }
+      ],
+      "Copyright": true,
+      "DataItems": [
+        {
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.373
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.298
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0809
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0453
+            }
+          ],
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg"
+        }
+      ],
+      "GeneralComment": "Hard board represents a wooden product based on wood fibres manufactured in a wet process. Apart from wood fibres, hard board also comprises no binder (if produced according to the Masonite process) or minor amount binding agents (2%) and additives like wax.\nGWP (A1-A3) for wood-based panels can vary greatly between different manufacturers. To achieve a comment result, the biogenic carbon stored in products is subtracted, so that the climate impact is reported as GWP-GHG. Even after this, there can be significant differences between manufacturers which, without access to the underlying LCA report, are difficult to explain. One difference may be the environmental impact allocated to the wood raw material. ",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "InventoryUnit": "kg",
+      "Location": "SE",
+      "Name": "Hard board, HB (wet process)",
+      "Names": {
+        "EN": "Hard board, HB (wet process)",
+        "SV": "Hård skiva, HB (våt process)"
+      },
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "3929e42b-cb9e-4280-bfa5-b3acfacdef08",
+      "Publisher": "Boverket, Sweden",
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is a part.",
+      "ResourceId": 6000000216,
+      "SourceVersion": "02.07.000",
+      "StdCalc": "EN 15804:A1",
+      "Synonyms": "",
+      "TechnologicalApplicability": "Hard board can be used both for building purposes (wall, roof, floor, air gaps) as well as for furniture and furnishings.",
+      "TechnologyDescriptionAndIncludedProcesses": "The data applies to hard board made of softwood and not oil-hardened, which is about 940 kg/m3 and 1000 kg/m3 respectively. The density may vary between different manufacturers.",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the market. Data are valid until new ones are published.",
+      "TimeStamp": "2025-12-16T12:44:04Z",
+      "TransportItems": [
+        {
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 40,
+          "Name": "Last mile",
+          "NameId": 21001,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        },
+        {
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010,
+          "GenericDistance": 800,
+          "Name": "From factory to warehouse/retailer",
+          "NameId": 21002,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry"
+        }
+      ],
+      "UpdatedTime": "2025-12-16T12:44:04Z",
+      "UseAdviceForDataSet": "Hard board represents a wooden product based on wood fibres manufactured in a wet process.",
+      "Version": "02.07.000",
+      "WasteFactor": 1.1
+    },
+    {
+      "ResourceId": 6000000001,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "e698f363-3d8e-46d3-8668-d102fc685f76",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-10-23T12:57:12Z",
+      "Name": "Glasswool, batts and rolls",
+      "Names": {
+        "EN": "Glasswool, batts and rolls",
+        "SV": "Glasull, skivor och rullar"
+      },
+      "StdName": "EN 13162",
+      "StdDescription": "EN 13162",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "Data is representative for the product type glasswool as batts or rolls and includes all types of thermal insulation that do not include any surfacing. In the case that surfacing is included, a more precise and exact choice should be made; such products typically have higher climate impact per kg.",
+      "TechnologicalApplicability": "Glasswool is used as thermal insulation and sometimes also used as sound insulation or as a combined function. Glass wool is intended to be used in a protected environment.",
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated glasswool, batts and rolls. The GWP may vary between 0.7-1.6 kg CO₂e/kg based on the manufacturer. The average data values are based on EPDs from the following countries (in order of assumed market share): Sweden, Germany and Poland.",
+      "Synonyms": "Glass wool, mineral glass wool, mineral wool, batts, boards, panels, thermal insulation",
+      "TechnologyDescriptionAndIncludedProcesses": "Glass wool is produced in an electric furnace. The process involves primary raw materials and energy sources, both of which contribute to the GWP. The proportion of recycled glass used as raw material varies between 40 and 80%. The amount of binder is approximately 5 to 10%. There is a minor variation in density for the same lambda value between different manufacturers, but the density values given here, as well as the lambda value, are representative of the products used on the Swedish market.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the Swedish market.",
+      "UpdatedTime": "2025-10-23T12:57:12Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.07,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal to the construction it is part of.",
+      "ComparativeProperty": "To assess thermal insulation, the lambda value must be used in combination with the fact that different product options have different densities. In other words, thermal insulation cannot be compared per kilogram, but rather within a given building application. The material data for the generic resource is as follows: density 18.7 kg/m³ and lambda value 0.035 W/(mK).",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by national producers, but significant import occurs from (given in relative order): Germany, Poland and Europe.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 18.7
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.11
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.89
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.081
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 400.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000006,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "6218b344-3d62-406c-9868-ace33e93c2cf",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-10-23T12:58:11Z",
+      "Name": "Glasswool, sound batts",
+      "Names": {
+        "EN": "Glasswool, sound batts",
+        "SV": "Glasull, ljudisolering "
+      },
+      "StdName": "EN 13162",
+      "StdDescription": "EN 13162",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "The product type glasswool, sound batts, includes all types of sound insulation with a density for use sound insulation and do not include any surfacing. In the case that surfacing is included, a more precise and exact choice should be made; such products typically have higher climate impact per kg.",
+      "TechnologicalApplicability": "Glass wool is normally used as thermal insulation, but this product type is primarily used for sound insulation. Glass wool is intended for use in a protected environment.",
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for sound batts. The GWP may vary between 0.7-1.6 kg CO₂e/kg based on the manufacturer. The average data values are based on EPDs from the following countries (in order of assumed market share): Sweden, Germany and Poland.",
+      "Synonyms": "Glass wool, mineral glass wool, mineral wool, batts, boards, panels, acoustic, sound, noice reduction",
+      "TechnologyDescriptionAndIncludedProcesses": "Glass wool is produced in an electric furnace. The process involves primary raw materials and energy sources, both of which contribute to the GWP. The proportion of recycled glass used as raw material varies between 40 and 80%. The amount of binder is approximately 5 to 10%. There is a minor variation in density for the same lambda value between different manufacturers, but the density values given here, as well as the lambda value, are representative of the products used on the Swedish market.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the Swedish market.",
+      "UpdatedTime": "2025-10-23T12:58:11Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.07,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal to the construction it is part of.",
+      "ComparativeProperty": "Assessing noise reduction requires accounting for the product’s air flow resistivity.",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by national producers, but significant import occurs from (given in relative order): Germany, Poland and Europe.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 14.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.49
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 1.19
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.107
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 400.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000222,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "62405aad-c7e4-4e39-9ad8-fcfb31b50a8a",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-12-16T15:20:27Z",
+      "Name": "Cement-bonded wood wool",
+      "Names": {
+        "EN": "Cement-bonded wood wool",
+        "SV": "Cementbunden träullsplatta"
+      },
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "Data is representative for wood wool cement panels. Wood wool panels are made by mixing wood shavings with cement and lime as a binder and any paint.",
+      "TechnologicalApplicability": "Wood wool cement panels is used as thermal insulation and also used as sound insulation or a combined function. The panel has an intended use in a protected environment. It is not needed to add fire retardant in a wood wool cement panel.",
+      "GeneralComment": "GWP-GHG (A1-A3) applies to panels and can vary between different manufacturers and is based on some EPDs from several suppliers. The environmental impact of wood is low, but the contribution from the binder has a significant effect on why the type of binder and the proportion affect the result GWP-GHG (A1-A3), as well as the proportion of biogenic carbon that the product contains.",
+      "Synonyms": "Wood wool cement panels",
+      "TechnologyDescriptionAndIncludedProcesses": "The product typically contains around 33% wood wool, 50% cement, 10% lime and water. There is a variation in the density between 400-500 kg/m³ for the same lambda value. The density given here and the lambda value are exemplary values of what is used in the market.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process and products that are currently consumed on the Swedish market.",
+      "UpdatedTime": "2025-12-16T15:20:27Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.165,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.07,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. With other words, thermal insulation cannot be compared per kg but in use conditions. Material data applicable for the generic resource is 450 kg/m³ and lambda λ 0.085 W/(mK).",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is mostly based on import.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 450.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.715
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.572
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.144
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0601
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01399",
+          "Text": "Insulation materials in general"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 1500.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000140,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "04d5e9a7-0008-4047-9d54-301951929b03",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-12-05T07:17:26Z",
+      "Name": "Bitumen waterproofing membrane, bottom layer ",
+      "Names": {
+        "EN": "Bitumen waterproofing membrane, bottom layer ",
+        "SV": "Underlagspapp"
+      },
+      "StdName": "EN 13707",
+      "StdDescription": "EN 13707",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "Polymer bitumen-based waterproofing layers are bitumen mats with reinforcement and cover mass of polymer bitumen on both sides. A distinction is made between two types of polymer bitumen: elastomer bitumen (PYE) and plastomer bitumen (PYP). Data are representative for a PYE top layer bitumen waterproofing membrane used on the Swedish market. In the Nordic countries is bitumen waterproofing almost exclusively uses bitumen modified with SBS (styrene-butadiene-styrene).",
+      "TechnologicalApplicability": "Bitumen-based waterproofing layers are mainly used on roofs and are normally laid in several layers, but there are also alternatives with one layer, but then requires a roof with a roof slope of at least 1:2 - 1:20.",
+      "GeneralComment": "The generic values are based on the market situation in Finland that is assumed to be representative for all Nordic countries and information gathered from the largest manufacturers products for bitumen roofing. The data for GWP A1-A3 are based on data gathered from said manufacturers and represent the common products. These manufacturers represent over 95 % of the Finnish bitumen roofing market.",
+      "Synonyms": "",
+      "TechnologyDescriptionAndIncludedProcesses": "The manufacturing is done by heating the raw materials (bitumen and copolymers) to a specific temperature and mixing them. After this the mix is applied to the reinforcing structure (polyester or glass fibre). The resulting sheet is cooled and then faced with mineral granules. The bitumen is generally delivered as hot from the petroleum refinery to the manufacturing site, where it’s heated further. Significant differences arise mainly from the amounts of bitumen and the SBS used in the products. As SBS has a large share of emission, using alternative copolymers to modify the bitumen would also change the GWP-GHG A1-A3 value.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The information is representative of the manufacturers of bitumen waterproofing layers and the products consumed on the Swedish market. The data on environmental impact are based on LCA calculations and have been compared with cross-sectoral EPDs for all European producers, where these values ​​for GWP are slightly higher.",
+      "UpdatedTime": "2025-12-05T07:17:26Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.05,
+      "RefServiceLifeNormal": "<40 years",
+      "RefServiceLifeNormalComment": "For modern bitumen-based waterproofing systems, a service life of up to 40 years can be assumed today.",
+      "ComparativeProperty": "When bitumen-based waterproofing systems are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. ",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by domestic production, but some imports do occur.",
+      "Conversions": [
+        {
+          "Field": "Area",
+          "Unit": "kg/m²",
+          "Value": 4.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.85
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.68
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0448
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "11",
+          "Text": "Waterproofing"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01401",
+          "Text": "Underlay felt"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 400.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000103,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "da0c357b-e01e-4388-94ea-22a85f16574d",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-12-03T12:56:48Z",
+      "Name": "Window, wood/aluminium, side hung, triple-glazed",
+      "Names": {
+        "EN": "Window, wood/aluminium, side hung, triple-glazed",
+        "SV": "Fönster, trä/aluminium, sidhängt, 3-glas"
+      },
+      "StdName": "EN 14351-1:2006+A1:2010",
+      "StdDescription": "EN 14351-1:2006+A1:2010",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "The data are representative of a painted wooden window with aluminium cladding and a triple-glazed insulating glass unit.",
+      "TechnologicalApplicability": "Windows are made fixed or openable. Balcony and terrace doors are also included in this product group.",
+      "GeneralComment": "The GWP-GHG (A1-A3) for a wood/aluminium window varies between 1.8-2.5 kg CO₂e/kg dependent on type of window. The data values are based on the EPDs from Sweden.",
+      "Synonyms": "Side guided",
+      "TechnologyDescriptionAndIncludedProcesses": "The difference in the manufacturing process and the composition of the windows is small between the Swedish manufacturers. Specific data have been used for window manufacturing and mainly generic LCA data for various inputs.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The information is representative of the type of window used on the Swedish market. The information is valid until new data are published.",
+      "UpdatedTime": "2025-12-03T12:56:48Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.15,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.0,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life depends on the maintenance of the product but is normally equal to the service life until a future significant rebuild, which here is set at 50 years.",
+      "ComparativeProperty": "When comparing different window products, it is important to consider differences in U-value. In addition, the surface weight should be taken into account; for the reference window, this is 39.2 kg/m².",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by domestic producers, but minor import occurs.",
+      "Conversions": [
+        {
+          "Field": "Area",
+          "Unit": "kg/m²",
+          "Value": 39.2
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 2.88
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 2.3
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0539
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "4",
+          "Text": "Windows, doors and glass"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "04103",
+          "Text": "Outward-opening windows, wood/aluminium"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 500.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000000,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "0e041aec-e8be-4383-a760-6b7fe1325341",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-10-23T13:03:06Z",
+      "Name": "Particle board",
+      "Names": {
+        "EN": "Particle board",
+        "SV": "Spånskiva"
+      },
+      "StdName": "EN 312:2010",
+      "StdDescription": "EN 312:2010",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "Data is representative for a standard construction chipboard without special treatment or additive materials. If such a variant of the board is used, an EPD can be used if possible or this data can be used as a proxy.",
+      "TechnologicalApplicability": "Standard particle board is typically used as surface material in a protected environment, typically indoors.",
+      "GeneralComment": "The GWP-GHG (A1-A3) for standard chip board typically varies between 0.35-0.45 kg CO₂e/kg based on Nordic and Middle-European EPDs. The average data values are based on EPDs from the following countries (in order of assumed market share): Sweden, Norway and Finland. ",
+      "Synonyms": "Chipboard",
+      "TechnologyDescriptionAndIncludedProcesses": "Chipboards are made of wood chips and resin pressed together. The amount of glue is about 10 %. By-products from the manufaturing of sawn timber are utilised in the production of chipboards. Densities vary between 650 and 750 kg/m³.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The data is representative for the manufacturing process  and products that are currently consumed on the market. Data are valid until new ones are published. ",
+      "UpdatedTime": "2025-10-23T13:03:06Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.42,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.1,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life of the product is normally equal to the service life of the construction of which it is a part of.",
+      "ComparativeProperty": "A particle board can have different treatment, coating, etc. that is applicable to different applications that are not considered here but apply to a standard product.",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by national producers, but significant import occurs from (given in relative order): Norway, Finland and Europe.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 700.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.488
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.39
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.0629
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.055
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "10",
+          "Text": "Building boards"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01208",
+          "Text": "Chipboard"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 600.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000098,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "130f8809-8ee3-4129-b40a-e90d7ecaab3e",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-11-27T00:52:17Z",
+      "Name": "Floor screeds < 17 % cement",
+      "Names": {
+        "EN": "Floor screeds < 17 % cement",
+        "SV": "Avjämningsmassor < 17 % cement"
+      },
+      "StdName": "EN 13813:2002",
+      "StdDescription": "EN 13813:2002",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "The data is representative of floor screeds containing a maximum of 17% cement, including aluminate cement, burnt/slaked (hydrated lime), hydraulic/burnt lime, ALAG (aluminous aggregate), and other calcined raw materials, excluding by-products such as blast furnace slag and fly ash, and potentially up to 1% fiber reinforcement. If additional properties for concrete are required, information from a supplier must be used.",
+      "TechnologicalApplicability": "Floor screeds are intended for indoor use, for smoothing and as a base for further surface coverings, such as carpet or parquet. The products are supplied by the manufacturer as a pre-mixed dry mortar containing all components except water, which is added at the worksite.",
+      "GeneralComment": "Floor screeds are made of aggregates, fillers, polymers, and additives. The data provided, based on the concrete’s strength class, reflect commonly used concrete mixes on the market. Factory data for module A3 are based on information from a large number of EPDs. Of the stated value for climate impact, the contribution from the manufacturing process (A3) is relatively small compared to the cement-based binders, which normally account for more than 80% of the climate impact in modules A1–A3.",
+      "Synonyms": "",
+      "TechnologyDescriptionAndIncludedProcesses": "The concrete's strength class complies with the standards SS-EN 206:2013+A1:2016 and SS 137003:2015.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The manufacturers mix the various raw materials used for the product. The sand used can potentially be sourced locally and dried. The technical representativeness is therefore defined by the product’s technical performance declaration.",
+      "UpdatedTime": "2025-11-27T00:52:17Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.05,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of and do not require maintenance.",
+      "ComparativeProperty": "When concrete floor screed products are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. ",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Manufacturers of floor screeds are primarily domestic, but imports, mainly from Germany, also occur.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 1750.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.195
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.156
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.036
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0116
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "2",
+          "Text": "Mineral materials"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01008",
+          "Text": "Floor screed"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 300.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000127,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "cc3e0fa7-e8ec-4b0f-8b56-8f4011a09432",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-12-03T16:59:17Z",
+      "Name": "Stone wool, roof board",
+      "Names": {
+        "EN": "Stone wool, roof board",
+        "SV": "Stenull, takskiva"
+      },
+      "StdName": "EN 13162",
+      "StdDescription": "EN 13162",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "The data is representative of the stone wool product type in the form of batts or rolls, and includes all types of thermal insulation that do not have any surfacing, coatings, or similar treatments. If surfacing is included, a more precise and specific dataset should be selected, as such products typically have a somewhat higher environmental impact per kilogram.",
+      "TechnologicalApplicability": "Stone wool is primarily used as thermal insulation, and is sometimes also used for sound insulation or for a combination of both functions. This type of stone wool product is intended for use in a protected environment.",
+      "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated stone wool. The GWP may variy between 0.6-1.6 kg CO₂e/kg. The average data values are based on market share and EPDs from the following countries (in order of assumed market share): Sweden, Denmark, Germany, Finland and Norway.",
+      "Synonyms": "Mineral wool, rock wool",
+      "TechnologyDescriptionAndIncludedProcesses": "Stone wool is produced either in an electric furnace or, more commonly, in a cupola furnace. The process also involves the use of additional energy sources which, together with the primary raw materials, contribute to the GWP. The binder content is typically about 5 to 10%. Minor variations in density for the same lambda value exist between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The data is representative of the manufacturing process  and products that is currently consumed on the Swedish market.",
+      "UpdatedTime": "2025-12-03T16:59:17Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.07,
+      "RefServiceLifeNormal": ">50 years",
+      "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+      "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. Material data applicable for the generic resource are as follows; density 180 kg/m³ and lambda 0.038 W/(mK).\r\n",
+      "A4ValueBackground": "\n",
+      "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers and Germany (in the following order): Sweden, Denmark, Germany, Finland and Norway.",
+      "Conversions": [
+        {
+          "Field": "Volume",
+          "Unit": "kg/m³",
+          "Value": 180.0
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 1.6
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 1.28
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.115
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "7",
+          "Text": "Insulation"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01301",
+          "Text": "Mineral (rock) wool"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 400.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    },
+    {
+      "ResourceId": 6000000141,
+      "SourceVersion": "02.07.000",
+      "ProductSystemId": 6,
+      "ProductSystemResourceId": "e1eac95d-8bbf-485e-ad0c-b8d4876aae77",
+      "Location": "SE",
+      "Publisher": "Boverket, Sweden",
+      "Version": "02.07.000",
+      "Copyright": true,
+      "TimeStamp": "2025-12-17T14:20:45Z",
+      "Name": "Bitumen waterproofing membrane, single layer ",
+      "Names": {
+        "EN": "Bitumen waterproofing membrane, single layer ",
+        "SV": "Takpapp, enskiktstätning"
+      },
+      "StdName": "EN 13707",
+      "StdDescription": "EN 13707",
+      "StdCalc": "EN 15804:A1",
+      "UseAdviceForDataSet": "Polymer bitumen-based waterproofing layers are bitumen mats with reinforcement and cover mass of polymer bitumen on both sides. A distinction is made between two types of polymer bitumen: elastomer bitumen (PYE) and plastomer bitumen (PYP). Data are representative for a PYE top layer bitumen waterproofing membrane used on the Swedish market. In the Nordic countries is bitumen waterproofing almost exclusively uses bitumen modified with SBS (styrene-butadiene-styrene).",
+      "TechnologicalApplicability": "Bitumen-based waterproofing layers are mainly used on roofs and are normally laid in several layers, but there are also alternatives with one layer, but then requires a roof with a roof slope of at least 1:2 - 1:20.",
+      "GeneralComment": "The generic values are based on the market situation in Finland that is assumed to be representative for all Nordic countries and information gathered from the largest manufacturers products for bitumen roofing. The data for GWP A1-A3 are based on data gathered from said manufacturers and represent the common products. These manufacturers represent over 95 % of the Finnish bitumen roofing market.",
+      "Synonyms": "",
+      "TechnologyDescriptionAndIncludedProcesses": "The manufacturing is done by heating the raw materials (bitumen and copolymers) to a specific temperature and mixing them. After this the mix is applied to the reinforcing structure (polyester or glass fibre). The resulting sheet is cooled and then faced with mineral granules. The bitumen is generally delivered as hot from the petroleum refinery to the manufacturing site, where it’s heated further. Significant differences arise mainly from the amounts of bitumen and the SBS used in the products. As SBS has a large share of emission, using alternative copolymers to modify the bitumen would also change the GWP-GHG A1-A3 value.",
+      "GeographicalRepresentativenessDescription": "Swedish average",
+      "TimeRepresentativenessDescription": "The information is representative of the manufacturers of bitumen waterproofing layers and the products consumed on the Swedish market. The data on environmental impact are based on LCA calculations and have been compared with cross-sectoral EPDs for all European producers, where these values ​​for GWP are slightly higher.",
+      "UpdatedTime": "2025-12-17T14:20:45Z",
+      "InventoryUnit": "kg",
+      "CalculatedBiogenicCarbon": 0.0,
+      "ConservativeDataConversionFactor": 1.25,
+      "WasteFactor": 1.05,
+      "RefServiceLifeNormal": "<40 years",
+      "RefServiceLifeNormalComment": "For modern bitumen-based waterproofing systems, a service life of up to 40 years can be assumed today.",
+      "ComparativeProperty": "When bitumen-based waterproofing systems are compared with other materials or material combinations, the assessment must be made in the intended use and in a life cycle perspective, ie the entire life cycle must be taken into account. ",
+      "A4ValueBackground": "",
+      "AnnualSupplyOrProductionVolume": "Consumption in Sweden is dominated by domestic production, but some imports do occur.",
+      "Conversions": [
+        {
+          "Field": "Area",
+          "Unit": "kg/m²",
+          "Value": 5.5
+        }
+      ],
+      "DataItems": [
+        {
+          "PropertyId": 1845,
+          "PropertyName": "Global Warming potential",
+          "PropertyCode": "GWP-GHG AR4",
+          "PropertyTypeId": 2,
+          "PropertyUnitCode": "kg CO2 eq./kg",
+          "DataValueItems": [
+            {
+              "DataModuleCode": "A1-A3 Conservative",
+              "Value": 0.813
+            },
+            {
+              "DataModuleCode": "A1-A3 Typical",
+              "Value": 0.65
+            },
+            {
+              "DataModuleCode": "A4",
+              "Value": 0.045
+            },
+            {
+              "DataModuleCode": "A5.1",
+              "Value": 0.0429
+            }
+          ]
+        }
+      ],
+      "Categories": [
+        {
+          "ClassificationType": "Boverket",
+          "Code": "11",
+          "Text": "Waterproofing"
+        },
+        {
+          "ClassificationType": "BK04",
+          "Code": "01409",
+          "Text": "Weatherproofing systems"
+        }
+      ],
+      "TransportItems": [
+        {
+          "NameId": 21001,
+          "Name": "Last mile",
+          "GenericDistance": 40.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17001,
+          "EnergyUseName": "Lorry, last mile",
+          "EnergyUseValue": 2.5,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        },
+        {
+          "NameId": 21002,
+          "Name": "From factory to warehouse/retailer",
+          "GenericDistance": 400.0,
+          "TransportTypeId": 17050,
+          "TransportTypeName": "Lorry",
+          "EnergyUseId": 17003,
+          "EnergyUseName": "Lorry, highroad",
+          "EnergyUseValue": 1.0,
+          "FuelTypeId": 18006,
+          "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+          "FuelTypeResourceId": 6000000010
+        }
+      ]
+    }
+  ],
+  "Version": "02.07.000",
+  "format_version": 1,
+  "notes": [
+    "Selected verbatim official Boverket 02.07.000 resources. Carbon fields are projected at runtime from DataItems; no separate edited carbon database. Candidate resources do not turn pending mappings into accepted matches."
+  ],
+  "caveats": []
+}

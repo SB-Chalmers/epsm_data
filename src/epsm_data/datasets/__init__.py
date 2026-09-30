@@ -1,0 +1,1 @@
+"""Bundled, versioned data resources."""

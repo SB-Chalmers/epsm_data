@@ -1,0 +1,419 @@
+Below is the office recipe structure for all three scenarios. The baseline layers are retained in renovated and advanced scenarios unless an intervention below says otherwise.
+
+The current office archetypes use two baseline families:
+
+- P01–P02: masonry office with an unheated basement and cold attic.
+- P03–P09: concrete office with slab foundation, concrete intermediate floors, and a warm roof.
+
+The window values below should be replaced by the newer office matrix assumptions you provided:
+
+| EPSM period | Office baseline `Uw` |
+|---|---:|
+| P01–P02 | 2.24 |
+| P03 | 2.24 |
+| P04 | 2.06 |
+| P05 | 2.06 or 1.82 depending on year mapping |
+| P06 | 1.82 or 1.99 depending on year mapping |
+| P07–P09 | 1.99 or 1.95 |
+
+These are assumed whole-window values, not source-verified universal values.
+
+## P01 — before 1945
+
+Baseline external wall:
+
+- 15 mm interior plaster
+- 510 mm solid brick
+- 20 mm exterior render
+
+Baseline ground/basement floor:
+
+- 100 mm concrete basement slab
+- 3 mm bituminous damp-proofing, thermally omitted
+- 150 mm gravel subbase, omitted
+
+Baseline buried basement wall:
+
+- 15 mm internal plaster
+- 380 mm brick
+- 3 mm external damp-proofing, omitted
+
+Baseline exposed basement wall:
+
+- 15 mm internal plaster
+- 380 mm brick
+- 15 mm plinth render
+
+Baseline basement ceiling:
+
+- 25 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm ceiling plaster
+
+Baseline intermediate floor:
+
+- 28 mm timber floorboards
+- 220 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+- 22 mm ceiling boards
+- 15 mm plaster lining
+
+Baseline internal partition:
+
+- 15 mm plaster
+- 8 mm timber lath
+- 70 mm timber/wood-shaving zone
+- 8 mm timber lath
+- 15 mm plaster
+
+Baseline attic floor:
+
+- 15 mm plaster
+- 22 mm timber ceiling boards
+- 0.2 mm paper air/vapour layer, omitted
+- 150 mm joist zone:
+  - 15% timber
+  - 85% wood shavings
+
+Baseline roof shell:
+
+- 195 mm rafter/air zone, omitted
+- 22 mm roof boarding, omitted
+- 5 mm bituminous waterproofing, omitted
+
+Renovated:
+
+- retain brick and structural basement;
+- add 100 mm external mineral-wool facade insulation to the wall;
+- add new reinforced render;
+- add 100 mm attic mineral wool above the attic-floor assembly;
+- retain basement and intermediate-floor structures;
+- replace windows with `Uw = 1.2`;
+- retain roof shell.
+
+Advanced:
+
+- replace the 100 mm wall insulation addition with 180 mm facade mineral wool;
+- add new wind/rainscreen or reinforced-render detailing as appropriate;
+- add 200 mm attic mineral wool;
+- add 80 mm external basement-wall EPS where applicable;
+- add 140 mm basement-ceiling mineral wool plus 13 mm gypsum fire lining;
+- replace windows with `Uw = 0.9`.
+
+## P02 — 1945–1960
+
+Baseline external wall:
+
+- 15 mm interior plaster
+- 380 mm solid brick
+- 20 mm exterior render
+
+Baseline attic floor:
+
+- 180 mm concrete slab
+- 0.2 mm paper vapour-control layer, omitted
+- 120 mm historic mineral wool
+
+Baseline basement wall:
+
+- 15 mm internal plaster
+- 250 mm concrete
+- 3 mm external damp-proofing, omitted
+- 15 mm exposed plinth render where applicable
+
+Baseline basement ceiling:
+
+- 10 mm timber finish
+- 180 mm concrete floor
+
+Baseline intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Baseline internal load-bearing wall:
+
+- 150 mm concrete
+
+Baseline partition:
+
+- 13 mm gypsum
+- 70 mm timber/mineral-wool zone:
+  - 15% timber
+  - 85% mineral wool
+- 13 mm gypsum
+
+Baseline roof shell:
+
+- 195 mm omitted rafter/air zone
+- 22 mm omitted boarding
+- 5 mm omitted bituminous waterproofing
+
+Renovated:
+
+- add 100 mm external mineral-wool facade insulation;
+- add reinforced mineral render;
+- add 100 mm attic mineral wool;
+- replace windows with `Uw = 1.2`;
+- retain the concrete basement and intermediate floors.
+
+Advanced:
+
+- add 180 mm external facade mineral wool;
+- add 200 mm attic mineral wool;
+- add 80 mm basement-wall EPS;
+- add 140 mm basement-ceiling mineral wool and 13 mm gypsum lining;
+- replace windows with `Uw = 0.9`.
+
+## P03 — 1961–1970
+
+Baseline external wall:
+
+- 10 mm interior plaster
+- 150 mm structural concrete
+- 80 mm mineral wool
+- 70 mm external concrete leaf
+
+Baseline ground floor:
+
+- 10 mm timber finish
+- 120 mm concrete slab
+- 50 mm EPS
+- 3 mm bituminous damp-proofing, omitted
+- 150 mm gravel, omitted
+
+Baseline intermediate floor:
+
+- 10 mm timber finish
+- 200 mm concrete
+
+Baseline internal load-bearing wall:
+
+- 150 mm concrete
+
+Baseline internal partition:
+
+- 13 mm gypsum
+- 70 mm timber/mineral-wool zone
+- 13 mm gypsum
+
+Baseline warm roof:
+
+- 180 mm concrete roof slab
+- 3 mm bituminous vapour-control layer, omitted
+- 120 mm rigid mineral-wool roof insulation
+- 5 mm bituminous weatherproofing, omitted
+
+Renovated:
+
+- add 100 mm external mineral-wool facade insulation;
+- add reinforced render;
+- add 100 mm roof-board mineral wool above the roof slab;
+- replace windows with `Uw = 1.2`;
+- retain the concrete wall, floors and roof slab.
+
+Advanced:
+
+- add 180 mm external mineral-wool facade insulation;
+- add 200 mm roof-board mineral wool;
+- add 80 mm external basement insulation only where a basement exists;
+- replace windows with `Uw = 0.9`.
+
+## P04 — 1971–1980
+
+Baseline:
+
+- 10 mm plaster
+- 150 mm structural concrete
+- 100 mm mineral wool
+- 70 mm external concrete leaf
+- 120 mm concrete ground slab
+- 50 mm EPS below slab
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete warm-roof slab
+- 150 mm rigid mineral-wool roof insulation
+- 5 mm bituminous waterproofing
+
+Renovated:
+
+- add 100 mm facade mineral wool;
+- add 100 mm roof mineral wool;
+- replace windows with `Uw = 1.2`;
+- retain structure and floor layers.
+
+Advanced:
+
+- add 180 mm facade mineral wool;
+- add 200 mm roof mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P05 — 1981–1990
+
+Baseline:
+
+- 10 mm plaster
+- 180 mm structural concrete
+- 120 mm mineral wool
+- 70 mm external concrete leaf
+- 120 mm concrete slab
+- 80 mm EPS below slab
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete roof slab
+- 180 mm rigid mineral-wool roof insulation
+- bituminous vapour and weatherproofing layers
+
+Renovated:
+
+- add 80 mm facade mineral wool;
+- add 50 mm roof mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 120 mm facade mineral wool;
+- add 100 mm roof mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P06 — 1991–2000
+
+Baseline:
+
+- 10 mm plaster
+- 180 mm structural concrete
+- 150 mm mineral wool
+- 20 mm exterior render
+- 120 mm concrete slab
+- 100 mm EPS
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete roof slab
+- 200 mm rigid mineral-wool roof insulation
+- bituminous vapour and weatherproofing layers
+
+Renovated:
+
+- add 60 mm facade mineral wool;
+- add 50 mm roof mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 100 mm facade mineral wool;
+- add 100 mm roof mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P07 — 2001–2010
+
+Baseline:
+
+- 10 mm plaster
+- 180 mm concrete
+- 180 mm mineral wool
+- 20 mm render
+- 120 mm concrete slab
+- 150 mm EPS
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete roof slab
+- 220 mm rigid mineral-wool roof insulation
+- bituminous roof layers
+
+Renovated:
+
+- add 40 mm facade mineral wool;
+- add 50 mm roof mineral wool;
+- replace windows with `Uw = 1.2`.
+
+Advanced:
+
+- add 80 mm facade mineral wool;
+- add 100 mm roof mineral wool;
+- replace windows with `Uw = 0.9`.
+
+## P08 — 2011–2020
+
+Baseline:
+
+- 10 mm plaster
+- 200 mm concrete
+- 220 mm mineral wool
+- 20 mm render
+- 120 mm concrete slab
+- 200 mm EPS
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete roof slab
+- 250 mm rigid mineral-wool roof insulation
+- bituminous roof layers
+
+Renovated and advanced:
+
+The current model retains the opaque construction because this is a recent building family. Only building-specific window information should override the baseline. Do not manufacture additional insulation solely to create a lower U-value.
+
+## P09 — 2021–2026
+
+Baseline:
+
+- 10 mm plaster
+- 200 mm concrete
+- 240 mm mineral wool
+- 20 mm render
+- 120 mm concrete slab
+- 250 mm EPS
+- 200 mm concrete intermediate floor
+- 150 mm concrete internal load-bearing wall
+- 13 mm gypsum / 70 mm mineral-wool partition / 13 mm gypsum
+- 180 mm concrete roof slab
+- 250 mm rigid mineral-wool roof insulation
+- bituminous roof layers
+
+Renovated and advanced:
+
+Retain the opaque assembly unless building-specific evidence indicates a change. The recent-building scenarios may remain unchanged, with only project-specific window or component data overriding the default.
+
+## Office material mappings
+
+| EPSM material | Honeybee identifier | HB status | Boverket ID | Boverket status |
+|---|---|---|---|---|
+| Brick | `M01 100mm brick` | proxy | `6000000082` | proxy |
+| Concrete | `M15 200mm heavyweight concrete` | proxy | `6000000026` | proxy |
+| Mineral wool | `Wall Insulation [31]` | proxy | `6000000123` | proxy |
+| Rigid roof mineral wool | `Roof Insulation [18]` | proxy | `6000000127` | proxy |
+| Facade mineral wool | `Wall Insulation [31]` | proxy | `6000000125` | proxy |
+| EPS | `I02 50mm insulation board` | proxy | `6000000131` | exact |
+| Gypsum | `G01 13mm gypsum board` | proxy | `6000000020` | exact |
+| Interior plaster | `1IN Stucco` | proxy | `6000000094` | proxy |
+| Exterior render | `25mm Stucco` | proxy | `6000000093` | proxy |
+| Timber | `G05 25mm wood` | proxy | `6000000007` | proxy |
+| Bituminous membrane | `Roof Membrane` | proxy | `6000000141` | proxy |
+| Polyethylene film | unresolved | unresolved | `6000000198` | exact |
+| Historic paper | unresolved | unresolved | unresolved | unresolved |
+| Air cavity | `F04 Wall air space resistance` | proxy | not applicable | not applicable |
+| Gravel | unresolved | unresolved | unresolved | unresolved |
+| Geotextile | unresolved | unresolved | `6000000210` | proxy |
+| Wood shavings | unresolved | unresolved | `6000000135` | proxy |
+
+Boverket mapping is required only for incoming renovation materials:
+
+- facade mineral wool: proxy `6000000125`;
+- roof mineral wool: proxy `6000000127`;
+- mineral wool: proxy `6000000123`;
+- EPS: exact `6000000131`;
+- gypsum: exact `6000000020`;
+- polyethylene membrane: exact `6000000198`;
+- render: proxy `6000000093`;
+- bituminous membrane: proxy `6000000141`;
+- replacement windows: unresolved because windows are represented by whole-element `Uw`, not a selected Boverket window product.
+
+All retained baseline materials remain visible in the crosswalk, but they are outside the Boverket intervention requirement. Honeybee identifiers are existing library templates; they do not establish product equivalence or historical identity.

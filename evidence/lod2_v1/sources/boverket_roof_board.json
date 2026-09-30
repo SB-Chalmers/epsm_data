@@ -1,0 +1,110 @@
+{
+  "ResourceId": 6000000127,
+  "SourceVersion": "02.07.000",
+  "ProductSystemId": 6,
+  "ProductSystemResourceId": "cc3e0fa7-e8ec-4b0f-8b56-8f4011a09432",
+  "Location": "SE",
+  "Publisher": "Boverket, Sweden",
+  "Version": "02.07.000",
+  "Copyright": true,
+  "TimeStamp": "2025-12-03T16:59:17Z",
+  "Name": "Stone wool, roof board",
+  "Names": {
+    "EN": "Stone wool, roof board",
+    "SV": "Stenull, takskiva"
+  },
+  "StdName": "EN 13162",
+  "StdDescription": "EN 13162",
+  "StdCalc": "EN 15804:A1",
+  "UseAdviceForDataSet": "The data is representative of the stone wool product type in the form of batts or rolls, and includes all types of thermal insulation that do not have any surfacing, coatings, or similar treatments. If surfacing is included, a more precise and specific dataset should be selected, as such products typically have a somewhat higher environmental impact per kilogram.",
+  "TechnologicalApplicability": "Stone wool is primarily used as thermal insulation, and is sometimes also used for sound insulation or for a combination of both functions. This type of stone wool product is intended for use in a protected environment.",
+  "GeneralComment": "The GWP-GHG (A1-A3) are valid for non-coated stone wool. The GWP may variy between 0.6-1.6 kg CO₂e/kg. The average data values are based on market share and EPDs from the following countries (in order of assumed market share): Sweden, Denmark, Germany, Finland and Norway.",
+  "Synonyms": "Mineral wool, rock wool",
+  "TechnologyDescriptionAndIncludedProcesses": "Stone wool is produced either in an electric furnace or, more commonly, in a cupola furnace. The process also involves the use of additional energy sources which, together with the primary raw materials, contribute to the GWP. The binder content is typically about 5 to 10%. Minor variations in density for the same lambda value exist between different manufacturers, but the density and lambda values provided here are representative of the products used on the market.",
+  "GeographicalRepresentativenessDescription": "Swedish average",
+  "TimeRepresentativenessDescription": "The data is representative of the manufacturing process  and products that is currently consumed on the Swedish market.",
+  "UpdatedTime": "2025-12-03T16:59:17Z",
+  "InventoryUnit": "kg",
+  "CalculatedBiogenicCarbon": 0.0,
+  "ConservativeDataConversionFactor": 1.25,
+  "WasteFactor": 1.07,
+  "RefServiceLifeNormal": ">50 years",
+  "RefServiceLifeNormalComment": "The service life is normally equal with the construction it is part of.",
+  "ComparativeProperty": "In order to assess thermal insulation, the lambda value needs to be used in combination with the fact that different product alternatives have different densities. In other words, thermal insulation cannot be compared per kg, but instead in use conditions. Material data applicable for the generic resource are as follows; density 180 kg/m³ and lambda 0.038 W/(mK).\r\n",
+  "A4ValueBackground": "\n",
+  "AnnualSupplyOrProductionVolume": "The consumption in Sweden is dominated by Nordic producers and Germany (in the following order): Sweden, Denmark, Germany, Finland and Norway.",
+  "Conversions": [
+    {
+      "Field": "Volume",
+      "Unit": "kg/m³",
+      "Value": 180.0
+    }
+  ],
+  "DataItems": [
+    {
+      "PropertyId": 1845,
+      "PropertyName": "Global Warming potential",
+      "PropertyCode": "GWP-GHG AR4",
+      "PropertyTypeId": 2,
+      "PropertyUnitCode": "kg CO2 eq./kg",
+      "DataValueItems": [
+        {
+          "DataModuleCode": "A1-A3 Conservative",
+          "Value": 1.6
+        },
+        {
+          "DataModuleCode": "A1-A3 Typical",
+          "Value": 1.28
+        },
+        {
+          "DataModuleCode": "A4",
+          "Value": 0.045
+        },
+        {
+          "DataModuleCode": "A5.1",
+          "Value": 0.115
+        }
+      ]
+    }
+  ],
+  "Categories": [
+    {
+      "ClassificationType": "Boverket",
+      "Code": "7",
+      "Text": "Insulation"
+    },
+    {
+      "ClassificationType": "BK04",
+      "Code": "01301",
+      "Text": "Mineral (rock) wool"
+    }
+  ],
+  "TransportItems": [
+    {
+      "NameId": 21001,
+      "Name": "Last mile",
+      "GenericDistance": 40.0,
+      "TransportTypeId": 17050,
+      "TransportTypeName": "Lorry",
+      "EnergyUseId": 17001,
+      "EnergyUseName": "Lorry, last mile",
+      "EnergyUseValue": 2.5,
+      "FuelTypeId": 18006,
+      "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+      "FuelTypeResourceId": 6000000010
+    },
+    {
+      "NameId": 21002,
+      "Name": "From factory to warehouse/retailer",
+      "GenericDistance": 400.0,
+      "TransportTypeId": 17050,
+      "TransportTypeName": "Lorry",
+      "EnergyUseId": 17003,
+      "EnergyUseName": "Lorry, highroad",
+      "EnergyUseValue": 1.0,
+      "FuelTypeId": 18006,
+      "FuelTypeName": "Diesel MK1, reduction obligation (2024)",
+      "FuelTypeResourceId": 6000000010
+    }
+  ]
+}

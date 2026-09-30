@@ -1,0 +1,13 @@
+include README.md pyproject.toml
+recursive-include src/epsm_data/datasets/parametric *.json
+recursive-include src/epsm_data/datasets/layered *.json
+recursive-include examples *.py
+recursive-include tests *.py *.json
+include tools/recalibrate_mf_se02.py
+recursive-include explorer *.py *.html *.css *.js *.md
+prune ARCHIVE
+prune data
+prune output
+global-exclude *.py[cod]
+include BASELINE.json
+recursive-include evidence *.json *.md *.txt *.csv
