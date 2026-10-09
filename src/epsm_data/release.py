@@ -13,7 +13,8 @@ def core_inputs(archetype_id, state='existing', *, detailed=None, catalogue=None
     """Return native core envelope/glazing plus topology and boundary requirements.
 
     Callers supply geometry, weather, use, HVAC and ground temperatures. An explicit
-    attic outdoor-air rate is required by ``apply_attic_ventilation`` for cold attics.
+    attic outdoor-air rate is required for cold attics. Current Core accepts
+    UnconditionedExchangeSpec; apply_attic_ventilation supports legacy compilers.
     Baseline and renovation describe independent states, not sequential operations.
     """
     from epsm_core.specs import ConstructionSpec, EnvelopeSpec, GlazingSpec
@@ -61,8 +62,9 @@ def core_inputs(archetype_id, state='existing', *, detailed=None, catalogue=None
 def apply_attic_ventilation(epjson, *, outdoor_air_ach):
     """Add an explicit constant outdoor-air exchange to unconditioned attic zones.
 
-    Core currently creates the attic geometry but emits airflow only for conditioned
-    zones. This additive epJSON adapter closes that gap without modifying core.
+    Legacy Core creates attic geometry without unconditioned airflow. Current Core
+    accepts UnconditionedExchangeSpec natively (3 October 2026); prefer that input
+    so the exchange participates in compilation hashes and run provenance.
     The rate is a caller-owned scenario assumption, not a calibrated national value.
     Input is never mutated; duplicate application is rejected.
     """
@@ -73,6 +75,11 @@ def apply_attic_ventilation(epjson, *, outdoor_air_ach):
              if 'attic' in name.lower() and z.get('part_of_total_floor_area') == 'No']
     if not zones:
         raise ValueError('No unconditioned attic zone found')
+    # Prevent double counting if a caller combines the legacy adapter with native
+    # Core exchange. Both are outdoor exchange scenarios, not leakage calibration.
+    if any(item.get('zone_or_zonelist_or_space_or_spacelist_name') in zones
+           for item in model.get('ZoneInfiltration:DesignFlowRate', {}).values()):
+        raise ValueError('Attic ventilation already assigned')
     schedule = 'EPSM_v1_attic_exchange'
     if schedule in model.get('Schedule:Constant', {}):
         raise ValueError('Attic ventilation already assigned')

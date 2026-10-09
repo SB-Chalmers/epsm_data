@@ -13,6 +13,54 @@
   --line: #dce3ec;
   --accent: #126f70;
 }
+.construction-details { margin: 22px 0 26px; }
+.construction-card { margin: 14px 0; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcfe; }
+.construction-card h5 { margin: 0 0 6px; font-size: 1rem; }
+.construction-card > p { margin: 0 0 12px; }
+.layer-section { display: block; width: 100%; height: auto; background: #fff; border: 1px solid #dce3ec; border-radius: 6px; }
+.layer-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.layer-list li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; align-items: start; gap: 10px; font-size: .9rem; }
+.layer-list small { display: block; margin-top: 3px; color: var(--muted); }
+.layer-list b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.layer-swatch { width: 14px; height: 14px; border: 1px solid #526174; border-radius: 3px; margin-top: 2px; }
+.construction-details { min-width: 0; }
+.construction-card { min-width: 0; }
+.selected-construction .construction-card { padding: 0; border: 0; background: transparent; }
+.construction-card h4 { margin: 10px 0 5px; font-size: 1rem; }
+.construction-card h4 small { color: var(--muted); font-size: .8rem; font-weight: 500; }
+.construction-card h6, .material-facts h6 { margin: 12px 0 6px; font-size: .82rem; }
+.hatched-section { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 220; margin: 12px 0 16px; background: #fff; border: 1px solid #dce3ec; border-radius: 6px; }
+.full-construction { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.full-construction .construction-card { margin: 0; }
+.component-block { margin-top: 12px; }
+.component-block h6 { color: var(--muted); }
+.layer-list { list-style: decimal; }
+.layer-list li { grid-template-columns: minmax(0, 1fr); padding-bottom: 9px; border-bottom: 1px solid #edf0f4; }
+.layer-list li > span { min-width: 0; }
+.layer-list li > span > small { display: block; color: var(--muted); }
+.material-share { display: inline-block; margin: 4px 8px 0 0; font-size: .82rem; }
+.material-facts { margin-top: 5px; font-size: .82rem; }
+.material-facts summary { cursor: pointer; color: #355065; }
+.material-property-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 14px; margin: 6px 0 10px; }
+.material-property-grid > div { display: flex; justify-content: space-between; gap: 8px; }
+.material-property-grid dt { color: var(--muted); }
+.material-property-grid dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.archetype-dialog { width: min(1100px, calc(100vw - 32px)); max-width: none; max-height: min(90vh, 1000px); padding: 22px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); }
+.archetype-dialog[open] { position: fixed; inset: 0; z-index: 1001; margin: auto; overflow: auto; }
+body.dialog-open::before { content: ""; position: fixed; inset: 0; z-index: 1000; background: rgb(14 25 40 / 58%); }
+.archetype-dialog::backdrop { background: rgb(14 25 40 / 58%); }
+.archetype-dialog-header { position: sticky; top: -22px; z-index: 1; display: flex; align-items: start; justify-content: space-between; gap: 20px; margin: -22px -22px 18px; padding: 18px 22px; background: white; border-bottom: 1px solid var(--line); }
+.archetype-dialog-header h2 { margin: 0; }
+.archetype-dialog-header p { margin: 5px 0 0; }
+.archetype-dialog-content { overflow: auto; }
+.whole-window-definition { margin: 12px 0; padding: 14px; border: 1px solid #cbd8e2; border-radius: 8px; background: #f1f6fa; }
+.whole-window-definition > strong { color: #426279; text-transform: uppercase; font-size: .78rem; letter-spacing: .04em; }
+.whole-window-definition dl { display: grid; gap: 7px; margin: 12px 0; }
+.whole-window-definition dl div { display: flex; justify-content: space-between; gap: 12px; }
+.whole-window-definition dt { color: #456072; }
+.whole-window-definition dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 650; }
+.whole-window-definition p { margin: 0; color: var(--muted); font-size: .82rem; }
+@media (max-width: 700px) { .full-construction { grid-template-columns: 1fr; } .material-property-grid { grid-template-columns: 1fr; } }
 * {
   box-sizing: border-box;
 }

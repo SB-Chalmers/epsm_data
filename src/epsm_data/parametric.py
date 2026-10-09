@@ -412,6 +412,11 @@ class ParametricCatalogue:
     ) -> EffectiveProperty:
         raw = self._resolve_unclipped_property(category, era, state, role)
         result = replace(raw, unclipped_value=raw.value, evidence=self._claim_evidence(category, era, state, role, raw))
+        # TABULA eq.(7), printed pp.12–13: the ACH surcharge uses A_C_ref *
+        # 2.5 m, not arbitrary exterior volume. Source values remain traceable,
+        # but applying their airtightness class to actual stock is an assumption.
+        if role == "infiltration" and self._data.get("airflow_policy"):
+            result = replace(result, assumed=True)
         policy = self._data.get("performance_guardrail")
         if policy is None or role not in policy["benchmarks"] or raw.value is None:
             return result

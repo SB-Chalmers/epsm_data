@@ -34,10 +34,10 @@ def test_bundled_calibrated_representative_and_all_nominal_matches():
     assert report["construction_schema_complete"]
     assert report["target_drift"] == []
     assert len(result.archetype.construction_set.elements) == 7
-    assert result.infiltration.value == 0.4
+    assert result.infiltration.value == pytest.approx(.20 * 3.6 / 2.5)
     expected = {"roof": 0.200218, "external_wall": 0.414420,
                 "intermediate_floor": 1.821706, "internal_wall": 0.573883,
-                "window": 2.8}
+                "window": 2.2}  # v1.4 provisional MF SE.02 default; see release evidence.
     for prop, target in expected.items():
         row = report["elements"][prop]
         assert row["assembly_u"] == pytest.approx(target, abs=2e-5)
@@ -110,7 +110,7 @@ def test_portable_export_and_deterministic_revisions():
     bundle = json.loads(json.dumps(first.to_dict(), allow_nan=False))
     restored = archetype_from_dict(bundle["construction"])
     assert restored == first.archetype
-    assert bundle["infiltration"]["value"] == 0.4
+    assert bundle["infiltration"]["value"] == pytest.approx(.20 * 3.6 / 2.5)
     assert bundle["calibration"]["pending"]
 
 

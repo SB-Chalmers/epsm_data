@@ -87,7 +87,13 @@ def test_claims_have_inputs_and_do_not_promote_missing_evidence(candidate_v13):
     detailed, cat = candidate_v13
     for era in cat.dimensions['eras']:
         for state in ('existing', 'standard', 'advanced'):
-            assert cat.resolve_construction('generic', era, state).u_values == cat.resolve_construction('multi_family', era, state).u_values
+            generic = dict(cat.resolve_construction('generic', era, state).u_values)
+            multifamily = dict(cat.resolve_construction('multi_family', era, state).u_values)
+            if (era, state) == ('SE.02', 'existing'):
+                # v1.4's MF-only window evidence does not establish the generic surrogate.
+                assert generic.pop('window') == 2.8
+                assert multifamily.pop('window') == 2.2
+            assert generic == multifamily
 
 
 def test_changed_anchor_or_override_marks_evidence_stale(candidate_v13):

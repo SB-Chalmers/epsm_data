@@ -5,6 +5,7 @@ not a complete building envelope or a ground/cavity simulation certification.
 All third-party imports are confined to optional validation helpers.
 """
 
+# Release contract: v1.4 preserves v1.3 roles; see evidence/lod2_v1_4/window-diagnostic.json.
 from __future__ import annotations
 
 import hashlib
@@ -33,7 +34,7 @@ def _metrics(layers):
 
 
 def _expected_roles(key, release=None):
-    if release == "epsm-lod2-v1.3":
+    if release in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
         return {"ROOF" if key.get("category") == "office" else "TOP_FLOOR",
                 "EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "INTERMEDIATE_FLOOR",
                 "INT_WALL_NONLOADBEARING", "WINDOW"}
@@ -234,7 +235,7 @@ def export_nominal_constructions(calibrated):
         **({"dataset_release": report["dataset_release"],
             "construction_availability": report["construction_availability"],
             "element_presence": "caller_geometry"}
-           if report.get("dataset_release") == "epsm-lod2-v1.3" else {}),
+           if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4") else {}),
         "kind": "nominal_construction_handover",
         "key": deepcopy(report["key"]),
         "role_profile": "school_source_draft" if report.get("status") == "source_and_provisional_draft" else "canonical",
@@ -454,7 +455,7 @@ def catalogue_lod2_checks(calibrated):
         "honeybee_nominal_export": exported["readiness"]["honeybee_nominal_export"],
         "core_nominal_export": exported["readiness"]["core_nominal_export"],
     }
-    if report.get("dataset_release") == "epsm-lod2-v1.3":
+    if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
         checks["seven_role_library"] = len(exported["roles"]) == 7
         checks["presence_is_geometry_owned"] = exported["element_presence"] == "caller_geometry"
     retained = set(report.get("retained_baseline_unmapped_materials", []))

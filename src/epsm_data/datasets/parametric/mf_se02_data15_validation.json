@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "study_id": "mf-se02-gothenburg-data15-2026-10-05",
+    "completed_date": "2026-10-05",
+    "database_version": "1.5.0",
+    "construction_release": "epsm-lod2-v1.4",
+    "scope": {
+      "correction_status": "normal_use_adjusted_pre_weather_correction",
+      "era": "SE.02",
+      "heating_family": "district_heat",
+      "use_group": "multi_family",
+      "ventilation": "F",
+      "municipality": 1480,
+      "state": "existing"
+    },
+    "study_kind": "retrospective_property_cross_validation",
+    "status": "provisional",
+    "reason": "accuracy_target_not_met",
+    "population_validation": false,
+    "selected_export_method": "baseline",
+    "parameter_overrides": {},
+    "baseline_inputs": {
+      "whole_window_u_w_m2k": 2.2,
+      "additional_infiltration_l_s_per_atemp_m2": 0.2,
+      "designed_ventilation_l_s_per_atemp_m2": 0.35,
+      "infiltration_basis": "atemp_area_rate"
+    },
+    "evidence": "src/epsm_data/datasets/parametric/mf_se02_data15_validation.json",
+    "baseline_validation": {
+      "accepted": 83,
+      "attempted": 85,
+      "bias_kwh_m2": 4.07903160504146,
+      "coverage10": 0.43529411764705883,
+      "coverage20": 0.6352941176470588,
+      "failed": 2,
+      "independent_properties": 54,
+      "mae_kwh_m2": 14.302116808474548,
+      "maximum_ape_percent": 61.98166089239137,
+      "median_ape_percent": 11.527558392482751,
+      "property_balanced_capped_ape_loss": 0.23009798015706362
+    },
+    "selection_procedure_validation": {
+      "accepted": 83,
+      "attempted": 85,
+      "bias_kwh_m2": 4.628706639482123,
+      "coverage10": 0.47058823529411764,
+      "coverage20": 0.6470588235294118,
+      "failed": 2,
+      "independent_properties": 54,
+      "mae_kwh_m2": 14.337495266547846,
+      "maximum_ape_percent": 61.98166089239137,
+      "median_ape_percent": 10.490924156918089,
+      "property_balanced_capped_ape_loss": 0.22848091433118684
+    },
+    "limitations": [
+      "85 buildings in 54 properties in Gothenburg; no national or other-era/state/system validation.",
+      "All observations already examined; retrospective property separation is not fresh independent confirmation.",
+      "The selected procedure used fold-dependent methods; its 55/85 result does not describe the final baseline export, whose coverage is 54/85.",
+      "Two numerical failures remain in the denominator. Remaining discrepancies do not identify actual infiltration, window U, renovation state or operating conditions.",
+      "No new fitted physical overrides were selected; retain existing provisional Data 1.5 inputs."
+    ]
+  },
+  "source_campaign": "cohort-transfer-mf-se02-parent-data15-2026-10-04-v11",
+  "source_hashes": {
+    "manifest.json": "e7d87ea2c3a39576d1d47cb017ed730f98b2e37777797442f35c2bde4f55db57",
+    "evaluation.json": "f6d67439f0ce2387a26a7e8eeae5c7316d2a4c4b29c3a988143f6239e4793cad",
+    "baseline-evaluation.json": "893bb4e33e170d82b2c916249e26d96155117354399accdd4b6d0d8d0476b83b",
+    "selection.json": "db9d5b2dcdec936d63c7846393b7c20f7df23daef043946e59435a18c2d7cdc3",
+    "export/cohort-profiles.json": "6692ef2b3460f62291e41dd865536d6625c2b32f9e88fc96ede8f4a7a6a7a268",
+    "artifacts/rerun-integrity.json": "f10dba7c966c274891a89c30de98f828bdc10a92736fec55692d40cc27f83663"
+  },
+  "evaluation": {
+    "evaluation": "retrospective_property_cross_validation",
+    "improved": 12,
+    "methods": {
+      "baseline": {
+        "accepted": 83,
+        "attempted": 85,
+        "bias_kwh_m2": 4.07903160504146,
+        "coverage10": 0.43529411764705883,
+        "coverage20": 0.6352941176470588,
+        "failed": 2,
+        "independent_properties": 54,
+        "mae_kwh_m2": 14.302116808474548,
+        "maximum_ape_percent": 61.98166089239137,
+        "median_ape_percent": 11.527558392482751,
+        "property_balanced_capped_ape_loss": 0.23009798015706362
+      },
+      "shared": {
+        "accepted": 83,
+        "attempted": 85,
+        "bias_kwh_m2": 5.129041332043928,
+        "coverage10": 0.4588235294117647,
+        "coverage20": 0.6470588235294118,
+        "failed": 2,
+        "independent_properties": 54,
+        "mae_kwh_m2": 14.522109534986702,
+        "maximum_ape_percent": 61.98166089239137,
+        "median_ape_percent": 10.910487959330968,
+        "property_balanced_capped_ape_loss": 0.22854583628114464
+      },
+      "single": {
+        "accepted": 83,
+        "attempted": 85,
+        "bias_kwh_m2": -7.071495736914598,
+        "coverage10": 0.15294117647058825,
+        "coverage20": 0.4470588235294118,
+        "failed": 2,
+        "independent_properties": 54,
+        "mae_kwh_m2": 17.40804973514408,
+        "maximum_ape_percent": 42.71885708206719,
+        "median_ape_percent": 20.882574182984232,
+        "property_balanced_capped_ape_loss": 0.29338498530100576
+      }
+    },
+    "population_validation": false,
+    "reason": "accuracy_target_not_met",
+    "selected": {
+      "accepted": 83,
+      "attempted": 85,
+      "bias_kwh_m2": 4.628706639482123,
+      "coverage10": 0.47058823529411764,
+      "coverage20": 0.6470588235294118,
+      "failed": 2,
+      "independent_properties": 54,
+      "mae_kwh_m2": 14.337495266547846,
+      "maximum_ape_percent": 61.98166089239137,
+      "median_ape_percent": 10.490924156918089,
+      "property_balanced_capped_ape_loss": 0.22848091433118684
+    },
+    "status": "provisional",
+    "uncertainty": {
+      "coverage10_95_interval": [
+        0.30136573692028384,
+        0.6504114017043785
+      ],
+      "coverage20_95_interval": [
+        0.4683122362869198,
+        0.8174565217391304
+      ],
+      "properties": 54,
+      "resamples": 1000
+    },
+    "worsened": 9
+  },
+  "final_selection": {
+    "k": 1,
+    "method": "baseline",
+    "trials": [
+      {
+        "folds": [
+          {
+            "fold": 0,
+            "stability": {
+              "median_ari": 1.0,
+              "resample_ari": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          {
+            "fold": 1,
+            "stability": {
+              "median_ari": 1.0,
+              "resample_ari": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          {
+            "fold": 2,
+            "stability": {
+              "median_ari": 1.0,
+              "resample_ari": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          }
+        ],
+        "k": 1,
+        "method": "baseline",
+        "scores": {
+          "baseline": {
+            "accepted": 83,
+            "attempted": 85,
+            "bias_kwh_m2": 4.079031605041461,
+            "coverage10": 0.43529411764705883,
+            "coverage20": 0.6352941176470588,
+            "failed": 2,
+            "independent_properties": 54,
+            "mae_kwh_m2": 14.302116808474548,
+            "maximum_ape_percent": 61.98166089239137,
+            "median_ape_percent": 11.527558392482751,
+            "property_balanced_capped_ape_loss": 0.2300979801570636
+          },
+          "shared": {
+            "accepted": 83,
+            "attempted": 85,
+            "bias_kwh_m2": 5.791084556588336,
+            "coverage10": 0.4235294117647059,
+            "coverage20": 0.6235294117647059,
+            "failed": 2,
+            "independent_properties": 54,
+            "mae_kwh_m2": 15.090198677196845,
+            "maximum_ape_percent": 64.0009937909591,
+            "median_ape_percent": 12.794665659647798,
+            "property_balanced_capped_ape_loss": 0.23210516389499875
+          },
+          "single": {
+            "accepted": 83,
+            "attempted": 85,
+            "bias_kwh_m2": -1.8543260324391502,
+            "coverage10": 0.25882352941176473,
+            "coverage20": 0.4588235294117647,
+            "failed": 2,
+            "independent_properties": 54,
+            "mae_kwh_m2": 17.52714835540444,
+            "maximum_ape_percent": 56.451499549512704,
+            "median_ape_percent": 21.06141034438443,
+            "property_balanced_capped_ape_loss": 0.2900717872498835
+          }
+        }
+      }
+    ]
+  },
+  "outer_fold_selections": [
+    {
+      "fold": 0,
+      "method": "baseline",
+      "k": 1
+    },
+    {
+      "fold": 1,
+      "method": "shared",
+      "k": 1
+    },
+    {
+      "fold": 2,
+      "method": "baseline",
+      "k": 1
+    },
+    {
+      "fold": 3,
+      "method": "shared",
+      "k": 1
+    },
+    {
+      "fold": 4,
+      "method": "baseline",
+      "k": 1
+    }
+  ]
+}

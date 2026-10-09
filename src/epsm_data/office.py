@@ -1,5 +1,6 @@
 """Calibrated Office SE.05 Existing layers and preserved Poirazis source evidence."""
 
+# Release contract: v1.4 preserves v1.3 roles; see evidence/lod2_v1_4/window-diagnostic.json.
 from __future__ import annotations
 
 import argparse
@@ -81,7 +82,7 @@ def validate_office_evidence(state):
     originals = state.get("source_assemblies", {})
     if set(originals) != SOURCE_ROLES or any(not a.get("components") for a in originals.values()):
         raise ValueError("Office source evidence must retain all six original stacks")
-    expected_roles = OFFICE_ROLES | ({"BASEMENT_WALL"} if state.get("dataset_release") == "epsm-lod2-v1.3" else set())
+    expected_roles = OFFICE_ROLES | ({"BASEMENT_WALL"} if state.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4") else set())
     if set(state.get("assemblies", {})) != expected_roles:
         raise ValueError("Office requires one wall and one window in the representative recipe")
     optics = state.get("window_optics", {})

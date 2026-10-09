@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from epsm_data import load_detailed_catalogue, load_parametric_catalogue
+from epsm_data import __version__, load_detailed_catalogue, load_parametric_catalogue
 from epsm_data.layered import load_calibrated_archetype
 from epsm_data.nominal import validate_nominal_handover
 
@@ -18,6 +18,38 @@ def test_packaged_dataset_checksums():
         if p.is_file() and '__pycache__' not in p.parts
     }
     assert actual == expected
+
+
+def test_freeze_identity_profiles_and_acceptance_receipt():
+    manifest = json.loads((ROOT / 'BASELINE.json').read_text())
+    catalogue = load_parametric_catalogue()
+    detailed = load_detailed_catalogue(catalogue=catalogue)
+    scope = manifest['freeze_scope']
+    canonical = [a for a in detailed.archetypes.values()
+                 if a.get('catalogue_assignment', 'canonical') == 'canonical']
+    assert manifest['package_version'] == __version__
+    assert manifest['database_version'] == catalogue.to_dict()['database_version']
+    assert manifest['baseline'] == manifest['git_tag'] == 'epsm-data-baseline-v1.5.0'
+    assert len(canonical) == scope['canonical_archetypes'] == 30
+    assert sum(len(a['states']) for a in canonical) == scope['canonical_states'] == 90
+    assert len(detailed.archetypes) == scope['registry_archetypes'] == 32
+    assert sum(len(a['states']) for a in detailed.archetypes.values()) == scope['registry_states'] == 92
+    assert catalogue.summary()['slot_count'] == scope['classification_slots'] == 1080
+    actual_profiles = {
+        str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in (ROOT / 'cohort_profiles').rglob('*.json')
+    }
+    assert actual_profiles == manifest['profile_sha256']
+    receipt_path = ROOT / manifest['acceptance_receipt']['path']
+    assert hashlib.sha256(receipt_path.read_bytes()).hexdigest() == manifest['acceptance_receipt']['sha256']
+    receipt = json.loads(receipt_path.read_text())
+    assert receipt['baseline'] == manifest['baseline']
+    rows = receipt['audit']['states']
+    assert {(r['archetype_id'], r['state']) for r in rows} == {
+        (aid, state) for aid, a in detailed.archetypes.items() for state in a['states']
+    }
+    assert all(r['lod2_complete'] for r in rows if r['catalogue_assignment'] == 'canonical')
+    assert receipt['audit']['lod2_complete_slots'] == 1080
 
 
 def test_current_catalogue_coverage_and_nominal_exports():

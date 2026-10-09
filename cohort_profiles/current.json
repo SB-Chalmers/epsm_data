@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "mf-se02-gothenburg": {
+      "path": "cohort_profiles/2026-10-05-v2/mf-se02-gothenburg.json",
+      "artifact_version": "gothenburg-mf-se02-cohort-v2",
+      "database_version": "1.5.0",
+      "infiltration_basis": "atemp_area_rate",
+      "status": "provisional",
+      "method": "baseline",
+      "source_export_sha256": "6692ef2b3460f62291e41dd865536d6625c2b32f9e88fc96ede8f4a7a6a7a268",
+      "supersedes": "cohort_profiles/2026-10-04-v1/mf-se02-gothenburg.json"
+    }
+  }
+}

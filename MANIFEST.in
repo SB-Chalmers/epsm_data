@@ -11,3 +11,5 @@ prune output
 global-exclude *.py[cod]
 include BASELINE.json
 recursive-include evidence *.json *.md *.txt *.csv
+recursive-include docs *.md
+recursive-include cohort_profiles *.json *.md

@@ -17,6 +17,9 @@ dev = ["pytest>=8", "ruff>=0.11", "build>=1"]
 where = ["src"]
 include = ["epsm_data*"]
 
+[project.scripts]
+epsm-matrix-audit = "epsm_data.matrix_audit:main"
+
 [tool.setuptools.package-data]
 "epsm_data.datasets.parametric" = ["*.json"]
 "epsm_data.datasets.layered" = ["*.json", "evidence/*.json"]

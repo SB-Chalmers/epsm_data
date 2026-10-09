@@ -51,6 +51,10 @@ _RENOVATION_EXPORTS = {
 
 def __getattr__(name):
     # Lazy imports also permit python -m epsm_data.parametric without runpy warnings.
+    if name == "resolve_building_archetype":
+        from .application import resolve_building_archetype
+
+        return resolve_building_archetype
     if name in _PARAMETRIC_EXPORTS:
         from . import parametric
 
@@ -83,6 +87,7 @@ def __getattr__(name):
 
 
 __all__ = [
+    "resolve_building_archetype",
     "__version__",
     "ArchetypeKey",
     "ArchetypeSlot",
@@ -130,4 +135,5 @@ __all__ = [
     "export_construction_sets",
     "export_consumption_contracts",
     "export_json",
+    "resolve_building_archetype",
 ]

@@ -1,13 +1,14 @@
 # Archetype explorer
 
 Local, dependency-free viewer for the Swedish parametric catalogue and detailed
-LoD2 completeness report.
+LoD2 completeness report. The current default is the frozen DB 1.5.0 / LoD2 v1.4
+baseline; see [freeze scope and limitations](../docs/frozen-baseline.md).
 
 ## Run
 
 ```sh
-python -m explorer.server
-python -m explorer.server --port 8766 --catalogue /path/to/catalogue.json \
+.venv/bin/python -m explorer.server
+.venv/bin/python -m explorer.server --port 8766 --catalogue /path/to/catalogue.json \
   --notes /path/to/explorer-notes.sqlite
 ```
 
@@ -51,6 +52,6 @@ to make it durable. Concurrent edits are rejected rather than silently overwritt
 The app binds to localhost and retains the existing local request guards.
 
 ```sh
-python -m pytest tests/test_explorer.py -q
+.venv/bin/python -m pytest tests/test_explorer.py -q
 node --check explorer/static/app.js
 ```

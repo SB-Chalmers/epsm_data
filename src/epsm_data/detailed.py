@@ -4,6 +4,7 @@ Mapping, assembly, archetype and two source JSON files are authoritative. Resolv
 historical evidence snapshots are never consulted by this loader.
 """
 
+# Release contract: v1.4 preserves v1.3 roles; see evidence/lod2_v1_4/window-diagnostic.json.
 from __future__ import annotations
 
 import argparse
@@ -481,7 +482,7 @@ class DetailedCatalogue:
             return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
 
         return {"rule_version": 4 if all(
-                    s.get("dataset_release") == "epsm-lod2-v1.3"
+                    s.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4")
                     for a in self.archetypes.values() if a.get("catalogue_assignment", "canonical") == "canonical"
                     for s in a["states"].values()) else 3, "detailed_revision": revision(self._data),
                 "catalogue_revision": revision(catalogue.to_dict()),
@@ -824,7 +825,7 @@ def _validate(data, catalogue):
                                       "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING"}
                     if archetype["era"] == "SE.01":
                         expected_roles.add("BASEMENT_WALL")
-                if state.get("dataset_release") == "epsm-lod2-v1.3":
+                if state.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
                     expected_roles.add("BASEMENT_WALL")
                 if set(refs) != expected_roles:
                     raise ValueError(f"{aid}: Existing must contain the declared construction roles")

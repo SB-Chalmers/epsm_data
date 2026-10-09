@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "database_release": "epsm-lod2-v1.4",
+  "claim": {
+    "classification": "engineering_assumption",
+    "basis": "user_adopted_retrospective_window_hypothesis",
+    "construction_basis": "family_with_representative_dimensions",
+    "confidence": "provisional_in_sample_not_independently_validated",
+    "category": "multi_family",
+    "era": "SE.02",
+    "state": "existing",
+    "condition": "representative_surviving_stock_window",
+    "source": "v1_4_mf_se02_window_diagnostic",
+    "locator": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json#/claim",
+    "source_recipe": "evidence/lod2_v1_2/release/layered/assemblies.json#/assemblies/v1_mf_se02_existing_window",
+    "assembly_id": "v1_4_mf_se02_existing_window",
+    "nominal_u_value": 2.2,
+    "selected_value": 2.2,
+    "boundary": "nominal_physical_assembly",
+    "value_kind": "nominal_assembly",
+    "uncertainty_type": "qualitative_evidence_limit; no_statistical_interval",
+    "limitations": "12 previously examined detached multifamily SE.02/F properties in Gothenburg. Retrofit state unknown. No measured window U, held-out validation, causal attribution or population coverage certification. Other eras, uses, states, optics and infiltration unchanged.",
+    "decision": "User-authorized provisional existing-window default; retain 2.8 as historical original-construction reference.",
+    "basis_signature": "46c1cba59c5aa4d417d44e3ed5a5bba272319b418db853b54afd8bdd2caeb17f",
+    "previous_original_construction_reference_u_w_m2k": 2.8
+  },
+  "window_only": {
+    "baseline_coverage20": 0.6666666666666666,
+    "window_22_coverage20": 0.75,
+    "baseline_mae_kwh_m2": 18.138289041560373,
+    "window_22_mae_kwh_m2": 15.01092973649076
+  },
+  "study_sources": {
+    "/Users/ssanjay/GitHub/epsm_workflows/output/multifamily-improvement-2026-10-03/experiment/manifest.json": "54b0429be04a90d452f0a11f2cb970c06cdb63ba8378a290396bfdbee6f6e5b8",
+    "/Users/ssanjay/GitHub/epsm_workflows/output/multifamily-improvement-2026-10-03/experiment/selection.json": "c8a208a7bbc3f369db1fc9794d21dc7b1c9ae0cb407e5a8ecaf465a5f6b87c96",
+    "/Users/ssanjay/GitHub/epsm_workflows/output/multifamily-improvement-2026-10-03/experiment/per-building.parquet": "c8edac6136e0c3621b23f04ef9d268d6c87825a6fc4ce7dc9ed4f75ac9a4a0c8"
+  },
+  "raw_extraction_sha256": "4e118c3667b25ad342fd4a2f39738a299ec046649e1589eb0ea5706ad8e9b6e1",
+  "user_authorized": true,
+  "independent_validation": false,
+  "infiltration_changed": false,
+  "other_thermal_values_changed": false
+}

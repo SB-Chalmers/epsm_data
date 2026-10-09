@@ -5,6 +5,7 @@ Nominal calibration is not a claim of effective ground calibration or LoD2
 completeness. Run ``python -m epsm_data.layered --check`` for its report.
 """
 
+# Release contract: v1.4 preserves v1.3 roles; see evidence/lod2_v1_4/window-diagnostic.json.
 from __future__ import annotations
 
 import argparse
@@ -125,7 +126,7 @@ def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state="ex
         spec["elements"][role] = deepcopy(patch)
     included = definition["included_roles"]
     ground_roles = {"ground_floor": "GROUND_FLOOR"}
-    if key.category not in {"office", "school"} or key.era == "SE.01" or definition.get("dataset_release") == "epsm-lod2-v1.3":
+    if key.category not in {"office", "school"} or key.era == "SE.01" or definition.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
         ground_roles["basement_wall"] = "BASEMENT_WALL"
     if len(included) != len(set(role_map.values()) | set(ground_roles.values())) or set(included) != set(role_map.values()) | set(ground_roles.values()):
         raise ValueError("The calibrated MF construction set must contain exactly seven roles")

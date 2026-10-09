@@ -82,6 +82,7 @@ const eraLabel = (era) => {
   return a === 1 ? `≤ ${b}` : `${a}–${b ?? "present"}`;
 };
 const packageKey = (id, rev) => `${id}@${rev}`;
+let drawingSequence = 0;
 let data,
   packages,
   cellsById,
@@ -269,7 +270,141 @@ function lod2Details(p) {
   const alternatives = lod2.alternatives?.length
     ? `<h4>Named alternatives</h4><ul>${lod2.alternatives.map((variant) => `<li>${esc(variant.archetype_id)}: ${lod2Label(variant.status)} against the same LoD1 targets; no extra catalogue slots.</li>`).join("")}</ul>`
     : "";
-  return `<h3>${lod2Label(lod2.status)}</h3><p class="muted">Detailed archetype: ${esc(lod2.archetype_id)}. This is the catalogue acceptance status for its layer recipe.</p><h4>Acceptance checks</h4><ul class="check-list">${checks}</ul>${alternatives}<h4>Downstream readiness</h4><p class="muted">Nominal export is separate from validated ground, carbon, and simulation readiness.</p><ul class="check-list">${readiness}</ul>${lod2.blocking_caveats ? `<p><strong>${lod2.blocking_caveats} blocking catalogue caveats</strong> remain open.</p>` : ""}${lod2.pending_boverket_references?.length ? `<p>Pending Boverket references: ${esc(lod2.pending_boverket_references.join(", "))}.</p>` : ""}<details class="source-details"><summary>Remaining limitations (${lod2.remaining.length})</summary><ul>${lod2.remaining.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></details><p class="muted">Layer recipes are tracked in the detailed catalogue; this view reports their acceptance state.</p>`;
+  const role = metricRoles[filters.metric];
+  const available = Object.keys(p.construction || {}).length > 0;
+  return `<h3>${lod2Label(lod2.status)}</h3><p class="muted">Detailed archetype: ${esc(lod2.archetype_id)}. This is the catalogue acceptance status for its layer recipe.</p>${constructionDetails(p.construction || {}, role)}${available ? '<button type="button" class="button primary" id="open-archetype">Open full archetype</button>' : ""}<h4>Acceptance checks</h4><ul class="check-list">${checks}</ul>${alternatives}<h4>Downstream readiness</h4><p class="muted">Nominal export is separate from validated ground, carbon, and simulation readiness.</p><ul class="check-list">${readiness}</ul>${lod2.blocking_caveats ? `<p><strong>${lod2.blocking_caveats} blocking catalogue caveats</strong> remain open.</p>` : ""}${lod2.pending_boverket_references?.length ? `<p>Pending Boverket references: ${esc(lod2.pending_boverket_references.join(", "))}.</p>` : ""}<details class="source-details"><summary>Remaining limitations (${lod2.remaining.length})</summary><ul>${lod2.remaining.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></details>`;
+}
+const elementNames = { TOP_FLOOR: "Attic floor", EXT_WALL: "External wall", INTERMEDIATE_FLOOR: "Intermediate floor", GROUND_FLOOR: "Ground floor", BASEMENT_WALL: "Basement wall", BASEMENT_FLOOR: "Basement floor", INT_WALL_LOADBEARING: "Loadbearing internal wall", INT_WALL_NONLOADBEARING: "Internal partition", WINDOW: "Window" };
+const metricRoles = { wall: "EXT_WALL", top: "TOP_FLOOR", ground: "GROUND_FLOOR", glazing: "WINDOW", intermediate_floor: "INTERMEDIATE_FLOOR", internal_wall: "INT_WALL_NONLOADBEARING", basement_wall: "BASEMENT_WALL" };
+const hatchStyles = [
+  ["air gap", "#fff", "#78909c", ""], ["acoustic", "#d5e1e8", "#708a99", "dots"],
+  ["linoleum", "#879ba0", "#465d62", ""], ["brick", "#c8785a", "#7a3b20", "cross"],
+  ["expanded plastic", "#e8f0ff", "#7090c0", "circles"], ["light insulation", "#fff7d9", "#b59a52", "diagonal"],
+  ["under felt", "#404040", "#202020", ""], ["wood-fibre", "#dfcba1", "#927d55", "dots"],
+  ["woodfiber", "#dfcba1", "#927d55", "dots"], ["rubber", "#879ba0", "#465d62", ""],
+  ["leca", "#d8c6b3", "#8d7258", "circles"], ["lightweight concrete", "#d0d0d0", "#8a8a8a", "dots"],
+  ["stone wool", "#fff7d9", "#b59a52", "diagonal"],
+  ["eps", "#e8f0ff", "#7090c0", "circles"], ["xps", "#d5e7f5", "#5681a0", "circles"],
+  ["mortar", "#e8e0d0", "#968870", ""], ["plaster", "#e8e0d0", "#968870", ""],
+  ["mineral wool", "#fff7d9", "#b59a52", "diagonal"], ["stucco", "#e8e0d0", "#968870", ""],
+  ["concrete block", "#bcbcbc", "#6b6b6b", "dots"],
+  ["concrete floor", "#bcbcbc", "#6b6b6b", "dots"], ["concrete roof", "#bcbcbc", "#6b6b6b", "dots"],
+  ["concrete wall", "#bcbcbc", "#6b6b6b", "dots"], ["concrete", "#bcbcbc", "#6b6b6b", "dots"],
+  ["gypsum", "#f5f0e8", "#a09880", ""], ["plywood", "#ddb87a", "#8b6914", "wood"],
+  ["wood", "#e8c882", "#8b6914", "wood"], ["insulation board", "#e8f0ff", "#7090c0", "circles"],
+  ["built-up roofing", "#404040", "#202020", ""], ["roofing", "#404040", "#202020", ""],
+];
+function hatchStyle(name) {
+  const lower = String(name || "").toLowerCase();
+  const found = hatchStyles.find(([fragment]) => lower.includes(fragment));
+  return found ? found.slice(1) : ["#e0e0e0", "#888", ""];
+}
+function patternSvg(id, color, edge, hatch) {
+  const marks = {
+    dots: `<circle cx="10" cy="10" r="1.4" fill="${edge}"/><circle cx="30" cy="30" r="1.4" fill="${edge}"/>`,
+    diagonal: `<path d="M-8 32L32-8M8 48L48 8" stroke="${edge}" stroke-width="1.15"/>`,
+    cross: `<path d="M-8-8L48 48M48-8L-8 48" stroke="${edge}" stroke-width="1.1"/>`,
+    circles: `<circle cx="11" cy="11" r="3" fill="none" stroke="${edge}" stroke-width="1.1"/><circle cx="31" cy="31" r="3" fill="none" stroke="${edge}" stroke-width="1.1"/>`,
+    wood: `<path d="M0 12H40M0 32H40" stroke="${edge}" stroke-width="1.1"/>`,
+  }[hatch] || "";
+  return `<pattern id="${id}" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="${color}"/>${marks}</pattern>`;
+}
+function roleLayers(assembly) {
+  if (assembly?.window) return [];
+  const layers = (assembly?.components || []).flatMap((component) => component.layers || []);
+  const cavity = assembly?.boundary_details?.facade_cavity;
+  if (cavity) layers.splice(cavity.after_layer ?? 1, 0, {
+    name: cavity.ventilation === "sealed_existing_cavity_assumption" ? "Sealed existing cavity" : "Drained cavity",
+    thickness_mm: cavity.thickness_m * 1000, materials: [], cavity: true,
+  });
+  return layers;
+}
+function sectionSvg(role, assembly, prefix) {
+  const layers = roleLayers(assembly);
+  const total = layers.reduce((sum, layer) => sum + layer.thickness_mm, 0);
+  if (!layers.length || !(total > 0)) return "";
+  const wall = ["EXT_WALL", "BASEMENT_WALL", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING"].includes(role);
+  const topFirst = ["TOP_FLOOR", "INTERMEDIATE_FLOOR"].includes(role);
+  const patterns = new Map();
+  let cursor = 0;
+  const rects = layers.map((layer, li) => {
+    const x = wall ? cursor / total * 100 : 0;
+    const y = wall ? 10 : 10 + (topFirst ? cursor : total - cursor - layer.thickness_mm) / total * 76;
+    const w = wall ? layer.thickness_mm / total * 100 : 100;
+    const h = wall ? 76 : layer.thickness_mm / total * 76;
+    const mats = layer.materials?.length ? layer.materials : [{ name: layer.name, area_fraction: 1 }];
+    const divisionCount = mats.length > 1 ? 5 : 1;
+    const pieces = [];
+    for (let div = 0; div < divisionCount; div++) {
+      let materialCursor = 0;
+      for (const material of mats) {
+        const fraction = material.area_fraction ?? 1 / mats.length;
+        const share = fraction / divisionCount;
+        const [color, edge, hatch] = layer.cavity ? ["#fff", "#78909c", ""] : hatchStyle(material.name);
+        const key = `${prefix}-${li}-${patterns.size}`;
+        patterns.set(key, patternSvg(key, color, edge, hatch));
+        const px = wall ? x : (div / divisionCount + materialCursor / divisionCount) * 100;
+        const py = wall ? 10 + (div / divisionCount + materialCursor / divisionCount) * 76 : y;
+        const pw = wall ? w : share * 100;
+        const ph = wall ? share * 76 : h;
+        pieces.push(`<rect x="${px}%" y="${py}%" width="${pw}%" height="${ph}%" fill="url(#${key})" stroke="${edge}" stroke-width="1"><title>${esc(material.name || layer.name)} · ${fmt(layer.thickness_mm, 0)} mm${material.area_fraction != null ? ` · ${fmt(material.area_fraction * 100, 0)}%` : ""}</title></rect>`);
+        materialCursor += fraction;
+      }
+    }
+    cursor += layer.thickness_mm;
+    return pieces.join("");
+  }).join("");
+  const edge = wall ? `<text x="0" y="15" font-size="14" fill="#526372">${role.startsWith("INT_") ? "ROOM A" : "OUTSIDE"}</text><text x="1000" y="15" text-anchor="end" font-size="14" fill="#526372">${role.startsWith("INT_") ? "ROOM B" : "ROOM"}</text>` : "";
+  return `<svg class="layer-section hatched-section ${wall ? "wall-section" : "floor-section"}" viewBox="0 0 1000 220" role="img" aria-label="Hatched cross-section of ${esc(elementNames[role] || label(role))}, ${layers.length} layers, ${fmt(total, 0)} millimetres"><defs>${[...patterns.values()].join("")}</defs>${edge}${rects}</svg>`;
+}
+function materialDetails(material) {
+  const hb = material.honeybee_properties || {};
+  const propertyNames = { roughness: "Roughness", conductivity: "Conductivity λ (W/(m·K))", density: "Density (kg/m³)", specific_heat: "Specific heat (J/(kg·K))", thermal_absorptance: "Thermal absorptance", solar_absorptance: "Solar absorptance", visible_absorptance: "Visible absorptance", u_value: "U-value (W/(m²·K))", shgc: "SHGC", vt: "Visible transmittance" };
+  const propertyRows = Object.entries(hb).map(([key, value]) => `<div><dt>${esc(propertyNames[key] || label(key))}</dt><dd>${esc(typeof value === "number" ? fmt(value, 4) : value ?? "Unavailable")}</dd></div>`).join("");
+  const gwp = material.gwp;
+  const gwpRows = gwp ? [["A1–A3 typical", gwp.A1_A3_typical], ["A1–A3 conservative", gwp.A1_A3_conservative], ["A4 transport", gwp.A4_transport], ["A5 conservative", gwp.A5_conservative]].map(([name, value]) => `<div><dt>${name}</dt><dd>${value == null ? "Unavailable" : `${fmt(value, 5)} ${esc(gwp.unit)}`}</dd></div>`).join("") : "<div><dt>Retrieved values</dt><dd>Unavailable</dd></div>";
+  return `<details class="material-facts"><summary>${esc(material.name)} · ${esc(material.honeybee_id || "Honeybee ID unavailable")} · Boverket ${esc(material.boverket_id || "unmatched")}</summary><p class="muted">${esc(material.boverket_name || "No matched Boverket resource")} · ${esc(label(material.mapping_status || "unmatched"))}</p>${propertyRows ? `<h6>HBJSON thermal properties</h6><dl class="material-property-grid">${propertyRows}</dl>` : "<p class=\"muted\">HBJSON properties unavailable.</p>"}<h6>Boverket GWP · retrieved values</h6><dl class="material-property-grid">${gwpRows}</dl></details>`;
+}
+function wholeWindowDefinition(assembly) {
+  const props = assembly.material?.honeybee_properties || {};
+  const uValue = assembly.u_value ?? props.u_value;
+  return `<div class="whole-window-definition"><strong>Whole-window definition</strong><dl><div><dt>U-value</dt><dd>${uValue == null ? "Unavailable" : `${fmt(uValue, 2)} W/(m²·K)`}</dd></div><div><dt>Solar gain · SHGC</dt><dd>${props.shgc == null ? "Unavailable" : fmt(props.shgc, 2)}</dd></div><div><dt>Visible transmittance · VT</dt><dd>${props.vt == null ? "Unavailable" : fmt(props.vt, 2)}</dd></div></dl><p>Frame dimensions and pane layers are unspecified.</p></div>`;
+}
+function constructionDetails(construction, role, { full = false } = {}) {
+  const entries = full ? Object.entries(construction).sort(([a], [b]) => {
+    const order = ["TOP_FLOOR", "EXT_WALL", "INTERMEDIATE_FLOOR", "GROUND_FLOOR", "BASEMENT_WALL", "BASEMENT_FLOOR", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING", "WINDOW"];
+    return order.indexOf(a) - order.indexOf(b);
+  }) : (construction[role] ? [[role, construction[role]]] : []);
+  if (!entries.length) return `<h4>${full ? "Full archetype" : "Selected construction"}</h4><p class="muted">${full ? "No detailed layer recipe is available." : `No layer recipe is available for ${esc(elementNames[role] || label(role))}.`}</p>`;
+  return `<section class="construction-details ${full ? "full-construction" : "selected-construction"}">${full ? "" : `<h3>${esc(elementNames[role] || label(role))} composition</h3>`}${entries.map(([entryRole, assembly]) => {
+    const layers = roleLayers(assembly), total = layers.reduce((sum, layer) => sum + layer.thickness_mm, 0);
+    const componentLists = assembly.components || [];
+    const list = componentLists.map((component) => `<div class="component-block"><h5>${esc(component.name)}${component.shearing_layer ? ` · ${esc(label(component.shearing_layer))}` : ""}</h5><ol class="layer-list">${component.layers.map((layer) => `<li><span><strong>${esc(layer.name)}</strong><small>${fmt(layer.thickness_mm, 0)} mm</small>${layer.materials.map((material) => `<span class="material-share">${esc(material.name)}${material.area_fraction != null && layer.materials.length > 1 ? ` · ${fmt(material.area_fraction * 100, 0)}% area` : ""}</span>${materialDetails(material)}`).join("")}</span></li>`).join("")}</ol></div>`).join("");
+    const cavity = assembly.boundary_details?.facade_cavity;
+    const cavityDetails = cavity ? `<p class="muted cavity-note">${cavity.ventilation === "sealed_existing_cavity_assumption" ? "Sealed existing cavity" : "Drained facade cavity"} · ${fmt(cavity.thickness_m * 1000, 0)} mm · section depth shown; no separate material record.</p>` : "";
+    const windowMaterial = assembly.window ? materialDetails(assembly.material) : "";
+    return `<article class="construction-card"><h4>${esc(elementNames[entryRole] || label(entryRole))}${assembly.u_value != null ? ` <small>· U ${fmt(assembly.u_value, 3)} W/(m²·K)</small>` : ""}</h4><p class="muted">${esc(assembly.name)}${total ? ` · ${fmt(total, 0)} mm total` : ""}</p>${assembly.window ? `${wholeWindowDefinition(assembly)}${windowMaterial}` : `${sectionSvg(entryRole, assembly, `draw-${++drawingSequence}`)}<p class="muted layer-order-note">${["EXT_WALL", "BASEMENT_WALL", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING"].includes(entryRole) ? "Layer order: left to right · composites repeat five divisions." : "Layer order: from top to bottom · composites repeat five divisions."}</p>${cavityDetails}${list}`}</article>`;
+  }).join("")}</section>`;
+}
+function closeArchetypeDialog() {
+  const dialog = $("#archetype-dialog");
+  if (typeof dialog.close === "function" && dialog.open) dialog.close();
+  else dialog.removeAttribute("open");
+  document.body.classList.remove("dialog-open");
+  $("#app").inert = false;
+  dialog._returnFocus?.focus();
+  dialog._returnFocus = null;
+}
+function openArchetypeDialog(dialog, trigger, p) {
+  $("#archetype-dialog-title").textContent = `${label(selected.category)} · ${eraLabel(selected.era)} · ${label(selected.state)} archetype`;
+  $("#archetype-dialog-subtitle").textContent = `${p.lod2.archetype_id} · ${selected.zone.replace("SE.", "")} · ${label(selected.system)}`;
+  $("#archetype-dialog-content").innerHTML = constructionDetails(p.construction || {}, null, { full: true });
+  dialog._returnFocus = trigger;
+  $("#app").inert = true;
+  document.body.classList.add("dialog-open");
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+  $("#close-archetype").focus();
 }
 function floorReview(p) {
   if (!p.floor_review) return "";
@@ -310,6 +445,9 @@ function renderDetail() {
   }
   if (tab === "layers") {
     body.insertAdjacentHTML("beforeend", lod2Details(p) + `<h3>Available constructions</h3><p>${(p.construction_availability || []).map(esc).join(", ")}</p><p class="muted">Availability does not imply presence. Geometry selects basement and other elements. Nominal ground-layer U is separate from the retained effective ground reference. Completeness does not imply empirical validation.</p>`);
+    $("#open-archetype")?.addEventListener("click", (event) => {
+      openArchetypeDialog($("#archetype-dialog"), event.currentTarget, p);
+    });
   }
   if (tab === "evidence") {
     body.insertAdjacentHTML("beforeend", `<h3>References and scaling</h3>${Object.entries(p.properties).map(([role, prop]) => {
@@ -509,6 +647,7 @@ async function init() {
           renderDetail();
         }
         renderMatrix();
+        if (k === "metric") renderDetail();
       });
     }
     $("#reset").onclick = () => {
@@ -556,6 +695,25 @@ async function init() {
       }
     };
     $("#total").textContent = data.cells.length.toLocaleString();
+    $("#close-archetype").addEventListener("click", closeArchetypeDialog);
+    $("#archetype-dialog").addEventListener("close", (event) => {
+      document.body.classList.remove("dialog-open");
+      $("#app").inert = false;
+      event.currentTarget._returnFocus?.focus();
+      event.currentTarget._returnFocus = null;
+    });
+    $("#archetype-dialog").addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeArchetypeDialog();
+      } else if (event.key === "Tab") {
+        const focusable = $$("button:not(:disabled), summary, a[href], [tabindex]:not([tabindex='-1'])", event.currentTarget);
+        if (!focusable.length) { event.preventDefault(); return; }
+        const first = focusable[0], last = focusable.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
     $("#release").textContent =
       `${data.summary.lod1_complete} LoD1 complete · ${data.summary.lod1_pending} pending`;
     $("#lod2-total").textContent =

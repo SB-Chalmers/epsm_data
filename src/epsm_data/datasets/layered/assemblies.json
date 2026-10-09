@@ -87274,6 +87274,19 @@
         ],
         "renovation": "retained baseline; excavation/accessibility not assumed"
       }
+    },
+    "v1_4_mf_se02_existing_window": {
+      "role": "WINDOW",
+      "notes": [
+        "Discrete LOD2 representative. Current dimensions are in layers and lod2_fitting; historical numerical-fit claims are superseded.",
+        "Prior annotations: evidence/lod2_fitting/before/assemblies.json: mf_se02_existing_window.",
+        "Nominal calculation retains existing film/cavity conventions; full boundary simulation is separate.",
+        "Provisional v1.4 diagnostic default; see evidence/lod2_v1_4/window-diagnostic.json. Historical assembly and generic/source variants preserved."
+      ],
+      "caveats": [],
+      "thickness_constraints": [],
+      "framing_constraints": [],
+      "material_id": "window_lod2_mf_se02_existing_v1_4"
     }
   }
 }

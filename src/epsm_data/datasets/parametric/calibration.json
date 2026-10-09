@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "calibration_id": "epsm-lod2-v1.3",
+  "calibration_id": "epsm-lod2-v1.4",
   "thermal_cells": 630,
-  "catalogue_release": "f4b0fe08b1dab599a4629232572e32de9622844d03481f9bc27f8ea438123baf",
-  "prior_release": "b612a2012844b627b42be9fb07f67c9cb134f16b8b68abde00831a3599814b13",
-  "baseline_definition": "reviewed representative construction; empirical validation pending",
+  "catalogue_release": "c641333e3909eb5729d555d7b2854ed7d6c6cd43daffb3f3f8154875c272449f",
+  "prior_release": "f4b0fe08b1dab599a4629232572e32de9622844d03481f9bc27f8ea438123baf",
+  "baseline_definition": "reviewed representative construction with provisional MF SE.02 existing-window diagnostic default; independent annual validation pending",
   "entries": {
     "multi_family:SE.01:existing:ground_floor": {
       "category": "multi_family",
@@ -1566,13 +1566,13 @@
       "state": "existing",
       "property": "window",
       "previous_value": 2.8,
-      "final_value": 2.8,
+      "final_value": 2.2,
       "unit": "W/(m²K)",
-      "difference_percent": 0.0,
-      "derivation": "reviewed_physical_assembly",
+      "difference_percent": -21.42857142857142,
+      "derivation": "provisional_retrospective_window_diagnostic",
       "boundary": "nominal_physical_assembly",
-      "confidence": "representative_assumption",
-      "source": "evidence/lod2_v1_1/report.json"
+      "confidence": "in_sample_not_independently_validated",
+      "source": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json"
     },
     "multi_family:SE.02:standard:window": {
       "category": "multi_family",
@@ -8828,5 +8828,6 @@
     }
   },
   "empirical_validation": "pending",
-  "review": "Thermal values retained; physical/evidence changes in v1.3 claims and decisions. Nominal ground values are separate from legacy effective references."
+  "review": "Thermal values retained; physical/evidence changes in v1.3 claims and decisions. Nominal ground values are separate from legacy effective references.",
+  "database_version": "1.4.0"
 }

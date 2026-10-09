@@ -19,7 +19,7 @@ def test_registry_counts_references_and_defensive_export():
     catalogue = load_detailed_catalogue()
     summary = catalogue.summary()
     assert {key: summary[key] for key in ("materials", "assemblies", "archetypes", "states")} == {
-        "materials": 206, "assemblies": 1605, "archetypes": 32, "states": 92,
+        "materials": 207, "assemblies": 1606, "archetypes": 32, "states": 92,
     }
     assert summary["open_caveats"] > 0
     materials = catalogue.materials
@@ -198,7 +198,7 @@ def test_directory_or_any_registry_file_and_cli(detailed_copy):
         assert load_detailed_catalogue(path / f"{name}.json").to_dict() == expected
     result = subprocess.run([sys.executable, "-m", "epsm_data.detailed", "--path", str(path),
                              "--check", "--summary"], capture_output=True, text=True, check=True)
-    assert json.loads(result.stdout)["materials"] == 206
+    assert json.loads(result.stdout)["materials"] == 207
     assert not result.stderr
     result = subprocess.run([sys.executable, "-m", "epsm_data.detailed", "--caveats", "--state", "advanced", "--path", "src/epsm_data/datasets/layered"],
                             capture_output=True, text=True, check=True)

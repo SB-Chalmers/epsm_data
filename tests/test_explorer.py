@@ -95,6 +95,42 @@ def test_lod2_completeness_comes_from_detailed_catalogue(catalogue):
     assert packages["parametric:school:SE.04:existing"]["lod2"]["status"] == "complete"
 
 
+def test_construction_payload_retains_material_properties_and_composites(catalogue):
+    package = next(
+        p for p in catalogue["packages"]
+        if p["id"] == "parametric:multi_family:SE.02:existing"
+    )
+    wall = package["construction"]["EXT_WALL"]
+    assert wall["u_value"] is not None
+    assert wall["components"]
+    layers = [layer for component in wall["components"] for layer in component["layers"]]
+    composite = next(layer for layer in layers if len(layer["materials"]) > 1)
+    assert sum(material["area_fraction"] for material in composite["materials"]) == pytest.approx(1)
+    material = composite["materials"][0]
+    assert material["honeybee_id"]
+    assert material["honeybee_properties"]["conductivity"] > 0
+    assert material["honeybee_properties"]["density"] > 0
+    assert material["honeybee_properties"]["specific_heat"] > 0
+    assert material["boverket_id"]
+    assert material["gwp"]["unit"] == "kg CO2 eq./kg"
+    assert material["gwp"]["A1_A3_typical"] is not None
+    assert material["gwp"]["A1_A3_conservative"] is not None
+    assert material["gwp"]["A4_transport"] is not None
+    assert material["gwp"]["A5_conservative"] is not None
+    unmatched = next(
+        material
+        for p in catalogue["packages"]
+        for assembly in p["construction"].values()
+        for component in assembly.get("components", [])
+        for layer in component["layers"]
+        for material in layer["materials"]
+        if material["boverket_id"] is None
+    )
+    assert unmatched["gwp"] is None
+    window = package["construction"]["WINDOW"]
+    assert window["window"] and window["material"]["honeybee_id"]
+
+
 @pytest.fixture
 def server(tmp_path, catalogue, monkeypatch):
     monkeypatch.setattr("explorer.server.load_data", lambda path: catalogue)

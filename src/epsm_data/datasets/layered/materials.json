@@ -298,6 +298,11 @@
       "title": "V1.3 evidence-led construction review",
       "locator": "evidence/lod2_v1_3/policy.json; evidence/betsi_review/audit.json",
       "note": "Representative construction defaults; no new empirical era or climate calibration."
+    },
+    "v1_4_mf_se02_window_diagnostic": {
+      "title": "EPSM multifamily SE.02 existing window: provisional diagnostic update (2026-10-03)",
+      "locator": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
+      "note": "User-authorized 2.8 to 2.2 W/(m2K) default. Window-only case: 9/12 below20 versus8/12 baseline, MAE15.011 versus18.138 kWh/m2. Previously examined properties; no independent validation. Joint wall/roof/flow improvement is not attributed to windows alone."
     }
   },
   "materials": {
@@ -6423,6 +6428,42 @@
         "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
       ],
       "caveats": []
+    },
+    "window_lod2_mf_se02_existing_v1_4": {
+      "mapping_status": "reviewed_proxy",
+      "source": "v1_4_mf_se02_window_diagnostic",
+      "locator": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
+      "notes": [
+        "Simple whole-window model, not material-layer glazing. Optical properties are explicit assumptions.",
+        "Modern wood triple-glazed carbon proxy for assumed wood-framed historic window; glazing/mass differences explicit. U=2.22 and clear-double-like optics remain independent nominal assumptions.",
+        "SHGC 0.70 and VT 0.75 accepted clear-double-like whole-window assumptions, not inferred from U/carbon.",
+        "v1.4 supersedes earlier thermal targets with user-adopted provisional U=2.2 W/(m2K). This is not a measured historic product or independently validated stock parameter."
+      ],
+      "caveats": [
+        {
+          "id": "window_mapping_pending",
+          "status": "accepted_assumption",
+          "severity": "blocking",
+          "topic": "mapping",
+          "note": "Existing window has no approved Boverket mapping.",
+          "resolution": "Modern wood triple-glazed carbon proxy for assumed wood-framed historic window; glazing/mass differences explicit. U=2.22 and clear-double-like optics remain independent nominal assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "optics_assumed",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "note": "SHGC 0.70 and VT 0.75 are representative clear-double-like assumptions, not measured or inferred from U.",
+          "resolution": "SHGC 0.70 and VT 0.75 accepted clear-double-like whole-window assumptions, not inferred from U/carbon.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        }
+      ],
+      "honeybee_id": "EPSM_window_lod2_mf_se02_existing_v1_4",
+      "boverket_id": "6000000104",
+      "json_id": "epsm:window_lod2_mf_se02_existing_v1_4"
     }
   }
 }

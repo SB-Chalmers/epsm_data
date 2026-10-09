@@ -5169,6 +5169,24 @@
           }
         }
       }
+    },
+    "EPSM_window_lod2_mf_se02_existing_v1_4": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "EPSM_window_lod2_mf_se02_existing_v1_4",
+      "display_name": "Existing representative whole window",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "LOD2 discrete review: whole-window performance is independent of opaque layers.",
+          "v1.4 provisional diagnostic U=2.2; optics and carbon references unchanged. See evidence/lod2_v1_4/window-diagnostic.json."
+        ],
+        "caveats": [],
+        "optics_source": "window_proxy",
+        "optics_note": "Optical assumptions are independent of the supplied whole-window U."
+      },
+      "u_factor": 2.2,
+      "shgc": 0.7,
+      "vt": 0.75
     }
   }
 }

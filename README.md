@@ -1,26 +1,33 @@
 # EPSM Data
 
-Offline Swedish building-archetype data and construction library. The frozen
-LoD2 v1.3 baseline contains 90 canonical construction states and 1,080
-classification slots: five categories, six eras, three climate zones, three
-renovation states and four ventilation classifications. Seven construction roles
-are available per state; building geometry determines which are present.
+Offline Swedish building-archetype and construction library. **All current
+archetypes are frozen as of 9 October 2026:** database **1.5.0**, construction
+release **LoD2 v1.4**, Python package **0.3.0.dev1**. The freeze preserves the
+current values and assumptions; it does not establish building prediction accuracy.
 
-## Install and check
+## Start here
 
-Requires Python 3.11 or newer. The core package has no external dependencies.
+Use the local explorer to inspect archetypes, construction layers, U-values,
+airflow assumptions and evidence:
 
 ```sh
-python -m pip install -e '.[dev]'
-python -m epsm_data.parametric --check --summary
-python -m epsm_data.detailed --check --lod2
-python -m pytest -q
+.venv/bin/python -m explorer.server
 ```
 
-Install `.[visualization]` for section drawings and graph tools. Honeybee Energy
-and `epsm_core` integrations require their respective optional installations.
+Open [localhost:8765](http://127.0.0.1:8765). See the
+[explorer guide](explorer/README.md) for filters, detailed constructions and remarks.
+For a fresh installation, use Python 3.11 or newer:
 
-## Use the catalogue
+```sh
+python -m venv .venv
+.venv/bin/python -m pip install -e '.[dev]'
+```
+
+The core library has no external dependencies. Section drawings need
+`.[visualization]`; native simulation inputs need a compatible `epsm_core`
+installation. Honeybee integration needs Honeybee Energy.
+
+## Read the frozen catalogue
 
 ```python
 from epsm_data import ArchetypeKey, load_parametric_catalogue
@@ -30,90 +37,103 @@ slot = catalogue.get_slot(
     ArchetypeKey("multi_family", "SE.02", "SE.Zone3", "existing", "FTX")
 )
 print(slot.construction_set.u_values)
-print(slot.infiltration.value)  # effective background air changes per hour
+print(slot.infiltration.to_dict())  # inspect units, reference basis and evidence
 ```
 
-The active data live in `src/epsm_data/datasets/parametric` and
-`src/epsm_data/datasets/layered`. Loading does not require source workbooks,
-a database, an archive, or network access. Caller-owned catalogues remain
-supported through explicit paths and immutable anchor/override operations.
-Use separate copies for experiments to preserve this baseline.
+For physical layers and portable, role-preserving exports:
 
-Categories are SF, MF, Office, School and Generic. Generic explicitly follows
-the corresponding MF physical construction; it is not a national stock average.
-Climate and ventilation classifications do not modify the construction values.
-Existing describes original period fabric; Standard and Advanced are independent
-renovations of Existing. See [examples](examples) for construction, renovation,
-and section-drawing usage.
+```python
+from epsm_data import load_calibrated_archetype
 
-## Explore and export
+model = load_calibrated_archetype(
+    archetype_id="mf_se02", renovation_state="existing"
+)
+bundle = model.to_nominal_dict()
+print(bundle["roles"])
+print(bundle["readiness"])
+```
+
+The matrix contains **30 canonical archetypes**, **90 construction states** and
+**1,080 classification slots**: five categories, six eras, three climate zones,
+three renovation states and four ventilation classifications. Every canonical
+state supplies seven construction roles. Geometry determines which roles are
+present. Two additional source variants bring the detailed registry to
+**32 archetypes and 92 states**; they are frozen too and do not add matrix slots.
+
+Climate and ventilation classifications do not change construction values.
+Standard and Advanced are independent renovations of Existing. Existing is an
+original-era representative with a documented provisional surviving-stock window
+exception for MF SE.02; it does not establish actual renovation history.
+Generic follows MF physical constructions except the MF-only SE.02 existing
+window update: Generic retains 2.8 W/(m²K), MF uses 2.2.
+
+## Apply data to a building
+
+Use `resolve_building_archetype` for explicit category/year classification and
+independently evidenced component choices. See
+[building application](docs/building-application.md) before creating a Core spec.
+Geometry, weather, operation, HVAC, ground boundaries and attic exchange remain
+caller inputs.
+
+MF additional infiltration defaults use **L/s/m² Atemp**. Use the resolver's
+`core_airflow_inputs` with Atemp as Core's load reference area. The legacy ACH
+representation uses a 2.5 m reference height; it must not silently be applied to
+another model volume. Other categories retain their source reference convention.
+See [airflow definitions and handoff](docs/airflow-review-notes.md).
+
+## What the validation supports
+
+The completed 5 October study covers 85 buildings in 54 Gothenburg properties,
+limited to MF SE.02 Existing / exhaust ventilation F / district heat. The final
+selection retains the baseline with **no fitted overrides**: **54/85 within 20%**,
+MAE **14.302 kWh/m²/year**. The accuracy target was not met; support remains
+provisional and independent confirmation is pending. Other cells are unvalidated.
+
+Read the [validation results](docs/mf-se02-data15-validation.md). The
+[current cohort profile](cohort_profiles/2026-10-05-v2/README.md) supersedes the
+historical ACH-based v1 profile and defaults to parent fallback while provisional.
+Nominal construction acceptance is separate from ground, carbon and annual
+simulation validation.
+
+## Freeze and checks
+
+[BASELINE.json](BASELINE.json) pins every packaged dataset by SHA-256. The local
+Git tag `epsm-data-baseline-v1.5.0` identifies this freeze. The
+[freeze record](docs/frozen-baseline.md) describes its scope, checks and remaining
+limitations. The older `epsm-data-baseline-v1.3` tag remains historical.
 
 ```sh
-python -m explorer.server
-python -m epsm_data.layered --state existing --export
-python -m epsm_data.layered --state advanced --nominal-export
+.venv/bin/python -m epsm_data.parametric --check --summary
+.venv/bin/python -m epsm_data.layered --check
+.venv/bin/python -m pytest -q
 ```
 
-Open [the local explorer](http://127.0.0.1:8765) to browse construction layers,
-thermal values and evidence. [Explorer documentation](explorer/README.md)
-describes filters and remarks. Remarks are stored separately in the ignored
+Use separate catalogue/registry copies for experiments. A future default change
+needs a new reviewed baseline and updated checksums; do not overwrite historical
+evidence or fit defaults from a building's heating residual.
+
+## Repository map
+
+| Location | Purpose |
+| --- | --- |
+| `src/epsm_data/datasets/` | Frozen packaged catalogue, recipes, materials and evidence |
+| `src/epsm_data/` | Loaders, exports and building application APIs |
+| `explorer/` | Local viewer |
+| `docs/` | Current usage, freeze and validation guidance |
+| `evidence/` | Cited sources and historical release records |
+| `cohort_profiles/current.json` | Current profile pointer; dated versions preserve history |
+| `examples/` | Construction, renovation and section examples |
+| `tests/` | Dataset integrity and runtime contracts |
+| `ARCHIVE/` | Ignored local development history; absent from fresh clones |
+
+Runtime needs no archive, source workbooks, database or network connection.
+[The source index](evidence/source-index.json) maps historical locators to retained
+source copies. Explorer remarks live separately in ignored
 `data/local/explorer-notes.sqlite`; preserve that file when backing up local work.
 
-Python callers can use `load_calibrated_archetype` and its `to_nominal_dict()`
-method for role-preserving exports. `epsm_data.release.core_inputs` provides
-optional native `epsm_core` inputs. Geometry, weather, operation, HVAC, ground
-boundaries and attic ventilation remain caller inputs.
-
-## Retained calibration tool
-
-```sh
-python -m tools.recalibrate_mf_se02
-```
-
-This existing tool previews a bounded, discrete thickness and framing-fraction
-search for MF SE.02 against nominal U-value targets. Conductivity stays fixed;
-ground roles are excluded. It prints candidate counts and selections as JSON
-and never edits the packaged recipes. Its historical reference choices and
-2% target criterion are specific to this archetype, so a feasible candidate is
-not automatically a replacement for the reviewed current recipe. A null selection
-means no feasible candidate under those bounds.
-
-This is not calibration against EPCs or measured building energy use. Automatic
-sample-based calibration and subsequent building validation are future work.
-
-## Frozen baseline and evidence
-
-`epsm-data-baseline-v1.3` identifies the local Git freeze. [BASELINE.json](BASELINE.json)
-records SHA-256 hashes of every packaged dataset file, including packaged evidence.
-The package version remains `0.3.0.dev0`; the construction release is LoD2 v1.3.
-The regression suite checks the manifest and current packaged data.
-
-[Cited evidence](evidence) and packaged provenance remain maintained. The
-[current release note](evidence/lod2_v1_3/README.md) explains the construction
-review, and the [claim register](evidence/lod2_v1_3/claims.json) records its evidence
-and limitations. Older reports retained here support current citations; they
-are not instructions to rebuild or overwrite the baseline.
-
-EPC validation remains pending. Nominal layer U-values and legacy effective
-ground values are distinct. Construction availability does not establish soil,
-moisture, annual-energy or carbon readiness. Source transfers, assumed layer
-choices and unresolved material mappings retain their documented limitations.
-
-Retired authoring scripts, release workflows, reproduction tests, intermediate
-snapshots and generated outputs are preserved locally under ignored `ARCHIVE/`.
-They are not shipped or available in fresh clones. The dated archive contains
-`relocations.json` and original tests/README for historical context. Git history
-is unchanged; ongoing runtime outputs, caches and local databases stay ignored.
-
-The legacy source-study helpers `load_office_reference()` and
-`load_renovation_package()` predate the current seven-role/full-recipe layout and
-are not compatible with the bundled v1.3 defaults. Their implementations are
-preserved unchanged. For current office and renovation constructions, use
-`load_calibrated_archetype(archetype_id="office_se05", renovation_state="standard")`
-(or the desired archetype/state). Their former reproduction workflows and the
-source-study office drawing example are archived.
-
-Some immutable dataset locators name original archive paths. Their cited source
-JSON files are also retained in `evidence/historical_sources`; the
-[source index](evidence/source-index.json) maps original locators to tracked
-copies and records their hashes. No runtime operation needs `ARCHIVE/`.
+`load_office_reference()` and `load_renovation_package()` are retained legacy
+source-study APIs and are incompatible with the bundled full-recipe defaults.
+For current office/renovation data, use `load_calibrated_archetype` with the desired
+archetype and state. `tools.recalibrate_mf_se02` remains a read-only historical
+thickness/framing search against nominal targets; its results are not approved
+changes to this frozen baseline.

@@ -1,0 +1,349 @@
+[
+  {
+    "campaign_manifest_sha256": "e7d87ea2c3a39576d1d47cb017ed730f98b2e37777797442f35c2bde4f55db57",
+    "final_selection": {
+      "k": 1,
+      "method": "baseline",
+      "trials": [
+        {
+          "folds": [
+            {
+              "fold": 0,
+              "stability": {
+                "median_ari": 1.0,
+                "resample_ari": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              }
+            },
+            {
+              "fold": 1,
+              "stability": {
+                "median_ari": 1.0,
+                "resample_ari": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              }
+            },
+            {
+              "fold": 2,
+              "stability": {
+                "median_ari": 1.0,
+                "resample_ari": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              }
+            }
+          ],
+          "k": 1,
+          "method": "baseline",
+          "scores": {
+            "baseline": {
+              "accepted": 83,
+              "attempted": 85,
+              "bias_kwh_m2": 4.079031605041461,
+              "coverage10": 0.43529411764705883,
+              "coverage20": 0.6352941176470588,
+              "failed": 2,
+              "independent_properties": 54,
+              "mae_kwh_m2": 14.302116808474548,
+              "maximum_ape_percent": 61.98166089239137,
+              "median_ape_percent": 11.527558392482751,
+              "property_balanced_capped_ape_loss": 0.2300979801570636
+            },
+            "shared": {
+              "accepted": 83,
+              "attempted": 85,
+              "bias_kwh_m2": 5.791084556588336,
+              "coverage10": 0.4235294117647059,
+              "coverage20": 0.6235294117647059,
+              "failed": 2,
+              "independent_properties": 54,
+              "mae_kwh_m2": 15.090198677196845,
+              "maximum_ape_percent": 64.0009937909591,
+              "median_ape_percent": 12.794665659647798,
+              "property_balanced_capped_ape_loss": 0.23210516389499875
+            },
+            "single": {
+              "accepted": 83,
+              "attempted": 85,
+              "bias_kwh_m2": -1.8543260324391502,
+              "coverage10": 0.25882352941176473,
+              "coverage20": 0.4588235294117647,
+              "failed": 2,
+              "independent_properties": 54,
+              "mae_kwh_m2": 17.52714835540444,
+              "maximum_ape_percent": 56.451499549512704,
+              "median_ape_percent": 21.06141034438443,
+              "property_balanced_capped_ape_loss": 0.2900717872498835
+            }
+          }
+        }
+      ]
+    },
+    "matrix_release": "epsm-lod2-v1.4",
+    "parent": {
+      "correction_status": "normal_use_adjusted_pre_weather_correction",
+      "era": "SE.02",
+      "heating_family": "district_heat",
+      "use_group": "multi_family",
+      "ventilation": "F",
+      "municipality": 1480
+    },
+    "profiles": [
+      {
+        "bounds": {
+          "attic_exchange_ach": [
+            0.0,
+            2.0
+          ],
+          "basement_setpoint_c": [
+            11.0,
+            21.0
+          ],
+          "basement_wall_resistance": [
+            0.8,
+            1.2
+          ],
+          "equipment_multiplier": [
+            0.8,
+            1.2
+          ],
+          "flow_multiplier": [
+            0.8,
+            1.2
+          ],
+          "ground_resistance": [
+            0.8,
+            1.2
+          ],
+          "infiltration_multiplier": [
+            0.5,
+            2.0
+          ],
+          "net_loss_kwh_m2": [
+            0.0,
+            10.0
+          ],
+          "people_multiplier": [
+            0.8,
+            1.2
+          ],
+          "roof_resistance": [
+            0.8,
+            1.2
+          ],
+          "schedule_shift_hours": [
+            -2.0,
+            2.0
+          ],
+          "setpoint_offset_c": [
+            -2.0,
+            2.0
+          ],
+          "shgc_multiplier": [
+            0.8,
+            1.2
+          ],
+          "soil_conductivity": [
+            1.0,
+            2.5
+          ],
+          "solar_shading_factor": [
+            0.5,
+            1.0
+          ],
+          "thermal_bridge_uplift": [
+            0.0,
+            0.2
+          ],
+          "wall_resistance": [
+            0.8,
+            1.2
+          ],
+          "window_u_multiplier": [
+            0.4,
+            1.2
+          ],
+          "wwr": [
+            0.15,
+            0.35
+          ]
+        },
+        "classification": "inferred_effective_assumptions",
+        "consistent_fold_subdivision": true,
+        "distance_limit": 0.33250491374050417,
+        "exact_refit_independently_validated": false,
+        "id": "eacb8355ec2a:0",
+        "infiltration_basis": "atemp_area_rate",
+        "medoid": {
+          "air_exchange_w_k_per_atemp": 0.6632999999999999,
+          "atemp_per_apartment": 82.91304347826087,
+          "building_position": "Friliggande",
+          "compactness": 7.144025156769615,
+          "completed_window_replacement": "unknown",
+          "context_shaded_fraction": null,
+          "correction_status": "normal_use_adjusted_pre_weather_correction",
+          "designed_flow_l_s_m2": 0.35,
+          "era": "SE.02",
+          "gross_to_atemp_ratio": 1.1875203261893774,
+          "ground_area_per_atemp": 0.29688008154734435,
+          "heated_basement": "no",
+          "heating_family": "district_heat",
+          "programme_context": "housing",
+          "renovation_timing": "unknown",
+          "roof_area_per_atemp": 0.29688008154734435,
+          "roof_form": "pitched_ridge",
+          "storeys": 4,
+          "transmission_w_k_per_atemp": 0.6733404766128656,
+          "use_group": "multi_family",
+          "ventilation": "F",
+          "volume_per_atemp": 3.3325977971445213,
+          "wall_area_per_atemp": 0.6915699411666844
+        },
+        "method": "baseline",
+        "parameter_scope": "apply only to unlocked applicable physical roles",
+        "parameters": {},
+        "partition_agreement_ari": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "source": "Retrospective property-CV effective surviving-stock cohort; inferred, not measured",
+        "status": "provisional",
+        "validation": {
+          "accepted": 83,
+          "attempted": 85,
+          "bias_kwh_m2": 4.628706639482123,
+          "coverage10": 0.47058823529411764,
+          "coverage20": 0.6470588235294118,
+          "failed": 2,
+          "independent_properties": 54,
+          "mae_kwh_m2": 14.337495266547846,
+          "maximum_ape_percent": 61.98166089239137,
+          "median_ape_percent": 10.490924156918089,
+          "property_balanced_capped_ape_loss": 0.22848091433118684
+        }
+      }
+    ],
+    "schema_version": 1,
+    "transform": {
+      "categorical": [
+        "roof_form",
+        "building_position",
+        "heated_basement",
+        "renovation_timing",
+        "completed_window_replacement",
+        "programme_context"
+      ],
+      "medians": {
+        "air_exchange_w_k_per_atemp": 0.6633,
+        "atemp_per_apartment": 88.28333333333333,
+        "compactness": 7.25869621286081,
+        "designed_flow_l_s_m2": 0.35,
+        "gross_to_atemp_ratio": 1.211549144062714,
+        "ground_area_per_atemp": 0.299071643495693,
+        "roof_area_per_atemp": 0.29907164349569304,
+        "storeys": 4.0,
+        "transmission_w_k_per_atemp": 0.6853672349770011,
+        "volume_per_atemp": 3.4023138866986398,
+        "wall_area_per_atemp": 0.6518910268966002
+      },
+      "numeric": [
+        "wall_area_per_atemp",
+        "roof_area_per_atemp",
+        "ground_area_per_atemp",
+        "volume_per_atemp",
+        "compactness",
+        "storeys",
+        "atemp_per_apartment",
+        "gross_to_atemp_ratio",
+        "designed_flow_l_s_m2",
+        "transmission_w_k_per_atemp",
+        "air_exchange_w_k_per_atemp"
+      ],
+      "scales": {
+        "air_exchange_w_k_per_atemp": 1e-06,
+        "atemp_per_apartment": 8.40579710144928,
+        "compactness": 0.737720101287711,
+        "designed_flow_l_s_m2": 1e-06,
+        "gross_to_atemp_ratio": 0.12173039504966754,
+        "ground_area_per_atemp": 0.2534830716764862,
+        "roof_area_per_atemp": 0.2534830716764862,
+        "storeys": 4.0,
+        "transmission_w_k_per_atemp": 0.236607908254317,
+        "volume_per_atemp": 0.38397649838541836,
+        "wall_area_per_atemp": 0.0906665711520993
+      }
+    },
+    "database_version": "1.5.0",
+    "artifact_version": "gothenburg-mf-se02-cohort-v2",
+    "source_export_sha256": "6692ef2b3460f62291e41dd865536d6625c2b32f9e88fc96ede8f4a7a6a7a268",
+    "deployment_scope": "Gothenburg (1480), existing MF SE.02, F ventilation, district heat, normal-use-adjusted annual space heating; provisional, no national accuracy claim",
+    "supersedes": "cohort_profiles/2026-10-04-v1/mf-se02-gothenburg.json",
+    "references": [
+      "EPSM Workflows docs/cohort-transfer.md",
+      "src/epsm_data/datasets/parametric/mf_se02_data15_validation.json",
+      "docs/mf-se02-data15-validation.md"
+    ]
+  }
+]
