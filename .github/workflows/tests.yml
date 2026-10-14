@@ -1,0 +1,55 @@
+name: Data release checks
+
+on:
+  push:
+    branches: [dev, main, 'codex/release-ci-data']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/checkout@v4
+        with:
+          repository: SB-Chalmers/epsm_core
+          ssh-key: ${{ secrets.EPSM_CORE_DEPLOY_KEY }}
+          persist-credentials: false
+          ref: 8a7c5abf9228e7e6c3792f1f34490aaffd1f608f
+          path: .ci/epsm_core
+      - uses: actions/checkout@v4
+        with:
+          repository: SB-Chalmers/epsm_lca
+          ssh-key: ${{ secrets.EPSM_LCA_DEPLOY_KEY }}
+          persist-credentials: false
+          ref: f2e646713d20f0480bb245e344f86d45292efcdd
+          path: .ci/epsm_lca
+      - uses: actions/checkout@v4
+        with:
+          repository: SB-Chalmers/epsm
+          ssh-key: ${{ secrets.EPSM_REPO_DEPLOY_KEY }}
+          persist-credentials: false
+          ref: ec32c61acc77915322bb0a82adf8421bbc3b3def
+          path: .ci/epsm
+      - name: Install test and build tools
+        run: python -m pip install '.[dev,visualization]' -e .ci/epsm_core -e .ci/epsm_lca -e .ci/epsm
+      - name: Run full package suite
+        run: python -m pytest -q
+      - name: Build and check installed wheel
+        run: |
+          python -m build --wheel
+          python -m pip install --force-reinstall dist/epsm_data-*.whl
+          python -m pip check
+          cd /tmp
+          python -c 'from epsm_data import Catalogue; print(Catalogue)'

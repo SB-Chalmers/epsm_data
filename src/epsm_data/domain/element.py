@@ -10,14 +10,16 @@ extensible to full glazing-layer construction.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from math import isfinite
 from typing import Tuple
 
 from .component import Component
+from .editing import Editable
 from .enums import BuildingElement
 
 
 @dataclass(frozen=True)
-class Element:
+class Element(Editable):
     """Envelope or partition construction.
 
     Parameters
@@ -39,6 +41,12 @@ class Element:
     application: BuildingElement
 
     def __post_init__(self) -> None:
+        object.__setattr__(self, "components", tuple(self.components))
+        object.__setattr__(self, "application", BuildingElement(self.application))
+        if any(not isinstance(c, Component) or c.application != self.application for c in self.components):
+            raise ValueError("Every component must match its element role")
+        if len({c.name for c in self.components}) != len(self.components):
+            raise ValueError("Component names must be unique within an element")
         if not self.components:
             raise ValueError(f"Element '{self.name}': missing components.")
 
@@ -98,7 +106,7 @@ class Element:
 
 
 @dataclass(frozen=True)
-class WindowElement:
+class WindowElement(Editable):
     """Window envelope element.
 
     Parameters
@@ -129,7 +137,7 @@ class WindowElement:
     )
 
     def __post_init__(self) -> None:
-        if self.u_value <= 0:
+        if isinstance(self.u_value, bool) or not isfinite(self.u_value) or self.u_value <= 0:
             raise ValueError(f"WindowElement '{self.name}': U-value must be positive.")
         if not 0 < self.shgc <= 1:
             raise ValueError(f"WindowElement '{self.name}': SHGC must be in (0, 1].")

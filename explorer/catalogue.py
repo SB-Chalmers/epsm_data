@@ -69,7 +69,7 @@ def load_data(path=None):
     assemblies = registry.assemblies
     for slot in catalogue.slots:
         key = slot.key
-        package_id = f"parametric:{key.category}:{key.era}:{key.renovation_state}"
+        package_id = f"parametric:{key.category}:{key.era}:{key.renovation_state or 'default'}"
         if package_id not in packages:
             properties = {role: prop.to_dict() for role, prop in slot.properties.items()}
             revision = content_hash(properties)
@@ -181,7 +181,7 @@ def load_data(path=None):
                 category=key.category,
                 era=key.era,
                 zone=key.climate_zone,
-                state=key.renovation_state,
+                state=key.renovation_state or "default",
                 system=key.ventilation_system,
                 package_id=package_id,
                 revision=package["revision"],
@@ -208,7 +208,7 @@ def load_data(path=None):
             categories=list(dims["categories"]),
             eras=dict(dims["eras"]),
             zones=list(dims["zones"]),
-            states=list(dims["states"]),
+            states=[*dims["states"], "default"],
             systems=list(dims["ventilation"]),
         ),
         summary=catalogue.summary(),

@@ -43,7 +43,7 @@ def audit_matrix(*, catalogue=None, detailed=None):
         if arch.get("catalogue_assignment", "canonical") != "canonical":
             continue
         for state, definition in sorted(arch["states"].items()):
-            if definition.get("release_profile") != "lod2-v1":
+            if definition.get("release_profile") not in ("lod2-v1", "complete_recipe"):
                 continue
             model = load_calibrated_archetype(
                 archetype_id=aid, renovation_state=state, catalogue=cat, detailed=data

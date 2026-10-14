@@ -1,29 +1,42 @@
-"""Create and query a sourced-by-caller renovation catalogue; no default prices."""
+"""Executable illustrative renovation definitions; no dates or default prices."""
 
 import json
 
-from epsm_data import ParameterDefinition, RenovationCatalogue, RenovationMeasure
+from epsm_data import (
+    BuildingElement,
+    ConstructionOperation,
+    RenovationCatalogue,
+    RenovationMeasure,
+    SystemOperation,
+    reference_construction_set,
+    reference_hvac_template,
+)
 
 
 def main():
-    measure = RenovationMeasure(
-        measure_id="example.window_replacement",
-        category="envelope",
-        name="Window replacement",
-        description="Illustrative catalogue definition",
-        target="window",
-        parameters=(
-            ParameterDefinition("u_value_w_m2k", "number", "Whole-window U-value", "W/(m2 K)"),
-            ParameterDefinition("solar_heat_gain_coefficient", "number", "Solar gain factor", "1"),
-        ),
-        applicability_notes=("Workflow must verify window geometry and installation scope.",),
+    construction = reference_construction_set()
+    window = construction.elements[BuildingElement.WINDOW]
+    replacement = window.with_changes(name="Illustrative replacement",u_value=1.1,shgc=.55)
+    windows = RenovationMeasure(
+        "example.windows","envelope","Replace windows","Illustrative explicit inputs","window",
+        operations=(ConstructionOperation("replace_element",BuildingElement.WINDOW,element=replacement),),
+        source_references=("example:synthetic-construction",),
     )
-    catalogue = RenovationCatalogue([measure])
-    assert catalogue.get(measure.measure_id) == measure
-    assert catalogue.filter(category="envelope") == (measure,)
-    payload = json.dumps(measure.to_dict(), indent=2)
-    assert RenovationMeasure.from_dict(json.loads(payload)) == measure
-    print(payload)
+    ftx = RenovationMeasure(
+        "example.ftx","systems","Install FTX","Illustrative HVAC template","hvac",
+        operations=(SystemOperation("replace_hvac",reference_hvac_template()),),
+        requires_measure_ids=("example.windows",),
+        source_references=("epsm:modelling-assumptions:illustrative-reference",),
+    )
+    catalogue = RenovationCatalogue((windows,ftx))
+    changed = windows.apply(construction)
+    assert changed.elements[BuildingElement.WINDOW].u_value == 1.1
+    assert construction.elements[BuildingElement.WINDOW].u_value == 1.6
+    # Core executes these resolved measures on actual building elements in order.
+    assert ftx in catalogue.applicable(changed,applied_measure_ids=(windows.measure_id,))
+    restored = RenovationCatalogue.from_dict(json.loads(json.dumps(catalogue.to_dict())))
+    assert tuple(restored) == tuple(catalogue)
+    print("Validated window and FTX definitions; Core supplies physical stages and quantities.")
 
 
 if __name__ == "__main__":

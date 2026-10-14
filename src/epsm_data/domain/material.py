@@ -10,11 +10,12 @@ import math
 from dataclasses import dataclass, field
 from uuid import UUID, uuid4
 
+from .editing import Editable
 from .enums import Roughness
 
 
 @dataclass(frozen=True)
-class EmbodiedCarbon:
+class EmbodiedCarbon(Editable):
     """Resolved embodied-carbon properties using the legacy Boverket field names.
 
     Parameters
@@ -97,7 +98,7 @@ class EmbodiedCarbon:
 
 
 @dataclass(frozen=True)
-class OpaqueMaterial:
+class OpaqueMaterial(Editable):
     """Resolved physical properties of an opaque material.
 
     Parameters
@@ -135,16 +136,29 @@ class OpaqueMaterial:
     solar_absorptance: float
     visible_absorptance: float
     conductivity: float
-    embodied_carbon: EmbodiedCarbon | None
+    embodied_carbon: EmbodiedCarbon | None = None
     uuid: UUID = field(default_factory=uuid4)
 
     def __post_init__(self) -> None:
         if not self.name:
             raise ValueError("Material name cannot be empty.")
-        if self.conductivity is None or self.conductivity <= 0:
-            raise ValueError("Conductivity must be positive.")
+        if isinstance(self.conductivity, bool) or not isinstance(self.conductivity, (int, float)) or not math.isfinite(self.conductivity) or self.conductivity <= 0:
+            raise ValueError("Conductivity must be finite and positive.")
         if not (0.01 <= self.conductivity <= 400):
             raise ValueError("Conductivity outside realistic range (0.01-400 W/mK).")
+
+        for name in ("density", "specific_heat"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+                raise ValueError(f"{name} must be finite and positive")
+        for name in ("thermal_absorptance", "solar_absorptance", "visible_absorptance"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not 0 <= value <= 1:
+                raise ValueError(f"{name} must be a finite fraction")
+        if self.embodied_carbon is not None and not isinstance(self.embodied_carbon, EmbodiedCarbon):
+            raise ValueError("embodied_carbon must be an EmbodiedCarbon record or None")
+        object.__setattr__(self, "roughness", Roughness(self.roughness))
+        object.__setattr__(self, "uuid", UUID(str(self.uuid)))
 
     def to_dict(self) -> dict:
         """Return resolved material properties and source identifiers.
@@ -173,7 +187,7 @@ class OpaqueMaterial:
 
 
 @dataclass(frozen=True)
-class WindowMaterial:
+class WindowMaterial(Editable):
     """Resolved material-level glazing properties.
 
     Parameters
@@ -210,14 +224,14 @@ class WindowMaterial:
     emissivity: float
     dirt_correction: float
     solar_diffusing: bool
-    embodied_carbon: EmbodiedCarbon | None
+    embodied_carbon: EmbodiedCarbon | None = None
     uuid: UUID = field(default_factory=uuid4)
 
     def __post_init__(self) -> None:
         if not self.name:
             raise ValueError("Material name cannot be empty.")
-        if self.conductivity is None or self.conductivity <= 0:
-            raise ValueError("Conductivity must be positive.")
+        if isinstance(self.conductivity, bool) or not isinstance(self.conductivity, (int, float)) or not math.isfinite(self.conductivity) or self.conductivity <= 0:
+            raise ValueError("Conductivity must be finite and positive.")
         if not (0.01 <= self.conductivity <= 400):
             raise ValueError("Conductivity outside realistic range (0.01-400 W/mK).")
 
@@ -245,3 +259,36 @@ class WindowMaterial:
             "solar_diffusing": self.solar_diffusing,
             "embodied_carbon": self.embodied_carbon.to_dict() if self.embodied_carbon else None,
         }
+
+
+# Public name for the existing opaque physical material type; no parallel model.
+Material = OpaqueMaterial
+
+
+@dataclass(frozen=True)
+class EnvironmentalFactor(Editable):
+    """Source-labelled kg CO2e per explicit quantity unit and lifecycle module.
+
+    Negative values are permitted (for example a reported biogenic factor).
+    This definition does not choose assessment timing or calculate impacts.
+    """
+
+    value: float
+    unit: str
+    module: str
+    source: str
+
+    def __post_init__(self):
+        if isinstance(self.value, bool) or not isinstance(self.value, (int, float)) or not math.isfinite(self.value):
+            raise ValueError("Environmental factor value must be finite")
+        if self.unit not in {"kg", "m2", "m3", "item", "kWh"}:
+            raise ValueError("Environmental factor requires an explicit quantity unit")
+        if not self.module.strip() or not self.source.strip():
+            raise ValueError("Environmental factor module and source are required")
+
+    def to_dict(self):
+        return {"value": self.value, "unit": self.unit, "module": self.module, "source": self.source}
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)

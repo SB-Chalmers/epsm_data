@@ -1,9 +1,12 @@
 """Caller-populated renovation definitions; application belongs to simulation code."""
 
 from collections.abc import Iterable
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from math import isfinite
 from typing import Literal
+
+from .operations import ConstructionOperation, SystemOperation
+from .serialization import _encode
 
 
 @dataclass(frozen=True)
@@ -115,13 +118,28 @@ class RenovationMeasure:
     cost: Cost | None = None
     service_life_years: float | None = None
     source_references: tuple[str, ...] = ()
+    operations: tuple[ConstructionOperation | SystemOperation, ...] = ()
+    target_element_ids: tuple[str, ...] = ()
+    requires_measure_ids: tuple[str, ...] = ()
+    incompatible_measure_ids: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         for field in ("measure_id", "category", "name", "description", "target"):
             if not getattr(self, field).strip():
                 raise ValueError(f"{field} must not be empty")
-        for field in ("parameters", "applicability_notes", "source_references"):
+        for field in ("parameters", "applicability_notes", "source_references", "operations", "target_element_ids", "requires_measure_ids", "incompatible_measure_ids"):
             object.__setattr__(self, field, tuple(getattr(self, field)))
+        for field in ("requires_measure_ids", "incompatible_measure_ids"):
+            values = getattr(self, field)
+            if (any(not isinstance(value, str) or not value.strip() for value in values)
+                    or len(set(values)) != len(values) or self.measure_id in values):
+                raise ValueError(f"{field} must contain unique other measure identities")
+        if set(self.requires_measure_ids) & set(self.incompatible_measure_ids):
+            raise ValueError("A measure cannot both require and prohibit the same measure")
+        if any(not isinstance(op, (ConstructionOperation, SystemOperation)) for op in self.operations):
+            raise ValueError("operations must contain ConstructionOperation records")
+        if any(not isinstance(i, str) or not i.strip() for i in self.target_element_ids) or len(set(self.target_element_ids)) != len(self.target_element_ids):
+            raise ValueError("Physical element selectors must be nonempty and unique")
         if any(not isinstance(p, ParameterDefinition) for p in self.parameters):
             raise ValueError("parameters must contain ParameterDefinition objects")
         names = [p.name for p in self.parameters]
@@ -142,8 +160,8 @@ class RenovationMeasure:
         dict
             Nested parameter and cost definitions; no application state.
         """
-        result = asdict(self)
-        for field in ("parameters", "applicability_notes", "source_references"):
+        result = _encode(self)
+        for field in ("parameters", "applicability_notes", "source_references", "operations", "target_element_ids"):
             result[field] = list(result[field])
         return result
 
@@ -168,9 +186,26 @@ class RenovationMeasure:
         """
         values = dict(data)
         values["parameters"] = tuple(ParameterDefinition(**p) for p in values.get("parameters", ()))
+        values["operations"] = tuple((SystemOperation.from_dict(op) if op.get("action") == "replace_hvac" else ConstructionOperation.from_dict(op)) for op in values.get("operations", ()))
         if values.get("cost") is not None:
             values["cost"] = Cost(**values["cost"])
         return cls(**values)
+
+
+    @property
+    def is_executable(self):
+        return bool(self.operations)
+
+    def apply(self, construction):
+        """Apply resolved operations in order; actual building selectors belong to Core."""
+        if not self.operations:
+            raise ValueError("Measure has no executable construction operations")
+        result = construction
+        for operation in self.operations:
+            if isinstance(operation, SystemOperation):
+                raise ValueError("System changes require a Core Building")
+            result = operation.apply(result)
+        return result
 
 
 class RenovationCatalogue:
@@ -186,6 +221,12 @@ class RenovationCatalogue:
         self._measures: dict[str, RenovationMeasure] = {}
         for measure in measures:
             self.add(measure)
+
+    def __iter__(self):
+        return iter(self._measures.values())
+
+    def __len__(self):
+        return len(self._measures)
 
     def add(self, measure: RenovationMeasure) -> None:
         """Add a definition.
@@ -241,3 +282,84 @@ class RenovationCatalogue:
         return tuple(
             m for m in self._measures.values() if category is None or m.category == category
         )
+
+    def applicable(self, construction, *, applied_measure_ids=()):
+        """Return executable measures whose complete ordered operations apply."""
+        result = []
+        applied = set(applied_measure_ids)
+        for measure in self:
+            if not set(measure.requires_measure_ids) <= applied or set(measure.incompatible_measure_ids) & applied:
+                continue
+            if any(prior in self._measures and measure.measure_id in self._measures[prior].incompatible_measure_ids
+                   for prior in applied):
+                continue
+            try:
+                if not measure.operations:
+                    continue
+                result_construction = construction
+                for operation in measure.operations:
+                    if isinstance(operation, ConstructionOperation):
+                        result_construction = operation.apply(result_construction)
+            except ValueError:
+                continue
+            result.append(measure)
+        return tuple(result)
+
+    def to_dict(self):
+        return {"measures": [measure.to_dict() for measure in self]}
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(RenovationMeasure.from_dict(item) for item in data["measures"])
+
+
+class Catalogue:
+    """The current construction catalogue, loaded explicitly and usable without Core.
+
+    ``Catalogue.load().for_year("multi_family", 2022)`` returns the shared
+    Archetype, with its complete ConstructionSet. Historical six-era state APIs
+    remain available through ``parametric`` and ``detailed`` for migration.
+    """
+
+    def __init__(self, *, parametric, detailed, renovations=None):
+        self.parametric = parametric
+        self.detailed = detailed
+        self.renovations = renovations if renovations is not None else RenovationCatalogue()
+
+    @classmethod
+    def load(cls, *, parametric_path=None, detailed_path=None, renovations=None):
+        from .detailed import load_detailed_catalogue
+        from .parametric import load_parametric_catalogue
+
+        parametric = load_parametric_catalogue(parametric_path)
+        return cls(parametric=parametric,
+                   detailed=load_detailed_catalogue(detailed_path, catalogue=parametric),
+                   renovations=renovations)
+
+    def ids(self, *, category=None):
+        return tuple(aid for aid, record in self.detailed.archetypes.items()
+                     if record.get("catalogue_assignment", "canonical") == "canonical"
+                     and (category is None or record["category"] == category))
+
+    def renovation_states(self, archetype_id):
+        return tuple(state for state in self.detailed.archetypes[archetype_id]["states"]
+                     if state is not None)
+
+    def get(self, archetype_id, *, state=None):
+        """Resolve a construction archetype; SE.07 only accepts state=None."""
+        from .layered import load_calibrated_archetype
+
+        return load_calibrated_archetype(
+            archetype_id=archetype_id, renovation_state=state,
+            detailed=self.detailed, catalogue=self.parametric,
+        ).archetype
+
+    def for_year(self, category, construction_year, *, state=None):
+        from .parametric import era_for_year
+
+        era = era_for_year(construction_year)
+        candidates = [aid for aid in self.ids(category=category)
+                      if self.detailed.archetypes[aid]["era"] == era]
+        if len(candidates) != 1:
+            raise ValueError(f"Expected one current archetype for {category}/{era}")
+        return self.get(candidates[0], state=state)

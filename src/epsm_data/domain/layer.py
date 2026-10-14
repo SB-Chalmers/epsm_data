@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from math import isfinite
 from typing import Tuple
 
+from .editing import Editable
 from .material import OpaqueMaterial
 
 
@@ -45,7 +46,7 @@ def resolve_fractions(raw: list[float | None]) -> list[float]:
 
 
 @dataclass(frozen=True)
-class LayerMaterial:
+class LayerMaterial(Editable):
     """Describe one material's share of a layer.
 
     Parameters
@@ -63,14 +64,16 @@ class LayerMaterial:
     thickness: float
 
     def __post_init__(self) -> None:
-        if not isfinite(self.area_fraction) or not 0 <= self.area_fraction <= 1:
+        if not isinstance(self.material, OpaqueMaterial):
+            raise ValueError("Layer materials must reference a Material")
+        if isinstance(self.area_fraction, bool) or not isfinite(self.area_fraction) or not 0 <= self.area_fraction <= 1:
             raise ValueError("Area fraction must be finite and between zero and one")
-        if not isfinite(self.thickness) or self.thickness <= 0:
+        if isinstance(self.thickness, bool) or not isfinite(self.thickness) or self.thickness <= 0:
             raise ValueError("Material slot thickness must be finite and positive")
 
 
 @dataclass(frozen=True)
-class Layer:
+class Layer(Editable):
     """Construction layer with homogeneous or parallel material composition.
 
     Parameters
@@ -86,8 +89,9 @@ class Layer:
 
     Notes
     -----
-    Thermal resistance uses the shared layer depth and area-weighted
-    conductivity; individual slot thicknesses do not define separate heat paths.
+    Constituent depths are preserved for physical quantities, including unequal
+    depths. Thermal resistance is available only when every constituent spans
+    the shared layer depth; other cases need an explicit thermal representation.
     """
 
     name: str
@@ -97,8 +101,11 @@ class Layer:
     is_composite: bool = False
 
     def __post_init__(self) -> None:
-        if not isfinite(self.thickness) or self.thickness <= 0:
+        if isinstance(self.thickness, bool) or not isfinite(self.thickness) or self.thickness <= 0:
             raise ValueError(f"Layer '{self.name}': thickness must be > 0.")
+        object.__setattr__(self, "materials", tuple(self.materials))
+        if any(not isinstance(m, LayerMaterial) for m in self.materials):
+            raise ValueError("materials must contain LayerMaterial records")
         if not self.materials:
             raise ValueError(f"Layer '{self.name}': must have at least one material.")
 
@@ -122,8 +129,16 @@ class Layer:
         """Effective thermal resistance [m2 K/W].
 
         Single material: R = d / lambda.
-        Composite: weighted average of lambda-method and U-value-method.
+        Composite: shared depth divided by area-weighted conductivity.
+
+        Raises
+        ------
+        ValueError
+            Constituent depths differ from the layer depth. Their physical
+            quantities remain usable, but this thermal equivalencing is undefined.
         """
+        if any(abs(m.thickness - self.thickness) > 1e-9 for m in self.materials):
+            raise ValueError("Thermal equivalencing does not support unequal constituent depths")
         d = self.thickness
 
         if len(self.materials) == 1:
