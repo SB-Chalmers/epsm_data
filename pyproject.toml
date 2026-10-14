@@ -22,6 +22,7 @@ epsm-matrix-audit = "epsm_data.matrix_audit:main"
 
 [tool.setuptools.package-data]
 "epsm_data.datasets.parametric" = ["*.json"]
+"epsm_data.datasets.standards" = ["*.json"]
 "epsm_data.datasets.layered" = ["*.json", "evidence/*.json"]
 
 [tool.setuptools.dynamic]

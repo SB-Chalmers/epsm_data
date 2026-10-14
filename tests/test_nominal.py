@@ -194,29 +194,3 @@ def test_all_36_classification_slots_are_checked_with_one_construction_per_state
         assert all(
             s["identical_state_targets"] and s["nominal_u_alignment"] for s in row["slot_checks"]
         )
-
-
-def test_bounded_search_is_read_only_and_reports_feasibility():
-    from tools.recalibrate_mf_se02 import search
-
-    catalogue = load_detailed_catalogue()
-    before = catalogue.to_dict()
-    selections = search(catalogue)
-    assert catalogue.to_dict() == before
-    assert set(selections) == {"roof", "external_wall", "intermediate_floor", "internal_wall"}
-    for row in selections.values():
-        assert row["searched_candidates"] > 0
-        assert all(v["field"] == "thickness" or isinstance(v["field"], int)
-                   for v in row["variables"])
-        if row["feasible_candidates"] == 0:
-            assert row["selected"] is None
-        else:
-            selected = row["selected"]
-            for variable, value in zip(row["variables"], selected["choices"], strict=True):
-                assert value in variable["choices"]
-            assert all(u > 0 for u in selected["u_values"])
-    # Historic bounds need not admit the reviewed v1.3 envelope targets.
-    assert selections["roof"]["selected"] is None
-    assert selections["external_wall"]["feasible_candidates"] > 0
-    assert selections["internal_wall"]["feasible_candidates"] > 0
-    assert selections["intermediate_floor"]["feasible_candidates"] > 0

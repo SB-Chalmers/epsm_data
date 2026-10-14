@@ -252,7 +252,7 @@
     },
     "lod2_discrete_review": {
       "title": "Evidence-informed discrete LOD2 review",
-      "locator": "evidence/lod2_fitting/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_fitting/policy.json",
       "note": "Discrete engineering choices, audited extraction context and explicit unresolved constraints."
     },
     "lod2_nordan_tl": {
@@ -269,18 +269,18 @@
     },
     "lod2_v1_review": {
       "title": "LoD2 v1 physical review",
-      "locator": "evidence/lod2_v1/report.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1/report.json",
       "note": "Representative engineering assumptions; empirical validation pending."
     },
     "roof_board_v1": {
       "title": "Boverket roof-board family and ROCKWOOL low-slope roof application",
       "url": "https://www.rockwool.com/se/produkter/kategorier/laglutande-tak/",
-      "locator": "evidence/lod2_v1/sources/boverket_roof_board.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1/sources/boverket_roof_board.json",
       "note": "Generic roof board: lambda 0.038, density 180 from Boverket ComparativeProperty; specific heat 1030 is a stone-wool family proxy. Not an exact product or compressive-strength claim."
     },
     "v1_1_floor_review": {
       "title": "V1.1 representative internal floor policy",
-      "locator": "evidence/lod2_v1_1/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_1/policy.json",
       "note": "Single representative per cell; material thickness choices are engineering defaults, not stock prevalence."
     },
     "v1_1_acoustic": {
@@ -291,17 +291,17 @@
     },
     "v1_2_floor_review": {
       "title": "V1.2 extraction-informed internal floor review",
-      "locator": "evidence/lod2_v1_2/policy.json; evidence/intermediate_floor_extraction_review.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_2/policy.json; evidence/intermediate_floor_extraction_review.json",
       "note": "Representative defaults; individual depths and thermal proxies are explicit assumptions, not stock measurements."
     },
     "v1_3_construction_review": {
       "title": "V1.3 evidence-led construction review",
-      "locator": "evidence/lod2_v1_3/policy.json; evidence/betsi_review/audit.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_3/policy.json; evidence/betsi_review/audit.json",
       "note": "Representative construction defaults; no new empirical era or climate calibration."
     },
     "v1_4_mf_se02_window_diagnostic": {
       "title": "EPSM multifamily SE.02 existing window: provisional diagnostic update (2026-10-03)",
-      "locator": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
       "note": "User-authorized 2.8 to 2.2 W/(m2K) default. Window-only case: 9/12 below20 versus8/12 baseline, MAE15.011 versus18.138 kWh/m2. Previously examined properties; no independent validation. Joint wall/roof/flow improvement is not attributed to windows alone."
     }
   },
@@ -6399,7 +6399,7 @@
       "boverket_id": null,
       "mapping_status": "pending",
       "source": "v1_2_floor_review",
-      "locator": "evidence/lod2_v1_2/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_2/policy.json",
       "notes": [
         "Dry sand thermal proxy: lambda 0.4 from extraction record 148; density 1600 and cp 800 engineering assumptions supported by dry sandy soil reference. No suitable Boverket sand resource in pinned database. Retained baseline only; carbon remains unresolved, never an incoming renovation material."
       ],
@@ -6411,7 +6411,7 @@
       "boverket_id": null,
       "mapping_status": "not_applicable",
       "source": "v1_2_floor_review",
-      "locator": "evidence/lod2_v1_2/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_2/policy.json",
       "notes": [
         "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
       ],
@@ -6423,7 +6423,7 @@
       "boverket_id": null,
       "mapping_status": "not_applicable",
       "source": "v1_2_floor_review",
-      "locator": "evidence/lod2_v1_2/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_2/policy.json",
       "notes": [
         "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
       ],
@@ -6432,7 +6432,7 @@
     "window_lod2_mf_se02_existing_v1_4": {
       "mapping_status": "reviewed_proxy",
       "source": "v1_4_mf_se02_window_diagnostic",
-      "locator": "src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/src/epsm_data/datasets/layered/evidence/mf_se02_window_v1_4_diagnostic.json",
       "notes": [
         "Simple whole-window model, not material-layer glazing. Optical properties are explicit assumptions.",
         "Modern wood triple-glazed carbon proxy for assumed wood-framed historic window; glazing/mass differences explicit. U=2.22 and clear-double-like optics remain independent nominal assumptions.",
@@ -6996,7 +6996,7 @@
       "boverket_id": null,
       "mapping_status": "not_applicable",
       "source": "v1_2_floor_review",
-      "locator": "evidence/lod2_v1_2/policy.json",
+      "locator": "../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_2/policy.json",
       "notes": [
         "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth.",
         "Independent SE.07 copy of v1_2_air_150; source references retain their meaning."

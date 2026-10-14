@@ -5178,7 +5178,7 @@
         "definition_kind": "custom",
         "notes": [
           "LOD2 discrete review: whole-window performance is independent of opaque layers.",
-          "v1.4 provisional diagnostic U=2.2; optics and carbon references unchanged. See evidence/lod2_v1_4/window-diagnostic.json."
+          "v1.4 provisional diagnostic U=2.2; optics and carbon references unchanged. See ../epsm_studies/imports/epsm_data_harmonisation/evidence/lod2_v1_4/window-diagnostic.json."
         ],
         "caveats": [],
         "optics_source": "window_proxy",

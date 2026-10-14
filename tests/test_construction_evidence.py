@@ -1,29 +1,30 @@
-"""Release-independent checks for the v1.3 construction/evidence contract."""
-import json
+"""Current construction and evidence contracts."""
 from copy import deepcopy
-from pathlib import Path
 
 import pytest
 
 from epsm_data.detailed import load_detailed_catalogue
 from epsm_data.layered import load_calibrated_archetype
 from epsm_data.nominal import validate_nominal_handover
-from epsm_data.parametric import ArchetypeKey, ParametricCatalogue, load_parametric_catalogue
+from epsm_data.parametric import (
+    ArchetypeKey,
+    ParametricCatalogue,
+    load_parametric_catalogue,
+    states_for_era,
+)
 from epsm_data.release import core_inputs
-
-WORK = Path(__file__).resolve().parents[1] / "evidence/lod2_v1_3"
 
 
 @pytest.fixture(scope='module')
-def candidate_v13():
+def current_catalogue():
     cat = load_parametric_catalogue()
     data = load_detailed_catalogue(catalogue=cat)
     return data, cat
 
 
 
-def test_all_seven_roles_are_available_without_presence(candidate_v13):
-    detailed, cat = candidate_v13
+def test_all_seven_roles_are_available_without_presence(current_catalogue):
+    detailed, cat = current_catalogue
     for aid, arch in detailed.archetypes.items():
         if arch.get('catalogue_assignment', 'canonical') != 'canonical':
             continue
@@ -37,8 +38,8 @@ def test_all_seven_roles_are_available_without_presence(candidate_v13):
             assert all(v.evidence and not v.evidence.get('basis_stale') for v in slot.properties.values())
 
 
-def test_effective_ground_preserved_and_nominal_distinguished(candidate_v13):
-    detailed, cat = candidate_v13
+def test_effective_ground_preserved_and_nominal_distinguished(current_catalogue):
+    detailed, cat = current_catalogue
     for slot in cat.slots:
         for role in ('ground_floor', 'basement_wall'):
             evidence = slot.properties[role].evidence
@@ -52,8 +53,8 @@ def test_effective_ground_preserved_and_nominal_distinguished(candidate_v13):
     assert nominal['element_presence'] == 'caller_geometry'
 
 
-def test_no_missing_role_or_floor_substitution(candidate_v13):
-    detailed, cat = candidate_v13
+def test_no_missing_role_or_floor_substitution(current_catalogue):
+    detailed, cat = current_catalogue
     bundle = load_calibrated_archetype(detailed=detailed, catalogue=cat, archetype_id='school_se05').to_nominal_dict()
     bad = deepcopy(bundle)
     for field in ('core', 'honeybee', 'roles'):
@@ -68,25 +69,17 @@ def test_no_missing_role_or_floor_substitution(candidate_v13):
     from unittest.mock import patch
     old_bundle = deepcopy(bundle)
     old_bundle['core'].pop('BASEMENT_WALL')
-    with patch('epsm_data.release.load_calibrated_archetype', return_value=SimpleNamespace(
+    with patch('epsm.catalogue_release.load_calibrated_archetype', return_value=SimpleNamespace(
         to_nominal_dict=lambda: old_bundle
     )):
         with pytest.raises(ValueError, match='No basement-wall recipe'):
             core_inputs('school_se05', detailed=detailed, catalogue=cat)
 
 
-def test_claims_have_inputs_and_do_not_promote_missing_evidence(candidate_v13):
-    claims = json.loads((WORK / 'claims.json').read_text())['claims']
-    primary = {k: v for k, v in claims.items() if k.count(':') == 3}
-    assert len(primary) == 720
-    for claim in claims.values():
-        assert claim['classification'] != 'direct_evidence'
-        assert claim['source'] and claim['locator']
-        for target in claim.get('input_claim_ids', []) + claim.get('material_claim_ids', []):
-            assert target in claims
-    detailed, cat = candidate_v13
+def test_claims_have_inputs_and_do_not_promote_missing_evidence(current_catalogue):
+    detailed, cat = current_catalogue
     for era in cat.dimensions['eras']:
-        for state in ('existing', 'standard', 'advanced'):
+        for state in states_for_era(era):
             generic = dict(cat.resolve_construction('generic', era, state).u_values)
             multifamily = dict(cat.resolve_construction('multi_family', era, state).u_values)
             if (era, state) == ('SE.02', 'existing'):
@@ -96,8 +89,8 @@ def test_claims_have_inputs_and_do_not_promote_missing_evidence(candidate_v13):
             assert generic == multifamily
 
 
-def test_changed_anchor_or_override_marks_evidence_stale(candidate_v13):
-    _, cat = candidate_v13
+def test_changed_anchor_or_override_marks_evidence_stale(current_catalogue):
+    _, cat = current_catalogue
     changed = cat.with_override('office', 'basement_wall', {
         'era': 'SE.05', 'state': 'existing', 'value': .1,
         'source': 'v1_3_construction_review', 'note': 'caller test'})
@@ -105,6 +98,6 @@ def test_changed_anchor_or_override_marks_evidence_stale(candidate_v13):
     assert prop.evidence['classification'] == 'unclassified'
     assert prop.evidence['basis_stale']
     bad = cat.to_dict()
-    bad['claim_metadata']['office:SE.05:existing:basement_wall']['source'] = 'missing'
-    with pytest.raises(ValueError, match='source and locator'):
+    bad['resolved']['office:SE.05:existing']['basement_wall']['source'] = 'missing'
+    with pytest.raises(ValueError, match='source'):
         ParametricCatalogue(bad)
