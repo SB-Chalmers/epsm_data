@@ -26,6 +26,7 @@ const names = {
   industrial: "Industrial",
   other: "Other",
   existing: "Existing",
+  default: "No renovation state",
   standard: "Standard renovation",
   advanced: "Advanced renovation",
   wall: "External wall",

@@ -6464,6 +6464,2032 @@
       "honeybee_id": "EPSM_window_lod2_mf_se02_existing_v1_4",
       "boverket_id": "6000000104",
       "json_id": "epsm:window_lod2_mf_se02_existing_v1_4"
+    },
+    "mf_se07.gypsum_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+        "Independent SE.07 copy of gypsum_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_gypsum_board",
+      "boverket_id": "6000000020",
+      "json_id": "mf_se07.epsm:mf_se02_existing:gypsum_board"
+    },
+    "mf_se07.plaster": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000091; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+        "Independent SE.07 copy of plaster; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_plaster",
+      "boverket_id": "6000000091",
+      "json_id": "mf_se07.epsm:mf_se02_existing:plaster"
+    },
+    "mf_se07.mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000123; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Independent SE.07 copy of mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "mf_se07.epsm:mf_se02_existing:mineral_wool"
+    },
+    "mf_se07.wooden_stud": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000007; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+        "Independent SE.07 copy of wooden_stud; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_wooden_stud",
+      "boverket_id": "6000000007",
+      "json_id": "mf_se07.epsm:mf_se02_existing:wooden_stud"
+    },
+    "mf_se07.attic_loose_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000128",
+      "notes": [
+        "Exact attic blowing-stone-wool generic family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of attic_loose_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_attic_loose_stone_wool",
+      "boverket_id": "6000000128",
+      "json_id": "mf_se07.epsm:renovation:attic_loose_stone_wool"
+    },
+    "mf_se07.cellular_plastic": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000131; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+        "Independent SE.07 copy of cellular_plastic; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_cellular_plastic",
+      "boverket_id": "6000000131",
+      "json_id": "mf_se07.epsm:mf_se02_existing:cellular_plastic"
+    },
+    "mf_se07.woodfiber_board": {
+      "mapping_status": "reviewed_proxy",
+      "source": "calibration",
+      "locator": "Boverket ResourceId=6000000216 wet-process hardboard reviewed family proxy; rejected batts candidate retained in history.",
+      "notes": [
+        "Soft board is not HDF. Candidate 6000000136 is a 50 kg/m3 batts proxy, not this 230 kg/m3 wet-process board; not adopted as resolved carbon.",
+        "Wet-process hardboard carbon family proxy: same wood-fibre/process family, but generic hardboard about 940 kg/m3 and 1.7–6 mm differs from soft board 230 kg/m3 and 8–19 mm. No thermal density substitution or LCA certification. Candidate batts 6000000136 remains rejected.",
+        "Supplier rated lambda 0.070, rho 230 and cp 2100 retained independently of carbon family.",
+        "Independent SE.07 copy of woodfiber_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "mapping_pending",
+          "status": "accepted_assumption",
+          "severity": "blocking",
+          "topic": "mapping",
+          "note": "Soft board is not HDF. Candidate 6000000136 is a 50 kg/m3 batts proxy, not this 230 kg/m3 wet-process board; not adopted as resolved carbon.",
+          "resolution": "Wet-process hardboard carbon family proxy: same wood-fibre/process family, but generic hardboard about 940 kg/m3 and 1.7–6 mm differs from soft board 230 kg/m3 and 8–19 mm. No thermal density substitution or LCA certification. Candidate batts 6000000136 remains rejected.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "candidate_boverket_id": "6000000136",
+      "honeybee_id": "mf_se07__EPSM_woodfiber_board",
+      "boverket_id": "6000000216",
+      "json_id": "mf_se07.epsm:mf_se02_existing:woodfiber_board"
+    },
+    "mf_se07.concrete": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000029; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+        "Independent SE.07 copy of concrete; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_concrete",
+      "boverket_id": "6000000029",
+      "json_id": "mf_se07.epsm:mf_se02_existing:concrete"
+    },
+    "mf_se07.facade_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000125",
+      "notes": [
+        "Uncoated facade stone-wool board family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of facade_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_facade_stone_wool",
+      "boverket_id": "6000000125",
+      "json_id": "mf_se07.epsm:renovation:facade_stone_wool_board"
+    },
+    "mf_se07.window_lod2_mf_se06_advanced": {
+      "mapping_status": "reviewed_proxy",
+      "source": "mfh_period_stacks",
+      "locator": "evidence/mfh_baseline_user_stacks.txt",
+      "notes": [
+        "Selected whole-window product at declared reference performance. Boverket is a generic family proxy; opening type and frame may differ. Optics remain explicit template assumptions; no product-specific carbon claim.",
+        "Independent SE.07 copy of window_lod2_mf_se06_advanced; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "whole_window_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "scope": "catalogue",
+          "source": "mfh_period_stacks",
+          "note": "Source whole-window performance and EPSM effective target differ; optical properties are unmeasured.",
+          "resolution": "Use explicit whole-window target and template optics as a representative catalogue input; require product selection for carbon assessment."
+        }
+      ],
+      "honeybee_id": "mf_se07__EPSM_window_lod2_mf_se06_advanced",
+      "boverket_id": "6000000106",
+      "json_id": "mf_se07.epsm:window_lod2_mf_se06_advanced",
+      "selected_product": {
+        "manufacturer": "Elitfönster AB",
+        "model": "Original Alu AFÖ top-hung, optional Uw 0.85, Rw 41 dB glazing",
+        "declared_uw": 0.85,
+        "performance_url": "https://www.elitfonster.se/globalassets/pimdocuments/produktblad/Produktblad_EF_Original_ALU.pdf",
+        "performance_locator": "2023-12-07 product sheet p.5, AFÖ table Rw 41, Uw 0.85; reference size 1230 x 1480 mm; checked 2026-09-29",
+        "epd_id": null,
+        "epd_url": null,
+        "boverket_id": "6000000106",
+        "source_id": "lod2_elit_alu_afo"
+      }
+    },
+    "sf_se07.gypsum_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+        "Independent SE.07 copy of gypsum_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_gypsum_board",
+      "boverket_id": "6000000020",
+      "json_id": "sf_se07.epsm:mf_se02_existing:gypsum_board"
+    },
+    "sf_se07.plaster": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000091; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+        "Independent SE.07 copy of plaster; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_plaster",
+      "boverket_id": "6000000091",
+      "json_id": "sf_se07.epsm:mf_se02_existing:plaster"
+    },
+    "sf_se07.mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000123; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Independent SE.07 copy of mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "sf_se07.epsm:mf_se02_existing:mineral_wool"
+    },
+    "sf_se07.v1_2_air_150": {
+      "json_id": "sf_se07.epsm:v1_2:v1_2_air_150",
+      "honeybee_id": "sf_se07__EPSM_v1_2_air_150",
+      "boverket_id": null,
+      "mapping_status": "not_applicable",
+      "source": "v1_2_floor_review",
+      "locator": "evidence/lod2_v1_2/policy.json",
+      "notes": [
+        "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth.",
+        "Independent SE.07 copy of v1_2_air_150; source references retain their meaning."
+      ],
+      "caveats": []
+    },
+    "sf_se07.sf_historic_mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "sf_period_stacks",
+      "locator": "evidence/sfh_baseline_user_stacks.txt",
+      "notes": [
+        "P02–P06 historic mineral-wool representative lambda 0.040 W/(mK); density and heat capacity remain family proxies.",
+        "Boverket is a functional family proxy, not historical product identity.",
+        "Independent SE.07 copy of sf_historic_mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [],
+      "honeybee_id": "sf_se07__EPSM_sf_historic_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "sf_se07.epsm:sf_historic_mineral_wool"
+    },
+    "sf_se07.attic_loose_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000128",
+      "notes": [
+        "Exact attic blowing-stone-wool generic family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of attic_loose_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_attic_loose_stone_wool",
+      "boverket_id": "6000000128",
+      "json_id": "sf_se07.epsm:renovation:attic_loose_stone_wool"
+    },
+    "sf_se07.cellular_plastic": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000131; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+        "Independent SE.07 copy of cellular_plastic; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_cellular_plastic",
+      "boverket_id": "6000000131",
+      "json_id": "sf_se07.epsm:mf_se02_existing:cellular_plastic"
+    },
+    "sf_se07.plaster_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Captured gypsum-family thermal assumptions retained with distinct nominal surface properties.",
+        "Independent SE.07 copy of plaster_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Captured gypsum-family thermal assumptions retained with distinct nominal surface properties.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Captured gypsum-family thermal assumptions retained with distinct nominal surface properties.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Captured gypsum-family thermal assumptions retained with distinct nominal surface properties.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_plaster_board",
+      "boverket_id": "6000000020",
+      "json_id": "sf_se07.epsm:mf_se02_existing:plaster_board"
+    },
+    "sf_se07.concrete": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000029; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+        "Independent SE.07 copy of concrete; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_concrete",
+      "boverket_id": "6000000029",
+      "json_id": "sf_se07.epsm:mf_se02_existing:concrete"
+    },
+    "sf_se07.window_lod2_sf_se06_advanced": {
+      "mapping_status": "reviewed_proxy",
+      "source": "sf_period_stacks",
+      "locator": "evidence/sfh_baseline_user_stacks.txt",
+      "notes": [
+        "Selected whole-window product at declared reference performance. Boverket is a generic family proxy; opening type and frame may differ. Optics remain explicit template assumptions; no product-specific carbon claim.",
+        "Independent SE.07 copy of window_lod2_sf_se06_advanced; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "window_optics_assumed",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "scope": "catalogue",
+          "source": "sf_period_stacks",
+          "note": "Whole-window optical values use the existing catalogue template.",
+          "resolution": "Keep explicit representative optics until product-specific values are imported."
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_window_lod2_sf_se06_advanced",
+      "boverket_id": "6000000106",
+      "json_id": "sf_se07.epsm:window_lod2_sf_se06_advanced",
+      "selected_product": {
+        "manufacturer": "NorDan",
+        "model": "NTech TL fixed, aluminium-clad, standard triple glazing",
+        "declared_uw": 0.8,
+        "performance_url": "https://www.nordan.se/produkter/lagerprodukter",
+        "performance_locator": "NTech, Fast fönster TL, standard Uw 0.8; checked 2026-09-29",
+        "epd_id": null,
+        "epd_url": null,
+        "boverket_id": "6000000106",
+        "source_id": "lod2_nordan_tl"
+      }
+    },
+    "sf_se07.facade_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000125",
+      "notes": [
+        "Uncoated facade stone-wool board family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of facade_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_facade_stone_wool",
+      "boverket_id": "6000000125",
+      "json_id": "sf_se07.epsm:renovation:facade_stone_wool_board"
+    },
+    "sf_se07.wooden_stud": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000007; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+        "Independent SE.07 copy of wooden_stud; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "sf_se07__EPSM_wooden_stud",
+      "boverket_id": "6000000007",
+      "json_id": "sf_se07.epsm:mf_se02_existing:wooden_stud"
+    },
+    "office_se07.gypsum_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+        "Independent SE.07 copy of gypsum_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_gypsum_board",
+      "boverket_id": "6000000020",
+      "json_id": "office_se07.epsm:mf_se02_existing:gypsum_board"
+    },
+    "office_se07.plaster": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000091; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+        "Independent SE.07 copy of plaster; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_plaster",
+      "boverket_id": "6000000091",
+      "json_id": "office_se07.epsm:mf_se02_existing:plaster"
+    },
+    "office_se07.mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000123; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Independent SE.07 copy of mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "office_se07.epsm:mf_se02_existing:mineral_wool"
+    },
+    "office_se07.v1_roof_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "roof_board_v1",
+      "locator": "Boverket 02.07.000 ResourceId=6000000127",
+      "notes": [
+        "Generic rigid roof board suitable for representative protected roof insulation; project loads, fasteners and waterproofing require design.",
+        "Independent SE.07 copy of v1_roof_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_v1_roof_board",
+      "boverket_id": "6000000127",
+      "json_id": "office_se07.epsm:v1:roof_board"
+    },
+    "office_se07.office_linoleum": {
+      "json_id": "office_se07.poirazis_2008:linoleum",
+      "honeybee_id": "office_se07__EPSM_office_linoleum",
+      "boverket_id": "6000000211",
+      "mapping_status": "reviewed_proxy",
+      "source": "poirazis_2008",
+      "locator": "Table 5.1, printed p.135 / PDF p.137",
+      "notes": [
+        "Resilient floor-covering surrogate using EPDM/SBR rubber. Boverket 02.07 has no linoleum record; polymer chemistry and impacts differ. Catalogue product link only; not a validated linoleum carbon factor.",
+        "Independent SE.07 copy of office_linoleum; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "product_mapping_pending",
+          "status": "accepted_assumption",
+          "severity": "blocking",
+          "topic": "material_mapping",
+          "scope": "catalogue",
+          "note": "Boverket family mapping has not been reviewed for this office source material.",
+          "resolution": "Resilient floor-covering surrogate using EPDM/SBR rubber. Boverket 02.07 has no linoleum record; polymer chemistry and impacts differ. Catalogue product link only; not a validated linoleum carbon factor.",
+          "source": "poirazis_2008"
+        }
+      ]
+    },
+    "office_se07.v1_1_acoustic_wood_wool": {
+      "json_id": "office_se07.epsm:v1_1:acoustic_wood_wool",
+      "honeybee_id": "office_se07__EPSM_v1_1_acoustic_wood_wool",
+      "boverket_id": "6000000222",
+      "mapping_status": "reviewed_proxy",
+      "source": "v1_1_acoustic",
+      "locator": "Boverket 6000000222; 25 mm representative lining",
+      "notes": [
+        "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product.",
+        "Independent SE.07 copy of v1_1_acoustic_wood_wool; source references retain their meaning."
+      ],
+      "caveats": []
+    },
+    "office_se07.cellular_plastic": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000131; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+        "Independent SE.07 copy of cellular_plastic; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_cellular_plastic",
+      "boverket_id": "6000000131",
+      "json_id": "office_se07.epsm:mf_se02_existing:cellular_plastic"
+    },
+    "office_se07.window_lod2_office_se06_advanced": {
+      "mapping_status": "reviewed_proxy",
+      "source": "office_period_stacks",
+      "locator": "evidence/office_period_user_stacks.txt",
+      "notes": [
+        "Selected whole-window product at declared reference performance. Boverket is a generic family proxy; opening type and frame may differ. Optics remain explicit template assumptions; no product-specific carbon claim.",
+        "Independent SE.07 copy of window_lod2_office_se06_advanced; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "optics_assumed",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "scope": "catalogue",
+          "source": "office_period_stacks",
+          "note": "Whole-window optics are template assumptions.",
+          "resolution": "Retain explicit nominal optical assumptions until product data are imported."
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_window_lod2_office_se06_advanced",
+      "boverket_id": "6000000106",
+      "json_id": "office_se07.epsm:window_lod2_office_se06_advanced",
+      "selected_product": {
+        "manufacturer": "NorDan AS",
+        "model": "NTech Fixed frame with sash - IF 105/80, aluminium clad, 1230 x 1480 mm",
+        "declared_uw": 0.9,
+        "performance_url": "https://docs.nordan.no/download/9661d38c-e2be-4c85-b15f-25f90a81122c",
+        "performance_locator": "NEPD-5948-5222-EN, p. 3, Technical data",
+        "epd_id": "NEPD-5948-5222-EN",
+        "epd_url": "https://docs.nordan.no/download/9661d38c-e2be-4c85-b15f-25f90a81122c",
+        "boverket_id": "6000000106",
+        "source_id": "nordan_ntech_if_epd"
+      }
+    },
+    "office_se07.concrete": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000029; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+        "Independent SE.07 copy of concrete; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_concrete",
+      "boverket_id": "6000000029",
+      "json_id": "office_se07.epsm:mf_se02_existing:concrete"
+    },
+    "office_se07.facade_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000125",
+      "notes": [
+        "Uncoated facade stone-wool board family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of facade_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_facade_stone_wool",
+      "boverket_id": "6000000125",
+      "json_id": "office_se07.epsm:renovation:facade_stone_wool_board"
+    },
+    "office_se07.wooden_stud": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000007; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+        "Independent SE.07 copy of wooden_stud; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "office_se07__EPSM_wooden_stud",
+      "boverket_id": "6000000007",
+      "json_id": "office_se07.epsm:mf_se02_existing:wooden_stud"
+    },
+    "school_se07.window_lod2_school_se06_advanced": {
+      "mapping_status": "reviewed_proxy",
+      "source": "school_period_stacks",
+      "locator": "evidence/school_period_user_stacks.txt",
+      "notes": [
+        "Selected whole-window product at declared reference performance. Boverket is a generic family proxy; opening type and frame may differ. Optics remain explicit template assumptions; no product-specific carbon claim.",
+        "Independent SE.07 copy of window_lod2_school_se06_advanced; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "optics_assumed",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "scope": "catalogue",
+          "source": "school_period_stacks",
+          "note": "Whole-window optics use a generic template.",
+          "resolution": "Retain explicit nominal optics until product data are imported."
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_window_lod2_school_se06_advanced",
+      "boverket_id": "6000000106",
+      "json_id": "school_se07.epsm:window_lod2_school_se06_advanced",
+      "selected_product": {
+        "manufacturer": "NorDan AS",
+        "model": "NTech Fixed frame with sash - IF 105/80, aluminium clad, 1230 x 1480 mm",
+        "declared_uw": 0.9,
+        "performance_url": "https://docs.nordan.no/download/9661d38c-e2be-4c85-b15f-25f90a81122c",
+        "performance_locator": "NEPD-5948-5222-EN, p. 3, Technical data",
+        "epd_id": "NEPD-5948-5222-EN",
+        "epd_url": "https://docs.nordan.no/download/9661d38c-e2be-4c85-b15f-25f90a81122c",
+        "boverket_id": "6000000106",
+        "source_id": "nordan_ntech_if_epd"
+      }
+    },
+    "school_se07.gypsum_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+        "Independent SE.07 copy of gypsum_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_gypsum_board",
+      "boverket_id": "6000000020",
+      "json_id": "school_se07.epsm:mf_se02_existing:gypsum_board"
+    },
+    "school_se07.plaster": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000091; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+        "Independent SE.07 copy of plaster; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_plaster",
+      "boverket_id": "6000000091",
+      "json_id": "school_se07.epsm:mf_se02_existing:plaster"
+    },
+    "school_se07.mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000123; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Independent SE.07 copy of mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "school_se07.epsm:mf_se02_existing:mineral_wool"
+    },
+    "school_se07.office_linoleum": {
+      "json_id": "school_se07.poirazis_2008:linoleum",
+      "honeybee_id": "school_se07__EPSM_office_linoleum",
+      "boverket_id": "6000000211",
+      "mapping_status": "reviewed_proxy",
+      "source": "poirazis_2008",
+      "locator": "Table 5.1, printed p.135 / PDF p.137",
+      "notes": [
+        "Resilient floor-covering surrogate using EPDM/SBR rubber. Boverket 02.07 has no linoleum record; polymer chemistry and impacts differ. Catalogue product link only; not a validated linoleum carbon factor.",
+        "Independent SE.07 copy of office_linoleum; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "product_mapping_pending",
+          "status": "accepted_assumption",
+          "severity": "blocking",
+          "topic": "material_mapping",
+          "scope": "catalogue",
+          "note": "Boverket family mapping has not been reviewed for this office source material.",
+          "resolution": "Resilient floor-covering surrogate using EPDM/SBR rubber. Boverket 02.07 has no linoleum record; polymer chemistry and impacts differ. Catalogue product link only; not a validated linoleum carbon factor.",
+          "source": "poirazis_2008"
+        }
+      ]
+    },
+    "school_se07.v1_1_acoustic_wood_wool": {
+      "json_id": "school_se07.epsm:v1_1:acoustic_wood_wool",
+      "honeybee_id": "school_se07__EPSM_v1_1_acoustic_wood_wool",
+      "boverket_id": "6000000222",
+      "mapping_status": "reviewed_proxy",
+      "source": "v1_1_acoustic",
+      "locator": "Boverket 6000000222; 25 mm representative lining",
+      "notes": [
+        "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product.",
+        "Independent SE.07 copy of v1_1_acoustic_wood_wool; source references retain their meaning."
+      ],
+      "caveats": []
+    },
+    "school_se07.attic_loose_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000128",
+      "notes": [
+        "Exact attic blowing-stone-wool generic family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of attic_loose_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_attic_loose_stone_wool",
+      "boverket_id": "6000000128",
+      "json_id": "school_se07.epsm:renovation:attic_loose_stone_wool"
+    },
+    "school_se07.cellular_plastic": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000131; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+        "Independent SE.07 copy of cellular_plastic; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_cellular_plastic",
+      "boverket_id": "6000000131",
+      "json_id": "school_se07.epsm:mf_se02_existing:cellular_plastic"
+    },
+    "school_se07.concrete": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000029; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+        "Independent SE.07 copy of concrete; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_concrete",
+      "boverket_id": "6000000029",
+      "json_id": "school_se07.epsm:mf_se02_existing:concrete"
+    },
+    "school_se07.facade_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000125",
+      "notes": [
+        "Uncoated facade stone-wool board family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of facade_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_facade_stone_wool",
+      "boverket_id": "6000000125",
+      "json_id": "school_se07.epsm:renovation:facade_stone_wool_board"
+    },
+    "school_se07.wooden_stud": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000007; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+        "Independent SE.07 copy of wooden_stud; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "school_se07__EPSM_wooden_stud",
+      "boverket_id": "6000000007",
+      "json_id": "school_se07.epsm:mf_se02_existing:wooden_stud"
+    },
+    "generic_se07.gypsum_board": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000020; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+        "Independent SE.07 copy of gypsum_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Gypsum lambda 0.160, rho 800 and cp 1089 accepted captured family assumptions, not measured source-product data.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_gypsum_board",
+      "boverket_id": "6000000020",
+      "json_id": "generic_se07.epsm:mf_se02_existing:gypsum_board"
+    },
+    "generic_se07.plaster": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000091; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+        "Independent SE.07 copy of plaster; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Mineral plaster lambda 0.691, rho 1858 and cp 836 accepted nominal family assumptions.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_plaster",
+      "boverket_id": "6000000091",
+      "json_id": "generic_se07.epsm:mf_se02_existing:plaster"
+    },
+    "generic_se07.mineral_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000123; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Independent SE.07 copy of mineral_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_mineral_wool",
+      "boverket_id": "6000000123",
+      "json_id": "generic_se07.epsm:mf_se02_existing:mineral_wool"
+    },
+    "generic_se07.attic_loose_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000128",
+      "notes": [
+        "Exact attic blowing-stone-wool generic family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of attic_loose_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_attic_loose_stone_wool",
+      "boverket_id": "6000000128",
+      "json_id": "generic_se07.epsm:renovation:attic_loose_stone_wool"
+    },
+    "generic_se07.cellular_plastic": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000131; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+        "Independent SE.07 copy of cellular_plastic; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "EPS cp 1209 accepted legacy foam storage assumption, independent of sourced lambda/density.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_cellular_plastic",
+      "boverket_id": "6000000131",
+      "json_id": "generic_se07.epsm:mf_se02_existing:cellular_plastic"
+    },
+    "generic_se07.woodfiber_board": {
+      "mapping_status": "reviewed_proxy",
+      "source": "calibration",
+      "locator": "Boverket ResourceId=6000000216 wet-process hardboard reviewed family proxy; rejected batts candidate retained in history.",
+      "notes": [
+        "Soft board is not HDF. Candidate 6000000136 is a 50 kg/m3 batts proxy, not this 230 kg/m3 wet-process board; not adopted as resolved carbon.",
+        "Wet-process hardboard carbon family proxy: same wood-fibre/process family, but generic hardboard about 940 kg/m3 and 1.7–6 mm differs from soft board 230 kg/m3 and 8–19 mm. No thermal density substitution or LCA certification. Candidate batts 6000000136 remains rejected.",
+        "Supplier rated lambda 0.070, rho 230 and cp 2100 retained independently of carbon family.",
+        "Independent SE.07 copy of woodfiber_board; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "mapping_pending",
+          "status": "accepted_assumption",
+          "severity": "blocking",
+          "topic": "mapping",
+          "note": "Soft board is not HDF. Candidate 6000000136 is a 50 kg/m3 batts proxy, not this 230 kg/m3 wet-process board; not adopted as resolved carbon.",
+          "resolution": "Wet-process hardboard carbon family proxy: same wood-fibre/process family, but generic hardboard about 940 kg/m3 and 1.7–6 mm differs from soft board 230 kg/m3 and 8–19 mm. No thermal density substitution or LCA certification. Candidate batts 6000000136 remains rejected.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "candidate_boverket_id": "6000000136",
+      "honeybee_id": "generic_se07__EPSM_woodfiber_board",
+      "boverket_id": "6000000216",
+      "json_id": "generic_se07.epsm:mf_se02_existing:woodfiber_board"
+    },
+    "generic_se07.concrete": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000029; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+        "Independent SE.07 copy of concrete; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Dense concrete lambda 2.309, rho 2322 and cp 832 accepted nominal family assumptions, not recovered mix/moisture.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_concrete",
+      "boverket_id": "6000000029",
+      "json_id": "generic_se07.epsm:mf_se02_existing:concrete"
+    },
+    "generic_se07.window_lod2_mf_se06_advanced": {
+      "mapping_status": "reviewed_proxy",
+      "source": "mfh_period_stacks",
+      "locator": "evidence/mfh_baseline_user_stacks.txt",
+      "notes": [
+        "Selected whole-window product at declared reference performance. Boverket is a generic family proxy; opening type and frame may differ. Optics remain explicit template assumptions; no product-specific carbon claim.",
+        "Independent SE.07 copy of window_lod2_mf_se06_advanced; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "whole_window_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "optics",
+          "scope": "catalogue",
+          "source": "mfh_period_stacks",
+          "note": "Source whole-window performance and EPSM effective target differ; optical properties are unmeasured.",
+          "resolution": "Use explicit whole-window target and template optics as a representative catalogue input; require product selection for carbon assessment."
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_window_lod2_mf_se06_advanced",
+      "boverket_id": "6000000106",
+      "json_id": "generic_se07.epsm:window_lod2_mf_se06_advanced",
+      "selected_product": {
+        "manufacturer": "Elitfönster AB",
+        "model": "Original Alu AFÖ top-hung, optional Uw 0.85, Rw 41 dB glazing",
+        "declared_uw": 0.85,
+        "performance_url": "https://www.elitfonster.se/globalassets/pimdocuments/produktblad/Produktblad_EF_Original_ALU.pdf",
+        "performance_locator": "2023-12-07 product sheet p.5, AFÖ table Rw 41, Uw 0.85; reference size 1230 x 1480 mm; checked 2026-09-29",
+        "epd_id": null,
+        "epd_url": null,
+        "boverket_id": "6000000106",
+        "source_id": "lod2_elit_alu_afo"
+      }
+    },
+    "generic_se07.facade_stone_wool": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "ResourceId=6000000125",
+      "notes": [
+        "Uncoated facade stone-wool board family; density and conductivity from ComparativeProperty.",
+        "Independent SE.07 copy of facade_stone_wool; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "heat_capacity_proxy",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+          "resolution": null
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Representative surface absorptance assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_facade_stone_wool",
+      "boverket_id": "6000000125",
+      "json_id": "generic_se07.epsm:renovation:facade_stone_wool_board"
+    },
+    "generic_se07.wooden_stud": {
+      "mapping_status": "matched_generic_family",
+      "source": "boverket_02_07",
+      "locator": "Boverket ResourceId=6000000007; thermal_evidence supplies independent property provenance.",
+      "notes": [
+        "Official generic product-family match checked against role; not exact historic product verification or historical emissions.",
+        "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+        "Independent SE.07 copy of wooden_stud; source references retain their meaning."
+      ],
+      "caveats": [
+        {
+          "id": "conductivity_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "density_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "specific_heat_unverified",
+          "status": "accepted_assumption",
+          "severity": "warning",
+          "topic": "thermal",
+          "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+          "resolution": "Timber lambda 0.120, rho 540 and cp 1209 accepted captured family assumptions; species/moisture/bridging unknown.",
+          "scope": "catalogue",
+          "source": "lod2_review"
+        },
+        {
+          "id": "surface_absorptance_assumption",
+          "status": "accepted_assumption",
+          "severity": "info",
+          "topic": "thermal",
+          "note": "Surface absorptances retained as representative assumptions, not product-specific measurements.",
+          "resolution": null
+        }
+      ],
+      "honeybee_id": "generic_se07__EPSM_wooden_stud",
+      "boverket_id": "6000000007",
+      "json_id": "generic_se07.epsm:mf_se02_existing:wooden_stud"
     }
   }
 }

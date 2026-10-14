@@ -151,12 +151,16 @@ def test_invalid_calibrated_definitions_rejected(definition_copy, mutation):
     materials = definition["materials"]["materials"]
     honeybee = definition["honeybee"]["materials"]
     if mutation == "fractional_thickness":
-        assemblies["mf_se02_existing_intermediate_floor"]["components"][0]["layers"][0]["thickness"] = 0.00317
+        a = assemblies[state["assemblies"]["INTERMEDIATE_FLOOR"]]
+        layer = a["components"][0]["layers"][0]
+        a["thickness_constraints"] = [{"component":0,"layer":0,"allowed_thickness_mm":[layer["thickness"]*1000]}]
+        layer["thickness"] = 0.00317
     elif mutation == "nonfinite_window":
         honeybee["EPSM_window_existing"]["shgc"] = float("nan")
     elif mutation == "duplicate_constraint":
-        a = assemblies["mf_se02_existing_top_floor"]
-        a["thickness_constraints"].append(a["thickness_constraints"][0])
+        a = assemblies[state["assemblies"]["TOP_FLOOR"]]
+        constraint = {"component":0,"layer":0,"allowed_thickness_mm":[a["components"][0]["layers"][0]["thickness"]*1000]}
+        a["thickness_constraints"] = [constraint, constraint]
     elif mutation == "invalid_scope":
         state["key"]["era"] = "SE.03"
     elif mutation == "unknown_source":
@@ -171,7 +175,9 @@ def test_invalid_calibrated_definitions_rejected(definition_copy, mutation):
         resource = next(r for r in definition["boverket"]["Resources"] if r["ResourceId"] == 6000000131)
         resource["ResourceId"] = 6000000210
     elif mutation == "nonstandard_framing":
-        assemblies["mf_se02_existing_ext_wall"]["components"][2]["layers"][0]["area_fraction"] = [0.829, 0.171]
+        a = assemblies[state["assemblies"]["EXT_WALL"]]
+        a["framing_constraints"] = [{"component":2,"layer":0,"material_id":"wooden_stud","allowed_area_fractions":[.16]}]
+        a["components"][2]["layers"][0]["area_fraction"] = [0.829, 0.171]
     elif mutation == "thermal_source":
         honeybee["EPSM_mineral_wool"]["user_data"]["thermal_evidence"]["density"]["source"] = "missing"
     save_definition(path, definition)

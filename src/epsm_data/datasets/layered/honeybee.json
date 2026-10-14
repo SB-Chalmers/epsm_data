@@ -5187,6 +5187,1981 @@
       "u_factor": 2.2,
       "shgc": 0.7,
       "vt": 0.75
+    },
+    "mf_se07__EPSM_gypsum_board": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_gypsum_board",
+      "display_name": "gypsum_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "mf_se07__EPSM_plaster": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_plaster",
+      "display_name": "plaster",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.6913373548329222,
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92
+    },
+    "mf_se07__EPSM_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_mineral_wool",
+      "display_name": "Stone wool batts — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts indicative lambda 0.036 W/(m K), not a historical measurement.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts reference 29 kg/m3 replaces inherited 91/265 kg/m3 for the representative family.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_heat_capacity",
+            "status": "family_proxy",
+            "note": "Stone-wool specific heat 1030 J/(kg K); not inferred from carbon.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.036,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "mf_se07__EPSM_wooden_stud": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_wooden_stud",
+      "display_name": "wooden_stud",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.11991974932054163,
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "mf_se07__EPSM_attic_loose_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_attic_loose_stone_wool",
+      "display_name": "Attic loose stone wool",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.042,
+      "density": 28,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "mf_se07__EPSM_cellular_plastic": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_cellular_plastic",
+      "display_name": "EPS 100 — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.037,
+      "density": 20,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6
+    },
+    "mf_se07__EPSM_woodfiber_board": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_woodfiber_board",
+      "display_name": "Soft wood-fibre board — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "Rated 0.070 retained; declared 0.050 is a different convention.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "STEICO soft-board proxy, not verified historical material.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "STEICO soft-board proxy, not verified historical material.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.07,
+      "density": 230,
+      "specific_heat": 2100,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.65,
+      "visible_absorptance": 0.65
+    },
+    "mf_se07__EPSM_concrete": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_concrete",
+      "display_name": "concrete",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 2.3089016425031033,
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "mf_se07__EPSM_facade_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "mf_se07__EPSM_facade_stone_wool",
+      "display_name": "Facade stone wool board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.033,
+      "density": 80,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "mf_se07__EPSM_window_lod2_mf_se06_advanced": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "mf_se07__EPSM_window_lod2_mf_se06_advanced",
+      "display_name": "MF se06_advanced whole-window representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "SE.06 advanced target Uw 1; selected Original Trä 100 EFK fixed frame, triple glass, standard Uw 1.0 declares 1.00.",
+          "LOD2 discrete review: whole-window performance is independent of opaque layers."
+        ],
+        "caveats": [],
+        "optics_source": "mfh_period_stacks",
+        "optics_note": "SHGC and visible transmittance retained from an existing generic window template; not period measurements."
+      },
+      "u_factor": 0.85,
+      "shgc": 0.45,
+      "vt": 0.6
+    },
+    "sf_se07__EPSM_gypsum_board": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_gypsum_board",
+      "display_name": "gypsum_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "sf_se07__EPSM_plaster": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_plaster",
+      "display_name": "plaster",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.6913373548329222,
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92
+    },
+    "sf_se07__EPSM_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_mineral_wool",
+      "display_name": "Stone wool batts — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts indicative lambda 0.036 W/(m K), not a historical measurement.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts reference 29 kg/m3 replaces inherited 91/265 kg/m3 for the representative family.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_heat_capacity",
+            "status": "family_proxy",
+            "note": "Stone-wool specific heat 1030 J/(kg K); not inferred from carbon.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.036,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "sf_se07__EPSM_v1_2_air_150": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_v1_2_air_150",
+      "display_name": "Unventilated air gap equivalent 150 mm",
+      "thickness": 0.15,
+      "roughness": "MediumRough",
+      "conductivity": 0.9375,
+      "density": 1.2,
+      "specific_heat": 1006,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "user_data": {
+        "definition_kind": "custom",
+        "epsm_material_type": "air_gap_equivalent",
+        "notes": [
+          "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
+        ],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "v1_2_floor_review",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
+          },
+          "density": {
+            "source": "v1_2_floor_review",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
+          },
+          "specific_heat": {
+            "source": "v1_2_floor_review",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Nominal sealed high-emissivity cavity R=0.16 m2K/W, conservative upward-flow assumption held fixed for bidirectional internal exchange. Lambda=depth/R includes effective convection/radiation, not still-air conductivity. No ventilation, no product carbon; depth-specific material must not be reused at another depth."
+          }
+        }
+      }
+    },
+    "sf_se07__EPSM_sf_historic_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_sf_historic_mineral_wool",
+      "display_name": "Sf Historic Mineral Wool",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "P02–P06 historic mineral-wool representative lambda 0.040 W/(mK); density and heat capacity remain family proxies."
+        ],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "sf_period_stacks",
+            "note": "P02–P06 historic mineral-wool representative lambda 0.040 W/(mK); density and heat capacity remain family proxies."
+          },
+          "density": {
+            "source": "sf_period_stacks",
+            "note": "P02–P06 historic mineral-wool representative lambda 0.040 W/(mK); density and heat capacity remain family proxies."
+          },
+          "specific_heat": {
+            "source": "sf_period_stacks",
+            "note": "P02–P06 historic mineral-wool representative lambda 0.040 W/(mK); density and heat capacity remain family proxies."
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.04,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "sf_se07__EPSM_attic_loose_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_attic_loose_stone_wool",
+      "display_name": "Attic loose stone wool",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.042,
+      "density": 28,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "sf_se07__EPSM_cellular_plastic": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_cellular_plastic",
+      "display_name": "EPS 100 — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.037,
+      "density": 20,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6
+    },
+    "sf_se07__EPSM_plaster_board": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_plaster_board",
+      "display_name": "plaster_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.5
+    },
+    "sf_se07__EPSM_concrete": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_concrete",
+      "display_name": "concrete",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 2.3089016425031033,
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "sf_se07__EPSM_window_lod2_sf_se06_advanced": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "sf_se07__EPSM_window_lod2_sf_se06_advanced",
+      "display_name": "SF SE.06 advanced representative whole window",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "SF SE.06 advanced target Uw 1; source period Uw 1.1 for Existing.",
+          "LOD2 discrete review: whole-window performance is independent of opaque layers."
+        ],
+        "caveats": [],
+        "optics_source": "sf_period_stacks",
+        "optics_note": "SHGC and VT retained from generic window template; selected product optics not imported."
+      },
+      "u_factor": 0.8,
+      "shgc": 0.45,
+      "vt": 0.6
+    },
+    "sf_se07__EPSM_facade_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_facade_stone_wool",
+      "display_name": "Facade stone wool board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.033,
+      "density": 80,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "sf_se07__EPSM_wooden_stud": {
+      "type": "EnergyMaterial",
+      "identifier": "sf_se07__EPSM_wooden_stud",
+      "display_name": "wooden_stud",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.11991974932054163,
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "office_se07__EPSM_gypsum_board": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_gypsum_board",
+      "display_name": "gypsum_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "office_se07__EPSM_plaster": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_plaster",
+      "display_name": "plaster",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.6913373548329222,
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92
+    },
+    "office_se07__EPSM_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_mineral_wool",
+      "display_name": "Stone wool batts — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts indicative lambda 0.036 W/(m K), not a historical measurement.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts reference 29 kg/m3 replaces inherited 91/265 kg/m3 for the representative family.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_heat_capacity",
+            "status": "family_proxy",
+            "note": "Stone-wool specific heat 1030 J/(kg K); not inferred from carbon.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.036,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "office_se07__EPSM_v1_roof_board": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_v1_roof_board",
+      "display_name": "Generic rigid stone-wool roof board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "roof_board_v1",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Generic resource physical properties; specific heat is an independently documented family proxy."
+          },
+          "density": {
+            "source": "roof_board_v1",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Generic resource physical properties; specific heat is an independently documented family proxy."
+          },
+          "specific_heat": {
+            "source": "roof_board_v1",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Generic resource physical properties; specific heat is an independently documented family proxy."
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.038,
+      "density": 180,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "office_se07__EPSM_office_linoleum": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_office_linoleum",
+      "display_name": "Linoleum",
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.156,
+      "density": 1200,
+      "specific_heat": 1260,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "user_data": {
+        "definition_kind": "custom",
+        "epsm_material_type": "source_opaque",
+        "notes": [
+          "50 mm registration prototype only; assembly depths come from Table 5.1.",
+          "Roughness and 0.9/0.7/0.7 absorptances are unreviewed authoring placeholders, not thesis values.",
+          "MediumRough and absorptances 0.9/0.7/0.7 are reviewed EPSM authoring assumptions, not measured thesis surface properties. Internal equivalent air layers use the same schema values without implying solid surfaces."
+        ],
+        "caveats": [
+          {
+            "id": "surface_properties_unreviewed",
+            "status": "accepted_assumption",
+            "severity": "blocking",
+            "topic": "surface_properties",
+            "scope": "catalogue",
+            "note": "Surface roughness and absorptances require review before nominal export acceptance.",
+            "resolution": "MediumRough and absorptances 0.9/0.7/0.7 are reviewed EPSM authoring assumptions, not measured thesis surface properties. Internal equivalent air layers use the same schema values without implying solid surfaces.",
+            "source": "poirazis_2008"
+          }
+        ],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          },
+          "density": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          },
+          "specific_heat": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          }
+        },
+        "source_thermal_properties": {
+          "conductivity": 0.156,
+          "density": 1200,
+          "specific_heat": 1260
+        }
+      }
+    },
+    "office_se07__EPSM_v1_1_acoustic_wood_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_v1_1_acoustic_wood_wool",
+      "display_name": "Generic wood-wool acoustic lining",
+      "thickness": 0.025,
+      "roughness": "MediumRough",
+      "conductivity": 0.085,
+      "density": 450,
+      "specific_heat": 837,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "user_data": {
+        "definition_kind": "custom",
+        "epsm_material_type": "source_opaque",
+        "notes": [
+          "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+        ],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          },
+          "density": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          },
+          "specific_heat": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          }
+        }
+      }
+    },
+    "office_se07__EPSM_cellular_plastic": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_cellular_plastic",
+      "display_name": "EPS 100 — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.037,
+      "density": 20,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6
+    },
+    "office_se07__EPSM_window_lod2_office_se06_advanced": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "office_se07__EPSM_window_lod2_office_se06_advanced",
+      "display_name": "Office SE.06 advanced whole window",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "Office SE.06 advanced LoD1 target Uw 1; source period Existing Uw 1.99.",
+          "LOD2 discrete review: whole-window performance is independent of opaque layers."
+        ],
+        "caveats": [],
+        "optics_source": "office_period_stacks",
+        "optics_note": "SHGC and VT are retained template assumptions, not selected-product optical data."
+      },
+      "u_factor": 0.9,
+      "shgc": 0.5,
+      "vt": 0.65
+    },
+    "office_se07__EPSM_concrete": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_concrete",
+      "display_name": "concrete",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 2.3089016425031033,
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "office_se07__EPSM_facade_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_facade_stone_wool",
+      "display_name": "Facade stone wool board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.033,
+      "density": 80,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "office_se07__EPSM_wooden_stud": {
+      "type": "EnergyMaterial",
+      "identifier": "office_se07__EPSM_wooden_stud",
+      "display_name": "wooden_stud",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.11991974932054163,
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "school_se07__EPSM_window_lod2_school_se06_advanced": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "school_se07__EPSM_window_lod2_school_se06_advanced",
+      "display_name": "School SE.06 advanced whole window",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "School SE.06 advanced target Uw 1.024; supplied Existing period value 1.14.",
+          "LOD2 discrete review: whole-window performance is independent of opaque layers."
+        ],
+        "caveats": [],
+        "optics_source": "school_period_stacks",
+        "optics_note": "SHGC and VT are retained representative template assumptions."
+      },
+      "u_factor": 0.9,
+      "shgc": 0.5,
+      "vt": 0.65
+    },
+    "school_se07__EPSM_gypsum_board": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_gypsum_board",
+      "display_name": "gypsum_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "school_se07__EPSM_plaster": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_plaster",
+      "display_name": "plaster",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.6913373548329222,
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92
+    },
+    "school_se07__EPSM_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_mineral_wool",
+      "display_name": "Stone wool batts — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts indicative lambda 0.036 W/(m K), not a historical measurement.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts reference 29 kg/m3 replaces inherited 91/265 kg/m3 for the representative family.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_heat_capacity",
+            "status": "family_proxy",
+            "note": "Stone-wool specific heat 1030 J/(kg K); not inferred from carbon.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.036,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "school_se07__EPSM_office_linoleum": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_office_linoleum",
+      "display_name": "Linoleum",
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.156,
+      "density": 1200,
+      "specific_heat": 1260,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "user_data": {
+        "definition_kind": "custom",
+        "epsm_material_type": "source_opaque",
+        "notes": [
+          "50 mm registration prototype only; assembly depths come from Table 5.1.",
+          "Roughness and 0.9/0.7/0.7 absorptances are unreviewed authoring placeholders, not thesis values.",
+          "MediumRough and absorptances 0.9/0.7/0.7 are reviewed EPSM authoring assumptions, not measured thesis surface properties. Internal equivalent air layers use the same schema values without implying solid surfaces."
+        ],
+        "caveats": [
+          {
+            "id": "surface_properties_unreviewed",
+            "status": "accepted_assumption",
+            "severity": "blocking",
+            "topic": "surface_properties",
+            "scope": "catalogue",
+            "note": "Surface roughness and absorptances require review before nominal export acceptance.",
+            "resolution": "MediumRough and absorptances 0.9/0.7/0.7 are reviewed EPSM authoring assumptions, not measured thesis surface properties. Internal equivalent air layers use the same schema values without implying solid surfaces.",
+            "source": "poirazis_2008"
+          }
+        ],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          },
+          "density": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          },
+          "specific_heat": {
+            "source": "poirazis_2008",
+            "status": "source_transcribed",
+            "note": "Table 5.1, printed p.135 / PDF p.137; visually checked 2026-09-17."
+          }
+        },
+        "source_thermal_properties": {
+          "conductivity": 0.156,
+          "density": 1200,
+          "specific_heat": 1260
+        }
+      }
+    },
+    "school_se07__EPSM_v1_1_acoustic_wood_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_v1_1_acoustic_wood_wool",
+      "display_name": "Generic wood-wool acoustic lining",
+      "thickness": 0.025,
+      "roughness": "MediumRough",
+      "conductivity": 0.085,
+      "density": 450,
+      "specific_heat": 837,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7,
+      "user_data": {
+        "definition_kind": "custom",
+        "epsm_material_type": "source_opaque",
+        "notes": [
+          "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+        ],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          },
+          "density": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          },
+          "specific_heat": {
+            "source": "v1_1_acoustic",
+            "status": "generic_proxy",
+            "review_status": "accepted_assumption",
+            "note": "Lambda 0.085 and density 450 from Boverket; cp 837 from prior acoustic-tile thermal proxy. Not an exact branded product."
+          }
+        }
+      }
+    },
+    "school_se07__EPSM_attic_loose_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_attic_loose_stone_wool",
+      "display_name": "Attic loose stone wool",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.042,
+      "density": 28,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "school_se07__EPSM_cellular_plastic": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_cellular_plastic",
+      "display_name": "EPS 100 — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.037,
+      "density": 20,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6
+    },
+    "school_se07__EPSM_concrete": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_concrete",
+      "display_name": "concrete",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 2.3089016425031033,
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "school_se07__EPSM_facade_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_facade_stone_wool",
+      "display_name": "Facade stone wool board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.033,
+      "density": 80,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "school_se07__EPSM_wooden_stud": {
+      "type": "EnergyMaterial",
+      "identifier": "school_se07__EPSM_wooden_stud",
+      "display_name": "wooden_stud",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.11991974932054163,
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "generic_se07__EPSM_gypsum_board": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_gypsum_board",
+      "display_name": "gypsum_board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.15989299909405463,
+      "density": 800.0018291911765,
+      "specific_heat": 1089.2971854559414,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "generic_se07__EPSM_plaster": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_plaster",
+      "display_name": "plaster",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "Smooth",
+      "conductivity": 0.6913373548329222,
+      "density": 1858.004248296516,
+      "specific_heat": 836.4603158042426,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.92
+    },
+    "generic_se07__EPSM_mineral_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_mineral_wool",
+      "display_name": "Stone wool batts — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts indicative lambda 0.036 W/(m K), not a historical measurement.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "Stone-wool batts reference 29 kg/m3 replaces inherited 91/265 kg/m3 for the representative family.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_heat_capacity",
+            "status": "family_proxy",
+            "note": "Stone-wool specific heat 1030 J/(kg K); not inferred from carbon.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.036,
+      "density": 29,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.5,
+      "visible_absorptance": 0.5
+    },
+    "generic_se07__EPSM_attic_loose_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_attic_loose_stone_wool",
+      "display_name": "Attic loose stone wool",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.042,
+      "density": 28,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "generic_se07__EPSM_cellular_plastic": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_cellular_plastic",
+      "display_name": "EPS 100 — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "boverket_02_07",
+            "status": "generic_proxy",
+            "note": "EPS 100 described with approximate density 20 kg/m3 and lambda 0.037 W/(m K). Original source grade unverified.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.037,
+      "density": 20,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.6,
+      "visible_absorptance": 0.6
+    },
+    "generic_se07__EPSM_woodfiber_board": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_woodfiber_board",
+      "display_name": "Soft wood-fibre board — representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "Rated 0.070 retained; declared 0.050 is a different convention.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "STEICO soft-board proxy, not verified historical material.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "steico_thermal",
+            "status": "manufacturer_proxy",
+            "note": "STEICO soft-board proxy, not verified historical material.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.07,
+      "density": 230,
+      "specific_heat": 2100,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.65,
+      "visible_absorptance": 0.65
+    },
+    "generic_se07__EPSM_concrete": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_concrete",
+      "display_name": "concrete",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 2.3089016425031033,
+      "density": 2322.006775596,
+      "specific_heat": 832.0199665271966,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "generic_se07__EPSM_window_lod2_mf_se06_advanced": {
+      "type": "EnergyWindowMaterialSimpleGlazSys",
+      "identifier": "generic_se07__EPSM_window_lod2_mf_se06_advanced",
+      "display_name": "MF se06_advanced whole-window representative",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [
+          "SE.06 advanced target Uw 1; selected Original Trä 100 EFK fixed frame, triple glass, standard Uw 1.0 declares 1.00.",
+          "LOD2 discrete review: whole-window performance is independent of opaque layers."
+        ],
+        "caveats": [],
+        "optics_source": "mfh_period_stacks",
+        "optics_note": "SHGC and visible transmittance retained from an existing generic window template; not period measurements."
+      },
+      "u_factor": 0.85,
+      "shgc": 0.45,
+      "vt": 0.6
+    },
+    "generic_se07__EPSM_facade_stone_wool": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_facade_stone_wool",
+      "display_name": "Facade stone wool board",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "density": {
+            "source": "boverket_02_07",
+            "note": "Representative grade density; independent of carbon mass/volume conversion.",
+            "review_status": "accepted_assumption"
+          },
+          "conductivity": {
+            "source": "boverket_02_07",
+            "note": "Published conductivity retained; never tuned to match U.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "rockwool_capacity",
+            "note": "1030 J/(kg K) stone-wool family proxy, not a product-specific determination.",
+            "review_status": "accepted_assumption"
+          }
+        },
+        "epsm_material_type": "Insulation"
+      },
+      "thickness": 0.05,
+      "roughness": "MediumRough",
+      "conductivity": 0.033,
+      "density": 80,
+      "specific_heat": 1030,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "generic_se07__EPSM_wooden_stud": {
+      "type": "EnergyMaterial",
+      "identifier": "generic_se07__EPSM_wooden_stud",
+      "display_name": "wooden_stud",
+      "user_data": {
+        "definition_kind": "custom",
+        "notes": [],
+        "caveats": [],
+        "thermal_evidence": {
+          "conductivity": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained conductivity; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "density": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained density; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          },
+          "specific_heat": {
+            "source": "legacy_thermal",
+            "status": "retained_unverified",
+            "note": "Retained specific_heat; not validated by carbon mapping or U-value alignment.",
+            "review_status": "accepted_assumption"
+          }
+        }
+      },
+      "thickness": 0.05,
+      "roughness": "MediumSmooth",
+      "conductivity": 0.11991974932054163,
+      "density": 540.0012347040437,
+      "specific_heat": 1209.2198113776988,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
     }
   }
 }

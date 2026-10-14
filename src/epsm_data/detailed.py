@@ -85,7 +85,11 @@ class DetailedCatalogue:
     _data: dict
 
     def to_dict(self):
-        return deepcopy(self._data)
+        data = deepcopy(self._data)
+        for archetype in data["archetypes"]["archetypes"].values():
+            if archetype["era"] == "SE.07":
+                archetype["configuration"] = archetype.pop("states")[None]
+        return data
 
     @property
     def materials(self):
@@ -174,7 +178,7 @@ class DetailedCatalogue:
 
     def material_references(self, archetype_id="mf_se02", state="existing"):
         return {mid: {"registry_id": mid, **{f: self.resolve_material(mid)[f] for f in
-                    ("json_id", "honeybee_id", "boverket_id", "mapping_status",
+                    ("json_id", "honeybee_id", "boverket_id", "mapping_status", "kind",
                      "honeybee_revision", "boverket_revision")}}
                 for mid in self.active_material_ids(archetype_id, state)}
 
@@ -207,7 +211,7 @@ class DetailedCatalogue:
         declared = states[state].get("v1_review", {}).get("retained_floor_unmapped_materials", [])
         if not declared:
             return []
-        if set(states) != {"existing", "standard", "advanced"}:
+        if set(states) not in ({"existing", "standard", "advanced"}, {None}):
             raise ValueError("Retained floor mapping review requires all three states")
         reference = None
         for variant in states.values():
@@ -394,11 +398,11 @@ class DetailedCatalogue:
                 readiness = {"ground_validation": False, "carbon_assessment": False,
                              "simulation": False, "honeybee_nominal_export": False,
                              "core_nominal_export": False}
-                generic_office = aid in {f"office_se{i:02d}" for i in range(1, 7)} and not (aid == "office_se05" and state == "existing" and variant.get("release_profile") != "lod2-v1")
-                generic_school = aid in {f"school_se{i:02d}" for i in range(1, 7)}
-                if ((archetype["category"] == "multi_family" and aid in {"mf_se02", "mf_1940", "mf_1950", "mf_se03", "mf_se04", "mf_se05", "mf_se06"})
-                        or aid in {f"sf_se{i:02d}" for i in range(1, 7)} or generic_office
-                        or generic_school or (variant.get("release_profile") == "lod2-v1" and aid.startswith("generic_se"))):
+                generic_office = aid in {f"office_se{i:02d}" for i in range(1, 8)} and not (aid == "office_se05" and state == "existing" and variant.get("release_profile") not in ("lod2-v1", "complete_recipe"))
+                generic_school = aid in {f"school_se{i:02d}" for i in range(1, 8)}
+                if ((archetype["category"] == "multi_family" and aid in {"mf_se02", "mf_1940", "mf_1950", "mf_se03", "mf_se04", "mf_se05", "mf_se06", "mf_se07"})
+                        or aid in {f"sf_se{i:02d}" for i in range(1, 8)} or generic_office
+                        or generic_school or (variant.get("release_profile") in ("lod2-v1", "complete_recipe") and aid.startswith("generic_se"))):
                     result = load_calibrated_archetype(catalogue=catalogue, renovation_state=state,
                                                        detailed=self, archetype_id=aid)
                     report = result.report
@@ -416,11 +420,11 @@ class DetailedCatalogue:
                                             "construction_revision": report["revision"]})
                     checks["classification_slots_validated"] = bool(slot_checks) and all(
                         r["identical_state_targets"] and r["nominal_u_alignment"] for r in slot_checks)
-                    if aid in ({"mf_1940", "mf_se03", "mf_se04", "mf_se05", "mf_se06"}
-                               | {f"sf_se{i:02d}" for i in range(1, 7)}
-                               | {f"office_se{i:02d}" for i in range(1, 7)}
-                               | {f"school_se{i:02d}" for i in range(1, 7)}
-                               | {f"generic_se{i:02d}" for i in range(1, 7)}) and state != "existing":
+                    if aid in ({"mf_1940", "mf_se03", "mf_se04", "mf_se05", "mf_se06", "mf_se07"}
+                               | {f"sf_se{i:02d}" for i in range(1, 8)}
+                               | {f"office_se{i:02d}" for i in range(1, 8)}
+                               | {f"school_se{i:02d}" for i in range(1, 8)}
+                               | {f"generic_se{i:02d}" for i in range(1, 8)}) and state != "existing":
                         window_mid = self.assemblies[variant["assemblies"]["WINDOW"]]["material_id"]
                         product = self.materials[window_mid].get("selected_product")
                         target_uw = slots[0].properties["window"].value if slots else None
@@ -482,7 +486,7 @@ class DetailedCatalogue:
             return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
 
         return {"rule_version": 4 if all(
-                    s.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4")
+                    s.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current")
                     for a in self.archetypes.values() if a.get("catalogue_assignment", "canonical") == "canonical"
                     for s in a["states"].values()) else 3, "detailed_revision": revision(self._data),
                 "catalogue_revision": revision(catalogue.to_dict()),
@@ -751,17 +755,17 @@ def _validate(data, catalogue):
         school_draft = (aid, archetype["category"], archetype["era"]) == ("school_fridhem", "school", "SE.02")
         historic_mf = aid in {"mf_1940", "mf_1950"} and archetype["category"] == "multi_family" and archetype["era"] == "SE.01"
         full_mf = (aid == "mf_1940" and historic_mf) or (
-            aid in {"mf_se03", "mf_se04", "mf_se05", "mf_se06"}
+            aid in {"mf_se03", "mf_se04", "mf_se05", "mf_se06", "mf_se07"}
             and archetype["category"] == "multi_family"
             and archetype["era"] == aid.removeprefix("mf_").upper().replace("SE", "SE.")
         )
-        full_sf = (aid in {f"sf_se{i:02d}" for i in range(1, 7)}
+        full_sf = (aid in {f"sf_se{i:02d}" for i in range(1, 8)}
                    and archetype["category"] == "single_family"
                    and archetype["era"] == aid.removeprefix("sf_").upper().replace("SE", "SE."))
-        full_office = (aid in {f"office_se{i:02d}" for i in range(1, 7)}
+        full_office = (aid in {f"office_se{i:02d}" for i in range(1, 8)}
                        and archetype["category"] == "office"
                        and archetype["era"] == aid.removeprefix("office_").upper().replace("SE", "SE."))
-        full_school = (aid in {f"school_se{i:02d}" for i in range(1, 7)}
+        full_school = (aid in {f"school_se{i:02d}" for i in range(1, 8)}
                        and archetype["category"] == "school"
                        and archetype["era"] == aid.removeprefix("school_").upper().replace("SE", "SE."))
         office_existing_only = office and set(states) == {"existing"}
@@ -785,7 +789,9 @@ def _validate(data, catalogue):
             raise ValueError("Unsupported source-layer draft")
         if (school_draft or (office and not full_office) or (historic_mf and not full_mf)) and set(states) != {"existing"}:
             raise ValueError(f"{aid}: source-layer draft supports Existing only")
-        if not (school_draft or office_existing_only or (office and not full_office) or (historic_mf and not full_mf)) and set(states) != {"existing", "standard", "advanced"}:
+        if archetype["era"] == "SE.07" and set(states) != {None}:
+            raise ValueError(f"{aid}: SE.07 requires one configuration and no renovation states")
+        if archetype["era"] != "SE.07" and not (school_draft or office_existing_only or (office and not full_office) or (historic_mf and not full_mf)) and set(states) != {"existing", "standard", "advanced"}:
             raise ValueError(f"{aid}: requires exactly three renovation states")
         for name, state in states.items():
             _annotations(state, f"{aid}:{name}", sources)
@@ -808,7 +814,7 @@ def _validate(data, catalogue):
                 EffectiveProperty(**target)
             if any(s not in sources for s in state["source_ids"]):
                 raise ValueError(f"{aid}: dangling state source")
-            if name == "existing" or state.get("release_profile") == "lod2-v1" or ((full_mf or full_sf or full_office or full_school) and "assemblies" in state):
+            if name == "existing" or state.get("release_profile") in ("lod2-v1", "complete_recipe") or ((full_mf or full_sf or full_office or full_school) and "assemblies" in state):
                 refs = state["assemblies"]
                 expected_roles = {"TOP_FLOOR", "EXT_WALL", "WINDOW", "GROUND_FLOOR", "BASEMENT_WALL",
                                   "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING"}
@@ -825,7 +831,7 @@ def _validate(data, catalogue):
                                       "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING"}
                     if archetype["era"] == "SE.01":
                         expected_roles.add("BASEMENT_WALL")
-                if state.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
+                if state.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
                     expected_roles.add("BASEMENT_WALL")
                 if set(refs) != expected_roles:
                     raise ValueError(f"{aid}: Existing must contain the declared construction roles")
@@ -905,6 +911,11 @@ def load_detailed_catalogue(path=None, *, catalogue=None) -> DetailedCatalogue:
     for name in REGISTRIES:
         with root.joinpath(f"{name}.json").open(encoding="utf-8") as handle:
             data[name] = json.load(handle, object_pairs_hook=_unique_object, parse_constant=_nonfinite)
+    for aid, archetype in data["archetypes"]["archetypes"].items():
+        if archetype.get("era") == "SE.07":
+            if "states" in archetype or "configuration" not in archetype:
+                raise ValueError(f"{aid}: SE.07 must define a configuration, not renovation states")
+            archetype["states"] = {None: archetype.pop("configuration")}
     try:
         _validate(data, catalogue if catalogue is not None else load_parametric_catalogue())
     except (KeyError, TypeError, AttributeError) as exc:

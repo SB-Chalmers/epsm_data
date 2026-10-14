@@ -28,7 +28,8 @@ ERAS = {
     "SE.03": (1976, 1985),
     "SE.04": (1986, 1995),
     "SE.05": (1996, 2005),
-    "SE.06": (2006, None),
+    "SE.06": (2006, 2021),
+    "SE.07": (2022, None),
 }
 ZONES = ("SE.Zone1", "SE.Zone2", "SE.Zone3")
 STATES = ("existing", "standard", "advanced")
@@ -43,6 +44,13 @@ ELEMENTS = (
     "window",
 )
 PROPERTIES = (*ELEMENTS, "infiltration")
+
+
+def states_for_era(era):
+    """SE.07 has no renovation state; None identifies its sole configuration."""
+    if era not in ERAS:
+        raise ValueError(f"Unknown era: {era}")
+    return (None,) if era == "SE.07" else STATES
 
 
 def content_hash(value: Any) -> str:
@@ -78,7 +86,7 @@ def _number(value: Any, name: str, *, positive: bool = True) -> None:
 
 
 def era_for_year(year: int) -> str:
-    """Resolve a positive construction year; SE.06 is the open modern cohort."""
+    """Resolve a construction year; SE.07 starts in 2022."""
     if isinstance(year, bool) or not isinstance(year, int) or year < 1:
         raise ValueError("construction year must be a positive integer")
     return next(
@@ -91,15 +99,19 @@ class ArchetypeKey:
     category: str
     era: str
     climate_zone: str
-    renovation_state: str
+    renovation_state: str | None
     ventilation_system: str
 
     def __post_init__(self) -> None:
+        if self.era == "SE.07":
+            if self.renovation_state is not None:
+                raise ValueError("SE.07 has one configuration and no renovation states; use None")
+        elif self.renovation_state not in STATES:
+            raise ValueError(f"Unknown renovation_state: {self.renovation_state}")
         for name, choices in (
             ("category", CATEGORIES),
             ("era", ERAS),
             ("climate_zone", ZONES),
-            ("renovation_state", STATES),
             ("ventilation_system", SYSTEMS),
         ):
             if not isinstance(getattr(self, name), str) or getattr(self, name) not in choices:
@@ -112,7 +124,7 @@ class ArchetypeKey:
                 self.category,
                 self.era,
                 self.climate_zone,
-                self.renovation_state,
+                self.renovation_state or "default",
                 self.ventilation_system,
             )
         )
@@ -170,7 +182,7 @@ class EffectiveConstructionSet:
 
     category: str
     era: str
-    renovation_state: str
+    renovation_state: str | None
     properties: Mapping[str, EffectiveProperty]
 
     @property
@@ -232,8 +244,9 @@ class ParametricCatalogue:
         try:
             self._validate()
             # Validate derived numbers too, without persisting the expanded grid.
-            for category, era, state, role in product(CATEGORIES, ERAS, STATES, PROPERTIES):
-                self._resolve_property(category, era, state, role)
+            for category, era in product(CATEGORIES, self._data["dimensions"]["eras"]):
+                for state, role in product(states_for_era(era), PROPERTIES):
+                    self._resolve_property(category, era, state, role)
         except (KeyError, TypeError, AttributeError, OverflowError) as exc:
             raise ValueError(f"Malformed catalogue: {exc}") from exc
         self.dataset_id = data["dataset_id"]
@@ -243,6 +256,9 @@ class ParametricCatalogue:
 
     def _validate(self) -> None:
         d = self._data
+        if d.get("schema_version") == 2:
+            self._validate_current()
+            return
         if (
             type(d.get("schema_version")) is not int
             or d["schema_version"] != 1
@@ -251,12 +267,13 @@ class ParametricCatalogue:
             raise ValueError("Expected catalogue schema_version 1 and dataset_id")
         if not d["dataset_id"].strip():
             raise ValueError("dataset_id must not be empty")
+        legacy_eras = {k: ((2006, None) if k == "SE.06" else v) for k, v in ERAS.items() if k != "SE.07"}
         dimensions = d["dimensions"]
         if set(dimensions) != {"categories", "eras", "zones", "states", "ventilation"}:
             raise ValueError("Expected exactly five classification dimensions")
         for name, choices in (
             ("categories", CATEGORIES),
-            ("eras", ERAS),
+            ("eras", legacy_eras),
             ("zones", ZONES),
             ("states", STATES),
             ("ventilation", SYSTEMS),
@@ -266,7 +283,7 @@ class ParametricCatalogue:
                 raise ValueError(f"dimensions.{name} must contain exactly {tuple(choices)}")
         if dimensions["categories"] != CATEGORY_LABELS:
             raise ValueError("Category labels must be SF, MF, Office, School, Generic")
-        for era, bounds in ERAS.items():
+        for era, bounds in legacy_eras.items():
             if dimensions["eras"][era] != list(bounds):
                 raise ValueError(f"Invalid era bounds for {era}")
         if set(d["categories"]) != set(CATEGORIES):
@@ -328,7 +345,7 @@ class ParametricCatalogue:
                 if "values" in curve:
                     raise ValueError("A curve cannot have both proxy and values")
             else:
-                if set(curve["values"]) != set(ERAS):
+                if set(curve["values"]) != set(legacy_eras):
                     raise ValueError(f"Curve {cid} must cover six eras")
                 for era, row in curve["values"].items():
                     if set(row) != set(STATES):
@@ -360,6 +377,37 @@ class ParametricCatalogue:
                 raise ValueError("Unknown infiltration_from category")
         for category in CATEGORIES:
             self._anchor(category, "infiltration")
+
+    def _validate_current(self):
+        d = self._data
+        if not isinstance(d.get("dataset_id"), str) or not d["dataset_id"].strip():
+            raise ValueError("dataset_id is required")
+        expected = {"categories": CATEGORY_LABELS, "eras": {k: list(v) for k, v in ERAS.items()},
+                    "zones": list(ZONES), "states": list(STATES), "ventilation": list(SYSTEMS)}
+        if d.get("dimensions") != expected:
+            raise ValueError("Current catalogue classification dimensions do not match")
+        if any(key in d for key in ("categories", "performance_guardrail", "claim_metadata")):
+            raise ValueError("Current catalogue stores final properties, not live override chains")
+        expected_keys = {f"{category}:{era}:{state or 'default'}"
+                         for category, era in product(CATEGORIES, ERAS)
+                         for state in states_for_era(era)}
+        if set(d.get("resolved", {})) != expected_keys:
+            raise ValueError("Current catalogue must cover each supported configuration exactly once")
+        for source in d["sources"].values():
+            if not source.get("title"):
+                raise ValueError("Each source requires a title")
+        for key, properties in d["resolved"].items():
+            if set(properties) != set(PROPERTIES):
+                raise ValueError(f"{key}: all physical property fields must be explicit")
+            for role, record in properties.items():
+                prop = EffectiveProperty(**record)
+                if prop.value is not None:
+                    _number(prop.value, role, positive=role != "infiltration")
+                    self._source(prop.source)
+                if prop.unit != ("1/h" if role == "infiltration" else "W/(m²K)"):
+                    raise ValueError(f"{key}: wrong unit for {role}")
+                if prop.curve not in d["curves"]:
+                    raise ValueError(f"{key}: missing derivation source descriptor")
 
     def _source(self, source: str) -> None:
         if source not in self._data["sources"]:
@@ -410,6 +458,9 @@ class ParametricCatalogue:
     def _resolve_property(
         self, category: str, era: str, state: str, role: str
     ) -> EffectiveProperty:
+        if self._data.get("schema_version") == 2:
+            record = self._data["resolved"][f"{category}:{era}:{state or 'default'}"][role]
+            return EffectiveProperty(**{k: _freeze(v) for k, v in record.items()})
         raw = self._resolve_unclipped_property(category, era, state, role)
         result = replace(raw, unclipped_value=raw.value, evidence=self._claim_evidence(category, era, state, role, raw))
         # TABULA eq.(7), printed pp.12–13: the ACH surcharge uses A_C_ref *
@@ -550,6 +601,7 @@ class ParametricCatalogue:
             parts = key.split(":")
             if len(parts) != 5:
                 raise ValueError("Slot ID requires five classification fields")
+            parts[3] = None if parts[3] == "default" else parts[3]
             key = ArchetypeKey(*parts)
         if not isinstance(key, ArchetypeKey):
             raise ValueError("Expected ArchetypeKey or slot ID")
@@ -564,8 +616,9 @@ class ParametricCatalogue:
     @property
     def slots(self) -> tuple[ArchetypeSlot, ...]:
         return tuple(
-            self.get_slot(ArchetypeKey(*parts))
-            for parts in product(CATEGORIES, ERAS, ZONES, STATES, SYSTEMS)
+            self.get_slot(ArchetypeKey(category, era, zone, state, system))
+            for category, era, zone in product(CATEGORIES, self._data["dimensions"]["eras"], ZONES)
+            for state, system in product(states_for_era(era), SYSTEMS)
         )
 
     def search(
@@ -579,16 +632,15 @@ class ParametricCatalogue:
         lod1_complete_only=False,
     ) -> tuple[ArchetypeSlot, ...]:
         filters = (category, era, climate_zone, renovation_state, ventilation_system)
-        choices = (CATEGORIES, ERAS, ZONES, STATES, SYSTEMS)
+        choices = (CATEGORIES, ERAS, ZONES, (*STATES, "default"), SYSTEMS)
         for value, allowed in zip(filters, choices, strict=True):
             if value is not None and value not in allowed:
                 raise ValueError(f"Unknown filter: {value}")
-        selected = (
-            (value,) if value is not None else allowed
-            for value, allowed in zip(filters, choices, strict=True)
-        )
-        slots = (self.get_slot(ArchetypeKey(*parts)) for parts in product(*selected))
-        return tuple(s for s in slots if not lod1_complete_only or s.lod1_complete)
+        def matches(slot):
+            values = (slot.key.category, slot.key.era, slot.key.climate_zone,
+                      slot.key.renovation_state or "default", slot.key.ventilation_system)
+            return all(wanted is None or wanted == actual for wanted, actual in zip(filters, values))
+        return tuple(s for s in self.slots if matches(s) and (not lod1_complete_only or s.lod1_complete))
 
     def summary(self) -> dict[str, Any]:
         slots = self.slots
@@ -616,6 +668,8 @@ class ParametricCatalogue:
     def with_anchor(self, category: str, role: str, reference: Mapping[str, Any]):
         if category not in CATEGORIES or role not in PROPERTIES:
             raise ValueError("Unknown category or property")
+        if self._data.get("schema_version") == 2:
+            return self.with_property(category, reference["era"], reference["state"], role, reference)
         payload = self.to_dict()
         payload["categories"][category]["anchors"][role] = _plain(reference)
         return type(self)(payload)
@@ -623,6 +677,8 @@ class ParametricCatalogue:
     def with_override(self, category: str, role: str, reference: Mapping[str, Any]):
         if category not in CATEGORIES or role not in PROPERTIES:
             raise ValueError("Unknown category or property")
+        if self._data.get("schema_version") == 2:
+            return self.with_property(category, reference["era"], reference["state"], role, reference)
         payload = self.to_dict()
         override = {**_plain(reference), "property": role}
         entries = payload["categories"][category]["overrides"]
@@ -633,6 +689,30 @@ class ParametricCatalogue:
             != (role, override.get("era"), override.get("state"))
         ]
         entries.append(override)
+        return type(self)(payload)
+
+
+    def with_property(self, category, era, state, role, reference):
+        """Replace one current property explicitly; other configurations stay unchanged."""
+        ArchetypeKey(category, era, ZONES[0], state, SYSTEMS[0])
+        if role not in PROPERTIES:
+            raise ValueError("Unknown property")
+        if self._data.get("schema_version") != 2:
+            return self.with_override(category, role, {**reference, "era": era, "state": state})
+        payload = self.to_dict()
+        key = f"{category}:{era}:{state or 'default'}"
+        prior = payload["resolved"][key][role]
+        value = reference["value"]
+        source = reference.get("source")
+        if value is not None and (source not in payload["sources"] or not (reference.get("note") or reference.get("locator"))):
+            raise ValueError("A current value needs a registered source and explanatory note or locator")
+        evidence = {"classification": "unclassified", "basis_stale": True,
+                    "source": source, "locator": reference.get("locator", reference.get("note")),
+                    "limitations": "Explicit property edit requires review of any paired construction recipe."}
+        payload["resolved"][key][role] = {**prior, "value": value, "source": source,
+            "anchor": None, "override": None, "scaling_factor": None,
+            "unclipped_value": value, "guardrail": None, "mode": "current" if value is not None else "pending",
+            "evidence": evidence}
         return type(self)(payload)
 
 

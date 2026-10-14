@@ -76,7 +76,7 @@ def _number(value, label, *, positive=True):
     return value
 
 
-def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state="existing",
+def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state=None,
                               renovation_path=None, detailed=None,
                               archetype_id="mf_se02") -> CalibratedArchetype:
     """Build the bundled or caller-edited calibrated definition, entirely offline.
@@ -90,7 +90,11 @@ def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state="ex
     ``renovation_path`` can select a separate registry copy for those packages.
     """
     detailed = detailed if detailed is not None else load_detailed_catalogue(path, catalogue=catalogue)
-    full_recipe = detailed.archetypes[archetype_id]["states"][renovation_state].get("release_profile") == "lod2-v1"
+    if renovation_state is None and detailed.archetypes[archetype_id]["era"] != "SE.07":
+        renovation_state = "existing"
+    if detailed.archetypes[archetype_id]["era"] == "SE.07" and renovation_state is not None:
+        raise ValueError("SE.07 has no renovation states")
+    full_recipe = detailed.archetypes[archetype_id]["states"][renovation_state].get("release_profile") in ("lod2-v1", "complete_recipe")
     if renovation_state != "existing" and archetype_id == "mf_se02" and not full_recipe:
         from .renovation import load_renovation_package
 
@@ -126,7 +130,7 @@ def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state="ex
         spec["elements"][role] = deepcopy(patch)
     included = definition["included_roles"]
     ground_roles = {"ground_floor": "GROUND_FLOOR"}
-    if key.category not in {"office", "school"} or key.era == "SE.01" or definition.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
+    if key.category not in {"office", "school"} or key.era == "SE.01" or definition.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
         ground_roles["basement_wall"] = "BASEMENT_WALL"
     if len(included) != len(set(role_map.values()) | set(ground_roles.values())) or set(included) != set(role_map.values()) | set(ground_roles.values()):
         raise ValueError("The calibrated MF construction set must contain exactly seven roles")

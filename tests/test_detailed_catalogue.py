@@ -19,7 +19,7 @@ def test_registry_counts_references_and_defensive_export():
     catalogue = load_detailed_catalogue()
     summary = catalogue.summary()
     assert {key: summary[key] for key in ("materials", "assemblies", "archetypes", "states")} == {
-        "materials": 207, "assemblies": 1606, "archetypes": 32, "states": 92,
+        "materials": 261, "assemblies": 678, "archetypes": 37, "states": 97,
     }
     assert summary["open_caveats"] > 0
     materials = catalogue.materials
@@ -68,7 +68,7 @@ def test_material_links_do_not_duplicate_source_properties():
     check(data["archetypes"])
     for archetype in data["archetypes"]["archetypes"].values():
         for state in ("standard", "advanced"):
-            if state not in archetype["states"]:
+            if state not in archetype.get("states", {}):
                 continue
             if "operations" in archetype["states"][state]:
                 assert archetype["states"][state]["base_state"] == "existing"
@@ -150,7 +150,7 @@ def test_invalid_registry_or_caveat_rejected(detailed_copy, mutation):
     elif mutation == "dangling_assembly":
         state["assemblies"]["TOP_FLOOR"] = "unknown"
     elif mutation == "dangling_material":
-        data["assemblies"]["assemblies"]["mf_se02_advanced_top_floor"]["components"][0]["layers"][0]["material_id"] = "unknown"
+        data["assemblies"]["assemblies"][state["assemblies"]["TOP_FLOOR"]]["components"][0]["layers"][0]["material_id"] = "unknown"
     elif mutation == "wrong_role":
         state["assemblies"]["TOP_FLOOR"] = state["assemblies"]["EXT_WALL"]
     elif mutation == "compound_state":
@@ -198,7 +198,7 @@ def test_directory_or_any_registry_file_and_cli(detailed_copy):
         assert load_detailed_catalogue(path / f"{name}.json").to_dict() == expected
     result = subprocess.run([sys.executable, "-m", "epsm_data.detailed", "--path", str(path),
                              "--check", "--summary"], capture_output=True, text=True, check=True)
-    assert json.loads(result.stdout)["materials"] == 207
+    assert json.loads(result.stdout)["materials"] == 261
     assert not result.stderr
     result = subprocess.run([sys.executable, "-m", "epsm_data.detailed", "--caveats", "--state", "advanced", "--path", "src/epsm_data/datasets/layered"],
                             capture_output=True, text=True, check=True)
@@ -275,9 +275,9 @@ def test_lod2_recipe_coverage_is_separate_from_acceptance_and_material_registrat
     catalogue = load_detailed_catalogue()
     report = catalogue.lod2_completeness()
     assert report == catalogue.lod2_completeness()
-    assert (report["total_slots"], report["slots_with_layer_recipe"], report["slots_without_layer_recipe"]) == (1080, 1080, 0)
-    assert report["lod2_complete_slots"] == 1080
-    assert report["lod2_complete_states"] == 90
+    assert (report["total_slots"], report["slots_with_layer_recipe"], report["slots_without_layer_recipe"]) == (1140, 1140, 0)
+    assert report["lod2_complete_slots"] == 1140
+    assert report["lod2_complete_states"] == 95
     variants = {r["archetype_id"]: r for r in report["states"] if r["archetype_id"] in {"mf_1940", "mf_1950"}}
     assert variants["mf_1940"]["slots_with_recipe"] == 12
     assert variants["mf_1950"]["slots_with_recipe"] == 0
@@ -323,7 +323,7 @@ def test_lod2_check_uses_supplied_catalogue_and_in_memory_registries(detailed_co
          "source": "cmf_1960_1_internal", "note": "Future evidence replacement"},
     )
     drift = load_detailed_catalogue().lod2_completeness(catalogue=parametric)
-    assert all(not r["checks"]["nominal_u_alignment"] for r in drift["states"] if r["archetype_id"] == "mf_se02")
+    assert all(not r["checks"]["nominal_u_alignment"] for r in drift["states"] if r["archetype_id"] == "mf_se02" and r["state"] == "existing")
     assert next(r for r in drift["states"] if r["archetype_id"] == "office_se05")["lod2_complete"]
 
 
@@ -332,8 +332,8 @@ def test_lod2_cli_compact_summary():
                              "--catalogue", "src/epsm_data/datasets/parametric/catalogue.json", "--path", "src/epsm_data/datasets/layered"],
                             capture_output=True, text=True, check=True)
     report = json.loads(result.stdout)
-    assert report["slots_with_layer_recipe"] == 1080
-    assert report["lod2_complete_slots"] == 1080
+    assert report["slots_with_layer_recipe"] == 1140
+    assert report["lod2_complete_slots"] == 1140
     assert all("blocking_caveats" not in r and "remaining" in r for r in report["states"])
 
 

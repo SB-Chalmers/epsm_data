@@ -21,13 +21,13 @@ def catalogue():
 def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
     from epsm_data import load_parametric_catalogue
 
-    assert len(catalogue["cells"]) == len({c["id"] for c in catalogue["cells"]}) == 1080
+    assert len(catalogue["cells"]) == len({c["id"] for c in catalogue["cells"]}) == 1140
     assert all(c["package_id"] for c in catalogue["cells"])
     office_cells = [c for c in catalogue["cells"] if c["category"] == "office"]
-    assert len(office_cells) == 216
+    assert len(office_cells) == 228
     assert all(c["lod1_complete"] and not c["missing"] for c in office_cells)
     school_cells = [c for c in catalogue["cells"] if c["category"] == "school"]
-    assert len(school_cells) == 216
+    assert len(school_cells) == 228
     assert all(c["lod1_complete"] and not c["missing"] for c in school_cells)
     school_se04 = next(
         c for c in school_cells if c["id"] == "school:SE.04:SE.Zone3:existing:F"
@@ -45,10 +45,10 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
     assert cell["u_values"]["internal_wall"] == slot.properties["internal_wall"].value
     assert cell["u_values"]["intermediate_floor"] == slot.properties["intermediate_floor"].value
     mf_cells = [c for c in catalogue["cells"] if c["category"] == "multi_family"]
-    assert len(mf_cells) == 216
+    assert len(mf_cells) == 228
     assert all(c["lod1_complete"] and not c["missing"] for c in mf_cells)
     sf_cells = [c for c in catalogue["cells"] if c["category"] == "single_family"]
-    assert len(sf_cells) == 216
+    assert len(sf_cells) == 228
     assert all(c["u_values"]["basement_wall"] is not None for c in sf_cells)
     assert all(c["lod1_complete"] and not c["missing"] for c in sf_cells)
     sf_modern = next(c for c in sf_cells if c["id"] == "single_family:SE.06:SE.Zone1:existing:S")
@@ -56,7 +56,7 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
     assert sf_modern["u_values"]["intermediate_floor"] == pytest.approx(
         load_parametric_catalogue().resolve_construction("single_family", "SE.06", "existing").u_values["intermediate_floor"])
     generic_cells = [c for c in catalogue["cells"] if c["category"] == "generic"]
-    assert len(generic_cells) == 216
+    assert len(generic_cells) == 228
     assert all(c["lod1_complete"] and not c["missing"] for c in generic_cells)
     construction = next(p for p in catalogue["packages"] if p["id"] == cell["package_id"])
     assert len(construction["properties"]) == 8
@@ -75,12 +75,12 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
 
 def test_lod2_completeness_comes_from_detailed_catalogue(catalogue):
     assert catalogue["lod2_summary"]["lod2_complete_slots"] > 0
-    assert catalogue["lod2_summary"]["slots_with_layer_recipe"] == 1080
+    assert catalogue["lod2_summary"]["slots_with_layer_recipe"] == 1140
     assert catalogue["lod2_summary"]["slots_without_layer_recipe"] == 0
     counts = {status: sum(c["lod2_status"] == status for c in catalogue["cells"])
               for status in ("complete", "draft", "no_recipe")}
     assert counts == {"complete": catalogue["lod2_summary"]["lod2_complete_slots"],
-                      "draft": 1080 - catalogue["lod2_summary"]["lod2_complete_slots"], "no_recipe": 0}
+                      "draft": 1140 - catalogue["lod2_summary"]["lod2_complete_slots"], "no_recipe": 0}
     packages = {p["id"]: p for p in catalogue["packages"]}
     se01 = packages["parametric:multi_family:SE.01:existing"]["lod2"]
     assert se01["archetype_id"] == "mf_1940"
@@ -277,14 +277,15 @@ def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
     config = load_parametric_catalogue().to_dict()
     path.write_text(json.dumps(dict(reversed(list(config.items())))), encoding="utf-8")
     assert load_data(path) == catalogue
-    config["categories"]["office"]["anchors"]["roof"] = dict(
-        value=0.2, era="SE.03", state="existing", source="proxy", note="Supplied reference"
-    )
+    config = load_parametric_catalogue().with_property(
+        "office", "SE.03", "existing", "roof",
+        dict(value=0.2, source="proxy", note="Supplied reference")
+    ).to_dict()
     path.write_text(json.dumps(config), encoding="utf-8")
     changed = load_data(path)
     assert changed["manifest"]["release_id"] != catalogue["manifest"]["release_id"]
     for before, after in zip(catalogue["cells"], changed["cells"], strict=True):
-        assert (before["revision"] != after["revision"]) == (before["category"] == "office")
+        assert (before["revision"] != after["revision"]) == (before["category"] == "office" and before["era"] == "SE.03" and before["state"] == "existing")
 
 
 def test_static_app_assets_and_catalogue_endpoint(server, catalogue):
@@ -357,7 +358,7 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   await flush();
   assert.equal(elements.get("error").textContent, undefined, "Client initialization failed");
   assert.equal(elements.get("app").hidden, false);
-  assert.match(elements.get("lod2-total").textContent, new RegExp(`${input.catalogue.lod2_summary.lod2_complete_slots} LoD2 complete · 1080 with recipes`));
+  assert.match(elements.get("lod2-total").textContent, new RegExp(`${input.catalogue.lod2_summary.lod2_complete_slots} LoD2 complete · 1140 with recipes`));
   assert.ok((elements.get("matrix").innerHTML.match(/class="lod2-tick"/g) || []).length > 0);
   assert.match(elements.get("count").textContent, /^30 of 30/);
   assert.equal((elements.get("matrix").innerHTML.match(/data-cell=/g) || []).length, 30);
