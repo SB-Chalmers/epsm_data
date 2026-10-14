@@ -4,7 +4,7 @@ import json
 
 from epsm_data import (
     EmbodiedCarbon,
-    OpaqueMaterial,
+    Material,
     Roughness,
     archetype_from_dict,
     archetype_to_dict,
@@ -27,7 +27,7 @@ def make_example():
         technical_service_life="50",
         biogenic_carbon=0,
     )
-    board = OpaqueMaterial(
+    board = Material(
         name="Example board",
         json_id="example:board",
         boverket_id="",

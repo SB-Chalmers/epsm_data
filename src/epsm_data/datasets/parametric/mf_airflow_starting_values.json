@@ -59,8 +59,8 @@
     0.2,
     0.3
   ],
-  "profile_warning": "Previous ACH-based fitted profiles are superseded for Data 1.5. The current Gothenburg MF SE.02 area-rate profile (cohort_profiles/2026-10-05-v2) selects baseline with no overrides and remains provisional.",
+  "profile_warning": "Previous ACH-based fitted profiles are superseded for Data 1.5. The current Gothenburg MF SE.02 area-rate profile (../epsm_studies/imports/epsm_data_harmonisation/cohort_profiles/2026-10-05-v2) selects baseline with no overrides and remains provisional.",
   "validation_studies": {
-    "mf-se02-gothenburg-data15-2026-10-05": "src/epsm_data/datasets/parametric/mf_se02_data15_validation.json"
+    "mf-se02-gothenburg-data15-2026-10-05": "../epsm_studies/imports/epsm_data_harmonisation/src/epsm_data/datasets/parametric/mf_se02_data15_validation.json"
   }
 }

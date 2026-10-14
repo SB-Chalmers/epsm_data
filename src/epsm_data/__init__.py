@@ -4,17 +4,20 @@ Imports perform no dataset loading, network calls, or database operations.
 """
 
 from ._version import __version__
-from .catalogue import Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
+from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
 from .domain import (
+    Archetype,
     BuildingArchetype,
     BuildingElement,
     Component,
     ConstructionSet,
     Element,
     EmbodiedCarbon,
+    EnvironmentalFactor,
     Layer,
     LayerMaterial,
     LayerSlot,
+    Material,
     OpaqueMaterial,
     RenovationEvent,
     Roughness,
@@ -23,7 +26,21 @@ from .domain import (
     WindowMaterial,
     build_construction_set,
 )
-from .serialization import archetype_from_dict, archetype_to_dict
+from .operations import ConstructionOperation, SystemOperation
+from .profiles import (
+    HVACTemplate,
+    OperatingProfile,
+    load_generic_other_template,
+    load_operating_profile,
+    load_standard_record,
+)
+from .reference import reference_construction_set, reference_hvac_template
+from .serialization import (
+    archetype_from_dict,
+    archetype_to_dict,
+    construction_set_from_dict,
+    construction_set_to_dict,
+)
 from .usecases.build_archetype import build_archetype
 from .usecases.export_outputs import (
     export_construction_sets,
@@ -87,6 +104,12 @@ def __getattr__(name):
 
 
 __all__ = [
+    "OperatingProfile", "HVACTemplate", "load_operating_profile", "load_standard_record", "load_generic_other_template",
+    "Catalogue",
+    "reference_construction_set",
+    "ConstructionOperation", "SystemOperation", "reference_hvac_template",
+    "Archetype", "Material", "EnvironmentalFactor",
+    "construction_set_from_dict", "construction_set_to_dict",
     "resolve_building_archetype",
     "__version__",
     "ArchetypeKey",

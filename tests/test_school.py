@@ -101,8 +101,8 @@ def test_fridhem_draft_is_retained_as_an_alternative_to_complete_school_states()
     assert result.report["elements"]["GROUND_FLOOR"]["lod1_target_u"] == 0.22
     assert result.report["target_drift"]  # Historical source study differs from current baseline.
     report = load_detailed_catalogue().lod2_completeness()
-    assert report["slots_with_layer_recipe"] == 1080
-    assert report["lod2_complete_slots"] == 1080
+    assert report["slots_with_layer_recipe"] == 1140
+    assert report["lod2_complete_slots"] == 1140
     row = next(row for row in report["states"] if row["archetype_id"] == "school_fridhem")
     assert row["slots_with_recipe"] == 0
     assert len(row["slot_checks"]) == 12
@@ -122,8 +122,8 @@ def test_all_school_periods_and_states_are_complete_with_named_windows():
         for row in report["states"]
         if row["category"] == "school" and row["archetype_id"] != "school_fridhem"
     ]
-    assert len(school) == 18
-    assert sum(row["slots_with_recipe"] for row in school) == 216
+    assert len(school) == 19
+    assert sum(row["slots_with_recipe"] for row in school) == 228
     assert all(row["lod2_complete"] and len(row["slot_checks"]) == 12 for row in school)
     for era in (f"se0{i}" for i in range(1, 7)):
         archetype = catalogue.archetypes[f"school_{era}"]

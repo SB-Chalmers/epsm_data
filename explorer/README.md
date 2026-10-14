@@ -1,8 +1,7 @@
 # Archetype explorer
 
 Local, dependency-free viewer for the Swedish parametric catalogue and detailed
-LoD2 completeness report. The current default is the frozen DB 1.5.0 / LoD2 v1.4
-baseline; see [freeze scope and limitations](../docs/frozen-baseline.md).
+LoD2 completeness report. It reads the current catalogue; see [the Data guide](../README.md).
 
 ## Run
 
@@ -17,14 +16,18 @@ read-only. No workbooks, network connections, or governed database are needed.
 
 ## Explore
 
-The 1,080-slot matrix has five categories and six eras. Climate zone, renovation,
-and ventilation select a 30-cell slice. Search by category, era, year, or cell ID;
+The 1,140-slot matrix has five categories and seven eras. SE.01–SE.06 have three
+reference renovation states. SE.07 has one configuration, shown unchanged beside
+each state slice. “No renovation state” filters the matrix to SE.07. Switching
+between this filter and a renovation state selects an available era in the same
+category. Climate zone and ventilation select the classification slice.
+Search by category, era, year, or cell ID;
 choose any of seven U-value colour metrics. Missing values appear as dashes in
 grey cells. Each cell reports its LoD1 and LoD2 completeness.
 
 Overview shows seven effective boundary U-values and infiltration. Evidence
-shows anchors, curves, overrides, source notes, and assumptions. Selecting a
-School cell also shows its whole-window U-values across all six eras for the
+shows final current values, source notes, and assumptions. Selecting a
+School cell also shows its whole-window U-values across the available eras for the
 selected renovation state. The school-specific period mapping is documented in
 [the evidence note](../evidence/school_window_period_profile.md). The LoD2 tab
 shows whether a detailed layer recipe is accepted, draft, or absent. For authored
@@ -33,7 +36,7 @@ carbon, and simulation readiness. The actual layer stacks remain in the detailed
 catalogue. Zone and ventilation classifications do not scale the values.
 
 Existing bookmarks work where the category and era IDs remain present.
-SE.06 is the 2006–present extension. Removed categories and former modern-era
+SE.06 covers 2006–2021; SE.07 starts in 2022. Removed categories and former modern-era
 bookmarks have no automatic mapping.
 
 ## Remarks

@@ -26,6 +26,7 @@ const names = {
   industrial: "Industrial",
   other: "Other",
   existing: "Existing",
+  default: "No renovation state",
   standard: "Standard renovation",
   advanced: "Advanced renovation",
   wall: "External wall",
@@ -166,7 +167,7 @@ function selectCell(cell) {
 function visible(cell) {
   if (
     cell.zone !== filters.zone ||
-    cell.state !== filters.state ||
+    (cell.state !== filters.state && cell.state !== "default") ||
     cell.system !== filters.system
   )
     return false;
@@ -181,6 +182,16 @@ function visible(cell) {
   return `${cell.id} ${label(cell.category)} ${eraLabel(cell.era)} ${label(cell.family || "")}`
     .toLowerCase()
     .includes(q);
+}
+function selectionForFilters(previous, changedFilter) {
+  // A stateless construction stays stateless when only climate/system changes.
+  // An explicit state filter may instead select another supported era.
+  const state = previous.state === "default" && changedFilter !== "state"
+    ? "default" : filters.state;
+  const candidates = data.cells.filter((cell) =>
+    cell.zone === filters.zone && cell.system === filters.system && cell.state === state);
+  const category = candidates.filter((cell) => cell.category === previous.category);
+  return category.find((cell) => cell.era === previous.era) || category.at(-1) || candidates[0];
 }
 function renderMatrix() {
   const shown = data.cells.filter(visible);
@@ -241,7 +252,8 @@ function schoolWindowProfile(p) {
   if (selected.category !== "school" || !["school.window", "calibrated.school.window", "v1.school.window", "v1_1.school.window"].includes(p.properties.window?.curve)) return "";
   const source = data.sources.find((item) => item.id === p.properties.window.curve_source);
   const rows = Object.keys(data.dimensions.eras).map((era) => {
-    const period = data.packages.find((item) => item.id === `parametric:school:${era}:${selected.state}`);
+    const state = era === "SE.07" ? "default" : selected.state;
+    const period = data.packages.find((item) => item.id === `parametric:school:${era}:${state}`);
     if (!period) return "";
     return `<tr class="${era === selected.era ? "current" : ""}"><th scope="row">${esc(era)} · ${esc(eraLabel(era))}</th><td>${fmt(period.properties.window?.value, 3)}</td></tr>`;
   }).join("");
@@ -631,17 +643,17 @@ async function init() {
       el.addEventListener(k === "search" ? "input" : "change", () => {
         if (busy) return;
         saveDraft();
+        const previousFilter = filters[k];
         filters[k] = k === "noted" ? el.checked : el.value;
         if (["zone", "state", "system"].includes(k)) {
-          selected = cellsById.get(
-            [
-              selected.category,
-              selected.era,
-              filters.zone,
-              filters.state,
-              filters.system,
-            ].join(":"),
-          );
+          const next = selectionForFilters(selected, k);
+          if (!next) {
+            filters[k] = previousFilter;
+            el.value = previousFilter;
+            toast("No construction supports that selection.");
+            return;
+          }
+          selected = next;
           activePackage = packageKey(selected.package_id, selected.revision);
           history.replaceState(null, "", `#${encodeURIComponent(selected.id)}`);
           renderDetail();

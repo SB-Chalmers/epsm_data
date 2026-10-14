@@ -34,7 +34,7 @@ def _metrics(layers):
 
 
 def _expected_roles(key, release=None):
-    if release in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
+    if release in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
         return {"ROOF" if key.get("category") == "office" else "TOP_FLOOR",
                 "EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "INTERMEDIATE_FLOOR",
                 "INT_WALL_NONLOADBEARING", "WINDOW"}
@@ -74,7 +74,7 @@ def export_nominal_constructions(calibrated):
         }
         if role == BuildingElement.WINDOW:
             ref = next(
-                r for mid, r in report["material_references"].items() if mid.startswith("window_")
+                r for mid, r in report["material_references"].items() if r.get("kind") == "simple_window" or mid.startswith("window_")
             )
             material = {
                 "type": "EnergyWindowMaterialSimpleGlazSys",
@@ -235,7 +235,7 @@ def export_nominal_constructions(calibrated):
         **({"dataset_release": report["dataset_release"],
             "construction_availability": report["construction_availability"],
             "element_presence": "caller_geometry"}
-           if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4") else {}),
+           if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current") else {}),
         "kind": "nominal_construction_handover",
         "key": deepcopy(report["key"]),
         "role_profile": "school_source_draft" if report.get("status") == "source_and_provisional_draft" else "canonical",
@@ -383,47 +383,9 @@ def validate_nominal_handover(bundle):
 
 
 def validate_native_handover(bundle):
-    """Optionally validate/roundtrip with installed Honeybee and core types."""
-    from epsm_core.specs.facade import GlazingSpec
-    from epsm_core.specs.physics import ConstructionSpec
-    from honeybee_energy.construction.dictutil import dict_to_construction
-
-    validate_nominal_handover(bundle)
-    for role, record in bundle["honeybee"].items():
-        native = dict_to_construction(record)
-        reconstructed = dict_to_construction(native.to_dict())
-        if native != reconstructed:
-            raise ValueError(f"Honeybee roundtrip mismatch: {role}")
-        for material, source in zip(native.materials, record["materials"], strict=True):
-            fields = (
-                ("u_factor", "shgc", "vt")
-                if role == "WINDOW"
-                else (
-                    "thickness",
-                    "conductivity",
-                    "density",
-                    "specific_heat",
-                    "thermal_absorptance",
-                    "solar_absorptance",
-                    "visible_absorptance",
-                )
-            )
-            if any(
-                not math.isclose(getattr(material, f), source[f], rel_tol=1e-10) for f in fields
-            ):
-                raise ValueError(f"Honeybee changed nominal properties: {role}")
-        if role == "WINDOW":
-            GlazingSpec(**bundle["core"][role])
-        else:
-            value = ConstructionSpec(**bundle["core"][role])
-            if not math.isclose(
-                value.u_value_w_m2k, bundle["roles"][role]["nominal_u_w_m2k"], rel_tol=1e-10
-            ):
-                raise ValueError(f"Core nominal U mismatch: {role}")
-            reverse = bundle["reciprocal"][role]
-            dict_to_construction(reverse["honeybee"])
-            ConstructionSpec(**reverse["core"])
-    return {"honeybee": True, "core": True}
+    """Compatibility entry point; optional engine integration belongs to EPSM."""
+    from epsm.catalogue_validation import validate_native_handover as validate
+    return validate(bundle)
 
 
 def catalogue_lod2_checks(calibrated):
@@ -455,7 +417,7 @@ def catalogue_lod2_checks(calibrated):
         "honeybee_nominal_export": exported["readiness"]["honeybee_nominal_export"],
         "core_nominal_export": exported["readiness"]["core_nominal_export"],
     }
-    if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4"):
+    if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
         checks["seven_role_library"] = len(exported["roles"]) == 7
         checks["presence_is_geometry_owned"] = exported["element_presence"] == "caller_geometry"
     retained = set(report.get("retained_baseline_unmapped_materials", []))

@@ -1,0 +1,20 @@
+{
+  "profile_id": "epsm.generic_other.v1",
+  "source_uri": "epsm:modelling-assumptions:generic-other",
+  "notes": [
+    "Transferred unchanged from epsm_core.generic_programme; an explicit screening fallback, not a published normal-use standard."
+  ],
+  "weekday_start_hour": 8,
+  "weekday_end_hour": 18,
+  "mechanical_vent_l_s_m2": 0.7,
+  "occupancy_category": "non_residential",
+  "heating_setpoint_c": 21,
+  "cooling_setpoint_c": 30,
+  "cooling_enabled": false,
+  "occupant_density_per_m2": 0.03,
+  "occupant_activity_w": 108,
+  "equipment_gain_w_m2": 5,
+  "equipment_off_fraction": 0.2,
+  "lighting_gain_w_m2": 5,
+  "dhw_kwh_m2_year": 5
+}
