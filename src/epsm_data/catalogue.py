@@ -120,13 +120,22 @@ class RenovationMeasure:
     source_references: tuple[str, ...] = ()
     operations: tuple[ConstructionOperation | SystemOperation, ...] = ()
     target_element_ids: tuple[str, ...] = ()
+    requires_measure_ids: tuple[str, ...] = ()
+    incompatible_measure_ids: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         for field in ("measure_id", "category", "name", "description", "target"):
             if not getattr(self, field).strip():
                 raise ValueError(f"{field} must not be empty")
-        for field in ("parameters", "applicability_notes", "source_references", "operations", "target_element_ids"):
+        for field in ("parameters", "applicability_notes", "source_references", "operations", "target_element_ids", "requires_measure_ids", "incompatible_measure_ids"):
             object.__setattr__(self, field, tuple(getattr(self, field)))
+        for field in ("requires_measure_ids", "incompatible_measure_ids"):
+            values = getattr(self, field)
+            if (any(not isinstance(value, str) or not value.strip() for value in values)
+                    or len(set(values)) != len(values) or self.measure_id in values):
+                raise ValueError(f"{field} must contain unique other measure identities")
+        if set(self.requires_measure_ids) & set(self.incompatible_measure_ids):
+            raise ValueError("A measure cannot both require and prohibit the same measure")
         if any(not isinstance(op, (ConstructionOperation, SystemOperation)) for op in self.operations):
             raise ValueError("operations must contain ConstructionOperation records")
         if any(not isinstance(i, str) or not i.strip() for i in self.target_element_ids) or len(set(self.target_element_ids)) != len(self.target_element_ids):
@@ -274,10 +283,16 @@ class RenovationCatalogue:
             m for m in self._measures.values() if category is None or m.category == category
         )
 
-    def applicable(self, construction):
+    def applicable(self, construction, *, applied_measure_ids=()):
         """Return executable measures whose complete ordered operations apply."""
         result = []
+        applied = set(applied_measure_ids)
         for measure in self:
+            if not set(measure.requires_measure_ids) <= applied or set(measure.incompatible_measure_ids) & applied:
+                continue
+            if any(prior in self._measures and measure.measure_id in self._measures[prior].incompatible_measure_ids
+                   for prior in applied):
+                continue
             try:
                 if not measure.operations:
                     continue

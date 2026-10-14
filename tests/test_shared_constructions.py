@@ -123,3 +123,22 @@ def test_sourced_factor_units_and_unknown_carbon_are_independent():
     with pytest.raises(ValueError):
         factor.with_changes(value=float("nan"))
 
+
+
+def test_measure_prerequisites_and_incompatibilities_are_executable():
+    before = reference_construction_set()
+    window = before.elements[BuildingElement.WINDOW]
+    operation = ConstructionOperation("replace_element",BuildingElement.WINDOW,element=window)
+    measure = RenovationMeasure("windows","fabric","Windows","Example","window",
+                                operations=(operation,),requires_measure_ids=("survey",),
+                                incompatible_measure_ids=("keep_windows",))
+    catalogue = RenovationCatalogue((measure,))
+    assert catalogue.applicable(before) == ()
+    assert catalogue.applicable(before,applied_measure_ids=("survey",)) == (measure,)
+    assert catalogue.applicable(before,applied_measure_ids=("survey","keep_windows")) == ()
+    assert RenovationMeasure.from_dict(measure.to_dict()) == measure
+    with pytest.raises(ValueError):
+        RenovationMeasure("bad","fabric","Bad","Example","wall",requires_measure_ids=("bad",))
+    with pytest.raises(ValueError):
+        RenovationMeasure("bad","fabric","Bad","Example","wall",
+                          requires_measure_ids=("same",),incompatible_measure_ids=("same",))
