@@ -16,7 +16,12 @@ read-only. No workbooks, network connections, or governed database are needed.
 
 ## Explore
 
-The 1,140-slot matrix has five categories and seven eras. SE.01–SE.06 have three reference renovation states; SE.07 has one configuration selected with “No renovation state”. Climate zone and ventilation select the classification slice. Search by category, era, year, or cell ID;
+The 1,140-slot matrix has five categories and seven eras. SE.01–SE.06 have three
+reference renovation states. SE.07 has one configuration, shown unchanged beside
+each state slice. “No renovation state” filters the matrix to SE.07. Switching
+between this filter and a renovation state selects an available era in the same
+category. Climate zone and ventilation select the classification slice.
+Search by category, era, year, or cell ID;
 choose any of seven U-value colour metrics. Missing values appear as dashes in
 grey cells. Each cell reports its LoD1 and LoD2 completeness.
 

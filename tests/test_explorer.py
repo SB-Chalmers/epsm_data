@@ -66,7 +66,7 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
             c["zone"] == zone and c["state"] == state and c["system"] == system
             for c in catalogue["cells"]
         )
-        == 30
+        == (5 if state == "default" else 30)
         for zone in catalogue["dimensions"]["zones"]
         for state in catalogue["dimensions"]["states"]
         for system in catalogue["dimensions"]["systems"]
@@ -358,16 +358,26 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   await flush();
   assert.equal(elements.get("error").textContent, undefined, "Client initialization failed");
   assert.equal(elements.get("app").hidden, false);
+  // SE.07 has no states; both filter directions must choose an actual cell.
+  elements.get("state").value = "default"; elements.get("state").listeners.change();
+  assert.match(context.location.hash, /school%3ASE.07%3ASE.Zone2%3Adefault%3AFTX/);
+  assert.match(elements.get("count").textContent, /^5 of 35/);
+  elements.get("zone").value = "SE.Zone1"; elements.get("zone").listeners.change();
+  assert.match(context.location.hash, /SE.07%3ASE.Zone1%3Adefault/);
+  elements.get("zone").value = "SE.Zone2"; elements.get("zone").listeners.change();
+  elements.get("state").value = "advanced"; elements.get("state").listeners.change();
+  assert.match(context.location.hash, /school%3ASE.06%3ASE.Zone2%3Aadvanced%3AFTX/);
   assert.match(elements.get("lod2-total").textContent, new RegExp(`${input.catalogue.lod2_summary.lod2_complete_slots} LoD2 complete · 1140 with recipes`));
   assert.ok((elements.get("matrix").innerHTML.match(/class="lod2-tick"/g) || []).length > 0);
-  assert.match(elements.get("count").textContent, /^30 of 30/);
-  assert.equal((elements.get("matrix").innerHTML.match(/data-cell=/g) || []).length, 30);
+  assert.match(elements.get("count").textContent, /^35 of 35/);
+  assert.equal((elements.get("matrix").innerHTML.match(/data-cell=/g) || []).length, 35);
   assert.doesNotMatch(elements.get("matrix").innerHTML, /No LoD2 recipe/);
-  assert.match(elements.get("detail").innerHTML, /School.*2006–present/);
+  assert.match(elements.get("detail").innerHTML, /School.*2006–2021/);
   assert.equal((elements.get("detail-content").innerHTML.match(/class="metric"/g) || []).length, 8);
   assert.match(elements.get("detail-content").innerHTML, /School window profile/);
-  assert.match(elements.get("detail-content").innerHTML, /SE\.06 · 2006–present<\/th><td>0\.9/);
-  assert.equal((elements.get("detail-content").innerHTML.match(/<tr class=/g) || []).length, 6);
+  assert.match(elements.get("detail-content").innerHTML, /SE\.06 · 2006–2021<\/th><td>0\.9/);
+  assert.match(elements.get("detail-content").innerHTML, /SE\.07 · 2022–present/);
+  assert.equal((elements.get("detail-content").innerHTML.match(/<tr class=/g) || []).length, 7);
   assert.doesNotMatch(elements.get("detail-content").innerHTML, /Pending: Ground floor/);
   elements.get("metric").value = "internal_wall";
   elements.get("metric").listeners.change();
@@ -384,9 +394,9 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   assert.equal((elements.get("matrix").innerHTML.match(/background:#e8eaed/g) || []).length, 1);
   vm.runInContext('pendingCell.u_values.internal_wall = savedValue; renderMatrix();', context);
   elements.get("search").value = "2030"; elements.get("search").listeners.input();
-  assert.match(elements.get("count").textContent, /^5 of 30/);
+  assert.match(elements.get("count").textContent, /^5 of 35/);
   elements.get("search").value = "not-a-category"; elements.get("search").listeners.input();
-  assert.match(elements.get("matrix").innerHTML, /colspan="7"/);
+  assert.match(elements.get("matrix").innerHTML, /colspan="8"/);
   elements.get("reset").click();
   assert.match(context.location.hash, /multi_family/);
   assert.doesNotMatch(elements.get("detail-content").innerHTML, /Pending:/);
