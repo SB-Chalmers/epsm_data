@@ -32,7 +32,7 @@ Stages are ordered. There is no implicit construction or renovation date in a ne
 
 Sourced Sveby residential, office and school records and BEN DHW inputs are packaged in Data. The generic nonresidential fallback is explicitly labelled as an EPSM assumption. `OperatingProfile` and `HVACTemplate` store finite portable values with source references. Core interprets the inputs, expands calendars and constructs schedules and physics specifications.
 
-The older detailed registry and nominal export code retain some review metadata names and source-era identifiers for compatibility. Their source labels are provenance; the shipped runtime catalogue does not load historical versions or apply an override chain. Optional legacy Data application/native-validation functions forward to EPSM, and cohort modelling forwards to Workflows.
+The older detailed registry and nominal export code retain some review metadata names and source-era identifiers for compatibility. Their source labels are provenance; the shipped runtime catalogue does not load historical versions or apply an override chain. Optional legacy Data application/native-validation functions forward to EPSM. The former cohort-modelling compatibility module is [archived](archive/README.md); reproducing the retired cohort studies is outside current maintenance.
 
 The current source records still contain representative material choices, simple whole-window optics and effective ground assumptions. Source coverage is not proof that a model matches any particular measured building. Comparisons require aligned areas, periods, energy boundaries, weather and operating conditions in the application or study.
 

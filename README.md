@@ -75,7 +75,7 @@ See [examples/archetype.py](examples/archetype.py) and [examples/renovations.py]
 
 ## Integration and evidence
 
-EPSM owns catalogue-to-building adapters. Use `epsm.catalogue_application.resolve_building_archetype` or the platform's Building API. Old Data application, release and native-validation entry points forward explicit calls to EPSM; cohort inference forwards to Workflows. None is required to use Data itself.
+EPSM owns catalogue-to-building adapters. Use `epsm.catalogue_application.resolve_building_archetype` or the platform's Building API. Old Data application, release and native-validation entry points forward explicit calls to EPSM. None is required to use Data itself. The former cohort-inference forwarding module is [archived](docs/archive/README.md) with the retired study-specific code; it is no longer an active import route.
 
 MF infiltration uses the recorded area/reference-volume convention; see [airflow definitions](docs/airflow-review-notes.md). Effective ground reference properties and nominal layered U-values are distinct. Current source limitations remain attached to records.
 
