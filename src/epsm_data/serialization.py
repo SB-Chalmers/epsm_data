@@ -163,7 +163,9 @@ def element_from_dict(data: dict) -> Element | WindowElement:
     """Restore a self-contained physical element without loading a catalogue."""
     values = dict(data)
     role = BuildingElement(values["application"])
-    if role is BuildingElement.WINDOW:
+    # A WINDOW role may hold a full material stack. Only the simple glazing
+    # representation lacks components; the role alone does not identify its type.
+    if role is BuildingElement.WINDOW and "components" not in values:
         values.pop("application")
         return WindowElement(**values)
     values["application"] = role

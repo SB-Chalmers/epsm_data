@@ -110,6 +110,18 @@ def test_ordered_renovation_operations_roundtrip_without_dates():
         ConstructionOperation("add_component",wall.application,component=added,position=99).apply(before)
 
 
+def test_layered_window_roundtrips_without_becoming_simple_glazing():
+    wall = reference_construction_set().elements[BuildingElement.EXT_WALL]
+    component = wall.components[0].with_changes(application=BuildingElement.WINDOW)
+    layered_window = wall.with_changes(application=BuildingElement.WINDOW, components=(component,))
+    construction = ConstructionSet(elements={BuildingElement.WINDOW: layered_window})
+
+    restored = construction_set_from_dict(json.loads(json.dumps(construction_set_to_dict(construction))))
+
+    assert restored == construction
+    assert restored.elements[BuildingElement.WINDOW].components == (component,)
+
+
 def test_hvac_operations_preserve_data_definitions_and_need_core_to_apply():
     template = reference_hvac_template()
     operation = SystemOperation("replace_hvac",template)
