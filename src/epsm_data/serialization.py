@@ -4,6 +4,7 @@ The versioned nested format includes material properties and UUIDs. The older
 to_dict/consumption views remain useful summaries but are not round-trip formats.
 """
 
+from collections.abc import Mapping
 from dataclasses import fields, is_dataclass
 from enum import Enum
 from uuid import UUID
@@ -31,7 +32,7 @@ def _encode(value):
         return str(value) if isinstance(value, UUID) else value.value
     if is_dataclass(value):
         return {f.name: _encode(getattr(value, f.name)) for f in fields(value)}
-    if isinstance(value, dict):
+    if isinstance(value, Mapping):
         return {_encode(k): _encode(v) for k, v in value.items()}
     if isinstance(value, (list, tuple)):
         return [_encode(v) for v in value]
@@ -69,7 +70,7 @@ def archetype_to_dict(archetype: BuildingArchetype) -> dict:
 
 
 def _has_pending_carbon(value):
-    if isinstance(value, dict):
+    if isinstance(value, Mapping):
         return ("embodied_carbon" in value and value["embodied_carbon"] is None) or any(
             _has_pending_carbon(child) for child in value.values()
         )
@@ -79,7 +80,7 @@ def _has_pending_carbon(value):
 
 
 def _has_unknown_conversion(value):
-    if isinstance(value, dict):
+    if isinstance(value, Mapping):
         return ("conversion_factor" in value and value["conversion_factor"] is None) or any(
             _has_unknown_conversion(child) for child in value.values()
         )
@@ -140,23 +141,7 @@ def archetype_from_dict(data: dict) -> BuildingArchetype:
     if data.get("format_version") not in (1, 2, 3):
         raise ValueError("Unsupported archetype format_version")
     values = dict(data["archetype"])
-    construction = dict(values["construction_set"])
-    elements = {}
-    for key, raw in construction["elements"].items():
-        role = BuildingElement(key)
-        element = dict(raw)
-        if BuildingElement(element["application"]) != role:
-            raise ValueError("Element application must match its construction role")
-        if role is BuildingElement.WINDOW:
-            element.pop("application")
-            elements[role] = WindowElement(**element)
-        else:
-            element["application"] = role
-            element["components"] = tuple(_component(c) for c in element["components"])
-            elements[role] = Element(**element)
-    construction["elements"] = elements
-    construction["version_id"] = UUID(construction["version_id"])
-    values["construction_set"] = ConstructionSet(**construction)
+    values["construction_set"] = construction_set_from_dict(values["construction_set"])
     events = []
     for raw in values.get("renovation_log", ()):
         event = dict(raw)
@@ -167,3 +152,34 @@ def archetype_from_dict(data: dict) -> BuildingArchetype:
         events.append(RenovationEvent(**event))
     values["renovation_log"] = tuple(events)
     return BuildingArchetype(**values)
+
+
+def element_to_dict(element: Element | WindowElement) -> dict:
+    """Serialize the full physical hierarchy, preserving outside-to-inside order."""
+    return _encode(element)
+
+
+def element_from_dict(data: dict) -> Element | WindowElement:
+    """Restore a self-contained physical element without loading a catalogue."""
+    values = dict(data)
+    role = BuildingElement(values["application"])
+    if role is BuildingElement.WINDOW:
+        values.pop("application")
+        return WindowElement(**values)
+    values["application"] = role
+    values["components"] = tuple(_component(c) for c in values["components"])
+    return Element(**values)
+
+
+def construction_set_to_dict(construction: ConstructionSet) -> dict:
+    """Lossless construction record; IDs identify this composition, not a release."""
+    return _encode(construction)
+
+
+def construction_set_from_dict(data: dict) -> ConstructionSet:
+    """Restore and validate a construction record with no catalogue dependency."""
+    values = dict(data)
+    values["elements"] = {BuildingElement(role): element_from_dict(element)
+                          for role, element in values["elements"].items()}
+    values["version_id"] = UUID(values["version_id"])
+    return ConstructionSet(**values)

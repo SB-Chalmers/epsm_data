@@ -13,15 +13,18 @@ downstream libraries consume without importing epsm_data internals.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Mapping
+from dataclasses import dataclass, field
+from types import MappingProxyType
 from uuid import UUID, uuid4
 
+from .editing import Editable
 from .element import Element, WindowElement
 from .enums import BuildingElement
 
 
 @dataclass(frozen=True)
-class ConstructionSet:
+class ConstructionSet(Editable):
     """Construction snapshot at a recorded year.
 
     Parameters
@@ -34,9 +37,27 @@ class ConstructionSet:
         Role assignments. Treat the mapping as read-only.
     """
 
-    version_id: UUID
-    valid_from_year: int
-    elements: dict[BuildingElement, Element | WindowElement]  # role -> element
+    version_id: UUID = field(default_factory=uuid4)
+    valid_from_year: int | None = None
+    elements: Mapping[BuildingElement, Element | WindowElement] = field(default_factory=dict)
+
+    def __post_init__(self):
+        elements = {BuildingElement(role): element for role, element in self.elements.items()}
+        for role, element in elements.items():
+            if not isinstance(element, (Element, WindowElement)) or element.application != role:
+                raise ValueError("Element application must match its construction role")
+        object.__setattr__(self, "elements", MappingProxyType(elements))
+        object.__setattr__(self, "version_id", UUID(str(self.version_id)))
+        if self.valid_from_year is not None and (isinstance(self.valid_from_year, bool) or not isinstance(self.valid_from_year, int) or self.valid_from_year < 1):
+            raise ValueError("valid_from_year must be a positive year or None")
+
+    def __deepcopy__(self, memo):
+        # Every child is frozen and collections are normalized on construction.
+        return self
+
+    def with_element(self, role, element):
+        """Assign a role in a new construction; validate the complete replacement."""
+        return self.with_changes(version_id=uuid4(), elements={**self.elements, BuildingElement(role): element})
 
     def to_dict(self) -> dict:
         """Return the snapshot or intervention record as plain data.
@@ -55,7 +76,7 @@ class ConstructionSet:
 
 
 @dataclass(frozen=True)
-class RenovationEvent:
+class RenovationEvent(Editable):
     """Record an already-resolved renovation.
 
     Parameters
@@ -109,7 +130,7 @@ class RenovationEvent:
 
 
 @dataclass(frozen=True)
-class BuildingArchetype:
+class BuildingArchetype(Editable):
     """Reusable archetype identity, physical composition, and recorded changes.
 
     Parameters
@@ -274,3 +295,7 @@ def build_construction_set(
         valid_from_year=construction_year,
         elements=elements,
     )
+
+
+# Public name for the existing construction archetype wrapper.
+Archetype = BuildingArchetype

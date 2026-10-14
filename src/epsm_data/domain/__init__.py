@@ -5,6 +5,7 @@ dependencies in this package.
 """
 
 from .building import (
+    Archetype,
     BuildingArchetype,
     ConstructionSet,
     RenovationEvent,
@@ -20,9 +21,10 @@ from .enums import (
     ShearingLayer,
 )
 from .layer import Layer, LayerMaterial
-from .material import EmbodiedCarbon, OpaqueMaterial, WindowMaterial
+from .material import EmbodiedCarbon, EnvironmentalFactor, Material, OpaqueMaterial, WindowMaterial
 
 __all__ = [
+    "Archetype", "Material", "EnvironmentalFactor",
     # enums
     "BuildingElement",
     "ComponentState",
