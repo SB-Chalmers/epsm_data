@@ -22,6 +22,8 @@ assert catalogue.renovation_states("mf_se07") == ()
 The physical hierarchy is **Material → Layer → Component → Element → ConstructionSet**. `Archetype` adds identity and classification to a ConstructionSet. Core uses these same classes when assigning constructions to actual building geometry.
 
 - `LayerMaterial` records a material's parallel area fraction and thickness.
+- Unequal constituent depths remain available for quantities and portable exchange;
+  `Layer.r_value` rejects them until an explicit thermal representation is supplied.
 - `LayerSlot.position` orders layers outside to inside within a Component.
 - `Element.components` is an explicit outside-to-inside tuple.
 - Geometry, actual element area, material occurrences and ordered building stages belong to Core.

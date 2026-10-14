@@ -89,8 +89,9 @@ class Layer(Editable):
 
     Notes
     -----
-    Thermal resistance uses the shared layer depth and area-weighted
-    conductivity; individual slot thicknesses do not define separate heat paths.
+    Constituent depths are preserved for physical quantities, including unequal
+    depths. Thermal resistance is available only when every constituent spans
+    the shared layer depth; other cases need an explicit thermal representation.
     """
 
     name: str
@@ -105,8 +106,6 @@ class Layer(Editable):
         object.__setattr__(self, "materials", tuple(self.materials))
         if any(not isinstance(m, LayerMaterial) for m in self.materials):
             raise ValueError("materials must contain LayerMaterial records")
-        if any(not abs(m.thickness - self.thickness) <= 1e-9 for m in self.materials):
-            raise ValueError("Parallel materials must share the layer thickness")
         if not self.materials:
             raise ValueError(f"Layer '{self.name}': must have at least one material.")
 
@@ -131,7 +130,15 @@ class Layer(Editable):
 
         Single material: R = d / lambda.
         Composite: shared depth divided by area-weighted conductivity.
+
+        Raises
+        ------
+        ValueError
+            Constituent depths differ from the layer depth. Their physical
+            quantities remain usable, but this thermal equivalencing is undefined.
         """
+        if any(abs(m.thickness - self.thickness) > 1e-9 for m in self.materials):
+            raise ValueError("Thermal equivalencing does not support unequal constituent depths")
         d = self.thickness
 
         if len(self.materials) == 1:

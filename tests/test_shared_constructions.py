@@ -74,8 +74,15 @@ def test_parallel_materials_and_explicit_layer_order():
                           ShearingLayer.STRUCTURE)
     assert [slot.position for slot in component.layers] == [0,1]
     assert layer.r_value == pytest.approx(.1 / (.8*a.conductivity+.2*b.conductivity))
-    with pytest.raises(ValueError, match="share"):
-        layer.with_changes(thickness=.2)
+    unequal = layer.with_changes(materials=(LayerMaterial(a,.8,.1),LayerMaterial(b,.2,.05)))
+    physical = wall.with_changes(components=(component.with_changes(layers=(LayerSlot(unequal,0),)),))
+    construction = ConstructionSet(elements={wall.application: physical})
+    restored = construction_set_from_dict(json.loads(json.dumps(construction_set_to_dict(construction))))
+    restored_layer = restored.elements[wall.application].components[0].layers[0].layer
+    assert [share.thickness for share in restored_layer.materials] == [.1, .05]
+    assert sum(share.area_fraction * share.thickness for share in restored_layer.materials) == pytest.approx(.09)
+    with pytest.raises(ValueError, match="unequal"):
+        _ = restored_layer.r_value
     with pytest.raises(ValueError, match="unique"):
         component.with_changes(layers=(LayerSlot(layer,0),LayerSlot(layer,0)))
 
