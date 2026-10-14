@@ -143,3 +143,6 @@ Thumbs.db
 /data/**/*.db
 /data/**/*.sqlite*
 .ruff_cache/
+
+# Default platform evaluation artifacts
+/outputs/
