@@ -78,6 +78,18 @@ def test_all_composed_sections_roundtrip_without_lookup(archetype):
     assert restored.operating_profile.notes == profile.notes
 
 
+@pytest.mark.parametrize("building_type", ["single_family", "multi_family", "office", "school"])
+def test_selected_profiles_are_portable_composed_inputs(archetype, building_type):
+    from epsm_data import select_operating_profile
+
+    profile = select_operating_profile(building_type)
+    authored = archetype.with_changes(operating_profile=profile)
+    restored = archetype_from_dict(json.loads(json.dumps(archetype_to_dict(authored))))
+    assert restored.operating_profile == profile
+    assert restored.operating_profile.values["requirements"] == profile.values["requirements"]
+    assert restored.construction_set == archetype.construction_set
+
+
 @pytest.mark.parametrize("version", [1, 2, 3])
 def test_real_legacy_field_shape_remains_readable(version):
     # Fixed minimal old-window record: no field introduced by format 4 is present.
