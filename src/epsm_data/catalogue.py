@@ -398,14 +398,14 @@ class Catalogue:
         network access or engine execution. File I/O occurs only on this call
         and explicit named-profile selection during get/for_year.
         """
-        from .detailed import load_detailed_catalogue
-        from .parametric import load_parametric_catalogue
+        from .detailed import _load_detailed_catalogue
+        from .parametric import _load_parametric_catalogue
         from .profiles import available_operating_profiles
         from .reference import reference_hvac_template
 
-        parametric = load_parametric_catalogue(parametric_path)
+        parametric = _load_parametric_catalogue(parametric_path)
         return cls(parametric=parametric,
-                   detailed=load_detailed_catalogue(detailed_path, catalogue=parametric),
+                   detailed=_load_detailed_catalogue(detailed_path, catalogue=parametric),
                    renovations=renovations, profiles=available_operating_profiles(),
                    hvac_templates={"illustrative_reference_ftx": reference_hvac_template()})
 
@@ -445,6 +445,56 @@ class Catalogue:
         physical archetype exchange record. Use archetype_to_dict for that.
         """
         return self.parametric.to_dict()
+
+    def assess(self, archetype_id, *, state=None):
+        """Assess a canonical recipe against its recorded reference targets.
+
+        Returns the existing advanced CalibratedArchetype evidence wrapper.
+        This explicit assessment retains the historical calculation algorithm;
+        it does not change get() composition or establish Building readiness.
+        Loaded registries and targets are reused without resource access.
+        Supported source alternatives retain their distinct recorded target
+        assessment. References without an assessment schema remain available
+        through get() and detailed inspection and raise an explicit unavailable
+        assessment error. Unknown IDs raise KeyError.
+        """
+        from .layered import _load_calibrated_archetype
+
+        record = self.detailed.archetypes[archetype_id]
+        selected_state = state if record["era"] == "SE.07" or state is not None else "existing"
+        if record["era"] == "SE.07" and state is not None:
+            raise ValueError("SE.07 has no renovation states")
+        definition, _ = self.detailed.state_inputs(archetype_id, selected_state)
+        if "calibrated_roles" not in definition:
+            raise ValueError(f"No calibration assessment schema for {archetype_id!r}; use get() or source_reference()")
+        return _load_calibrated_archetype(archetype_id=archetype_id,
+            renovation_state=state, catalogue=self.parametric, detailed=self.detailed)
+
+    def source_reference(self, archetype_id):
+        """Inspect the distinct office or draft-school source evidence wrapper.
+
+        References are office_se05 and school_fridhem. The bundled historical
+        office-only reference lacks source metadata and raises an explicit
+        ValueError; complete caller-supplied source records retain the earlier
+        calculation route. Original evidence/export labels are preserved. This is
+        advanced inspection, not the selection route: use get() for a common
+        Archetype. Other IDs raise ValueError; no reference is inferred.
+        """
+        if archetype_id == "school_fridhem":
+            from .school import _load_school_reference
+
+            return _load_school_reference(detailed=self.detailed, catalogue=self.parametric)
+        if archetype_id == "office_se05":
+            from .office import _load_office_reference
+
+            try:
+                return _load_office_reference(detailed=self.detailed, catalogue=self.parametric)
+            except KeyError as exc:
+                if exc.args and exc.args[0] in {"source_thermal_properties", "epsm_material_type"}:
+                    raise ValueError("Office source reference unavailable: missing source metadata "
+                                     f"{exc.args[0]!r}; inspect detailed records, nominal_metadata or assess instead") from exc
+                raise
+        raise ValueError(f"No distinct source reference for {archetype_id!r}; use get() or detailed.review()")
 
     def nominal_metadata(self, archetype_id, *, state=None):
         """Prepare portable construction-export context from already loaded records.

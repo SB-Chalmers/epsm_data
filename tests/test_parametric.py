@@ -4,8 +4,9 @@ import json
 
 import pytest
 
-from epsm_data import ArchetypeKey, ParametricCatalogue, load_parametric_catalogue
+from epsm_data import ArchetypeKey, ParametricCatalogue
 from epsm_data.parametric import CATEGORIES, ERAS, PROPERTIES, era_for_year, main, states_for_era
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
 
 def test_current_dimensions_and_roundtrip():

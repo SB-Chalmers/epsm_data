@@ -5,15 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from epsm_data import (
-    archetype_from_dict,
-    archetype_to_dict,
-    load_detailed_catalogue,
-    load_school_reference,
-    validate_native_handover,
-    validate_nominal_handover,
-)
+from epsm_data import archetype_from_dict, archetype_to_dict, validate_nominal_handover
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
 from epsm_data.domain import BuildingElement
+from epsm_data.school import _load_school_reference as load_school_reference
 
 
 def save(path, data):
@@ -170,6 +165,7 @@ def test_portable_and_native_handover_preserve_labels_metrics_and_reversal():
         )
     pytest.importorskip("honeybee_energy")
     pytest.importorskip("epsm_core")
+    validate_native_handover = pytest.importorskip("epsm.catalogue_validation").validate_native_handover
     assert validate_native_handover(nominal) == {"honeybee": True, "core": True}
 
 

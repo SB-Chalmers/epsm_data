@@ -13,7 +13,7 @@ notebook from a fresh kernel. No sibling source imports are needed.
 | [Archetype script](archetype.py) | Inspect a predefined construction archetype. |
 | [Renovation script](renovations.py) | Inspect existing renovation definitions. |
 
-Older drawing scripts require the `visualization` extra. Source editions are
+Drawing scripts require the `visualization` extra. `sections.py` uses `Catalogue.assess` for its explicit calibration comparisons; `school_sections.py` uses `Catalogue.source_reference("school_fridhem")` to retain draft evidence labels. The authoring/selection examples use `Catalogue.get` and full format-4 exchange. Source editions are
 recorded on the returned objects; selecting one is an assumption, not a measured
 building observation. Notebook outputs and execution counts are cleared before
 commit. Installed-wheel execution is recorded in the pull request.

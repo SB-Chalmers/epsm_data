@@ -19,9 +19,9 @@ from uuid import NAMESPACE_URL, uuid5
 
 from epsm_data._logging import operation as logged_operation
 
-from .detailed import load_detailed_catalogue
+from .detailed import _load_detailed_catalogue
 from .domain import BuildingArchetype, BuildingElement, EmbodiedCarbon, OpaqueMaterial, Roughness
-from .parametric import ERAS, ArchetypeKey, EffectiveProperty, load_parametric_catalogue
+from .parametric import ERAS, ArchetypeKey, EffectiveProperty, _load_parametric_catalogue
 from .serialization import archetype_to_dict
 from .thermal import compute_element_thermal
 from .usecases.build_archetype import build_archetype
@@ -37,13 +37,29 @@ OFFICE_ROLE_MAP = {**ROLE_MAP, "roof": "ROOF"}
 GROUND_ROLES = {"ground_floor": "GROUND_FLOOR", "basement_wall": "BASEMENT_WALL"}
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class CalibratedArchetype:
     """Material-layer archetype plus separate infiltration and calibration evidence."""
 
     archetype: BuildingArchetype
     infiltration: EffectiveProperty
     report: dict
+
+    def __repr__(self):
+        label = repr(self.archetype.archetype_id)
+        if len(label) > 65:
+            label = repr(self.archetype.archetype_id[:8] + "…")
+        if len(label) > 65:
+            label = "'…'"
+        return f"CalibratedArchetype(id={label}, elements={self.archetype.total_elements})"
+
+    __str__ = __repr__
+
+    def summary(self):
+        """Return loaded identity and physical element count without I/O."""
+        return {"archetype_id": self.archetype.archetype_id,
+                "elements": self.archetype.total_elements,
+                "status": self.report.get("status")}
 
     def to_nominal_dict(self):
         """Role-preserving Honeybee/core handover, with modelling limitations."""
@@ -79,15 +95,9 @@ def _number(value, label, *, positive=True):
 
 
 @logged_operation("catalogue.archetype.load", level=10)
-def load_calibrated_archetype(
-    path=None,
-    *,
-    catalogue=None,
-    renovation_state=None,
-    renovation_path=None,
-    detailed=None,
-    archetype_id="mf_se02",
-) -> CalibratedArchetype:
+def _load_calibrated_archetype(path=None, *, catalogue=None, renovation_state=None,
+                              renovation_path=None, detailed=None,
+                              archetype_id="mf_se02") -> CalibratedArchetype:
     """Build the bundled or caller-edited calibrated definition, entirely offline.
 
     ``path`` is a shared registry directory or canonical registry JSON. Layer
@@ -98,7 +108,7 @@ def load_calibrated_archetype(
     Standard/Advanced select independent packages in archetypes.json.
     ``renovation_path`` can select a separate registry copy for those packages.
     """
-    detailed = detailed if detailed is not None else load_detailed_catalogue(path, catalogue=catalogue)
+    detailed = detailed if detailed is not None else _load_detailed_catalogue(path, catalogue=catalogue)
     if renovation_state is None and detailed.archetypes[archetype_id]["era"] != "SE.07":
         renovation_state = "existing"
     if detailed.archetypes[archetype_id]["era"] == "SE.07" and renovation_state is not None:
@@ -113,7 +123,7 @@ def load_calibrated_archetype(
                                        detailed=detailed if renovation_path is None else None)
     if renovation_path is not None:
         raise ValueError("renovation_path applies only to Standard or Advanced")
-    detailed = detailed if detailed is not None else load_detailed_catalogue(path, catalogue=catalogue)
+    detailed = detailed if detailed is not None else _load_detailed_catalogue(path, catalogue=catalogue)
     definition, snapshot = detailed.state_inputs(archetype_id, renovation_state)
     tolerance = _number(definition["tolerance_percent"], "tolerance_percent")
     if tolerance not in (2, 5):
@@ -241,7 +251,7 @@ def load_calibrated_archetype(
         version_id=uuid5(NAMESPACE_URL, f"epsm_data:layered:{revision}"),
     ))
 
-    catalogue = catalogue if catalogue is not None else load_parametric_catalogue()
+    catalogue = catalogue if catalogue is not None else _load_parametric_catalogue()
     target_catalogue = detailed.target_catalogue(archetype_id, catalogue)
     slot = target_catalogue.get_slot(key)
     live = {**slot.construction_set.properties, "infiltration": slot.infiltration}
@@ -332,9 +342,9 @@ def main():
     output.add_argument("--nominal-export", action="store_true", help="Role-preserving Honeybee/core nominal constructions")
     parser.add_argument("--catalogue", type=Path, help="LoD1 catalogue JSON; omit for live defaults")
     args = parser.parse_args()
-    calibrated = load_calibrated_archetype(args.path, renovation_state=args.state,
+    calibrated = _load_calibrated_archetype(args.path, renovation_state=args.state,
                                           renovation_path=args.renovation_path,
-                                          catalogue=load_parametric_catalogue(args.catalogue))
+                                          catalogue=_load_parametric_catalogue(args.catalogue))
     report = calibrated.report
     if args.json or args.export or args.nominal_export:
         payload = calibrated.to_nominal_dict() if args.nominal_export else (calibrated.to_dict() if args.export else report)

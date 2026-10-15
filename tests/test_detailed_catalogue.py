@@ -7,7 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from epsm_data import load_calibrated_archetype, load_detailed_catalogue
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 
 
 def save(path, data):
@@ -305,7 +306,7 @@ def test_lod2_recipe_coverage_is_separate_from_acceptance_and_material_registrat
 
 
 def test_lod2_check_uses_supplied_catalogue_and_in_memory_registries(detailed_copy):
-    from epsm_data import load_parametric_catalogue
+    from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
     path, data = detailed_copy
     data["honeybee"]["materials"]["EPSM_cellular_plastic"]["conductivity"] = 0.038

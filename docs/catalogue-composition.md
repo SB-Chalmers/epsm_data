@@ -32,7 +32,7 @@ does not establish calibration, simulation readiness or accuracy for a measured
 building.
 
 For an explicit calibration assessment during the staged migration, use
-`load_calibrated_archetype(...)` and inspect its `report`; source/material edits
+`catalogue.assess(archetype_id, state=...)` and inspect its `report`; source/material edits
 can produce failed tolerance checks or target drift without preventing physical
 composition. Supported operating profiles and explicit envelope bases are attached by
 `Catalogue.get()`. HVAC remains an explicit choice. `DetailedCatalogue.compose()`

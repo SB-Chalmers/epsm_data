@@ -48,11 +48,6 @@ from .serialization import (
     construction_set_to_dict,
 )
 from .usecases.build_archetype import build_archetype
-from .usecases.export_outputs import (
-    export_construction_sets,
-    export_consumption_contracts,
-    export_json,
-)
 
 _PARAMETRIC_EXPORTS = {
     "ArchetypeKey",
@@ -60,13 +55,12 @@ _PARAMETRIC_EXPORTS = {
     "EffectiveConstructionSet",
     "EffectiveProperty",
     "ParametricCatalogue",
-    "load_parametric_catalogue",
 }
-_LAYERED_EXPORTS = {"CalibratedArchetype", "load_calibrated_archetype"}
-_DETAILED_EXPORTS = {"DetailedCatalogue", "load_detailed_catalogue"}
-_SCHOOL_EXPORTS = {"SchoolReference", "load_school_reference"}
-_OFFICE_EXPORTS = {"OfficeReference", "load_office_reference"}
-_NOMINAL_EXPORTS = {"export_nominal_constructions", "validate_nominal_handover", "validate_native_handover"}
+_LAYERED_EXPORTS = {"CalibratedArchetype"}
+_DETAILED_EXPORTS = {"DetailedCatalogue"}
+_SCHOOL_EXPORTS = {"SchoolReference"}
+_OFFICE_EXPORTS = {"OfficeReference"}
+_NOMINAL_EXPORTS = {"export_nominal_constructions", "validate_nominal_handover"}
 _RENOVATION_EXPORTS = {
     "load_renovation_package", "honeybee_material_dict", "instantiate_renovation_honeybee_materials",
 }
@@ -74,10 +68,6 @@ _RENOVATION_EXPORTS = {
 
 def __getattr__(name):
     # Lazy imports also permit python -m epsm_data.parametric without runpy warnings.
-    if name == "resolve_building_archetype":
-        from .application import resolve_building_archetype
-
-        return resolve_building_archetype
     if name in _PARAMETRIC_EXPORTS:
         from . import parametric
 
@@ -118,24 +108,17 @@ __all__ = [
     "ConstructionOperation", "SystemOperation", "reference_hvac_template",
     "Archetype", "Material", "EnvironmentalFactor",
     "construction_set_from_dict", "construction_set_to_dict",
-    "resolve_building_archetype",
     "__version__",
     "ArchetypeKey",
     "ArchetypeSlot",
     "EffectiveConstructionSet",
     "EffectiveProperty",
     "ParametricCatalogue",
-    "load_parametric_catalogue",
     "CalibratedArchetype",
-    "load_calibrated_archetype",
     "DetailedCatalogue",
-    "load_detailed_catalogue",
     "SchoolReference",
-    "load_school_reference",
     "OfficeReference",
-    "load_office_reference",
     "export_nominal_constructions",
-    "validate_native_handover",
     "validate_nominal_handover",
     "load_renovation_package",
     "honeybee_material_dict",
@@ -163,10 +146,6 @@ __all__ = [
     "build_archetype",
     "archetype_to_dict",
     "archetype_from_dict",
-    "export_construction_sets",
-    "export_consumption_contracts",
-    "export_json",
-    "resolve_building_archetype",
 ]
 
 # A library emits no output until its host selects handlers.

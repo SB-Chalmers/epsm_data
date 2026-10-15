@@ -2,7 +2,7 @@
 
 ## Ownership
 
-Data owns Material, Layer, Component, Element and ConstructionSet. Archetype supplies the reusable construction set with a name and classification. The types are lightweight and shared directly with Core.
+Data owns Material, Layer, Component, Element and ConstructionSet. Archetype combines reusable constructions, operating profiles, system templates and explicit envelope assumptions; partial custom definitions may omit sections. The types are lightweight and shared directly with Core.
 
 Core owns actual building geometry, physical element instances, system instances, material quantities and ordered renovation stages. EPSM resolves evidence and catalogue selections into those objects. EPlus and RC consume a resolved stage; LCA consumes quantities, operating consequences and sourced factors; Workflows explores measure combinations and ordering.
 
@@ -32,7 +32,7 @@ Stages are ordered. There is no implicit construction or renovation date in a ne
 
 Sourced Sveby residential, office and school records and BEN DHW inputs are packaged in Data. The generic nonresidential fallback is explicitly labelled as an EPSM assumption. `OperatingProfile` and `HVACTemplate` store finite portable values with source references. Core interprets the inputs, expands calendars and constructs schedules and physics specifications.
 
-The older detailed registry and nominal export code retain some review metadata names and source-era identifiers for compatibility. Their source labels are provenance; the shipped runtime catalogue does not load historical versions or apply an override chain. Optional legacy Data application/native-validation functions forward to EPSM. The former cohort-modelling compatibility module is [archived](archive/README.md); reproducing the retired cohort studies is outside current maintenance.
+The older detailed registry and nominal export code retain some review metadata names and source-era identifiers for compatibility. Their source labels are provenance; the shipped runtime catalogue does not load historical versions or apply an override chain. Data application/native-validation forwarders have been removed. Call the public owning EPSM adapters or `Building.apply_archetype`; see [the API migration guide](archetype-api-migration.md). The former cohort-modelling compatibility module is [archived](archive/README.md); reproducing the retired cohort studies is outside current maintenance.
 
 The current source records still contain representative material choices, simple whole-window optics and effective ground assumptions. Source coverage is not proof that a model matches any particular measured building. Comparisons require aligned areas, periods, energy boundaries, weather and operating conditions in the application or study.
 

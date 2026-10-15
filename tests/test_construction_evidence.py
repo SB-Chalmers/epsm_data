@@ -3,16 +3,16 @@ from copy import deepcopy
 
 import pytest
 
-from epsm_data.detailed import load_detailed_catalogue
-from epsm_data.layered import load_calibrated_archetype
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 from epsm_data.nominal import validate_nominal_handover
-from epsm_data.parametric import (
-    ArchetypeKey,
-    ParametricCatalogue,
-    load_parametric_catalogue,
-    states_for_era,
-)
-from epsm_data.release import core_inputs
+from epsm_data.parametric import ArchetypeKey, ParametricCatalogue, states_for_era
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
+
+
+def _epsm_core_inputs(*args, **kwargs):
+    """Exercise the optional native consumer through its owning package."""
+    return pytest.importorskip("epsm.catalogue_release").core_inputs(*args, **kwargs)
 
 
 @pytest.fixture(scope='module')
@@ -62,7 +62,7 @@ def test_no_missing_role_or_floor_substitution(current_catalogue):
     with pytest.raises(ValueError, match='declared archetype roles'):
         validate_nominal_handover(bad)
     pytest.importorskip('epsm_core')
-    native = core_inputs('school_se05', detailed=detailed, catalogue=cat)
+    native = _epsm_core_inputs('school_se05', detailed=detailed, catalogue=cat)
     assert native['envelope'].basement_wall != native['envelope'].ground
 
 

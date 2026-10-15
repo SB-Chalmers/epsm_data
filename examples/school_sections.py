@@ -6,7 +6,7 @@ from pathlib import Path
 
 from matplotlib import pyplot as plt
 
-from epsm_data import load_school_reference
+from epsm_data import Catalogue
 from epsm_data.reporting.section_drawing import plot_sections
 
 
@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("output/school_se02_sections"))
     args = parser.parse_args()
-    reference = load_school_reference()
+    reference = Catalogue.load().source_reference("school_fridhem")
     args.output.mkdir(parents=True, exist_ok=True)
     titles, tags = {}, {}
     for role, assembly in reference.report["assembly_evidence"].items():

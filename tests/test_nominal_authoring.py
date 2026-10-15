@@ -10,7 +10,7 @@ from epsm_data import (
     export_nominal_constructions,
     validate_nominal_handover,
 )
-from epsm_data.layered import load_calibrated_archetype
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 
 
 @pytest.mark.parametrize("identifier,state", [
@@ -39,7 +39,7 @@ def test_nominal_context_does_not_request_calibration_or_target_acceptance(monke
     catalogue.parametric = catalogue.parametric.with_property(
         "multi_family", "SE.02", "existing", "roof",
         {"value": .9, "source": "proxy", "note": "Deliberate target mismatch"})
-    monkeypatch.setattr(layered, "load_calibrated_archetype",
+    monkeypatch.setattr(layered, "_load_calibrated_archetype",
                         lambda **kwargs: pytest.fail("Calibration requested"))
     archetype = catalogue.get("mf_se02")
     metadata = catalogue.nominal_metadata("mf_se02")

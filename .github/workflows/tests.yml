@@ -41,7 +41,7 @@ jobs:
           repository: SB-Chalmers/epsm
           ssh-key: ${{ secrets.EPSM_REPO_DEPLOY_KEY }}
           persist-credentials: false
-          ref: ${{ matrix.dependencies == 'dev' && 'dev' || '7e9c1dc3d39c557fec1285740568d397c9cc8ac6' }}
+          ref: ${{ matrix.dependencies == 'dev' && 'dev' || 'c9c27bd54d6ef02791bdc8610bd198854093b320' }}
           path: .ci/epsm
       - name: Install test and build tools
         run: python -m pip install '.[dev,visualization]' .ci/epsm_core .ci/epsm_lca .ci/epsm
