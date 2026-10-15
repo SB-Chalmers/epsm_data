@@ -159,5 +159,16 @@
     "household_electricity_accounting": "Core maps the 1.68 W/m2 useful heat contribution but does not separately report the full 21 kWh/m2 annual household-electricity end use.",
     "common_area_gain_distribution": "Core conserves the whole-building residential load when apartment common zones exist but does not distribute the household-electricity gain uniformly over every Atemp zone.",
     "conditional_system_energy": "Conditional comfort heating, lifts, heat cables and lighting values are stored but have no generic Core end-use accounting model."
-  }
+  },
+  "applicability": {
+    "building_types": [
+      "multi_family",
+      "single_family"
+    ],
+    "automatic_fallback": false,
+    "single_family": "Explicit permitted fallback; primary source scope is multi-family."
+  },
+  "requirements": [
+    "load_reference_area_m2"
+  ]
 }
