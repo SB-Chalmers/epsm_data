@@ -4,6 +4,8 @@ EPSM's current construction catalogue, physical construction types, sourced oper
 
 ## Start here
 
+Data 0.6.0 includes the shared authoring model and API cleanup. See [release notes](RELEASE_NOTES.md) and [migration guidance](docs/archetype-api-migration.md).
+
 ```sh
 python -m pip install -e '.[dev]'
 ```

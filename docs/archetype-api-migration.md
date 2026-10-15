@@ -1,5 +1,7 @@
 # One archetype route and explicit inspection
 
+Applies to Data 0.6.0 and the coordinated Core 0.4.0 / EPSM 0.3.0 interfaces.
+
 Use `Catalogue.get()` or `for_year()` for predefined physical definitions. They
 return the same `Archetype` used for custom authoring and do not require a target
 match. `with_changes()` retains immutable editing. Core owns physical conversion,
