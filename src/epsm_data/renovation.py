@@ -15,6 +15,8 @@ from dataclasses import asdict, replace
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
+from epsm_data._logging import operation as logged_operation
+
 from .detailed import load_detailed_catalogue
 from .domain import (
     BuildingElement,
@@ -133,7 +135,10 @@ def _window(record, sources, identity):
     return element, hb
 
 
-def load_renovation_package(state, path=None, *, base_path=None, catalogue=None, detailed=None) -> CalibratedArchetype:
+@logged_operation("catalogue.renovation.load")
+def load_renovation_package(
+    state, path=None, *, base_path=None, catalogue=None, detailed=None
+) -> CalibratedArchetype:
     """Build Standard or Advanced directly from Existing; never compound states.
 
     ``path`` selects shared registries; ``base_path`` optionally selects a

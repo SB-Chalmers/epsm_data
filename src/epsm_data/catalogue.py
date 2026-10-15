@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from math import isfinite
 from typing import Literal
 
+from epsm_data._logging import operation as logged_operation
+
 from .operations import ConstructionOperation, SystemOperation
 from .serialization import _encode
 
@@ -246,6 +248,7 @@ class RenovationCatalogue:
             raise ValueError(f"Duplicate measure: {measure.measure_id}")
         self._measures[measure.measure_id] = measure
 
+    @logged_operation("catalogue.select", level=10)
     def get(self, measure_id: str) -> RenovationMeasure:
         """Look up a definition by its exact identity.
 
@@ -327,6 +330,7 @@ class Catalogue:
         self.renovations = renovations if renovations is not None else RenovationCatalogue()
 
     @classmethod
+    @logged_operation("catalogue.load")
     def load(cls, *, parametric_path=None, detailed_path=None, renovations=None):
         from .detailed import load_detailed_catalogue
         from .parametric import load_parametric_catalogue
@@ -345,6 +349,7 @@ class Catalogue:
         return tuple(state for state in self.detailed.archetypes[archetype_id]["states"]
                      if state is not None)
 
+    @logged_operation("catalogue.select", level=10)
     def get(self, archetype_id, *, state=None):
         """Resolve a construction archetype; SE.07 only accepts state=None."""
         from .layered import load_calibrated_archetype
@@ -354,6 +359,7 @@ class Catalogue:
             detailed=self.detailed, catalogue=self.parametric,
         ).archetype
 
+    @logged_operation("catalogue.select.year", level=10)
     def for_year(self, category, construction_year, *, state=None):
         from .parametric import era_for_year
 

@@ -20,6 +20,8 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import Any, Mapping
 
+from epsm_data._logging import operation as logged_operation
+
 CATEGORIES = ("single_family", "multi_family", "office", "school", "generic")
 CATEGORY_LABELS = dict(zip(CATEGORIES, ("SF", "MF", "Office", "School", "Generic"), strict=True))
 ERAS = {
@@ -585,6 +587,7 @@ class ParametricCatalogue:
             scaling_factor=factor,
         )
 
+    @logged_operation("catalogue.construction.resolve", level=10)
     def resolve_construction(self, category: str, era: str, state: str) -> EffectiveConstructionSet:
         ArchetypeKey(category, era, ZONES[0], state, SYSTEMS[0])
         return EffectiveConstructionSet(
@@ -596,6 +599,7 @@ class ParametricCatalogue:
             ),
         )
 
+    @logged_operation("catalogue.slot.resolve", level=10)
     def get_slot(self, key: ArchetypeKey | str) -> ArchetypeSlot:
         if isinstance(key, str):
             parts = key.split(":")
@@ -691,7 +695,6 @@ class ParametricCatalogue:
         entries.append(override)
         return type(self)(payload)
 
-
     def with_property(self, category, era, state, role, reference):
         """Replace one current property explicitly; other configurations stay unchanged."""
         ArchetypeKey(category, era, ZONES[0], state, SYSTEMS[0])
@@ -716,6 +719,7 @@ class ParametricCatalogue:
         return type(self)(payload)
 
 
+@logged_operation("catalogue.parametric.load")
 def load_parametric_catalogue(path: str | Path | None = None) -> ParametricCatalogue:
     resource = (
         Path(path)
