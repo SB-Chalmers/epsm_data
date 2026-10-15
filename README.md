@@ -71,6 +71,8 @@ Reusable Sveby profiles, explicit BEN DHW selections and custom portable inputs
 are described in [Operating profiles](docs/operating-profiles.md). Start offline
 with [the profile notebook](examples/01_operating_profiles.ipynb).
 
+The MF SE.02 pilot now [composes physical definitions independently of target assessment](docs/catalogue-composition.md). Source evidence and calibration reports remain separately inspectable.
+
 Author complete or partial definitions with the shared `Archetype` class. See
 [Archetype authoring and format-4 exchange](docs/archetype-authoring.md) and
 [the materials-to-archetype notebook](examples/02_author_archetype.ipynb).

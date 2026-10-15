@@ -351,7 +351,14 @@ class Catalogue:
 
     @logged_operation("catalogue.select", level=10)
     def get(self, archetype_id, *, state=None):
-        """Resolve a construction archetype; SE.07 only accepts state=None."""
+        """Resolve an archetype; MF SE.02 composition is independent of assessment.
+
+        Other entries retain their current loader during the staged migration.
+        SE.07 accepts state=None only. No successful target match is required
+        for the MF SE.02 pilot; reference evidence remains available separately.
+        """
+        if archetype_id == "mf_se02":
+            return self.detailed.compose(archetype_id, state=state)
         from .layered import load_calibrated_archetype
 
         return load_calibrated_archetype(
