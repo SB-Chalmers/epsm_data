@@ -37,28 +37,43 @@ def setup_logging(
 
     Notes
     -----
-    Existing handlers are preserved. Source pipeline logging is configured by
-    the caller separately; it uses the pipelines logger namespace.
+    Repeated setup replaces only handlers owned by this helper. Conflicting
+    foreign handlers are reported before changing configuration. OFF suppresses
+    standalone output. The host application owns any other logging setup.
     """
     root_logger = logging.getLogger("epsm_data")
-    root_logger.setLevel(level)
-
-    # Avoid adding duplicate handlers on repeated calls
-    if root_logger.handlers:
-        return
-
+    threshold = logging.CRITICAL + 1 if level == "OFF" else level
+    if isinstance(threshold, str):
+        threshold = logging.getLevelName(threshold.upper())
+    if not isinstance(threshold, int) or isinstance(threshold, bool) or threshold < 0:
+        raise ValueError("Use a standard logging level or OFF")
+    owned = [h for h in root_logger.handlers if getattr(h, "_epsm_data_owned", False)]
+    if any(h not in owned and not isinstance(h, logging.NullHandler) for h in root_logger.handlers):
+        raise ValueError("Unmanaged log handlers conflict: epsm_data")
     formatter = logging.Formatter(fmt, datefmt=date_fmt)
-
-    # Console handler — stderr
-    console = logging.StreamHandler(sys.stderr)
-    console.setLevel(level)
-    console.setFormatter(formatter)
-    root_logger.addHandler(console)
-
-    # File handler — optional
-    if log_file is not None:
-        log_file.parent.mkdir(parents=True, exist_ok=True)
-        file_handler = logging.FileHandler(log_file, encoding="utf-8")
-        file_handler.setLevel(level)
-        file_handler.setFormatter(formatter)
-        root_logger.addHandler(file_handler)
+    prepared = []
+    try:
+        if level != "OFF":
+            console = logging.StreamHandler(sys.stderr)
+            prepared.append(console)
+            if log_file is not None:
+                log_file = Path(log_file)
+                log_file.parent.mkdir(parents=True, exist_ok=True)
+                prepared.append(logging.FileHandler(log_file, encoding="utf-8"))
+        else:
+            prepared.append(logging.NullHandler())
+        for handler in prepared:
+            handler._epsm_data_owned = True
+            handler.setLevel(threshold)
+            handler.setFormatter(formatter)
+    except BaseException:
+        for handler in prepared:
+            handler.close()
+        raise
+    for handler in owned:
+        root_logger.removeHandler(handler)
+        handler.close()
+    root_logger.setLevel(threshold)
+    root_logger.propagate = False
+    for handler in prepared:
+        root_logger.addHandler(handler)

@@ -3,6 +3,8 @@
 Imports perform no dataset loading, network calls, or database operations.
 """
 
+import logging as _stdlib_logging
+
 from ._version import __version__
 from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
 from .domain import (
@@ -30,9 +32,12 @@ from .operations import ConstructionOperation, SystemOperation
 from .profiles import (
     HVACTemplate,
     OperatingProfile,
+    available_operating_profiles,
     load_generic_other_template,
     load_operating_profile,
     load_standard_record,
+    select_dhw_profile,
+    select_operating_profile,
 )
 from .reference import reference_construction_set, reference_hvac_template
 from .serialization import (
@@ -104,6 +109,7 @@ def __getattr__(name):
 
 
 __all__ = [
+    "available_operating_profiles", "select_operating_profile", "select_dhw_profile",
     "OperatingProfile", "HVACTemplate", "load_operating_profile", "load_standard_record", "load_generic_other_template",
     "Catalogue",
     "reference_construction_set",
@@ -160,3 +166,7 @@ __all__ = [
     "export_json",
     "resolve_building_archetype",
 ]
+
+# A library emits no output until its host selects handlers.
+
+_stdlib_logging.getLogger("epsm_data").addHandler(_stdlib_logging.NullHandler())

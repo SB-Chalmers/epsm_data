@@ -17,6 +17,8 @@ from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
+from epsm_data._logging import operation as logged_operation
+
 from .detailed import load_detailed_catalogue
 from .domain import BuildingArchetype, BuildingElement, EmbodiedCarbon, OpaqueMaterial, Roughness
 from .parametric import ERAS, ArchetypeKey, EffectiveProperty, load_parametric_catalogue
@@ -76,9 +78,16 @@ def _number(value, label, *, positive=True):
     return value
 
 
-def load_calibrated_archetype(path=None, *, catalogue=None, renovation_state=None,
-                              renovation_path=None, detailed=None,
-                              archetype_id="mf_se02") -> CalibratedArchetype:
+@logged_operation("catalogue.archetype.load", level=10)
+def load_calibrated_archetype(
+    path=None,
+    *,
+    catalogue=None,
+    renovation_state=None,
+    renovation_path=None,
+    detailed=None,
+    archetype_id="mf_se02",
+) -> CalibratedArchetype:
     """Build the bundled or caller-edited calibrated definition, entirely offline.
 
     ``path`` is a shared registry directory or canonical registry JSON. Layer
