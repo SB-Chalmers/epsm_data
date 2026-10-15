@@ -30,5 +30,32 @@
     "window airing correction",
     "actual HVAC delivery",
     "dynamic blinds"
-  ]
+  ],
+  "applicability": {
+    "building_types": [
+      "office"
+    ],
+    "automatic_fallback": false
+  },
+  "requirements": [
+    "load_reference_area_m2",
+    "calendar"
+  ],
+  "operation_inputs": {
+    "occupancy_category": "non_residential",
+    "occupant_density_per_m2": 0.05,
+    "occupancy_on_fraction": 0.7,
+    "occupant_activity_w": 108,
+    "occupancy_start_hour": 8,
+    "occupancy_hours": 9,
+    "ventilation_start_hour": 7,
+    "ventilation_hours": 12
+  },
+  "completion_inputs": {
+    "standby_fraction": 0.2,
+    "cooling_enabled": false,
+    "solar_shading_total_factor": 0.5,
+    "solar_shading_behavior_factor": 0.71
+  },
+  "transferred_inputs_note": "Inputs transferred unchanged from epsm_core.nonresidential. Existing source locators and completion assumptions retain their meaning; this transfer is not an independent source verification."
 }
