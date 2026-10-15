@@ -17,7 +17,7 @@ from uuid import NAMESPACE_URL, uuid5
 
 from epsm_data._logging import operation as logged_operation
 
-from .detailed import load_detailed_catalogue
+from .detailed import _load_detailed_catalogue
 from .domain import (
     BuildingElement,
     Component,
@@ -35,10 +35,10 @@ from .layered import (
     ROLE_MAP,
     CalibratedArchetype,
     _digest,
+    _load_calibrated_archetype,
     _number,
-    load_calibrated_archetype,
 )
-from .parametric import ArchetypeKey, EffectiveProperty, load_parametric_catalogue
+from .parametric import ArchetypeKey, EffectiveProperty, _load_parametric_catalogue
 from .thermal import compute_element_thermal
 
 
@@ -136,9 +136,7 @@ def _window(record, sources, identity):
 
 
 @logged_operation("catalogue.renovation.load")
-def load_renovation_package(
-    state, path=None, *, base_path=None, catalogue=None, detailed=None
-) -> CalibratedArchetype:
+def load_renovation_package(state, path=None, *, base_path=None, catalogue=None, detailed=None) -> CalibratedArchetype:
     """Build Standard or Advanced directly from Existing; never compound states.
 
     ``path`` selects shared registries; ``base_path`` optionally selects a
@@ -147,7 +145,7 @@ def load_renovation_package(
     """
     if state not in {"standard", "advanced"}:
         raise ValueError("Renovation package state must be standard or advanced")
-    detailed = detailed if detailed is not None else load_detailed_catalogue(path, catalogue=catalogue)
+    detailed = detailed if detailed is not None else _load_detailed_catalogue(path, catalogue=catalogue)
     definition = detailed.renovation_inputs()
     if (definition.get("format_version") != 1
             or (definition.get("category"), definition.get("era")) != ("multi_family", "SE.02")
@@ -156,8 +154,8 @@ def load_renovation_package(
     tolerance = _number(definition["states"][state]["tolerance_percent"], "renovation tolerance")
     if tolerance not in (2, 5):
         raise ValueError("MF SE.02 nominal acceptance requires 2% or 5% tolerance")
-    catalogue = catalogue if catalogue is not None else load_parametric_catalogue()
-    base = load_calibrated_archetype(base_path if base_path is not None else path, catalogue=catalogue,
+    catalogue = catalogue if catalogue is not None else _load_parametric_catalogue()
+    base = _load_calibrated_archetype(base_path if base_path is not None else path, catalogue=catalogue,
                                    detailed=detailed if base_path is None else None)
     sources = {**base.report["sources"], **definition["sources"]}
     new_materials = {mid: _opaque(record, sources) for mid, record in definition["materials"].items()}
@@ -374,7 +372,7 @@ def main():
     parser.add_argument("--catalogue", type=Path, help="LoD1 catalogue JSON; omit for live defaults")
     args = parser.parse_args()
     result = load_renovation_package(args.state, args.path, base_path=args.base_path,
-                                     catalogue=load_parametric_catalogue(args.catalogue))
+                                     catalogue=_load_parametric_catalogue(args.catalogue))
     if args.json or args.export:
         print(json.dumps(result.to_dict() if args.export else result.report,
                          indent=2, ensure_ascii=False, allow_nan=False))

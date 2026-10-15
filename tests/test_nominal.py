@@ -4,12 +4,9 @@ import json
 
 import pytest
 
-from epsm_data import (
-    load_calibrated_archetype,
-    load_detailed_catalogue,
-    validate_native_handover,
-    validate_nominal_handover,
-)
+from epsm_data import validate_nominal_handover
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 
 
 def save(path, data):
@@ -94,6 +91,7 @@ def test_native_constructions_roundtrip_and_installed_core_types(state):
     from honeybee_energy.construction.dictutil import dict_to_construction
 
     bundle = load_calibrated_archetype(renovation_state=state).to_nominal_dict()
+    validate_native_handover = pytest.importorskip("epsm.catalogue_validation").validate_native_handover
     assert validate_native_handover(bundle) == {"honeybee": True, "core": True}
     for role, record in bundle["honeybee"].items():
         native = dict_to_construction(record)

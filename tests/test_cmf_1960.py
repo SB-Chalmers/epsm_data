@@ -46,7 +46,7 @@ def test_reconstruction_differences_and_boundary_meanings():
     assert rows["BASEMENT_WALL"]["reconstructed_u"] > 3.0
     assert rows["BASEMENT_WALL"]["lod1_reference_u"] < 1.0
     assert rows["INT_WALL_NONLOADBEARING"]["lod1_reference_u"] == pytest.approx(
-        __import__("epsm_data").load_parametric_catalogue().resolve_construction("multi_family", "SE.02", "existing").u_values["internal_wall"]
+        __import__("epsm_data").Catalogue.load().parametric.resolve_construction("multi_family", "SE.02", "existing").u_values["internal_wall"]
     )
 
 

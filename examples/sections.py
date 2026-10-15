@@ -8,7 +8,7 @@ from pathlib import Path
 
 from matplotlib import pyplot as plt
 
-from epsm_data import load_calibrated_archetype
+from epsm_data import Catalogue
 from epsm_data.reporting.section_drawing import (
     plot_section_comparison,
     plot_sections,
@@ -22,8 +22,9 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("output/mf_se02_sections"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
+    catalogue = Catalogue.load()
     states = [
-        load_calibrated_archetype(renovation_state=s) for s in ("existing", "standard", "advanced")
+        catalogue.assess("mf_se02", state=s) for s in ("existing", "standard", "advanced")
     ]
     scales = section_scales(
         [s.archetype for s in states], [s.report["boundary_details"] for s in states]

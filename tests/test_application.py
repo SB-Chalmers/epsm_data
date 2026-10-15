@@ -2,7 +2,7 @@
 
 import pytest
 
-from epsm_data.application import resolve_building_archetype
+resolve_building_archetype = pytest.importorskip("epsm.catalogue_application").resolve_building_archetype
 
 
 def resolve(**kwargs):
@@ -38,7 +38,7 @@ def test_component_states_require_independent_sources():
 
 
 def test_legacy_attic_adapter_rejects_native_double_counting():
-    from epsm_data.release import apply_attic_ventilation
+    apply_attic_ventilation = pytest.importorskip("epsm.catalogue_release").apply_attic_ventilation
 
     model = {
         "Zone": {"main_attic": {"part_of_total_floor_area": "No"}},

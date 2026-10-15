@@ -720,7 +720,7 @@ class ParametricCatalogue:
 
 
 @logged_operation("catalogue.parametric.load")
-def load_parametric_catalogue(path: str | Path | None = None) -> ParametricCatalogue:
+def _load_parametric_catalogue(path: str | Path | None = None) -> ParametricCatalogue:
     resource = (
         Path(path)
         if path is not None
@@ -740,7 +740,7 @@ def main(argv=None) -> int:
     parser.add_argument("--summary", action="store_true", help="Print completeness summary as JSON")
     args = parser.parse_args(argv)
     try:
-        catalogue = load_parametric_catalogue(args.catalogue)
+        catalogue = _load_parametric_catalogue(args.catalogue)
         summary = catalogue.summary()
     except (ValueError, OSError) as exc:
         parser.error(str(exc))

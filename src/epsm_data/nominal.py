@@ -408,12 +408,6 @@ def validate_nominal_handover(bundle):
     return {"honeybee": True, "core": True}
 
 
-def validate_native_handover(bundle):
-    """Compatibility entry point; optional engine integration belongs to EPSM."""
-    from epsm.catalogue_validation import validate_native_handover as validate
-    return validate(bundle)
-
-
 def catalogue_lod2_checks(calibrated):
     """Data/export acceptance only; scope-specific simulation caveats stay open."""
     report = calibrated.report

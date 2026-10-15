@@ -4,8 +4,9 @@ import json
 
 import pytest
 
-from epsm_data import Catalogue, archetype_to_dict, load_detailed_catalogue
-from epsm_data.layered import load_calibrated_archetype
+from epsm_data import Catalogue, archetype_to_dict
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 
 
 @pytest.mark.parametrize("state", ["existing", "standard", "advanced"])
@@ -33,7 +34,7 @@ def test_pilot_ignores_target_acceptance_and_never_calls_calibrated_loader(monke
         {"value": 0.9, "source": "proxy", "note": "Explicit test target edit"},
     )
     catalogue.parametric = edited
-    monkeypatch.setattr(layered, "load_calibrated_archetype",
+    monkeypatch.setattr(layered, "_load_calibrated_archetype",
                         lambda **kwargs: pytest.fail("Composition requested calibration"))
     assert catalogue.get("mf_se02") == before
 
@@ -103,6 +104,6 @@ def test_loaded_registry_composition_performs_no_resource_access(monkeypatch):
     detailed = load_detailed_catalogue()
     monkeypatch.setattr(detailed_module, "files",
                         lambda *args: pytest.fail("Composition read packaged resources"))
-    monkeypatch.setattr(detailed_module, "load_parametric_catalogue",
+    monkeypatch.setattr(detailed_module, "_load_parametric_catalogue",
                         lambda *args: pytest.fail("Composition loaded target catalogue"))
     assert detailed.compose("mf_se02").total_elements == 7

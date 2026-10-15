@@ -8,13 +8,11 @@ from pathlib import Path
 
 import pytest
 
-from epsm_data import (
-    archetype_from_dict,
-    load_calibrated_archetype,
-    load_detailed_catalogue,
-    load_parametric_catalogue,
-)
+from epsm_data import archetype_from_dict
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
 from epsm_data.domain import BuildingElement
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
 
 @pytest.fixture

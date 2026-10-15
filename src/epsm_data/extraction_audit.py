@@ -42,8 +42,8 @@ def reconcile_extraction(extraction, review_directory, *, calibration=None):
         if record["record_number"] != number or record["json_pointer"] != f"/{number - 1}":
             raise ValueError("Reviewed record order differs from extraction")
     if calibration is None:
-        from .parametric import load_parametric_catalogue
-        catalogue = load_parametric_catalogue()
+        from .parametric import _load_parametric_catalogue
+        catalogue = _load_parametric_catalogue()
         current = {"calibration_id": catalogue.release_id,
                    "entries": {f"{key}:{role}": {"final_value": prop["value"], "source": prop["source"]}
                                for key, values in catalogue.to_dict()["resolved"].items()

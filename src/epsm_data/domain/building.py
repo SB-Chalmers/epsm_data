@@ -312,36 +312,6 @@ class BuildingArchetype(Editable):
         """Number of assigned element roles, including windows."""
         return len(self.construction_set.elements) if self.construction_set else 0
 
-    def to_consumption_contract(self) -> dict:
-        """Export archetype state as a flat, serializable dict.
-
-        Self-contained — no object references back into epsm_data.
-        """
-        return {
-            "archetype_id": self.archetype_id,
-            "display_name": self.display_name,
-            "construction_year": self.construction_year,
-            "building_typology": self.building_typology,
-            "current_year": self.current_year,
-            "envelope_u_values": self.envelope_u_values,
-            "construction_set": self.construction_set.to_dict() if self.construction_set else None,
-            "renovation_log": [e.to_dict() for e in self.renovation_log],
-        }
-
-    def to_dict(self) -> dict:
-        """Simplified dict for JSON export (backwards-compatible with NewSchema)."""
-        return {
-            "name": self.archetype_id,
-            "age": self.construction_year,
-            "total_elements": self.total_elements,
-            "elements": [
-                {"element_name": elem.name, "element_type": role.value}
-                for role, elem in (
-                    self.construction_set.elements.items() if self.construction_set else ()
-                )
-            ],
-        }
-
     def plot(self, **kwargs):
         """Draw architectural section drawings for all elements.
 

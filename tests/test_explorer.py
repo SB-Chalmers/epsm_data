@@ -19,7 +19,7 @@ def catalogue():
 
 
 def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
-    from epsm_data import load_parametric_catalogue
+    from epsm_data import Catalogue
 
     assert len(catalogue["cells"]) == len({c["id"] for c in catalogue["cells"]}) == 1140
     assert all(c["package_id"] for c in catalogue["cells"])
@@ -40,7 +40,7 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
     cell = next(
         c for c in catalogue["cells"] if c["id"] == "multi_family:SE.02:SE.Zone3:existing:F"
     )
-    slot = load_parametric_catalogue().get_slot(cell["id"])
+    slot = Catalogue.load().parametric.get_slot(cell["id"])
     assert cell["u_values"]["wall"] == slot.properties["external_wall"].value
     assert cell["u_values"]["internal_wall"] == slot.properties["internal_wall"].value
     assert cell["u_values"]["intermediate_floor"] == slot.properties["intermediate_floor"].value
@@ -54,7 +54,7 @@ def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
     sf_modern = next(c for c in sf_cells if c["id"] == "single_family:SE.06:SE.Zone1:existing:S")
     assert sf_modern["u_values"]["internal_wall"] == pytest.approx(0.5366837272668065)
     assert sf_modern["u_values"]["intermediate_floor"] == pytest.approx(
-        load_parametric_catalogue().resolve_construction("single_family", "SE.06", "existing").u_values["intermediate_floor"])
+        Catalogue.load().parametric.resolve_construction("single_family", "SE.06", "existing").u_values["intermediate_floor"])
     generic_cells = [c for c in catalogue["cells"] if c["category"] == "generic"]
     assert len(generic_cells) == 228
     assert all(c["lod1_complete"] and not c["missing"] for c in generic_cells)
@@ -271,13 +271,13 @@ def test_historical_notes_remain_exportable_without_reassignment(server, catalog
 
 
 def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
-    from epsm_data import load_parametric_catalogue
+    from epsm_data import Catalogue
 
     path = tmp_path / "catalogue.json"
-    config = load_parametric_catalogue().to_dict()
+    config = Catalogue.load().parametric.to_dict()
     path.write_text(json.dumps(dict(reversed(list(config.items())))), encoding="utf-8")
     assert load_data(path) == catalogue
-    config = load_parametric_catalogue().with_property(
+    config = Catalogue.load().parametric.with_property(
         "office", "SE.03", "existing", "roof",
         dict(value=0.2, source="proxy", note="Supplied reference")
     ).to_dict()

@@ -129,7 +129,7 @@ def test_all_entries_use_composition_without_calibration(monkeypatch):
     import epsm_data.layered as layered
 
     catalogue = Catalogue.load()
-    monkeypatch.setattr(layered, "load_calibrated_archetype", lambda **kwargs: pytest.fail("Calibration requested"))
+    monkeypatch.setattr(layered, "_load_calibrated_archetype", lambda **kwargs: pytest.fail("Calibration requested"))
     for identifier in catalogue.ids(include_variants=True):
         states = catalogue.renovation_states(identifier) or (None,)
         for state in states:
