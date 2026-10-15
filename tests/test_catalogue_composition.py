@@ -19,7 +19,7 @@ def test_pilot_matches_existing_physical_composition_and_identities(state):
     assert actual.construction_set == expected.construction_set
     assert actual.envelope_u_values == expected.envelope_u_values
     assert actual.source_references and actual.notes
-    assert actual == catalogue.get("mf_se02", state=state)
+    assert actual.construction_set == catalogue.get("mf_se02", state=state).construction_set
     assert actual.operating_profile is None and actual.hvac_template is None
 
 

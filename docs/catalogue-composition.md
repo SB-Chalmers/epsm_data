@@ -1,17 +1,17 @@
 # Compose the catalogue's physical definitions
 
-`Catalogue.get("mf_se02", state=...)` now uses the same physical constructors as
-custom authoring, independently of target assessment. The MF SE.02 Existing,
-Standard and Advanced recipes keep their material properties, layer order,
-thicknesses, fractions, U-values and stable identities. Other catalogue entries
-retain their existing loading route during this pilot.
+The MF SE.02 pilot established physical composition independently of target
+assessment. All predefined entries now use the same route; see
+[Catalogue inspection and reuse](catalogue-inspection.md). Existing, Standard
+and Advanced recipes retain their material properties, layer order, thicknesses,
+fractions, U-values and stable identities.
 
 ```python
 from epsm_data import Catalogue
 
 catalogue = Catalogue.load()
 archetype = catalogue.get("mf_se02", state="existing")
-assert archetype == catalogue.detailed.compose("mf_se02")
+assert archetype.construction_set == catalogue.detailed.compose("mf_se02").construction_set
 assert archetype.total_elements == 7
 assert archetype.source_references
 ```
@@ -34,8 +34,9 @@ building.
 For an explicit calibration assessment during the staged migration, use
 `load_calibrated_archetype(...)` and inspect its `report`; source/material edits
 can produce failed tolerance checks or target drift without preventing physical
-composition. Operating profiles, HVAC templates and envelope assumptions remain
-separate explicit choices until the catalogue composition series attaches them.
+composition. Supported operating profiles and explicit envelope bases are attached by
+`Catalogue.get()`. HVAC remains an explicit choice. `DetailedCatalogue.compose()`
+continues to return the physical composition alone.
 
 Run [the offline composition example](../examples/catalogue_composition.py) with
 the installed development revision. It writes no files and needs no Core,

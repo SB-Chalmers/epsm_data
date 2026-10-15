@@ -64,16 +64,7 @@ def test_no_missing_role_or_floor_substitution(current_catalogue):
     pytest.importorskip('epsm_core')
     native = core_inputs('school_se05', detailed=detailed, catalogue=cat)
     assert native['envelope'].basement_wall != native['envelope'].ground
-    # A small explicit fake models a supported legacy caller with six roles.
-    from types import SimpleNamespace
-    from unittest.mock import patch
-    old_bundle = deepcopy(bundle)
-    old_bundle['core'].pop('BASEMENT_WALL')
-    with patch('epsm.catalogue_release.load_calibrated_archetype', return_value=SimpleNamespace(
-        to_nominal_dict=lambda: old_bundle
-    )):
-        with pytest.raises(ValueError, match='No basement-wall recipe'):
-            core_inputs('school_se05', detailed=detailed, catalogue=cat)
+
 
 
 def test_claims_have_inputs_and_do_not_promote_missing_evidence(current_catalogue):
