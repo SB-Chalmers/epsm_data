@@ -16,6 +16,8 @@ from dataclasses import dataclass
 from importlib.resources import files
 from pathlib import Path
 
+from epsm_data._logging import operation as logged_operation
+
 from .domain import BuildingElement, EmbodiedCarbon, Roughness, ShearingLayer
 from .parametric import ArchetypeKey, EffectiveProperty, load_parametric_catalogue
 
@@ -240,6 +242,7 @@ class DetailedCatalogue:
             raise ValueError("Retained floor exception only applies to unmapped baseline materials")
         return sorted(declared)
 
+    @logged_operation("catalogue.validate", level=10)
     def review(self, archetype_id, state):
         annotations = self.annotations(archetype_id, state)
         caveats = self.caveats(archetype_id, state)
@@ -891,6 +894,7 @@ def _choices(choices, selected, label, *, fraction=False):
         raise ValueError(f"Selected {label} outside practical choices")
 
 
+@logged_operation("catalogue.detailed.load")
 def load_detailed_catalogue(path=None, *, catalogue=None) -> DetailedCatalogue:
     """Load the five bundled files, a caller's registry directory or registry file.
 

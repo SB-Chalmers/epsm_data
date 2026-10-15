@@ -3,6 +3,8 @@
 Imports perform no dataset loading, network calls, or database operations.
 """
 
+import logging as _stdlib_logging
+
 from ._version import __version__
 from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
 from .domain import (
@@ -160,3 +162,7 @@ __all__ = [
     "export_json",
     "resolve_building_archetype",
 ]
+
+# A library emits no output until its host selects handlers.
+
+_stdlib_logging.getLogger("epsm_data").addHandler(_stdlib_logging.NullHandler())

@@ -12,6 +12,8 @@ import argparse
 import json
 from pathlib import Path
 
+from epsm_data._logging import configure_cli
+
 from .detailed import load_detailed_catalogue
 from .layered import load_calibrated_archetype
 from .parametric import ArchetypeKey, load_parametric_catalogue
@@ -94,16 +96,23 @@ def audit_matrix(*, catalogue=None, detailed=None):
 def main(argv=None):
     """Write an explicitly requested audit file; refuse to overwrite evidence."""
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--log-level",
+        choices=("OFF", "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"),
+        default="INFO",
+        help="Status output on stderr",
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args(argv)
-    if args.output.exists():
-        raise FileExistsError(args.output)
-    result = audit_matrix()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("x") as stream:
-        json.dump(result, stream, indent=2)
-        stream.write("\n")
-    return 0
+    with configure_cli(args.log_level, "epsm_data"):
+        if args.output.exists():
+            raise FileExistsError(args.output)
+        result = audit_matrix()
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open("x") as stream:
+            json.dump(result, stream, indent=2)
+            stream.write("\n")
+        return 0
 
 
 if __name__ == "__main__":

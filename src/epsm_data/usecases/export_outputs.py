@@ -7,14 +7,15 @@ consumption contracts for downstream libraries like pbgenerator.
 from __future__ import annotations
 
 import json
-import logging
 from datetime import datetime
 from pathlib import Path
 
+from epsm_data._logging import context_logger
+from epsm_data._logging import operation as logged_operation
 from epsm_data.domain.building import BuildingArchetype
 from epsm_data.domain.enums import BuildingElement
 
-logger = logging.getLogger(__name__)
+logger = context_logger(__name__)
 
 
 def _require_layer_archetypes(archetypes) -> None:
@@ -37,6 +38,7 @@ _ROLE_TO_CONSTRUCTION = {
 }
 
 
+@logged_operation("catalogue.export")
 def export_json(
     archetypes: list[BuildingArchetype],
     output_dir: Path,
@@ -94,6 +96,7 @@ def export_json(
         logger.info("Exported %d records -> %s", len(data), path)
 
 
+@logged_operation("catalogue.consumption.export")
 def export_consumption_contracts(
     archetypes: list[BuildingArchetype],
     output_dir: Path,
@@ -123,6 +126,7 @@ def export_consumption_contracts(
     logger.info("Exported %d consumption contracts -> %s", len(contracts), path)
 
 
+@logged_operation("catalogue.construction.export")
 def export_construction_sets(
     archetypes: list[BuildingArchetype],
     output_dir: Path,
