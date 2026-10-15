@@ -99,7 +99,7 @@ def test_pending_mappings_are_null_not_false_resolved_records_or_zero_impacts():
         assert material["properties"]["embodied_carbon"] is None
         assert mid not in result.report["materials"]
     bundle = result.to_dict()
-    assert bundle["construction"]["format_version"] == 2
+    assert bundle["construction"]["format_version"] == 4
     assert archetype_from_dict(bundle["construction"]) == result.archetype
 
 
