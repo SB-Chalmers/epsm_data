@@ -139,3 +139,6 @@ logging. Existing scripts can keep using `logging.basicConfig(level=logging.INFO
 The standalone command accepts `--log-level` before its subcommand, including `OFF`. Command results remain on stdout.
 
 The explicit `epsm_data.config.logging.setup_logging()` remains available for standalone use and now updates its owned levels and file destinations on repeated calls. Conflicting foreign handlers raise `ValueError`.
+
+See [Catalogue inspection and reuse](docs/catalogue-inspection.md) for authored
+indexes, source variants, supported operating profiles and explicit envelope bases.

@@ -29,6 +29,18 @@ CAVEAT_SEVERITIES = {"info", "warning", "blocking"}
 logger = logging.getLogger(__name__)
 
 
+def _opaque_material(properties):
+    """Construct one reusable material with the established physical identity."""
+    fields = deepcopy(properties)
+    encoded = json.dumps(fields, sort_keys=True, ensure_ascii=False, allow_nan=False)
+    revision = hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+    fields["uuid"] = uuid5(NAMESPACE_URL, f"epsm_data:material:{revision}")
+    fields["roughness"] = Roughness(fields["roughness"])
+    carbon = fields["embodied_carbon"]
+    fields["embodied_carbon"] = EmbodiedCarbon(**carbon) if carbon is not None else None
+    return OpaqueMaterial(**fields)
+
+
 def _number(value, label, *, positive=True):
     if (isinstance(value, bool) or not isinstance(value, (int, float))
             or not math.isfinite(value) or (value <= 0 if positive else value < 0)):
@@ -363,12 +375,7 @@ class DetailedCatalogue:
 
         materials = {}
         for mid, properties in snapshot["materials"].items():
-            fields = deepcopy(properties)
-            fields["uuid"] = uuid5(NAMESPACE_URL, f"epsm_data:material:{digest(fields)}")
-            fields["roughness"] = Roughness(fields["roughness"])
-            carbon = fields["embodied_carbon"]
-            fields["embodied_carbon"] = EmbodiedCarbon(**carbon) if carbon is not None else None
-            materials[mid] = OpaqueMaterial(**fields)
+            materials[mid] = _opaque_material(properties)
         archetype = build_archetype(spec, materials=materials)
         revision = digest({"definition": definition, "source_snapshot": snapshot})
         construction = replace(archetype.construction_set,

@@ -9,6 +9,7 @@ notebook from a fresh kernel. No sibling source imports are needed.
 | --- | --- |
 | [01 Operating profiles](01_operating_profiles.ipynb) | Inspect immutable definitions, explicit BEN DHW and portable editing offline; no files are written. |
 | [02 Author an archetype](02_author_archetype.ipynb) | Assemble materials through a composed archetype and round-trip format 4 offline; no files are written. |
+| [03 Catalogue authoring](03_catalogue_authoring.ipynb) | Reuse material/construction/profile definitions and inspect their explicit source bases offline. |
 | [Archetype script](archetype.py) | Inspect a predefined construction archetype. |
 | [Renovation script](renovations.py) | Inspect existing renovation definitions. |
 
