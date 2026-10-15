@@ -76,6 +76,10 @@ class OperatingProfile(Editable):
     def __post_init__(self):
         _validate_template(self, self.profile_id)
 
+    def __deepcopy__(self, memo):
+        # All JSON containers and text sequences are frozen on construction.
+        return self
+
     def to_dict(self):
         """Return a detached JSON-compatible record, without writing files."""
         return {
@@ -111,6 +115,10 @@ class HVACTemplate(Editable):
 
     def __post_init__(self):
         _validate_template(self, self.template_id)
+
+    def __deepcopy__(self, memo):
+        # All JSON containers and text sequences are frozen on construction.
+        return self
 
     def to_dict(self):
         return {

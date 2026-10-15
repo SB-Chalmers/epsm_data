@@ -15,6 +15,7 @@ from .domain import (
     ConstructionSet,
     Element,
     EmbodiedCarbon,
+    EnvelopePerformance,
     EnvironmentalFactor,
     Layer,
     LayerMaterial,
@@ -110,6 +111,7 @@ def __getattr__(name):
 
 __all__ = [
     "available_operating_profiles", "select_operating_profile", "select_dhw_profile",
+    "EnvelopePerformance",
     "OperatingProfile", "HVACTemplate", "load_operating_profile", "load_standard_record", "load_generic_other_template",
     "Catalogue",
     "reference_construction_set",

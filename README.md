@@ -71,6 +71,10 @@ Reusable Sveby profiles, explicit BEN DHW selections and custom portable inputs
 are described in [Operating profiles](docs/operating-profiles.md). Start offline
 with [the profile notebook](examples/01_operating_profiles.ipynb).
 
+Author complete or partial definitions with the shared `Archetype` class. See
+[Archetype authoring and format-4 exchange](docs/archetype-authoring.md) and
+[the materials-to-archetype notebook](examples/02_author_archetype.ipynb).
+
 ## Renovation and operating inputs
 
 `RenovationCatalogue` contains `RenovationMeasure` definitions. A resolved measure can contain `ConstructionOperation` actions to add, replace or remove components, or replace an element. `SystemOperation` describes an HVAC replacement using `HVACTemplate`. Core applies these actions to selected physical building elements, records material and equipment changes, and builds ordered stages. Assessment dates are a separate LCA setting.

@@ -26,8 +26,8 @@ def build_archetype(
     Parameters
     ----------
     spec : mapping
-        Identity fields ``archetype_id``, ``display_name``, ``construction_year``,
-        ``building_typology`` and an ``elements`` mapping keyed by BuildingElement
+        Identity fields ``archetype_id``, ``display_name``, optional ``construction_year``
+        and ``building_typology``, and an ``elements`` mapping keyed by BuildingElement
         values. Opaque elements contain ordered ``components`` with a
         ``shearing_layer`` and ordered ``layers``. Each layer specifies
         ``material_id`` (a string or list), ``thickness`` in metres, and, for
@@ -61,7 +61,7 @@ def build_archetype(
     2.5
     """
     identifier = spec["archetype_id"]
-    year = spec["construction_year"]
+    year = spec.get("construction_year")
     elements = {}
     for role_name, element_spec in spec["elements"].items():
         role = BuildingElement(role_name)
@@ -125,6 +125,6 @@ def build_archetype(
         archetype_id=identifier,
         display_name=spec["display_name"],
         construction_year=year,
-        building_typology=spec["building_typology"],
+        building_typology=spec.get("building_typology", "unknown"),
         construction_set=build_construction_set(elements, year),
     )

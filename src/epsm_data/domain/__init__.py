@@ -20,10 +20,12 @@ from .enums import (
     Roughness,
     ShearingLayer,
 )
+from .envelope import EnvelopePerformance
 from .layer import Layer, LayerMaterial
 from .material import EmbodiedCarbon, EnvironmentalFactor, Material, OpaqueMaterial, WindowMaterial
 
 __all__ = [
+    "EnvelopePerformance",
     "Archetype", "Material", "EnvironmentalFactor",
     # enums
     "BuildingElement",
