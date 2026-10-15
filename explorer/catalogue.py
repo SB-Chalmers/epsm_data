@@ -1,6 +1,6 @@
 """Read-only explorer adapter for the compact parametric catalogue."""
 
-from epsm_data import load_detailed_catalogue, load_parametric_catalogue
+from epsm_data import Catalogue
 from epsm_data.parametric import content_hash
 
 # Preserve the explorer's package/revision fields for existing remarks.
@@ -51,8 +51,9 @@ def _material_view(registry, material_id):
 
 
 def load_data(path=None):
-    catalogue = load_parametric_catalogue(path)
-    registry = load_detailed_catalogue(catalogue=catalogue)
+    library = Catalogue.load(parametric_path=path)
+    catalogue = library.parametric
+    registry = library.detailed
     completeness = registry.lod2_completeness(
         catalogue=catalogue
     )

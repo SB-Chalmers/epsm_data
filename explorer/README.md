@@ -1,7 +1,7 @@
 # Archetype explorer
 
 Local, dependency-free viewer for the Swedish parametric catalogue and detailed
-LoD2 completeness report. It reads the current catalogue; see [the Data guide](../README.md).
+LoD2 completeness report. Its adapter loads the public `Catalogue` and explicitly inspects its `parametric` and `detailed` views; physical selection and target acceptance remain separate. It reads the current catalogue; see [the Data guide](../README.md).
 
 ## Run
 

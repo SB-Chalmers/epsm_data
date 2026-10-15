@@ -11,9 +11,11 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from collections.abc import Mapping
 from copy import deepcopy
 
-from .domain import BuildingElement
+from .domain import BuildingArchetype, BuildingElement
+from .serialization import _encode
 from .thermal.boundary_conditions import get_boundary_resistances
 
 
@@ -51,20 +53,44 @@ def _expected_roles(key, release=None):
     return {"TOP_FLOOR", "EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING", "WINDOW"}
 
 
-def export_nominal_constructions(calibrated):
+def export_nominal_constructions(archetype, *, metadata=None):
     """Return portable, unabridged native Honeybee and core-type dictionaries.
 
     ``core`` is keyed by catalogue role and contains ConstructionSpec-compatible
     dictionaries, except WINDOW which is GlazingSpec-compatible. No implicit
     weather shell, thermal bridge uplift, ground temperature or building geometry
     is invented. Reporting films are metadata, never emitted material layers.
+
+    Supply a shared Archetype with explicit source/boundary ``metadata`` from
+    ``Catalogue.nominal_metadata`` or a caller-owned equivalent record. This
+    pure operation does not assess calibration. The earlier calibrated-wrapper
+    argument remains an adapter to this same implementation during migration.
     """
-    if not hasattr(calibrated, "report") or not hasattr(calibrated, "archetype"):
-        raise TypeError("Nominal exports require a calibrated material-layer archetype")
-    report = calibrated.report
+    if isinstance(archetype, BuildingArchetype):
+        if metadata is None:
+            raise TypeError("Shared archetype nominal export requires explicit source/boundary metadata")
+        if not isinstance(metadata, Mapping):
+            raise TypeError("Nominal metadata must be a portable mapping")
+        try:
+            report = json.loads(json.dumps(_encode(metadata), allow_nan=False))
+        except (TypeError, ValueError) as exc:
+            raise ValueError("Nominal metadata must contain finite portable values") from exc
+        required = {"revision", "material_references", "boundary_details", "key", "catalogue_revision",
+                    "record_annotations", "sources", "effective_ground_calibration_complete", "open_caveats"}
+        missing = required - report.keys()
+        if missing:
+            raise ValueError(f"Nominal metadata is missing: {', '.join(sorted(missing))}")
+    elif hasattr(archetype, "report") and hasattr(archetype, "archetype"):
+        if metadata is not None:
+            raise TypeError("Supply metadata only with a shared Archetype, not twice")
+        report, archetype = archetype.report, archetype.archetype
+    else:
+        raise TypeError("Nominal export requires a shared Archetype with metadata")
+    if archetype.construction_set is None or not archetype.construction_set.elements:
+        raise ValueError("Nominal export requires supplied physical construction definitions")
     references = {r["json_id"]: r for r in report["material_references"].values()}
     hb, core, roles, reciprocal = {}, {}, {}, {}
-    for role, element in calibrated.archetype.construction_set.elements.items():
+    for role, element in archetype.construction_set.elements.items():
         name = role.value
         context = {
             "construction_revision": report["revision"],
@@ -380,12 +406,6 @@ def validate_nominal_handover(bundle):
         ] != list(reversed(core["layers"])):
             raise ValueError(f"Reciprocal layer order differs: {role}")
     return {"honeybee": True, "core": True}
-
-
-def validate_native_handover(bundle):
-    """Compatibility entry point; optional engine integration belongs to EPSM."""
-    from epsm.catalogue_validation import validate_native_handover as validate
-    return validate(bundle)
 
 
 def catalogue_lod2_checks(calibrated):

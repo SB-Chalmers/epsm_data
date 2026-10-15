@@ -7,7 +7,7 @@ packaged datasets/parametric/airflow_review.json.
 import pytest
 
 from epsm_data.airflow import infiltration_handoff
-from epsm_data.parametric import load_parametric_catalogue
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
 
 def baseline():
@@ -60,7 +60,7 @@ def test_every_matrix_infiltration_assignment_is_explicitly_assumed():
 
 def test_building_handoff_distinguishes_source_and_core_rates():
     pytest.importorskip("epsm_core")
-    from epsm_data.application import resolve_building_archetype
+    resolve_building_archetype = pytest.importorskip("epsm.catalogue_application").resolve_building_archetype
 
     args = dict(category="single_family", construction_year=1970,
                 climate_zone="SE.Zone3", ventilation="F")
@@ -89,7 +89,7 @@ def test_mf_native_area_defaults_cover_every_matrix_slot(era, values):
     Ventilation topology is independent of envelope airtightness. Sveby 2.0
     chapter 6 provides ventilation guidance, not these infiltration values.
     """
-    from epsm_data.application import resolve_building_archetype
+    resolve_building_archetype = pytest.importorskip("epsm.catalogue_application").resolve_building_archetype
     cat = load_parametric_catalogue()
     for state, q in zip(("existing", "standard", "advanced"), values):
         for zone in ("SE.Zone1", "SE.Zone2", "SE.Zone3"):

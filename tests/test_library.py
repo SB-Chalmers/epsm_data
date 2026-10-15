@@ -40,8 +40,8 @@ class BlockOptional(importlib.abc.MetaPathFinder):
 sys.meta_path.insert(0, BlockOptional())
 import epsm_data
 assert not hasattr(epsm_data, "run_build_baseline")
-from epsm_data import load_parametric_catalogue
-assert load_parametric_catalogue().summary()["slot_count"] == 1140
+from epsm_data import Catalogue
+assert Catalogue.load().summary()["slot_count"] == 1140
 for example in sys.argv[1:]:
     runpy.run_path(example, run_name="__main__")
 """

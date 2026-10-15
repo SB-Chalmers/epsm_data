@@ -3,9 +3,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from epsm_data import load_detailed_catalogue, load_parametric_catalogue
-from epsm_data.layered import load_calibrated_archetype
+from epsm_data.detailed import _load_detailed_catalogue as load_detailed_catalogue
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
 from epsm_data.nominal import validate_nominal_handover
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
 ROOT = Path(__file__).resolve().parents[1]
 

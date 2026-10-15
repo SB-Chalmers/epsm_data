@@ -4,6 +4,8 @@ EPSM's current construction catalogue, physical construction types, sourced oper
 
 ## Start here
 
+Data 0.6.0 includes the shared authoring model and API cleanup. See [release notes](RELEASE_NOTES.md) and [migration guidance](docs/archetype-api-migration.md).
+
 ```sh
 python -m pip install -e '.[dev]'
 ```
@@ -71,6 +73,12 @@ Reusable Sveby profiles, explicit BEN DHW selections and custom portable inputs
 are described in [Operating profiles](docs/operating-profiles.md). Start offline
 with [the profile notebook](examples/01_operating_profiles.ipynb).
 
+The MF SE.02 pilot now [composes physical definitions independently of target assessment](docs/catalogue-composition.md). Source evidence and calibration reports remain separately inspectable.
+
+Author complete or partial definitions with the shared `Archetype` class. See
+[Archetype authoring and format-4 exchange](docs/archetype-authoring.md) and
+[the materials-to-archetype notebook](examples/02_author_archetype.ipynb).
+
 ## Renovation and operating inputs
 
 `RenovationCatalogue` contains `RenovationMeasure` definitions. A resolved measure can contain `ConstructionOperation` actions to add, replace or remove components, or replace an element. `SystemOperation` describes an HVAC replacement using `HVACTemplate`. Core applies these actions to selected physical building elements, records material and equipment changes, and builds ordered stages. Assessment dates are a separate LCA setting.
@@ -79,7 +87,7 @@ with [the profile notebook](examples/01_operating_profiles.ipynb).
 
 ## Integration and evidence
 
-EPSM owns catalogue-to-building adapters. Use `epsm.catalogue_application.resolve_building_archetype` or the platform's Building API. Old Data application, release and native-validation entry points forward explicit calls to EPSM. None is required to use Data itself. The former cohort-inference forwarding module is [archived](docs/archive/README.md) with the retired study-specific code; it is no longer an active import route.
+EPSM owns catalogue-to-building adapters. Use `epsm.catalogue_application.resolve_building_archetype` or the platform's Building API. Data application, release and native-validation forwarders are removed; use their owning EPSM interfaces. Data remains usable independently. See [the old-to-new API guide](docs/archetype-api-migration.md) for construction selection, advanced inspection and complete exchange. The former cohort-inference forwarding module is [archived](docs/archive/README.md) with the retired study-specific code; it is no longer an active import route.
 
 MF infiltration uses the recorded area/reference-volume convention; see [airflow definitions](docs/airflow-review-notes.md). Effective ground reference properties and nominal layered U-values are distinct. Current source limitations remain attached to records.
 
@@ -133,3 +141,6 @@ logging. Existing scripts can keep using `logging.basicConfig(level=logging.INFO
 The standalone command accepts `--log-level` before its subcommand, including `OFF`. Command results remain on stdout.
 
 The explicit `epsm_data.config.logging.setup_logging()` remains available for standalone use and now updates its owned levels and file destinations on repeated calls. Conflicting foreign handlers raise `ValueError`.
+
+See [Catalogue inspection and reuse](docs/catalogue-inspection.md) for authored
+indexes, source variants, supported operating profiles and explicit envelope bases.

@@ -10,20 +10,35 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import math
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from importlib.resources import files
 from pathlib import Path
+from uuid import NAMESPACE_URL, uuid5
 
 from epsm_data._logging import operation as logged_operation
 
-from .domain import BuildingElement, EmbodiedCarbon, Roughness, ShearingLayer
-from .parametric import ArchetypeKey, EffectiveProperty, load_parametric_catalogue
+from .domain import BuildingElement, EmbodiedCarbon, OpaqueMaterial, Roughness, ShearingLayer
+from .parametric import ArchetypeKey, EffectiveProperty, _load_parametric_catalogue
 
 REGISTRIES = ("materials", "assemblies", "archetypes", "honeybee", "boverket")
 CAVEAT_STATUSES = {"open", "accepted_assumption", "resolved"}
 CAVEAT_SEVERITIES = {"info", "warning", "blocking"}
+logger = logging.getLogger(__name__)
+
+
+def _opaque_material(properties):
+    """Construct one reusable material with the established physical identity."""
+    fields = deepcopy(properties)
+    encoded = json.dumps(fields, sort_keys=True, ensure_ascii=False, allow_nan=False)
+    revision = hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+    fields["uuid"] = uuid5(NAMESPACE_URL, f"epsm_data:material:{revision}")
+    fields["roughness"] = Roughness(fields["roughness"])
+    carbon = fields["embodied_carbon"]
+    fields["embodied_carbon"] = EmbodiedCarbon(**carbon) if carbon is not None else None
+    return OpaqueMaterial(**fields)
 
 
 def _number(value, label, *, positive=True):
@@ -80,11 +95,19 @@ def _source(record, owner, sources):
         raise ValueError(f"{owner}: reference requires source and locator or explanatory notes")
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class DetailedCatalogue:
     """Validated authoring data; dictionary access/export returns defensive copies."""
 
     _data: dict
+
+    def __repr__(self):
+        counts = {key: len(self._data[key][key])
+                  for key in ("archetypes", "assemblies", "materials")}
+        return (f"DetailedCatalogue(archetypes={counts['archetypes']}, "
+                f"assemblies={counts['assemblies']}, materials={counts['materials']})")
+
+    __str__ = __repr__
 
     def to_dict(self):
         data = deepcopy(self._data)
@@ -311,6 +334,86 @@ class DetailedCatalogue:
     def existing_inputs(self, archetype_id="mf_se02"):
         return self.state_inputs(archetype_id, "existing")
 
+    def compose(self, archetype_id, *, state=None):
+        """Build the recorded physical composition without assessing its targets.
+
+        Parameters
+        ----------
+        archetype_id : str
+            Registry identifier, including explicitly selected source variants.
+        state : str or None
+            Recorded configuration. None selects Existing before SE.07; SE.07
+            accepts None only. Unknown identifiers or states raise KeyError.
+
+        Returns
+        -------
+        Archetype
+            Shared immutable authoring objects, with stable material identities,
+            source references and review notes. Operating/system/envelope
+            sections stay absent; no physical defaults are selected here.
+
+        Notes
+        -----
+        Uses this already-loaded registry only. Supplied physical values are
+        validated by the shared constructors; target tolerances, drift and
+        calibration acceptance are separate assessment concerns. No thickness
+        or material property is retuned, and no catalogue or service is loaded.
+        Call review() for structured evidence and the existing calibration API
+        for explicit target assessment. Raises ValueError for invalid physical
+        values or a renovation state requested for SE.07.
+        """
+        from .usecases.build_archetype import build_archetype
+
+        era = self.archetypes[archetype_id]["era"]
+        if era == "SE.07" and state is not None:
+            raise ValueError("SE.07 has no renovation states")
+        if era != "SE.07" and state is None:
+            state = "existing"
+        definition, snapshot = self.state_inputs(archetype_id, state)
+        spec = deepcopy(snapshot[definition["source_recipe"]])
+        spec.update(definition["identity"])
+        for role, patch in definition["element_patches"].items():
+            spec["elements"][role] = deepcopy(patch)
+        spec["elements"] = {role: spec["elements"][role]
+                            for role in definition["included_roles"]}
+
+        def digest(value):
+            encoded = json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False)
+            return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+
+        materials = {}
+        for mid, properties in snapshot["materials"].items():
+            materials[mid] = _opaque_material(properties)
+        archetype = build_archetype(spec, materials=materials)
+        revision = digest({"definition": definition, "source_snapshot": snapshot})
+        construction = replace(archetype.construction_set,
+            version_id=uuid5(NAMESPACE_URL, f"epsm_data:layered:{revision}"))
+        # Text references retain the registered identity and its complete loaded
+        # description, so portable exchange needs no registry/source lookup.
+        references = tuple(f"{sid}: " + "; ".join(f"{key}={value}" for key, value in record.items())
+                           for sid, record in definition["sources"].items())
+        review = definition["review_annotations"]
+        notes = [*definition["assumptions"]]
+        if definition.get("scope_note"):
+            notes.append(definition["scope_note"])
+        for annotation in review["record_annotations"]:
+            owner = f"{annotation['owner_type']} {annotation['owner_id']}"
+            notes.extend(f"{owner}: {note}" for note in annotation["notes"])
+        for caveat in review["caveats"]:
+            owner = f"{caveat['owner_type']} {caveat['owner_id']} ({caveat['id']})"
+            context = f"{caveat.get('scope', 'catalogue')}; topic={caveat['topic']}"
+            if caveat.get("source"):
+                context += f"; source={caveat['source']}"
+            note = (f"{owner} {caveat['status']} {caveat['severity']} "
+                    f"[{context}]: {caveat['note']}")
+            if caveat.get("resolution"):
+                note += f" Resolution: {caveat['resolution']}"
+            notes.append(note)
+        result = archetype.with_changes(construction_set=construction,
+            source_references=references, notes=tuple(dict.fromkeys(notes)))
+        logger.debug("Composed physical archetype %s (%s)", archetype_id, state)
+        return result
+
     def target_catalogue(self, archetype_id, catalogue):
         """Resolve a named source variant's own LoD1 targets without changing slots."""
         archetype = self.archetypes[archetype_id]
@@ -376,9 +479,9 @@ class DetailedCatalogue:
         but unresolved optical evidence and boundary modelling remain explicit.
         No layers are scaled into other eras or building categories.
         """
-        from .layered import load_calibrated_archetype
+        from .layered import _load_calibrated_archetype
 
-        catalogue = catalogue if catalogue is not None else load_parametric_catalogue()
+        catalogue = catalogue if catalogue is not None else _load_parametric_catalogue()
         rows, covered, complete = [], set(), set()
         for aid, archetype in self.archetypes.items():
             for state, variant in archetype["states"].items():
@@ -406,7 +509,7 @@ class DetailedCatalogue:
                 if ((archetype["category"] == "multi_family" and aid in {"mf_se02", "mf_1940", "mf_1950", "mf_se03", "mf_se04", "mf_se05", "mf_se06", "mf_se07"})
                         or aid in {f"sf_se{i:02d}" for i in range(1, 8)} or generic_office
                         or generic_school or (variant.get("release_profile") in ("lod2-v1", "complete_recipe") and aid.startswith("generic_se"))):
-                    result = load_calibrated_archetype(catalogue=catalogue, renovation_state=state,
+                    result = _load_calibrated_archetype(catalogue=catalogue, renovation_state=state,
                                                        detailed=self, archetype_id=aid)
                     report = result.report
                     checks = dict(report["lod2_checks"])
@@ -440,13 +543,13 @@ class DetailedCatalogue:
                     if not checks["nominal_u_alignment"]:
                         reasons.append("Nominal mismatch or captured target/base revision drift; see calibration report.")
                 elif (aid == "office_se05" and state == "existing") or aid == "school_fridhem":
-                    from .office import load_office_reference
+                    from .office import _load_office_reference
 
                     if aid == "school_fridhem":
-                        from .school import load_school_reference
-                        result = load_school_reference(detailed=self, catalogue=catalogue)
+                        from .school import _load_school_reference
+                        result = _load_school_reference(detailed=self, catalogue=catalogue)
                     else:
-                        result = load_office_reference(detailed=self, catalogue=catalogue)
+                        result = _load_office_reference(detailed=self, catalogue=catalogue)
                     checks = dict(result.report["lod2_checks"])
                     readiness = dict(result.report["readiness"])
                     reasons.extend(result.report["limitations"])
@@ -895,7 +998,7 @@ def _choices(choices, selected, label, *, fraction=False):
 
 
 @logged_operation("catalogue.detailed.load")
-def load_detailed_catalogue(path=None, *, catalogue=None) -> DetailedCatalogue:
+def _load_detailed_catalogue(path=None, *, catalogue=None) -> DetailedCatalogue:
     """Load the five bundled files, a caller's registry directory or registry file.
 
     No network, archive, SQL or historical-snapshot reads. A file path must be
@@ -921,7 +1024,7 @@ def load_detailed_catalogue(path=None, *, catalogue=None) -> DetailedCatalogue:
                 raise ValueError(f"{aid}: SE.07 must define a configuration, not renovation states")
             archetype["states"] = {None: archetype.pop("configuration")}
     try:
-        _validate(data, catalogue if catalogue is not None else load_parametric_catalogue())
+        _validate(data, catalogue if catalogue is not None else _load_parametric_catalogue())
     except (KeyError, TypeError, AttributeError) as exc:
         raise ValueError(f"Invalid detailed registry structure: {exc}") from exc
     return DetailedCatalogue(deepcopy(data))
@@ -937,8 +1040,8 @@ def main():
     parser.add_argument("--state", choices=("existing", "standard", "advanced"), default="existing")
     parser.add_argument("--catalogue", type=Path, help="LoD1 catalogue JSON; omit for live defaults")
     args = parser.parse_args()
-    thermal = load_parametric_catalogue(args.catalogue)
-    catalogue = load_detailed_catalogue(args.path, catalogue=thermal)
+    thermal = _load_parametric_catalogue(args.catalogue)
+    catalogue = _load_detailed_catalogue(args.path, catalogue=thermal)
     if args.lod2:
         report = catalogue.lod2_completeness(catalogue=thermal)
         if args.summary:

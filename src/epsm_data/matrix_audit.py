@@ -14,9 +14,9 @@ from pathlib import Path
 
 from epsm_data._logging import configure_cli
 
-from .detailed import load_detailed_catalogue
-from .layered import load_calibrated_archetype
-from .parametric import ArchetypeKey, load_parametric_catalogue
+from .detailed import _load_detailed_catalogue
+from .layered import _load_calibrated_archetype
+from .parametric import ArchetypeKey, _load_parametric_catalogue
 
 ROLE_MAP = {
     "EXT_WALL": "external_wall",
@@ -38,8 +38,8 @@ def audit_matrix(*, catalogue=None, detailed=None):
     audit performs no EPC fitting, engine runs or edits. Evidence weakness is
     retained verbatim in the records; no confidence intervals are invented.
     """
-    cat = catalogue or load_parametric_catalogue()
-    data = detailed or load_detailed_catalogue(catalogue=cat)
+    cat = catalogue or _load_parametric_catalogue()
+    data = detailed or _load_detailed_catalogue(catalogue=cat)
     states = []
     for aid, arch in sorted(data.archetypes.items()):
         if arch.get("catalogue_assignment", "canonical") != "canonical":
@@ -47,7 +47,7 @@ def audit_matrix(*, catalogue=None, detailed=None):
         for state, definition in sorted(arch["states"].items()):
             if definition.get("release_profile") not in ("lod2-v1", "complete_recipe"):
                 continue
-            model = load_calibrated_archetype(
+            model = _load_calibrated_archetype(
                 archetype_id=aid, renovation_state=state, catalogue=cat, detailed=data
             )
             bundle = model.to_nominal_dict()

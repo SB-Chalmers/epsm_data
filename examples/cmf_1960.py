@@ -18,12 +18,12 @@ from uuid import UUID
 
 from epsm_data import (
     ArchetypeKey,
+    Catalogue,
     EmbodiedCarbon,
     OpaqueMaterial,
     Roughness,
     archetype_to_dict,
     build_archetype,
-    load_parametric_catalogue,
 )
 from epsm_data.domain import BuildingElement
 from epsm_data.thermal import compute_element_thermal
@@ -95,7 +95,7 @@ def analyse(data=None):
     """
     data = data if data is not None else load_reconstruction()
     cases = build_cases(data)
-    references = load_parametric_catalogue().get_slot(
+    references = Catalogue.load().get_slot(
         ArchetypeKey("multi_family", "SE.02", "SE.Zone3", "existing", "FTX")
     ).construction_set.u_values
     rows = {}

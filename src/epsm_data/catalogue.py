@@ -1,8 +1,9 @@
 """Caller-populated renovation definitions; application belongs to simulation code."""
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from math import isfinite
+from types import MappingProxyType
 from typing import Literal
 
 from epsm_data._logging import operation as logged_operation
@@ -317,50 +318,292 @@ class RenovationCatalogue:
 
 
 class Catalogue:
-    """The current construction catalogue, loaded explicitly and usable without Core.
+    """Predefined authored archetypes and reusable definitions, usable without Core.
 
     ``Catalogue.load().for_year("multi_family", 2022)`` returns the shared
-    Archetype, with its complete ConstructionSet. Historical six-era state APIs
-    remain available through ``parametric`` and ``detailed`` for migration.
+    Archetype with physical composition, supported operating definitions and
+    explicit envelope reference bases. Installed systems and project calendars
+    remain caller choices. ``parametric`` and ``detailed`` retain distinct
+    advanced effective-property and source-review inspection.
     """
 
-    def __init__(self, *, parametric, detailed, renovations=None):
+    def __init__(self, *, parametric, detailed, renovations=None, profiles=None, hvac_templates=None):
+        from .detailed import _opaque_material
+        from .domain import WindowElement
+        from .profiles import HVACTemplate, OperatingProfile
+
+        for name, records, expected in (("profiles", profiles, OperatingProfile),
+                                       ("hvac_templates", hvac_templates, HVACTemplate)):
+            if records is not None and (not isinstance(records, Mapping) or any(
+                    not isinstance(key, str) or not key.strip() or not isinstance(value, expected)
+                    for key, value in records.items())):
+                raise ValueError(f"{name} must map nonempty IDs to {expected.__name__} definitions")
+
         self.parametric = parametric
         self.detailed = detailed
         self.renovations = renovations if renovations is not None else RenovationCatalogue()
+        materials, windows = {}, {}
+        for mid in detailed.materials:
+            record = detailed.resolve_material(mid)
+            properties = record["properties"]
+            if record["kind"] == "opaque":
+                materials[mid] = _opaque_material(properties)
+            else:
+                windows[mid] = WindowElement(name=properties["name"], archetype=f"catalogue:{mid}",
+                    u_value=properties["u_value"], shgc=properties["shgc"], vt=properties["vt"],
+                    boverket_id=properties["boverket_id"])
+        self._materials = MappingProxyType(materials)
+        self._windows = MappingProxyType(windows)
+        self._operating_profiles = MappingProxyType(dict(profiles or {}))
+        self._hvac_templates = MappingProxyType(dict(hvac_templates or {}))
+        self._archetype_count = len(detailed.archetypes)
+
+    @property
+    def materials(self):
+        """Loaded opaque Material objects, keyed by registry ID and safe to reuse."""
+        return self._materials
+
+    @property
+    def windows(self):
+        """Loaded whole-window definitions, independent of opening geometry."""
+        return self._windows
+
+    @property
+    def operating_profiles(self):
+        """Read-only loaded profiles; generic_other is an explicit screening choice."""
+        return self._operating_profiles
+
+    @property
+    def hvac_templates(self):
+        """Read-only explicit system choices; none is automatically installed."""
+        return self._hvac_templates
+
+    def __repr__(self):
+        label = repr(self.dataset_id)
+        if len(label) > 60:
+            label = repr(self.dataset_id[:8] + "…")
+        if len(label) > 60:
+            label = "'…'"
+        return (f"Catalogue(id={label}, archetypes={self._archetype_count}, "
+                f"materials={len(self.materials)}, profiles={len(self.operating_profiles)})")
+
+    __str__ = __repr__
 
     @classmethod
     @logged_operation("catalogue.load")
     def load(cls, *, parametric_path=None, detailed_path=None, renovations=None):
-        from .detailed import load_detailed_catalogue
-        from .parametric import load_parametric_catalogue
+        """Read and validate packaged or explicit registries and bundled profiles.
 
-        parametric = load_parametric_catalogue(parametric_path)
+        Returns detached authoring indexes and source definitions without Core,
+        network access or engine execution. File I/O occurs only on this call
+        and explicit named-profile selection during get/for_year.
+        """
+        from .detailed import _load_detailed_catalogue
+        from .parametric import _load_parametric_catalogue
+        from .profiles import available_operating_profiles
+        from .reference import reference_hvac_template
+
+        parametric = _load_parametric_catalogue(parametric_path)
         return cls(parametric=parametric,
-                   detailed=load_detailed_catalogue(detailed_path, catalogue=parametric),
-                   renovations=renovations)
+                   detailed=_load_detailed_catalogue(detailed_path, catalogue=parametric),
+                   renovations=renovations, profiles=available_operating_profiles(),
+                   hvac_templates={"illustrative_reference_ftx": reference_hvac_template()})
 
-    def ids(self, *, category=None):
+    @property
+    def dataset_id(self):
+        """Loaded effective catalogue identity, independent of package version."""
+        return self.parametric.dataset_id
+
+    @property
+    def dimensions(self):
+        """Read-only classification dimensions from the loaded catalogue."""
+        return self.parametric.dimensions
+
+    @staticmethod
+    def era_for_year(year):
+        """Classify an explicit positive construction year; SE.07 begins in 2022."""
+        from .parametric import era_for_year
+
+        return era_for_year(year)
+
+    def get_slot(self, key):
+        """Inspect effective scalar properties and source evidence by classification."""
+        return self.parametric.get_slot(key)
+
+    def search(self, **filters):
+        """Inspect matching effective slots using the documented classification filters."""
+        return self.parametric.search(**filters)
+
+    def summary(self):
+        """Calculate coverage of the loaded effective catalogue, without I/O."""
+        return self.parametric.summary()
+
+    def effective_configuration(self):
+        """Return detached effective scalar configuration for inspection or content identity.
+
+        This is exactly the advanced parametric view's configuration, not a
+        physical archetype exchange record. Use archetype_to_dict for that.
+        """
+        return self.parametric.to_dict()
+
+    def assess(self, archetype_id, *, state=None):
+        """Assess a canonical recipe against its recorded reference targets.
+
+        Returns the existing advanced CalibratedArchetype evidence wrapper.
+        This explicit assessment retains the historical calculation algorithm;
+        it does not change get() composition or establish Building readiness.
+        Loaded registries and targets are reused without resource access.
+        Supported source alternatives retain their distinct recorded target
+        assessment. References without an assessment schema remain available
+        through get() and detailed inspection and raise an explicit unavailable
+        assessment error. Unknown IDs raise KeyError.
+        """
+        from .layered import _load_calibrated_archetype
+
+        record = self.detailed.archetypes[archetype_id]
+        selected_state = state if record["era"] == "SE.07" or state is not None else "existing"
+        if record["era"] == "SE.07" and state is not None:
+            raise ValueError("SE.07 has no renovation states")
+        definition, _ = self.detailed.state_inputs(archetype_id, selected_state)
+        if "calibrated_roles" not in definition:
+            raise ValueError(f"No calibration assessment schema for {archetype_id!r}; use get() or source_reference()")
+        return _load_calibrated_archetype(archetype_id=archetype_id,
+            renovation_state=state, catalogue=self.parametric, detailed=self.detailed)
+
+    def source_reference(self, archetype_id):
+        """Inspect the distinct office or draft-school source evidence wrapper.
+
+        References are office_se05 and school_fridhem. The bundled historical
+        office-only reference lacks source metadata and raises an explicit
+        ValueError; complete caller-supplied source records retain the earlier
+        calculation route. Original evidence/export labels are preserved. This is
+        advanced inspection, not the selection route: use get() for a common
+        Archetype. Other IDs raise ValueError; no reference is inferred.
+        """
+        if archetype_id == "school_fridhem":
+            from .school import _load_school_reference
+
+            return _load_school_reference(detailed=self.detailed, catalogue=self.parametric)
+        if archetype_id == "office_se05":
+            from .office import _load_office_reference
+
+            try:
+                return _load_office_reference(detailed=self.detailed, catalogue=self.parametric)
+            except KeyError as exc:
+                if exc.args and exc.args[0] in {"source_thermal_properties", "epsm_material_type"}:
+                    raise ValueError("Office source reference unavailable: missing source metadata "
+                                     f"{exc.args[0]!r}; inspect detailed records, nominal_metadata or assess instead") from exc
+                raise
+        raise ValueError(f"No distinct source reference for {archetype_id!r}; use get() or detailed.review()")
+
+    def nominal_metadata(self, archetype_id, *, state=None):
+        """Prepare portable construction-export context from already loaded records.
+
+        Source, material, boundary, role and revision metadata retain their
+        existing meaning; no calibration loader, target match or engine is
+        requested. Ground/weather validation stays unverified. The recorded key
+        is source classification context, never an installed-system selection.
+        Use this with export_nominal_constructions(archetype, metadata=...).
+        Unknown IDs/states raise KeyError; SE.07 rejects a renovation state.
+        """
+        from .parametric import ArchetypeKey, content_hash
+
+        record = self.detailed.archetypes[archetype_id]
+        if record["era"] == "SE.07" and state is not None:
+            raise ValueError("SE.07 has no renovation states")
+        if record["era"] != "SE.07" and state is None:
+            state = "existing"
+        definition, snapshot = self.detailed.state_inputs(archetype_id, state)
+        return {
+            "dataset_release": definition.get("dataset_release"),
+            "construction_availability": list(definition["included_roles"]),
+            "key": ArchetypeKey(**definition["key"]).to_dict(),
+            "revision": content_hash({"definition": definition, "source_snapshot": snapshot}),
+            "catalogue_revision": content_hash(self.effective_configuration()),
+            "sources": {**snapshot["sources"], **definition["sources"]},
+            **definition["review_annotations"],
+            "effective_ground_calibration_complete": False,
+            "assessment_status": "not_assessed",
+            **({"status": "source_and_provisional_draft"}
+               if record.get("representation") == "source_layer_draft" else {}),
+        }
+
+    def ids(self, *, category=None, include_variants=False):
+        """List loaded archetype IDs; source variants require an explicit opt-in."""
         return tuple(aid for aid, record in self.detailed.archetypes.items()
-                     if record.get("catalogue_assignment", "canonical") == "canonical"
+                     if (include_variants or record.get("catalogue_assignment", "canonical") == "canonical")
                      and (category is None or record["category"] == category))
 
+    def construction_sets(self, *, include_variants=False):
+        """Compose a read-only (identifier, state) index from loaded physical recipes.
+
+        This explicit operation constructs objects; no calibration is requested.
+        Source variants are opt-in. SE.07 is keyed with state None.
+        """
+        return MappingProxyType({(identifier, state): self.detailed.compose(identifier, state=state).construction_set
+            for identifier in self.ids(include_variants=include_variants)
+            for state in (self.renovation_states(identifier) or (None,))})
+
     def renovation_states(self, archetype_id):
+        """Recorded renovation choices; an empty tuple denotes SE.07's single configuration."""
         return tuple(state for state in self.detailed.archetypes[archetype_id]["states"]
                      if state is not None)
 
     @logged_operation("catalogue.select", level=10)
     def get(self, archetype_id, *, state=None):
-        """Resolve a construction archetype; SE.07 only accepts state=None."""
-        from .layered import load_calibrated_archetype
+        """Compose a predefined archetype, supported profile and explicit envelope basis.
 
-        return load_calibrated_archetype(
-            archetype_id=archetype_id, renovation_state=state,
-            detailed=self.detailed, catalogue=self.parametric,
-        ).archetype
+        Reads the selected bundled operating profile on request. Composition uses
+        loaded physical recipes and never requires a successful calibration. HVAC
+        is never inferred. Unsupported operating uses remain unresolved.
+        """
+        from .profiles import select_operating_profile
+
+        archetype = self.detailed.compose(archetype_id, state=state)
+        category = self.detailed.archetypes[archetype_id]["category"]
+        profile = select_operating_profile(category) if category in (
+            "single_family", "multi_family", "office", "school") else None
+        return archetype.with_changes(operating_profile=profile,
+            envelope_performance=self._envelope_definition(archetype_id, state))
+
+    def _envelope_definition(self, archetype_id, state):
+        import json
+
+        from .domain import EnvelopePerformance
+
+        record = self.detailed.archetypes[archetype_id]
+        if record["era"] != "SE.07" and state is None:
+            state = "existing"
+        # These current definitions have no climate-zone or installed-topology
+        # dependence; retain the owner's property without selecting either.
+        effective = self.detailed.target_catalogue(archetype_id, self.parametric)
+        infiltration = effective._resolve_property(record["category"], record["era"], state, "infiltration")
+        evidence = infiltration.evidence or {}
+        basis = evidence.get("airflow_basis", {})
+        references = (json.dumps(infiltration.to_dict(), sort_keys=True, ensure_ascii=False, allow_nan=False),)
+        notes = tuple(str(value) for value in (
+            evidence.get("decision"), evidence.get("limitations"), basis.get("interpretation"),
+            basis.get("pressure_coupling")) if value)
+        if evidence.get("basis_stale") or not basis or infiltration.value is None:
+            return EnvelopePerformance(source_references=references,
+                notes=notes + ("Infiltration remains unresolved: source reference basis is absent or stale.",))
+        native = basis.get("additional_flow_l_s_per_reference_m2")
+        if basis.get("native_unit") == "L/(s m² Atemp)" and native is not None:
+            return EnvelopePerformance(infiltration_l_s_m2=native,
+                infiltration_reference_basis="Atemp", source_references=references, notes=notes)
+        if basis.get("reference_volume") == "tabula_reference_area_times_reference_height":
+            return EnvelopePerformance(infiltration_ach=infiltration.value,
+                infiltration_reference_basis="tabula_reference_volume", source_references=references, notes=notes)
+        return EnvelopePerformance(source_references=references,
+            notes=notes + ("Infiltration remains unresolved: unsupported source reference basis.",))
 
     @logged_operation("catalogue.select.year", level=10)
     def for_year(self, category, construction_year, *, state=None):
+        """Select a canonical composed archetype from an explicit type and year.
+
+        Reads the supported named operating profile as get does; no HVAC,
+        calendar, reference area or geometry is inferred.
+        """
         from .parametric import era_for_year
 
         era = era_for_year(construction_year)

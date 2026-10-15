@@ -1,9 +1,10 @@
 """Current adopted window assumption remains explicit and provisional."""
 
 
-from epsm_data.layered import load_calibrated_archetype
-from epsm_data.parametric import load_parametric_catalogue
-from epsm_data.release import core_inputs
+import pytest
+
+from epsm_data.layered import _load_calibrated_archetype as load_calibrated_archetype
+from epsm_data.parametric import _load_parametric_catalogue as load_parametric_catalogue
 
 
 def test_window_exports_and_provisional_evidence():
@@ -22,6 +23,7 @@ def test_window_exports_and_provisional_evidence():
     assert bundle["dataset_release"] == "current"
     assert bundle["core"]["WINDOW"]["u_value_w_m2k"] == 2.2
     assert bundle["core"]["WINDOW"]["solar_heat_gain_coefficient"] == 0.7
+    core_inputs = pytest.importorskip("epsm.catalogue_release").core_inputs
     assert core_inputs("mf_se02")["glazing"].u_value_w_m2k == 2.2
     assert len(bundle["core"]) >= 7
 

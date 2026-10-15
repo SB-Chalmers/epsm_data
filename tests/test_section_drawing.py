@@ -3,7 +3,7 @@
 
 import pytest
 
-from epsm_data import load_calibrated_archetype as _load
+from epsm_data.layered import _load_calibrated_archetype as _load
 
 
 def load_calibrated_archetype(**kwargs):

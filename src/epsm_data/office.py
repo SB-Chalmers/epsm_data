@@ -13,7 +13,7 @@ from uuid import NAMESPACE_URL, uuid5
 
 from .domain import BuildingArchetype, EmbodiedCarbon, OpaqueMaterial, Roughness
 from .layered import _digest
-from .parametric import ArchetypeKey, load_parametric_catalogue
+from .parametric import ArchetypeKey, _load_parametric_catalogue
 from .serialization import archetype_to_dict
 from .thermal.boundary_conditions import get_boundary_resistances
 from .usecases.build_archetype import build_archetype
@@ -122,12 +122,28 @@ def validate_office_evidence(state):
             raise ValueError("Office representative optics disagree with weighted glazing fraction")
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class OfficeReference:
     """One calibrated representative recipe, with original thesis evidence."""
 
     archetype: BuildingArchetype
     report: dict
+
+    def __repr__(self):
+        label = repr(self.archetype.archetype_id)
+        if len(label) > 65:
+            label = repr(self.archetype.archetype_id[:8] + "…")
+        if len(label) > 65:
+            label = "'…'"
+        return f"OfficeReference(id={label}, elements={self.archetype.total_elements})"
+
+    __str__ = __repr__
+
+    def summary(self):
+        """Return loaded identity and physical element count without I/O."""
+        return {"archetype_id": self.archetype.archetype_id,
+                "elements": self.archetype.total_elements,
+                "status": self.report.get("status")}
 
     def to_dict(self):
         return {
@@ -219,13 +235,13 @@ def _storage(layers, properties):
     }
 
 
-def load_office_reference(path=None, *, detailed=None, catalogue=None) -> OfficeReference:
+def _load_office_reference(path=None, *, detailed=None, catalogue=None) -> OfficeReference:
     """Build and verify the office recipe from bundled JSON, entirely offline."""
-    from .detailed import load_detailed_catalogue
+    from .detailed import _load_detailed_catalogue
 
-    catalogue = catalogue if catalogue is not None else load_parametric_catalogue()
+    catalogue = catalogue if catalogue is not None else _load_parametric_catalogue()
     detailed = (
-        detailed if detailed is not None else load_detailed_catalogue(path, catalogue=catalogue)
+        detailed if detailed is not None else _load_detailed_catalogue(path, catalogue=catalogue)
     )
     definition, snapshot = detailed.existing_inputs("office_se05")
     validate_office_evidence(definition)
@@ -407,7 +423,7 @@ def main():
     )
     parser.add_argument("--catalogue", type=Path, help="LoD1 catalogue JSON; omit for live defaults")
     args = parser.parse_args()
-    result = load_office_reference(args.path, catalogue=load_parametric_catalogue(args.catalogue))
+    result = _load_office_reference(args.path, catalogue=_load_parametric_catalogue(args.catalogue))
     if args.check and not result.report["lod2_complete"]:
         parser.exit(1, "Office LoD2 acceptance failed; inspect the report.\n")
     print(

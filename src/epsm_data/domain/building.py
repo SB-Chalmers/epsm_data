@@ -1,14 +1,8 @@
-"""Building archetype entity.
+"""Reusable archetypes composed from physical and operating definitions.
 
-BuildingArchetype is a reusable construction template with explicit identity.
-
-A downstream library (e.g. building_sim) instantiates a
-GeolocatedBuilding by combining:
-
-    GeolocatedBuilding = BuildingArchetype + FootprintGeometry + SiteContext
-
-The archetype exposes a clean, serializable consumption contract that
-downstream libraries consume without importing epsm_data internals.
+Catalogue entries and custom authoring use the same immutable hierarchy. An
+archetype contains no geometry, calendar expansion or engine-specific model;
+EPSM and Core apply its supplied definitions to a configured Building.
 """
 
 from __future__ import annotations
@@ -18,9 +12,11 @@ from dataclasses import dataclass, field
 from types import MappingProxyType
 from uuid import UUID, uuid4
 
+from ..profiles import HVACTemplate, OperatingProfile
 from .editing import Editable
 from .element import Element, WindowElement
 from .enums import BuildingElement
+from .envelope import EnvelopePerformance, _text_tuple
 
 
 @dataclass(frozen=True)
@@ -48,7 +44,11 @@ class ConstructionSet(Editable):
                 raise ValueError("Element application must match its construction role")
         object.__setattr__(self, "elements", MappingProxyType(elements))
         object.__setattr__(self, "version_id", UUID(str(self.version_id)))
-        if self.valid_from_year is not None and (isinstance(self.valid_from_year, bool) or not isinstance(self.valid_from_year, int) or self.valid_from_year < 1):
+        if self.valid_from_year is not None and (
+            isinstance(self.valid_from_year, bool)
+            or not isinstance(self.valid_from_year, int)
+            or self.valid_from_year < 1
+        ):
             raise ValueError("valid_from_year must be a positive year or None")
 
     def __deepcopy__(self, memo):
@@ -57,7 +57,9 @@ class ConstructionSet(Editable):
 
     def with_element(self, role, element):
         """Assign a role in a new construction; validate the complete replacement."""
-        return self.with_changes(version_id=uuid4(), elements={**self.elements, BuildingElement(role): element})
+        return self.with_changes(
+            version_id=uuid4(), elements={**self.elements, BuildingElement(role): element}
+        )
 
     def to_dict(self) -> dict:
         """Return the snapshot or intervention record as plain data.
@@ -107,6 +109,10 @@ class RenovationEvent(Editable):
     cost_sek: float | None = None
     embodied_carbon_delta: float | None = None
 
+    def __post_init__(self):
+        object.__setattr__(self, "removed_components", tuple(self.removed_components))
+        object.__setattr__(self, "added_components", tuple(self.added_components))
+
     def to_dict(self) -> dict:
         """Return the snapshot or intervention record as plain data.
 
@@ -129,7 +135,7 @@ class RenovationEvent(Editable):
         }
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class BuildingArchetype(Editable):
     """Reusable archetype identity, physical composition, and recorded changes.
 
@@ -137,12 +143,16 @@ class BuildingArchetype(Editable):
     ----------
     archetype_id, display_name : str
         Stable caller-assigned identity and display label.
-    construction_year : int
-        Reference calendar year.
+    construction_year : int or None
+        Optional reference calendar year; unknown remains None.
     building_typology : str
         Caller classification, for example "multi_family".
-    construction_set : ConstructionSet
-        Current resolved element assignments; at least one is required.
+    construction_set : ConstructionSet or None
+        Current physical role assignments; partial and empty authoring is valid.
+    operating_profile, hvac_template, envelope_performance : optional
+        Independently reusable definitions. Omission never selects defaults.
+    source_references, notes : tuple of str
+        Explicit provenance and modelling assumptions, retained in exchange.
     renovation_log : tuple of RenovationEvent, optional
         Already-resolved interventions, in recorded order.
 
@@ -155,17 +165,83 @@ class BuildingArchetype(Editable):
 
     archetype_id: str  # e.g. "CMF_1950"
     display_name: str
-    construction_year: int
-    building_typology: str  # e.g. "multi_family" | "single_family"
-    construction_set: ConstructionSet
+    construction_year: int | None = None
+    building_typology: str = "unknown"
+    construction_set: ConstructionSet | None = None
     renovation_log: tuple[RenovationEvent, ...] = ()
+    operating_profile: OperatingProfile | None = None
+    hvac_template: HVACTemplate | None = None
+    envelope_performance: EnvelopePerformance | None = None
+    source_references: tuple[str, ...] = ()
+    notes: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
-        if not self.construction_set.elements:
-            raise ValueError(f"Building '{self.archetype_id}': construction set has no elements.")
+        for name in ("archetype_id", "display_name", "building_typology"):
+            value = getattr(self, name)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"{name} must be nonempty text")
+        year = self.construction_year
+        if year is not None and (isinstance(year, bool) or not isinstance(year, int) or year < 1):
+            raise ValueError("construction_year must be a positive year or None")
+        for name, expected in (
+            ("construction_set", ConstructionSet),
+            ("operating_profile", OperatingProfile),
+            ("hvac_template", HVACTemplate),
+            ("envelope_performance", EnvelopePerformance),
+        ):
+            value = getattr(self, name)
+            if value is not None and not isinstance(value, expected):
+                raise ValueError(f"{name} must be {expected.__name__} or None")
+        for name in ("source_references", "notes"):
+            object.__setattr__(self, name, _text_tuple(getattr(self, name), name))
+        events = tuple(self.renovation_log)
+        if any(not isinstance(event, RenovationEvent) for event in events):
+            raise ValueError("renovation_log must contain RenovationEvent records")
+        object.__setattr__(self, "renovation_log", events)
 
     @property
-    def current_year(self) -> int:
+    def missing_sections(self) -> tuple[str, ...]:
+        """Absent definition sections; this is not a simulation-readiness check."""
+        names = ("construction_set", "operating_profile", "hvac_template", "envelope_performance")
+        return tuple(
+            name
+            for name in names
+            if getattr(self, name) is None
+            or (name == "construction_set" and not self.construction_set.elements)
+        )
+
+    def summary(self) -> dict:
+        """Inspect loaded identities, sources, assumptions and definition completeness."""
+        return {
+            "archetype_id": self.archetype_id,
+            "display_name": self.display_name,
+            "construction_year": self.construction_year,
+            "building_typology": self.building_typology,
+            "total_elements": self.total_elements,
+            "missing_sections": self.missing_sections,
+            "operating_profile": self.operating_profile.to_dict()
+            if self.operating_profile
+            else None,
+            "hvac_template": self.hvac_template.to_dict() if self.hvac_template else None,
+            "envelope_performance": self.envelope_performance.to_dict()
+            if self.envelope_performance
+            else None,
+            "source_references": self.source_references,
+            "notes": self.notes,
+        }
+
+    def __repr__(self):
+        label = repr(self.archetype_id)
+        if len(label) > 65:
+            label = repr(self.archetype_id[:8] + "…")
+        if len(label) > 65:
+            label = "'…'"
+        return f"BuildingArchetype(id={label}, elements={self.total_elements}, missing={len(self.missing_sections)})"
+
+    __str__ = __repr__
+
+    @property
+    def current_year(self) -> int | None:
         """Latest year reflected in the archetype state."""
         if self.renovation_log:
             return max(e.applied_year for e in self.renovation_log)
@@ -190,11 +266,7 @@ class BuildingArchetype(Editable):
         BuildingArchetype
             New record with the appended event. The original is unchanged.
         """
-        return BuildingArchetype(
-            archetype_id=self.archetype_id,
-            display_name=self.display_name,
-            construction_year=self.construction_year,
-            building_typology=self.building_typology,
+        return self.with_changes(
             construction_set=new_construction_set,
             renovation_log=self.renovation_log + (event,),
         )
@@ -208,6 +280,9 @@ class BuildingArchetype(Editable):
         """
         result: dict[str, float] = {}
         wall_values: list[float] = []
+
+        if self.construction_set is None:
+            return result
 
         for role, elem in self.construction_set.elements.items():
             if role == BuildingElement.WINDOW:
@@ -225,41 +300,17 @@ class BuildingArchetype(Editable):
     @property
     def window(self) -> WindowElement | None:
         """Shortcut to the window element, if present."""
-        elem = self.construction_set.elements.get(BuildingElement.WINDOW)
+        elem = (
+            self.construction_set.elements.get(BuildingElement.WINDOW)
+            if self.construction_set
+            else None
+        )
         return elem if isinstance(elem, WindowElement) else None
 
     @property
     def total_elements(self) -> int:
         """Number of assigned element roles, including windows."""
-        return len(self.construction_set.elements)
-
-    def to_consumption_contract(self) -> dict:
-        """Export archetype state as a flat, serializable dict.
-
-        Self-contained — no object references back into epsm_data.
-        """
-        return {
-            "archetype_id": self.archetype_id,
-            "display_name": self.display_name,
-            "construction_year": self.construction_year,
-            "building_typology": self.building_typology,
-            "current_year": self.current_year,
-            "envelope_u_values": self.envelope_u_values,
-            "construction_set": self.construction_set.to_dict(),
-            "renovation_log": [e.to_dict() for e in self.renovation_log],
-        }
-
-    def to_dict(self) -> dict:
-        """Simplified dict for JSON export (backwards-compatible with NewSchema)."""
-        return {
-            "name": self.archetype_id,
-            "age": self.construction_year,
-            "total_elements": self.total_elements,
-            "elements": [
-                {"element_name": elem.name, "element_type": role.value}
-                for role, elem in self.construction_set.elements.items()
-            ],
-        }
+        return len(self.construction_set.elements) if self.construction_set else 0
 
     def plot(self, **kwargs):
         """Draw architectural section drawings for all elements.

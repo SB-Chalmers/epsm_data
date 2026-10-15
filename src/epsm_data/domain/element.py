@@ -26,8 +26,8 @@ class Element(Editable):
     ----------
     name, archetype : str
         Element identity and owning archetype label.
-    age : int
-        Historical field name for the construction calendar year, not duration.
+    age : int or None
+        Historical construction calendar year, not duration. None means unknown.
     components : tuple of Component
         Non-empty component stack ordered outside to inside.
     application : BuildingElement
@@ -36,7 +36,7 @@ class Element(Editable):
 
     name: str
     archetype: str
-    age: int
+    age: int | None
     components: Tuple[Component, ...]
     application: BuildingElement
 

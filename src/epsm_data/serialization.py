@@ -16,6 +16,7 @@ from .domain import (
     ConstructionSet,
     Element,
     EmbodiedCarbon,
+    EnvelopePerformance,
     Layer,
     LayerMaterial,
     LayerSlot,
@@ -25,6 +26,7 @@ from .domain import (
     ShearingLayer,
     WindowElement,
 )
+from .profiles import HVACTemplate, OperatingProfile
 
 
 def _encode(value):
@@ -50,8 +52,8 @@ def archetype_to_dict(archetype: BuildingArchetype) -> dict:
     Returns
     -------
     dict
-        JSON-compatible record; version 2 is used for unknown carbon volume conversion,
-        version 3 for explicitly pending material carbon mappings. Older records remain readable.
+        Complete JSON-compatible format-version-4 record, including optional
+        profiles and unresolved sections. Versions 1–3 remain readable.
 
     Examples
     --------
@@ -65,28 +67,7 @@ def archetype_to_dict(archetype: BuildingArchetype) -> dict:
     True
     """
     encoded = _encode(archetype)
-    version = 3 if _has_pending_carbon(encoded) else (2 if _has_unknown_conversion(encoded) else 1)
-    return {"format_version": version, "archetype": encoded}
-
-
-def _has_pending_carbon(value):
-    if isinstance(value, Mapping):
-        return ("embodied_carbon" in value and value["embodied_carbon"] is None) or any(
-            _has_pending_carbon(child) for child in value.values()
-        )
-    if isinstance(value, (list, tuple)):
-        return any(_has_pending_carbon(child) for child in value)
-    return False
-
-
-def _has_unknown_conversion(value):
-    if isinstance(value, Mapping):
-        return ("conversion_factor" in value and value["conversion_factor"] is None) or any(
-            _has_unknown_conversion(child) for child in value.values()
-        )
-    if isinstance(value, (list, tuple)):
-        return any(_has_unknown_conversion(child) for child in value)
-    return False
+    return {"format_version": 4, "archetype": encoded}
 
 
 def _material(data):
@@ -138,10 +119,18 @@ def archetype_from_dict(data: dict) -> BuildingArchetype:
     KeyError
         A required record field is missing.
     """
-    if data.get("format_version") not in (1, 2, 3):
+    if type(data.get("format_version")) is not int or data["format_version"] not in (1, 2, 3, 4):
         raise ValueError("Unsupported archetype format_version")
     values = dict(data["archetype"])
-    values["construction_set"] = construction_set_from_dict(values["construction_set"])
+    if values.get("construction_set") is not None:
+        values["construction_set"] = construction_set_from_dict(values["construction_set"])
+    for name, definition in (
+        ("operating_profile", OperatingProfile),
+        ("hvac_template", HVACTemplate),
+        ("envelope_performance", EnvelopePerformance),
+    ):
+        if values.get(name) is not None:
+            values[name] = definition.from_dict(values[name])
     events = []
     for raw in values.get("renovation_log", ()):
         event = dict(raw)
@@ -181,7 +170,9 @@ def construction_set_to_dict(construction: ConstructionSet) -> dict:
 def construction_set_from_dict(data: dict) -> ConstructionSet:
     """Restore and validate a construction record with no catalogue dependency."""
     values = dict(data)
-    values["elements"] = {BuildingElement(role): element_from_dict(element)
-                          for role, element in values["elements"].items()}
+    values["elements"] = {
+        BuildingElement(role): element_from_dict(element)
+        for role, element in values["elements"].items()
+    }
     values["version_id"] = UUID(values["version_id"])
     return ConstructionSet(**values)
