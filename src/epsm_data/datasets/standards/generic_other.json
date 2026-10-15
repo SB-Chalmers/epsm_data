@@ -16,5 +16,13 @@
   "equipment_gain_w_m2": 5,
   "equipment_off_fraction": 0.2,
   "lighting_gain_w_m2": 5,
-  "dhw_kwh_m2_year": 5
+  "dhw_kwh_m2_year": 5,
+  "applicability": {
+    "building_types": [],
+    "automatic_fallback": false,
+    "selection": "Explicit screening assumption for unresolved non-residential use."
+  },
+  "requirements": [
+    "load_reference_area_m2"
+  ]
 }
