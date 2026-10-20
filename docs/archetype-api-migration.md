@@ -1,6 +1,8 @@
 # One archetype route and explicit inspection
 
-Applies to Data 0.6.0 and the coordinated Core 0.4.0 / EPSM 0.3.0 interfaces.
+See EPSM's [supported package manifest](https://github.com/SB-Chalmers/epsm/blob/main/compatibility.json)
+and [platform version guidance](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform-compatibility.md)
+for the current coordinated interfaces.
 
 Use `Catalogue.get()` or `for_year()` for predefined physical definitions. They
 return the same `Archetype` used for custom authoring and do not require a target
