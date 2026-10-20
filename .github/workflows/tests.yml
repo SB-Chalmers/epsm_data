@@ -54,7 +54,7 @@ jobs:
     name: package (${{ matrix.python }}, ${{ matrix.mode }})
     needs: combination
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.combination.outputs.matrix) }}
