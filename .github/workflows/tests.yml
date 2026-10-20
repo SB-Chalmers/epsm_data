@@ -2,21 +2,60 @@ name: Data release checks
 
 on:
   push:
-    branches: [dev, main, 'codex/**']
+    branches: [main]
   pull_request:
+    branches: [dev, main]
   workflow_dispatch:
+    inputs:
+      development_dependencies:
+        description: Check current dependency main branches on Python 3.13
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  package:
+  combination:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: SB-Chalmers/epsm
+          ssh-key: ${{ secrets.EPSM_REPO_DEPLOY_KEY }}
+          persist-credentials: false
+          ref: main
+          path: .ci/platform
+          sparse-checkout: |
+            /compatibility.json
+            /scripts/compatibility_matrix.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - id: matrix
+        env:
+          MATRIX_MODE: ${{ inputs.development_dependencies && 'main' || 'pinned' }}
+        run: |
+          python .ci/platform/scripts/compatibility_matrix.py \
+            --manifest .ci/platform/compatibility.json --consumer epsm_data \
+            --packages epsm_core epsm_lca epsm \
+            --manifest-revision "$(git -C .ci/platform rev-parse HEAD)" \
+            --mode "$MATRIX_MODE" >> "$GITHUB_OUTPUT"
+  package:
+    needs: combination
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       fail-fast: false
-      matrix:
-        python: ['3.11', '3.13']
-        dependencies: ['pinned', 'dev']
+      matrix: ${{ fromJSON(needs.combination.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,21 +66,21 @@ jobs:
           repository: SB-Chalmers/epsm_core
           ssh-key: ${{ secrets.EPSM_CORE_DEPLOY_KEY }}
           persist-credentials: false
-          ref: ${{ matrix.dependencies == 'dev' && 'dev' || 'ad2e031c180462678abe8c3edc783feb112e0849' }}
+          ref: ${{ matrix.epsm_core }}
           path: .ci/epsm_core
       - uses: actions/checkout@v4
         with:
           repository: SB-Chalmers/epsm_lca
           ssh-key: ${{ secrets.EPSM_LCA_DEPLOY_KEY }}
           persist-credentials: false
-          ref: ${{ matrix.dependencies == 'dev' && 'dev' || 'da0485906bec233fe1c9a9a95d5b6c66a2f74d5b' }}
+          ref: ${{ matrix.epsm_lca }}
           path: .ci/epsm_lca
       - uses: actions/checkout@v4
         with:
           repository: SB-Chalmers/epsm
           ssh-key: ${{ secrets.EPSM_REPO_DEPLOY_KEY }}
           persist-credentials: false
-          ref: ${{ matrix.dependencies == 'dev' && 'dev' || 'c9c27bd54d6ef02791bdc8610bd198854093b320' }}
+          ref: ${{ matrix.epsm }}
           path: .ci/epsm
       - name: Install test and build tools
         run: python -m pip install '.[dev,visualization]' .ci/epsm_core .ci/epsm_lca .ci/epsm
