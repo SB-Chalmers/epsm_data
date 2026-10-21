@@ -15,3 +15,7 @@ Do not retry dependency conflicts or missing credentials unchanged. Fix their
 cause, then rerun only the affected checks. Preserve failing evidence.
 
 See the [shared branch and CI policy](https://github.com/SB-Chalmers/epsm_development/blob/main/docs/branches-and-releases.md).
+
+Data development checks cover catalogue access, authoring, profiles and logging.
+The full material-expansion, visualization and collaborator suites remain in
+release verification; their optional packages are not installed in routine CI.
