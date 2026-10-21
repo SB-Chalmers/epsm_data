@@ -1,5 +1,16 @@
 # EPSM Data
 
+<!-- EPSM introduction: Pocket CAD -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/brand/epsm_data-dark.png">
+  <img src="docs/assets/brand/epsm_data.png" width="64" height="64" alt="EPSM Data — layered construction">
+</picture>
+
+Find and author the materials, constructions, operating profiles and renovation measures used by EPSM building models.
+
+[Explore the EPSM platform](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)
+<!-- /EPSM introduction -->
+
 EPSM's current construction catalogue, physical construction types, sourced operating inputs and renovation definitions. The package is usable without Core, a database, network access or a simulation engine. Importing it does not load a catalogue.
 
 ## Start here
