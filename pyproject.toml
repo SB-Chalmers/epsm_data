@@ -1,8 +1,10 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
+license = "MIT"
+license-files = ["LICENSE"]
 name = "epsm_data"
 dynamic = ["version"]
 description = "Building archetype data library for energy performance and stock modelling"

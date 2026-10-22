@@ -1,0 +1,30 @@
+{
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "file": "epsm_data.png",
+      "source": "SB-Chalmers/epsm_studio/design/pocket-cad/icons/png/256/epsm_data.png",
+      "sha256": "6b71ec62bb7d703257172bf0fc064706b9b2684693ee33c69e0ad804dcc9cd6c"
+    },
+    {
+      "file": "epsm_data-dark.png",
+      "source": "SB-Chalmers/epsm_studio/design/pocket-cad/icons/png/dark/256/epsm_data.png",
+      "sha256": "d4f4c535aa832ea39766ffb647b66b5364dd9ba899cd0e1d7adf3c8617a00e56"
+    },
+    {
+      "file": "logos.png",
+      "source": "renovation_catalogue/WP1A/figures/logos.png (supplied by project lead)",
+      "sha256": "0fc8f632bfa3abc45c49dd80c0c9d824377ffdc5a2fac809173e3ed03e0eacf3"
+    },
+    {
+      "file": "Figure_03_epsm_data_model.png",
+      "source": "EPSM report figures supplied by project lead, 21 October 2026",
+      "sha256": "e3b922e54f8b86ff4fa0830e780193ed98f0d4da1373d7171dbcb01a676f4c3d"
+    },
+    {
+      "file": "Figure_03_epsm_data_model.svg",
+      "source": "EPSM report figures supplied by project lead, 21 October 2026",
+      "sha256": "d09074d10e44de1ee28665a98697a2cfc9031276bcd8f39bf719d48957cbe60f"
+    }
+  ]
+}
