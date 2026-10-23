@@ -128,7 +128,7 @@ def validate_note(payload, catalogue, *, existing=False):
 
 
 def make_server(*, port=8765, notes_path=DEFAULT_NOTES, catalogue_path=None):
-    bundled = ROOT.parent / "src" / "epsm_data" / "datasets" / "parametric" / "catalogue.json"
+    bundled = ROOT.parent / "src" / "epsm_data" / "datasets" / "lod2" / "catalogue.json"
     if Path(notes_path).resolve() == Path(catalogue_path or bundled).resolve():
         raise ValueError("The notes database must be separate from the catalogue")
     catalogue = load_data(catalogue_path)
@@ -261,7 +261,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--notes", type=Path, default=DEFAULT_NOTES)
-    parser.add_argument("--catalogue", type=Path, help="Optional parametric JSON catalogue")
+    parser.add_argument("--catalogue", type=Path, help="Optional normalized LoD2 JSON catalogue")
     args = parser.parse_args()
     server = make_server(port=args.port, notes_path=args.notes, catalogue_path=args.catalogue)
     print(f"Explorer: http://127.0.0.1:{server.server_port}", flush=True)

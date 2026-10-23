@@ -43,7 +43,7 @@ class Component(Editable):
     Parameters
     ----------
     name, archetype : str
-        Component identity and owning archetype label.
+        Component name and optional authoring context; catalogue definitions are shared.
     application : BuildingElement
         Element role.
     layers : tuple of LayerSlot

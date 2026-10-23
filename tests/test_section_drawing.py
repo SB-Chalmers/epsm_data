@@ -1,13 +1,16 @@
-"""Physical orientation is presentation only; nominal constructions stay fixed."""
+"""Section drawings compare ordinary physical definitions without catalogue history."""
 
+from uuid import uuid4
 
 import pytest
 
-from epsm_data.layered import _load_calibrated_archetype as _load
+from epsm_data import Archetype, Catalogue, archetype_to_dict
 
 
-def load_calibrated_archetype(**kwargs):
-    return _load(**kwargs)
+@pytest.fixture(scope="module")
+def catalogue():
+    return Catalogue.load()
+
 
 @pytest.fixture
 def drawing():
@@ -20,14 +23,18 @@ def drawing():
     return plt, plot_sections
 
 
+def example(catalogue, state="existing"):
+    archetype = catalogue.get("mf_se02", state=state)
+    boundaries = catalogue.nominal_metadata("mf_se02", state=state)["boundary_details"]
+    return archetype, boundaries
+
+
 @pytest.mark.parametrize("state", ["existing", "standard", "advanced"])
-def test_sections_have_correct_floor_wall_orientation_and_cavity(state, drawing):
+def test_sections_have_correct_floor_wall_orientation_and_cavity(state, drawing, catalogue):
     plt, plot_sections = drawing
-    result = load_calibrated_archetype(renovation_state=state)
-    before = result.to_dict()
-    fig = plot_sections(
-        result.archetype, boundary_details=result.report["boundary_details"], show=False
-    )
+    archetype, boundaries = example(catalogue, state)
+    before = archetype_to_dict(archetype)
+    fig = plot_sections(archetype, boundary_details=boundaries, show=False)
     assert len(fig.axes) == 7
     roof, wall, intermediate, ground, basement, partition, _ = fig.axes
     # Roof/attic order is above-to-below; concrete must be below all insulation.
@@ -48,11 +55,12 @@ def test_sections_have_correct_floor_wall_orientation_and_cavity(state, drawing)
     assert brick.get_x() == (0 if state == "existing" else wall.patches[0].get_width())
     assert cavity.get_x() == pytest.approx(brick.get_x() + brick.get_width())
     assert cavity.get_width() / brick.get_width() == pytest.approx(25 / 125)
-    assert ("Drained cavity" if state == "existing" else "Sealed existing cavity") in " ".join(t.get_text() for t in wall.texts)
+    label = "Drained cavity" if state == "existing" else "Sealed existing cavity"
+    assert label in " ".join(t.get_text() for t in wall.texts)
     assert wall.patches[-2].get_x() > cavity.get_x()
     # Repeated joints/studs retain the same area shares and full layer depth.
     for axis, first, shares in ((wall, offset, (0.85, 0.15)), (partition, 1, (0.8, 0.2))):
-        patches = axis.patches[first : first + 10]
+        patches = axis.patches[first:first + 10]
         height = sum(p.get_height() for p in patches)
         for index, patch in enumerate(patches):
             assert patch.get_height() / height == pytest.approx(shares[index % 2] / 5)
@@ -61,43 +69,33 @@ def test_sections_have_correct_floor_wall_orientation_and_cavity(state, drawing)
             if index:
                 previous = patches[index - 1]
                 assert patch.get_y() == pytest.approx(previous.get_y() + previous.get_height())
-    # The current packages retain basement fabric; no unsupported XPS addition.
     assert basement.patches[0].get_x() == 0
     assert "XPS" not in " ".join(t.get_text() for t in basement.texts)
     assert {t.get_text() for t in partition.texts} >= {"ROOM A", "ROOM B"}
     assert not {"EXT", "INT"} & {t.get_text() for t in partition.texts}
-    assert before == result.to_dict()
+    assert before == archetype_to_dict(archetype)
     plt.close(fig)
 
 
-def test_default_plot_remains_a_nominal_layer_drawing_without_cavity(drawing):
+def test_default_plot_remains_a_nominal_layer_drawing_without_cavity(drawing, catalogue):
     plt, plot_sections = drawing
-    result = load_calibrated_archetype()
-    fig = plot_sections(result.archetype, show=False)
+    archetype, _ = example(catalogue)
+    fig = plot_sections(archetype, show=False)
     assert "Drained cavity" not in " ".join(t.get_text() for t in fig.axes[1].texts)
     plt.close(fig)
 
 
-def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(drawing):
+def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(drawing, catalogue):
     plt, plot_sections = drawing
     from epsm_data.reporting.section_drawing import section_scales
 
-    states = [
-        load_calibrated_archetype(renovation_state=s) for s in ("existing", "standard", "advanced")
-    ]
-    scales = section_scales(
-        [s.archetype for s in states], [s.report["boundary_details"] for s in states]
-    )
+    examples = [example(catalogue, state) for state in ("existing", "standard", "advanced")]
+    scales = section_scales([a for a, _ in examples], [b for _, b in examples])
     widths, heights = [], []
-    for state in states:
-        fig = plot_sections(
-            state.archetype,
-            scales=scales,
-            boundary_details=state.report["boundary_details"],
-            show=False,
-        )
+    for index, (archetype, boundaries) in enumerate(examples):
+        fig = plot_sections(archetype, scales=scales, boundary_details=boundaries, show=False)
         fig.canvas.draw()
-        brick_index = 0 if state.report["key"]["renovation_state"] == "existing" else 1
+        brick_index = 0 if index == 0 else 1
         widths.append(fig.axes[1].patches[brick_index].get_window_extent().width)
         # The retained attic concrete is 140 mm in every state.
         heights.append(fig.axes[0].patches[-2].get_window_extent().height)
@@ -113,32 +111,99 @@ def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(d
     assert heights == pytest.approx([heights[0]] * 3)
 
 
-def test_renovation_markers_and_window_comparison(drawing):
+def test_physical_annotations_and_window_comparison(drawing, catalogue):
     plt, _ = drawing
     from epsm_data.reporting.section_drawing import (
         plot_section_comparison,
         renovation_annotations,
     )
 
-    states = [
-        load_calibrated_archetype(renovation_state=s) for s in ("existing", "standard", "advanced")
-    ]
-    existing_tags, _ = renovation_annotations(states[0], states[0])
-    assert {tag for tags in existing_tags.values() for tag in tags} == {"E"}
-    for state in states[1:]:
-        tags, _ = renovation_annotations(state, states[0])
-        assert tags["EXT_WALL"][:3] == ["A", "K", "K"]
-        assert "A" in tags["EXT_WALL"]
-        assert "K" in tags["EXT_WALL"]
+    examples = [example(catalogue, state) for state in ("existing", "standard", "advanced")]
+    baseline, baseline_boundaries = examples[0]
+    baseline_tags, _ = renovation_annotations(
+        baseline, baseline, boundary_details=baseline_boundaries
+    )
+    assert {tag for tags in baseline_tags.values() for tag in tags} == {"E"}
+    for archetype, boundaries in examples[1:]:
+        tags, _ = renovation_annotations(
+            archetype, baseline, boundary_details=boundaries,
+            baseline_boundary_details=baseline_boundaries,
+        )
+        # New insulation, retained veneer, changed cavity ventilation metadata.
+        assert tags["EXT_WALL"][:3] == ["A", "K", "A"]
         assert set(tags["GROUND_FLOOR"]) == {"K"}
         assert set(tags["BASEMENT_WALL"]) == {"K"}
-    fig = plot_section_comparison(states, "WINDOW", show=False)
+    labels = ["Existing", "Standard", "Advanced"]
+    fig = plot_section_comparison(
+        [a for a, _ in examples], "WINDOW", labels=labels,
+        boundary_details=[b for _, b in examples], show=False,
+    )
     assert len(fig.axes) == 3
-    assert [ax.get_title(loc="left").split("\n")[0] for ax in fig.axes] == [
-        "Existing",
-        "Standard",
-        "Advanced",
-    ]
+    assert [ax.get_title(loc="left").split("\n")[0] for ax in fig.axes] == labels
     assert all(len(ax.patches) == 1 for ax in fig.axes)
     assert "depth scale" not in " ".join(t.get_text() for t in fig.texts)
+    assert fig._suptitle.get_text() == "Window"
     plt.close(fig)
+
+
+def test_comparison_ignores_authoring_names_and_material_instance_ids(drawing, catalogue):
+    from epsm_data.domain import BuildingElement
+    from epsm_data.reporting.section_drawing import renovation_annotations
+
+    baseline, _ = example(catalogue)
+    role = BuildingElement.EXT_WALL
+    wall = baseline.construction_set.elements[role]
+    components = []
+    for index, component in enumerate(wall.components):
+        slots = []
+        for slot in component.layers:
+            layer = slot.layer.with_changes(
+                name="Renamed layer", layer_code=str(uuid4()),
+                materials=tuple(c.with_changes(material=c.material.with_changes(
+                    name="Renamed material", json_id=str(uuid4()), uuid=uuid4()
+                )) for c in slot.layer.materials),
+            )
+            slots.append(slot.with_changes(layer=layer))
+        components.append(component.with_changes(name=f"Renamed {index}", layers=tuple(slots)))
+    wall = wall.with_changes(name="Renamed wall", components=tuple(components))
+    authored = baseline.with_changes(
+        archetype_id="custom", display_name="Custom authored building",
+        construction_set=baseline.construction_set.with_element(role, wall),
+    )
+    tags, _ = renovation_annotations(authored, baseline)
+    assert set(tags["EXT_WALL"]) == {"K"}
+
+
+def test_comparison_supports_custom_archetypes_and_missing_baseline_roles(drawing, catalogue):
+    plt, _ = drawing
+    from epsm_data.reporting.section_drawing import (
+        plot_section_comparison,
+        renovation_annotations,
+    )
+
+    archetype, boundaries = example(catalogue)
+    empty = Archetype("empty", "Empty authoring baseline")
+    tags, notes = renovation_annotations(archetype, empty, boundary_details=boundaries)
+    assert {tag for marks in tags.values() for tag in marks} == {"A"}
+    assert notes["WINDOW"] == "Added whole-window specification"
+    fig = plot_section_comparison(
+        [archetype], "EXT_WALL", baseline=empty,
+        boundary_details=[boundaries], title="Custom wall comparison", show=False,
+    )
+    assert fig._suptitle.get_text() == "Custom wall comparison"
+    assert fig.axes[0].get_title(loc="left").startswith(archetype.display_name)
+    plt.close(fig)
+
+
+def test_comparison_validates_labels_boundaries_and_missing_roles(drawing, catalogue):
+    from epsm_data.reporting.section_drawing import plot_section_comparison
+
+    archetype, _ = example(catalogue)
+    with pytest.raises(ValueError, match="At least one archetype"):
+        plot_section_comparison([], "EXT_WALL", show=False)
+    with pytest.raises(ValueError, match="boundary metadata"):
+        plot_section_comparison([archetype], "EXT_WALL", boundary_details=[], show=False)
+    with pytest.raises(ValueError, match="nonempty label"):
+        plot_section_comparison([archetype], "EXT_WALL", labels=[], show=False)
+    with pytest.raises(ValueError, match="must supply EXT_WALL"):
+        plot_section_comparison([Archetype("empty", "Empty")], "EXT_WALL", show=False)

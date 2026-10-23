@@ -25,7 +25,7 @@ class Element(Editable):
     Parameters
     ----------
     name, archetype : str
-        Element identity and owning archetype label.
+        Element name and optional authoring context; catalogue definitions are shared.
     age : int or None
         Historical construction calendar year, not duration. None means unknown.
     components : tuple of Component
@@ -45,8 +45,7 @@ class Element(Editable):
         object.__setattr__(self, "application", BuildingElement(self.application))
         if any(not isinstance(c, Component) or c.application != self.application for c in self.components):
             raise ValueError("Every component must match its element role")
-        if len({c.name for c in self.components}) != len(self.components):
-            raise ValueError("Component names must be unique within an element")
+        # Repeated references are distinct ordered occurrences of one definition.
         if not self.components:
             raise ValueError(f"Element '{self.name}': missing components.")
 
@@ -112,7 +111,7 @@ class WindowElement(Editable):
     Parameters
     ----------
     name, archetype : str
-        Element identity and owning archetype label.
+        Element name and optional authoring context; catalogue definitions are shared.
     u_value : float
         Whole-window thermal transmittance in W/(m² K).
     shgc : float

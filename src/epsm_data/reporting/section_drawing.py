@@ -15,6 +15,8 @@ Usage:
 
 from __future__ import annotations
 
+from collections.abc import Mapping
+from difflib import SequenceMatcher
 from math import ceil, isfinite
 from typing import TYPE_CHECKING
 
@@ -477,7 +479,7 @@ def _draw_element(
     ax.axis("off")
 
 
-def _draw_window(ax, window, *, status=None, evidence_note=None):
+def _draw_window(ax, window, *, status=None, property_note=None):
     """Show whole-window properties without inventing frame or pane geometry."""
     ax.axis("off")
     card = mpatches.FancyBboxPatch(
@@ -519,7 +521,7 @@ def _draw_window(ax, window, *, status=None, evidence_note=None):
     ax.text(
         0.09,
         0.13,
-        evidence_note or "Frame dimensions and pane layers are unspecified.\nSHGC and VT are representative assumptions.",
+        property_note or "Frame dimensions and pane layers are unspecified.\nSHGC and VT are supplied whole-window properties.",
         transform=ax.transAxes,
         fontsize=9,
         color="#596A76",
@@ -546,7 +548,7 @@ def section_scales(archetypes, boundary_details=None):
         raise ValueError("One boundary metadata dictionary is required per archetype")
     depths, wall_depths = [], []
     for archetype, metadata in zip(archetypes, boundaries, strict=True):
-        for role, element in archetype.construction_set.elements.items():
+        for role, element in _elements(archetype).items():
             if isinstance(element, Element):
                 depth = sum(d for d, _ in _drawing_layers(element, metadata.get(role.value)))
                 depths.append(depth)
@@ -555,58 +557,101 @@ def section_scales(archetypes, boundary_details=None):
     return max(depths, default=200.0), max(wall_depths, default=200.0)
 
 
-def renovation_annotations(calibrated, existing):
-    """Derive drawing annotations from independent Existing-based operations."""
+def _physical_material(material):
+    """Compare material properties independently of authoring names and instance IDs."""
+    values = material.to_dict()
+    for field in ("name", "uuid", "json_id", "material_type"):
+        values.pop(field, None)
+    carbon = values.get("embodied_carbon")
+    if carbon is not None:
+        values["embodied_carbon"] = {
+            key: value for key, value in carbon.items() if key not in {"name", "boverket_name"}
+        }
+    return _physical_key(values)
+
+
+def _physical_key(value):
+    """Return a hashable physical value for ordered layer matching."""
+    if isinstance(value, Mapping):
+        return tuple(sorted((key, _physical_key(item)) for key, item in value.items()))
+    if isinstance(value, (list, tuple)):
+        return tuple(_physical_key(item) for item in value)
+    return value
+
+
+def _layer_signatures(element, boundary_details):
+    signatures = []
+    for depth, constituents in _drawing_layers(element, boundary_details):
+        if constituents:
+            signatures.append((depth, tuple(
+                (c.area_fraction, c.thickness, _physical_material(c.material))
+                for c in constituents
+            )))
+        else:
+            cavity = (boundary_details or {}).get("facade_cavity", {})
+            physical_cavity = {key: value for key, value in cavity.items() if key != "after_layer"}
+            signatures.append((depth, _physical_key(physical_cavity)))
+    return signatures
+
+
+def _elements(archetype):
+    construction = archetype.construction_set
+    return construction.elements if construction is not None else {}
+
+
+def renovation_annotations(
+    archetype, baseline, *, boundary_details=None, baseline_boundary_details=None
+):
+    """Compare ordinary archetypes using ordered physical layers and window properties.
+
+    Marks are ``E`` for the baseline, ``K`` for layers retained from it, and
+    ``A`` for added or changed layers. Names, instance IDs and component grouping
+    do not affect the comparison. Optional boundary metadata includes cavity
+    geometry. The comparison describes supplied definitions; it does not infer
+    installation operations or a renovation history.
+    """
+    boundary_details = boundary_details or {}
+    baseline_boundary_details = baseline_boundary_details or {}
+    baseline_elements = _elements(baseline)
+    is_baseline = archetype is baseline or archetype == baseline
     tags, notes = {}, {}
-    operations = {op["role"]: op for op in calibrated.report.get("operations", [])}
-    renovated = calibrated.report["key"]["renovation_state"] != "existing"
-    for role, element in calibrated.archetype.construction_set.elements.items():
-        op = operations.get(role.value)
+    for role, element in _elements(archetype).items():
+        original = baseline_elements.get(role)
         if role.value == "WINDOW":
+            unchanged = original is not None and all(
+                getattr(element, field) == getattr(original, field)
+                for field in ("u_value", "shgc", "vt", "boverket_id")
+            )
             notes[role.value] = (
-                "Replacement whole-window specification"
-                if op or any(getattr(element, k) != getattr(existing.archetype.construction_set.elements[role], k)
-                             for k in ("u_value", "shgc", "vt"))
-                else "Retained whole-window specification" if renovated else "Existing whole-window specification"
+                "Baseline whole-window specification" if is_baseline else
+                "Retained whole-window specification" if unchanged else
+                "Changed whole-window specification" if original is not None else
+                "Added whole-window specification"
             )
             continue
-        original = existing.archetype.construction_set.elements[role]
-        marks = []
-        for component in element.components:
-            retained = any(component.layers == c.layers and component.shearing_layer == c.shearing_layer
-                           for c in original.components)
-            for li, _ in enumerate(component.layers):
-                mark = "E" if not renovated else ("K" if retained else "A")
-                if op and op["action"] == "replace_exterior" and not retained and li == 0:
-                    mark = "R"
-                if (
-                    op
-                    and op.get("position") == "before_inside_finish"
-                    and component == original.components[-1]
-                ):
-                    mark = "S"
-                marks.append(mark)
-        if calibrated.report["boundary_details"].get(role.value, {}).get("facade_cavity"):
-            marks.insert(
-                calibrated.report["boundary_details"][role.value]["facade_cavity"].get("after_layer", 1),
-                "R" if op and op["action"] == "replace_exterior" else ("K" if renovated else "E"),
-            )
-        tags[role.value] = marks
-        if op and op["action"] == "replace_exterior":
-            notes[role.value] = "Old veneer removed; one new veneer and cavity."
-        elif op and op.get("position") == "before_inside_finish":
-            notes[role.value] = "Insulation added below reinstated floor finish."
-        elif op:
-            notes[role.value] = "Insulation added to retained construction."
+        current = _layer_signatures(element, boundary_details.get(role.value))
+        if is_baseline:
+            marks = ["E"] * len(current)
         else:
-            notes[role.value] = (
-                "Retained from Existing." if renovated else "Existing representative recipe."
+            marks = ["A"] * len(current)
+            previous = (
+                _layer_signatures(original, baseline_boundary_details.get(role.value))
+                if original is not None else []
             )
+            for match in SequenceMatcher(None, previous, current, autojunk=False).get_matching_blocks():
+                marks[match.b:match.b + match.size] = ["K"] * match.size
+        tags[role.value] = marks
+        notes[role.value] = (
+            "Baseline construction." if is_baseline else
+            "Retained from baseline." if marks and set(marks) == {"K"} else
+            "Added construction." if original is None else
+            "Added or changed layers compared with baseline."
+        )
     return tags, notes
 
 
 def _ordered_elements(archetype):
-    elements = archetype.construction_set.elements
+    elements = _elements(archetype)
     lookup = {role.value: element for role, element in elements.items()}
     names = [name for name in _ELEMENT_ORDER if name in lookup]
     names += [role.value for role in elements if role.is_ext_wall and role.value not in names]
@@ -631,7 +676,7 @@ def _plot_panel(
 
     label = label or _ELEMENT_LABELS.get(role_name, role_name.title())
     if isinstance(element, WindowElement):
-        _draw_window(ax, element, status=note, evidence_note=(boundary_details or {}).get("window_evidence_note"))
+        _draw_window(ax, element, status=note, property_note=(boundary_details or {}).get("window_property_note"))
         subtitle = "Thermal and optical properties"
     else:
         _draw_element(
@@ -692,7 +737,7 @@ def _figure_key(fig, elements, *, annotated=False, footer_notes=None):
     lines = []
     if annotated:
         lines.append(
-            "E  Existing   ·   K  Kept   ·   A  Added   ·   R  Replaced   ·   S  Reinstated finish"
+            "E  Baseline   ·   K  Retained   ·   A  Added or changed"
         )
     lines += [
         "Five repeated divisions preserve composite area shares; stud spacing and mortar joints are schematic.",
@@ -736,8 +781,7 @@ def plot_sections(
     adds cavity geometry without changing nominal thermal properties. Optional
     layer_tags/role_notes are supplied by renovation_annotations. Composite
     constituents repeat over five divisions, preserving their area shares.
-    Label/subtitle/footer overrides allow source reconstructions to distinguish
-    diagnostic layer U-values from published applied values and acceptance.
+    Label, subtitle and footer overrides provide caller-owned display context.
     """
     ordered = _ordered_elements(archetype)
     if not ordered:
@@ -792,62 +836,90 @@ def plot_sections(
     return fig
 
 
-def plot_section_comparison(calibrated_states, role, *, dpi=180, show=True):
-    """Align Existing/Standard/Advanced for one role using the same depth scale."""
+def plot_section_comparison(
+    archetypes,
+    role,
+    *,
+    boundary_details=None,
+    labels=None,
+    baseline=None,
+    baseline_boundary_details=None,
+    title=None,
+    dpi=180,
+    show=True,
+):
+    """Compare one role from ordinary archetypes at the same physical depth scale.
+
+    The first archetype is the annotation baseline unless ``baseline`` is given.
+    Supply one boundary dictionary and one label per archetype when needed;
+    labels otherwise use the archetypes' display names. A separate baseline may
+    supply its own ``baseline_boundary_details``. No catalogue lookup occurs.
+    """
     from epsm_data.domain.enums import BuildingElement
 
-    states = list(calibrated_states)
-    if not states:
-        raise ValueError("At least one calibrated state is required")
-    role = BuildingElement(role) if isinstance(role, str) else role
-    base = next((s for s in states if s.report["key"]["renovation_state"] == "existing"), None)
-    if base is None:
-        raise ValueError("Comparisons require Existing as the annotation baseline")
+    archetypes = list(archetypes)
+    if not archetypes:
+        raise ValueError("At least one archetype is required")
+    boundaries = list(boundary_details) if boundary_details is not None else [{} for _ in archetypes]
+    if len(boundaries) != len(archetypes) or any(not isinstance(b, Mapping) for b in boundaries):
+        raise ValueError("One boundary metadata dictionary is required per archetype")
+    labels = list(labels) if labels is not None else [a.display_name for a in archetypes]
+    if len(labels) != len(archetypes) or any(not isinstance(label, str) or not label.strip() for label in labels):
+        raise ValueError("One nonempty label is required per archetype")
+    role = BuildingElement(role)
+    baseline = archetypes[0] if baseline is None else baseline
+    if baseline_boundary_details is None:
+        baseline_boundary_details = next(
+            (metadata for a, metadata in zip(archetypes, boundaries, strict=True) if a is baseline),
+            {},
+        )
+    if any(role not in _elements(archetype) for archetype in archetypes):
+        raise ValueError(f"Every compared archetype must supply {role.value}")
+    elements = [_elements(archetype)[role] for archetype in archetypes]
     # Restrict the scale to this role so small assemblies remain readable.
-    elements = [s.archetype.construction_set.elements[role] for s in states]
     depths = [
-        sum(d for d, _ in _drawing_layers(e, s.report["boundary_details"].get(role.value)))
-        for s, e in zip(states, elements)
-        if hasattr(e, "components")
+        sum(d for d, _ in _drawing_layers(element, metadata.get(role.value)))
+        for element, metadata in zip(elements, boundaries, strict=True)
+        if hasattr(element, "components")
     ]
     scale = max(depths, default=200.0)
     window = role.value == "WINDOW"
     fig, axes = plt.subplots(
-        1, len(states), squeeze=False, figsize=(len(states) * 5.7, 4.8 if window else 6), dpi=dpi
+        1, len(archetypes), squeeze=False,
+        figsize=(len(archetypes) * 5.7, 4.8 if window else 6), dpi=dpi,
     )
-    for ax, state, element in zip(axes.flat, states, elements):
-        tags, notes = renovation_annotations(state, base)
+    for ax, archetype, element, metadata, label in zip(
+        axes.flat, archetypes, elements, boundaries, labels, strict=True
+    ):
+        tags, notes = renovation_annotations(
+            archetype, baseline, boundary_details=metadata,
+            baseline_boundary_details=baseline_boundary_details,
+        )
         _plot_panel(
             ax,
             role.value,
             element,
             scales=(scale, scale),
-            boundary_details=state.report["boundary_details"].get(role.value),
+            boundary_details=metadata.get(role.value),
             tags=tags.get(role.value),
             note=notes.get(role.value),
-            label=state.report["key"]["renovation_state"].title(),
+            label=label,
         )
     fig.patch.set_facecolor("white")
     fig.suptitle(
-        f"MF SE.02 · {_ELEMENT_LABELS.get(role.value, role.value.title())}",
-        fontsize=18,
-        weight="bold",
-        y=0.98,
+        title or _ELEMENT_LABELS.get(role.value, role.value.title()),
+        fontsize=18, weight="bold", y=0.98,
     )
     fig.text(
         0.5,
         0.90,
-        " → ".join(s.report["key"]["renovation_state"].title() for s in states)
-        + (
-            "  ·  whole-window properties"
-            if role.value == "WINDOW"
-            else "  ·  identical depth scale in every panel"
+        " → ".join(labels) + (
+            "  ·  whole-window properties" if window else
+            "  ·  identical depth scale in every panel"
         ),
-        ha="center",
-        fontsize=11,
-        color="#526372",
+        ha="center", fontsize=11, color="#526372",
     )
-    if role.value != "WINDOW":
+    if not window:
         _figure_key(fig, elements, annotated=True)
     fig.subplots_adjust(
         left=0.03, right=0.985, top=0.74, bottom=0.06 if window else 0.23, wspace=0.20

@@ -1,103 +1,73 @@
-# Select and reuse a predefined archetype
+# Inspect the LoD2 catalogue
 
-The predefined catalogue and custom authoring use the same `Archetype` class.
-`Catalogue.load()` explicitly reads the physical registries and bundled operating
-profiles. It needs no Core, database, network or simulation engine.
+`Catalogue.load()` reads the bundled normalized catalogue once. Selection and
+inspection then use the captured definitions without network or database access.
 
 ```python
 from epsm_data import Catalogue
 
 catalogue = Catalogue.load()
-archetype = catalogue.for_year("multi_family", 1970)
-assert archetype.operating_profile.profile_id.startswith("sveby.residential")
-assert archetype.hvac_template is None
-assert archetype.envelope_performance.infiltration_reference_basis == "Atemp"
+print(catalogue.summary())
+print(catalogue.ids(category="multi_family"))
+archetype = catalogue.for_year("multi_family", 1970, state="existing")
+report = catalogue.completeness("mf_se02", state="existing")
 ```
 
-All canonical categories/configurations and explicit source variants compose
-through the same authoring hierarchy. No successful calibration match is needed.
-Physical recipes, material IDs, fractions, ordering and existing nominal U-values
-are preserved. Effective ground properties and layered nominal U-values remain
-distinct. Use the advanced `catalogue.detailed` view for structured source,
-material, boundary, caveat and completeness inspection; `catalogue.parametric`
-retains distinct effective-property inspection and editing.
+There are 28 families, 76 physical configurations and 228 climate-zone assignments.
+The categories are `single_family`, `multi_family`, `office` and `school`.
+SE.01–SE.06 each have `existing`, `standard` and `advanced` configurations.
+SE.07 starts in 2022 and has one configuration, selected with `state=None`.
+For earlier eras an omitted state selects `existing`.
 
-`ids()` lists canonical archetypes; `ids(include_variants=True)` includes source
-variants. Select a variant by its actual ID, never as a silent replacement for a
-canonical entry. `renovation_states(id)` returns recorded choices. SE.07 starts
-in 2022, accepts only `state=None` and does not inherit later edits from SE.06.
-
-## Definitions that can be reused
-
-| Public interface | Loaded information |
+| Interface | Result |
 | --- | --- |
-| `materials` | Read-only registry-ID to opaque `Material` objects, usable directly in `LayerMaterial` |
-| `windows` | Read-only registry-ID to whole-window `WindowElement` definitions, separate from opening geometry |
-| `operating_profiles` | Read-only Sveby definitions and the explicitly selected generic screening option |
-| `hvac_templates` | Read-only explicit illustrative system choices, never automatically installed |
-| `construction_sets()` | Explicitly construct a read-only `(archetype_id, state)` mapping; opt into source variants with `include_variants=True` |
-
-Whole-window registry records do not contain full optical-layer `WindowMaterial`
-properties; no layer material is fabricated from them. Detailed source/carbon
-mapping remains available through `catalogue.detailed.resolve_material(id)`.
-Index properties and representations use loaded state and perform no I/O.
-`get()` and `for_year()` explicitly read the supported selected operating profile.
-Custom archetypes may use the indexed definitions or independently authored ones.
-
-SF/MF entries attach the supported residential profile; SF selection retains its
-explicit permitted fallback note. Office and school attach their supported Sveby
-profiles while requiring project calendars. Unsupported generic use remains
-without an operating profile. Callers may explicitly select
-`catalogue.operating_profiles["generic_other"]`; no fallback is automatic.
-
-## Envelope rates preserve the recorded basis
-
-MF definitions retain their native engineering rate in L/(s m² Atemp), including
-0.20 for older Existing MF. The compatibility ACH representation is not treated
-as model-volume ACH. SF, office, school and generic rates retain the recorded
-TABULA source-volume basis; application requires the explicit corresponding
-source reference area/volume. No conversion or geometric height is invented.
-Stale or unsupported source-basis evidence leaves the rate unresolved with a
-reason in its notes. Source evidence and pressure-coupling limitations remain
-portable. No thermal-bridge uplift or installed HVAC is supplied without a
-recorded definition.
-
-## Inspect effective classifications
-
-`dataset_id`, `dimensions`, `era_for_year(year)`, `get_slot(key)`, `search(**filters)`
-and `summary()` preserve the existing effective-catalogue meaning. Slot keys can
-be an `ArchetypeKey` or the existing five-part string. These slots describe
-classification/effective scalar assumptions, rather than installed Building
-systems. `summary()` explicitly calculates coverage from loaded data.
-
-`effective_configuration()` returns a detached copy of the exact effective scalar
-configuration, suitable for content identity or advanced inspection. It is not
-complete physical archetype exchange; use `archetype_to_dict()` for that. No
-ambiguous whole-Catalogue `to_dict()` format is introduced.
-
-## Portable construction handover
-
-The existing pure Data exporter accepts the same authored `Archetype` plus
-explicit source/boundary context. Catalogue context comes from loaded registries:
+| `ids(category=None)` | Family IDs |
+| `get(id, state=None)` | Standard authored `Archetype` |
+| `for_year(category, year, state=None)` | Archetype selected by construction era |
+| `renovation_states(id)` | Available renovation alternatives; empty for SE.07 |
+| `search(category=None, era=None, climate_zone=None, state=None)` | LoD2 assignment slots |
+| `get_slot(key)` | A slot selected by key object or four-part ID |
+| `completeness(id, state=None)` | `complete` and explicit `missing_values` paths |
+| `to_dict()` | Detached normalized catalogue for explicit editing or saving |
 
 ```python
-from epsm_data import export_nominal_constructions
+from epsm_data import ArchetypeKey
 
-archetype = catalogue.get("mf_se02", state="existing")
-bundle = export_nominal_constructions(
-    archetype,
-    metadata=catalogue.nominal_metadata("mf_se02", state="existing"),
-)
-assert bundle["core"]["EXT_WALL"]
+key = ArchetypeKey("multi_family", "SE.02", "SE.Zone3", "existing")
+slot = catalogue.get_slot(key)
+assert slot.key.id == "multi_family:SE.02:SE.Zone3:existing"
+assert slot.archetype_id == "mf_se02"
+assert slot.complete == report["complete"]
 ```
 
-This preserves physical order, material identities, surface films, source records
-and reciprocal construction relationships. Composition does not claim a target
-match: context records `assessment_status="not_assessed"` and ground calibration
-remains unresolved. Core owns physical conversion/engine compilation; EPSM owns
-Building assembly. Independently authored constructions need explicit equivalent
-source/boundary metadata for this advanced handover; format-4 archetype exchange
-does not require that metadata. The calibrated-wrapper exporter remains a
-compatibility adapter while consumers migrate.
+Climate zones classify constructions; they do not generate separate copies of the
+physical definitions. Ventilation topology is an independent building input.
 
-Try [the catalogue authoring notebook](../examples/03_catalogue_authoring.ipynb).
+## Reusable indexes
+
+`materials`, `windows`, `layers`, `components`, `elements` and `construction_sets`
+are read-only mappings keyed by canonical IDs. Their children share references.
+`material_records` retains every raw material entry, including entries whose
+missing thermal properties prevent construction of a validated domain object.
+`honeybee_materials` and `boverket_resources` expose the linked source records.
+
+Completeness concerns LoD2 fabric, its thermal inputs, required roles and external
+mappings. It does not require geometry, HVAC or operating schedules. A missing
+product carbon mapping is flagged; an explicitly declared non-product air layer
+needs no Boverket product. Unknown stays `None`, distinct from a known zero.
+Invalid supplied physical values and dangling references fail loading.
+
+## Export
+
+```python
+from epsm_data import archetype_to_dict, export_nominal_constructions
+
+saved = archetype_to_dict(archetype)
+bundle = export_nominal_constructions(
+    archetype, metadata=catalogue.nominal_metadata("mf_se02", state="existing")
+)
+```
+
+The complete archetype exchange retains actual inputs. Nominal construction
+export calculates forward from those inputs. Site ground conditions, building
+geometry and engine readiness remain downstream responsibilities.

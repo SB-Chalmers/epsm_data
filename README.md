@@ -14,78 +14,90 @@ offline, without Core, a database or a simulation engine.
 **[Explore the EPSM platform →](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)**
 <!-- /EPSM introduction -->
 
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/actions/workflows/ci.yml) [![Releases](https://img.shields.io/badge/releases-GitHub-181717?logo=github&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/releases) [![Issues](https://img.shields.io/badge/issues-GitHub-181717?logo=github&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/issues)
+EPSM Data is the offline authoring library and curated LoD2 construction catalogue
+for the EPSM platform. It provides the same immutable hierarchy for catalogue and
+custom definitions:
 
-## From materials to a construction set
+**Material → Layer → Component → Element / Window → ConstructionSet → Archetype**
 
-![EPSM data model: sourced materials, layers, components, elements and building archetypes](docs/assets/welcome/Figure_03_epsm_data_model.png)
+Materials link thermal properties to Honeybee records and embodied-carbon inputs
+to Boverket resource IDs. Shared physical definitions occur once and are reused
+through references. Geometry, building occurrences and simulation belong to Core
+and the wider [EPSM platform](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md).
 
-Follow the reusable definitions from a sourced material to a construction set.
-Core supplies the actual building geometry and quantities. The
-[platform guide](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)
-shows how these definitions feed energy and climate calculations.
+## Catalogue
 
-## Getting started
+The bundled catalogue contains **28 archetype families, 76 physical configurations
+and 228 climate-zone assignments**:
 
-Use Python 3.11 or newer. From a terminal on macOS or Linux:
+- Four building types: single-family, multi-family, office and school.
+- Seven construction eras: SE.01–SE.07.
+- Existing, Standard and Advanced for SE.01–SE.06; one configuration for SE.07.
+- Three climate zones. Zones classify the shared construction definitions.
+
+SE.06 covers 2006–2021; SE.07 starts in 2022. Catalogue loading uses accepted LoD2
+compositions directly. There are no LoD1 targets, inverse U-value solving,
+calibration operations or internal definition-version workflows. Forward thermal
+calculations remain available. Missing values are reported explicitly.
+
+## Use
+
+Requires Python 3.11 or newer:
 
 ```sh
-git clone https://github.com/SB-Chalmers/epsm_data.git
-cd epsm_data
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -e .
 python examples/archetype.py
 ```
-
-The example authors and serializes an illustrative construction entirely offline.
-To select a bundled archetype:
 
 ```python
 from epsm_data import Catalogue
 
 catalogue = Catalogue.load()
-archetype = catalogue.for_year("multi_family", 1970)
-construction = archetype.construction_set
+archetype = catalogue.get("mf_se02", state="existing")
+report = catalogue.completeness("mf_se02", state="existing")
+print(report["complete"], report["missing_values"])
+print(catalogue.summary())
 ```
 
-Catalogue records retain their sources and assumptions. Core assigns definitions
-to building geometry; EPSM owns catalogue-to-building application.
+`Catalogue.load(path)` also accepts a complete normalized catalogue JSON file.
+Repeated loads produce deterministic identities and exchange data. Loaded indexes
+are read-only; use the standard authoring constructors and `with_changes()` for
+project definitions. Operating profiles and renovation definitions remain
+independently available.
+
+## Maintain
+
+Correct the canonical JSON definitions in
+`src/epsm_data/datasets/lod2/catalogue.json` through a pull request. Review shared
+references, validate physical values and completeness, then publish the package.
+Git carries the change history. Saved studies should preserve their actual inputs
+and package/catalogue identification alongside results.
+
+```sh
+python -m pytest -q
+python -m explorer.server
+```
 
 ## Documentation
 
-- [Catalogue inspection and reuse](docs/catalogue-inspection.md)
-- [Archetype authoring and exchange](docs/archetype-authoring.md)
+- [Catalogue inspection](docs/catalogue-inspection.md)
+- [Authoring and exchange](docs/archetype-authoring.md)
+- [Shared construction composition](docs/catalogue-composition.md)
 - [Operating profiles](docs/operating-profiles.md)
-- [Examples and notebooks](examples/README.md)
-- [Project guide and development](docs/guide.md)
+- [Platform ownership](docs/building-application.md)
+- [Migration guide](docs/archetype-api-migration.md)
+- [Examples](examples/README.md) and [development guide](docs/guide.md)
 
-## License
+## License and attribution
 
-EPSM-owned software and documentation use the [MIT license](LICENSE).
-Source datasets, catalogue evidence and third-party material retain their
-providers' terms and attribution; MIT does not grant new redistribution rights
-to those sources.
+EPSM-owned software and documentation use the [MIT license](LICENSE). Honeybee,
+Boverket and other third-party source data retain their providers' terms and
+attribution. Retained source documents live in `evidence/`; they are separate from
+the runtime catalogue.
 
-## People and support
+Developed at Chalmers University of Technology for the EPSM research platform.
+Funded by the Swedish Energy Agency, project P2024-04053. Partners: Lindholmen
+Science Park AB, Sinom AB and Stiftelsen Chalmers Industriteknik.
 
-Developed at Chalmers University of Technology as part of the EPSM research platform.
-
-**Funding**: Swedish Energy Agency (Project ID: P2024-04053)
-
-**Partners**:
-
-- Lindholmen Science Park AB
-- Sinom AB
-- Stiftelsen Chalmers Industriteknik
-
-**Team**:
-
-- **Lead Developer**: Sanjay Somanath
-- **Principal Investigator**: Alexander Hollberg
-- **Contributors**: Yinan Yu, Dag Wästberg
-
-<p align="center">
-  <img src="docs/assets/welcome/logos.png" width="100%" alt="Chalmers University of Technology, Chalmers Industriteknik, Sinom, Lindholmen Science Park and Swedish Energy Agency logos">
-</p>
+Lead developer: Sanjay Somanath. Principal investigator: Alexander Hollberg.
+Contributors: Yinan Yu and Dag Wästberg.

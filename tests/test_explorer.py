@@ -18,88 +18,57 @@ def catalogue():
     return load_data()
 
 
-def test_matrix_uses_parametric_catalogue_and_effective_values(catalogue):
-    from epsm_data import Catalogue
+def test_matrix_uses_only_lod2_and_forward_construction_values(catalogue):
+    from epsm_data import BuildingElement, Catalogue
 
-    assert len(catalogue["cells"]) == len({c["id"] for c in catalogue["cells"]}) == 1140
-    assert all(c["package_id"] for c in catalogue["cells"])
-    office_cells = [c for c in catalogue["cells"] if c["category"] == "office"]
-    assert len(office_cells) == 228
-    assert all(c["lod1_complete"] and not c["missing"] for c in office_cells)
-    school_cells = [c for c in catalogue["cells"] if c["category"] == "school"]
-    assert len(school_cells) == 228
-    assert all(c["lod1_complete"] and not c["missing"] for c in school_cells)
-    school_se04 = next(
-        c for c in school_cells if c["id"] == "school:SE.04:SE.Zone3:existing:F"
+    library = Catalogue.load()
+    assert len(catalogue["cells"]) == len({c["id"] for c in catalogue["cells"]}) == 228
+    assert len(catalogue["packages"]) == 76
+    assert set(catalogue["dimensions"]["categories"]) == {
+        "single_family",
+        "multi_family",
+        "office",
+        "school",
+    }
+    assert "systems" not in catalogue["dimensions"]
+    assert all("system" not in cell and "lod1_complete" not in cell for cell in catalogue["cells"])
+    assert all(package["lod"] == 2 for package in catalogue["packages"])
+    cell = next(c for c in catalogue["cells"] if c["id"] == "multi_family:SE.02:SE.Zone3:existing")
+    archetype = library.get("mf_se02", state="existing")
+    assert (
+        cell["u_values"]["wall"]
+        == archetype.construction_set.elements[BuildingElement.EXT_WALL].u_value
     )
-    assert school_se04["u_values"]["glazing"] == 1.9
-    school_package = next(
-        p for p in catalogue["packages"] if p["id"] == school_se04["package_id"]
-    )
-    assert school_package["properties"]["window"]["curve"] == "v1_1.school.window"
-    cell = next(
-        c for c in catalogue["cells"] if c["id"] == "multi_family:SE.02:SE.Zone3:existing:F"
-    )
-    slot = Catalogue.load().parametric.get_slot(cell["id"])
-    assert cell["u_values"]["wall"] == slot.properties["external_wall"].value
-    assert cell["u_values"]["internal_wall"] == slot.properties["internal_wall"].value
-    assert cell["u_values"]["intermediate_floor"] == slot.properties["intermediate_floor"].value
-    mf_cells = [c for c in catalogue["cells"] if c["category"] == "multi_family"]
-    assert len(mf_cells) == 228
-    assert all(c["lod1_complete"] and not c["missing"] for c in mf_cells)
-    sf_cells = [c for c in catalogue["cells"] if c["category"] == "single_family"]
-    assert len(sf_cells) == 228
-    assert all(c["u_values"]["basement_wall"] is not None for c in sf_cells)
-    assert all(c["lod1_complete"] and not c["missing"] for c in sf_cells)
-    sf_modern = next(c for c in sf_cells if c["id"] == "single_family:SE.06:SE.Zone1:existing:S")
-    assert sf_modern["u_values"]["internal_wall"] == pytest.approx(0.5366837272668065)
-    assert sf_modern["u_values"]["intermediate_floor"] == pytest.approx(
-        Catalogue.load().parametric.resolve_construction("single_family", "SE.06", "existing").u_values["intermediate_floor"])
-    generic_cells = [c for c in catalogue["cells"] if c["category"] == "generic"]
-    assert len(generic_cells) == 228
-    assert all(c["lod1_complete"] and not c["missing"] for c in generic_cells)
-    construction = next(p for p in catalogue["packages"] if p["id"] == cell["package_id"])
-    assert len(construction["properties"]) == 8
-    assert construction["properties"]["infiltration"]["unit"] == "1/h"
+    assert cell["u_values"]["glazing"] == archetype.window.u_value
     assert all(
-        sum(
-            c["zone"] == zone and c["state"] == state and c["system"] == system
-            for c in catalogue["cells"]
-        )
-        == (5 if state == "default" else 30)
+        sum(cell["zone"] == zone and cell["state"] == state for cell in catalogue["cells"])
+        == (4 if state == "default" else 24)
         for zone in catalogue["dimensions"]["zones"]
         for state in catalogue["dimensions"]["states"]
-        for system in catalogue["dimensions"]["systems"]
     )
 
 
-def test_lod2_completeness_comes_from_detailed_catalogue(catalogue):
-    assert catalogue["lod2_summary"]["lod2_complete_slots"] > 0
-    assert catalogue["lod2_summary"]["slots_with_layer_recipe"] == 1140
-    assert catalogue["lod2_summary"]["slots_without_layer_recipe"] == 0
-    counts = {status: sum(c["lod2_status"] == status for c in catalogue["cells"])
-              for status in ("complete", "draft", "no_recipe")}
-    assert counts == {"complete": catalogue["lod2_summary"]["lod2_complete_slots"],
-                      "draft": 1140 - catalogue["lod2_summary"]["lod2_complete_slots"], "no_recipe": 0}
-    packages = {p["id"]: p for p in catalogue["packages"]}
-    se01 = packages["parametric:multi_family:SE.01:existing"]["lod2"]
-    assert se01["archetype_id"] == "mf_1940"
-    assert se01["alternatives"][0]["archetype_id"] == "mf_1950"
-    assert se01["alternatives"][0]["status"] == "draft"
-    assert packages["parametric:multi_family:SE.02:existing"]["lod2"]["checks"]["nominal_u_alignment"]
-    school = packages["parametric:school:SE.02:existing"]["lod2"]
-    assert school["status"] == "complete"
-    assert school["checks"]["nominal_u_alignment"] is True
-    assert school["alternatives"][0]["archetype_id"] == "school_fridhem"
-    assert school["alternatives"][0]["status"] == "draft"
-    assert packages["parametric:school:SE.04:existing"]["lod2"]["status"] == "complete"
+def test_completeness_matches_public_fabric_report(catalogue):
+    from epsm_data import Catalogue
+
+    library = Catalogue.load()
+    packages = {package["id"]: package for package in catalogue["packages"]}
+    for cell in catalogue["cells"]:
+        slot = library.get_slot(cell["id"])
+        report = library.completeness(slot.archetype_id, state=slot.state)
+        package = packages[cell["package_id"]]
+        assert cell["missing"] == list(report["missing_values"])
+        assert cell["lod2_status"] == ("complete" if report["complete"] else "incomplete")
+        assert package["lod2"]["archetype_id"] == slot.archetype_id
+        assert package["construction_set_id"] == slot.construction_set_id
+    assert (
+        sum(cell["status"] == "incomplete" for cell in catalogue["cells"])
+        == catalogue["summary"]["incomplete_slots"]
+    )
 
 
 def test_construction_payload_retains_material_properties_and_composites(catalogue):
-    package = next(
-        p for p in catalogue["packages"]
-        if p["id"] == "parametric:multi_family:SE.02:existing"
-    )
+    package = next(p for p in catalogue["packages"] if p["id"] == "lod2:mf_se02:existing")
     wall = package["construction"]["EXT_WALL"]
     assert wall["u_value"] is not None
     assert wall["components"]
@@ -274,18 +243,34 @@ def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
     from epsm_data import Catalogue
 
     path = tmp_path / "catalogue.json"
-    config = Catalogue.load().parametric.to_dict()
+    config = Catalogue.load().to_dict()
     path.write_text(json.dumps(dict(reversed(list(config.items())))), encoding="utf-8")
     assert load_data(path) == catalogue
-    config = Catalogue.load().parametric.with_property(
-        "office", "SE.03", "existing", "roof",
-        dict(value=0.2, source="proxy", note="Supplied reference")
-    ).to_dict()
+    material = next(
+        material
+        for package in catalogue["packages"]
+        for assembly in package["construction"].values()
+        for component in assembly.get("components", [])
+        for layer in component["layers"]
+        for material in layer["materials"]
+    )
+    config["materials"][material["id"]]["name"] += " reviewed"
     path.write_text(json.dumps(config), encoding="utf-8")
     changed = load_data(path)
     assert changed["manifest"]["release_id"] != catalogue["manifest"]["release_id"]
-    for before, after in zip(catalogue["cells"], changed["cells"], strict=True):
-        assert (before["revision"] != after["revision"]) == (before["category"] == "office" and before["era"] == "SE.03" and before["state"] == "existing")
+    changed_packages = {package["id"]: package for package in changed["packages"]}
+    affected = 0
+    for before in catalogue["packages"]:
+        uses_material = any(
+            item["id"] == material["id"]
+            for assembly in before["construction"].values()
+            for component in assembly.get("components", [])
+            for layer in component["layers"]
+            for item in layer["materials"]
+        )
+        assert (before["revision"] != changed_packages[before["id"]]["revision"]) == uses_material
+        affected += uses_material
+    assert 0 < affected < len(catalogue["packages"])
 
 
 def test_static_app_assets_and_catalogue_endpoint(server, catalogue):
@@ -294,7 +279,9 @@ def test_static_app_assets_and_catalogue_endpoint(server, catalogue):
     assert "internal_wall" in html and "intermediate_floor" in html and "basement_wall" in html
     script = request(server, "GET", "/app.js")[1].decode()
     assert "LoD2 complete" in script
-    assert "lod1_complete" in script
+    assert "lod1_complete" not in script
+    assert 'id="system"' not in html
+    assert "Missing values" in script
     assert '$("#export")' in script
 
 
@@ -342,7 +329,7 @@ const historical = {id: "old-note", cell_id: "office:SE.07:SE.Zone1:existing:S",
 const stored = [historical], downloads = [], blobs = [];
 const context = vm.createContext({
   document, console, Blob, URL: {createObjectURL(blob) {blobs.push(blob); return "blob:test";}, revokeObjectURL() {}},
-  location: {hash: "#school%3ASE.06%3ASE.Zone2%3Aadvanced%3AFTX"},
+  location: {hash: "#school%3ASE.06%3ASE.Zone2%3Aadvanced"},
   history: {replaceState(a, b, hash) {context.location.hash = hash;}},
   window: {addEventListener() {}}, matchMedia: () => ({matches: false}),
   setTimeout: () => 1, clearTimeout() {}, confirm: () => true,
@@ -360,32 +347,28 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   assert.equal(elements.get("app").hidden, false);
   // SE.07 has no states; both filter directions must choose an actual cell.
   elements.get("state").value = "default"; elements.get("state").listeners.change();
-  assert.match(context.location.hash, /school%3ASE.07%3ASE.Zone2%3Adefault%3AFTX/);
-  assert.match(elements.get("count").textContent, /^5 of 35/);
+  assert.match(context.location.hash, /school%3ASE.07%3ASE.Zone2%3Adefault/);
+  assert.match(elements.get("count").textContent, /^4 of 28/);
   elements.get("zone").value = "SE.Zone1"; elements.get("zone").listeners.change();
   assert.match(context.location.hash, /SE.07%3ASE.Zone1%3Adefault/);
   elements.get("zone").value = "SE.Zone2"; elements.get("zone").listeners.change();
   elements.get("state").value = "advanced"; elements.get("state").listeners.change();
-  assert.match(context.location.hash, /school%3ASE.06%3ASE.Zone2%3Aadvanced%3AFTX/);
-  assert.match(elements.get("lod2-total").textContent, new RegExp(`${input.catalogue.lod2_summary.lod2_complete_slots} LoD2 complete · 1140 with recipes`));
+  assert.match(context.location.hash, /school%3ASE.06%3ASE.Zone2%3Aadvanced/);
+  assert.match(elements.get("lod2-total").textContent, new RegExp(`${input.catalogue.summary.complete_slots} complete · ${input.catalogue.summary.incomplete_slots} incomplete assignments`));
   assert.ok((elements.get("matrix").innerHTML.match(/class="lod2-tick"/g) || []).length > 0);
-  assert.match(elements.get("count").textContent, /^35 of 35/);
-  assert.equal((elements.get("matrix").innerHTML.match(/data-cell=/g) || []).length, 35);
+  assert.match(elements.get("count").textContent, /^28 of 28/);
+  assert.equal((elements.get("matrix").innerHTML.match(/data-cell=/g) || []).length, 28);
   assert.doesNotMatch(elements.get("matrix").innerHTML, /No LoD2 recipe/);
   assert.match(elements.get("detail").innerHTML, /School.*2006–2021/);
-  assert.equal((elements.get("detail-content").innerHTML.match(/class="metric"/g) || []).length, 8);
-  assert.match(elements.get("detail-content").innerHTML, /School window profile/);
-  assert.match(elements.get("detail-content").innerHTML, /SE\.06 · 2006–2021<\/th><td>0\.9/);
-  assert.match(elements.get("detail-content").innerHTML, /SE\.07 · 2022–present/);
-  assert.equal((elements.get("detail-content").innerHTML.match(/<tr class=/g) || []).length, 7);
-  assert.doesNotMatch(elements.get("detail-content").innerHTML, /Pending: Ground floor/);
+  assert.equal((elements.get("detail-content").innerHTML.match(/class="metric"/g) || []).length, 7);
+  assert.match(elements.get("detail-content").innerHTML, /calculated forward/);
   elements.get("metric").value = "internal_wall";
   elements.get("metric").listeners.change();
   assert.equal((elements.get("matrix").innerHTML.match(/<strong>—<\/strong>/g) || []).length, 0);
   assert.equal((elements.get("matrix").innerHTML.match(/background:#e8eaed/g) || []).length, 0);
   // Partial caller-supplied catalogues must still show missing values clearly.
   vm.runInContext(`
-    globalThis.pendingCell = data.cells.find(c => c.category === "generic" && visible(c));
+    globalThis.pendingCell = data.cells.find(c => c.category === "single_family" && visible(c));
     globalThis.savedValue = pendingCell.u_values.internal_wall;
     pendingCell.u_values.internal_wall = null;
     renderMatrix();
@@ -394,7 +377,7 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   assert.equal((elements.get("matrix").innerHTML.match(/background:#e8eaed/g) || []).length, 1);
   vm.runInContext('pendingCell.u_values.internal_wall = savedValue; renderMatrix();', context);
   elements.get("search").value = "2030"; elements.get("search").listeners.input();
-  assert.match(elements.get("count").textContent, /^5 of 35/);
+  assert.match(elements.get("count").textContent, /^4 of 28/);
   elements.get("search").value = "not-a-category"; elements.get("search").listeners.input();
   assert.match(elements.get("matrix").innerHTML, /colspan="8"/);
   elements.get("reset").click();
@@ -402,29 +385,21 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   assert.doesNotMatch(elements.get("detail-content").innerHTML, /Pending:/);
   vm.runInContext('tab = "layers"; renderDetail();', context);
   assert.match(elements.get("detail-content").innerHTML, /LoD2 complete/);
-  assert.match(elements.get("detail-content").innerHTML, /Nominal U-value alignment/);
-  assert.match(elements.get("detail-content").innerHTML, /Ground validation/);
-  vm.runInContext('selectCell(cellsById.get("multi_family:SE.01:SE.Zone3:existing:F"));', context);
-  vm.runInContext('tab = "layers"; renderDetail();', context);
-  assert.match(elements.get("detail-content").innerHTML, /mf_1940/);
-  assert.match(elements.get("detail-content").innerHTML, /mf_1950: LoD2 draft/);
-  vm.runInContext('selectCell(cellsById.get("school:SE.02:SE.Zone3:existing:F"));', context);
-  assert.match(elements.get("detail-content").innerHTML, /LoD2 complete/);
-  assert.match(elements.get("detail-content").innerHTML, /school_fridhem: LoD2 draft/);
-  vm.runInContext('selectCell(cellsById.get("school:SE.04:SE.Zone3:existing:F"));', context);
-  assert.match(elements.get("detail-content").innerHTML, /LoD2 complete/);
-  vm.runInContext('selectCell(cellsById.get("multi_family:SE.02:SE.Zone3:existing:F"));', context);
-  vm.runInContext('tab = "evidence"; renderDetail();', context);
-  assert.match(elements.get("detail-content").innerHTML, /Scaling factor/);
-  assert.match(elements.get("detail-content").innerHTML, /Unclipped value/);
-  assert.doesNotMatch(elements.get("detail-content").innerHTML, /Nominal lower bound/);
-  assert.doesNotMatch(elements.get("detail-content").innerHTML, /Guardrail source/);
+  assert.match(elements.get("detail-content").innerHTML, /Missing values/);
+  assert.match(elements.get("detail-content").innerHTML, /Honeybee ID|HBJSON thermal properties/);
+  vm.runInContext('selectCell(cellsById.get("office:SE.01:SE.Zone3:existing"));', context);
+  assert.match(elements.get("detail-content").innerHTML, /LoD2 incomplete/);
+  assert.match(elements.get("detail-content").innerHTML, /boverket_id/);
+  vm.runInContext('selectCell(cellsById.get("multi_family:SE.02:SE.Zone3:existing"));', context);
+  vm.runInContext('tab = "record"; renderDetail();', context);
+  assert.match(elements.get("detail-content").innerHTML, /Resolved construction record/);
+  assert.doesNotMatch(elements.get("detail-content").innerHTML, /Scaling factor|Nominal U-value alignment/);
   vm.runInContext('tab = "notes"; renderDetail();', context);
   elements.get("body").value = "Review <script> safely";
   elements.get("author").value = "Tester"; elements.get("kind").value = "question";
   await elements.get("note-form").onsubmit({preventDefault() {}});
   assert.equal(stored.length, 2);
-  assert.equal(stored[1].cell_id, "multi_family:SE.02:SE.Zone3:existing:F");
+  assert.equal(stored[1].cell_id, "multi_family:SE.02:SE.Zone3:existing");
   assert.equal(stored[1].release_id, input.catalogue.manifest.release_id);
   assert.match(elements.get("detail-content").innerHTML, /Review &lt;script&gt; safely/);
   await elements.get("export").click();

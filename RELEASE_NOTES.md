@@ -1,5 +1,15 @@
 # Release 0.6.0 — 15 October 2026
 
+## Unreleased — frozen LoD2 catalogue
+
+- Keep standard linked material-to-archetype authoring and Honeybee/Boverket mappings.
+- Replace the parametric/review/calibration runtime with one normalized LoD2 catalogue: four building types, seven eras, 76 configurations and 228 climate-zone assignments.
+- Share canonical physical definitions; preserve all accepted construction physics and expose missing values through `Catalogue.completeness` and the explorer.
+- Keep `evidence/`, move formerly packaged source notes into `evidence/layered/`, and remove `docs/archive/`.
+- Migrate native exports to direct physical metadata. The prior parametric/detailed inspection APIs are removed; see `docs/archetype-api-migration.md`.
+- Flag six Office/School SE.01 configurations with an unresolved sand-fill Boverket mapping; no factor is invented.
+
+
 Shared complete or partial archetype authoring, immutable editing, sourced operating profiles and format-4 exchange now use the same definitions as catalogue selections. All shipped catalogue types and source variants retain their physical recipes and source evidence.
 
 This minor release removes migrated selection loaders, summary-only exchange and Data-to-EPSM forwarding APIs. Follow [the migration guide](docs/archetype-api-migration.md). Saved formats 1–3 remain readable. Data still imports and runs its authoring examples independently of Core and EPSM.

@@ -1,12 +1,9 @@
 include README.md pyproject.toml
-recursive-include src/epsm_data/datasets/parametric *.json
 recursive-include src/epsm_data/datasets/standards *.json
-recursive-include src/epsm_data/datasets/layered *.json
+recursive-include src/epsm_data/datasets/lod2 *.json
 recursive-include examples *.py
 recursive-include tests *.py *.json
 recursive-include explorer *.py *.html *.css *.js *.md
-prune ARCHIVE
-prune docs/archive
 prune data
 prune output
 global-exclude *.py[cod]

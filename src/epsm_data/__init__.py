@@ -1,4 +1,4 @@
-"""Swedish parametric archetypes and retained material-layer construction APIs.
+"""Deterministic LoD2 catalogue and linked material-to-archetype authoring.
 
 Imports perform no dataset loading, network calls, or database operations.
 """
@@ -7,6 +7,7 @@ import logging as _stdlib_logging
 
 from ._version import __version__
 from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
+from .classification import ArchetypeKey, ArchetypeSlot
 from .domain import (
     Archetype,
     BuildingArchetype,
@@ -29,6 +30,7 @@ from .domain import (
     WindowMaterial,
     build_construction_set,
 )
+from .nominal import export_nominal_constructions, validate_nominal_handover
 from .operations import ConstructionOperation, SystemOperation
 from .profiles import (
     HVACTemplate,
@@ -49,103 +51,54 @@ from .serialization import (
 )
 from .usecases.build_archetype import build_archetype
 
-_PARAMETRIC_EXPORTS = {
-    "ArchetypeKey",
-    "ArchetypeSlot",
-    "EffectiveConstructionSet",
-    "EffectiveProperty",
-    "ParametricCatalogue",
-}
-_LAYERED_EXPORTS = {"CalibratedArchetype"}
-_DETAILED_EXPORTS = {"DetailedCatalogue"}
-_SCHOOL_EXPORTS = {"SchoolReference"}
-_OFFICE_EXPORTS = {"OfficeReference"}
-_NOMINAL_EXPORTS = {"export_nominal_constructions", "validate_nominal_handover"}
-_RENOVATION_EXPORTS = {
-    "load_renovation_package", "honeybee_material_dict", "instantiate_renovation_honeybee_materials",
-}
-
-
-def __getattr__(name):
-    # Lazy imports also permit python -m epsm_data.parametric without runpy warnings.
-    if name in _PARAMETRIC_EXPORTS:
-        from . import parametric
-
-        return getattr(parametric, name)
-    if name in _LAYERED_EXPORTS:
-        from . import layered
-
-        return getattr(layered, name)
-    if name in _RENOVATION_EXPORTS:
-        from . import renovation
-
-        return getattr(renovation, name)
-    if name in _DETAILED_EXPORTS:
-        from . import detailed
-
-        return getattr(detailed, name)
-    if name in _SCHOOL_EXPORTS:
-        from . import school
-
-        return getattr(school, name)
-    if name in _OFFICE_EXPORTS:
-        from . import office
-
-        return getattr(office, name)
-    if name in _NOMINAL_EXPORTS:
-        from . import nominal
-
-        return getattr(nominal, name)
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-
-
 __all__ = [
-    "available_operating_profiles", "select_operating_profile", "select_dhw_profile",
-    "EnvelopePerformance",
-    "OperatingProfile", "HVACTemplate", "load_operating_profile", "load_standard_record", "load_generic_other_template",
-    "Catalogue",
-    "reference_construction_set",
-    "ConstructionOperation", "SystemOperation", "reference_hvac_template",
-    "Archetype", "Material", "EnvironmentalFactor",
-    "construction_set_from_dict", "construction_set_to_dict",
     "__version__",
+    "Catalogue",
     "ArchetypeKey",
     "ArchetypeSlot",
-    "EffectiveConstructionSet",
-    "EffectiveProperty",
-    "ParametricCatalogue",
-    "CalibratedArchetype",
-    "DetailedCatalogue",
-    "SchoolReference",
-    "OfficeReference",
-    "export_nominal_constructions",
-    "validate_nominal_handover",
-    "load_renovation_package",
-    "honeybee_material_dict",
-    "instantiate_renovation_honeybee_materials",
-    "Cost",
-    "ParameterDefinition",
-    "RenovationCatalogue",
-    "RenovationMeasure",
+    "Archetype",
     "BuildingArchetype",
     "BuildingElement",
     "Component",
     "ConstructionSet",
     "Element",
     "EmbodiedCarbon",
+    "EnvelopePerformance",
+    "EnvironmentalFactor",
     "Layer",
     "LayerMaterial",
     "LayerSlot",
+    "Material",
     "OpaqueMaterial",
-    "RenovationEvent",
     "Roughness",
     "ShearingLayer",
     "WindowElement",
     "WindowMaterial",
     "build_construction_set",
     "build_archetype",
-    "archetype_to_dict",
     "archetype_from_dict",
+    "archetype_to_dict",
+    "construction_set_from_dict",
+    "construction_set_to_dict",
+    "ConstructionOperation",
+    "SystemOperation",
+    "RenovationCatalogue",
+    "RenovationMeasure",
+    "RenovationEvent",
+    "Cost",
+    "ParameterDefinition",
+    "OperatingProfile",
+    "HVACTemplate",
+    "available_operating_profiles",
+    "load_generic_other_template",
+    "load_operating_profile",
+    "load_standard_record",
+    "select_dhw_profile",
+    "select_operating_profile",
+    "reference_construction_set",
+    "reference_hvac_template",
+    "export_nominal_constructions",
+    "validate_nominal_handover",
 ]
 
 # A library emits no output until its host selects handlers.

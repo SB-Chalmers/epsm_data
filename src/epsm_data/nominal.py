@@ -1,11 +1,9 @@
-"""Role-preserving nominal Honeybee and epsm_core construction handovers.
+"""Deterministic physical construction handovers for Honeybee and EPSM Core.
 
-These exports preserve the catalogue's nominal thermal/storage model. They are
-not a complete building envelope or a ground/cavity simulation certification.
-All third-party imports are confined to optional validation helpers.
+These pure functions export the supplied construction definitions. They neither
+load a catalogue nor assess targets, source review, or simulation readiness.
 """
 
-# Release contract: v1.4 preserves v1.3 roles; see evidence/lod2_v1_4/window-diagnostic.json.
 from __future__ import annotations
 
 import hashlib
@@ -20,7 +18,9 @@ from .thermal.boundary_conditions import get_boundary_resistances
 
 
 def _identity(kind, value):
-    digest = hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
+    digest = hashlib.sha256(
+        json.dumps(value, sort_keys=True, allow_nan=False).encode()
+    ).hexdigest()
     return f"EPSM_{kind}_{digest[:24]}"
 
 
@@ -35,89 +35,144 @@ def _metrics(layers):
     }
 
 
-def _expected_roles(key, release=None):
-    if release in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
-        return {"ROOF" if key.get("category") == "office" else "TOP_FLOOR",
-                "EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "INTERMEDIATE_FLOOR",
-                "INT_WALL_NONLOADBEARING", "WINDOW"}
-    if key.get("category") == "office":
-        roles = {"ROOF", "EXT_WALL", "GROUND_FLOOR", "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING", "WINDOW"}
-        if key.get("era") == "SE.01":
-            roles.add("BASEMENT_WALL")
-        return roles
-    if key.get("category") == "school":
-        roles = {"TOP_FLOOR", "EXT_WALL", "GROUND_FLOOR", "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING", "WINDOW"}
-        if key.get("era") == "SE.01":
-            roles.add("BASEMENT_WALL")
-        return roles
-    return {"TOP_FLOOR", "EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "INTERMEDIATE_FLOOR", "INT_WALL_NONLOADBEARING", "WINDOW"}
+def _portable_metadata(metadata):
+    if metadata is None:
+        return {}
+    if not isinstance(metadata, Mapping):
+        raise TypeError("Construction metadata must be a portable mapping")
+    try:
+        return json.loads(json.dumps(_encode(metadata), allow_nan=False))
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Construction metadata must contain finite portable values") from exc
+
+
+def _source_id(value):
+    return None if value is None or value == "" else str(value)
+
+
+def _reference_matches(reference, properties, boverket_id):
+    if _source_id(reference.get("boverket_id")) != _source_id(boverket_id):
+        return False
+    supplied = reference.get("properties", {})
+    if not isinstance(supplied, Mapping):
+        raise ValueError("Source reference properties must be a mapping")
+    return all(
+        key not in supplied
+        or (not isinstance(supplied[key], bool) and supplied[key] == value)
+        for key, value in properties.items()
+    )
+
+
+def _opaque_properties(material):
+    return {
+        field: material.roughness.value if field == "roughness" else getattr(material, field)
+        for field in (
+            "roughness", "conductivity", "density", "specific_heat",
+            "thermal_absorptance", "solar_absorptance", "visible_absorptance",
+        )
+    }
+
+
+def _material_references(archetype, metadata):
+    supplied = metadata.get("material_references", {})
+    if not isinstance(supplied, dict) or any(not isinstance(ref, dict) for ref in supplied.values()):
+        raise ValueError("material_references must map identifiers to reference records")
+    references = deepcopy(supplied)
+    by_json_id = {ref["json_id"]: ref for ref in references.values() if ref.get("json_id")}
+    for _, element in sorted(archetype.construction_set.elements.items(), key=lambda item: item[0].value):
+        if element.application == BuildingElement.WINDOW:
+            continue
+        for component in element.components:
+            for slot in component.layers:
+                for constituent in slot.layer.materials:
+                    material = constituent.material
+                    if material.json_id in by_json_id:
+                        if not _reference_matches(
+                            by_json_id[material.json_id], _opaque_properties(material),
+                            material.boverket_id,
+                        ):
+                            raise ValueError(
+                                f"Material {material.json_id}: source reference disagrees with "
+                                "physical properties or Boverket ID"
+                            )
+                        continue
+                    ref = {
+                        "json_id": material.json_id,
+                        "honeybee_id": None,
+                        "boverket_id": material.boverket_id,
+                    }
+                    key = material.json_id or material.name
+                    if key in references and references[key] != ref:
+                        raise ValueError(f"Conflicting material reference: {key}")
+                    references[key] = ref
+                    by_json_id[material.json_id] = ref
+    return dict(sorted(references.items())), by_json_id
+
+
+def _window_reference(element, references):
+    candidates = [
+        ref for key, ref in references.items()
+        if ref.get("kind") in {"simple_window", "window"}
+        or key.startswith(("window_", "window:"))
+    ]
+    if candidates:
+        properties = {"u_value": element.u_value, "shgc": element.shgc, "vt": element.vt}
+        matching = [
+            ref for ref in candidates
+            if _reference_matches(ref, properties, element.boverket_id)
+        ]
+        if len(matching) != 1:
+            raise ValueError(
+                "Window requires exactly one source reference matching its physical "
+                "properties and Boverket ID"
+            )
+        return deepcopy(matching[0])
+    return {"kind": "simple_window", "boverket_id": element.boverket_id, "honeybee_id": None}
 
 
 def export_nominal_constructions(archetype, *, metadata=None):
-    """Return portable, unabridged native Honeybee and core-type dictionaries.
+    """Export the actual supplied roles as native Honeybee and Core dictionaries.
 
-    ``core`` is keyed by catalogue role and contains ConstructionSpec-compatible
-    dictionaries, except WINDOW which is GlazingSpec-compatible. No implicit
-    weather shell, thermal bridge uplift, ground temperature or building geometry
-    is invented. Reporting films are metadata, never emitted material layers.
+    ``metadata`` is optional descriptive context. Supported fields include
+    ``material_references``, ``boundary_details``, ``roof_topology``, ``category``,
+    ``era`` and ``state``. No calibration, evidence or revision records are needed.
 
-    Supply a shared Archetype with explicit source/boundary ``metadata`` from
-    ``Catalogue.nominal_metadata`` or a caller-owned equivalent record. This
-    pure operation does not assess calibration. The earlier calibrated-wrapper
-    argument remains an adapter to this same implementation during migration.
+    Layers remain outside to inside. Parallel materials use area-weighted
+    conductivity and density, and mass-weighted specific heat, preserving layer
+    resistance, mass and thermal storage. Surface films are reported separately
+    from material layers. Completeness of the Swedish catalogue is checked by
+    Catalogue; partial custom constructions can also be exported here.
     """
-    if isinstance(archetype, BuildingArchetype):
-        if metadata is None:
-            raise TypeError("Shared archetype nominal export requires explicit source/boundary metadata")
-        if not isinstance(metadata, Mapping):
-            raise TypeError("Nominal metadata must be a portable mapping")
-        try:
-            report = json.loads(json.dumps(_encode(metadata), allow_nan=False))
-        except (TypeError, ValueError) as exc:
-            raise ValueError("Nominal metadata must contain finite portable values") from exc
-        required = {"revision", "material_references", "boundary_details", "key", "catalogue_revision",
-                    "record_annotations", "sources", "effective_ground_calibration_complete", "open_caveats"}
-        missing = required - report.keys()
-        if missing:
-            raise ValueError(f"Nominal metadata is missing: {', '.join(sorted(missing))}")
-    elif hasattr(archetype, "report") and hasattr(archetype, "archetype"):
-        if metadata is not None:
-            raise TypeError("Supply metadata only with a shared Archetype, not twice")
-        report, archetype = archetype.report, archetype.archetype
-    else:
-        raise TypeError("Nominal export requires a shared Archetype with metadata")
+    if not isinstance(archetype, BuildingArchetype):
+        raise TypeError("Construction export requires an Archetype")
     if archetype.construction_set is None or not archetype.construction_set.elements:
-        raise ValueError("Nominal export requires supplied physical construction definitions")
-    references = {r["json_id"]: r for r in report["material_references"].values()}
+        raise ValueError("Construction export requires supplied physical construction definitions")
+    context_metadata = _portable_metadata(metadata)
+    boundaries = context_metadata.get("boundary_details", {})
+    if not isinstance(boundaries, dict) or any(not isinstance(v, dict) for v in boundaries.values()):
+        raise ValueError("boundary_details must map roles to physical boundary records")
+    references, by_json_id = _material_references(archetype, context_metadata)
     hb, core, roles, reciprocal = {}, {}, {}, {}
-    for role, element in archetype.construction_set.elements.items():
+    elements = sorted(archetype.construction_set.elements.items(), key=lambda item: item[0].value)
+    for role, element in elements:
         name = role.value
         context = {
-            "construction_revision": report["revision"],
             "role": name,
             "representation": "nominal_reference_projection",
-            "boundary_details": deepcopy(report["boundary_details"].get(name, {})),
+            "boundary_details": deepcopy(boundaries.get(name, {})),
         }
         if role == BuildingElement.WINDOW:
-            ref = next(
-                r for mid, r in report["material_references"].items() if r.get("kind") == "simple_window" or mid.startswith("window_")
-            )
+            ref = _window_reference(element, references)
             material = {
                 "type": "EnergyWindowMaterialSimpleGlazSys",
-                "identifier": _identity(
-                    "window_material",
-                    {
-                        "reference": ref,
-                        "u": element.u_value,
-                        "shgc": element.shgc,
-                        "vt": element.vt,
-                    },
-                ),
+                "identifier": _identity("window_material", {
+                    "reference": ref, "u": element.u_value, "shgc": element.shgc, "vt": element.vt,
+                }),
                 "u_factor": element.u_value,
                 "shgc": element.shgc,
                 "vt": element.vt,
                 "user_data": {
-                    "source_reference": deepcopy(ref),
+                    "source_reference": ref,
                     "representation": "simple_whole_window",
                 },
             }
@@ -139,7 +194,7 @@ def export_nominal_constructions(archetype, *, metadata=None):
                 "heat_capacity_j_m2k": None,
             }
             continue
-        materials, source = [], {k: 0.0 for k in _metrics([])}
+        materials, source = [], {key: 0.0 for key in _metrics([])}
         for component in element.components:
             for slot in component.layers:
                 layer = slot.layer
@@ -159,24 +214,26 @@ def export_nominal_constructions(archetype, *, metadata=None):
                     "specific_heat": capacity / density,
                     "roughness": constituents[0].material.roughness.value,
                     **{
-                        f: sum(c.area_fraction * getattr(c.material, f) for c in constituents)
-                        for f in ("thermal_absorptance", "solar_absorptance", "visible_absorptance")
+                        field: sum(
+                            c.area_fraction * getattr(c.material, field) for c in constituents
+                        )
+                        for field in (
+                            "thermal_absorptance", "solar_absorptance", "visible_absorptance"
+                        )
                     },
                     "user_data": {
                         "layer_code": layer.layer_code,
                         "representation": "derived_equivalent"
-                        if layer.is_composite
-                        else "source_at_layer_depth",
+                        if layer.is_composite else "source_at_layer_depth",
                         "constituents": [
                             {
                                 "area_fraction": c.area_fraction,
-                                "source_reference": deepcopy(references[c.material.json_id]),
+                                "source_reference": deepcopy(by_json_id[c.material.json_id]),
                             }
                             for c in constituents
                         ],
                         "carbon_mapping": "constituents_only"
-                        if layer.is_composite
-                        else "source_reference",
+                        if layer.is_composite else "source_reference",
                     },
                 }
                 fields["identifier"] = _identity("layer", fields)
@@ -185,23 +242,14 @@ def export_nominal_constructions(archetype, *, metadata=None):
                 source["resistance_m2k_w"] += layer.r_value
                 source["mass_kg_m2"] += layer.thickness * density
                 source["heat_capacity_j_m2k"] += layer.thickness * capacity
-        if not 1 <= len(materials) <= 10:
-            raise ValueError(f"{name}: core constructions support one to ten layers")
-        for m in materials:
-            for f in ("thickness", "conductivity", "density", "specific_heat"):
-                if not math.isfinite(m[f]) or m[f] <= 0:
-                    raise ValueError(f"Invalid nominal {name} {f}")
-            if m["specific_heat"] < 100:
-                raise ValueError("Core materials require heat capacity >= 100 J/(kg K)")
         metrics = _metrics(materials)
-        if any(
-            not math.isclose(metrics[k], source[k], rel_tol=1e-10, abs_tol=1e-10) for k in source
-        ):
-            raise ValueError(f"{name}: nominal export changed resistance, mass or storage")
+        if any(not math.isclose(metrics[key], value, rel_tol=1e-10, abs_tol=1e-10)
+               for key, value in source.items()):
+            raise ValueError(f"{name}: construction export changed resistance, mass or storage")
         rsi, rse = get_boundary_resistances(role)
-        u = 1 / (metrics["resistance_m2k_w"] + rsi + rse)
-        if not math.isclose(u, element.u_value, rel_tol=1e-10):
-            raise ValueError(f"{name}: exported nominal U differs from the catalogue")
+        u_value = 1 / (metrics["resistance_m2k_w"] + rsi + rse)
+        if not math.isclose(u_value, element.u_value, rel_tol=1e-10):
+            raise ValueError(f"{name}: exported U-value differs from the construction")
         context.update(rsi_m2k_w=rsi, rse_m2k_w=rse)
         hb[name] = {
             "type": "OpaqueConstruction",
@@ -212,34 +260,32 @@ def export_nominal_constructions(archetype, *, metadata=None):
         core[name] = {
             "layers": [
                 {
-                    "thickness_m": m["thickness"],
+                    "thickness_m": material["thickness"],
                     "material": {
-                        "name": m["identifier"],
-                        "conductivity_w_mk": m["conductivity"],
-                        "density_kg_m3": m["density"],
-                        "specific_heat_j_kgk": m["specific_heat"],
+                        "name": material["identifier"],
+                        "conductivity_w_mk": material["conductivity"],
+                        "density_kg_m3": material["density"],
+                        "specific_heat_j_kgk": material["specific_heat"],
                         **{
-                            f: m[f]
-                            for f in (
-                                "roughness",
-                                "solar_absorptance",
-                                "thermal_absorptance",
+                            field: material[field]
+                            for field in (
+                                "roughness", "solar_absorptance", "thermal_absorptance",
                                 "visible_absorptance",
                             )
                         },
                     },
                 }
-                for m in materials
+                for material in materials
             ],
             "surface_resistance_m2k_w": rsi + rse,
         }
         roles[name] = {
             **metrics,
-            "nominal_u_w_m2k": u,
+            "nominal_u_w_m2k": u_value,
             "rsi_m2k_w": rsi,
             "rse_m2k_w": rse,
             "layer_order": "outside_to_inside",
-            "boundary_details": context["boundary_details"],
+            "boundary_details": deepcopy(context["boundary_details"]),
         }
         reverse_hb = deepcopy(hb[name])
         reverse_hb["materials"].reverse()
@@ -248,78 +294,52 @@ def export_nominal_constructions(archetype, *, metadata=None):
         reverse_core = deepcopy(core[name])
         reverse_core["layers"].reverse()
         reciprocal[name] = {"honeybee": reverse_hb, "core": reverse_core}
-    expected = (
-        {"ROOF", "EXT_WALL", "GROUND_FLOOR", "INTERMEDIATE_FLOOR",
-         "INT_WALL_NONLOADBEARING", "WINDOW"}
-        if report.get("status") == "source_and_provisional_draft"
-        else _expected_roles(report["key"], report.get("dataset_release"))
-    )
-    if set(hb) != expected:
-        raise ValueError("Nominal handover requires all declared archetype roles")
+    classification = {
+        field: deepcopy(context_metadata[field])
+        for field in ("category", "era", "state") if field in context_metadata
+    }
     bundle = {
         "format_version": 1,
-        **({"dataset_release": report["dataset_release"],
-            "construction_availability": report["construction_availability"],
-            "element_presence": "caller_geometry"}
-           if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current") else {}),
         "kind": "nominal_construction_handover",
-        "key": deepcopy(report["key"]),
-        "role_profile": "school_source_draft" if report.get("status") == "source_and_provisional_draft" else "canonical",
-        "construction_revision": report["revision"],
-        "catalogue_revision": report["catalogue_revision"],
-        "material_references": deepcopy(report["material_references"]),
-        **({"retained_baseline_unmapped_materials": deepcopy(report["retained_baseline_unmapped_materials"])}
-           if report.get("retained_baseline_unmapped_materials") else {}),
-        "record_annotations": deepcopy(report["record_annotations"]),
-        "sources": deepcopy(report["sources"]),
+        "archetype_id": archetype.archetype_id,
+        "key": deepcopy(context_metadata.get("key", classification)),
+        **classification,
+        "declared_roles": list(hb),
+        "material_references": references,
+        "roof_topology": deepcopy(context_metadata.get("roof_topology")),
         "honeybee": hb,
         "core": core,
         "roles": roles,
-        "reciprocal": reciprocal,
-        "limitations": [
-            "Nominal equivalent-composite model, not a full ISO 6946 assessment.",
-            ("Declared equivalent cavity layers preserve fixed nominal resistance; ventilation, fixings and thermal bridges are not dynamically simulated."
-             if any(x.get("cavity_nominal_r_m2k_w") for x in report.get("boundary_details", {}).values())
-             else "Cavities/fixings/veneer support are boundary metadata, not simulated air or bridge layers."),
-            "Ground-contact constructions are layer-only assemblies, not effective ground U-values.",
-            "No geometry, monthly ground temperatures, weather shell or window mass is invented.",
-            "This core checkout uses monthly ground temperatures; ground validation requires an explicit geometry/boundary study, not an established Kiva workflow.",
-        ],
+        "reciprocal_constructions": reciprocal,
+        # Existing EPSM consumers use this spelling.
+        "reciprocal": deepcopy(reciprocal),
     }
-    validation = validate_nominal_handover(bundle)
-    ground = bool(report["effective_ground_calibration_complete"])
-    carbon = (
-        all(r["boverket_id"] for r in references.values())
-        and all(r["mass_kg_m2"] is not None for r in roles.values())
-        and not any(c.get("scope") == "carbon_assessment" for c in report["open_caveats"])
-    )
-    bundle["readiness"] = {
-        "honeybee_nominal_export": validation["honeybee"],
-        "core_nominal_export": validation["core"],
-        "ground_validation": ground,
-        "carbon_assessment": carbon,
-        "simulation": ground
-        and bool(report.get("weather_shell_validated"))
-        and not any(c.get("scope") == "simulation" for c in report["open_caveats"]),
-    }
+    validate_nominal_handover(bundle)
     return bundle
 
 
-def validate_nominal_handover(bundle):
-    """Validate portable nominal payloads without third-party dependencies.
+def _positive(value, *, minimum=0):
+    return (not isinstance(value, bool) and isinstance(value, (int, float))
+            and math.isfinite(value) and value > 0 and value >= minimum)
 
-    Native library validation is available separately. These checks compare both
-    representations with catalogue metrics, including reciprocal ordering.
-    """
-    expected = (
-        {"ROOF", "EXT_WALL", "GROUND_FLOOR", "INTERMEDIATE_FLOOR",
-         "INT_WALL_NONLOADBEARING", "WINDOW"}
-        if bundle.get("role_profile") == "school_source_draft"
-        else _expected_roles(bundle["key"], bundle.get("dataset_release"))
-    )
+
+def _fraction(value):
+    return (not isinstance(value, bool) and isinstance(value, (int, float))
+            and math.isfinite(value) and 0 <= value <= 1)
+
+
+def _validate_nominal_handover(bundle):
+    expected = set(bundle.get("declared_roles", bundle["honeybee"]))
+    if not expected or not expected <= {role.value for role in BuildingElement}:
+        raise ValueError("Construction handover requires declared physical roles")
     if any(set(bundle[field]) != expected for field in ("honeybee", "core", "roles")):
-        raise ValueError("Nominal handover requires all declared archetype roles")
-    for role in expected:
+        raise ValueError("Construction handover representations must contain the same roles")
+    reciprocal = bundle.get("reciprocal_constructions", bundle.get("reciprocal", {}))
+    if "reciprocal" in bundle and bundle["reciprocal"] != reciprocal:
+        raise ValueError("Reciprocal construction aliases differ")
+    if set(reciprocal) != expected - {"WINDOW"}:
+        raise ValueError("Reciprocal constructions must contain every opaque role")
+    for role in sorted(expected):
         hb, core, metrics = (bundle[field][role] for field in ("honeybee", "core", "roles"))
         if role == "WINDOW":
             if hb["type"] != "WindowConstruction" or len(hb["materials"]) != 1:
@@ -332,13 +352,13 @@ def validate_nominal_handover(bundle):
                 ("shgc", "solar_heat_gain_coefficient"),
                 ("vt", "visible_transmittance"),
             ):
-                v = material[hf]
-                if not math.isfinite(v) or (v <= 0 if hf == "u_factor" else not 0 <= v <= 1):
+                value = material[hf]
+                if not (_positive(value) if hf == "u_factor" else _fraction(value)):
                     raise ValueError(f"Invalid nominal window {hf}")
-                if v != core[cf]:
+                if value != core[cf]:
                     raise ValueError(f"Nominal window {hf} differs between exports")
             if not math.isclose(material["u_factor"], metrics["nominal_u_w_m2k"], rel_tol=1e-10):
-                raise ValueError("Nominal window U differs from catalogue")
+                raise ValueError("Nominal window U differs from construction metrics")
             continue
         materials = hb["materials"]
         if hb["type"] != "OpaqueConstruction" or not 1 <= len(materials) <= 10:
@@ -353,104 +373,52 @@ def validate_nominal_handover(bundle):
                 ("density", "density_kg_m3"),
                 ("specific_heat", "specific_heat_j_kgk"),
             ):
-                v = material[hf]
-                if not math.isfinite(v) or v <= 0 or (hf == "specific_heat" and v < 100):
+                if not _positive(material[hf], minimum=100 if hf == "specific_heat" else 0):
                     raise ValueError(f"Invalid nominal {role} {hf}")
-                if v != layer["material"][cf]:
+                if material[hf] != layer["material"][cf]:
                     raise ValueError(f"Nominal material differs: {role} {hf}")
-            if not math.isfinite(material["thickness"]) or material["thickness"] <= 0:
+            if not _positive(material["thickness"]):
                 raise ValueError(f"Invalid nominal thickness: {role}")
             if material["thickness"] != layer["thickness_m"]:
                 raise ValueError(f"Nominal thickness differs: {role}")
             for field in ("thermal_absorptance", "solar_absorptance", "visible_absorptance"):
-                if not 0 <= material[field] <= 1 or material[field] != layer["material"][field]:
+                if not _fraction(material[field]) or material[field] != layer["material"][field]:
                     raise ValueError(f"Nominal optical property differs: {role}")
-            roughness_values = {
-                "VeryRough",
-                "Rough",
-                "MediumRough",
-                "MediumSmooth",
-                "Smooth",
-                "VerySmooth",
-            }
-            if (
-                material["roughness"] not in roughness_values
-                or material["roughness"] != layer["material"]["roughness"]
-            ):
+            if material["roughness"] not in {
+                "VeryRough", "Rough", "MediumRough", "MediumSmooth", "Smooth", "VerySmooth",
+            } or material["roughness"] != layer["material"]["roughness"]:
                 raise ValueError(f"Invalid nominal roughness: {role}")
         calculated = _metrics(materials)
-        if any(
-            not math.isclose(v, metrics[k], rel_tol=1e-10, abs_tol=1e-10)
-            for k, v in calculated.items()
-        ):
+        if any(not math.isclose(value, metrics[key], rel_tol=1e-10, abs_tol=1e-10)
+               for key, value in calculated.items()):
             raise ValueError(f"Nominal resistance, thickness, mass or storage differs: {role}")
+        if any(not isinstance(metrics[field], (int, float)) or isinstance(metrics[field], bool)
+               or not math.isfinite(metrics[field]) or metrics[field] < 0
+               for field in ("rsi_m2k_w", "rse_m2k_w")):
+            raise ValueError(f"Invalid nominal surface films: {role}")
         films = metrics["rsi_m2k_w"] + metrics["rse_m2k_w"]
         if any(hb["user_data"][field] != metrics[field] for field in ("rsi_m2k_w", "rse_m2k_w")):
             raise ValueError(f"Honeybee nominal film metadata differs: {role}")
         if not math.isclose(films, core["surface_resistance_m2k_w"], abs_tol=1e-10):
             raise ValueError(f"Nominal films differ: {role}")
-        if not math.isclose(
-            1 / (calculated["resistance_m2k_w"] + films), metrics["nominal_u_w_m2k"], rel_tol=1e-10
-        ):
+        if not math.isclose(1 / (calculated["resistance_m2k_w"] + films),
+                            metrics["nominal_u_w_m2k"], rel_tol=1e-10):
             raise ValueError(f"Nominal U differs: {role}")
-        reverse = bundle["reciprocal"][role]
+        reverse = reciprocal[role]
         if reverse["core"]["surface_resistance_m2k_w"] != core["surface_resistance_m2k_w"]:
             raise ValueError(f"Reciprocal nominal films differ: {role}")
-        if (
-            reverse["honeybee"]["user_data"]["rsi_m2k_w"] != metrics["rse_m2k_w"]
-            or reverse["honeybee"]["user_data"]["rse_m2k_w"] != metrics["rsi_m2k_w"]
-        ):
+        if (reverse["honeybee"]["user_data"]["rsi_m2k_w"] != metrics["rse_m2k_w"]
+                or reverse["honeybee"]["user_data"]["rse_m2k_w"] != metrics["rsi_m2k_w"]):
             raise ValueError(f"Reciprocal film ordering differs: {role}")
-        if reverse["honeybee"]["materials"] != list(reversed(materials)) or reverse["core"][
-            "layers"
-        ] != list(reversed(core["layers"])):
+        if (reverse["honeybee"]["materials"] != list(reversed(materials))
+                or reverse["core"]["layers"] != list(reversed(core["layers"]))):
             raise ValueError(f"Reciprocal layer order differs: {role}")
     return {"honeybee": True, "core": True}
 
 
-def catalogue_lod2_checks(calibrated):
-    """Data/export acceptance only; scope-specific simulation caveats stay open."""
-    report = calibrated.report
-    refs = report["material_references"]
-    active_ids = set(refs)
-    hb_ids = {r["honeybee_id"] for r in refs.values()}
-    open_data = [
-        c
-        for c in report["open_caveats"]
-        if c.get("scope", "catalogue") == "catalogue"
-        and not (c["owner_type"] == "material" and c["owner_id"] not in active_ids)
-        and not (c["owner_type"] == "honeybee" and c["owner_id"] not in hb_ids)
-    ]
-    exported = export_nominal_constructions(calibrated)
-    checks = {
-        "construction_schema": report["construction_schema_complete"],
-        "honeybee_material_references": all(r["honeybee_id"] for r in refs.values()),
-        "boverket_material_references": all(r["boverket_id"] or r["mapping_status"] == "not_applicable"
-                                             for r in refs.values()),
-        "thermal_and_optical_evidence_reviewed": not any(
-            c.get("topic") in {"thermal", "optics"} for c in open_data
-        ),
-        "no_open_blocking_catalogue_caveats": not any(
-            c["severity"] == "blocking" for c in open_data
-        ),
-        "nominal_u_alignment": report["nominal_calibration_complete"],
-        "honeybee_nominal_export": exported["readiness"]["honeybee_nominal_export"],
-        "core_nominal_export": exported["readiness"]["core_nominal_export"],
-    }
-    if report.get("dataset_release") in ("epsm-lod2-v1.3", "epsm-lod2-v1.4", "current"):
-        checks["seven_role_library"] = len(exported["roles"]) == 7
-        checks["presence_is_geometry_owned"] = exported["element_presence"] == "caller_geometry"
-    retained = set(report.get("retained_baseline_unmapped_materials", []))
-    if retained:
-        # Verified against actual equal floors in all states by DetailedCatalogue.
-        # This is intervention-scope acceptance, not complete baseline carbon data.
-        checks.pop("boverket_material_references")
-        checks["boverket_intervention_scope_references"] = all(
-            r["boverket_id"] or r["mapping_status"] == "not_applicable" or mid in retained
-            for mid, r in refs.items())
-    return {
-        "checks": checks,
-        "lod2_complete": all(checks.values()),
-        "open_catalogue_caveats": open_data,
-        "readiness": exported["readiness"],
-    }
+def validate_nominal_handover(bundle):
+    """Check physical equality, storage, films and ordering without engine imports."""
+    try:
+        return _validate_nominal_handover(bundle)
+    except (KeyError, TypeError, AttributeError, ZeroDivisionError, OverflowError) as exc:
+        raise ValueError("Malformed physical construction handover") from exc

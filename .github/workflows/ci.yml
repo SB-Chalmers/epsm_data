@@ -25,5 +25,5 @@ jobs:
       run: python -m pip install '.[dev]'
     - name: Run offline development checks
       run: |
-        python -m pytest -q tests/test_catalogue.py tests/test_current_catalogue.py tests/test_catalogue_authoring.py tests/test_profiles.py tests/test_operation_logging.py
+        python -m pytest -q tests/test_lod2_catalogue.py tests/test_lod2_integrity.py tests/test_lod2_nominal.py tests/test_lod2_physics.py tests/test_profiles.py tests/test_operation_logging.py
         python -m build --wheel

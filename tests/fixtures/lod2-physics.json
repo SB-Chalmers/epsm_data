@@ -1,0 +1,2282 @@
+{
+  "mf_se01:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "bb571504e0f67eedfcb358746259550fe4c1b861ec0b53d8361a4921493f27e4",
+      "u_value": 0.12353021227733224
+    },
+    "GROUND_FLOOR": {
+      "physics": "88ca9cb1d8437bd5750b998804b0c699e74012072887ad55085ac1b8ad5055e1",
+      "u_value": 1.3526363219108055
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "ff04ecad4e4484866c4de516715d225b2c2d0f7e943fb05cf64546010563bf58",
+      "u_value": 1.7795833766837157
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "b7f239c3ec6f57cf578ef72f33a40120bf8971f86d27514d8e93c560cdcd7e33",
+      "u_value": 0.8201784353827897
+    },
+    "TOP_FLOOR": {
+      "physics": "c66443e3326934eefe2db89abd8af67741c7c19a57c437db3b4cbad824d42ddc",
+      "u_value": 0.1007862617915694
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se01:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "0c2274d4815eedd7209cf21557964a46b4f05dc01e984524586652da6c69dbcb",
+      "u_value": 1.4904391056538322
+    },
+    "GROUND_FLOOR": {
+      "physics": "88ca9cb1d8437bd5750b998804b0c699e74012072887ad55085ac1b8ad5055e1",
+      "u_value": 1.3526363219108055
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "ff04ecad4e4484866c4de516715d225b2c2d0f7e943fb05cf64546010563bf58",
+      "u_value": 1.7795833766837157
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "b7f239c3ec6f57cf578ef72f33a40120bf8971f86d27514d8e93c560cdcd7e33",
+      "u_value": 0.8201784353827897
+    },
+    "TOP_FLOOR": {
+      "physics": "55ffa263c588a09f60a53e0cc2a7c839dbc2375f74e712a7fbeaf9fc6f884ab4",
+      "u_value": 0.35982482914077746
+    },
+    "WINDOW": {
+      "physics": "45c9e6fccbc9df09e1791ff28ee047b2f875cd28921aa2e12f8892027de263c0",
+      "u_value": 2.8
+    }
+  },
+  "mf_se01:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "764eae8c4c72148c4bd5c03ebb1518a82e59d427282d9525e73139e769d1f453",
+      "u_value": 0.24973300140965488
+    },
+    "GROUND_FLOOR": {
+      "physics": "88ca9cb1d8437bd5750b998804b0c699e74012072887ad55085ac1b8ad5055e1",
+      "u_value": 1.3526363219108055
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "ff04ecad4e4484866c4de516715d225b2c2d0f7e943fb05cf64546010563bf58",
+      "u_value": 1.7795833766837157
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "b7f239c3ec6f57cf578ef72f33a40120bf8971f86d27514d8e93c560cdcd7e33",
+      "u_value": 0.8201784353827897
+    },
+    "TOP_FLOOR": {
+      "physics": "028179f83f858db82d2aa9f2a62506bfda8b96bf00c51a688f9b49348da8b97c",
+      "u_value": 0.12290639827866259
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se02:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "7d4ff114735cd875ddb01dda3f1c2bf61cb83be68c32c0983d2111b439726082",
+      "u_value": 3.1091724942987744
+    },
+    "EXT_WALL": {
+      "physics": "c7d07d052c200fc0be8239b2ad04beb5ed0f5e4c134e737c4d383454867ce74a",
+      "u_value": 0.11801333420640135
+    },
+    "GROUND_FLOOR": {
+      "physics": "f1abef0811f8d2d010bbfc62a4a5500fb640eed87e1199d8a4cd65bafc5a1629",
+      "u_value": 0.27057641121748016
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d0d9ab7f330287b58da908acb787fd8ce84a0ea286f7efa7c26d97cf09f1a26",
+      "u_value": 1.8217057061790272
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "ba2880a36288ac81f261011192ddb9dfdb08101c0c1425ba6d04f538bfe4c27c",
+      "u_value": 0.5738830644143139
+    },
+    "TOP_FLOOR": {
+      "physics": "ceb1363b38131f52309aae2a7d0051da597ad9bd73ee7106f7a994c1aa861037",
+      "u_value": 0.0966025415448334
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se02:existing": {
+    "BASEMENT_WALL": {
+      "physics": "7d4ff114735cd875ddb01dda3f1c2bf61cb83be68c32c0983d2111b439726082",
+      "u_value": 3.1091724942987744
+    },
+    "EXT_WALL": {
+      "physics": "bb4e447eed5e4c3ecb8165d85f7682f3abd6ece406d5b0856b892bf5fe09685b",
+      "u_value": 0.41441970429638514
+    },
+    "GROUND_FLOOR": {
+      "physics": "f1abef0811f8d2d010bbfc62a4a5500fb640eed87e1199d8a4cd65bafc5a1629",
+      "u_value": 0.27057641121748016
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d0d9ab7f330287b58da908acb787fd8ce84a0ea286f7efa7c26d97cf09f1a26",
+      "u_value": 1.8217057061790272
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "ba2880a36288ac81f261011192ddb9dfdb08101c0c1425ba6d04f538bfe4c27c",
+      "u_value": 0.5738830644143139
+    },
+    "TOP_FLOOR": {
+      "physics": "1eb0f9bb945d095db4f3df21bfc3078199651172b47e66d480ad10c2509a39d8",
+      "u_value": 0.20021817118979393
+    },
+    "WINDOW": {
+      "physics": "613e0b21a2b6b206cb955f940117ff27f6bb8f4762e635d304b40782d3745ee2",
+      "u_value": 2.2
+    }
+  },
+  "mf_se02:standard": {
+    "BASEMENT_WALL": {
+      "physics": "7d4ff114735cd875ddb01dda3f1c2bf61cb83be68c32c0983d2111b439726082",
+      "u_value": 3.1091724942987744
+    },
+    "EXT_WALL": {
+      "physics": "8904635a8360a5237795fb3e796bb9738b657a0486b10713b8c894be1cd2c6c8",
+      "u_value": 0.2363398801866083
+    },
+    "GROUND_FLOOR": {
+      "physics": "f1abef0811f8d2d010bbfc62a4a5500fb640eed87e1199d8a4cd65bafc5a1629",
+      "u_value": 0.27057641121748016
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d0d9ab7f330287b58da908acb787fd8ce84a0ea286f7efa7c26d97cf09f1a26",
+      "u_value": 1.8217057061790272
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "ba2880a36288ac81f261011192ddb9dfdb08101c0c1425ba6d04f538bfe4c27c",
+      "u_value": 0.5738830644143139
+    },
+    "TOP_FLOOR": {
+      "physics": "c6aef9046c4d9959d7ef48ff1d57ac03fbc53c8da126d0c767eb57f3f74b3683",
+      "u_value": 0.11674087174636628
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se03:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "47edeb59dac0ed5770a940d3f2142e15375a31705abc713e17a2de6ded5c5276",
+      "u_value": 0.11748021824074559
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "caaac5c7dc27d70f73d4cf5549dfd441858cb1538187a290c10ae33784bf2ee7",
+      "u_value": 0.09464839550086673
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se03:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "23bdf81270e653daac16b8ea0967ee85f2bec6169db78d1727ee8cdbfe14d660",
+      "u_value": 0.3270618251015374
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "d89bfdd568b6426805490dd8acd20a8ebcd58dcba189fe989e5cef7c055781a8",
+      "u_value": 0.17230937654908265
+    },
+    "WINDOW": {
+      "physics": "42323da6434d82f5b4fd25a3a1f7bccbb55820d96ed987e0c47371463fbacdd8",
+      "u_value": 2.5
+    }
+  },
+  "mf_se03:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "841f3a5bd94fae74e3b2734793a33468e4ff44f642ceaedd859a5ccbd5a48822",
+      "u_value": 0.22618486749958636
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "97b3ffb1bdfa7937be8a6c96a3c4f080e6f5a44533a915c7825b95fa5619169e",
+      "u_value": 0.11389904100047879
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se04:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "332dc2b647d8910ded20a72f0b33aa761197c3e047d97e26d5c6189859f47c48",
+      "u_value": 0.11713272384779679
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "ec2ffbbd9a916d7e9facf3632bd41c042c9f023d6257133ad910f4f4c261510b",
+      "u_value": 0.08992017321320565
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se04:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "828ca171f49c42356c9eef43730c198ac666f427e0439379fd8e24345210f344",
+      "u_value": 0.2249002956919675
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "617024a6332c1045124d038ab6b2fb7728fa9da26af08c96c3f3885f8e624ad2",
+      "u_value": 0.15725569298414288
+    },
+    "WINDOW": {
+      "physics": "613e0b21a2b6b206cb955f940117ff27f6bb8f4762e635d304b40782d3745ee2",
+      "u_value": 2.2
+    }
+  },
+  "mf_se04:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "828ca171f49c42356c9eef43730c198ac666f427e0439379fd8e24345210f344",
+      "u_value": 0.2249002956919675
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "4a4ace5bf3df4ff1f70e9e47bb97a2cb3fc0723500938bce28adff3ff56d2aa4",
+      "u_value": 0.10712073594733075
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se05:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "8b668aecf2168cfbb6c6736e38bfd14fb4fa34ec13e85868e83a66f2a474e9af",
+      "u_value": 0.1156077495597024
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "43db6ebbc15e6787fde1e34cfc4a861d5ed0dc2dea93470caaa4ef2ae23f76e6",
+      "u_value": 0.08834400101604098
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se05:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "2a4b41b6f82172ca5880935713b235b96fe876bc050fb951f7b7ae1970eca9bd",
+      "u_value": 0.19945844946098124
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "6ba283ce42e655ec0e4b400884f5999784a08ef0fe5cefdb1118688f99eabbb7",
+      "u_value": 0.1290662458552201
+    },
+    "WINDOW": {
+      "physics": "542d004e11aaa74faad24abb701f881b4521510c6738ca2f3c2027f4eca4666e",
+      "u_value": 1.8
+    }
+  },
+  "mf_se05:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "2a4b41b6f82172ca5880935713b235b96fe876bc050fb951f7b7ae1970eca9bd",
+      "u_value": 0.19945844946098124
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "820257c3be100fef5bfb2ddd451769c02b855c2cb2e37bf5a9a14ac43c35f79d",
+      "u_value": 0.10489136293306321
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se06:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "b43e032eab914bc93b1e0a91aa5b4f9e342c4053e0d834681e6619cbe2524e2f",
+      "u_value": 0.11515624533747003
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "1735ade24cdb9df42b74a08cb0df4a97e1148103e43a119d3aa3210dad1bc127",
+      "u_value": 0.08652402983050336
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "mf_se06:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "3a5a6bfe12cbfc2aa63aec21cc07a876832ec333953f706561aae93d5c49aa8e",
+      "u_value": 0.15597882742466448
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "b188542eda14b1921768cb0875bc020e3dffa489b60aef9e358c207ea18b2150",
+      "u_value": 0.11653256224756738
+    },
+    "WINDOW": {
+      "physics": "baa7d19403f010204b7c1c546d937cdef0e9d04e9ddb0bbe3055067c7cdb0aba",
+      "u_value": 1.4999999999999998
+    }
+  },
+  "mf_se06:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "3a5a6bfe12cbfc2aa63aec21cc07a876832ec333953f706561aae93d5c49aa8e",
+      "u_value": 0.15597882742466448
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "3a34df404203fde5393580d70729162f7b90052b39183d071d521282a2befa8d",
+      "u_value": 0.1023356194565404
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "mf_se07:default": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "b43e032eab914bc93b1e0a91aa5b4f9e342c4053e0d834681e6619cbe2524e2f",
+      "u_value": 0.11515624533747003
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "771e109e7b95426fe99cab8eb5bbbb9bc52595827f5ce53cf574c117506cb55c",
+      "u_value": 1.7934060337713684
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "1735ade24cdb9df42b74a08cb0df4a97e1148103e43a119d3aa3210dad1bc127",
+      "u_value": 0.08652402983050336
+    },
+    "WINDOW": {
+      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "u_value": 0.85
+    }
+  },
+  "office_se01:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "cf283aa06301c1d23ac82f649ff5d1103378f908d5a90adb3fda139570a84631",
+      "u_value": 0.16003612586359486
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "ROOF": {
+      "physics": "c9337f4e8b628a278328d8082e31c0282f177aacf7e7a06391cf0297a6891056",
+      "u_value": 0.1075543625438506
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se01:existing": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "14bc9ada3b8eba6875b290bf4652db38ea5ddd4e129188801b2313c2ff9787ef",
+      "u_value": 1.259376534566916
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "ROOF": {
+      "physics": "6d202408cc3c5160b7fd3fe6cd853b97b30c1ff2f0a4465d62755c7d03d413eb",
+      "u_value": 0.46408737619933005
+    },
+    "WINDOW": {
+      "physics": "b2d4934981c2b13ee7c568080a5bedabd485ad156a02d478ed3780edac6cc1c5",
+      "u_value": 2.8
+    }
+  },
+  "office_se01:standard": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "2d31147e53d1657e2fbbf698826ddaef05266c9571aa1d7c42a450d4f0afa2f6",
+      "u_value": 0.26148256713776524
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "ROOF": {
+      "physics": "847069f56716a6cbe94be4dd8802c939bcb55a3892d2edf56d1617802aeba5ed",
+      "u_value": 0.1746360299774824
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se02:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "f915521543533dc51d7cdd0d8f5a3895f4cf79cacf5db584a9df774038485666",
+      "u_value": 0.14038668885917888
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "34cc173f84828964719a93b92bfa707f4097285789cb955129d90deb7e1545e8",
+      "u_value": 0.10721668523913232
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se02:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "13475c45ed5169e2467977b3390d29f5b577ab3f3a5ac557101d959bb4814ab4",
+      "u_value": 0.5992915148393445
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "482aeef97790549854dd22746bc845cab50e0295161ec7191c5168c9872db23a",
+      "u_value": 0.3639064290655996
+    },
+    "WINDOW": {
+      "physics": "b2d4934981c2b13ee7c568080a5bedabd485ad156a02d478ed3780edac6cc1c5",
+      "u_value": 2.8
+    }
+  },
+  "office_se02:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "3cf24476a0e61405998b06c80215a538688afc4e695d67ce0794c0ba0801a6c7",
+      "u_value": 0.21281395206882245
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "2695135d0f9f81e70a1e41ceee91adf61d6a4b6e61f66e7285c92be2a84584c7",
+      "u_value": 0.14935789026021104
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se03:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "a3fcd68725365a75bef2c1a2154ff5fb4d148ad0f01cf9d3cbaec65f4bd21af8",
+      "u_value": 0.12568315399669977
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "c83d698c6a9432bd542f299aaccde7c6419edde5b6a2f2817a08aed9afc7f0be",
+      "u_value": 0.10572517175727016
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se03:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "49da8e829358de18352fc7a0246f953d895e04de39f30a98d530da3086298ebd",
+      "u_value": 0.39968499371900007
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "81e8c8098c758bd684d1cdaa61b496f811069a31096d912704d344659de8b2c2",
+      "u_value": 0.29361212618933663
+    },
+    "WINDOW": {
+      "physics": "b2d4934981c2b13ee7c568080a5bedabd485ad156a02d478ed3780edac6cc1c5",
+      "u_value": 2.8
+    }
+  },
+  "office_se03:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "36d93fe632519f26ef18e859ea34d4846cb07835ebaaf419952498fa6f7d3554",
+      "u_value": 0.18075751737065718
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "ac0958ec7dda21c7fd6cf8020d1ce2e4a4615d7d09bf74407e6ad0809c6eeb6c",
+      "u_value": 0.13599480046794127
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se04:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "341baa38aede23f3064f2ad1f9feb00031cfa63bbac4df65f1c93a5511e7924d",
+      "u_value": 0.11924386530436813
+    },
+    "GROUND_FLOOR": {
+      "physics": "f91e2e8464d7e6dfa91a599093de188944bd812448517b7192af20a6fc716906",
+      "u_value": 0.40526454426317554
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "c9652a0f927b36bfd865a24ce771242ae74ec11fbc3c8d7207364cef222e2e96",
+      "u_value": 0.10572517175727016
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se04:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "5d3ac39a55a479f9fe0e902cb4503f74092111eaa92d45b078ac3c5043043572",
+      "u_value": 0.34110714253269486
+    },
+    "GROUND_FLOOR": {
+      "physics": "f91e2e8464d7e6dfa91a599093de188944bd812448517b7192af20a6fc716906",
+      "u_value": 0.40526454426317554
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "7c8b57f06ae4ad8e6f44524235ec35ad590c7bf01dae676184c68fb74aaa2fb1",
+      "u_value": 0.23836041025232527
+    },
+    "WINDOW": {
+      "physics": "6e9a82fa0acc987e0ff125d8e7dc8cee8d2d1d0bde4f41ef887c515729bed0ad",
+      "u_value": 2.359495605462134
+    }
+  },
+  "office_se04:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "c662797b69803617aa988fd3326afeb729fd95059e402a27c404b51774aea82c",
+      "u_value": 0.16773082850970458
+    },
+    "GROUND_FLOOR": {
+      "physics": "f91e2e8464d7e6dfa91a599093de188944bd812448517b7192af20a6fc716906",
+      "u_value": 0.40526454426317554
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "bbd0572cccd8d2c4435a51d1d4e525a9b8c4bdae819a166ae35c9f867afd11e6",
+      "u_value": 0.12280944805921193
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se05:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "a02c03cd924fccfd198040e9f0fd6d8ed0a839bc6f11239f2c421d3a56aa4e80",
+      "u_value": 0.1008820580208823
+    },
+    "GROUND_FLOOR": {
+      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
+      "u_value": 0.32237349132713894
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
+      "u_value": 0.6158338456134189
+    },
+    "ROOF": {
+      "physics": "cf8e5d4dffbb485f5c62c366833829b83c7444a1a8689b686459ee82c0943d34",
+      "u_value": 0.09281367015403587
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se05:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "4340bd37402db2631d3607a98fda8943ef8776fdf68b0164235b3debbc7b4dc1",
+      "u_value": 0.22431483200723926
+    },
+    "GROUND_FLOOR": {
+      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
+      "u_value": 0.32237349132713894
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
+      "u_value": 0.6158338456134189
+    },
+    "ROOF": {
+      "physics": "17123355f04cb42a2843950b3c469e2f1d5345ac123e215af70834dfe9113de5",
+      "u_value": 0.1814514176758896
+    },
+    "WINDOW": {
+      "physics": "7935dbbec6711acb071bcaf6c95d3467c24e2007edf60361d4b93a0b80a793cd",
+      "u_value": 1.9882926829268293
+    }
+  },
+  "office_se05:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "097c6385dd97f3671d9b8433e6ce03c06861c9448dc57ffbe5d3ef6071a8ec4e",
+      "u_value": 0.13354124820066554
+    },
+    "GROUND_FLOOR": {
+      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
+      "u_value": 0.32237349132713894
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
+      "u_value": 0.6158338456134189
+    },
+    "ROOF": {
+      "physics": "3bfda7a8155db8cfa65a744199901bc34982d47c367e817bdfee1ee359ee54e0",
+      "u_value": 0.10572517175727016
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se06:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "fe5a99c7493ed367846b94c92efaf79e430df00ff0e3d45c06cfe4d0a30014c4",
+      "u_value": 0.08951567727169411
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "5b47d0c6c7633033828095c614d2406798aa311fbf2fa1c0827383053319323a",
+      "u_value": 0.08271254529061027
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "office_se06:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "fff9e7e6387d422fdd54c4e7e4435bb04ba6c16ce1f84e0dd47da7b9d25ecee0",
+      "u_value": 0.17492664162306767
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "926bd267e25145015b338fea744c3020194a86a05ff2d5e04e798ccbf82a36a4",
+      "u_value": 0.14647922860864132
+    },
+    "WINDOW": {
+      "physics": "8253911b2da4c8d7660ace78547f0a90d517c7b0557405dad24fbbab54d3be06",
+      "u_value": 1.3
+    }
+  },
+  "office_se06:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "34421a114f3d2274f5b18e6bc2b40470614e96c31276094876c8b90a451fdd7c",
+      "u_value": 0.1143251058214218
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "13efc5a41a1354d97ada06c0dc2425596787197aead630519352e7d3b47ad894",
+      "u_value": 0.09281367015403587
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "office_se07:default": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "fe5a99c7493ed367846b94c92efaf79e430df00ff0e3d45c06cfe4d0a30014c4",
+      "u_value": 0.08951567727169411
+    },
+    "GROUND_FLOOR": {
+      "physics": "b3560e3e151b15a3ec46faed86f80e2bf39844334570c1b04983937bff4585a3",
+      "u_value": 0.17510781875550022
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "ROOF": {
+      "physics": "5b47d0c6c7633033828095c614d2406798aa311fbf2fa1c0827383053319323a",
+      "u_value": 0.08271254529061027
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se01:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "38b09ad5caa29832db2069bcc73c0aafba50137bc9a582f915e76ccef4d4f05e",
+      "u_value": 0.14906496184861823
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "80ee38413e32de689373572eb7b44da01460dcd814fa98e9a12924b18901f8dd",
+      "u_value": 1.7980099019886522
+    },
+    "TOP_FLOOR": {
+      "physics": "abc9a61373aef3de7fce393bdd111600e3f9e13d1f2203aaaf2881cc84b8174f",
+      "u_value": 0.14457821410534846
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se01:existing": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "ce3563460b85734ca3b976c7503686d508f8a7854557f4e25fb46bd7faafd653",
+      "u_value": 1.5434992041665914
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "80ee38413e32de689373572eb7b44da01460dcd814fa98e9a12924b18901f8dd",
+      "u_value": 1.7980099019886522
+    },
+    "TOP_FLOOR": {
+      "physics": "6d202408cc3c5160b7fd3fe6cd853b97b30c1ff2f0a4465d62755c7d03d413eb",
+      "u_value": 0.46408737619933005
+    },
+    "WINDOW": {
+      "physics": "45c9e6fccbc9df09e1791ff28ee047b2f875cd28921aa2e12f8892027de263c0",
+      "u_value": 2.8
+    }
+  },
+  "school_se01:standard": {
+    "BASEMENT_WALL": {
+      "physics": "09bb2473358fd32f29d9eb283eebf9adb1a332a17e23acf67751e3ff4719602d",
+      "u_value": 1.615641747425285
+    },
+    "EXT_WALL": {
+      "physics": "83f4beaed225b0f74a6ac1eb2d8143bc5d0938a3d7454498b2711d967fef4fc5",
+      "u_value": 0.27187347410780294
+    },
+    "GROUND_FLOOR": {
+      "physics": "21de2accee0d10640888b04e6810cbdd4d31a1c69def01ab6d6c6f8b0f5cebf2",
+      "u_value": 0.313113926183884
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "4d748666a08e21c4e0372e131396a01477be14dc97e67a8383cf508c208436ce",
+      "u_value": 0.7356121211997985
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "80ee38413e32de689373572eb7b44da01460dcd814fa98e9a12924b18901f8dd",
+      "u_value": 1.7980099019886522
+    },
+    "TOP_FLOOR": {
+      "physics": "847069f56716a6cbe94be4dd8802c939bcb55a3892d2edf56d1617802aeba5ed",
+      "u_value": 0.1746360299774824
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "school_se02:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "8aa14b08d0dde98bcc776fdbc2bbf7a05c423a08cb6ea726c7689181cedd3d65",
+      "u_value": 0.12142652900761666
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
+      "u_value": 1.2709884610344033
+    },
+    "TOP_FLOOR": {
+      "physics": "6b20d19dc773687f6892c753577ce7f02a2dc9d073e4d5ce60dd4633f07a4ea2",
+      "u_value": 0.12373253861275364
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se02:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "9a65c9094fc43efa5901e844c968647794017e6de788e79186d002bc2838cc03",
+      "u_value": 0.45980677760922345
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
+      "u_value": 1.2709884610344033
+    },
+    "TOP_FLOOR": {
+      "physics": "6ebc0ff5f46e15b5214902f540fbcb2c1d02182bd7a572f613fd34464d28a204",
+      "u_value": 0.3012008547700196
+    },
+    "WINDOW": {
+      "physics": "20bfb9a5179cbb9ac6cd00ed5a2d599ece5aa497a39590fee61a6d51d3f0aef5",
+      "u_value": 2.7
+    }
+  },
+  "school_se02:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "5311efa4b67ea3157dbe4486cbb5bb7b892caab6499d24745df35c58479e15e4",
+      "u_value": 0.19211817486595315
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
+      "u_value": 1.2709884610344033
+    },
+    "TOP_FLOOR": {
+      "physics": "ae1fcc2aa1ce88f2a8cf4a3e002c7185aa69059215439d49c800ebcb55ea65de",
+      "u_value": 0.14510687423021296
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "school_se03:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "74dee6aadb4301b92acfc963a12cae53a77413fea5d455473619de282d125db4",
+      "u_value": 0.10987782254552313
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
+      "u_value": 1.0229910422848154
+    },
+    "TOP_FLOOR": {
+      "physics": "ff141615889afe5c411fbb45e04255e28b8a6f1b92e16e55df4562b718623f06",
+      "u_value": 0.11057409496216937
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se03:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "fe818640181b15184f23ac1df450605222d5adc44ff845e2d3988b1c046aa3bb",
+      "u_value": 0.32890284014966575
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
+      "u_value": 1.0229910422848154
+    },
+    "TOP_FLOOR": {
+      "physics": "214a8e70c1a453680eecac06b149072486c1b2e16b202eeae2dcabc087121e3e",
+      "u_value": 0.23354637740758166
+    },
+    "WINDOW": {
+      "physics": "3a9c1abbeb78f0a287226e5a33b43d5576a70b562236df6e4972abf203ad3e7d",
+      "u_value": 2.25
+    }
+  },
+  "school_se03:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "0d61b636c89acd51117a0aaa6adb0c15f1e271d5a968889ed1a76c1bbb6b76bb",
+      "u_value": 0.16472525330856969
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
+      "u_value": 1.0229910422848154
+    },
+    "TOP_FLOOR": {
+      "physics": "90af111ad6aa3270f8ece1c16e68168a1e67e810f4c41aebcd6ba1aef286c769",
+      "u_value": 0.1273360859913593
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "school_se04:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "52809ecbbce371c8b2f7757fd43018fccae38932369569acd3dba0a7524e5da5",
+      "u_value": 0.10436345505275726
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
+      "u_value": 0.6820010404833107
+    },
+    "TOP_FLOOR": {
+      "physics": "2ce6c161bba8e4dfe6964f9f71e02aa442099e357f42ce3781927e3e086b37c5",
+      "u_value": 0.09714670827903424
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se04:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "218f0e97be6a179836c0f17c0259ec99013ee17b18d16a6de85947b2e81419b7",
+      "u_value": 0.28398666346651685
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
+      "u_value": 0.6820010404833107
+    },
+    "TOP_FLOOR": {
+      "physics": "e2349ea95e30960c72daa26063de096f866cb1a3acae7a16af40cf23e7552192",
+      "u_value": 0.1807728283995384
+    },
+    "WINDOW": {
+      "physics": "142571146a5da1feb35a7efcfb9a0f703ed9da747be10ad99547969daf6ab7fe",
+      "u_value": 1.9
+    }
+  },
+  "school_se04:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "1c7876ee810ad8cb23e2a861e94e041b3ec33f53ef99d758abdc0e189da1ae28",
+      "u_value": 0.15263458397425148
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
+      "u_value": 0.6820010404833107
+    },
+    "TOP_FLOOR": {
+      "physics": "72a671e066f64d791959b45603a940a39d4e19eaaf255fd026ccb37d9c13645a",
+      "u_value": 0.10985107808479765
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "school_se05:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "aa349ff3429439aa3dae8b4a970f2efa17d1924909073afd69a00fd2924af106",
+      "u_value": 0.09937612927460279
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
+      "u_value": 0.6199998867518377
+    },
+    "TOP_FLOOR": {
+      "physics": "4b444cf11b75ea2c39688f8c5805376763d15bb492ab195cb1c7154c1ab61f55",
+      "u_value": 0.08662726609375847
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se05:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "93703b671b8b09523a3ca6f618f27b4572bc76ad47b7c4eb65f4956f11d8aa24",
+      "u_value": 0.24986428183919374
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
+      "u_value": 0.6199998867518377
+    },
+    "TOP_FLOOR": {
+      "physics": "a8f852df8524d2c39e8c1fe24e0da75c71b32112eff16ab85096a8e46d9c2008",
+      "u_value": 0.14745337404547004
+    },
+    "WINDOW": {
+      "physics": "6e48d9100ed92ec4eda2615222931d22973f03c00649232e1580dda31369e6cc",
+      "u_value": 1.6
+    }
+  },
+  "school_se05:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "9bcddf1b720171df227d49eb0dbaa1eab048b398d2f0f8910881f366c30046c1",
+      "u_value": 0.14219743410545188
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
+      "u_value": 0.6199998867518377
+    },
+    "TOP_FLOOR": {
+      "physics": "368def2d8480447496133a8a0a4ac7839813bca27ec786614c5b76d9acd46ffd",
+      "u_value": 0.09658818303850783
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "school_se06:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "50901defcc9f151bc34ea3bc7d50524459f9fb86dc0b398037ef6a207bcf6288",
+      "u_value": 0.08807226999857178
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "312d8bcde2de45d3beb39d8d8ea4220dcbe5333597f2717603d15ec73f85b02b",
+      "u_value": 0.06725643118248205
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "school_se06:existing": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "c6a3dbc88578cf07f184ef5225bd08b9b2c5e95bbe9aefde9291d04808bf210b",
+      "u_value": 0.18890359236512694
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "d6f1c96a43252ad4295500d964faa236c31630aeff04524583d6376099b8bc9c",
+      "u_value": 0.0989456174125577
+    },
+    "WINDOW": {
+      "physics": "7d7c4549b9dadde7e6756093161285a2b1f4fe16393697ce2183f202438d15f7",
+      "u_value": 1.1428571428571428
+    }
+  },
+  "school_se06:standard": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "033d25a06e6584b67a2233468124f07e6fd34d82c39b7e9b42db25b51f9c18be",
+      "u_value": 0.12013442650562262
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "43196e53cf8bf1e11f79525a76582f5d5526676f4bbfd587aefd176da3872866",
+      "u_value": 0.07311015513171643
+    },
+    "WINDOW": {
+      "physics": "daafde37d1ee47ab4b0a17a7dc1d6948f9095f15796eb71d4dbe31ee97bdf214",
+      "u_value": 1.08
+    }
+  },
+  "school_se07:default": {
+    "BASEMENT_WALL": {
+      "physics": "516112a610d8ad425d4859ca93a91be9397dd0aab83951c307b216550b29be3c",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "50901defcc9f151bc34ea3bc7d50524459f9fb86dc0b398037ef6a207bcf6288",
+      "u_value": 0.08807226999857178
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "bdf001a2b0ec4f9de6ef0f080344ce4e6a2403e5515ab5aba79a19cc43132fbd",
+      "u_value": 1.522615650915478
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "312d8bcde2de45d3beb39d8d8ea4220dcbe5333597f2717603d15ec73f85b02b",
+      "u_value": 0.06725643118248205
+    },
+    "WINDOW": {
+      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "u_value": 0.9
+    }
+  },
+  "sf_se01:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "52d2681b7c0730af41408413859ac872308178b1c220ea375c50a4d8fcf7936e",
+      "u_value": 0.1411194754431962
+    },
+    "GROUND_FLOOR": {
+      "physics": "38209f8d14f6074f95ea21dd3fe8db959e23cf3b479e93d109e3f54ad2147e13",
+      "u_value": 0.3378648249930787
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "20d8402f79d490eb93df653b46e99ff10ecb2757cebf5ab8c2693afba9f36adc",
+      "u_value": 0.44435429666434034
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "TOP_FLOOR": {
+      "physics": "839db51dd989d188dbc79a4875f5a628ed4597ea8cb4d82d4cf8a66bbe8892b0",
+      "u_value": 0.08147426531321988
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se01:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "a56c664b6e9957170ec72a562ec46b9f61d05d458aba84cfb656f3e16c03de49",
+      "u_value": 0.9750503341223007
+    },
+    "GROUND_FLOOR": {
+      "physics": "38209f8d14f6074f95ea21dd3fe8db959e23cf3b479e93d109e3f54ad2147e13",
+      "u_value": 0.3378648249930787
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "20d8402f79d490eb93df653b46e99ff10ecb2757cebf5ab8c2693afba9f36adc",
+      "u_value": 0.44435429666434034
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "TOP_FLOOR": {
+      "physics": "6d202408cc3c5160b7fd3fe6cd853b97b30c1ff2f0a4465d62755c7d03d413eb",
+      "u_value": 0.46408737619933005
+    },
+    "WINDOW": {
+      "physics": "45c9e6fccbc9df09e1791ff28ee047b2f875cd28921aa2e12f8892027de263c0",
+      "u_value": 2.8
+    }
+  },
+  "sf_se01:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "3ea3e2a9d3b7e75d654cbb0052c5aeb4a23aa1224c14df15e44fa02129e1a26f",
+      "u_value": 0.22170802884373092
+    },
+    "GROUND_FLOOR": {
+      "physics": "38209f8d14f6074f95ea21dd3fe8db959e23cf3b479e93d109e3f54ad2147e13",
+      "u_value": 0.3378648249930787
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "20d8402f79d490eb93df653b46e99ff10ecb2757cebf5ab8c2693afba9f36adc",
+      "u_value": 0.44435429666434034
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "a7b5ce5f2f1cfc717d20188657dcca1a1f92a52d978e6fdefca5e68722555744",
+      "u_value": 0.7890772528215656
+    },
+    "TOP_FLOOR": {
+      "physics": "c1906b6029f2e2ab5a3b55ac1ef14fc3273dcff0b009f4ef58abb2ab3f649d26",
+      "u_value": 0.12334794545382678
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se02:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "735c446f36600c23f6f717597a36a3e992a58d8e2ed709d954d7558582b2db6e",
+      "u_value": 0.13937619109500818
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "fcfdaf09b42b1d07256b726a8daef142d96a4fe66f7e1b87bd2d2c2a0976b0fb",
+      "u_value": 0.07785825504665156
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se02:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "9a65c9094fc43efa5901e844c968647794017e6de788e79186d002bc2838cc03",
+      "u_value": 0.45980677760922345
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "6ebc0ff5f46e15b5214902f540fbcb2c1d02182bd7a572f613fd34464d28a204",
+      "u_value": 0.3012008547700196
+    },
+    "WINDOW": {
+      "physics": "45c9e6fccbc9df09e1791ff28ee047b2f875cd28921aa2e12f8892027de263c0",
+      "u_value": 2.8
+    }
+  },
+  "sf_se02:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "dd7d6aa8e314668bf57922b478744d99fe59d5003d0fdb78b8f0832b50871bd9",
+      "u_value": 0.21743531132893856
+    },
+    "GROUND_FLOOR": {
+      "physics": "cdf31c1a32c9120f1aa72f5514497ef821b0b635e18db63178e4840176321de9",
+      "u_value": 0.6036047703466443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "7b7c1fe5330e6bb2151db3c1805b1afca39659c45c5579a6465d6d1e21a7d587",
+      "u_value": 0.11524472748564982
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se03:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "5081c01e60ddf91f9f5f184c57cdc79e519deca3085c7d7fa2ec9227b7bf1126",
+      "u_value": 0.1373091507216504
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "8754b11cf75779b88b4bf843013f236e8a0b0bdb6d4ac10796847473381e5fb6",
+      "u_value": 0.07569807117033092
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se03:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "fe818640181b15184f23ac1df450605222d5adc44ff845e2d3988b1c046aa3bb",
+      "u_value": 0.32890284014966575
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "214a8e70c1a453680eecac06b149072486c1b2e16b202eeae2dcabc087121e3e",
+      "u_value": 0.23354637740758166
+    },
+    "WINDOW": {
+      "physics": "42323da6434d82f5b4fd25a3a1f7bccbb55820d96ed987e0c47371463fbacdd8",
+      "u_value": 2.5
+    }
+  },
+  "sf_se03:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "9ecef31effd37434291f5c33725b3374d9be635f7110170544ee43bee35e3da6",
+      "u_value": 0.2058208869270599
+    },
+    "GROUND_FLOOR": {
+      "physics": "bfc97221606bbac3acfe732ae28d01001ad4270eed544110ab83d298269bb5a8",
+      "u_value": 0.45511356948638854
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "ff141615889afe5c411fbb45e04255e28b8a6f1b92e16e55df4562b718623f06",
+      "u_value": 0.11057409496216937
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se04:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "0c41dc0620f669f10c19d0780f529f4e154f512f160533692459b6e1a83d71e0",
+      "u_value": 0.1368144229658637
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "c837b5fcb9fe7ee0e4f4ebcb913d08687e89cf335323c9f966a7b40768543e51",
+      "u_value": 0.07535851792905211
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se04:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "218f0e97be6a179836c0f17c0259ec99013ee17b18d16a6de85947b2e81419b7",
+      "u_value": 0.28398666346651685
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "e2349ea95e30960c72daa26063de096f866cb1a3acae7a16af40cf23e7552192",
+      "u_value": 0.1807728283995384
+    },
+    "WINDOW": {
+      "physics": "fb405d66ba637b87e0a9a04c65a2e3085186ea36fb0e0a7fed49c297c38ec772",
+      "u_value": 2.0
+    }
+  },
+  "sf_se04:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "ae33c21f4627f324da222c9808791d8b2c109f8f70ab2bac1b8253febc6801fc",
+      "u_value": 0.17259175925558512
+    },
+    "GROUND_FLOOR": {
+      "physics": "3ed4f4657fa96bef74c87e01340d15e2c3d6455e6e194917c2ebfd629f15452c",
+      "u_value": 0.3324396726734443
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "72a671e066f64d791959b45603a940a39d4e19eaaf255fd026ccb37d9c13645a",
+      "u_value": 0.10985107808479765
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se05:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "92b86525106b360be5245d1936ee613e509b1ed58d0059339efb39c710a62973",
+      "u_value": 0.13632324744031976
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "68c99a54625fe0816f2bd1cf9eba40ea0c5ee0839c352f6d50f71fb834c6f6ba",
+      "u_value": 0.07502199730233891
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se05:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "93703b671b8b09523a3ca6f618f27b4572bc76ad47b7c4eb65f4956f11d8aa24",
+      "u_value": 0.24986428183919374
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "a8f852df8524d2c39e8c1fe24e0da75c71b32112eff16ab85096a8e46d9c2008",
+      "u_value": 0.14745337404547004
+    },
+    "WINDOW": {
+      "physics": "542d004e11aaa74faad24abb701f881b4521510c6738ca2f3c2027f4eca4666e",
+      "u_value": 1.8
+    }
+  },
+  "sf_se05:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "72fe46ba1a698167569679219632d9ad00f06cc98a47012c52fbd58e47af4266",
+      "u_value": 0.17181084107864292
+    },
+    "GROUND_FLOOR": {
+      "physics": "77e26cc7898f61fe92a2f04e8b5562ce111dd79994bd2ee1ccc6ac0b9c0b1489",
+      "u_value": 0.22938852790207892
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "6fb0438ab717c37d8501c9fab698fbdc43ac2988d98527fc961661f6d8d6b75b",
+      "u_value": 0.5652673868502406
+    },
+    "TOP_FLOOR": {
+      "physics": "4d7bec91f6e0129b78e5c3b4b105475190b5d3daadb72b53bc280d0de79804f9",
+      "u_value": 0.10913745504337231
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se06:advanced": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "d10d5ff3be795889c22fb4a3210141adca661104543330d0efbdea6bcb83ce95",
+      "u_value": 0.13486326362597037
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "43196e53cf8bf1e11f79525a76582f5d5526676f4bbfd587aefd176da3872866",
+      "u_value": 0.07311015513171643
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  },
+  "sf_se06:existing": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "c6a3dbc88578cf07f184ef5225bd08b9b2c5e95bbe9aefde9291d04808bf210b",
+      "u_value": 0.18890359236512694
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "d6f1c96a43252ad4295500d964faa236c31630aeff04524583d6376099b8bc9c",
+      "u_value": 0.0989456174125577
+    },
+    "WINDOW": {
+      "physics": "0c969a2304f63547655ba455c4da97b49cc84b535061e1c65f36cc0861463de4",
+      "u_value": 1.3
+    }
+  },
+  "sf_se06:standard": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "280034797342eec613e3d5ed1a0aef9becc03f7f1b1497538c24caefff07ebc5",
+      "u_value": 0.16121760605875846
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "20a4aadf1ad787c6fe188b549f57e8148bbf4909b42934a01b66d8ed67dc50f4",
+      "u_value": 0.09344222534181416
+    },
+    "WINDOW": {
+      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "u_value": 1.22
+    }
+  },
+  "sf_se07:default": {
+    "BASEMENT_WALL": {
+      "physics": "a478d5538474accc9cd06d302e958c839e737015556b4f59f14ff6c5f56e9168",
+      "u_value": 3.593007785145802
+    },
+    "EXT_WALL": {
+      "physics": "d10d5ff3be795889c22fb4a3210141adca661104543330d0efbdea6bcb83ce95",
+      "u_value": 0.13486326362597037
+    },
+    "GROUND_FLOOR": {
+      "physics": "ab1e74568ae4ecfa6a0335955c67e15add6c1730558eac9fc40a64bf64c2e4a4",
+      "u_value": 0.14160056686576236
+    },
+    "INTERMEDIATE_FLOOR": {
+      "physics": "18c120a84cfe81fab7f1f1c8e797167ec5ee9a9d8c64abb94ccf5e658c7b44cd",
+      "u_value": 0.43691104011387377
+    },
+    "INT_WALL_NONLOADBEARING": {
+      "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
+      "u_value": 0.5366837272668066
+    },
+    "TOP_FLOOR": {
+      "physics": "43196e53cf8bf1e11f79525a76582f5d5526676f4bbfd587aefd176da3872866",
+      "u_value": 0.07311015513171643
+    },
+    "WINDOW": {
+      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "u_value": 0.8
+    }
+  }
+}

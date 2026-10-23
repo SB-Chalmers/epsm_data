@@ -39,7 +39,7 @@ def test_catalogue_load_links_nested_operations(caplog):
     assert catalogue.ids()
     records = [r for r in caplog.records if hasattr(r, "epsm_event")]
     root = next(r for r in records if r.epsm_event == "catalogue.load.started")
-    nested = next(r for r in records if r.epsm_event == "catalogue.parametric.load.started")
-    assert nested.epsm_context["parent_operation_id"] == root.epsm_context["operation_id"]
+    assert root.epsm_context["operation_id"]
+    assert not any("parametric" in r.epsm_event for r in records)
     assert all(r.epsm_context["study_id"] == "catalogue-test" for r in records)
     assert records[-1].epsm_event == "catalogue.load.completed"

@@ -58,4 +58,4 @@ def test_all_category_era_parents_resolve(category, year):
         category=category, construction_year=year, climate_zone="SE.Zone3", ventilation="FTX"
     )
     assert result["assignment"]["category"] == category
-    assert result["requirements"]["empirical_validation"].startswith("pending")
+    assert result["nominal_bundle"]["core"]["EXT_WALL"]["layers"]

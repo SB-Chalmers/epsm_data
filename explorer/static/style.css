@@ -704,21 +704,6 @@ h2 {
   margin-right: 5px;
   background: var(--layer-color);
 }
-.evidence {
-  border-left: 3px solid #c6d9df;
-  padding: 8px 12px;
-  background: #f6f9fb;
-  margin: 12px 0;
-  font-size: 14px;
-}
-.evidence p {
-  margin: 5px 0;
-}
-.evidence small {
-  font-size: 12px;
-  overflow-wrap: anywhere;
-  color: var(--muted);
-}
 .assumptions {
   padding-left: 20px;
   font-size: 14px;

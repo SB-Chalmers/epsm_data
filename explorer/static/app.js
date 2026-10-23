@@ -12,15 +12,12 @@ const names = {
   single_family: "SF",
   multi_family: "MF",
   office: "Office",
-  generic: "Generic",
   internal_wall: "Internal wall",
   ground_floor: "Ground floor",
   external_wall: "External wall",
   roof: "Roof / top",
   window: "Window",
   infiltration: "Infiltration",
-  lod1_pending: "LoD1 pending",
-  lod1_complete: "LoD1 complete",
   school: "School",
   hospital: "Hospital",
   industrial: "Industrial",
@@ -47,36 +44,13 @@ const names = {
   remark: "Remark",
   question: "Question",
   issue: "Needs attention",
-  S: "S · Natural",
-  F: "F · Mechanical exhaust",
-  FT: "FT · Supply & exhaust",
-  FTX: "FTX · Heat recovery",
 };
 const label = (v) => names[v] || String(v).replaceAll("_", " ");
 const lod2Label = (status) => ({
   complete: "LoD2 complete",
-  draft: "LoD2 draft",
+  incomplete: "LoD2 incomplete",
   no_recipe: "No LoD2 recipe",
 })[status] || "LoD2 status unknown";
-const checkNames = {
-  construction_builder_supported: "Construction builder supported",
-  construction_schema: "Construction schema",
-  honeybee_material_references: "Honeybee material references",
-  boverket_material_references: "Boverket material references",
-  boverket_intervention_scope_references: "Boverket references: intervention scope (retained fill unmapped)",
-  captured_targets_unchanged: "Captured LoD1 targets unchanged",
-  no_open_blocking_catalogue_caveats: "No blocking catalogue caveats",
-  thermal_and_optical_evidence_reviewed: "Thermal and optical evidence reviewed",
-  nominal_u_alignment: "Nominal U-value alignment",
-  honeybee_nominal_export: "Honeybee nominal export",
-  core_nominal_export: "Core nominal export",
-  classification_slots_validated: "Classification slots validated",
-  selected_replacement_window: "Selected replacement window matches target Uw",
-  ground_validation: "Ground validation",
-  carbon_assessment: "Carbon assessment",
-  simulation: "Simulation",
-};
-const checkLabel = (key) => checkNames[key] || label(key);
 const fmt = (v, digits = 2) => (Number.isFinite(v) ? v.toFixed(digits) : "—");
 const eraLabel = (era) => {
   const [a, b] = data.dimensions.eras[era];
@@ -98,7 +72,6 @@ const drafts = new Map();
 let filters = {
   zone: "SE.Zone3",
   state: "existing",
-  system: "F",
   search: "",
   noted: false,
   metric: "wall",
@@ -167,8 +140,7 @@ function selectCell(cell) {
 function visible(cell) {
   if (
     cell.zone !== filters.zone ||
-    (cell.state !== filters.state && cell.state !== "default") ||
-    cell.system !== filters.system
+    (cell.state !== filters.state && cell.state !== "default")
   )
     return false;
   if (filters.noted && !notes.some((n) => n.cell_id === cell.id)) return false;
@@ -184,12 +156,12 @@ function visible(cell) {
     .includes(q);
 }
 function selectionForFilters(previous, changedFilter) {
-  // A stateless construction stays stateless when only climate/system changes.
+  // A stateless construction stays stateless when only climate changes.
   // An explicit state filter may instead select another supported era.
   const state = previous.state === "default" && changedFilter !== "state"
     ? "default" : filters.state;
   const candidates = data.cells.filter((cell) =>
-    cell.zone === filters.zone && cell.system === filters.system && cell.state === state);
+    cell.zone === filters.zone && cell.state === state);
   const category = candidates.filter((cell) => cell.category === previous.category);
   return category.find((cell) => cell.era === previous.era) || category.at(-1) || candidates[0];
 }
@@ -198,7 +170,7 @@ function renderMatrix() {
   const index = new Map(shown.map((c) => [`${c.category}|${c.era}`, c]));
   $("#count").textContent = `${shown.length} of ${data.dimensions.categories.length * Object.keys(data.dimensions.eras).length} cells in this slice`;
   $("#slice-context").textContent =
-    `${filters.zone.replace("SE.", "")} · TABULA climate zones · ${label(filters.system)} ventilation`;
+    `${filters.zone.replace("SE.", "")} · ${label(filters.state)} fabric · climate assignments share physical definitions`;
   const counts = new Map();
   notes.forEach((n) => counts.set(n.cell_id, (counts.get(n.cell_id) || 0) + 1));
   $("#matrix").innerHTML =
@@ -222,7 +194,7 @@ function renderMatrix() {
               const t = Math.max(0, Math.min(1, (v ?? 0) / 3));
               const bg = Number.isFinite(v) ? `hsl(177 38% ${94 - t * 62}%)` : "#e8eaed";
               const foreground = t > 0.925 ? "#ffffff" : "#000000";
-              return `<td><button class="cell ${selected?.id === c.id ? "selected" : ""}" style="background:${bg};color:${foreground}" data-cell="${esc(c.id)}" aria-pressed="${selected?.id === c.id}" aria-label="${esc(`${label(cat)}, ${eraLabel(era)}, ${label(filters.metric)} U-value ${fmt(v)} W per square metre kelvin, ${lod2Label(c.lod2_status)}, ${counts.get(c.id) || 0} remarks`)}">${c.lod2_status === "complete" ? '<span class="lod2-tick" aria-hidden="true">✓</span>' : ""}${counts.has(c.id) ? '<span class="note-dot" aria-hidden="true">●</span>' : ""}<strong>${fmt(v)}</strong><small>${c.lod1_complete ? "LoD1 complete" : `${8 - c.missing.length}/8 properties`}</small><small class="cell-lod2">${lod2Label(c.lod2_status)}</small></button></td>`;
+              return `<td><button class="cell ${selected?.id === c.id ? "selected" : ""}" style="background:${bg};color:${foreground}" data-cell="${esc(c.id)}" aria-pressed="${selected?.id === c.id}" aria-label="${esc(`${label(cat)}, ${eraLabel(era)}, ${label(filters.metric)} U-value ${fmt(v)} W per square metre kelvin, ${lod2Label(c.lod2_status)}, ${counts.get(c.id) || 0} remarks`)}">${c.lod2_status === "complete" ? '<span class="lod2-tick" aria-hidden="true">✓</span>' : ""}${counts.has(c.id) ? '<span class="note-dot" aria-hidden="true">●</span>' : ""}<strong>${fmt(v)}</strong><small>${c.missing.length ? `${c.missing.length} missing values` : "All required values present"}</small><small class="cell-lod2">${lod2Label(c.lod2_status)}</small></button></td>`;
             })
             .join("")}</tr>`,
       )
@@ -236,10 +208,6 @@ function renderMatrix() {
 function $$(s, root = document) {
   return [...root.querySelectorAll(s)];
 }
-function evidence(e, title = "Evidence") {
-  if (!e) return "";
-  return `<div class="evidence"><strong>${esc(title)}</strong><p>${esc(e.rationale || label(e.evidence_kind || ""))}</p><small>${esc(e.source_id)} · ${esc(e.locator || "")}<br>${esc(label(e.evidence_kind || ""))}${e.confidence ? ` · ${esc(e.confidence)} confidence` : ""}</small></div>`;
-}
 function facts(entries) {
   return `<dl class="facts">${entries.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
 }
@@ -248,43 +216,12 @@ function metrics(p) {
     `<div class="metric"><dt>${label(role)}</dt><dd>${fmt(prop.value)} <small>${esc(prop.unit)}</small></dd></div>`
   ).join("")}</dl>`;
 }
-function schoolWindowProfile(p) {
-  if (selected.category !== "school" || !["school.window", "calibrated.school.window", "v1.school.window", "v1_1.school.window"].includes(p.properties.window?.curve)) return "";
-  const source = data.sources.find((item) => item.id === p.properties.window.curve_source);
-  const rows = Object.keys(data.dimensions.eras).map((era) => {
-    const state = era === "SE.07" ? "default" : selected.state;
-    const period = data.packages.find((item) => item.id === `parametric:school:${era}:${state}`);
-    if (!period) return "";
-    return `<tr class="${era === selected.era ? "current" : ""}"><th scope="row">${esc(era)} · ${esc(eraLabel(era))}</th><td>${fmt(period.properties.window?.value, 3)}</td></tr>`;
-  }).join("");
-  return `<section class="school-window-profile" aria-labelledby="school-window-profile-title"><h3 id="school-window-profile-title">School window profile</h3><p class="muted">Representative whole-window U-values for ${esc(label(selected.state))}. The same construction values apply across climate zones and ventilation classes.</p><table class="profile-table"><caption>Window U-value · W/(m²·K)</caption><thead><tr><th scope="col">Construction era</th><th scope="col">Uw</th></tr></thead><tbody>${rows}</tbody></table><p class="muted">${esc(source?.title || p.properties.window.curve_source)}. ${esc(source?.version || "")}</p></section>`;
-}
 function lod2Overview(p) {
-  const lod2 = p.lod2;
-  if (lod2.status === "no_recipe") {
-    return "<h3>Catalogue LoD2</h3><p>No layer recipe has been authored for this archetype.</p>";
-  }
-  const passed = Object.values(lod2.checks).filter(Boolean).length;
-  const total = Object.keys(lod2.checks).length;
-  return `<h3>Catalogue LoD2</h3><p><strong>${lod2Label(lod2.status)}.</strong> ${passed} of ${total} acceptance checks pass. <a href="#tab-layers" data-open-lod2>Review LoD2 checks</a>.</p>`;
+  return `<h3>${lod2Label(p.lod2.status)}</h3><p>${p.missing.length ? `${p.missing.length} required values are missing.` : "All required fabric values and source mappings are present."} <a href="#tab-layers" data-open-lod2>Inspect constructions and missing values</a>.</p>`;
 }
 function lod2Details(p) {
-  const lod2 = p.lod2;
-  if (lod2.status === "no_recipe") {
-    return "<h3>No LoD2 recipe</h3><p>No detailed layer construction is recorded for this archetype. The LoD1 effective values shown in Overview do not establish a physical layer assembly.</p>";
-  }
-  const checks = Object.entries(lod2.checks).map(([key, passed]) =>
-    `<li class="check ${passed ? "pass" : "fail"}"><span aria-hidden="true">${passed ? "✓" : "×"}</span><span>${esc(checkLabel(key))}</span><strong>${passed ? "Pass" : "Open"}</strong></li>`
-  ).join("");
-  const readiness = Object.entries(lod2.readiness).map(([key, ready]) =>
-    `<li class="check ${ready ? "pass" : "fail"}"><span aria-hidden="true">${ready ? "✓" : "×"}</span><span>${esc(checkLabel(key))}</span><strong>${ready ? "Ready" : "Pending"}</strong></li>`
-  ).join("");
-  const alternatives = lod2.alternatives?.length
-    ? `<h4>Named alternatives</h4><ul>${lod2.alternatives.map((variant) => `<li>${esc(variant.archetype_id)}: ${lod2Label(variant.status)} against the same LoD1 targets; no extra catalogue slots.</li>`).join("")}</ul>`
-    : "";
   const role = metricRoles[filters.metric];
-  const available = Object.keys(p.construction || {}).length > 0;
-  return `<h3>${lod2Label(lod2.status)}</h3><p class="muted">Detailed archetype: ${esc(lod2.archetype_id)}. This is the catalogue acceptance status for its layer recipe.</p>${constructionDetails(p.construction || {}, role)}${available ? '<button type="button" class="button primary" id="open-archetype">Open full archetype</button>' : ""}<h4>Acceptance checks</h4><ul class="check-list">${checks}</ul>${alternatives}<h4>Downstream readiness</h4><p class="muted">Nominal export is separate from validated ground, carbon, and simulation readiness.</p><ul class="check-list">${readiness}</ul>${lod2.blocking_caveats ? `<p><strong>${lod2.blocking_caveats} blocking catalogue caveats</strong> remain open.</p>` : ""}${lod2.pending_boverket_references?.length ? `<p>Pending Boverket references: ${esc(lod2.pending_boverket_references.join(", "))}.</p>` : ""}<details class="source-details"><summary>Remaining limitations (${lod2.remaining.length})</summary><ul>${lod2.remaining.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></details>`;
+  return `<h3>${lod2Label(p.lod2.status)}</h3>${constructionDetails(p.construction || {}, role)}${Object.keys(p.construction || {}).length ? '<button type="button" class="button primary" id="open-archetype">Open full archetype</button>' : ""}<h4>Missing values</h4>${p.missing.length ? `<ul>${p.missing.map((item) => `<li><code>${esc(item)}</code></li>`).join("")}</ul>` : "<p>No missing fabric values.</p>"}<p class="muted">Completeness covers fabric and required mappings. Geometry, site conditions, systems and schedules are supplied by the consuming project.</p>`;
 }
 const elementNames = { TOP_FLOOR: "Attic floor", EXT_WALL: "External wall", INTERMEDIATE_FLOOR: "Intermediate floor", GROUND_FLOOR: "Ground floor", BASEMENT_WALL: "Basement wall", BASEMENT_FLOOR: "Basement floor", INT_WALL_LOADBEARING: "Loadbearing internal wall", INT_WALL_NONLOADBEARING: "Internal partition", WINDOW: "Window" };
 const metricRoles = { wall: "EXT_WALL", top: "TOP_FLOOR", ground: "GROUND_FLOOR", glazing: "WINDOW", intermediate_floor: "INTERMEDIATE_FLOOR", internal_wall: "INT_WALL_NONLOADBEARING", basement_wall: "BASEMENT_WALL" };
@@ -409,7 +346,7 @@ function closeArchetypeDialog() {
 }
 function openArchetypeDialog(dialog, trigger, p) {
   $("#archetype-dialog-title").textContent = `${label(selected.category)} · ${eraLabel(selected.era)} · ${label(selected.state)} archetype`;
-  $("#archetype-dialog-subtitle").textContent = `${p.lod2.archetype_id} · ${selected.zone.replace("SE.", "")} · ${label(selected.system)}`;
+  $("#archetype-dialog-subtitle").textContent = `${p.lod2.archetype_id} · ${selected.zone.replace("SE.", "")}`;
   $("#archetype-dialog-content").innerHTML = constructionDetails(p.construction || {}, null, { full: true });
   dialog._returnFocus = trigger;
   $("#app").inert = true;
@@ -418,26 +355,18 @@ function openArchetypeDialog(dialog, trigger, p) {
   else dialog.setAttribute("open", "");
   $("#close-archetype").focus();
 }
-function floorReview(p) {
-  if (!p.floor_review) return "";
-  const f = p.floor_review;
-  return `<h3>Representative internal floor</h3><p>${esc(f.family)}.</p><p class="muted">Upper room to lower room. Nominal U describes the internal assembly, not outdoor heat loss. Material heat capacity: ${fmt(f.thermal_mass_kj_m2k, 1)} kJ/(m²·K). Applied only where geometry has an intermediate floor.</p>${f.fill_depth_m ? `<p>Joist depth: ${fmt(f.joist_depth_m * 1000, 0)} mm; fill: ${fmt(f.fill_depth_m * 1000, 0)} mm; air cavity: ${fmt(f.cavity_depth_m * 1000, 0)} mm. Fixed cavity resistance: ${fmt(f.cavity_nominal_r_m2k_w, 2)} m²·K/W.</p><p class="muted">${esc(f.evidence_limit)}</p>` : ""}${p.generic_donor ? `<p><strong>Generic fallback:</strong> complete ${esc(p.generic_donor)} construction set. This is an MF-based assumption, not a national stock average.</p>` : ""}`;
-}
 function renderDetail() {
   if (!selected) return;
   const p = packages.get(activePackage);
   const count = notes.filter((n) => n.cell_id === selected.id).length;
-  $("#detail").innerHTML = `<div class="detail-header"><p class="eyebrow">SELECTED ARCHETYPE</p><h2>${label(selected.category)} <span style="font-weight:400">· ${eraLabel(selected.era)}</span></h2><p class="detail-subtitle">${selected.zone.replace("SE.", "")} / ${label(selected.state)} / ${selected.system}</p><span class="badge ${p.lod1_complete ? "" : "amber"}">${label(p.status)}</span> <span class="badge lod2-${p.lod2.status}">${lod2Label(p.lod2.status)}</span><p class="id-line">${esc(selected.id)}</p></div><div class="tabs" role="tablist" aria-label="Archetype details">${[
-    ["overview", "Overview"], ["layers", "LoD2"], ["evidence", "Evidence"],
+  $("#detail").innerHTML = `<div class="detail-header"><p class="eyebrow">SELECTED ARCHETYPE</p><h2>${label(selected.category)} <span style="font-weight:400">· ${eraLabel(selected.era)}</span></h2><p class="detail-subtitle">${selected.zone.replace("SE.", "")} / ${label(selected.state)}</p><span class="badge ${p.missing.length ? "amber" : ""}">${lod2Label(p.lod2.status)}</span><p class="id-line">${esc(selected.id)}</p></div><div class="tabs" role="tablist" aria-label="Archetype details">${[
+    ["overview", "Overview"], ["layers", "Constructions"], ["record", "Record"],
     ["notes", `Remarks${count ? ` (${count})` : ""}`],
   ].map(([key, title]) => `<button class="tab" role="tab" id="tab-${key}" aria-controls="detail-content" tabindex="${key === tab ? "0" : "-1"}" aria-selected="${key === tab}" data-tab="${key}">${title}</button>`).join("")}</div><div class="detail-body" id="detail-content" role="tabpanel" tabindex="0" aria-labelledby="tab-${tab}"></div>`;
   $$("[data-tab]").forEach((b, i, buttons) => {
     b.onclick = () => {
       if (busy) return;
-      saveDraft();
-      tab = b.dataset.tab;
-      renderDetail();
-      $(`[data-tab="${tab}"]`).focus();
+      saveDraft(); tab = b.dataset.tab; renderDetail(); $(`[data-tab="${tab}"]`).focus();
     };
     b.onkeydown = (e) => {
       let next;
@@ -450,48 +379,17 @@ function renderDetail() {
   });
   const body = $("#detail-content");
   if (tab === "notes") { renderNotes(body); return; }
-  body.innerHTML = `<p class="id-line">Construction set: ${esc(p.id)}<br>Revision: ${esc(p.revision)}</p>`;
+  body.innerHTML = `<p class="id-line">Construction set: ${esc(p.construction_set_id)}</p>`;
   if (tab === "overview") {
-    body.insertAdjacentHTML("beforeend", `${metrics(p)}${floorReview(p)}${schoolWindowProfile(p)}<h3>LoD1 completeness</h3><p>${8 - p.missing.length} of 8 required properties available.</p>${p.missing.length ? `<p class="muted">Pending: ${p.missing.map(label).join(", ")}.</p>` : "<p>LoD1 complete.</p>"}${lod2Overview(p)}<p class="muted">Above-ground U-values describe nominal assemblies. Internal floors are not exterior heat-loss boundaries. Roof is the top thermal boundary. Ground and basement values retain their source boundary meaning.</p><p class="muted">Climate zones and ventilation types are classifications. Construction values and effective infiltration are shared across those choices; mechanical airflow and recovery are supplied downstream.</p>`);
+    body.insertAdjacentHTML("beforeend", `${metrics(p)}${lod2Overview(p)}<p class="muted">U-values are calculated forward from the accepted layer compositions. Internal floors are not exterior heat-loss boundaries. Roof is the top thermal boundary; ground and basement calculations need project-specific conditions downstream.</p><p class="muted">The three climate zones reuse these physical definitions. Installed ventilation and operating inputs are independent selections.</p>`);
     $("[data-open-lod2]")?.addEventListener("click", (event) => { event.preventDefault(); tab = "layers"; renderDetail(); });
   }
   if (tab === "layers") {
-    body.insertAdjacentHTML("beforeend", lod2Details(p) + `<h3>Available constructions</h3><p>${(p.construction_availability || []).map(esc).join(", ")}</p><p class="muted">Availability does not imply presence. Geometry selects basement and other elements. Nominal ground-layer U is separate from the retained effective ground reference. Completeness does not imply empirical validation.</p>`);
-    $("#open-archetype")?.addEventListener("click", (event) => {
-      openArchetypeDialog($("#archetype-dialog"), event.currentTarget, p);
-    });
+    body.insertAdjacentHTML("beforeend", lod2Details(p) + `<h3>Available roles</h3><p>${(p.construction_availability || []).map(esc).join(", ")}</p><p class="muted">Actual building geometry determines which roles are present.</p>`);
+    $("#open-archetype")?.addEventListener("click", (event) => openArchetypeDialog($("#archetype-dialog"), event.currentTarget, p));
   }
-  if (tab === "evidence") {
-    body.insertAdjacentHTML("beforeend", `<h3>References and scaling</h3>${Object.entries(p.properties).map(([role, prop]) => {
-      const source = data.sources.find((s) => s.id === prop.source);
-      const curveSource = data.sources.find((s) => s.id === prop.curve_source);
-      const ref = prop.override || prop.anchor;
-      return `<div class="evidence"><strong>${label(role)}</strong>${facts([
-        ["Value", `${fmt(prop.value, 4)} ${prop.unit}`],
-        ["Resolution", prop.mode],
-        ["Evidence class", label(prop.evidence?.classification || "unclassified")],
-        ["Construction basis", label(prop.evidence?.construction_basis || "unclassified")],
-        ["Value meaning", label(prop.evidence?.value_kind || prop.boundary)],
-        ...(prop.evidence?.nominal_u_value != null ? [["Nominal construction U", `${fmt(prop.evidence.nominal_u_value, 4)} W/(m²K)`]] : []),
-        ["Evidence limits", prop.evidence?.limitations || prop.evidence?.decision || "See source record"],
-        ["Boundary", label(prop.boundary)],
-        ["Reference", ref ? `${ref.category || selected.category} · ${ref.era} · ${ref.state}: ${fmt(ref.value, 4)} ${prop.unit}` : "Pending reference"],
-        ["Curve", prop.curve],
-        ["Scaling factor", prop.scaling_factor == null ? "Not applied" : `${fmt(prop.scaling_factor, 6)} × reference`],
-        ["Unclipped value", prop.unclipped_value == null ? "Pending" : `${fmt(prop.unclipped_value, 4)} ${prop.unit}`],
-        ...(prop.guardrail ? [
-          ["Guardrail", prop.guardrail.applied ? "Adjusted" : prop.guardrail.protected ? "Protected evidence" : "Not adjusted"],
-          ["Nominal lower bound", `${fmt(prop.guardrail.lower_bound, 4)} ${prop.unit} (${fmt(prop.guardrail.margin_percent, 1)}% margin)`],
-          ["Effective lower bound", `${fmt(prop.guardrail.effective_lower_bound, 4)} ${prop.unit}`],
-          ["Below nominal limit", prop.guardrail.below_nominal_limit ? "Yes — retained exception" : "No"],
-          ["Adjustment reason", prop.guardrail.reason],
-          ["Guardrail source", data.sources.find((s) => s.id === prop.guardrail.source)?.title || prop.guardrail.source],
-        ] : []),
-        ["Source", source?.title || prop.source || "Pending"],
-        ["Curve source", curveSource?.title || prop.curve_source],
-        ["Status", prop.assumed ? "Provisional assumption" : prop.value == null ? "Pending" : "Source reference"],
-      ])}<small>${esc(ref?.locator || ref?.note || "")}</small>${curveSource?.note ? `<p class="muted">${esc(curveSource.note)}</p>` : ""}</div>`;
-    }).join("")}<details class="source-details"><summary>Source register</summary>${data.sources.map((s) => `<p><strong>${esc(s.title)}</strong><br>${esc(s.version || "")}<br>${esc(s.note || s.url || "")}</p>`).join("")}</details><details class="source-details"><summary>Full construction record</summary><pre>${esc(JSON.stringify(p, null, 2))}</pre></details>`);
+  if (tab === "record") {
+    body.insertAdjacentHTML("beforeend", `<h3>Resolved construction record</h3><pre>${esc(JSON.stringify(p, null, 2))}</pre>`);
   }
 }
 function renderNotes(root) {
@@ -505,7 +403,7 @@ function renderNotes(root) {
   const own = notes
     .filter((n) => n.cell_id === selected.id)
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
-  root.innerHTML = `<h3>${editing ? "Edit remark" : "Leave a remark"}</h3><p class="muted" style="margin-bottom:15px">Remarks belong to this exact matrix cell. Each records the construction set and catalogue release being reviewed.</p><p class="id-line" style="margin-bottom:16px">Construction set: ${esc(draft.package_id || packages.get(activePackage)?.id)}<br>Revision: ${esc(draft.revision || packages.get(activePackage)?.revision)}</p><form id="note-form" class="note-form"><label for="body">Remark<textarea id="body" maxlength="20000" required placeholder="What should we verify, improve, or discuss?">${esc(draft.body)}</textarea></label><div class="form-row"><label>Your name (optional)<input id="author" maxlength="100" value="${esc(draft.author)}" placeholder="Name"></label><label>Type<select id="kind">${options(["remark", "question", "issue"], label)}</select></label></div><p id="save-error" class="inline-error" role="alert" hidden></p><div class="form-actions"><small id="storage-label">Saved on the app server</small><div>${editing ? '<button type="button" id="cancel-edit" class="button text-button">Cancel</button>' : ""}<button id="save" class="button primary" type="submit">${editing ? "Save changes" : "Save remark"}</button></div></div></form><h3>${own.length} saved ${own.length === 1 ? "remark" : "remarks"}</h3>${own.length ? own.map((n) => `<article class="note-card"><div class="note-meta"><span class="badge ${n.kind === "issue" ? "amber" : ""}">${label(n.kind)}</span><strong>${esc(n.author || "Anonymous")}</strong><time datetime="${esc(n.created_at)}">${esc(new Date(n.created_at).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }))}</time>${n.updated_at !== n.created_at ? "<span>edited</span>" : ""}</div><p class="note-text">${esc(n.body)}</p><details class="source-details"><summary>Review context</summary><p>${esc(n.release_id)}<br>${esc(n.package_id)}<br>Revision ${esc(n.revision)}</p></details><div class="note-actions"><button data-edit="${esc(n.id)}">Edit</button><button class="delete" data-delete="${esc(n.id)}">Delete</button></div></article>`).join("") : '<p class="muted">No remarks yet for this cell.</p>'}`;
+  root.innerHTML = `<h3>${editing ? "Edit remark" : "Leave a remark"}</h3><p class="muted" style="margin-bottom:15px">Remarks belong to this exact matrix cell. Each records the construction set and catalogue release being reviewed.</p><p class="id-line" style="margin-bottom:16px">Construction set: ${esc(draft.package_id || packages.get(activePackage)?.id)}<br>Content hash: ${esc(draft.revision || packages.get(activePackage)?.revision)}</p><form id="note-form" class="note-form"><label for="body">Remark<textarea id="body" maxlength="20000" required placeholder="What should we verify, improve, or discuss?">${esc(draft.body)}</textarea></label><div class="form-row"><label>Your name (optional)<input id="author" maxlength="100" value="${esc(draft.author)}" placeholder="Name"></label><label>Type<select id="kind">${options(["remark", "question", "issue"], label)}</select></label></div><p id="save-error" class="inline-error" role="alert" hidden></p><div class="form-actions"><small id="storage-label">Saved on the app server</small><div>${editing ? '<button type="button" id="cancel-edit" class="button text-button">Cancel</button>' : ""}<button id="save" class="button primary" type="submit">${editing ? "Save changes" : "Save remark"}</button></div></div></form><h3>${own.length} saved ${own.length === 1 ? "remark" : "remarks"}</h3>${own.length ? own.map((n) => `<article class="note-card"><div class="note-meta"><span class="badge ${n.kind === "issue" ? "amber" : ""}">${label(n.kind)}</span><strong>${esc(n.author || "Anonymous")}</strong><time datetime="${esc(n.created_at)}">${esc(new Date(n.created_at).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }))}</time>${n.updated_at !== n.created_at ? "<span>edited</span>" : ""}</div><p class="note-text">${esc(n.body)}</p><details class="source-details"><summary>Review context</summary><p>${esc(n.release_id)}<br>${esc(n.package_id)}<br>Content hash ${esc(n.revision)}</p></details><div class="note-actions"><button data-edit="${esc(n.id)}">Edit</button><button class="delete" data-delete="${esc(n.id)}">Delete</button></div></article>`).join("") : '<p class="muted">No remarks yet for this cell.</p>'}`;
   $("#kind").value = draft.kind;
   $("#note-form").oninput = saveDraft;
   $("#note-form").onsubmit = async (e) => {
@@ -625,16 +523,15 @@ async function init() {
       v.replace("SE.", ""),
     );
     $("#state").innerHTML = options(data.dimensions.states, label);
-    $("#system").innerHTML = options(data.dimensions.systems, label);
     let hash;
     try {
       hash = decodeURIComponent(location.hash.slice(1));
     } catch {}
     selected =
       cellsById.get(hash) ||
-      cellsById.get("multi_family:SE.02:SE.Zone3:existing:F") ||
+      cellsById.get("multi_family:SE.02:SE.Zone3:existing") ||
       data.cells[0];
-    for (const k of ["zone", "state", "system"]) filters[k] = selected[k];
+    for (const k of ["zone", "state"]) filters[k] = selected[k];
     activePackage = packageKey(selected.package_id, selected.revision);
     for (const k of Object.keys(filters)) {
       const el = $("#" + k);
@@ -645,7 +542,7 @@ async function init() {
         saveDraft();
         const previousFilter = filters[k];
         filters[k] = k === "noted" ? el.checked : el.value;
-        if (["zone", "state", "system"].includes(k)) {
+        if (["zone", "state"].includes(k)) {
           const next = selectionForFilters(selected, k);
           if (!next) {
             filters[k] = previousFilter;
@@ -667,7 +564,6 @@ async function init() {
       filters = {
         zone: "SE.Zone3",
         state: "existing",
-        system: "F",
         search: "",
         noted: false,
         metric: "wall",
@@ -676,7 +572,7 @@ async function init() {
         if (k === "noted") $("#" + k).checked = v;
         else $("#" + k).value = v;
       }
-      selectCell(cellsById.get("multi_family:SE.02:SE.Zone3:existing:F"));
+      selectCell(cellsById.get("multi_family:SE.02:SE.Zone3:existing"));
     };
     $("#export").onclick = async () => {
       try {
@@ -727,10 +623,10 @@ async function init() {
       }
     });
     $("#release").textContent =
-      `${data.summary.lod1_complete} LoD1 complete · ${data.summary.lod1_pending} pending`;
+      `${data.summary.configuration_count} physical configurations · ${data.summary.archetype_count} families`;
     $("#lod2-total").textContent =
-      `${data.lod2_summary.lod2_complete_slots} LoD2 complete · ${data.lod2_summary.slots_with_layer_recipe} with recipes`;
-    $("#footer-release").textContent = data.manifest.release_id;
+      `${data.summary.complete_slots} complete · ${data.summary.incomplete_slots} incomplete assignments`;
+    $("#footer-release").textContent = data.manifest.dataset_id;
     $("#loading").hidden = true;
     $("#app").hidden = false;
     renderMatrix();

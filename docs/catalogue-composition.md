@@ -1,43 +1,38 @@
-# Compose the catalogue's physical definitions
+# Shared construction composition
 
-The MF SE.02 pilot established physical composition independently of target
-assessment. All predefined entries now use the same route; see
-[Catalogue inspection and reuse](catalogue-inspection.md). Existing, Standard
-and Advanced recipes retain their material properties, layer order, thicknesses,
-fractions, U-values and stable identities.
+The bundled catalogue and custom authoring use the same physical classes. Loading
+resolves canonical references in this order:
+
+`Material → Layer → Component → Element / Window → ConstructionSet → Archetype`
+
+A material combines Honeybee thermal properties with a Boverket product reference
+and resolved carbon values where applicable. Layers retain thicknesses and area
+fractions. Components retain layer ordering and shearing-layer assignments.
+Elements retain their physical components and building role. Construction sets
+assign elements to roles; archetypes select construction sets.
 
 ```python
 from epsm_data import Catalogue
 
 catalogue = Catalogue.load()
-archetype = catalogue.get("mf_se02", state="existing")
-assert archetype.construction_set == catalogue.detailed.compose("mf_se02").construction_set
-assert archetype.total_elements == 7
-assert archetype.source_references
+slot = catalogue.get_slot("multi_family:SE.02:SE.Zone3:existing")
+archetype = catalogue.get(slot.archetype_id, state=slot.state)
+assert archetype.construction_set is catalogue.construction_sets[slot.construction_set_id]
 ```
 
-`DetailedCatalogue.compose(archetype_id, state=None)` uses an already loaded
-registry. Omitted state selects Existing before SE.07; SE.07 accepts only
-`state=None`. It constructs the immutable materials, layers, components, elements
-and construction set without asking whether a target matches. Invalid physical
-values still fail validation. This operation performs no file or network access
-and never retunes a material property or thickness.
+Equivalent physical definitions share one canonical ID. Their identity does not
+depend on which archetype uses them. Aliases may retain familiar names, while
+references point to the canonical record. The loaded graph is immutable.
 
-The returned archetype retains source identities and descriptions in
-`source_references`. Its notes retain scope, assumptions and caveat status,
-severity and text. `catalogue.detailed.review(id, state)` retains structured
-evidence, boundary details and caveat ownership. Targets remain separately
-available in the registry and effective-property catalogue. Loading a construction
-does not establish calibration, simulation readiness or accuracy for a measured
-building.
+The catalogue contains accepted physical compositions. It does not reconstruct
+layers from U-values or assess agreement with independent targets. U-values and
+other forward properties are calculated from the stored composition.
 
-For an explicit calibration assessment during the staged migration, use
-`catalogue.assess(archetype_id, state=...)` and inspect its `report`; source/material edits
-can produce failed tolerance checks or target drift without preventing physical
-composition. Supported operating profiles and explicit envelope bases are attached by
-`Catalogue.get()`. HVAC remains an explicit choice. `DetailedCatalogue.compose()`
-continues to return the physical composition alone.
+Missing values remain visible through `Catalogue.completeness()`. Physically
+incomplete leaves are not replaced by synthetic defaults; valid parts remain
+inspectable. Custom authoring can likewise start with a partial `Archetype` and
+add known definitions. See [authoring](archetype-authoring.md).
 
-Run [the offline composition example](../examples/catalogue_composition.py) with
-the installed development revision. It writes no files and needs no Core,
-database or engine. Complete exchange uses `archetype_to_dict()` format 4.
+Canonical database corrections are ordinary JSON changes reviewed through a PR.
+Review all referencing constructions when changing a shared definition. There is
+no runtime revision tree or evidence-acceptance workflow.

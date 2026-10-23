@@ -6,7 +6,7 @@
     <title>EPSM · Archetype explorer</title>
     <meta
       name="description"
-      content="Explore the Swedish building archetype matrix, inspect construction evidence, and record remarks for each archetype."
+      content="Explore the Swedish building archetype matrix, inspect LoD2 constructions, and record remarks for each archetype."
     />
     <link
       rel="icon"
@@ -26,12 +26,12 @@
     </header>
     <div id="error" class="error" role="alert" hidden></div>
     <div id="loading" class="loading">
-      Loading the parametric archetype catalogue…
+      Loading the LoD2 archetype catalogue…
     </div>
     <main id="app" hidden>
       <section class="intro">
         <div>
-          <p class="eyebrow">PARAMETRIC ARCHETYPE CATALOGUE</p>
+          <p class="eyebrow">CURATED LOD2 ARCHETYPE CATALOGUE</p>
           <h1>A building stock, cell by cell.</h1>
           <p class="muted">
             Choose a slice of the matrix. Select an archetype to inspect its
@@ -39,23 +39,21 @@
           </p>
         </div>
         <div class="totals">
-          <strong id="total">1,080</strong><span>archetype cells</span
+          <strong id="total">228</strong><span>archetype cells</span
           ><small id="release"></small><small id="lod2-total"></small>
         </div>
       </section>
       <div class="notice">
         <span class="notice-icon">i</span
         ><span
-          ><strong>Representative LoD1 inputs.</strong> Effective U-values
-          and infiltration resolve from references and curves. School windows
-          follow a separate period profile; select a School cell to compare its
-          window values and review the evidence.</span
+          ><strong>Accepted layered constructions.</strong> Four building types,
+          seven eras and three climate zones. Select a cell to inspect physical
+          layers, source-property links and any missing values.</span
         >
       </div>
       <section class="filters" aria-label="Matrix filters">
         <label>Climate zone<select id="zone"></select></label
         ><label>Renovation<select id="state"></select></label
-        ><label>Ventilation<select id="system"></select></label
         ><label class="search-label"
           >Find archetypes<input
             id="search"
@@ -101,7 +99,7 @@
           <p class="matrix-foot">
             Colours use a fixed 0–3 W/(m²·K) scale across slices. Values above 3
             use the darkest shade. A cell is a classification; several cells can
-            share an effective construction set. Grey cells have no value for
+            share a canonical construction set. Grey cells have no value for
             the selected element.
           </p>
         </section>
@@ -112,7 +110,7 @@
       <footer>
         <span id="footer-release"></span
         ><span
-          >TABULA climate zones · SE.06: 2006–present · LoD2 acceptance status from the detailed catalogue</span
+          >Three climate zones · SE.06: 2006–2021 · SE.07: 2022 onward · LoD2 fabric completeness</span
         >
       </footer>
     </main>

@@ -1,60 +1,32 @@
-# Archetype explorer
+# LoD2 catalogue explorer
 
-Local, dependency-free viewer for the Swedish parametric catalogue and detailed
-LoD2 completeness report. Its adapter loads the public `Catalogue` and explicitly inspects its `parametric` and `detailed` views; physical selection and target acceptance remain separate. It reads the current catalogue; see [the Data guide](../README.md).
-
-## Run
+A local, dependency-free viewer for the frozen Swedish LoD2 catalogue. The public
+`Catalogue` API supplies 28 families, 76 fabric configurations and 228 climate-zone
+assignments. The viewer shows forward U-values, shared material/layer composition,
+Honeybee/Boverket links and explicit missing-value paths.
 
 ```sh
-.venv/bin/python -m explorer.server
-.venv/bin/python -m explorer.server --port 8766 --catalogue /path/to/catalogue.json \
-  --notes /path/to/explorer-notes.sqlite
+python -m explorer.server
 ```
 
-Open http://127.0.0.1:8765. The optional catalogue is editable JSON and is loaded
-read-only. No workbooks, network connections, or governed database are needed.
+Open the localhost address printed by the server. Choose a climate zone and fabric
+alternative, then select a matrix cell. SE.07 has one configuration without a
+renovation state. No ventilation matrix, LoD1 targets or calibration checks remain.
 
-## Explore
+An alternate complete LoD2 JSON file can be selected with `--catalogue PATH`.
+The catalogue is read-only. Correct canonical database definitions through a PR.
 
-The 1,140-slot matrix has five categories and seven eras. SE.01–SE.06 have three
-reference renovation states. SE.07 has one configuration, shown unchanged beside
-each state slice. “No renovation state” filters the matrix to SE.07. Switching
-between this filter and a renovation state selects an available era in the same
-category. Climate zone and ventilation select the classification slice.
-Search by category, era, year, or cell ID;
-choose any of seven U-value colour metrics. Missing values appear as dashes in
-grey cells. Each cell reports its LoD1 and LoD2 completeness.
+Remarks are stored separately in `data/local/explorer-notes.sqlite`; use
+`--notes PATH` to change the location. Export remarks downloads all saved notes,
+including historical notes. Each note retains the reviewed cell, definition
+content hash and catalogue content hash. These hashes identify remark context;
+they do not create a catalogue version workflow. Existing remarks are not moved
+when a new database is loaded.
 
-Overview shows seven effective boundary U-values and infiltration. Evidence
-shows final current values, source notes, and assumptions. Selecting a
-School cell also shows its whole-window U-values across the available eras for the
-selected renovation state. The school-specific period mapping is documented in
-[the evidence note](../evidence/school_window_period_profile.md). The LoD2 tab
-shows whether a detailed layer recipe is accepted, draft, or absent. For authored
-recipes it shows acceptance checks, remaining limitations, and separate ground,
-carbon, and simulation readiness. The actual layer stacks remain in the detailed
-catalogue. Zone and ventilation classifications do not scale the values.
-
-Existing bookmarks work where the category and era IDs remain present.
-SE.06 covers 2006–2021; SE.07 starts in 2022. Removed categories and former modern-era
-bookmarks have no automatic mapping.
-
-## Remarks
-
-Remarks remain in `data/local/explorer-notes.sqlite`, separately from the
-catalogue. Preserve that file when backing up or changing the catalogue.
-Export remarks downloads all saved notes, including notes for removed cells.
-
-Historical remarks retain their original release, package, and revision context.
-Matching historical cell IDs continue to show their remarks; missing-cell remarks
-remain stored and exportable. Editing a remark never changes its review context.
-New remarks record deterministic hashes of the catalogue and effective properties.
-
-Drafts survive navigation within the page and warn before leaving. Save a remark
-to make it durable. Concurrent edits are rejected rather than silently overwritten.
-The app binds to localhost and retains the existing local request guards.
+Drafts survive navigation and warn before leaving. Concurrent remark edits are
+rejected. The server binds to localhost and keeps its local request guards.
 
 ```sh
-.venv/bin/python -m pytest tests/test_explorer.py -q
+python -m pytest tests/test_explorer.py -q
 node --check explorer/static/app.js
 ```
