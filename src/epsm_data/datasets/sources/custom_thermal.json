@@ -10,6 +10,26 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Matches PAROC BLT 1 open-attic declaration: lambda 0.042 at >=28 kg/m3.",
+        "sources": [
+          {
+            "reference": "PAROC BLT 1 datasheet (SE)",
+            "url": "https://www.paroc.com/sv-se/documents/uploads/paroc-blt-1.pdf",
+            "values": {
+              "conductivity": 0.042,
+              "density": 28
+            }
+          },
+          {
+            "reference": "EPD NEPD-4340-3565-EN (PAROC SE produced stone wool, valid to 2028-04-05)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se"
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_cellular_plastic": {
@@ -23,6 +43,21 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "EPS 100 (S100) declared lambda 0.037 per EN 12667; nominal 20 kg/m3 EPS 100 grade.",
+        "sources": [
+          {
+            "reference": "BEWI Jackopor EPS 100 declaration of performance (SE), 2024-03",
+            "url": "https://media.derome.se/medias/docus/178/Prestandadeklaration-Jackopor-EPS-100-SE.pdf",
+            "values": {
+              "conductivity": 0.037
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.6
   },
   "EPSM_facade_stone_wool": {
@@ -36,6 +71,26 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Matches PAROC WAS 25 wind-barrier/ventilated-facade board: lambda 0.033 at 80 kg/m3.",
+        "sources": [
+          {
+            "reference": "PAROC WAS 25 (scaling table of NEPD-4340-3565-EN)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se",
+            "values": {
+              "conductivity": 0.033,
+              "density": 80
+            }
+          },
+          {
+            "reference": "EPD NEPD-4340-3565-EN (PAROC SE produced stone wool, valid to 2028-04-05)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se"
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_floor_eps100_lambda036": {
@@ -51,13 +106,29 @@
     "type": "EnergyMaterial",
     "user_data": {
       "definition_author": "EPSM",
+      "provenance": {
+        "basis": "TABULA floor measure conductivity 0.036; consistent with BEWI EPS 100 technical data.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Tab.Building.Measure!P243:Q243, P244:Q244",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "conductivity": 0.036
+            }
+          },
+          {
+            "reference": "evidence/mf_se01_tabula_renovations.json"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "source_supported_nominal_material",
       "source_note": "evidence/mf_se01_tabula_renovations.json"
     },
     "visible_absorptance": 0.6
   },
   "EPSM_gypsum_wind_sheathing": {
-    "conductivity": 0.25,
+    "conductivity": 0.21,
     "density": 757.8947368421053,
     "display_name": "gypsum_wind_sheathing",
     "identifier": "EPSM_gypsum_wind_sheathing",
@@ -67,6 +138,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Gyproc Vindskydd GU 9.5 mm (Bålsta): lambda 0.21 (EN ISO 10456), 758 kg/m3. The former 0.25 followed an older declaration.",
+        "sources": [
+          {
+            "reference": "EPD-IES-0000391:002 Gyproc Vindskydd, valid to 2030-06-05",
+            "url": "https://api.prod.environdec.com/api/v1/EPDLibrary/Files/EPDs/1d120ee3-fde5-4b70-b85a-4c6f4b9a30fa/Documents",
+            "values": {
+              "conductivity": 0.21,
+              "density": 758
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_historic_aac_masonry_500_babs1946": {
@@ -85,6 +172,18 @@
       "conductivity_basis": "effective_masonry_including_mortar",
       "definition_author": "EPSM",
       "grade_status": "representative_historic_grade",
+      "provenance": {
+        "basis": "Historic 500 kg/m3 AAC in service; modern dry declarations (H+H Multiplattan 525: lambda10,dry 0.12) do not represent 1940s-60s moist service values.",
+        "sources": [
+          {
+            "reference": "BABS 1946 / evidence/mf_se01_wall_material.json"
+          },
+          {
+            "reference": "tests/fixtures/material_grades/mf_se01_aac.json"
+          }
+        ],
+        "tier": "historical"
+      },
       "source_references": [
         "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
         "https://vpp.sbuf.se/Public/Documents/ProjectDocuments/82F6A503-9D9F-4E29-AEA2-66B0C93AB9C3/FinalReport/SBUF%2011352%20Slutrapport_BYGGNADSUTFORMNING%20OCH%20V%C3%84RMEKAPACITET.pdf",
@@ -95,9 +194,9 @@
     "visible_absorptance": 0.7
   },
   "EPSM_leca": {
-    "conductivity": 0.16,
-    "density": 400,
-    "display_name": "leca",
+    "conductivity": 0.095,
+    "density": 305,
+    "display_name": "Leca loose fill, 4-10 mm",
     "identifier": "EPSM_leca",
     "roughness": "VeryRough",
     "solar_absorptance": 0.7,
@@ -105,6 +204,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Loose Leca Medium 4-10 mm under ground slabs: declared lambda 0.095 at 305 kg/m3 (dry). The former 0.16/400 matched neither loose fill nor blocks.",
+        "sources": [
+          {
+            "reference": "Leca Sverige PDS Leca Medium",
+            "url": "https://media.derome.se/medias/docus/123/PDS-SE-Leca_Medium.pdf",
+            "values": {
+              "conductivity": 0.095,
+              "density": 305
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_mfh_coke_ash": {
@@ -118,6 +233,20 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Historic coke-ash floor fill retained in existing stock; no product declaration exists.",
+        "sources": [
+          {
+            "reference": "evidence/layered/mfh_cmf_decades_workbook.json"
+          },
+          {
+            "reference": "evidence/mf_se01_existing_stock_carbon.json"
+          }
+        ],
+        "tier": "historical"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_mineral_wool": {
@@ -131,6 +260,26 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Matches PAROC eXtra batt: lambda_D 0.036 (EN 13162), 29.5 kg/m3 at 70-270 mm.",
+        "sources": [
+          {
+            "reference": "PAROC eXtra datasheet (SE)",
+            "url": "https://www.paroc.com/sv-se/documents/uploads/pds-paroc-extra.pdf",
+            "values": {
+              "conductivity": 0.036,
+              "density": 29.5
+            }
+          },
+          {
+            "reference": "EPD NEPD-4340-3565-EN (PAROC SE produced stone wool, valid to 2028-04-05)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se"
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.5
   },
   "EPSM_office_air_gap_internal": {
@@ -144,19 +293,17 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
-    "visible_absorptance": 0.7
-  },
-  "EPSM_office_concrete": {
-    "conductivity": 1.7,
-    "density": 2300,
-    "display_name": "Concrete",
-    "identifier": "EPSM_office_concrete",
-    "roughness": "MediumRough",
-    "solar_absorptance": 0.7,
-    "specific_heat": 880,
-    "thermal_absorptance": 0.9,
-    "thickness": 0.05,
-    "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Equivalent air layer from the Poirazis (2008) office source model; not a product.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          }
+        ],
+        "tier": "assumption"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_office_expanded_plastic": {
@@ -170,11 +317,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Office slab EPS as printed in the Poirazis (2008) Swedish office case.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          }
+        ],
+        "tier": "historical"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_office_gypsum_partition": {
-    "conductivity": 0.22,
-    "density": 970,
+    "conductivity": 0.21,
+    "density": 720,
     "display_name": "Gypsum",
     "identifier": "EPSM_office_gypsum_partition",
     "roughness": "MediumRough",
@@ -183,6 +341,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Gyproc Normal GN 12.5 mm: lambda 0.21, 9.0 kg/m2 giving 720 kg/m3.",
+        "sources": [
+          {
+            "reference": "EPD-IES-0017752:003 Gyproc Normal GN/GNE",
+            "url": "https://api.prod.environdec.com/api/v1/EPDLibrary/Files/EPDs/bffac3be-6741-4585-8dac-08dd032cc234/Documents",
+            "values": {
+              "areal_mass_kg_m2": 9.0,
+              "conductivity": 0.21
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_office_light_insulation": {
@@ -196,10 +370,21 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Light glass-wool sound batt in office partitions as printed in the Poirazis (2008) case; Swedish sound batts declare about 0.035-0.037 at 16-20 kg/m3.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          }
+        ],
+        "tier": "assumption"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_office_linoleum": {
-    "conductivity": 0.156,
+    "conductivity": 0.17,
     "density": 1200,
     "display_name": "Linoleum",
     "identifier": "EPSM_office_linoleum",
@@ -209,6 +394,20 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Forbo Marmoleum declares lambda 0.17 (EN 12524); seen in Forbo EPD/spec excerpts.",
+        "sources": [
+          {
+            "reference": "Forbo Marmoleum EPD and specification excerpts (secondary access)",
+            "values": {
+              "conductivity": 0.17
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_office_under_felt": {
@@ -222,6 +421,21 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Generic bituminous underlay grade; manufacturer EPDs (Icopal Flexilight, EPD-IES-0022489:002) declare areal mass only, not lambda or density.",
+        "sources": [
+          {
+            "reference": "EPD-IES-0022489:002 Icopal Flexilight",
+            "url": "https://api.prod.environdec.com/api/v1/EPDLibrary/Files/EPDs/4635709c-4b5d-43ca-ff93-08dd83cb8afc/Documents",
+            "values": {
+              "areal_mass_kg_m2": 0.74
+            }
+          }
+        ],
+        "tier": "assumption"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_open_attic_glass_wool_lambda037": {
@@ -237,6 +451,22 @@
     "type": "EnergyMaterial",
     "user_data": {
       "definition_author": "EPSM",
+      "provenance": {
+        "basis": "Lambda 0.037 is the TABULA loose-wool measure grade. Swedish open-attic declarations are 0.040 (Isover InsulSafe, >=18 kg/m3) to 0.042; 0.037 corresponds to closed-cavity application. Retained for TABULA agreement; review if used outside TABULA packages.",
+        "sources": [
+          {
+            "reference": "evidence/mf_se01_tabula_renovations.json"
+          },
+          {
+            "reference": "Knauf Insulation blowing-wool solutions guide (SE)",
+            "url": "https://pim.knaufinsulation.com/files/download/knauf_insulation_blowing_wool-solutions-guide-se.pdf",
+            "values": {
+              "conductivity": "0.040-0.042 open attic"
+            }
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "source_supported_nominal_material",
       "source_note": "evidence/mf_se01_tabula_renovations.json"
     },
@@ -253,6 +483,20 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Period mineral wool at a declared-style 0.040 for pre-1975 production.",
+        "sources": [
+          {
+            "reference": "evidence/sfh_baseline_user_stacks.txt"
+          },
+          {
+            "reference": "evidence/sf_se02_source_review.json"
+          }
+        ],
+        "tier": "historical"
+      }
+    },
     "visible_absorptance": 0.5
   },
   "EPSM_sf_wood_shavings": {
@@ -266,6 +510,20 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Loose historic wood-shavings attic/wall fill; no product declaration exists.",
+        "sources": [
+          {
+            "reference": "evidence/sf_se01_source_review.json"
+          },
+          {
+            "reference": "evidence/sfh_baseline_user_stacks.txt"
+          }
+        ],
+        "tier": "historical"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_tabula_facing_brick_lambda060": {
@@ -281,42 +539,99 @@
     "type": "EnergyMaterial",
     "user_data": {
       "definition_author": "EPSM",
+      "provenance": {
+        "basis": "TABULA new brick facing conductivity 0.60; EN 1745 facing-brick declarations of 0.60 exist at 1450-1700 kg/m3, so 1800 kg/m3 is at the high end.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Tab.Building.Measure!R221:T221, R226:T226",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "conductivity": 0.6
+            }
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "source_supported_nominal_material",
       "source_note": "evidence/mf_se01_tabula_renovations.json"
     },
     "visible_absorptance": 0.7
   },
   "EPSM_tabula_mf_window_advanced": {
-    "display_name": "TABULA MF advanced whole-aperture replacement window",
+    "display_name": "Whole window U=0.76 W/(m² K), SHGC=0.42, VT=0.518",
     "identifier": "EPSM_tabula_mf_window_advanced",
     "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 0.76,
     "user_data": {
-      "assumed_glazing_vt": 0.6,
+      "assumed_glazing_vt": 0.74,
       "frame_fraction": 0.3,
       "frame_solar_gain": "assumed negligible",
       "glazing_g": 0.6,
+      "provenance": {
+        "basis": "Uw and glazing g from the TABULA renovation measure; glass LT 0.74 from Swedish triple low-e glazing replaces the former unsourced 0.60/0.65.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Tab.Building.Measure window rows",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "glazing_g": 0.6,
+              "u_factor": 0.76
+            }
+          },
+          {
+            "reference": "TABULA SE brochure renovation windows ('bättre 3-glas' 0.9, 'lågenergifönster' 0.76)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "source": "TABULA.xlsm Tab.Building.Measure",
       "source_note": "evidence/mf_se01_tabula_renovations.json"
     },
-    "vt": 0.42
+    "vt": 0.518
   },
   "EPSM_tabula_mf_window_standard": {
-    "display_name": "TABULA MF standard whole-aperture replacement window",
+    "display_name": "Whole window U=0.9 W/(m² K), SHGC=0.35, VT=0.518",
     "identifier": "EPSM_tabula_mf_window_standard",
     "shgc": 0.35,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 0.9,
     "user_data": {
-      "assumed_glazing_vt": 0.65,
+      "assumed_glazing_vt": 0.74,
       "frame_fraction": 0.3,
       "frame_solar_gain": "assumed negligible",
       "glazing_g": 0.5,
+      "provenance": {
+        "basis": "Uw and glazing g from the TABULA renovation measure; glass LT 0.74 from Swedish triple low-e glazing replaces the former unsourced 0.60/0.65.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Tab.Building.Measure window rows",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "glazing_g": 0.5,
+              "u_factor": 0.9
+            }
+          },
+          {
+            "reference": "TABULA SE brochure renovation windows ('bättre 3-glas' 0.9, 'lågenergifönster' 0.76)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "source": "TABULA.xlsm Tab.Building.Measure",
       "source_note": "evidence/mf_se01_tabula_renovations.json"
     },
-    "vt": 0.455
+    "vt": 0.518
   },
   "EPSM_tabula_original_timber_window_1_8": {
     "display_name": "Timber window, TABULA original, U=1.80 W/(m² K)",
@@ -327,6 +642,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2639",
+                "Calc.Building.Set!AW2639",
+                "Calc.Building.Set!GS2639"
+              ],
+              "u_factor": 1.8
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original mf_se04",
       "source_glazing_g": 0.7,
@@ -348,6 +685,28 @@
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
       "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!HW2696",
+                "Calc.Building.Set!HW2686",
+                "Calc.Building.Set!HW2676"
+              ],
+              "u_factor": 1.87
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original sf_se05 (SFH.05.Gen.ReEx.001.001)",
       "source_glazing_g": 0.7,
@@ -369,6 +728,28 @@
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
       "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!HW2694",
+                "Calc.Building.Set!HW2684",
+                "Calc.Building.Set!HW2674"
+              ],
+              "u_factor": 1.94
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original sf_se04 (SFH.04.Gen.ReEx.001.001)",
       "source_glazing_g": 0.7,
@@ -390,6 +771,28 @@
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
       "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!HW2666",
+                "Calc.Building.Set!HW2661",
+                "Calc.Building.Set!HW2656"
+              ],
+              "u_factor": 1.97
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original mf_se05 (MFH.05.Gen.ReEx.001.001)",
       "source_glazing_g": 0.7,
@@ -410,6 +813,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2636",
+                "Calc.Building.Set!AW2636",
+                "Calc.Building.Set!GS2636"
+              ],
+              "u_factor": 2.22
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original MFH.01",
       "source_glazing_g": 0.8,
@@ -430,6 +855,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2621",
+                "Calc.Building.Set!AW2621",
+                "Calc.Building.Set!GS2621"
+              ],
+              "u_factor": 2.34
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA SFH.01 original",
       "source_glazing_g": 0.8,
@@ -450,6 +897,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2623",
+                "Calc.Building.Set!AW2623",
+                "Calc.Building.Set!GS2623"
+              ],
+              "u_factor": 2.01
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original sf_se03",
       "source_glazing_g": 0.7,
@@ -470,6 +939,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2638",
+                "Calc.Building.Set!AW2638",
+                "Calc.Building.Set!GS2638"
+              ],
+              "u_factor": 2.04
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original mf_se03",
       "source_glazing_g": 0.7,
@@ -490,6 +981,28 @@
     "user_data": {
       "assumed_glazing_vt": 0.75,
       "frame_fraction": 0.3,
+      "provenance": {
+        "basis": "Exact TABULA original whole-window U; glazing g by pane count, frame fraction 0.30, glazing LT 0.75 EPSM convention.",
+        "sources": [
+          {
+            "reference": "TABULA.xlsm Calc.Building.Set window cells",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+            "values": {
+              "locators": [
+                "Calc.Building.Set!AT2622",
+                "Calc.Building.Set!AW2622",
+                "Calc.Building.Set!GS2622"
+              ],
+              "u_factor": 2.3
+            }
+          },
+          {
+            "reference": "TABULA SE brochure current-state window U by period",
+            "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+          }
+        ],
+        "tier": "tabula"
+      },
       "representation": "simple_whole_window",
       "source": "Swedish TABULA original sf_se02",
       "source_glazing_g": 0.8,
@@ -502,8 +1015,8 @@
     "vt": 0.525
   },
   "EPSM_v1_1_acoustic_wood_wool": {
-    "conductivity": 0.085,
-    "density": 450,
+    "conductivity": 0.076,
+    "density": 463,
     "display_name": "Generic wood-wool acoustic lining",
     "identifier": "EPSM_v1_1_acoustic_wood_wool",
     "roughness": "MediumRough",
@@ -512,6 +1025,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.025,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Troldtekt cement-bonded wood-wool 25 mm: lambda 0.076 (EN 13168), 463 kg/m3.",
+        "sources": [
+          {
+            "reference": "EPD Danmark MD-22046-EN Troldtekt FUTURECEM natural 25 mm",
+            "url": "https://www.troldtekt.dk/media/jitdwycf/epddanmark_futurecem_natur_25mm-umalet.pdf",
+            "values": {
+              "conductivity": 0.076,
+              "density": 463
+            }
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_v1_2_air_150": {
@@ -525,6 +1054,17 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.15,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Sealed high-emissivity cavity, R=0.16 m2K/W (upward heat flow, unventilated layer); lambda = depth / R.",
+        "sources": [
+          {
+            "reference": "EN ISO 6946 unventilated air-layer resistances (standard text not bundled)"
+          }
+        ],
+        "tier": "standard"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_v1_2_air_98": {
@@ -538,6 +1078,17 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.098,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Sealed high-emissivity cavity, R=0.16 m2K/W (upward heat flow, unventilated layer); lambda = depth / R.",
+        "sources": [
+          {
+            "reference": "EN ISO 6946 unventilated air-layer resistances (standard text not bundled)"
+          }
+        ],
+        "tier": "standard"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_v1_2_sand_fill": {
@@ -551,11 +1102,22 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.1,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Dry retained sand fill; moist ground sand is far more conductive. Carbon uses an explicit crushed-granite EPD proxy.",
+        "sources": [
+          {
+            "reference": "evidence/betsi_review/audit.json"
+          }
+        ],
+        "tier": "assumption"
+      }
+    },
     "visible_absorptance": 0.7
   },
   "EPSM_v1_roof_board": {
     "conductivity": 0.038,
-    "density": 180,
+    "density": 130,
     "display_name": "Generic rigid stone-wool roof board",
     "identifier": "EPSM_v1_roof_board",
     "roughness": "MediumRough",
@@ -564,47 +1126,139 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Rigid stone-wool roof board for full build-up depths: PAROC ROS 50 lambda 0.038 at 125-132 kg/m3. The former 180 kg/m3 represented only a thin top layer (ROS 80, 185 kg/m3).",
+        "sources": [
+          {
+            "reference": "PAROC ROS 50 (scaling table of NEPD-4340-3565-EN)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se",
+            "values": {
+              "conductivity": 0.038,
+              "density": "125-132"
+            }
+          },
+          {
+            "reference": "EPD NEPD-4340-3565-EN (PAROC SE produced stone wool, valid to 2028-04-05)",
+            "url": "https://paroc.com/en/documents/uploads/epd-se"
+          }
+        ],
+        "tier": "product"
+      }
+    },
     "visible_absorptance": 0.5
   },
   "EPSM_window_lod2_mf_1940_advanced": {
-    "display_name": "MF se01_advanced whole-window representative",
+    "display_name": "Whole window U=0.85 W/(m² K), SHGC=0.371, VT=0.518",
     "identifier": "EPSM_window_lod2_mf_1940_advanced",
-    "shgc": 0.45,
+    "shgc": 0.371,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 0.85,
-    "vt": 0.6
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a triple low-e, Elitfönster Uw 0.81-0.89 options.",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.53,
+              "glazing_lt": 0.74
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.518
   },
   "EPSM_window_lod2_mf_1940_existing": {
-    "display_name": "MF 1940s TABULA-era whole-window proxy",
+    "display_name": "Whole window U=2.8 W/(m² K), SHGC=0.56, VT=0.525",
     "identifier": "EPSM_window_lod2_mf_1940_existing",
-    "shgc": 0.7,
+    "shgc": 0.56,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 2.8,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a two-pane period window (Uw >= 2.2).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.8,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_mf_1940_standard": {
-    "display_name": "MF se01_standard whole-window representative",
+    "display_name": "Whole window U=1.22 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_mf_1940_standard",
-    "shgc": 0.5,
+    "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.22,
-    "vt": 0.65
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a modern replacement, Elitfönster Uw 1.22 option.",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.6,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_mf_se06_existing": {
-    "display_name": "MF se06_existing whole-window representative",
+    "display_name": "Whole window U=1.5 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_mf_se06_existing",
-    "shgc": 0.7,
+    "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.4999999999999998,
-    "vt": 0.75
-  },
-  "EPSM_window_lod2_office_se01_advanced": {
-    "display_name": "Office SE.01 advanced whole window",
-    "identifier": "EPSM_window_lod2_office_se01_advanced",
-    "shgc": 0.5,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 0.9,
-    "vt": 0.65
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a low-e insulating glazing (Uw < 1.6).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.6,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_office_se01_existing": {
     "display_name": "Office SE.01 existing whole window",
@@ -612,6 +1266,20 @@
     "shgc": 0.4857214787019664,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 2.8,
+    "user_data": {
+      "provenance": {
+        "basis": "Office whole-window U from the office period matrix; SHGC/VT derived from the Poirazis (2008) Figure 4.2 glazing and Table H.1 with area-weighted glazing fraction.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          },
+          {
+            "reference": "evidence/office_period_user_stacks.txt"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
     "vt": 0.5101413579674405
   },
   "EPSM_window_lod2_office_se04_existing": {
@@ -620,6 +1288,20 @@
     "shgc": 0.4857214787019664,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 2.359495605462134,
+    "user_data": {
+      "provenance": {
+        "basis": "Office whole-window U from the office period matrix; SHGC/VT derived from the Poirazis (2008) Figure 4.2 glazing and Table H.1 with area-weighted glazing fraction.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          },
+          {
+            "reference": "evidence/office_period_user_stacks.txt"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
     "vt": 0.5101413579674405
   },
   "EPSM_window_lod2_office_se05_existing": {
@@ -628,6 +1310,20 @@
     "shgc": 0.4857214787019664,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.9882926829268293,
+    "user_data": {
+      "provenance": {
+        "basis": "Office whole-window U from the office period matrix; SHGC/VT derived from the Poirazis (2008) Figure 4.2 glazing and Table H.1 with area-weighted glazing fraction.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          },
+          {
+            "reference": "evidence/office_period_user_stacks.txt"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
     "vt": 0.5101413579674405
   },
   "EPSM_window_lod2_office_se06_existing": {
@@ -636,71 +1332,245 @@
     "shgc": 0.4857214787019664,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.3,
+    "user_data": {
+      "provenance": {
+        "basis": "Office whole-window U from the office period matrix; SHGC/VT derived from the Poirazis (2008) Figure 4.2 glazing and Table H.1 with area-weighted glazing fraction.",
+        "sources": [
+          {
+            "reference": "evidence/poirazis_2008_office_building.md"
+          },
+          {
+            "reference": "evidence/office_period_user_stacks.txt"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
     "vt": 0.5101413579674405
   },
   "EPSM_window_lod2_school_se02_existing": {
-    "display_name": "School SE.02 existing whole window",
+    "display_name": "Whole window U=2.7 W/(m² K), SHGC=0.56, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se02_existing",
-    "shgc": 0.7,
+    "shgc": 0.56,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 2.7,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a two-pane period window (Uw >= 2.2).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.8,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_school_se03_existing": {
-    "display_name": "School SE.03 existing whole window",
+    "display_name": "Whole window U=2.25 W/(m² K), SHGC=0.56, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se03_existing",
-    "shgc": 0.7,
+    "shgc": 0.56,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 2.25,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a two-pane period window (Uw >= 2.2).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.8,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_school_se04_existing": {
-    "display_name": "School SE.04 existing whole window",
+    "display_name": "Whole window U=1.9 W/(m² K), SHGC=0.49, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se04_existing",
-    "shgc": 0.7,
+    "shgc": 0.49,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.9,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a three-pane period window (1.6 <= Uw < 2.2).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.7,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_school_se05_existing": {
-    "display_name": "School SE.05 existing whole window",
+    "display_name": "Whole window U=1.6 W/(m² K), SHGC=0.49, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se05_existing",
-    "shgc": 0.7,
+    "shgc": 0.49,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.6,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a three-pane period window (1.6 <= Uw < 2.2).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.7,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
+            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_school_se06_existing": {
-    "display_name": "School SE.06 existing whole window",
+    "display_name": "Whole window U=1.14286 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se06_existing",
-    "shgc": 0.7,
+    "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.1428571428571428,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a low-e insulating glazing (Uw < 1.6).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.6,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_school_se06_standard": {
-    "display_name": "School SE.06 standard whole window",
+    "display_name": "Whole window U=1.08 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_school_se06_standard",
-    "shgc": 0.5,
+    "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.08,
-    "vt": 0.65
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a modern replacement, Elitfönster Uw 1.10 option.",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.6,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_window_lod2_sf_se01_advanced": {
-    "display_name": "SF SE.01 advanced representative whole window",
+    "display_name": "Whole window U=0.8 W/(m² K), SHGC=0.371, VT=0.518",
     "identifier": "EPSM_window_lod2_sf_se01_advanced",
-    "shgc": 0.45,
+    "shgc": 0.371,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 0.8,
-    "vt": 0.6
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a triple low-e, Elitfönster Uw 0.81-0.89 options.",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.53,
+              "glazing_lt": 0.74
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.518
   },
   "EPSM_window_lod2_sf_se06_existing": {
-    "display_name": "SF SE.06 existing representative whole window",
+    "display_name": "Whole window U=1.3 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_sf_se06_existing",
-    "shgc": 0.7,
+    "shgc": 0.42,
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 1.3,
-    "vt": 0.75
+    "user_data": {
+      "provenance": {
+        "basis": "Uw from the period profile evidence; optics for a low-e insulating glazing (Uw < 1.6).",
+        "sources": [
+          {
+            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
+            "values": {
+              "frame_fraction": 0.3,
+              "glazing_g": 0.6,
+              "glazing_lt": 0.75
+            }
+          },
+          {
+            "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
+            "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
   },
   "EPSM_woodfiber_board": {
     "conductivity": 0.07,
@@ -713,6 +1583,20 @@
     "thermal_absorptance": 0.9,
     "thickness": 0.05,
     "type": "EnergyMaterial",
+    "user_data": {
+      "provenance": {
+        "basis": "Historic porous wood-fibre board (softboard) uses the generic fibreboard design value of about 0.07 W/(m K) near 250 kg/m3; modern insulation boards (STEICO protect M: 0.046 at 230 kg/m3) are a different grade.",
+        "sources": [
+          {
+            "reference": "EN ISO 10456:2007 design-value tables (standard text not bundled)"
+          },
+          {
+            "reference": "evidence/layered/cmf_1960_reconstruction.json"
+          }
+        ],
+        "tier": "standard"
+      }
+    },
     "visible_absorptance": 0.65
   }
 }

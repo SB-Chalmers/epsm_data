@@ -24,11 +24,14 @@ observed stock averages or a building-code acceptance claim. The current
 standard replacement definition is 1.22 rather than a literal 1.20 request.
 No window value has been retuned to reduce an annual heating gap.
 
-Current existing optics are whole-window SHGC 0.70 and VT 0.75; current
-standard/advanced and SE.07 optics are SHGC 0.50 and VT 0.65. These generic
-optical assumptions are not inferred from the U curve, nor from measured
-period-specific frame, gas, coating or pane data. They must not receive another
-frame-area conversion. See the [current recipe contract](nonresidential_current_recipe_contract.md).
+Revised 2026-10-25: the former generic whole-window SHGC 0.70 / VT 0.75
+(existing) and 0.50 / 0.65 (standard/advanced) exceeded what a framed window can
+transmit. Existing optics now use TABULA glazing g by pane count (Uw >= 2.2
+two-pane g 0.8; 1.6-2.2 three-pane g 0.7; below 1.6 low-e g 0.6), glass LT 0.75
+and frame fraction 0.30. Standard replacements follow the Elitfönster Uw
+1.10-1.22 options (LT 0.75, g 0.60). Advanced Uw 0.9 now reuses the TABULA
+Wood 3p replacement window. The U curve above is unchanged. These whole-window
+values must not receive another frame-area conversion. See the [current recipe contract](nonresidential_current_recipe_contract.md).
 
 ## Retained source profile and original interpretation
 

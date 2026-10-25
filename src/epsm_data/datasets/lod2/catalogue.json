@@ -8594,7 +8594,7 @@
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:2a7bf69254a2f9ba",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:0b78c2d6a229d1a7": {
@@ -8631,7 +8631,7 @@
         "INT_WALL_NONLOADBEARING": "element:48e34fee0ad2d65d",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:2e761f8b85eadcfd",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:16128efb21fb8b97": {
@@ -8654,7 +8654,7 @@
         "INT_WALL_NONLOADBEARING": "element:0b676fad09c3eff6",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:6cdf47e452dd5814",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:1672c9f0b1ffd049": {
@@ -8788,7 +8788,7 @@
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:44cf694cc58082d4",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:5b4b40925abd2e11": {
@@ -8833,7 +8833,7 @@
         "INT_WALL_NONLOADBEARING": "element:90d5393b1ef6203e",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:afbb65d8b6cc58f1",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:6436eff922389509": {
@@ -8844,7 +8844,7 @@
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:01ca4ab537003cd2",
         "ROOF": "element:a7c7007d1c92dac3",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:6807fd10d058a743": {
@@ -8856,7 +8856,7 @@
         "INT_WALL_NONLOADBEARING": "element:4a8b9fe61b5f76ad",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:6265f01080fbd51f",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:6af6feaa3e8a7ebf": {
@@ -9082,7 +9082,7 @@
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:c2424718882e9c9c",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:aa1fd478fc785b5d": {
@@ -9094,7 +9094,7 @@
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:b76f0673603542b1",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:ac01462dc87f0d36": {
@@ -9106,7 +9106,7 @@
         "INT_WALL_NONLOADBEARING": "element:6d7db5bb88341643",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:89f923e5eaf07ecf",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:b44fb5d0f41a0a0a": {
@@ -9176,7 +9176,7 @@
         "INT_WALL_NONLOADBEARING": "element:b15e7acd202e5275",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:c70e9e0d7e93b08d",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:c4d5ad269261ee4b": {
@@ -9254,7 +9254,7 @@
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:9489f6c630b44110",
-        "WINDOW": "element:efe72a073a5ec83d"
+        "WINDOW": "element:310146bffcb423bf"
       }
     },
     "construction_set:ecc377f16becffe2": {
@@ -11199,11 +11199,6 @@
         ],
         "side_convention": "top_to_bottom"
       }
-    },
-    "element:efe72a073a5ec83d": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:a18757e0007fc905"
     },
     "element:f24ad72650062954": {
       "components": [
@@ -13317,7 +13312,7 @@
     },
     "material:64821b09b361452a": {
       "kind": "opaque",
-      "epsm_material_name": "Leca",
+      "epsm_material_name": "Leca loose fill, 4-10 mm",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_leca"
@@ -13331,12 +13326,12 @@
       "kind": "opaque",
       "material_family": "concrete",
       "notes": [
-        "Boverket reference is a representative product-family proxy."
+        "Exact Honeybee heavy-weight concrete grade (ASHRAE 1.73 W/(m K), 2243 kg/m³); EN ISO 10456 gives 1.65-2.0 for 2200-2400 kg/m³ concrete."
       ],
-      "epsm_material_name": "Normal-weight concrete, 2300 kg/m³, conductivity 1.7 W/(m K)",
+      "epsm_material_name": "Normal-weight concrete, 2243 kg/m³, Honeybee 8IN Concrete HW",
       "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_office_concrete"
+        "source": "honeybee-energy-standards-opaque",
+        "identifier": "8IN Concrete HW"
       },
       "carbon_ref": {
         "source": "boverket",
@@ -13587,7 +13582,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.5 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=1.5 W/(m² K), SHGC=0.42, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_mf_se06_existing"
@@ -13602,7 +13597,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=2.25 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=2.25 W/(m² K), SHGC=0.56, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se03_existing"
@@ -13617,7 +13612,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.22 W/(m² K), SHGC=0.5, VT=0.65",
+      "epsm_material_name": "Whole window U=1.22 W/(m² K), SHGC=0.42, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_mf_1940_standard"
@@ -13650,7 +13645,7 @@
         "Glazing visible transmittance 0.65 is an explicit selected glazing assumption using the prior nominal VT number; the same frame fraction gives whole-aperture VT=0.455. TABULA does not specify VT.",
         "Boverket is a declared generic window carbon proxy. The advanced triple-glazed wood/aluminium carbon resource is an approximate family proxy for the TABULA 2+2 construction, not an exact product match."
       ],
-      "epsm_material_name": "Whole window U=0.9 W/(m² K), SHGC=0.35, VT=0.455",
+      "epsm_material_name": "Whole window U=0.9 W/(m² K), SHGC=0.35, VT=0.518",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_tabula_mf_window_standard"
@@ -13680,7 +13675,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=2.8 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=2.8 W/(m² K), SHGC=0.56, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_mf_1940_existing"
@@ -13695,7 +13690,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=0.8 W/(m² K), SHGC=0.45, VT=0.6",
+      "epsm_material_name": "Whole window U=0.8 W/(m² K), SHGC=0.371, VT=0.518",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_sf_se01_advanced"
@@ -13745,7 +13740,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.6 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=1.6 W/(m² K), SHGC=0.49, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se05_existing"
@@ -13773,21 +13768,6 @@
         "identifier": "6000000104"
       }
     },
-    "window:a18757e0007fc905": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=0.9 W/(m² K), SHGC=0.5, VT=0.65",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_office_se01_advanced"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000106"
-      }
-    },
     "window:a89c0fe5b1650304": {
       "kind": "window",
       "notes": [
@@ -13796,7 +13776,7 @@
         "Glazing visible transmittance 0.6 is an explicit selected glazing assumption using the prior nominal VT number; the same frame fraction gives whole-aperture VT=0.42. TABULA does not specify VT.",
         "Boverket is a declared generic window carbon proxy. The advanced triple-glazed wood/aluminium carbon resource is an approximate family proxy for the TABULA 2+2 construction, not an exact product match."
       ],
-      "epsm_material_name": "Whole window U=0.76 W/(m² K), SHGC=0.42, VT=0.42",
+      "epsm_material_name": "Whole window U=0.76 W/(m² K), SHGC=0.42, VT=0.518",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_tabula_mf_window_advanced"
@@ -13811,7 +13791,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=2.7 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=2.7 W/(m² K), SHGC=0.56, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se02_existing"
@@ -13826,7 +13806,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=0.85 W/(m² K), SHGC=0.45, VT=0.6",
+      "epsm_material_name": "Whole window U=0.85 W/(m² K), SHGC=0.371, VT=0.518",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_mf_1940_advanced"
@@ -13877,7 +13857,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.08 W/(m² K), SHGC=0.5, VT=0.65",
+      "epsm_material_name": "Whole window U=1.08 W/(m² K), SHGC=0.42, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se06_standard"
@@ -13892,7 +13872,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.3 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=1.3 W/(m² K), SHGC=0.42, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_sf_se06_existing"
@@ -13907,7 +13887,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.9 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=1.9 W/(m² K), SHGC=0.49, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se04_existing"
@@ -13922,7 +13902,7 @@
       "notes": [
         "Boverket reference is a representative product-family proxy."
       ],
-      "epsm_material_name": "Whole window U=1.14286 W/(m² K), SHGC=0.7, VT=0.75",
+      "epsm_material_name": "Whole window U=1.14286 W/(m² K), SHGC=0.42, VT=0.525",
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_lod2_school_se06_existing"
@@ -14010,7 +13990,7 @@
     "boverket": "02.07.000",
     "epd-ies-0005222": "003",
     "epd-ies-0013025": "003",
-    "epsm-custom": "0.7.0",
+    "epsm-custom": "0.8.0",
     "honeybee-energy-standards-opaque": "2.3.5",
     "honeybee-standards": "2.0.7"
   }

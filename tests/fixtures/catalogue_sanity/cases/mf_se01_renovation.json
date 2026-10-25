@@ -8,7 +8,7 @@
     "u_w_m2k": {
       "EXT_WALL": 0.6833365653220981,
       "TOP_FLOOR": 0.35982482914077746,
-      "GROUND_FLOOR": 1.2815211601268137,
+      "GROUND_FLOOR": 0.8909258044343596,
       "WINDOW": 2.22,
       "BASEMENT_WALL": 3.593007785145802
     },
@@ -27,8 +27,8 @@
       {
         "material_id": "material:64821b09b361452a",
         "thickness_m": 0.08,
-        "conductivity_w_mk": 0.16,
-        "density_kg_m3": 400,
+        "conductivity_w_mk": 0.095,
+        "density_kg_m3": 305,
         "specific_heat_j_kgk": 1000
       }
     ],
@@ -62,8 +62,8 @@
       "retained_shared_existing_window_id": "window:75fd884ffa101b80",
       "retained_shared_existing_window_properties": {
         "u_value": 2.8,
-        "shgc": 0.7,
-        "vt": 0.75
+        "shgc": 0.56,
+        "vt": 0.525
       },
       "retained_shared_existing_window_users": [
         "school_se01"
@@ -79,8 +79,8 @@
     "attic_density_kg_m3": 20,
     "floor_eps_boverket_id": "6000000131",
     "floor_screed_thickness_m": 0.03,
-    "floor_screed_conductivity_w_mk": 1.7,
-    "floor_screed_density_kg_m3": 2300,
+    "floor_screed_conductivity_w_mk": 1.7284433202067357,
+    "floor_screed_density_kg_m3": 2243.0051285947593,
     "floor_screed_boverket_id": "6000000029",
     "floor_scope": "Internal floating-floor completion: EPS followed by 30 mm screed on the room side of the retained nominal baseline. The screed and placement are explicit EPSM modelling choices, not prescribed TABULA measures.",
     "window_vt_scope": "Glazing visible transmittance is an explicit EPSM default; TABULA supplies glazing g and frame fraction rather than VT. Whole-aperture VT applies the same frame fraction.",
@@ -137,7 +137,7 @@
     },
     "floor_eps_density_kg_m3": 20,
     "floor_eps_specific_heat_j_kgk": 1209.2198113776988,
-    "floor_screed_specific_heat_j_kgk": 880,
+    "floor_screed_specific_heat_j_kgk": 836.4603158042426,
     "attic_carbon_reference_id": "EPD-IES-0013025:003"
   },
   "states": {
@@ -173,14 +173,14 @@
         "boverket_id": "6000000104",
         "measure_row": 229,
         "carbon_scope": "Wood three-pane product family",
-        "glazing_vt_default": 0.65,
-        "whole_aperture_vt_default": 0.45499999999999996,
+        "glazing_vt_default": 0.74,
+        "whole_aperture_vt_default": 0.518,
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!229"
       },
       "expected_u_w_m2k": {
         "EXT_WALL": 0.31460794918224844,
         "TOP_FLOOR": 0.12218164413693305,
-        "GROUND_FLOOR": 0.5238122894174825,
+        "GROUND_FLOOR": 0.44426758801219607,
         "WINDOW": 0.9
       },
       "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2641",
@@ -222,14 +222,14 @@
         "boverket_id": "6000000106",
         "measure_row": 227,
         "carbon_scope": "Wood/aluminium three-pane carbon proxy for TABULA 2+2 replacement; exact 2+2 carbon source is not established.",
-        "glazing_vt_default": 0.6,
-        "whole_aperture_vt_default": 0.42,
+        "glazing_vt_default": 0.74,
+        "whole_aperture_vt_default": 0.518,
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!227"
       },
       "expected_u_w_m2k": {
         "EXT_WALL": 0.0929859160995593,
         "TOP_FLOOR": 0.06137739374934895,
-        "GROUND_FLOOR": 0.4882884697978995,
+        "GROUND_FLOOR": 0.4184477579911097,
         "WINDOW": 0.76
       },
       "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2646",

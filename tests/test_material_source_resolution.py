@@ -40,9 +40,9 @@ def test_linked_views_keep_original_upstream_ids_and_separate_custom_exceptions(
         # Inspection links retain exact source records instead of rebuilding fields.
         assert linked_records[ref["identifier"]] == (
             cache.records(ref["source"])[ref["identifier"]])
-    assert len(original) == 9
-    assert len({ref["identifier"] for ref in original}) == 8
-    assert len(custom) == len(cache.records("epsm-custom")) == 54
+    assert len(original) == 10
+    assert len({ref["identifier"] for ref in original}) == 9
+    assert len(custom) == len(cache.records("epsm-custom")) == 52
     assert len(catalogue.boverket_resources) == 22
     assert len(cache.records("boverket")) == 230
     assert {ref["identifier"] for ref in original} >= {

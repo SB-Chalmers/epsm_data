@@ -331,3 +331,55 @@ def test_window_carbon_cannot_silently_use_an_opaque_product(raw):
     material = raw["materials"]["wood"]
     material.update(kind="window", name="Whole window", properties={"u_value": 1.3, "shgc": 0.5, "vt": 0.6})
     assert any("product scopes" in item["message"] for item in findings(raw, "carbon.mapping"))
+
+
+def _custom(raw, provenance=None):
+    raw["honeybee"]["EPSM_wood"] = {**raw["honeybee"].pop("hb"), "identifier": "EPSM_wood"}
+    raw["materials"]["wood"]["honeybee_id"] = "EPSM_wood"
+    if provenance is not None:
+        raw["honeybee"]["EPSM_wood"]["user_data"] = {"provenance": provenance}
+    return raw
+
+
+def test_upstream_thermal_records_need_no_epsm_provenance(raw):
+    assert findings(raw, "thermal.provenance") == []
+
+
+@pytest.mark.parametrize("state, severity", [("existing", "review"), ("advanced", "missing")])
+def test_custom_thermal_without_provenance_blocks_only_renovation_use(raw, state, severity):
+    raw["archetypes"]["sf_se01"]["states"] = {state: {"construction_set_id": "set"}}
+    [finding] = findings(_custom(raw), "thermal.provenance")
+    assert finding["severity"] == severity
+    assert finding["actual"] == "EPSM_wood"
+
+
+def test_custom_thermal_with_sourced_provenance_passes(raw):
+    provenance = {"tier": "standard", "basis": "Softwood design value.",
+                  "sources": [{"reference": "EN ISO 10456"}]}
+    assert findings(_custom(raw, provenance), "thermal.provenance") == []
+
+
+@pytest.mark.parametrize("provenance", [
+    {"tier": "guess", "basis": "x", "sources": [{"reference": "y"}]},
+    {"tier": "product", "basis": " ", "sources": [{"reference": "y"}]},
+    {"tier": "product", "basis": "x", "sources": []},
+    {"tier": "product", "basis": "x", "sources": [{"url": "https://example.org"}]},
+])
+def test_malformed_provenance_is_an_error(raw, provenance):
+    [finding] = findings(_custom(raw, provenance), "thermal.provenance")
+    assert finding["severity"] == "error"
+
+
+def test_assumed_custom_thermal_values_stay_visible_for_review(raw):
+    provenance = {"tier": "assumption", "basis": "Generic grade.", "sources": [{"reference": "note"}]}
+    [finding] = findings(_custom(raw, provenance), "thermal.provenance")
+    assert finding["severity"] == "review"
+
+
+def test_packaged_custom_records_all_declare_provenance():
+    from epsm_data import Catalogue, check_catalogue
+
+    report = check_catalogue(Catalogue.load())
+    rows = [row for row in report["findings"] if row["rule_id"] == "thermal.provenance"]
+    assert rows and all(row["severity"] == "review" for row in rows)
+    assert all(row["actual"]["tier"] == "assumption" for row in rows)

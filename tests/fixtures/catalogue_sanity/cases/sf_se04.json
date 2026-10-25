@@ -541,7 +541,7 @@
         "properties": {
           "shgc": 0.35,
           "u_value": 0.9,
-          "vt": 0.455
+          "vt": 0.518
         },
         "tabula": {
           "values_w_m2k": {
@@ -570,7 +570,7 @@
         "properties": {
           "shgc": 0.42,
           "u_value": 0.76,
-          "vt": 0.42
+          "vt": 0.518
         },
         "tabula": {
           "values_w_m2k": {

@@ -110,9 +110,13 @@ school U=1.22 for SE.01–SE.05 is the retained numerical replacement definition
 not an exact transcription of the earlier U=1.20 request. The modern current
 values and their source limits are detailed in `school_window_period_profile.md`.
 
-SHGC and visible transmittance are simple whole-window optical assumptions,
-separate from U. They are not derived from a pane/frame gas/coating design or
-validated school-stock optics. Do not apply another frame-area multiplier to
+SHGC and visible transmittance are whole-window values derived as glazing g and
+light transmittance times (1 - frame fraction 0.30). Office existing optics
+follow the Poirazis (2008) derivation. School existing optics use TABULA glazing
+g by pane count (two-pane 0.8, three-pane 0.7, low-e 0.6 with glass LT 0.75);
+modern replacements use Swedish triple low-e glass (Elitfönster, LT 0.74,
+g 0.53) or the TABULA Wood 3p replacement at Uw 0.9. Each window's provenance is
+stored with its thermal record. They are not validated school-stock optics. Do not apply another frame-area multiplier to
 these whole-window values. A reduction in SHGC can offset some winter heating
 savings, especially when the original envelope is already insulated.
 
@@ -127,43 +131,43 @@ chosen soil/geometry method. No value below is a measured energy benchmark.
 | Configuration | State | Wall U | Thermal top U | Ground-role U | Window U | SHGC / VT |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | Office SE.01 | existing | 1.2594 | 0.4641 | 0.3131 | 2.8 | 0.49 / 0.51 |
-| Office SE.01 | standard | 0.2615 | 0.1746 | 0.3131 | 1.22 | 0.50 / 0.65 |
-| Office SE.01 | advanced | 0.1600 | 0.1076 | 0.3131 | 0.9 | 0.50 / 0.65 |
+| Office SE.01 | standard | 0.2615 | 0.1746 | 0.3131 | 1.22 | 0.42 / 0.53 |
+| Office SE.01 | advanced | 0.1600 | 0.1076 | 0.3131 | 0.9 | 0.35 / 0.52 |
 | Office SE.02 | existing | 0.5993 | 0.3639 | 0.6036 | 2.8 | 0.49 / 0.51 |
-| Office SE.02 | standard | 0.2128 | 0.1494 | 0.6036 | 1.22 | 0.50 / 0.65 |
-| Office SE.02 | advanced | 0.1404 | 0.1072 | 0.6036 | 0.9 | 0.50 / 0.65 |
+| Office SE.02 | standard | 0.2128 | 0.1494 | 0.6036 | 1.22 | 0.42 / 0.53 |
+| Office SE.02 | advanced | 0.1404 | 0.1072 | 0.6036 | 0.9 | 0.35 / 0.52 |
 | Office SE.03 | existing | 0.3997 | 0.2936 | 0.6036 | 2.8 | 0.49 / 0.51 |
-| Office SE.03 | standard | 0.1808 | 0.1360 | 0.6036 | 1.22 | 0.50 / 0.65 |
-| Office SE.03 | advanced | 0.1257 | 0.1057 | 0.6036 | 0.9 | 0.50 / 0.65 |
+| Office SE.03 | standard | 0.1808 | 0.1360 | 0.6036 | 1.22 | 0.42 / 0.53 |
+| Office SE.03 | advanced | 0.1257 | 0.1057 | 0.6036 | 0.9 | 0.35 / 0.52 |
 | Office SE.04 | existing | 0.3411 | 0.2384 | 0.4053 | 2.3595 | 0.49 / 0.51 |
-| Office SE.04 | standard | 0.1677 | 0.1228 | 0.4053 | 1.22 | 0.50 / 0.65 |
-| Office SE.04 | advanced | 0.1192 | 0.1057 | 0.4053 | 0.9 | 0.50 / 0.65 |
-| Office SE.05 | existing | 0.2243 | 0.1815 | 0.3224 | 1.98829 | 0.49 / 0.51 |
-| Office SE.05 | standard | 0.1335 | 0.1057 | 0.3224 | 1.22 | 0.50 / 0.65 |
-| Office SE.05 | advanced | 0.1009 | 0.0928 | 0.3224 | 0.9 | 0.50 / 0.65 |
+| Office SE.04 | standard | 0.1677 | 0.1228 | 0.4053 | 1.22 | 0.42 / 0.53 |
+| Office SE.04 | advanced | 0.1192 | 0.1057 | 0.4053 | 0.9 | 0.35 / 0.52 |
+| Office SE.05 | existing | 0.2243 | 0.1815 | 0.3226 | 1.98829 | 0.49 / 0.51 |
+| Office SE.05 | standard | 0.1335 | 0.1057 | 0.3226 | 1.22 | 0.42 / 0.53 |
+| Office SE.05 | advanced | 0.1009 | 0.0928 | 0.3226 | 0.9 | 0.35 / 0.52 |
 | Office SE.06 | existing | 0.1749 | 0.1465 | 0.1751 | 1.3 | 0.49 / 0.51 |
-| Office SE.06 | standard | 0.1143 | 0.0928 | 0.1751 | 1.22 | 0.50 / 0.65 |
-| Office SE.06 | advanced | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.50 / 0.65 |
-| Office SE.07 | default | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.50 / 0.65 |
-| School SE.01 | existing | 1.5435 | 0.4641 | 0.3131 | 2.8 | 0.70 / 0.75 |
-| School SE.01 | standard | 0.2719 | 0.1746 | 0.3131 | 1.22 | 0.50 / 0.65 |
-| School SE.01 | advanced | 0.1491 | 0.1446 | 0.3131 | 0.9 | 0.50 / 0.65 |
-| School SE.02 | existing | 0.4598 | 0.3012 | 0.6036 | 2.7 | 0.70 / 0.75 |
-| School SE.02 | standard | 0.1921 | 0.1451 | 0.6036 | 1.22 | 0.50 / 0.65 |
-| School SE.02 | advanced | 0.1214 | 0.1237 | 0.6036 | 0.9 | 0.50 / 0.65 |
-| School SE.03 | existing | 0.3289 | 0.2335 | 0.4551 | 2.25 | 0.70 / 0.75 |
-| School SE.03 | standard | 0.1647 | 0.1273 | 0.4551 | 1.22 | 0.50 / 0.65 |
-| School SE.03 | advanced | 0.1099 | 0.1106 | 0.4551 | 0.9 | 0.50 / 0.65 |
-| School SE.04 | existing | 0.2840 | 0.1808 | 0.3324 | 1.9 | 0.70 / 0.75 |
-| School SE.04 | standard | 0.1526 | 0.1099 | 0.3324 | 1.22 | 0.50 / 0.65 |
-| School SE.04 | advanced | 0.1044 | 0.0971 | 0.3324 | 0.9 | 0.50 / 0.65 |
-| School SE.05 | existing | 0.2499 | 0.1475 | 0.2294 | 1.6 | 0.70 / 0.75 |
-| School SE.05 | standard | 0.1422 | 0.0966 | 0.2294 | 1.22 | 0.50 / 0.65 |
-| School SE.05 | advanced | 0.0994 | 0.0866 | 0.2294 | 0.9 | 0.50 / 0.65 |
-| School SE.06 | existing | 0.1889 | 0.0989 | 0.1416 | 1.14286 | 0.70 / 0.75 |
-| School SE.06 | standard | 0.1201 | 0.0731 | 0.1416 | 1.08 | 0.50 / 0.65 |
-| School SE.06 | advanced | 0.0881 | 0.0673 | 0.1416 | 0.9 | 0.50 / 0.65 |
-| School SE.07 | default | 0.0881 | 0.0673 | 0.1416 | 0.9 | 0.50 / 0.65 |
+| Office SE.06 | standard | 0.1143 | 0.0928 | 0.1751 | 1.22 | 0.42 / 0.53 |
+| Office SE.06 | advanced | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.35 / 0.52 |
+| Office SE.07 | default | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.35 / 0.52 |
+| School SE.01 | existing | 1.5435 | 0.4641 | 0.3131 | 2.8 | 0.56 / 0.53 |
+| School SE.01 | standard | 0.2719 | 0.1746 | 0.3131 | 1.22 | 0.42 / 0.53 |
+| School SE.01 | advanced | 0.1491 | 0.1446 | 0.3131 | 0.9 | 0.35 / 0.52 |
+| School SE.02 | existing | 0.4598 | 0.3012 | 0.6036 | 2.7 | 0.56 / 0.53 |
+| School SE.02 | standard | 0.1921 | 0.1451 | 0.6036 | 1.22 | 0.42 / 0.53 |
+| School SE.02 | advanced | 0.1214 | 0.1237 | 0.6036 | 0.9 | 0.35 / 0.52 |
+| School SE.03 | existing | 0.3289 | 0.2335 | 0.4551 | 2.25 | 0.56 / 0.53 |
+| School SE.03 | standard | 0.1647 | 0.1273 | 0.4551 | 1.22 | 0.42 / 0.53 |
+| School SE.03 | advanced | 0.1099 | 0.1106 | 0.4551 | 0.9 | 0.35 / 0.52 |
+| School SE.04 | existing | 0.2840 | 0.1808 | 0.3324 | 1.9 | 0.49 / 0.53 |
+| School SE.04 | standard | 0.1526 | 0.1099 | 0.3324 | 1.22 | 0.42 / 0.53 |
+| School SE.04 | advanced | 0.1044 | 0.0971 | 0.3324 | 0.9 | 0.35 / 0.52 |
+| School SE.05 | existing | 0.2499 | 0.1475 | 0.2294 | 1.6 | 0.49 / 0.53 |
+| School SE.05 | standard | 0.1422 | 0.0966 | 0.2294 | 1.22 | 0.42 / 0.53 |
+| School SE.05 | advanced | 0.0994 | 0.0866 | 0.2294 | 0.9 | 0.35 / 0.52 |
+| School SE.06 | existing | 0.1889 | 0.0989 | 0.1416 | 1.14286 | 0.42 / 0.53 |
+| School SE.06 | standard | 0.1201 | 0.0731 | 0.1416 | 1.08 | 0.42 / 0.53 |
+| School SE.06 | advanced | 0.0881 | 0.0673 | 0.1416 | 0.9 | 0.35 / 0.52 |
+| School SE.07 | default | 0.0881 | 0.0673 | 0.1416 | 0.9 | 0.35 / 0.52 |
 
 ## Scope of acceptance
 

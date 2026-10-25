@@ -120,9 +120,9 @@
   },
   "concrete_grades": {
     "material:698f410136a39689": {
-      "conductivity": 1.7,
-      "density": 2300,
-      "specific_heat": 880
+      "conductivity": 1.7284433202067357,
+      "density": 2243.0051285947593,
+      "specific_heat": 836.4603158042426
     },
     "material:3b9cb95202f2163a": {
       "conductivity": 2.3089016425031033,

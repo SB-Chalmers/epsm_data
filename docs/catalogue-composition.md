@@ -75,6 +75,20 @@ External factors retain their source, method, declared unit and proxy descriptio
 normalized per material unit. Unknown factors remain `None`; zero is a known zero.
 A5.1 covers a subset of A5.
 
+A custom record states where its values come from in `user_data.provenance`:
+
+```json
+{"tier": "product", "basis": "Matches PAROC eXtra batt.",
+ "sources": [{"reference": "EPD NEPD-4340-3565-EN", "url": "https://paroc.com/...",
+              "values": {"conductivity": 0.036, "density": 29.5}}]}
+```
+
+Prefer an exact Honeybee record. Otherwise use a declared Swedish product
+(`product`), a TABULA measure (`tabula`), a documented derivation such as
+whole-window optics from glazing values (`derived`), a standard design table
+(`standard`) or period evidence (`historical`). `assumption` remains visible
+in every sanity report.
+
 To add an external factor, capture its declared record in a versioned cache source,
 record the file checksum in the manifest, and select it through the material's
 `carbon_ref`. For example, a factor of 2 kg CO₂e per 1000 kg product becomes

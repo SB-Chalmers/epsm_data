@@ -15,14 +15,18 @@ metadata. It does not maintain reduced copies of upstream material properties.
 | `honeybee-energy-standards-opaque` | 2.3.5 | Full opaque-material file, 171 records |
 | `honeybee-energy-standards-window` | 2.3.5 | Full window-material file, 322 records |
 | `boverket` | 02.07.000 | Full database response, 230 resources and metadata |
-| `epsm-custom` | 0.6.0 | 56 unchanged custom thermal records |
+| `epsm-custom` | 0.8.0 | 52 custom thermal records with structured provenance |
 | Two `epd-ies-*` sources | 003 | Declared external carbon records |
 
-Eight unique original Honeybee records serve nine material mappings. The other
-56 thermal records remain custom because no exact upstream property match was
-established. Custom includes source-based or modified grades, such as TABULA
-grades, air layers and representative historic materials; it does not mean all
-these properties were invented. EPSM display names and material IDs are retained.
+Nine unique original Honeybee records serve ten material mappings. The other
+52 thermal records are custom because the pinned Honeybee libraries hold no
+realistic Nordic match: their insulation records are US placeholder grades and
+their windows are ASHRAE simple-glazing sets. Each custom record carries
+`user_data.provenance`: a tier (`product`, `tabula`, `derived`, `standard`,
+`historical` or `assumption`), a basis and named sources such as an EPD
+registration number, manufacturer declaration, TABULA locator or evidence file.
+See `evidence/swedish_product_inventory.json` for the reviewed Swedish products.
+EPSM display names and material IDs are retained.
 The two external EPD factors also remain explicit exceptions to Boverket.
 
 These pins capture catalogue inputs. Source attribution, upstream locators and

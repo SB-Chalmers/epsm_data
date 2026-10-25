@@ -76,11 +76,11 @@
         "properties": {
           "u_value": 0.9,
           "shgc": 0.35,
-          "vt": 0.455
+          "vt": 0.518
         },
         "glazing_g": 0.5,
         "frame_fraction": 0.3,
-        "glazing_vt_default": 0.65,
+        "glazing_vt_default": 0.74,
         "boverket_id": "6000000104",
         "carbon_scope": "Representative modern timber triple-glazed product-family carbon proxy.",
         "source_locators": {
@@ -106,11 +106,11 @@
         "properties": {
           "u_value": 0.76,
           "shgc": 0.42,
-          "vt": 0.42
+          "vt": 0.518
         },
         "glazing_g": 0.6,
         "frame_fraction": 0.3,
-        "glazing_vt_default": 0.6,
+        "glazing_vt_default": 0.74,
         "boverket_id": "6000000106",
         "carbon_scope": "Approximate modern wood/aluminium triple-glazed product-family carbon proxy for the TABULA 2+2 window measure.",
         "source_locators": {

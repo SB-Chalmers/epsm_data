@@ -142,6 +142,7 @@ def check_physics(data, emit, fixture=None):
                 signatures[key] = identifier
 
     stock_assessments = retained_stock_assessments(data)
+    new_build = _new_build_materials(sections)
     names = {}
     for mid, record in sections["materials"].items():
         path = f"materials.{mid}"
@@ -176,6 +177,7 @@ def check_physics(data, emit, fixture=None):
                  "Unknown material family; thickness and mapping screening cannot use it.",
                  actual=record.get("material_family"), expected=sorted(rules["material_families"]))
         _check_thermal(record, path, reference, emit, rules)
+        _check_thermal_provenance(record, path, sections["honeybee"], emit, mid in new_build)
         bov = reference("boverket", record.get("boverket_id"), path + ".boverket_id", optional=True)
         external = reference("carbon_references", record.get("carbon_reference_id"),
                              path + ".carbon_reference_id", optional=True)
@@ -349,6 +351,56 @@ def _check_thermal(record, path, reference, emit, rules):
             if expected and not _choice(unit, expected["accepted"]):
                 emit("thermal.units", "error", f"{base}.units.{field}",
                      "Thermal unit contradicts the catalogue SI convention.", actual=unit, expected=expected["canonical"])
+
+
+PROVENANCE_TIERS = {"product", "tabula", "derived", "standard", "historical", "assumption"}
+
+
+def _new_build_materials(sections):
+    """Materials assigned to any renovation or new-build configuration, not only existing stock."""
+    used = set()
+    for archetype in sections["archetypes"].values():
+        for state, config in _mapping(_mapping(archetype).get("states")).items():
+            if state == "existing":
+                continue
+            elements = _mapping(_mapping(sections["construction_sets"].get(
+                _mapping(config).get("construction_set_id"))).get("elements"))
+            for eid in elements.values():
+                element = _mapping(sections["elements"].get(eid))
+                used.add(element.get("window_material_id"))
+                for cid in _items(element.get("components")):
+                    for slot in _items(_mapping(sections["components"].get(cid)).get("layers")):
+                        layer = _mapping(sections["layers"].get(_mapping(slot).get("layer_id")))
+                        used.update(_mapping(row).get("material_id") for row in _items(layer.get("materials")))
+    return used
+
+
+def _check_thermal_provenance(record, path, honeybee, emit, new_build):
+    """EPSM-authored thermal grades must say where their values come from."""
+    identifier = record.get("honeybee_id")
+    if not isinstance(identifier, str) or not identifier.startswith("EPSM_"):
+        return
+    source = _mapping(honeybee.get(identifier))
+    provenance = _mapping(_mapping(source.get("user_data")).get("provenance"))
+    base = path + ".honeybee_id"
+    if not provenance:
+        emit("thermal.provenance", "missing" if new_build else "review", base,
+             "EPSM custom thermal values need structured source provenance."
+             + (" Renovation and new-build materials require it." if new_build else ""),
+             actual=identifier, expected={"user_data.provenance": ["tier", "basis", "sources"]})
+        return
+    tier, basis, sources = provenance.get("tier"), provenance.get("basis"), provenance.get("sources")
+    if (tier not in PROVENANCE_TIERS or not isinstance(basis, str) or not basis.strip()
+            or not isinstance(sources, list) or not sources
+            or not all(isinstance(item, Mapping) and isinstance(item.get("reference"), str)
+                       and item["reference"].strip() for item in sources)):
+        emit("thermal.provenance", "error", base + ".user_data.provenance",
+             "Provenance needs a known tier, a basis and at least one named source.",
+             actual=provenance, expected={"tier": sorted(PROVENANCE_TIERS)})
+    elif tier == "assumption":
+        emit("thermal.provenance", "review", base + ".user_data.provenance",
+             "Custom thermal values rest on an explicit EPSM assumption, not a declared product or standard.",
+             actual={"tier": tier, "basis": basis})
 
 
 def _check_material_carbon(record, path, bov, external, emit, rules, stock=None):

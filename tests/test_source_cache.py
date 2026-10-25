@@ -68,7 +68,7 @@ def test_packaged_sources_are_pinned_and_load_without_network(monkeypatch):
     cache = SourceCache.load()
     counts = {key: len(cache.records(key)) for key in cache.manifest["sources"]}
     assert counts == {
-        "epsm-custom": 54, "honeybee-standards": 16,
+        "epsm-custom": 52, "honeybee-standards": 16,
         "honeybee-energy-standards-opaque": 171, "honeybee-energy-standards-window": 322,
         "boverket": 230,
         "epd-ies-0005222": 1, "epd-ies-0013025": 1,

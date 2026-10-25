@@ -9,8 +9,8 @@
       "u_value": 0.09298591609955931
     },
     "GROUND_FLOOR": {
-      "physics": "3a7e29c2fbdb7d9b419ce60d7fdf65c01f86fd4ab4e914ee4c4d833baeb1a1a4",
-      "u_value": 0.4882884697978995
+      "physics": "257e059ae8a3be5847f699155ed82731ef23de054d83f77f6cc81140631311de",
+      "u_value": 0.4184477579911097
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "7486a751f8ad2fd426043fe517bf638caa5a28d8d15761ba5ffc60e231bf6e32",
@@ -25,7 +25,7 @@
       "u_value": 0.06137739374934895
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -39,8 +39,8 @@
       "u_value": 0.6833365653220981
     },
     "GROUND_FLOOR": {
-      "physics": "3cbce5aa8631296343b8689240f38cb2ed97fc3924768ca568d4a155b78f58d2",
-      "u_value": 1.2815211601268137
+      "physics": "1fd79ac8837c8bcd705e2fd7b452265b73d13f4c3654ed9497e454c71efe81b2",
+      "u_value": 0.8909258044343596
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "7486a751f8ad2fd426043fe517bf638caa5a28d8d15761ba5ffc60e231bf6e32",
@@ -69,8 +69,8 @@
       "u_value": 0.31460794918224844
     },
     "GROUND_FLOOR": {
-      "physics": "db1ba5ec4903364bfeb5f94b6b6832a4268b31dfdc800fcdaed536e7bbbdcaab",
-      "u_value": 0.5238122894174824
+      "physics": "d95617d58ba417911e821b695efc6e9ac763415c455ed16f044f94a4db46f5a5",
+      "u_value": 0.44426758801219607
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "7486a751f8ad2fd426043fe517bf638caa5a28d8d15761ba5ffc60e231bf6e32",
@@ -85,7 +85,7 @@
       "u_value": 0.12218164413693305
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -95,12 +95,12 @@
       "u_value": 0.6604825810510612
     },
     "EXT_WALL": {
-      "physics": "e409487cd9c9910f043bdcb47ae482edbe69717c1666a354bca82f8a683255aa",
-      "u_value": 0.08544144602499423
+      "physics": "719e0d77bd85d3b0fb53f049d3deac337a417a5da6d7d6fc5e63f3cd04409cfa",
+      "u_value": 0.08538863884527467
     },
     "GROUND_FLOOR": {
-      "physics": "c1ea8025b4f0a2f90e074136a7a53f81f2f8020fb890dbda3395443fa783a38b",
-      "u_value": 0.43164830437381946
+      "physics": "31e80fcb74cedcb212eed7084324026fed188b71577e3e3df33d207969b71a6c",
+      "u_value": 0.35072455539046343
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "38f3220500897c8227ee58a18d18fcf0719c556c3ce60e620570f3b6996588c3",
@@ -115,7 +115,7 @@
       "u_value": 0.054030499159700436
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -125,12 +125,12 @@
       "u_value": 3.1091724942987744
     },
     "EXT_WALL": {
-      "physics": "bb4e447eed5e4c3ecb8165d85f7682f3abd6ece406d5b0856b892bf5fe09685b",
-      "u_value": 0.41441970429638514
+      "physics": "cf17ddd53c2d3963796b85fc124bd29d0dd7227bdacdb1617506f8e743606a77",
+      "u_value": 0.4131803247565273
     },
     "GROUND_FLOOR": {
-      "physics": "5a614e88b392455a23bc57c3068faba83b3aa7c7f923e2272f71ee9078d1548d",
-      "u_value": 0.960559578284848
+      "physics": "270e6747b705328a69431ba370cd046b18027c777f724f83c2fa9e72dca51b19",
+      "u_value": 0.6346791293294961
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "38f3220500897c8227ee58a18d18fcf0719c556c3ce60e620570f3b6996588c3",
@@ -155,12 +155,12 @@
       "u_value": 3.1091724942987744
     },
     "EXT_WALL": {
-      "physics": "2a0f168627d428a0127eb462e651bd4c426ba9603c25fa7ffe0f90e4266ea181",
-      "u_value": 0.24223842693554873
+      "physics": "69dddf929af7e1877345f7e028bbcb42302925252ac5fc8c4687faaf3a23c843",
+      "u_value": 0.24181444283854814
     },
     "GROUND_FLOOR": {
-      "physics": "30cac6751c8e8dce82f0664c190734a348fe91ffcba11b1976ae0b60b997a6a4",
-      "u_value": 0.4591764629340782
+      "physics": "7a0ad498e1a2908f4925c421d9a731b542002e38e9a28cf897e93156b2d4891e",
+      "u_value": 0.3686837854942326
     },
     "INTERMEDIATE_FLOOR": {
       "physics": "38f3220500897c8227ee58a18d18fcf0719c556c3ce60e620570f3b6996588c3",
@@ -175,7 +175,7 @@
       "u_value": 0.09615424307661329
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -205,7 +205,7 @@
       "u_value": 0.051767797244581214
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -265,7 +265,7 @@
       "u_value": 0.08921466033008343
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -295,7 +295,7 @@
       "u_value": 0.05032058294722506
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -355,7 +355,7 @@
       "u_value": 0.08500166337164276
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -385,7 +385,7 @@
       "u_value": 0.04703343065738155
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -445,7 +445,7 @@
       "u_value": 0.07602617536372495
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -475,7 +475,7 @@
       "u_value": 0.08652402983050336
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "physics": "053a718ef119e14219e66d82c0c4b341ec287773a6f80f1ff66a3a50aae55193",
       "u_value": 0.85
     }
   },
@@ -505,7 +505,7 @@
       "u_value": 0.11653256224756738
     },
     "WINDOW": {
-      "physics": "baa7d19403f010204b7c1c546d937cdef0e9d04e9ddb0bbe3055067c7cdb0aba",
+      "physics": "f0d5d4fe720fda8eea7bc11beb33d9b6a2e54b9fa6cc11b4dae3dc85e13be117",
       "u_value": 1.4999999999999998
     }
   },
@@ -535,7 +535,7 @@
       "u_value": 0.1023356194565404
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -565,7 +565,7 @@
       "u_value": 0.08652402983050336
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
+      "physics": "053a718ef119e14219e66d82c0c4b341ec287773a6f80f1ff66a3a50aae55193",
       "u_value": 0.85
     }
   },
@@ -587,8 +587,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "d018ffc86fe528e781b6e0b14806ca20e22f58ad0acb663ed8ca98e0671cce6a",
@@ -603,7 +603,7 @@
       "u_value": 0.1075543625438506
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -625,8 +625,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "d018ffc86fe528e781b6e0b14806ca20e22f58ad0acb663ed8ca98e0671cce6a",
@@ -663,8 +663,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "d018ffc86fe528e781b6e0b14806ca20e22f58ad0acb663ed8ca98e0671cce6a",
@@ -679,7 +679,7 @@
       "u_value": 0.1746360299774824
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -697,19 +697,19 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "34cc173f84828964719a93b92bfa707f4097285789cb955129d90deb7e1545e8",
+      "physics": "126225aaa1999b29dc20f7ae7349785a710c36caf0f2b66be0b03a0b1193b475",
       "u_value": 0.10721668523913232
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -727,15 +727,15 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "482aeef97790549854dd22746bc845cab50e0295161ec7191c5168c9872db23a",
+      "physics": "7b430c48a3e860a5ec7681244a48c5f365c066b037c80c671f6524c11281f02c",
       "u_value": 0.3639064290655996
     },
     "WINDOW": {
@@ -757,19 +757,19 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "2695135d0f9f81e70a1e41ceee91adf61d6a4b6e61f66e7285c92be2a84584c7",
+      "physics": "787c55f7512d522c6ebc804fa492b0ef7c87f46724dd8a49413a75d4e1e9674a",
       "u_value": 0.14935789026021104
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -787,19 +787,19 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "c83d698c6a9432bd542f299aaccde7c6419edde5b6a2f2817a08aed9afc7f0be",
+      "physics": "c7cd353dd2a7352e4ec5afac498a775abb457bc882ffacffc00b17cd17a8eed3",
       "u_value": 0.10572517175727016
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -817,15 +817,15 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "81e8c8098c758bd684d1cdaa61b496f811069a31096d912704d344659de8b2c2",
+      "physics": "468c2d9d1e174e5ef9007525c89f87078e949d3d5e49abb98822a873da85bfc3",
       "u_value": 0.29361212618933663
     },
     "WINDOW": {
@@ -847,19 +847,19 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "ac0958ec7dda21c7fd6cf8020d1ce2e4a4615d7d09bf74407e6ad0809c6eeb6c",
+      "physics": "a883ea06ed8550c22a53379d38b8616098e8bd27629e3e562cb43c26c981302c",
       "u_value": 0.13599480046794127
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -877,19 +877,19 @@
       "u_value": 0.40526454426317554
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "c9652a0f927b36bfd865a24ce771242ae74ec11fbc3c8d7207364cef222e2e96",
+      "physics": "de8b019d36339ed44d5667542f7cd3e266878cbb007133c090c175b38e98a137",
       "u_value": 0.10572517175727016
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -907,15 +907,15 @@
       "u_value": 0.40526454426317554
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "7c8b57f06ae4ad8e6f44524235ec35ad590c7bf01dae676184c68fb74aaa2fb1",
+      "physics": "63f0b296806af43d7987aa476f1dd676a0838f91813a2854c745a21d0a753053",
       "u_value": 0.23836041025232527
     },
     "WINDOW": {
@@ -937,19 +937,19 @@
       "u_value": 0.40526454426317554
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "bbd0572cccd8d2c4435a51d1d4e525a9b8c4bdae819a166ae35c9f867afd11e6",
+      "physics": "af12d65b1ece3eb0ec7995b06ea5b7f8f1c8f53f3ee6d0e440410b44503f5881",
       "u_value": 0.12280944805921193
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -963,23 +963,23 @@
       "u_value": 0.1008820580208823
     },
     "GROUND_FLOOR": {
-      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
-      "u_value": 0.32237349132713894
+      "physics": "14f1ebf824974dd0d8b97a97a9eaafed6e5149a021a64c24f0dc87adf26027aa",
+      "u_value": 0.32261142156554157
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
-      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
-      "u_value": 0.6158338456134189
+      "physics": "96a38cf83e2bdf0a926a45598cf620df2e408b5e160f4c9aadeb34d054ca8def",
+      "u_value": 0.6115946001507573
     },
     "ROOF": {
-      "physics": "cf8e5d4dffbb485f5c62c366833829b83c7444a1a8689b686459ee82c0943d34",
+      "physics": "9629d0ae67755efbed66291c1fac421db95c9f00628af4d34d7a032e00b9fb13",
       "u_value": 0.09281367015403587
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -993,19 +993,19 @@
       "u_value": 0.22431483200723926
     },
     "GROUND_FLOOR": {
-      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
-      "u_value": 0.32237349132713894
+      "physics": "14f1ebf824974dd0d8b97a97a9eaafed6e5149a021a64c24f0dc87adf26027aa",
+      "u_value": 0.32261142156554157
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
-      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
-      "u_value": 0.6158338456134189
+      "physics": "96a38cf83e2bdf0a926a45598cf620df2e408b5e160f4c9aadeb34d054ca8def",
+      "u_value": 0.6115946001507573
     },
     "ROOF": {
-      "physics": "17123355f04cb42a2843950b3c469e2f1d5345ac123e215af70834dfe9113de5",
+      "physics": "48f95d3100a8a298dfaed26be4e7dafd03e4f26e36dcb8a2c5a95bf5c697b122",
       "u_value": 0.1814514176758896
     },
     "WINDOW": {
@@ -1023,23 +1023,23 @@
       "u_value": 0.13354124820066554
     },
     "GROUND_FLOOR": {
-      "physics": "67c1e8660d2fd34fb097d558899eb991357c2b810e61815a558f7d45013a5971",
-      "u_value": 0.32237349132713894
+      "physics": "14f1ebf824974dd0d8b97a97a9eaafed6e5149a021a64c24f0dc87adf26027aa",
+      "u_value": 0.32261142156554157
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
-      "physics": "bb6b2d8f1bddcc330c7c6e66791123ebe27d0cab5ed47bf913d36c79306f8148",
-      "u_value": 0.6158338456134189
+      "physics": "96a38cf83e2bdf0a926a45598cf620df2e408b5e160f4c9aadeb34d054ca8def",
+      "u_value": 0.6115946001507573
     },
     "ROOF": {
-      "physics": "3bfda7a8155db8cfa65a744199901bc34982d47c367e817bdfee1ee359ee54e0",
+      "physics": "19917f596886941f5c9ef3ca9ca0d0842b3a062dac4ff05e85203ddd9ee2aa4a",
       "u_value": 0.10572517175727016
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1057,19 +1057,19 @@
       "u_value": 0.17510781875550022
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "5b47d0c6c7633033828095c614d2406798aa311fbf2fa1c0827383053319323a",
+      "physics": "9fa84ca6f20caadb155d42517a025981db7bea05bdebd72e7e9799636bd5c5a4",
       "u_value": 0.08271254529061027
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1087,15 +1087,15 @@
       "u_value": 0.17510781875550022
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "926bd267e25145015b338fea744c3020194a86a05ff2d5e04e798ccbf82a36a4",
+      "physics": "d5ec771b7ce48b4d51a26e3dc0668924c8b851569e032d91b8c3deadb02512fb",
       "u_value": 0.14647922860864132
     },
     "WINDOW": {
@@ -1117,19 +1117,19 @@
       "u_value": 0.17510781875550022
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "13efc5a41a1354d97ada06c0dc2425596787197aead630519352e7d3b47ad894",
+      "physics": "8e32c45c599a0bb91d92135d06592817b95d54fc28dc6d51ddb7a53bbc1a8088",
       "u_value": 0.09281367015403587
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1147,19 +1147,19 @@
       "u_value": 0.17510781875550022
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
       "u_value": 0.5366837272668066
     },
     "ROOF": {
-      "physics": "5b47d0c6c7633033828095c614d2406798aa311fbf2fa1c0827383053319323a",
+      "physics": "9fa84ca6f20caadb155d42517a025981db7bea05bdebd72e7e9799636bd5c5a4",
       "u_value": 0.08271254529061027
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1181,8 +1181,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f287c0a72b4e9fe3aabe8a63e25e0a116c4dde4ff609f28b82f75b4e7c415d5b",
@@ -1197,7 +1197,7 @@
       "u_value": 0.14457821410534846
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1219,8 +1219,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f287c0a72b4e9fe3aabe8a63e25e0a116c4dde4ff609f28b82f75b4e7c415d5b",
@@ -1235,7 +1235,7 @@
       "u_value": 0.46408737619933005
     },
     "WINDOW": {
-      "physics": "45c9e6fccbc9df09e1791ff28ee047b2f875cd28921aa2e12f8892027de263c0",
+      "physics": "78867086318373d8739915c74b7f9702f73174b457895491994639bc0f77fe56",
       "u_value": 2.8
     }
   },
@@ -1257,8 +1257,8 @@
       "u_value": 0.313113926183884
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "233ccddeb098104295bf088dcbf09a3cc2686bbb010b18f28180655975fd9e35",
-      "u_value": 0.7356121211997985
+      "physics": "2a965c271ffda33704a915c50e57b8abfa381c05e8e4f9aa5e20c462ffcf5f71",
+      "u_value": 0.7363269698629551
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f287c0a72b4e9fe3aabe8a63e25e0a116c4dde4ff609f28b82f75b4e7c415d5b",
@@ -1273,7 +1273,7 @@
       "u_value": 0.1746360299774824
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1291,8 +1291,8 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
@@ -1307,7 +1307,7 @@
       "u_value": 0.12373253861275364
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1325,8 +1325,8 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
@@ -1341,7 +1341,7 @@
       "u_value": 0.3012008547700196
     },
     "WINDOW": {
-      "physics": "20bfb9a5179cbb9ac6cd00ed5a2d599ece5aa497a39590fee61a6d51d3f0aef5",
+      "physics": "b431057529719f0f1baf55fcdbafa32bf64f645ff22f9a1e1c5774d9fd7a78a5",
       "u_value": 2.7
     }
   },
@@ -1359,8 +1359,8 @@
       "u_value": 0.6036047703466443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "9bd7267d535cfe7dad8d7b0782a4459ac020d72454686bfacfd9d2d5562fe267",
@@ -1375,7 +1375,7 @@
       "u_value": 0.14510687423021296
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1393,8 +1393,8 @@
       "u_value": 0.45511356948638854
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
@@ -1409,7 +1409,7 @@
       "u_value": 0.11057409496216937
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1427,8 +1427,8 @@
       "u_value": 0.45511356948638854
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
@@ -1443,7 +1443,7 @@
       "u_value": 0.23354637740758166
     },
     "WINDOW": {
-      "physics": "3a9c1abbeb78f0a287226e5a33b43d5576a70b562236df6e4972abf203ad3e7d",
+      "physics": "adbba0740376ab0353b96a67be9a7eb38b5b7a0aac4727adc09023ccdefb324a",
       "u_value": 2.25
     }
   },
@@ -1461,8 +1461,8 @@
       "u_value": 0.45511356948638854
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "cfaeff6eab9f2d3cb79ab5137fbd2ee7d2492a001754152b823742aec1349e34",
@@ -1477,7 +1477,7 @@
       "u_value": 0.1273360859913593
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1495,8 +1495,8 @@
       "u_value": 0.3324396726734443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
@@ -1511,7 +1511,7 @@
       "u_value": 0.09714670827903424
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1529,8 +1529,8 @@
       "u_value": 0.3324396726734443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
@@ -1545,7 +1545,7 @@
       "u_value": 0.1807728283995384
     },
     "WINDOW": {
-      "physics": "142571146a5da1feb35a7efcfb9a0f703ed9da747be10ad99547969daf6ab7fe",
+      "physics": "546fbcc921c668a3f510fdd31cb7404c465ea7834e86525b75b840c993dc4a4f",
       "u_value": 1.9
     }
   },
@@ -1563,8 +1563,8 @@
       "u_value": 0.3324396726734443
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "f26b1fc383a1df94ac0236367870a2487808f77ab02e14db8c7e9cdd0e6e5c50",
@@ -1579,7 +1579,7 @@
       "u_value": 0.10985107808479765
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1597,8 +1597,8 @@
       "u_value": 0.22938852790207892
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
@@ -1613,7 +1613,7 @@
       "u_value": 0.08662726609375847
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1631,8 +1631,8 @@
       "u_value": 0.22938852790207892
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
@@ -1647,7 +1647,7 @@
       "u_value": 0.14745337404547004
     },
     "WINDOW": {
-      "physics": "6e48d9100ed92ec4eda2615222931d22973f03c00649232e1580dda31369e6cc",
+      "physics": "553a87fd3b7ded1cd7810e3a862110f148f68cc3a629543a6c8959ffcd6a8fee",
       "u_value": 1.6
     }
   },
@@ -1665,8 +1665,8 @@
       "u_value": 0.22938852790207892
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "2d88016ecfe5b7532224ddaca03fcb0c16fe3bae3253c2ce5ba27314cc774429",
@@ -1681,7 +1681,7 @@
       "u_value": 0.09658818303850783
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -1699,8 +1699,8 @@
       "u_value": 0.14160056686576236
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
@@ -1715,7 +1715,7 @@
       "u_value": 0.06725643118248205
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1733,8 +1733,8 @@
       "u_value": 0.14160056686576236
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
@@ -1749,7 +1749,7 @@
       "u_value": 0.0989456174125577
     },
     "WINDOW": {
-      "physics": "7d7c4549b9dadde7e6756093161285a2b1f4fe16393697ce2183f202438d15f7",
+      "physics": "406540e8b8c43f17e3214c705759c41f72b14dc7ed72e11bc5741eb8d3bb7428",
       "u_value": 1.1428571428571428
     }
   },
@@ -1767,8 +1767,8 @@
       "u_value": 0.14160056686576236
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
@@ -1783,7 +1783,7 @@
       "u_value": 0.07311015513171643
     },
     "WINDOW": {
-      "physics": "daafde37d1ee47ab4b0a17a7dc1d6948f9095f15796eb71d4dbe31ee97bdf214",
+      "physics": "6a43916ea602ebab49da7ddb5c3ca41582af89ef2e2bf1ceaa10dd3653bac530",
       "u_value": 1.08
     }
   },
@@ -1801,8 +1801,8 @@
       "u_value": 0.14160056686576236
     },
     "INTERMEDIATE_FLOOR": {
-      "physics": "76738812a5e9d75f7e54871998ac006d6bc88c5786221f9982bfffb973a54c85",
-      "u_value": 1.522615650915478
+      "physics": "133bba881f97ff8c7602988503969711a4a4198910e490166d94e49cb77397bf",
+      "u_value": 1.4486989817070066
     },
     "INT_WALL_NONLOADBEARING": {
       "physics": "09a507ef13b4118c9678a79172ae4269d09f023ab50ec51c270457ceba042b88",
@@ -1817,7 +1817,7 @@
       "u_value": 0.06725643118248205
     },
     "WINDOW": {
-      "physics": "53c08f6b2b92936edb9642d124a4f5c93bbeef66dd82f9309044953c805359dd",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1847,7 +1847,7 @@
       "u_value": 0.059114780611790485
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -1907,7 +1907,7 @@
       "u_value": 0.11353141161144598
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -1937,7 +1937,7 @@
       "u_value": 0.05545703055646177
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -1997,7 +1997,7 @@
       "u_value": 0.10076713308591606
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -2027,7 +2027,7 @@
       "u_value": 0.05090816661389502
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -2087,7 +2087,7 @@
       "u_value": 0.08669188027834035
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -2117,7 +2117,7 @@
       "u_value": 0.04786243085805985
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -2177,7 +2177,7 @@
       "u_value": 0.07821601366294412
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -2207,7 +2207,7 @@
       "u_value": 0.04786243085805985
     },
     "WINDOW": {
-      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "physics": "e024f6dda542fd61a09ef6a83e23a2db556783838aa2785e5ac94eaf25a3a9c8",
       "u_value": 0.76
     }
   },
@@ -2267,7 +2267,7 @@
       "u_value": 0.07821601366294412
     },
     "WINDOW": {
-      "physics": "91748e3e97743dc3d03b3ae73c7bca1f024b29a0055e74c4d74885da9229eab9",
+      "physics": "6ddecf14466af8991adf089a71738734f60c843b850239416231a7ee82500105",
       "u_value": 0.9
     }
   },
@@ -2297,7 +2297,7 @@
       "u_value": 0.07311015513171643
     },
     "WINDOW": {
-      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "physics": "0b1e6392b41e670ee02855914b338b6aaa6d140bfc678c419bfbdec7b277e87c",
       "u_value": 0.8
     }
   },
@@ -2327,7 +2327,7 @@
       "u_value": 0.0989456174125577
     },
     "WINDOW": {
-      "physics": "0c969a2304f63547655ba455c4da97b49cc84b535061e1c65f36cc0861463de4",
+      "physics": "0b9068264a0aa4168e27463dce8a87b30eadb5e1d6a543228e3fc8a889c01c9b",
       "u_value": 1.3
     }
   },
@@ -2357,7 +2357,7 @@
       "u_value": 0.09344222534181416
     },
     "WINDOW": {
-      "physics": "a5d6bfe3e3f49b241b6ff7009496ccbd6ff4dfc46ac747526e66c4a32d61772b",
+      "physics": "f6a70509c0629d6750e875c5a9379a52f3d363ea2ec6ab68bf6744a09519af89",
       "u_value": 1.22
     }
   },
@@ -2387,7 +2387,7 @@
       "u_value": 0.07311015513171643
     },
     "WINDOW": {
-      "physics": "92dd16192a5a7b152aca64b116096cf51fe0f5fd6a452915158214ea0916d5b6",
+      "physics": "0b1e6392b41e670ee02855914b338b6aaa6d140bfc678c419bfbdec7b277e87c",
       "u_value": 0.8
     }
   }

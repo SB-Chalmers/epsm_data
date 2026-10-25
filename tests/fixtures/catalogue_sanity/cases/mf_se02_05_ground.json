@@ -38,8 +38,8 @@
       "material_id": "material:64821b09b361452a",
       "honeybee_id": "EPSM_leca",
       "boverket_id": "6000000089",
-      "conductivity_w_mk": 0.16,
-      "density_kg_m3": 400,
+      "conductivity_w_mk": 0.095,
+      "density_kg_m3": 305,
       "specific_heat_j_kgk": 1000
     },
     "plaster": {

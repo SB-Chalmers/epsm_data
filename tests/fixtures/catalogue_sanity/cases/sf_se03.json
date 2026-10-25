@@ -383,11 +383,11 @@
         "properties": {
           "u_value": 0.9,
           "shgc": 0.35,
-          "vt": 0.455
+          "vt": 0.518
         },
         "glazing_g": 0.5,
         "frame_fraction": 0.3,
-        "glazing_vt_default": 0.65,
+        "glazing_vt_default": 0.74,
         "boverket_id": "6000000104",
         "element_id": "element:310146bffcb423bf",
         "material_id": "window:2a97a2809618c594",
@@ -422,11 +422,11 @@
         "properties": {
           "u_value": 0.76,
           "shgc": 0.42,
-          "vt": 0.42
+          "vt": 0.518
         },
         "glazing_g": 0.6,
         "frame_fraction": 0.3,
-        "glazing_vt_default": 0.6,
+        "glazing_vt_default": 0.74,
         "boverket_id": "6000000106",
         "element_id": "element:84b4a3b3e472e6c2",
         "material_id": "window:a89c0fe5b1650304",
