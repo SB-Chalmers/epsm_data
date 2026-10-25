@@ -51,8 +51,28 @@ def _physical(element):
     ]
 
 
+FIXTURE = Path(__file__).parent / "fixtures/lod2-physics.json"
+
+
+def _snapshot(catalogue):
+    result = {}
+    for identifier, archetype in catalogue.archetype_records.items():
+        for state in archetype["states"]:
+            selected = catalogue.get(identifier, state=None if state == "default" else state)
+            result[f"{identifier}:{state}"] = {
+                role.value: {
+                    "physics": hashlib.sha256(json.dumps(
+                        _physical(element), sort_keys=True, ensure_ascii=False, allow_nan=False
+                    ).encode()).hexdigest(),
+                    "u_value": element.u_value,
+                }
+                for role, element in selected.construction_set.elements.items()
+            }
+    return result
+
+
 def test_all_76_frozen_configurations_preserve_their_accepted_physical_values():
-    expected = json.loads((Path(__file__).parent / "fixtures/lod2-physics.json").read_text())
+    expected = json.loads(FIXTURE.read_text())
     catalogue = Catalogue.load()
     checked = 0
     for key, roles in expected.items():
@@ -79,3 +99,8 @@ def test_original_retained_source_evidence_is_unchanged():
             hashlib.sha256((root / record["retained_path"]).read_bytes()).hexdigest()
             == record["sha256"]
         )
+
+
+if __name__ == "__main__":
+    # Refresh after a reviewed physical change: python tests/test_lod2_physics.py
+    FIXTURE.write_text(json.dumps(_snapshot(Catalogue.load()), indent=2, ensure_ascii=False) + "\n")

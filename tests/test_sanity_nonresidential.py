@@ -232,7 +232,7 @@ def test_nonres_fixture_rejects_inverted_or_missing_period_ranges(fixture):
 
 
 def test_older_explicit_four_file_bundle_remains_valid_and_not_assessed(raw, tmp_path):
-    maintained = Path(__file__).parent / "fixtures/catalogue_sanity"
+    maintained = Path(__file__).resolve().parents[1] / "src/epsm_data/datasets/sanity"
     for name in ("policy.json", "construction_rules.json", "tabula_u_values.json", "tabula_renovations.json"):
         (tmp_path / name).write_bytes((maintained / name).read_bytes())
     older = load_sanity_fixture(tmp_path)

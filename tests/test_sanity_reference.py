@@ -10,8 +10,8 @@ from epsm_data import Catalogue
 from epsm_data.sanity_reference import check_references
 
 _ROOT = Path(__file__).resolve().parents[1]
-_FIXTURES = _ROOT / "tests/fixtures/catalogue_sanity"
-_BUNDLED = _ROOT / "src/epsm_data/datasets/sanity"
+_FIXTURES = _ROOT / "src/epsm_data/datasets/sanity"
+_CASES = _ROOT / "tests/fixtures/sanity_cases"
 
 
 @pytest.fixture(scope="module")
@@ -62,9 +62,8 @@ def _wall_package(references):
     return refs, code
 
 
-def test_reference_fixtures_match_bundled_copies_and_are_finite():
+def test_reference_fixtures_are_finite():
     for name in ("tabula_u_values.json", "tabula_renovations.json"):
-        assert (_FIXTURES / name).read_bytes() == (_BUNDLED / name).read_bytes()
         json.dumps(json.loads((_FIXTURES / name).read_text()), allow_nan=False)
 
 
@@ -327,7 +326,7 @@ def test_unreviewed_mf06_does_not_infer_second_wall_mapping(catalogue, reference
 def test_ground_project_limitations_cover_all_authored_configurations_without_generic_duplicates(
     catalogue, references,
 ):
-    expected = json.loads((_FIXTURES / "cases/reporting.json").read_text())["ground_project_limitations"]
+    expected = json.loads((_CASES / "reporting.json").read_text())["ground_project_limitations"]
     findings = _run(catalogue.resolved_dict(), catalogue, references)
     limitations = _matching(findings, expected["rule_id"])
     assert len(limitations) == expected["authored_configuration_count"]
@@ -349,7 +348,7 @@ def test_ground_project_limitations_cover_all_authored_configurations_without_ge
 @pytest.mark.parametrize("defect", ["missing_role", "wrong_role", "missing_element", "missing_layers",
                                      "unavailable_calculation"])
 def test_unresolved_ground_fabric_remains_blocking(catalogue, references, defect):
-    expected = json.loads((_FIXTURES / "cases/reporting.json").read_text())["ground_project_limitations"]
+    expected = json.loads((_CASES / "reporting.json").read_text())["ground_project_limitations"]
     data = _focused(catalogue)
     config = data["archetypes"]["sf_se01"]["states"]["existing"]
     elements = data["construction_sets"][config["construction_set_id"]]["elements"]

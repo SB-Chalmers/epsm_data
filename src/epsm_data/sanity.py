@@ -29,8 +29,7 @@ FIXTURE_FILES = ("policy.json", "construction_rules.json", "tabula_u_values.json
 def load_sanity_fixture(path=None):
     """Load the fixed, documented fixture layout, never discover evidence files.
 
-    ``tests/fixtures/catalogue_sanity`` is the maintained fixture. Its packaged
-    mirror supports installed use; the tests require byte-for-byte agreement.
+    The packaged ``epsm_data.datasets.sanity`` bundle is the maintained fixture.
     An alternative fixture directory must be selected explicitly by the caller.
     """
     from .library import _object

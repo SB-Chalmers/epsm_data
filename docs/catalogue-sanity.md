@@ -45,7 +45,7 @@ The original catalogue is unchanged. Findings are plain JSON-compatible data.
 ```sh
 epsm-catalogue --sanity
 epsm-catalogue --sanity --check
-epsm-catalogue --path catalogue.json --sanity --fixture tests/fixtures/catalogue_sanity --check
+epsm-catalogue --path catalogue.json --sanity --fixture src/epsm_data/datasets/sanity --check
 ```
 
 Without `--check`, the command prints its report for inspection. With `--check`,
@@ -57,7 +57,8 @@ therefore does not resolve matters that still require human judgement.
 
 ## Fixed references
 
-The canonical reference bundle lives in `tests/fixtures/catalogue_sanity/`:
+The canonical reference bundle is the packaged `epsm_data.datasets.sanity`
+(`src/epsm_data/datasets/sanity/`):
 
 - `policy.json`: fixture identity and explicit project acceptance policies.
 - `construction_rules.json`: material families, units, thickness ranges and
@@ -67,9 +68,8 @@ The canonical reference bundle lives in `tests/fixtures/catalogue_sanity/`:
 - `nonresidential_construction.json`: explicitly labelled school/office project
   screening policies and source-limited period rationale, without TABULA targets.
 
-The packaged mirror in `epsm_data.datasets.sanity` makes the same five files
-available in installed distributions. Tests require their bytes to match the
-canonical fixture. `load_sanity_fixture(path=None)` reads this fixed bundle;
+Installed distributions ship the same five files. `load_sanity_fixture(path=None)`
+reads this fixed bundle;
 an explicit new directory supplies the same five filenames and valid policy
 schema/fixture identity. Legacy four-file directories remain accepted with
 school/office screens explicitly not assessed. No folder scan, network lookup, historical evidence
@@ -78,7 +78,7 @@ loader or fallback to arbitrary evidence files participates in a check.
 `check_catalogue(..., fixture=...)` and `Catalogue.sanity_report(fixture=...)`
 accept the default bundle (`None`), an already loaded mapping, or an explicit
 fixture directory. Change policies and benchmark data deliberately in a PR,
-with their tests and packaged mirror; do not widen tolerances to hide failures.
+with their tests; do not widen tolerances to hide failures.
 Retained evidence remains the source material identified by the locators.
 
 ## Rules and their interpretation
@@ -200,8 +200,8 @@ checks read the explicit fixture and never discover that evidence file at runtim
 
 SF SE.01 uses the TABULA pre-1960 AAC wall and ground-slab families, with a
 representative 1950 year. Period sources support its nominal shavings-filled attic
-ceiling; TABULA does not supply that original layer recipe. The independent
-`cases/sf_se01.json` fixture distinguishes source measures from these explicit
+ceiling; TABULA does not supply that original layer recipe; the source review in
+`evidence/sf_se01_source_review.json` separates source measures from explicit
 construction defaults. Timber panelling/framing and non-product air do not count
 as prescribed insulation merely because their conductivity is low.
 

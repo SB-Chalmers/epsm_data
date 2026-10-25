@@ -1,0 +1,2695 @@
+{
+  "schema_version": 1,
+  "purpose": "Construction rationale and descriptive boundary notes moved out of the runtime catalogue on 2026-10-25. No code reads these fields; they document how each archetype's boundaries and layers were interpreted.",
+  "layout": "archetype_id -> state -> boundary_details|sanity_assessment -> role -> field",
+  "archetypes": {
+    "mf_se01": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The brochure prescribes internal placement; the workbook measure names stone-wool facade board at lambda 0.036. Existing generic stone-wool batts at lambda 0.036 and density 29 kg/m3 are an explicit internal-lining family adaptation, not an exact facade-board product match.",
+              "The added 13 mm gypsum is an EPSM finish assumption. Metal supports, fixings and junction thermal bridges are project details and are not quantified in this nominal planar recipe.",
+              "Internal insulation and gypsum require a wall that remains dry year-round and a project moisture assessment. No polyethylene vapour barrier or timber studs are assumed; wet or moisture-exposed basements require a different project solution."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "functional_details": [
+              "Brick resistance is retained exactly as in the TABULA measure. No ventilated cavity is represented or thermally counted.",
+              "Brick ties, structural support and drainage/moisture interfaces require project-specific completion; this nominal representative is not a certified facade design."
+            ]
+          },
+          "GROUND_FLOOR": {
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "Baseline, ground-to-room: retained 160 mm concrete, 80 mm LECA fill, then 80 mm cement-finished concrete topping. The topping closes the previously exposed loose-fill surface.",
+              "Cement-finished concrete is a period-supported mineral finish; topping depth and the underlying LECA recipe remain representative EPSM assumptions.",
+              "LECA grade/compaction and the topping support, separation, reinforcement, movement joints and moisture conditions are project details. No steel or ancillary quantities are included in the topping concrete."
+            ],
+            "reinforcement_quantity_status": "not_quantified_project_input"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "installed_depth_meaning": "Final nominal thermal depth after settlement; construction allowance and deep-fill convection require installation assessment."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "The physical floor is the ground-bearing slab of a completely conditioned basement and TABULA Wall2 is the buried basement wall. The conflicting Cellar source flag is not used as a physical unheated-space assignment. Ground performance remains unassessed: raw BETSI foundation U-values include ground transfer and the workbook adds incompatible cellar adjustments.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT814,BG814,BI814,BQ814,BS814",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=26",
+              "BETSI Energi i bebyggelsen (2010), printed pp.17,35–36,166,168",
+              "https://episcope.eu/fileadmin/tabula/public/docs/report/TABULA_CommonCalculationMethod.pdf#page=9"
+            ]
+          },
+          "floor_finish": {
+            "rationale": "The retained LECA requires a load-distributing mineral surface. Add a nominal 80 mm cement-finished concrete topping as a representative period-appropriate completion, using the Swedish unreinforced concrete design grade (lambda 1.7, 2300 kg/m³) and an explicit modern Boverket concrete carbon proxy.",
+            "sources": [
+              "SOU 1944:7, printed p.157 (slipning av källargolv)",
+              "BABS 1946, printed p.7, concrete and floor coverings",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-isolering-och-golvvarme-2/",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-oisolerad-platta-pa-mark-3/"
+            ]
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "functional_details": [
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The retained concrete/LECA stack is an EPSM representative foundation recipe, not a detailed construction observed in TABULA or the 1940s workbook.",
+              "Baseline, ground-to-room: retained 160 mm concrete, 80 mm LECA fill, then 80 mm cement-finished concrete topping. The topping closes the previously exposed loose-fill surface.",
+              "Cement-finished concrete is a period-supported mineral finish; topping depth and the underlying LECA recipe remain representative EPSM assumptions.",
+              "LECA grade/compaction and the topping support, separation, reinforcement, movement joints and moisture conditions are project details. No steel or ancillary quantities are included in the topping concrete."
+            ],
+            "reinforcement_quantity_status": "not_quantified_project_input"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple TABULA whole-window equivalent; negligible frame solar gain, no bundled shading or angular reductions.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.8,
+            "whole_aperture_shgc": 0.56,
+            "whole_aperture_vt": 0.525
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "The physical floor is the ground-bearing slab of a completely conditioned basement and TABULA Wall2 is the buried basement wall. The conflicting Cellar source flag is not used as a physical unheated-space assignment. Ground performance remains unassessed: raw BETSI foundation U-values include ground transfer and the workbook adds incompatible cellar adjustments.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT814,BG814,BI814,BQ814,BS814",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=26",
+              "BETSI Energi i bebyggelsen (2010), printed pp.17,35–36,166,168",
+              "https://episcope.eu/fileadmin/tabula/public/docs/report/TABULA_CommonCalculationMethod.pdf#page=9"
+            ]
+          },
+          "floor_finish": {
+            "rationale": "The retained LECA requires a load-distributing mineral surface. Add a nominal 80 mm cement-finished concrete topping as a representative period-appropriate completion, using the Swedish unreinforced concrete design grade (lambda 1.7, 2300 kg/m³) and an explicit modern Boverket concrete carbon proxy.",
+            "sources": [
+              "SOU 1944:7, printed p.157 (slipning av källargolv)",
+              "BABS 1946, printed p.7, concrete and floor coverings",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-isolering-och-golvvarme-2/",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-oisolerad-platta-pa-mark-3/"
+            ]
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "functional_details": [
+              "Brick resistance is retained exactly as in the TABULA measure. No ventilated cavity is represented or thermally counted.",
+              "Brick ties, structural support and drainage/moisture interfaces require project-specific completion; this nominal representative is not a certified facade design."
+            ]
+          },
+          "GROUND_FLOOR": {
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT814=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "Baseline, ground-to-room: retained 160 mm concrete, 80 mm LECA fill, then 80 mm cement-finished concrete topping. The topping closes the previously exposed loose-fill surface.",
+              "Cement-finished concrete is a period-supported mineral finish; topping depth and the underlying LECA recipe remain representative EPSM assumptions.",
+              "LECA grade/compaction and the topping support, separation, reinforcement, movement joints and moisture conditions are project details. No steel or ancillary quantities are included in the topping concrete."
+            ],
+            "reinforcement_quantity_status": "not_quantified_project_input"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "installed_depth_meaning": "Final nominal thermal depth after settlement; construction allowance and deep-fill convection require installation assessment."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "The physical floor is the ground-bearing slab of a completely conditioned basement and TABULA Wall2 is the buried basement wall. The conflicting Cellar source flag is not used as a physical unheated-space assignment. Ground performance remains unassessed: raw BETSI foundation U-values include ground transfer and the workbook adds incompatible cellar adjustments.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT814,BG814,BI814,BQ814,BS814",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=26",
+              "BETSI Energi i bebyggelsen (2010), printed pp.17,35–36,166,168",
+              "https://episcope.eu/fileadmin/tabula/public/docs/report/TABULA_CommonCalculationMethod.pdf#page=9"
+            ]
+          },
+          "floor_finish": {
+            "rationale": "The retained LECA requires a load-distributing mineral surface. Add a nominal 80 mm cement-finished concrete topping as a representative period-appropriate completion, using the Swedish unreinforced concrete design grade (lambda 1.7, 2300 kg/m³) and an explicit modern Boverket concrete carbon proxy.",
+            "sources": [
+              "SOU 1944:7, printed p.157 (slipning av källargolv)",
+              "BABS 1946, printed p.7, concrete and floor coverings",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-isolering-och-golvvarme-2/",
+              "https://betongforeningen.se/fraga_experten/fraga-experten-oisolerad-platta-pa-mark-3/"
+            ]
+          }
+        }
+      }
+    },
+    "mf_se02": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The brochure prescribes internal placement; the workbook measure names stone-wool facade board at lambda 0.036. Existing generic stone-wool batts at lambda 0.036 and density 29 kg/m3 are an explicit internal-lining family adaptation, not an exact facade-board product match.",
+              "The added 13 mm gypsum is an EPSM finish assumption. Metal supports, fixings and junction thermal bridges are project details and are not quantified in this nominal planar recipe.",
+              "Internal insulation and gypsum require a wall that remains dry year-round and a project moisture assessment. No polyethylene vapour barrier or timber studs are assumed; wet or moisture-exposed basements require a different project solution."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "facade_cavity": {
+              "nominal_projection": "sealed_cavity_resistance_omitted_conservatively"
+            },
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed.",
+            "support": "Existing/rebuilt foundation or engineered shelf supports assumed; veneer tied back to substrate, not structural design."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.095,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 125 mm leca, 160 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT815,BG815,BI815,BQ815,BS815",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "facade_cavity": {
+              "nominal_projection": "omitted_cavity_resistance_cladding_retained"
+            },
+            "support": "Existing/rebuilt foundation or engineered shelf supports assumed; veneer tied back to substrate, not structural design."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0,
+            "functional_details": [
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The retained concrete/LECA stack is an EPSM representative foundation recipe, not a detailed construction observed in TABULA or the 1940s workbook."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 125 mm leca, 160 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT815,BG815,BI815,BQ815,BS815",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "facade_cavity": {
+              "nominal_projection": "sealed_cavity_resistance_omitted_conservatively"
+            },
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed.",
+            "support": "Existing/rebuilt foundation or engineered shelf supports assumed; veneer tied back to substrate, not structural design."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.09,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT815=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 125 mm leca, 160 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT815,BG815,BI815,BQ815,BS815",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      }
+    },
+    "mf_se03": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The brochure prescribes internal placement; the workbook measure names stone-wool facade board at lambda 0.036. Existing generic stone-wool batts at lambda 0.036 and density 29 kg/m3 are an explicit internal-lining family adaptation, not an exact facade-board product match.",
+              "The added 13 mm gypsum is an EPSM finish assumption. Metal supports, fixings and junction thermal bridges are project details and are not quantified in this nominal planar recipe.",
+              "Internal insulation and gypsum require a wall that remains dry year-round and a project moisture assessment. No polyethylene vapour barrier or timber studs are assumed; wet or moisture-exposed basements require a different project solution."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.095,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 50 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT816,BG816,BI816,BQ816,BS816",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0,
+            "functional_details": [
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The retained concrete/LECA stack is an EPSM representative foundation recipe, not a detailed construction observed in TABULA or the 1940s workbook."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 50 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple TABULA whole-window equivalent; negligible frame solar gain, no bundled shading or angular reductions.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.7,
+            "whole_aperture_shgc": 0.49,
+            "whole_aperture_vt": 0.525
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT816,BG816,BI816,BQ816,BS816",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.09,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT816=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 50 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT816,BG816,BI816,BQ816,BS816",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      }
+    },
+    "mf_se04": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The brochure prescribes internal placement; the workbook measure names stone-wool facade board at lambda 0.036. Existing generic stone-wool batts at lambda 0.036 and density 29 kg/m3 are an explicit internal-lining family adaptation, not an exact facade-board product match.",
+              "The added 13 mm gypsum is an EPSM finish assumption. Metal supports, fixings and junction thermal bridges are project details and are not quantified in this nominal planar recipe.",
+              "Internal insulation and gypsum require a wall that remains dry year-round and a project moisture assessment. No polyethylene vapour barrier or timber studs are assumed; wet or moisture-exposed basements require a different project solution."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.095,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 70 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT817,BG817,BI817,BQ817,BS817",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0,
+            "functional_details": [
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The retained concrete/LECA stack is an EPSM representative foundation recipe, not a detailed construction observed in TABULA or the 1940s workbook."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 70 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple TABULA whole-window equivalent; negligible frame solar gain, no bundled shading or angular reductions.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.7,
+            "whole_aperture_shgc": 0.49,
+            "whole_aperture_vt": 0.525
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT817,BG817,BI817,BQ817,BS817",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.09,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT817=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 70 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT817,BG817,BI817,BQ817,BS817",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      }
+    },
+    "mf_se05": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The brochure prescribes internal placement; the workbook measure names stone-wool facade board at lambda 0.036. Existing generic stone-wool batts at lambda 0.036 and density 29 kg/m3 are an explicit internal-lining family adaptation, not an exact facade-board product match.",
+              "The added 13 mm gypsum is an EPSM finish assumption. Metal supports, fixings and junction thermal bridges are project details and are not quantified in this nominal planar recipe.",
+              "Internal insulation and gypsum require a wall that remains dry year-round and a project moisture assessment. No polyethylene vapour barrier or timber studs are assumed; wet or moisture-exposed basements require a different project solution."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.095,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 100 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT818,BG818,BI818,BQ818,BS818",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0,
+            "functional_details": [
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly.",
+              "The retained concrete/LECA stack is an EPSM representative foundation recipe, not a detailed construction observed in TABULA or the 1940s workbook."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 100 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT818,BG818,BI818,BQ818,BS818",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "interfaces": "Facing support, ties and moisture/drainage interfaces require project assessment; no new cavity resistance is assumed."
+          },
+          "GROUND_FLOOR": {
+            "floor_rise_m": 0.09,
+            "functional_details": [
+              "Separator sheet, reinforcement, perimeter isolation, moisture control, available floor height and final finish are project completion inputs.",
+              "TABULA source topology has a completely conditioned basement (Tab.Building!AT818=C); the Swedish brochure identifies its ground-contact floor and external basement wall. Geometry still selects which reusable definitions are present.",
+              "The source Cellar code contradicts that topology. BETSI foundation U-values already include ground transfer (ISO 13370); no source cellar resistance or reduction factor is added to this nominal assembly."
+            ],
+            "original_construction": "Representative EPSM original nominal layers: 100 mm original_insulation, 120 mm slab, 40 mm finish. Modern thermal/carbon records are explicit equivalent-property proxies, not historical products."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        },
+        "sanity_assessment": {
+          "boundary_resolution": {
+            "rationale": "TABULA specifies a completely conditioned cellar (AT=C); use ground-contact basement floor and Wall2 as buried basement wall. Workbook Cellar corrections conflict with this topology and BETSI ground-effective source U-values. Nominal layer U is not compared to those effective ground U-values. Actual geometry, soil, exposed plinth and foundation method remain building inputs.",
+            "sources": [
+              "TABULA.xlsm#Tab.Building!AT818,BG818,BI818,BQ818,BS818",
+              "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf"
+            ]
+          }
+        }
+      }
+    },
+    "mf_se06": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      }
+    },
+    "mf_se07": {
+      "default": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "source_or_plaster_lining",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      }
+    },
+    "office_se01": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "office_se02": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      }
+    },
+    "office_se03": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      }
+    },
+    "office_se04": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      }
+    },
+    "office_se05": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "INT_WALL_NONLOADBEARING": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "INT_WALL_NONLOADBEARING": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "INT_WALL_NONLOADBEARING": {
+            "air_gap_treatment": "Tabulated d/lambda resistance is retained; no convection/radiation/ventilation model or Boverket product is implied.",
+            "drawing_order": "outside_to_inside",
+            "source_order": "inside_to_outside",
+            "source_projection": "table_5_1_serial_equivalent"
+          }
+        }
+      }
+    },
+    "office_se06": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      }
+    },
+    "office_se07": {
+      "default": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          }
+        }
+      }
+    },
+    "school_se01": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_FLOOR": {
+            "omitted_functional_layers": "Damp-proofing and gravel subbase remain omitted from the nominal construction; ground solver supplies soil, not an invented fixed ground U.",
+            "presence": "soil_contact_slab_of_declared_basement"
+          },
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "GROUND_FLOOR": {
+            "presence": "conditioned_floor_above_unheated_basement"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se02": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se03": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se04": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se05": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se06": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "school_se07": {
+      "default": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "ceiling": "direct_fixed_wood_wool",
+            "finish_proxy": "Timber finish uses registered timber thermal proxy; linoleum carbon link remains a declared rubber surrogate.",
+            "normalization": "Authored source sequence is retained as metadata; component and layer order reversed once into canonical bottom-to-top for Core floor faces. Thickness, material properties, R and total mass unchanged.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors",
+            "source_layer_order": "upper_room_to_lower_room"
+          },
+          "ROOF": {
+            "source_scope": "Generic retained thin timber/bituminous weather shell; not a second conditioned thermal roof."
+          }
+        }
+      }
+    },
+    "sf_se01": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "rendered_aerated_concrete",
+            "panelling": "22mm softwood is an EPSM nominal completion. Nominal R includes the panel; ventilation/cavity corrections, battens, wind protection, fixings and moisture interfaces require project assessment."
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Existing generic heavyweight concrete supplies a thermal/carbon proxy,not an exact screed formulation. Reinforcement,separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.095,
+            "original_construction": "Representative 1950 uninsulated160mm concrete slab with40mm bonded cement finish; these depths are EPSM defaults, not TABULA dimensions."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.125,
+            "joist_depth_m": 0.22,
+            "joist_spacing_m": 0.6,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.03
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "rendered_aerated_concrete"
+          },
+          "GROUND_FLOOR": {
+            "original_construction": "Representative 1950 uninsulated160mm concrete slab with40mm bonded cement finish; these depths are EPSM defaults, not TABULA dimensions."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.125,
+            "joist_depth_m": 0.22,
+            "joist_spacing_m": 0.6,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.03
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple whole-window equivalent; no bundled shading/angular reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.8,
+            "whole_aperture_shgc": 0.56,
+            "whole_aperture_vt": 0.525
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "rendered_aerated_concrete",
+            "panelling": "22mm softwood is an EPSM nominal completion. Nominal R includes the panel; ventilation/cavity corrections, battens, wind protection, fixings and moisture interfaces require project assessment."
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Existing generic heavyweight concrete supplies a thermal/carbon proxy,not an exact screed formulation. Reinforcement,separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.09,
+            "original_construction": "Representative 1950 uninsulated160mm concrete slab with40mm bonded cement finish; these depths are EPSM defaults, not TABULA dimensions."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0.022,
+            "cavity_depth_m": 0.098,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_plaster",
+            "fill_depth_m": 0.1,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.125,
+            "joist_depth_m": 0.22,
+            "joist_spacing_m": 0.6,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.03
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        }
+      }
+    },
+    "sf_se02": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.095,
+            "original_construction": "Representative 1970 slab:50 mm EPS below 120 mm concrete, with 40 mm bonded cement finish. Exact depths and modern generic property grades are declared EPSM defaults, not recovered TABULA layers."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.15,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.18,
+            "original_overfill_depth_m": 0.03,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Bonded cement finish replaces the former 10 mm timber assumption; renovation does not bury organic floor finish.",
+            "original_construction": "Representative 1970 slab:50 mm EPS below 120 mm concrete, with 40 mm bonded cement finish. Exact depths and modern generic property grades are declared EPSM defaults, not recovered TABULA layers."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.15,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.18,
+            "original_overfill_depth_m": 0.03,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple TABULA whole-window equivalent; negligible frame solar gain, no bundled shading or angular reductions.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.8,
+            "whole_aperture_shgc": 0.56,
+            "whole_aperture_vt": 0.525
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.09,
+            "original_construction": "Representative 1970 slab:50 mm EPS below 120 mm concrete, with 40 mm bonded cement finish. Exact depths and modern generic property grades are declared EPSM defaults, not recovered TABULA layers."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.15,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.18,
+            "original_overfill_depth_m": 0.03,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        }
+      }
+    },
+    "sf_se03": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.095,
+            "original_construction": "Representative 1978 slab: retain 70 mm under-slab EPS and 120 mm concrete from the declared P04 family, with a 40 mm bonded cement finish replacing the former timber-finish assumption. Exact depths and generic grades are EPSM defaults, not recovered TABULA layers. EPS was an occasional rather than dominant under-slab option in the 1970s."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.05,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Bonded cement finish replaces the former 10 mm timber assumption; renovation does not bury organic floor finish.",
+            "original_construction": "Representative 1978 slab: retain 70 mm under-slab EPS and 120 mm concrete from the declared P04 family, with a 40 mm bonded cement finish replacing the former timber-finish assumption. Exact depths and generic grades are EPSM defaults, not recovered TABULA layers. EPS was an occasional rather than dominant under-slab option in the 1970s."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.05,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.75,
+            "optical_convention": "Simple TABULA whole-window equivalent; negligible frame solar gain, no bundled shading or angular reductions.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.7,
+            "whole_aperture_shgc": 0.49,
+            "whole_aperture_vt": 0.525
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.09,
+            "original_construction": "Representative 1978 slab: retain 70 mm under-slab EPS and 120 mm concrete from the declared P04 family, with a 40 mm bonded cement finish replacing the former timber-finish assumption. Exact depths and generic grades are EPSM defaults, not recovered TABULA layers. EPS was an occasional rather than dominant under-slab option in the 1970s."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.25,
+            "original_overfill_depth_m": 0.05,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        }
+      }
+    },
+    "sf_se04": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.095,
+            "original_construction": "Representative 1988 slab: retain 100 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Bonded cement finish replaces the former 10 mm timber assumption; renovation does not bury organic floor finish.",
+            "original_construction": "Representative 1988 slab: retain 100 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.09,
+            "original_construction": "Representative 1988 slab: retain 100 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        }
+      }
+    },
+    "sf_se05": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.095,
+            "original_construction": "Representative 2000 slab: retain 150 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.6,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.6,
+            "whole_aperture_shgc": 0.42,
+            "whole_aperture_vt": 0.42
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Bonded cement finish replaces the former 10 mm timber assumption; renovation does not bury organic floor finish.",
+            "original_construction": "Representative 2000 slab: retain 150 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "EXT_WALL": {
+            "construction_family": "timber_cross_frame",
+            "framing_fraction": 0.15,
+            "framing_scope": "Existing 15% whole-wall timber allowance is retained in both layers; it includes more than nominal field studs and is not derived from a target U-value.",
+            "original_weather_layers": "A 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+            "original_windboard": {
+              "material_id": "material:622fee5beaa8a10c",
+              "scope": "The existing generic soft wood-fibre thermal grade is retained at conductivity 0.07 W/(m K), density 230 kg/m³ and specific heat 2100 J/(kg K). Asphalt impregnation is a period functional-family assumption; its exact content, mass, air/water performance and carbon factors are not established.",
+              "thickness_m": 0.012
+            },
+            "panelling": "22 mm is an explicit nominal completion. Full nominal R includes the new panel; ventilation/cavity corrections, battens, fixings and moisture design require project assessment.",
+            "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified"
+          },
+          "GROUND_FLOOR": {
+            "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy rather than an exact screed formulation. Reinforcement, separation and moisture design remain project inputs.",
+            "floor_rise_m": 0.09,
+            "original_construction": "Representative 2000 slab: retain 150 mm original EPS and 120 mm concrete, completed with a 40 mm bonded mineral finish. The nominal depths and generic grades are EPSM assumptions, not a recovered TABULA layer recipe."
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          },
+          "TOP_FLOOR": {
+            "framing_fraction": 0.0625,
+            "joist_depth_m": 0.2,
+            "joist_spacing_m": 1.2,
+            "joist_width_m": 0.075,
+            "original_fill_depth_m": 0.3,
+            "original_overfill_depth_m": 0.1,
+            "project_details": "Joist spans/bearings, air/vapour control, wind washing and moisture conditions require project design."
+          },
+          "WINDOW": {
+            "assumed_glazing_vt": 0.65,
+            "optical_convention": "Whole-aperture equivalent with negligible opaque-frame solar gain; no duplicate geometric frame or bundled angular/shading reduction.",
+            "source_default_frame_fraction": 0.3,
+            "source_glazing_g": 0.5,
+            "whole_aperture_shgc": 0.35,
+            "whole_aperture_vt": 0.455
+          }
+        }
+      }
+    },
+    "sf_se06": {
+      "advanced": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      },
+      "existing": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      },
+      "standard": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      }
+    },
+    "sf_se07": {
+      "default": {
+        "boundary_details": {
+          "BASEMENT_WALL": {
+            "functional_details": [
+              "External moisture protection and drainage required by project conditions; thin functional layers omitted from nominal resistance and quantities.",
+              "No interior organic lining assumed; mineral finish thickness 15 mm is an engineering default.",
+              "Ground contact, exposed plinth fraction and soil boundary supplied by the building model."
+            ],
+            "presence": "optional_geometry_selected"
+          },
+          "INTERMEDIATE_FLOOR": {
+            "blind_floor_depth_m": 0,
+            "cavity_depth_m": 0.15,
+            "cavity_nominal_r_m2k_w": 0.16,
+            "ceiling": "timber_boards_and_gypsum",
+            "fill_depth_m": 0.07,
+            "finish_proxy": "Registered timber/plaster proxies; linoleum carbon surrogate unchanged.",
+            "framing_fraction": 0.15,
+            "joist_depth_m": 0.22,
+            "perimeter": "Exterior-wall junction insulation and thermal bridges handled separately; no claim of a full junction model.",
+            "presence": "apply_only_where_geometry_has_intermediate_floors"
+          }
+        }
+      }
+    }
+  }
+}

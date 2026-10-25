@@ -10,7 +10,7 @@ from epsm_data import Catalogue, export_nominal_constructions
 from epsm_data.carbon_scope import retained_stock_assessments
 from epsm_data.sanity import check_catalogue
 
-CASE = json.loads((Path(__file__).parent / "fixtures/catalogue_sanity/cases/retained_stock_carbon.json").read_text())
+CASE = json.loads((Path(__file__).parent / "fixtures/sanity_cases/retained_stock_carbon.json").read_text())
 STOCK = tuple(row["id"] for row in CASE["stock_materials"])
 
 

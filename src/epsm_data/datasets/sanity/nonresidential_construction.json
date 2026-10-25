@@ -10,7 +10,7 @@
     "sources": [
       "evidence/office_period_user_stacks.txt#P01-P09",
       "evidence/school_period_user_stacks.txt#period-recipes",
-      "tests/fixtures/catalogue_sanity/nonresidential_construction.json#project-policy"
+      "src/epsm_data/datasets/sanity/nonresidential_construction.json#project-policy"
     ]
   },
   "shgc": [

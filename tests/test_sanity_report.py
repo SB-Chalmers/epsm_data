@@ -10,8 +10,8 @@ from epsm_data import Catalogue, check_catalogue, load_sanity_fixture
 from epsm_data.cli import main
 from epsm_data.sanity import FIXTURE_FILES
 
-FIXTURE = Path(__file__).parent / "fixtures/catalogue_sanity"
-CASES = json.loads((FIXTURE / "cases/reporting.json").read_text())
+FIXTURE = Path(__file__).resolve().parents[1] / "src/epsm_data/datasets/sanity"
+CASES = json.loads((Path(__file__).parent / "fixtures/sanity_cases/reporting.json").read_text())
 
 
 @pytest.fixture(scope="module")
@@ -24,7 +24,7 @@ def catalogue():
     return Catalogue.load()
 
 
-def test_packaged_expectations_are_exact_mirror_of_maintained_test_fixture():
+def test_packaged_expectations_are_the_explicit_fixture_bundle():
     from importlib.resources import files
 
     packaged = files("epsm_data.datasets.sanity")
@@ -32,8 +32,7 @@ def test_packaged_expectations_are_exact_mirror_of_maintained_test_fixture():
         "policy.json", "construction_rules.json", "tabula_u_values.json", "tabula_renovations.json",
         "nonresidential_construction.json",
     }
-    for filename in FIXTURE_FILES:
-        assert (FIXTURE / filename).read_bytes() == packaged.joinpath(filename).read_bytes(), filename
+    assert all(packaged.joinpath(filename).is_file() for filename in FIXTURE_FILES)
     assert load_sanity_fixture() == load_sanity_fixture(FIXTURE)
 
 

@@ -1,9 +1,6 @@
 """Meaningful raw-data mutations for material and construction screening."""
 
-import json
 from copy import deepcopy
-from importlib.resources import files
-from pathlib import Path
 
 import pytest
 
@@ -302,13 +299,6 @@ def test_malformed_raw_records_do_not_prevent_other_findings(raw):
     result = findings(raw)
     assert {item["rule_id"] for item in result} >= {
         "definition.structure", "thermal.properties", "layer.fractions", "component.positions", "assembly.role"}
-
-
-def test_construction_expectations_match_packaged_fixture():
-    expected = Path(__file__).parent / "fixtures" / "catalogue_sanity" / "construction_rules.json"
-    packaged = files("epsm_data.datasets.sanity").joinpath("construction_rules.json")
-    assert json.loads(expected.read_text()) == json.loads(packaged.read_text())
-    assert load_sanity_fixture()["construction_rules"] == json.loads(expected.read_text())
 
 
 def test_custom_fixture_controls_density_and_buildability(raw):

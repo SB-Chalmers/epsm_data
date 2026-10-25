@@ -14,6 +14,17 @@
   cold-attic ceilings from weather roofs, and reciprocal intermediate-floor order.
 - Source mappings include explicit external carbon references. The retained sand
   proxy has a production factor and unknown A4/A5 modules, which remain visible.
+- Every thermal grade is an EPSM record with structured provenance (Swedish
+  product declarations, design values, TABULA grades or derivations); the bundled
+  Honeybee libraries are removed. Unsourced renovation grades block readiness.
+- TABULA-covered windows match TABULA exactly; window optics derive from glazing
+  g and light transmittance with a 0.30 frame fraction.
+- Resolved payloads use a `thermal` section and `thermal_id`. Older `honeybee` /
+  `honeybee_id` payloads still load, `Catalogue.honeybee_materials` remains an
+  alias and nominal references carry both ids.
+- Removed unused modules (graph visualisation, logging configuration, airflow
+  conversion, duplicate thermal engine) and per-archetype snapshot tests; descriptive
+  boundary notes moved to `evidence/catalogue_rationale.json`.
 
 See [catalogue inspection](docs/catalogue-inspection.md),
 [authoring](docs/archetype-authoring.md) and [sanity checks](docs/catalogue-sanity.md)
