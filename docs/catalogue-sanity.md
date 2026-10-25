@@ -128,14 +128,11 @@ known modules. A downstream LCA must select its scope and reject unavailable
 requested factors. EPSM LCA already does so per material and requested module;
 Data does not duplicate that assessment policy or claim a complete LCA.
 
-Ground heat transfer needs project geometry, soil and a declared boundary
-method. Each of the 76 authored configurations receives a nonblocking
-`ground.project_inputs` review when its nominal ground-floor construction and
-forward U-value resolve. Generic selections inherit their MF donor findings.
-These declared consumer inputs do not make a catalogue construction incomplete;
-an absent or unresolved physical floor remains a blocking
-`construction.ground_definition` finding. Ground temperatures and conductance
-corrections are never added to stored material layers.
+Ground floors and basement walls are not compared with TABULA. Ground heat
+transfer is modelled by `epsm_core` / `epsm_rc` from the nominal assemblies and the
+building's own geometry and soil. The checker only requires every configuration to
+have a resolved ground-floor assembly; an absent or unresolved floor is a blocking
+`construction.ground_definition` finding.
 
 School and office screens distinguish the retained early masonry families, later
 timber-frame school walls, and concrete office walls/floors. Their numeric ranges are broad engineering
@@ -186,17 +183,9 @@ internal wall insulation in the advanced package. The fixture checks that the
 catalogue declares matching physical boundaries and that this addition follows
 all retained baseline layers. Other eras receive no inferred Wall2 alias.
 
-The MF SE.01 foundation U-value comparisons remain not assessed for a different
-reason: BETSI's source values already include ISO 13370 ground heat transfer,
-while TABULA subsequently applies conflicting unheated-cellar adjustments.
-`tabula.source_convention` reports this source issue, and
-`tabula.boundary_not_assessed` retains the unavailable acceptance comparison as
-a nonblocking review when the physical definition and mapping resolve. Invalid
-or missing mapping metadata remains blocking. The observed source numbers and
-±20% policy are unchanged. Neither removing the
-cellar correction nor fitting material layers produces a valid new ground
-benchmark. See `evidence/mf_se01_ground_boundaries.json` for the source review;
-checks read the explicit fixture and never discover that evidence file at runtime.
+TABULA's ground values (BETSI inputs that already include ISO 13370 ground heat
+transfer, plus cellar corrections) stay in the fixture for reference only. See
+`evidence/mf_se01_ground_boundaries.json` for the source review.
 
 SF SE.01 uses the TABULA pre-1960 AAC wall and ground-slab families, with a
 representative 1950 year. Period sources support its nominal shavings-filled attic

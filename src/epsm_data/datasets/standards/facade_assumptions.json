@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "purpose": "Simple window-to-wall ratio (window area / gross facade area) per building type and facade orientation, for templates when a building model has no measured openings. Constant across eras and states.",
+  "orientation_rule": "Classify each facade by the compass direction its outward normal faces: N for 315-45 degrees, E for 45-135, S for 135-225, W for 225-315.",
+  "types": {
+    "single_family": {
+      "default_wwr": 0.18,
+      "wwr_by_orientation": {"N": 0.12, "E": 0.17, "S": 0.26, "W": 0.17},
+      "basis": "TABULA SE single-family reference geometry: 22 m2 windows on 122 m2 of facade (0.18). The orientation split favours south-facing living rooms and keeps the four-facade mean at 0.18.",
+      "tier": "tabula"
+    },
+    "multi_family": {
+      "default_wwr": 0.24,
+      "wwr_by_orientation": {"N": 0.22, "E": 0.23, "S": 0.28, "W": 0.23},
+      "basis": "TABULA SE multi-family reference geometry: 180 m2 windows on 740 m2 of facade (0.24). Slab blocks have windows on both long sides, so the orientation split is mild; the four-facade mean stays at 0.24.",
+      "tier": "tabula"
+    },
+    "office": {
+      "default_wwr": 0.3,
+      "wwr_by_orientation": {"N": 0.3, "E": 0.3, "S": 0.3, "W": 0.3},
+      "basis": "EPSM assumption for punched or band windows in Swedish offices. No orientation preference; solar control is a facade property, not a WWR change.",
+      "tier": "assumption"
+    },
+    "school": {
+      "default_wwr": 0.25,
+      "wwr_by_orientation": {"N": 0.25, "E": 0.25, "S": 0.25, "W": 0.25},
+      "basis": "EPSM assumption for classroom daylighting windows in Swedish schools. No orientation preference.",
+      "tier": "assumption"
+    }
+  },
+  "sources": [
+    {"reference": "TABULA SE reference building geometry (SE.N.SFH/MFH.*.Gen.ReEx.001), as extracted in epsm_rc references/tabula_swedish_data.json",
+     "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"}
+  ]
+}

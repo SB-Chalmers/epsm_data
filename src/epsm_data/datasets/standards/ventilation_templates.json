@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "purpose": "One simple ventilation template per archetype configuration, read by epsm_core through BuildingArchetype.hvac_template. Airflow only: operating profiles supply occupied ventilation rates and envelope_performance supplies infiltration.",
+  "basis": "EPSM assumption from typical Swedish practice: self-draught (S) in older buildings, mechanical exhaust (F) as the residential norm from the 1960s-1970s, supply/exhaust (FT) in 1960s-1970s premises, and heat recovery (FTX) in premises from the 1980s and in most new construction after the 2006 energy rules. Advanced renovation installs FTX; Standard renovation keeps the existing system. Not measured stock shares.",
+  "templates": {
+    "epsm.ventilation.S": {
+      "airflow": {"topology": "S", "mechanical_vent_l_s_m2": 0, "natural_exchange_ach": 0.5},
+      "note": "Self-draught. 0.5 ACH is the BBR minimum 0.35 L/(s m2) at a 2.5 m room height; actual self-draught flow varies with weather."
+    },
+    "epsm.ventilation.F": {
+      "airflow": {"topology": "F", "sensible_recovery_effectiveness": 0},
+      "note": "Mechanical exhaust without heat recovery; flow from the operating profile."
+    },
+    "epsm.ventilation.FT": {
+      "airflow": {"topology": "FT", "sensible_recovery_effectiveness": 0},
+      "note": "Mechanical supply and exhaust without heat recovery; flow from the operating profile."
+    },
+    "epsm.ventilation.FTX_060": {
+      "airflow": {"topology": "FTX", "sensible_recovery_effectiveness": 0.6},
+      "note": "Early heat recovery (cross-flow plate or run-around coil), effectiveness 0.6."
+    },
+    "epsm.ventilation.FTX_075": {
+      "airflow": {"topology": "FTX", "sensible_recovery_effectiveness": 0.75},
+      "note": "Typical rotary or counter-flow recovery 2006-2021, effectiveness 0.75."
+    },
+    "epsm.ventilation.FTX_080": {
+      "airflow": {"topology": "FTX", "sensible_recovery_effectiveness": 0.8},
+      "note": "Current recovery for new construction and advanced renovation, effectiveness 0.8."
+    }
+  },
+  "assignment": {
+    "single_family": {"SE.01": "S", "SE.02": "S", "SE.03": "F", "SE.04": "F", "SE.05": "F", "SE.06": "FTX_075", "SE.07": "FTX_080"},
+    "multi_family": {"SE.01": "S", "SE.02": "F", "SE.03": "F", "SE.04": "F", "SE.05": "F", "SE.06": "FTX_075", "SE.07": "FTX_080"},
+    "office": {"SE.01": "S", "SE.02": "FT", "SE.03": "FT", "SE.04": "FTX_060", "SE.05": "FTX_060", "SE.06": "FTX_075", "SE.07": "FTX_080"},
+    "school": {"SE.01": "S", "SE.02": "F", "SE.03": "FT", "SE.04": "FTX_060", "SE.05": "FTX_060", "SE.06": "FTX_075", "SE.07": "FTX_080"}
+  },
+  "renovation": {"standard": "existing", "advanced": "FTX_080"}
+}

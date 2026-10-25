@@ -141,3 +141,10 @@ def test_invalid_record_version_and_role(archetype):
     payload["archetype"]["construction_set"]["elements"]["EXT_WALL"]["application"] = "ROOF"
     with pytest.raises(ValueError):
         archetype_from_dict(payload)
+
+
+def test_core_boundary_resistance_import_remains_available():
+    from epsm_data.thermal.boundary_conditions import get_boundary_resistances
+
+    assert get_boundary_resistances(BuildingElement.EXT_WALL) == (0.13, 0.04)
+    assert get_boundary_resistances(BuildingElement.INTERMEDIATE_FLOOR) == (0.13, 0.13)

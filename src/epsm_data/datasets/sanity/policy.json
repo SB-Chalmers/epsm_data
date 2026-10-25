@@ -12,7 +12,7 @@
     "insulation_conductivity_max_w_mk": 0.12,
     "insulation_minimum_area_fraction": 0.5,
     "heuristic_renovation_age_years": 35,
-    "nominal_comparison_convention": "Compare matching physical envelope roles and nominal forward U-values with declared surface films. Effective ground U-values require project geometry, soil and reference boundary conventions; declared project/reference limitations are nonblocking reviews, never benchmark passes. Missing or contradictory physical definitions remain blocking.",
+    "nominal_comparison_convention": "Compare matching physical envelope roles (walls, thermal top, windows) and nominal forward U-values with declared surface films. Ground floors and basement walls are not compared: ground heat transfer is modelled by epsm_core / epsm_rc. Missing or contradictory physical definitions remain blocking.",
     "density_comparison_convention": "Compare only compatible material families and explicit kg/m3 bases; abs(thermal density - source density) / source density. Never modify a thermal property to satisfy a carbon mapping.",
     "generic_fallback": {
       "requested_category": "generic",
@@ -22,25 +22,12 @@
     },
     "severity_policy": {
       "error": "Contradictory or invalid supplied data, failed acceptance reference, or worsening intervention.",
-      "missing": "Required catalogue definitions, material data or acceptance inputs absent; unknown is never a numerical zero or a pass. Declared project ground conditions and reference-convention limitations are reviews when physical fabric resolves.",
+      "missing": "Required catalogue definitions, material data or acceptance inputs absent; unknown is never a numerical zero or a pass.",
       "review": "Context or construction judgement required; not a certification or automatic rejection.",
       "check_exit_failure": [
         "error",
         "missing"
       ]
-    },
-    "ground_assessment": {
-      "scope": "All authored archetypes and states; generic selections reuse their MF donor findings.",
-      "project_input_severity": "review",
-      "unresolved_definition_severity": "missing",
-      "unassessed_is_pass": false,
-      "required_project_inputs": [
-        "ground_contact_geometry_area_perimeter_and_burial_depth",
-        "soil_properties",
-        "ground_boundary_method_and_assumptions"
-      ],
-      "reference_mapping_limitation": "Unmapped TABULA Wall2 is a reference review, not an inferred basement role. Unverified prescribed renovation interventions remain missing.",
-      "source_incompatibility": "Known source boundary conflicts are retained as nonblocking reviews when the physical definition and mapping resolve."
     }
   },
   "sources": {

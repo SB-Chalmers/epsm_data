@@ -215,9 +215,11 @@ class Catalogue:
         self._profiles = MappingProxyType(
             dict(available_operating_profiles() if profiles is None else profiles)
         )
+        from .templates import ventilation_templates
+
         self._hvac = MappingProxyType(
             dict(
-                {"illustrative_reference_ftx": reference_hvac_template()}
+                {"illustrative_reference_ftx": reference_hvac_template(), **ventilation_templates()}
                 if hvac_templates is None
                 else hvac_templates
             )
@@ -748,6 +750,9 @@ class Catalogue:
                 )
             )
         missing = self.completeness(aid, state=state)["missing_values"]
+        from .templates import ventilation_template_id
+
+        hvac = self._hvac.get(ventilation_template_id(record["category"], record["era"], selected))
         return Archetype(
             archetype_id="generic_se" + record["era"].removeprefix("SE.") if generic else aid,
             display_name=GENERIC_ASSUMPTION_LABEL if generic else record["name"]
@@ -756,6 +761,7 @@ class Catalogue:
             building_typology="generic" if generic else record["category"],
             construction_set=self._construction_sets.get(config.get("construction_set_id")),
             operating_profile=profile,
+            hvac_template=hvac,
             envelope_performance=EnvelopePerformance(**config["envelope_performance"])
             if config.get("envelope_performance")
             else None,
@@ -778,6 +784,13 @@ class Catalogue:
                 if generic else ()
             ),
         )
+
+    def facade_assumptions(self, archetype_id):
+        """Default and N/E/S/W window-to-wall ratios for templates without measured openings."""
+        from .templates import facade_assumptions
+
+        aid, _generic = self._resolve_selection(archetype_id)
+        return facade_assumptions(self._data["archetypes"][aid]["category"])
 
     def for_year(self, category, construction_year, *, state=None):
         """Select an era; generic explicitly borrows MF fabric and residential operation."""

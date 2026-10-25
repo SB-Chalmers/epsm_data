@@ -191,20 +191,10 @@ def _mf01_wall_measure_case(catalogue, references):
     return data, refs
 
 
-def test_evidenced_mf01_ground_mapping_keeps_incompatible_sources_unassessed(catalogue, references):
+def test_ground_and_second_wall_are_never_compared_with_tabula(catalogue, references):
     findings = _run(_mf01_mapped_data(catalogue), catalogue, references)
-    unassessed = _matching(findings, "tabula.boundary_not_assessed")
-    assert len(unassessed) == 6
-    assert {f["actual"]["element"] for f in unassessed} == {"GROUND_FLOOR", "TABULA_WALL_2"}
-    assert all(f["severity"] == "review" for f in unassessed)
-    assert all(f["actual"]["status"] == "source_incompatible" for f in unassessed)
-    assert all(f["actual"]["nominal_u_w_m2k"] > 0 for f in unassessed)
-    assert {f["actual"]["catalogue_role"] for f in unassessed} == {"GROUND_FLOOR", "BASEMENT_WALL"}
-    reviews = _matching(findings, "tabula.source_convention")
-    assert len(reviews) == 6
-    assert all(f["actual"]["nominal_u_w_m2k"] > 0 for f in reviews)
-    assert all(f["severity"] == "review" and f["actual"]["mapping_status"] == "resolved"
-               and f["expected"]["source_locators"] for f in reviews)
+    # Ground heat transfer belongs to epsm_core / epsm_rc, not to nominal TABULA comparisons.
+    assert not [f for f in findings if f["rule_id"] in {"tabula.boundary_not_assessed", "tabula.source_convention", "ground.project_inputs"}]
     assert not any(f["expected"].get("element") in {"GROUND_FLOOR", "TABULA_WALL_2"}
                    for f in _matching(findings, "tabula.u_value"))
 
@@ -221,9 +211,6 @@ def test_mf01_measure_mapping_requires_matching_physical_boundary(catalogue, ref
         config["boundary_details"]["BASEMENT_WALL"][field] = bad_value
     findings = _run(data, catalogue, refs)
     assert _matching(findings, "tabula.measure_mapping", "advanced")
-    wall = next(f for f in _matching(findings, "tabula.boundary_not_assessed", "advanced")
-                if f["actual"]["element"] == "TABULA_WALL_2")
-    assert wall["actual"]["status"] == "boundary_mapping_missing"
 
 
 @pytest.mark.parametrize("mutation", ["missing", "status", "reason", "locators", "extra", "role"])
@@ -250,8 +237,6 @@ def test_mf01_unknown_or_incomplete_source_descriptor_cannot_authorize_wall_mapp
         descriptor["catalogue_role"] = "EXT_WALL"
     findings = _run(data, catalogue, refs)
     assert _matching(findings, "tabula.measure_mapping", "advanced")
-    assert any(f["actual"]["element"] == "TABULA_WALL_2"
-               for f in _matching(findings, "tabula.boundary_not_assessed", "advanced"))
 
 
 def test_mf01_internal_measure_is_checked_across_components(catalogue, references):
@@ -281,20 +266,11 @@ def test_package_override_cannot_rewrite_physical_reference_expectations(catalog
 
 
 @pytest.mark.parametrize("aid", ["mf_se02", "mf_se03", "mf_se04", "mf_se05"])
-def test_reviewed_basement_boundaries_require_explicit_era_mapping(catalogue, references, aid):
+def test_reviewed_basement_boundaries_map_measures_without_ground_findings(catalogue, references, aid):
     findings = _run(_focused(catalogue, aid), catalogue, references)
-    conventions = _matching(findings, "tabula.source_convention")
-    assert len(conventions) == 6
-    assert all(f["severity"] == "review" and f["actual"]["mapping_status"] == "resolved"
-               for f in conventions)
     assert not _matching(findings, "tabula.measure_mapping", "advanced")
-    unassessed = _matching(findings, "tabula.boundary_not_assessed")
-    assert len(unassessed) == 6
-    assert all(f["severity"] == "review" and f["actual"]["status"] == "source_incompatible"
-               for f in unassessed)
-    assert {(f["actual"]["element"], f["actual"]["catalogue_role"]) for f in unassessed} == {
-        ("GROUND_FLOOR", "GROUND_FLOOR"), ("TABULA_WALL_2", "BASEMENT_WALL"),
-    }
+    assert not [f for f in findings if f["rule_id"] in {"tabula.boundary_not_assessed",
+                                                        "tabula.source_convention"}]
 
 
 def test_unreviewed_mf06_does_not_infer_second_wall_mapping(catalogue, references):
@@ -323,32 +299,15 @@ def test_unreviewed_mf06_does_not_infer_second_wall_mapping(catalogue, reference
                for f in coverage)
 
 
-def test_ground_project_limitations_cover_all_authored_configurations_without_generic_duplicates(
-    catalogue, references,
-):
-    expected = json.loads((_CASES / "reporting.json").read_text())["ground_project_limitations"]
+def test_packaged_catalogue_has_resolved_ground_floors_and_no_ground_reviews(catalogue, references):
     findings = _run(catalogue.resolved_dict(), catalogue, references)
-    limitations = _matching(findings, expected["rule_id"])
-    assert len(limitations) == expected["authored_configuration_count"]
-    assert len({f["path"].split(".")[1] for f in limitations}) == expected["authored_family_count"]
-    assert all(f["severity"] == expected["severity"] for f in limitations)
-    assert all(len(f["affected"]) == expected["climate_zones_per_configuration"]
-               for f in limitations)
-    assert all(f["actual"]["nominal_u_w_m2k"] > 0
-               and f["actual"]["status"] == "project_inputs_required" for f in limitations)
-    assert all(f["expected"]["required_project_inputs"] == expected["required_project_inputs"]
-               and f["expected"]["benchmark_agreement_assessed"] is expected["comparison_is_pass"]
-               and f["expected"]["catalogue_ground_factors_added"] is False for f in limitations)
-    assert not any("generic" in f["path"] for f in limitations)
-    assert not _matching(findings, expected["unresolved_definition_rule"])
-    assert references["policy"]["ground_assessment"]["project_input_severity"] == "review"
-    assert references["policy"]["ground_assessment"]["unassessed_is_pass"] is False
+    assert not _matching(findings, "construction.ground_definition")
+    assert not [f for f in findings if f["rule_id"] in {"tabula.boundary_not_assessed", "tabula.source_convention", "ground.project_inputs"}]
 
 
 @pytest.mark.parametrize("defect", ["missing_role", "wrong_role", "missing_element", "missing_layers",
                                      "unavailable_calculation"])
 def test_unresolved_ground_fabric_remains_blocking(catalogue, references, defect):
-    expected = json.loads((_CASES / "reporting.json").read_text())["ground_project_limitations"]
     data = _focused(catalogue)
     config = data["archetypes"]["sf_se01"]["states"]["existing"]
     elements = data["construction_sets"][config["construction_set_id"]]["elements"]
@@ -364,37 +323,9 @@ def test_unresolved_ground_fabric_remains_blocking(catalogue, references, defect
         data["elements"][identifier]["components"] = []
     else:
         calculation = None
-    findings = _run(data, calculation, references)
-    unresolved = _matching(findings, expected["unresolved_definition_rule"], "existing")
-    assert len(unresolved) == 1
-    assert unresolved[0]["severity"] == expected["unresolved_definition_severity"]
-    assert unresolved[0]["actual"]["status"] == "definition_unresolved"
-    assert unresolved[0]["actual"]["nominal_u_w_m2k"] is None
-    assert not _matching(findings, expected["rule_id"], "existing")
-    ground = next(f for f in _matching(findings, "tabula.boundary_not_assessed", "existing")
-                  if f["actual"].get("element") == "GROUND_FLOOR")
-    assert ground["severity"] == "missing"
-
-
-def test_ground_reference_limitation_never_accepts_or_rejects_nominal_u_against_effective_u(
-    catalogue, references,
-):
-    data = _focused(catalogue)
-    reference = next(row for row in references["u_values"]
-                     if (row["category"], row["era"], row["state"])
-                     == ("single_family", "SE.01", "existing"))
-    reference["elements"]["GROUND_FLOOR"]["values_w_m2k"] = dict.fromkeys(
-        ("SE.Zone1", "SE.Zone2", "SE.Zone3"), 999.0,
-    )
-    findings = _run(data, catalogue, references)
-    ground = next(f for f in _matching(findings, "tabula.boundary_not_assessed", "existing")
-                  if f["actual"].get("element") == "GROUND_FLOOR")
-    assert ground["severity"] == "review"
-    assert ground["actual"]["nominal_u_w_m2k"] > 0
-    assert ground["actual"]["status"] == "project_boundary_required"
-    assert ground["expected"]["benchmark_agreement_assessed"] is False
-    assert not any(f["expected"].get("element") == "GROUND_FLOOR"
-                   for f in _matching(findings, "tabula.u_value", "existing"))
+    unresolved = _matching(_run(data, calculation, references), "construction.ground_definition",
+                           "existing")
+    assert len(unresolved) == 1 and unresolved[0]["severity"] == "missing"
 
 
 def test_insulation_measure_checks_added_depth_not_u_measure(catalogue, references):

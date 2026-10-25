@@ -190,25 +190,15 @@ def _physical_role_u(data, catalogue, elements, role):
     return _u(catalogue, identifier)
 
 
-def _ground_project_inputs(data, catalogue, emit, record, aid, state, config, policy):
-    """Separate site-dependent ground modelling from catalogue fabric validity."""
+def _ground_definition(data, catalogue, emit, record, aid, state, config):
+    """Ground heat transfer belongs to Core/RC; only the nominal floor must resolve here."""
     elements = _config_elements(data, config)
-    value = _physical_role_u(data, catalogue, elements, "GROUND_FLOOR")
-    known = value is not None
-    emit("ground.project_inputs" if known else "construction.ground_definition",
-         "review" if known else "missing", f"archetypes.{aid}.states.{state}",
-         ("Ground heat transfer requires project geometry, soil and a declared simulation boundary method; this is not a missing catalogue construction."
-          if known else "A resolved ground-floor assembly and finite forward nominal U-value are required before project ground conditions can be assessed."),
-         actual={"element": "GROUND_FLOOR", "element_id": elements.get("GROUND_FLOOR"),
-                 "nominal_u_w_m2k": value,
-                 "status": "project_inputs_required" if known else "definition_unresolved"},
-         expected={"required_project_inputs": _mapping(policy.get("ground_assessment")).get(
-             "required_project_inputs", ["ground_contact_geometry_area_perimeter_and_burial_depth",
-                                         "soil_properties", "ground_boundary_method_and_assumptions"]),
-                   "basement_presence": "Selected by project geometry, not by a reusable basement recipe",
-                   "catalogue_ground_factors_added": False,
-                   "benchmark_agreement_assessed": False},
-         affected=_affected(record, state))
+    if _physical_role_u(data, catalogue, elements, "GROUND_FLOOR") is None:
+        emit("construction.ground_definition", "missing", f"archetypes.{aid}.states.{state}",
+             "A resolved ground-floor assembly with a finite nominal U-value is required.",
+             actual={"element": "GROUND_FLOOR", "element_id": elements.get("GROUND_FLOOR")},
+             expected={"ground_heat_transfer": "modelled by epsm_core / epsm_rc"},
+             affected=_affected(record, state))
 
 
 def _check_u_values(data, catalogue, emit, record, aid, state, config, reference, policy):
@@ -266,57 +256,6 @@ def _check_u_values(data, catalogue, emit, record, aid, state, config, reference
                      actual={"u_value_w_m2k": actual,
                              "relative_difference": abs(actual - target_value) / target_value},
                      expected=expected, affected=_affected(record, state, zones))
-    # Neither an effective ground U nor TABULA's second wall can safely be
-    # substituted with a nominal seven-role assembly merely because names match.
-    for logical_role in ("GROUND_FLOOR", "TABULA_WALL_2"):
-        if logical_role not in _mapping(reference.get("elements")):
-            continue
-        target = reference["elements"][logical_role]
-        if "boundary_comparison" in target:
-            comparison = _boundary_comparison(target)
-            role = _mapped_boundary_role(config, elements, logical_role, target)
-            nominal_u = _physical_role_u(data, catalogue, elements, role) if role else None
-            known = role is not None and nominal_u is not None
-            if comparison:
-                emit("tabula.source_convention", "review", path,
-                     "The retained TABULA ground comparison has incompatible source boundary corrections; it is not a nominal assembly acceptance target.",
-                     actual={"element": logical_role, "catalogue_role": role,
-                             "nominal_u_w_m2k": nominal_u,
-                             "status": "source_incompatible",
-                             "mapping_status": "resolved" if known else "not_assessed"},
-                     expected={"reason": comparison["reason"],
-                               "source_locators": comparison["source_locators"]},
-                     affected=_affected(record, state))
-            emit("tabula.boundary_not_assessed", "review" if known else "missing", path,
-                 ("The physical boundary is mapped, but ground-inclusive BETSI inputs with subsequent TABULA Cellar corrections cannot validate a nominal assembly U-value; this is a reference limitation."
-                  if known else "An explicit matching physical boundary, resolved assembly and valid source-comparison descriptor are required; the TABULA comparison is not assessed."),
-                 actual={"element": logical_role, "catalogue_role": role,
-                         "nominal_u_w_m2k": nominal_u,
-                         "status": ("source_incompatible" if known else "boundary_mapping_missing"
-                                    if role is None else "physical_definition_unresolved"),
-                         "source_issue": comparison.get("reason")},
-                 expected={"boundary_comparison": target.get("boundary_comparison"),
-                           "values_w_m2k": target.get("values_w_m2k"),
-                           "source_locators": target.get("source_locators")},
-                 affected=_affected(record, state))
-            continue
-        role = "GROUND_FLOOR" if logical_role == "GROUND_FLOOR" else None
-        nominal_u = _physical_role_u(data, catalogue, elements, role) if role else None
-        known = logical_role == "TABULA_WALL_2" or nominal_u is not None
-        emit("tabula.boundary_not_assessed", "review" if known else "missing", path,
-             ("Effective ground U requires project geometry, soil and matching reference conditions; the nominal construction is defined but no ground benchmark agreement is claimed."
-              if nominal_u is not None else
-              "The ground-floor definition or forward calculation is unresolved; project ground inputs cannot replace missing catalogue fabric."
-              if logical_role == "GROUND_FLOOR" else
-              "TABULA wall_2 has no evidenced source-to-envelope mapping; this reference limitation does not imply missing physical fabric or assume a basement-wall alias."),
-             actual={"element": logical_role, "catalogue_role": role,
-                     "nominal_u_w_m2k": nominal_u,
-                     "status": ("reference_mapping_not_assessed" if logical_role == "TABULA_WALL_2"
-                                else "project_boundary_required" if known else "definition_unresolved")},
-             expected={"values_w_m2k": target.get("values_w_m2k"),
-                       "source_locators": target.get("source_locators"),
-                       "benchmark_agreement_assessed": False},
-             affected=_affected(record, state))
 
 
 def _check_measure(data, catalogue, emit, record, aid, state, config, baseline,
@@ -598,7 +537,7 @@ def check_references(data, catalogue, emit, benchmarks):
             if not isinstance(config, dict):
                 continue
             path = f"archetypes.{aid}.states.{state}"
-            _ground_project_inputs(data, catalogue, emit, record, aid, state, config, policy)
+            _ground_definition(data, catalogue, emit, record, aid, state, config)
             category, era = record.get("category"), record.get("era")
             if category not in _RESIDENTIAL or era not in tuple(ERAS)[:5]:
                 emit("era.reference_coverage", "review", path,

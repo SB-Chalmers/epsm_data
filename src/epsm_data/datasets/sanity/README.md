@@ -38,25 +38,12 @@ boundaries are errors; plausible-range departures and unverified representative
 assumptions remain review findings. Synthetic mutation tests cover missing soil
 slabs, timber ceilings misassigned as soil, directional contradictions, implausible
 full-material capacity and optics, and loss of baseline fabric during renovation.
-Every authored configuration receives a `ground.project_inputs` review when its
-nominal floor assembly resolves. Project geometry, soil and the selected ground
-boundary method are declared consumer inputs, not missing catalogue fabric.
-The independent reporting case expects 76 physical configurations across 28
-families; generic selections inherit their MF donor findings. An absent physical
-floor or unavailable forward calculation remains a blocking missing definition.
-Ground U-values require matching geometry/reference conventions; unavailable
-comparisons remain nonblocking reviews and never become acceptance passes.
-Unmapped TABULA Wall2 is a reference-mapping review; a prescribed but unverified
-renovation measure still produces a missing intervention finding.
-MF SE.01 has an evidenced conditioned-basement floor
-and wall-2 mapping, declared in each target's `boundary_comparison`. Catalogue
-metadata must match its physical boundary, role and layer convention before a
-measure can use that mapping. The original ground-inclusive BETSI inputs received
-subsequent TABULA Cellar corrections; these observed U-values remain unchanged
-but are explicitly source-incompatible with nominal material-layer U-values.
-They produce nonblocking source-convention and not-assessed reviews when the
-physical mapping resolves, never an acceptance pass. Missing or contradictory
-physical boundary metadata remains blocking. Other wall-2 mappings remain unassessed. A cold-attic conditioned
+Ground floors and basement walls are not compared: ground heat transfer belongs to
+epsm_core / epsm_rc, and the TABULA ground values remain only as reference data.
+An absent physical floor or unavailable forward calculation remains a blocking
+missing definition. MF SE.01's evidenced conditioned-basement wall-2 mapping is
+still required, through `boundary_comparison`, before its advanced 40 mm internal
+wall measure can be checked. A cold-attic conditioned
 ceiling is distinct from the weather roof.
 
 The MF SE.01 advanced package's `measure_overrides` establishes the brochure's
