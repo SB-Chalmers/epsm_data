@@ -10,7 +10,6 @@
     "layer:269a77728251a8bb": "structure",
     "layer:c1473bda98e2054a": "finish",
     "layer:bdc224063c71b531": "structure",
-    "layer:446925126f083c48": "lining",
     "layer:0cb7f6c54258159c": "waterproofing",
     "layer:4a2c4fa7e084d624": "insulation",
     "layer:7b12d3ea3df2fa36": "structure",
@@ -131,7 +130,7 @@
         "materials": [
           {
             "area_fraction": 1.0,
-            "material_id": "material:c6d85ff085da146a",
+            "material_id": "material:1fd89c413e7a4ed7",
             "thickness": 0.013
           }
         ],
@@ -174,17 +173,6 @@
           }
         ],
         "is_composite": true
-      },
-      "layer:446925126f083c48": {
-        "thickness": 0.013,
-        "materials": [
-          {
-            "area_fraction": 1.0,
-            "material_id": "material:bde46592c24c2487",
-            "thickness": 0.013
-          }
-        ],
-        "is_composite": false
       },
       "layer:0cb7f6c54258159c": {
         "thickness": 0.003,
@@ -317,7 +305,7 @@
             "position": 2
           },
           {
-            "layer_id": "layer:446925126f083c48",
+            "layer_id": "layer:149a1ab32c2c6168",
             "position": 3
           }
         ]
@@ -1053,7 +1041,7 @@
     },
     {
       "section": "layers",
-      "identifier": "layer:446925126f083c48",
+      "identifier": "layer:149a1ab32c2c6168",
       "field_path": "layer_function",
       "mutation": "invalid",
       "rule_id": "assembly.metadata",

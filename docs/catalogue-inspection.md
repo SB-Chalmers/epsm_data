@@ -66,7 +66,8 @@ Saved archetypes and nominal exports retain this assumption.
 `materials`, `windows`, `layers`, `components`, `elements` and `construction_sets`
 are read-only mappings of canonical IDs to shared objects. `material_mappings`
 exposes the canonical reference-only mappings; `material_records` exposes the
-resolved material properties and links. `honeybee_materials`, `boverket_resources` and
+resolved material properties and links. `honeybee_materials` (EnergyPlus-format thermal
+records, named for the export format), `boverket_resources` and
 `carbon_references` expose the records linked by the catalogue. Full original
 datasets remain available through `SourceCache.records(source_id)`, including
 unused resources. Source identifiers and fields retain their original values.

@@ -46,7 +46,7 @@
     "aac_thickness_m": 0.25,
     "plaster_material_id": "material:cb6437506c8a07cd",
     "plaster_thickness_each_side_m": 0.01,
-    "plaster_conductivity_w_m_k": 0.6913373548329222,
+    "plaster_conductivity_w_m_k": 1.0,
     "inside_surface_resistance_m2_k_w": 0.13,
     "outside_surface_resistance_m2_k_w": 0.04,
     "renovation_insulation_conductivity_w_m_k": 0.033,
@@ -56,9 +56,9 @@
       "advanced": 0.3
     },
     "expected_u_w_m2k": {
-      "existing": 0.6833365653220982,
-      "standard": 0.31460794918224844,
-      "advanced": 0.0929859160995593
+      "existing": 0.6875317537015121,
+      "standard": 0.31549425825962507,
+      "advanced": 0.09306318756409379
     },
     "renovation_brick_thickness_m": 0.12,
     "renovation_brick_conductivity_w_m_k": 0.6

@@ -6,11 +6,11 @@
   "baseline": {
     "construction_year": 1943,
     "u_w_m2k": {
-      "EXT_WALL": 0.6833365653220981,
-      "TOP_FLOOR": 0.35982482914077746,
-      "GROUND_FLOOR": 0.8909258044343596,
+      "EXT_WALL": 0.6875317537015121,
+      "TOP_FLOOR": 0.3597944475506526,
+      "GROUND_FLOOR": 0.8859520138146022,
       "WINDOW": 2.22,
-      "BASEMENT_WALL": 3.593007785145802
+      "BASEMENT_WALL": 3.677058353317346
     },
     "retained_shared_attic_material_id": "material:d479d6d7f0424d78",
     "retained_shared_attic_conductivity_w_mk": 0.042,
@@ -20,9 +20,9 @@
       {
         "material_id": "material:3b9cb95202f2163a",
         "thickness_m": 0.16,
-        "conductivity_w_mk": 2.3089016425031033,
-        "density_kg_m3": 2322.006775596,
-        "specific_heat_j_kgk": 832.0199665271966
+        "conductivity_w_mk": 2.3,
+        "density_kg_m3": 2300,
+        "specific_heat_j_kgk": 900
       },
       {
         "material_id": "material:64821b09b361452a",
@@ -73,14 +73,14 @@
   "assembly_defaults": {
     "wall_brick_thickness_m": 0.12,
     "wall_brick_conductivity_w_mk": 0.6,
-    "wall_brick_density_kg_m3": 1800,
+    "wall_brick_density_kg_m3": 1650,
     "wall_brick_boverket_id": "6000000082",
     "attic_boverket_id": null,
     "attic_density_kg_m3": 20,
     "floor_eps_boverket_id": "6000000131",
     "floor_screed_thickness_m": 0.03,
-    "floor_screed_conductivity_w_mk": 1.7284433202067357,
-    "floor_screed_density_kg_m3": 2243.0051285947593,
+    "floor_screed_conductivity_w_mk": 1.7,
+    "floor_screed_density_kg_m3": 2300,
     "floor_screed_boverket_id": "6000000029",
     "floor_scope": "Internal floating-floor completion: EPS followed by 30 mm screed on the room side of the retained nominal baseline. The screed and placement are explicit EPSM modelling choices, not prescribed TABULA measures.",
     "window_vt_scope": "Glazing visible transmittance is an explicit EPSM default; TABULA supplies glazing g and frame fraction rather than VT. Whole-aperture VT applies the same frame fraction.",
@@ -91,18 +91,18 @@
       "insulation_boverket_id": "6000000123",
       "insulation_density_kg_m3": 29,
       "insulation_specific_heat_j_kgk": 1030,
-      "finish_material_id": "material:bde46592c24c2487",
+      "finish_material_id": "material:1fd89c413e7a4ed7",
       "finish_thickness_m": 0.013,
-      "finish_conductivity_w_mk": 0.15989299909405463,
+      "finish_conductivity_w_mk": 0.21,
       "finish_scope": "The 13 mm gypsum finish is an explicit EPSM completion assumption. The Swedish TABULA brochure supports internal placement; the workbook specifies a stone wool facade board, so the shared internal batts are an explicit family adaptation.",
       "retained_layers": [
         {
           "thickness_m": 0.2,
-          "conductivity_w_mk": 2.3089016425031033
+          "conductivity_w_mk": 2.3
         },
         {
           "thickness_m": 0.015,
-          "conductivity_w_mk": 0.6913373548329222
+          "conductivity_w_mk": 1.0
         }
       ],
       "nominal_surface_resistance_m2k_w": 0.17,
@@ -113,31 +113,31 @@
       "purpose": "Representative cement-finished concrete wearing/topping layer above retained LECA, supplied in original construction and retained by renovation states. It is not fitted to TABULA ground U.",
       "thickness_m": 0.08,
       "thickness_scope": "80 mm is an explicit EPSM representative assembly default. Period evidence supports cement-finished basement floors and concrete floor coverings, not this exact thickness.",
-      "source_thermal_identifier": "Generic HW Concrete",
+      "source_thermal_identifier": "EPSM_concrete_unreinforced_2300",
       "properties": {
-        "conductivity": 1.95,
-        "density": 2240,
-        "specific_heat": 900,
         "roughness": "MediumRough",
+        "conductivity": 1.7,
+        "density": 2300,
+        "specific_heat": 900,
         "thermal_absorptance": 0.9,
-        "solar_absorptance": 0.8,
-        "visible_absorptance": 0.8
+        "solar_absorptance": 0.65,
+        "visible_absorptance": 0.65
       },
       "boverket_id": "6000000029",
       "boverket_source_density_kg_m3": 2350,
       "carbon_scope": "Modern ready-mix concrete C25/30 product-family carbon proxy, not evidence of the historic concrete recipe.",
-      "expected_added_resistance_m2k_w": 0.041025641025641026,
-      "expected_added_mass_kg_m2": 179.20000000000002,
-      "expected_added_heat_capacity_j_m2k": 161280.00000000003,
+      "expected_added_resistance_m2k_w": 0.047058823529411764,
+      "expected_added_mass_kg_m2": 184.0,
+      "expected_added_heat_capacity_j_m2k": 165600.0,
       "period_sources": [
         "SOU 1944:7, printed p.157, cement-finished basement floors",
         "BABS 1946, printed p.7, concrete floor coverings"
       ],
-      "thermal_source_locator": "honeybee_energy.lib.materials.opaque_material_by_identifier('Generic HW Concrete')"
+      "thermal_source_locator": "EPSM_concrete_unreinforced_2300 provenance (Sandin Tab 2.1/2.6; Isolerguiden)"
     },
     "floor_eps_density_kg_m3": 20,
-    "floor_eps_specific_heat_j_kgk": 1209.2198113776988,
-    "floor_screed_specific_heat_j_kgk": 836.4603158042426,
+    "floor_eps_specific_heat_j_kgk": 1450,
+    "floor_screed_specific_heat_j_kgk": 900,
     "attic_carbon_reference_id": "EPD-IES-0013025:003"
   },
   "states": {
@@ -178,9 +178,9 @@
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!229"
       },
       "expected_u_w_m2k": {
-        "EXT_WALL": 0.31460794918224844,
-        "TOP_FLOOR": 0.12854907835832818,
-        "GROUND_FLOOR": 0.44426758801219607,
+        "EXT_WALL": 0.31549425825962507,
+        "TOP_FLOOR": 0.1285452005195521,
+        "GROUND_FLOOR": 0.44297034269795915,
         "WINDOW": 0.9
       },
       "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2641",
@@ -227,9 +227,9 @@
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!227"
       },
       "expected_u_w_m2k": {
-        "EXT_WALL": 0.0929859160995593,
-        "TOP_FLOOR": 0.06544875237602488,
-        "GROUND_FLOOR": 0.4184477579911097,
+        "EXT_WALL": 0.09306318756409378,
+        "TOP_FLOOR": 0.06544774715632833,
+        "GROUND_FLOOR": 0.4172967216171948,
         "WINDOW": 0.76
       },
       "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2646",

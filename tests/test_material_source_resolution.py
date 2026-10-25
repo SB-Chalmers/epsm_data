@@ -27,66 +27,34 @@ def test_catalogue_stores_names_and_references_instead_of_copied_properties():
     assert Catalogue(raw).resolved_dict() == catalogue.resolved_dict()
 
 
-def test_linked_views_keep_original_upstream_ids_and_separate_custom_exceptions():
+def test_linked_views_keep_exact_cached_thermal_records():
     catalogue, cache = Catalogue.load(), SourceCache.load()
     linked_records = catalogue.resolved_dict()["honeybee"]
-    original, custom = [], []
-    for material in catalogue.material_mappings.values():
-        ref = material["thermal_ref"]
-        if ref["source"] == "epsm-custom":
-            custom.append(ref)
-        else:
-            original.append(ref)
+    refs = [material["thermal_ref"] for material in catalogue.material_mappings.values()]
+    assert {ref["source"] for ref in refs} == {"epsm-custom"}
+    for ref in refs:
         # Inspection links retain exact source records instead of rebuilding fields.
-        assert linked_records[ref["identifier"]] == (
-            cache.records(ref["source"])[ref["identifier"]])
-    assert len(original) == 10
-    assert len({ref["identifier"] for ref in original}) == 9
-    assert len(custom) == len(cache.records("epsm-custom")) == 52
+        assert linked_records[ref["identifier"]] == cache.records(ref["source"])[ref["identifier"]]
+    assert {ref["identifier"] for ref in refs} == set(cache.records("epsm-custom"))
     assert len(catalogue.boverket_resources) == 22
     assert len(cache.records("boverket")) == 230
-    assert {ref["identifier"] for ref in original} >= {
-        "M01 100mm brick", "100mm Normalweight concrete floor", "5/8 in. Gypsum Board",
-        "1IN Stucco", "1/2 in. Gypsum Board", "5/8 in. Plywood", "Std Wood 6 in.",
-    }
 
 
 def test_complete_upstream_files_retain_their_original_bytes():
     source_dir = files("epsm_data.datasets.sources")
-    originals = {
-        "boverket.json": "8894acdfc1c4a45730b77af7f65caacdb8f75a9b851c4af6e74f4583ea030d2c",
-        "honeybee_standards.json": "06d0801814c42fcddd64a867fb87372bbc7546f56672a089507ee5904fccb1d9",
-        "honeybee_energy_opaque.json": "8bbdfc8e5255f57feb6b4e623bc9d21946b5abfe438de80879809d1c152e008d",
-        "honeybee_energy_window.json": "38422207ee1d590f51026baf27380266a32e0057416a3aa51e35f4a96b35ba8b",
-    }
-    # Anchored to the complete official versioned response / pinned wheel members.
-    for filename, expected in originals.items():
-        assert hashlib.sha256(source_dir.joinpath(filename).read_bytes()).hexdigest() == expected
+    # Anchored to the complete official versioned Boverket response.
+    assert hashlib.sha256(source_dir.joinpath("boverket.json").read_bytes()).hexdigest() == (
+        "8894acdfc1c4a45730b77af7f65caacdb8f75a9b851c4af6e74f4583ea030d2c")
 
 
-def test_custom_thermal_records_have_no_exact_original_property_match():
+def test_thermal_sources_carry_no_external_simulation_library():
     cache = SourceCache.load()
-    upstream = [record for source in (
-        "honeybee-standards", "honeybee-energy-standards-opaque",
-        "honeybee-energy-standards-window") for record in cache.records(source).values()]
-    opaque = ("roughness", "conductivity", "density", "specific_heat",
-              "thermal_absorptance", "solar_absorptance", "visible_absorptance")
-    glazing = ("u_factor", "shgc", "vt")
-
-    def signature(record):
-        # Example source thickness is separate from EPSM construction-layer depth.
-        if record["type"] == "EnergyMaterial":
-            fields = opaque
-        elif record["type"] == "EnergyWindowMaterialSimpleGlazSys":
-            fields = glazing
-        else:
-            return None
-        return (record["type"], *(record.get(field) for field in fields))
-
-    original_properties = {signature(record) for record in upstream} - {None}
-    for identifier, record in cache.records("epsm-custom").items():
-        assert signature(record) is not None, identifier
-        assert signature(record) not in original_properties, identifier
+    assert {source["kind"] for source in cache.manifest["sources"].values()} == {
+        "boverket", "epsm_authored", "carbon_reference"}
+    assert not any(name.startswith(("honeybee", "LICENSE-honeybee"))
+                   for name in (p.name for p in files("epsm_data.datasets.sources").iterdir()))
+    for record in cache.records("epsm-custom").values():
+        assert record["user_data"]["provenance"]["sources"], record["identifier"]
 
 
 def test_incompatible_source_pin_and_duplicate_properties_are_rejected():
@@ -105,7 +73,7 @@ def test_custom_cache_changes_resolved_physics_without_repeating_properties(tmp_
     raw, cache = baseline.to_dict(), SourceCache.load()
     manifest = cache.manifest
     material_id = next(mid for mid, item in raw["materials"].items()
-                       if item["thermal_ref"]["identifier"] == "M01 100mm brick")
+                       if item["thermal_ref"]["identifier"] == "EPSM_tabula_facing_brick_lambda060")
     source_id = raw["materials"][material_id]["thermal_ref"]["source"]
     record_id = raw["materials"][material_id]["thermal_ref"]["identifier"]
     expected = baseline.materials[material_id].conductivity * 1.1
@@ -158,5 +126,5 @@ def test_source_cli_checks_offline_and_reports_upstream_updates(monkeypatch, cap
     assert main(["--check-sources", "--online", "--check"]) == 1
     report = json.loads(capsys.readouterr().out)
     assert report["status"] == "updates_available"
-    assert report["sources"]["honeybee-standards"]["pinned_release"] == "2.0.7"
-    assert Catalogue.load().source_versions["honeybee-standards"] == "2.0.7"
+    assert report["sources"]["boverket"]["pinned_release"] == "02.07.000"
+    assert Catalogue.load().source_versions["boverket"] == "02.07.000"

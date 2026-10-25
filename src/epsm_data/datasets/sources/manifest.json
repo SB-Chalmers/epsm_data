@@ -1,22 +1,6 @@
 {
   "schema_version": 1,
   "sources": {
-    "honeybee-standards": {
-      "release": "2.0.7",
-      "records_path": "honeybee_standards.json",
-      "format": "honeybee_defaults",
-      "sha256": "06d0801814c42fcddd64a867fb87372bbc7546f56672a089507ee5904fccb1d9",
-      "kind": "honeybee",
-      "upstream": {
-        "kind": "pypi",
-        "url": "https://pypi.org/pypi/honeybee-standards/json"
-      },
-      "source_url": "https://files.pythonhosted.org/packages/17/55/4a94086c7054db931527be64bb1d4ae0ec37a17867dec0671709d71a0fd7/honeybee_standards-2.0.7-py2.py3-none-any.whl",
-      "source_member": "honeybee_standards/energy_default.json",
-      "source_archive_sha256": "194245b5bfa8f571c09b3ed8f40ee38b1a71c2c6a03b49701a19ffc3efe54679",
-      "license": "MIT",
-      "license_path": "LICENSE-honeybee-standards-2.0.7.txt"
-    },
     "boverket": {
       "release": "02.07.000",
       "records_path": "boverket.json",
@@ -47,42 +31,10 @@
       "kind": "carbon_reference",
       "source_url": "https://www.environdec.com/library/epd13025"
     },
-    "honeybee-energy-standards-opaque": {
-      "release": "2.3.5",
-      "records_path": "honeybee_energy_opaque.json",
-      "format": "id_map",
-      "sha256": "8bbdfc8e5255f57feb6b4e623bc9d21946b5abfe438de80879809d1c152e008d",
-      "kind": "honeybee",
-      "upstream": {
-        "kind": "pypi",
-        "url": "https://pypi.org/pypi/honeybee-energy-standards/json"
-      },
-      "source_url": "https://files.pythonhosted.org/packages/7d/88/ca40b88197a4e9ef3f5db67ab03ddacc346980330a12b130f9499be74792/honeybee_energy_standards-2.3.5-py3-none-any.whl",
-      "source_member": "honeybee_energy_standards/constructions/opaque_material.json",
-      "source_archive_sha256": "6a06e99dfcd2be8ea39de9a188684bba0b5389c1d43d8882a2105533cf9e40d9",
-      "license": "AGPL-3.0",
-      "license_path": "LICENSE-honeybee-energy-standards-2.3.5.txt"
-    },
-    "honeybee-energy-standards-window": {
-      "release": "2.3.5",
-      "records_path": "honeybee_energy_window.json",
-      "format": "id_map",
-      "sha256": "38422207ee1d590f51026baf27380266a32e0057416a3aa51e35f4a96b35ba8b",
-      "kind": "honeybee",
-      "upstream": {
-        "kind": "pypi",
-        "url": "https://pypi.org/pypi/honeybee-energy-standards/json"
-      },
-      "source_url": "https://files.pythonhosted.org/packages/7d/88/ca40b88197a4e9ef3f5db67ab03ddacc346980330a12b130f9499be74792/honeybee_energy_standards-2.3.5-py3-none-any.whl",
-      "source_member": "honeybee_energy_standards/constructions/window_material.json",
-      "source_archive_sha256": "6a06e99dfcd2be8ea39de9a188684bba0b5389c1d43d8882a2105533cf9e40d9",
-      "license": "AGPL-3.0",
-      "license_path": "LICENSE-honeybee-energy-standards-2.3.5.txt"
-    },
     "epsm-custom": {
-      "release": "0.8.1",
+      "release": "0.9.0",
       "records_path": "custom_thermal.json",
-      "sha256": "f5035d362f953861b63d29e61777cbe61cadd76fdef54bc4d28a26dcbf749c8e",
+      "sha256": "82c79d727116dcbd02f5cb35280f636ce7d4ee0c4a7b451717097b27b14a6b40",
       "kind": "epsm_authored"
     }
   }

@@ -6,31 +6,31 @@ identifier. `source_versions` pins each namespace to a release. The bundled
 file path, format and SHA-256 checksum. Loading verifies the local files, record
 identities and declared versions without network access.
 
-The cache keeps the full original files, including unused records and source
-metadata. It does not maintain reduced copies of upstream material properties.
+The cache keeps the full original Boverket and EPD files, including unused
+records and source metadata. Thermal properties are EPSM-authored records; no
+external simulation library is bundled or required.
 
 | Source namespace | Pinned release | Captured file |
 | --- | --- | --- |
-| `honeybee-standards` | 2.0.7 | Full `ModelEnergyProperties` defaults, including 16 materials |
-| `honeybee-energy-standards-opaque` | 2.3.5 | Full opaque-material file, 171 records |
-| `honeybee-energy-standards-window` | 2.3.5 | Full window-material file, 322 records |
 | `boverket` | 02.07.000 | Full database response, 230 resources and metadata |
-| `epsm-custom` | 0.8.1 | 52 custom thermal records with structured provenance |
+| `epsm-custom` | 0.9.0 | 57 thermal records with structured provenance |
 | Two `epd-ies-*` sources | 003 | Declared external carbon records |
 
-Nine unique original Honeybee records serve ten material mappings. The other
-52 thermal records are custom because the pinned Honeybee libraries hold no
-realistic Nordic match: their insulation records are US placeholder grades and
-their windows are ASHRAE simple-glazing sets. Each custom record carries
-`user_data.provenance`: a tier (`product`, `tabula`, `derived`, `standard`,
-`historical` or `assumption`), a basis and named sources such as an EPD
-registration number, manufacturer declaration, TABULA locator or evidence file.
-See `evidence/swedish_product_inventory.json` for the reviewed Swedish products.
-EPSM display names and material IDs are retained.
-The two external EPD factors also remain explicit exceptions to Boverket.
+Every material selects one of the 57 `epsm-custom` thermal records. The former
+Honeybee/ASHRAE grades (timber, plywood, concrete, render, gypsum, brick) were
+replaced by Swedish design values (Träguiden, Isolerguiden, Sandin, BR 443) and
+product declarations; the Honeybee libraries held no realistic Nordic insulation
+or window grades. Each record carries `user_data.provenance`: a tier (`product`,
+`tabula`, `derived`, `standard`, `historical` or `assumption`), a basis and named
+sources such as an EPD registration number, manufacturer declaration, TABULA
+locator or evidence file. See `evidence/swedish_product_inventory.json` for the
+reviewed Swedish products. Records keep the EnergyPlus-compatible
+`EnergyMaterial` / `EnergyWindowMaterialSimpleGlazSys` field layout, so the
+resolved `honeybee` section and nominal Honeybee export remain consumer formats.
+The two external EPD factors remain explicit exceptions to Boverket.
 
-These pins capture catalogue inputs. Source attribution, upstream locators and
-the original Honeybee package licenses ship with the cached files.
+These pins capture catalogue inputs. Source attribution and upstream locators
+ship with the cached files.
 
 ## Load and inspect
 
@@ -45,8 +45,8 @@ print(catalogue.check_sources())
 ```
 
 `cache.records(source_id)` returns detached, indexed records from a verified
-namespace. Boverket is indexed by its original `ResourceId`; Honeybee uses its
-original material identifier. Parsing builds the view in memory and leaves raw
+namespace. Boverket is indexed by its original `ResourceId`; other sources use their
+record identifier. Parsing builds the view in memory and leaves raw
 source files unchanged.
 `cache.manifest` is also detached. Material mappings preserve their EPSM display
 name in `epsm_material_name` and select `thermal_ref`/`carbon_ref` records. Cached
@@ -77,8 +77,7 @@ upstream = catalogue.check_sources(online=True, timeout=3)
 ```
 
 The default reports locally verified pins with remote status `not_checked`.
-Explicit online checks consult configured official Honeybee package PyPI metadata
-and the Boverket version page. They report `current`, `update_available`,
+Explicit online checks consult the Boverket version page. They report `current`, `update_available`,
 `different_release` or `error` per source. Sources without an upstream probe,
 including the authored records and EPD snapshots, report `not_configured`.
 The timeout is per request. Checks leave cache files and catalogue mappings intact.

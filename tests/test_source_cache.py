@@ -11,14 +11,14 @@ import pytest
 from epsm_data import source_cache
 from epsm_data.source_cache import SourceCache
 
-_PYPI = {
-    "kind": "pypi",
-    "url": "https://pypi.org/pypi/honeybee-standards/json",
-}
 _BOVERKET = {
     "kind": "boverket_page",
     "url": "https://www.boverket.se/sv/om-boverket/oppna-data/boverkets-klimatdatabas/",
 }
+
+
+def _page(version):
+    return (f"<p>Klimatdatabas g&#228;llande version</p><p>version {version}</p>").encode()
 
 
 def _write_cache(tmp_path, *, records=None, source=None, raw=None):
@@ -27,7 +27,7 @@ def _write_cache(tmp_path, *, records=None, source=None, raw=None):
     (tmp_path / "records.json").write_bytes(raw)
     definition = {
         "release": "2.0.7", "records_path": "records.json",
-        "sha256": sha256(raw).hexdigest(), "kind": "honeybee",
+        "sha256": sha256(raw).hexdigest(), "kind": "epsm_authored",
     }
     definition.update(source or {})
     manifest = {"schema_version": 1, "sources": {"example": definition}}
@@ -68,9 +68,7 @@ def test_packaged_sources_are_pinned_and_load_without_network(monkeypatch):
     cache = SourceCache.load()
     counts = {key: len(cache.records(key)) for key in cache.manifest["sources"]}
     assert counts == {
-        "epsm-custom": 52, "honeybee-standards": 16,
-        "honeybee-energy-standards-opaque": 171, "honeybee-energy-standards-window": 322,
-        "boverket": 230,
+        "epsm-custom": 57, "boverket": 230,
         "epd-ies-0005222": 1, "epd-ies-0013025": 1,
     }
     assert {r["Version"] for r in cache.records("boverket").values()} == {"02.07.000"}
@@ -142,43 +140,9 @@ def test_original_boverket_database_rejects_duplicate_resource_ids(tmp_path):
         SourceCache.load(path)
 
 
-def test_original_honeybee_defaults_retains_all_material_types_without_injected_fields(tmp_path):
-    materials = [
-        {"type": "EnergyMaterial", "identifier": "Roof membrane", "density": 1120.0},
-        {"type": "EnergyWindowMaterialGas", "identifier": "Air gap", "gas_type": "Air"},
-        {"type": "EnergyWindowMaterialGlazing", "identifier": "Clear glass",
-         "solar_transmittance": 0.8, "user_data": {"note": "Original"}},
-    ]
-    original = {"type": "ModelEnergyProperties", "materials": materials,
-                "constructions": [{"identifier": "Unused construction"}], "schedules": []}
-    path, _ = _write_cache(tmp_path, records=original, source={"format": "honeybee_defaults"})
-    before = {p.name: p.read_bytes() for p in tmp_path.iterdir()}
-    cache = SourceCache.load(path)
-    expected = {record["identifier"]: record for record in materials}
-    assert cache.records("example") == expected
-    detached = cache.records("example")
-    detached["Clear glass"]["user_data"]["note"] = "Changed"
-    assert cache.records("example") == expected
-    assert "roughness" not in cache.records("example")["Roof membrane"]
-    assert {p.name: p.read_bytes() for p in tmp_path.iterdir()} == before
-
-
-def test_original_honeybee_defaults_rejects_duplicate_material_ids(tmp_path):
-    original = {"type": "ModelEnergyProperties", "materials": [
-        {"identifier": "Same", "density": 100}, {"identifier": "Same", "density": 200},
-    ]}
-    path, _ = _write_cache(tmp_path, records=original, source={"format": "honeybee_defaults"})
-    with pytest.raises(ValueError, match="Duplicate source record identifier"):
-        SourceCache.load(path)
-
-
 @pytest.mark.parametrize("source, payload", [
     ({"format": "unknown"}, {"A": {"identifier": "A"}}),
     ({"format": None}, {"A": {"identifier": "A"}}),
-    ({"format": "honeybee_defaults"}, {"type": "Other", "materials": [{"identifier": "A"}]}),
-    ({"format": "honeybee_defaults"}, {"type": "ModelEnergyProperties", "materials": {"A": {}}}),
-    ({"format": "honeybee_defaults"}, {"type": "ModelEnergyProperties", "materials": []}),
-    ({"format": "honeybee_defaults"}, {"type": "ModelEnergyProperties", "materials": [None]}),
     ({"format": "boverket_database"}, {"Version": "2.0.7", "Resources": [{"ResourceId": 1}]}),
     ({"format": "boverket_database", "kind": "boverket"}, []),
     ({"format": "boverket_database", "kind": "boverket"}, {"Resources": [{"ResourceId": 1}]}),
@@ -291,8 +255,7 @@ def test_duplicate_manifest_source_id_is_rejected(tmp_path):
     {"release": ""}, {"sha256": "0"}, {"kind": "other"},
     {"record_version_fields": ["Version", "Version"]},
     {"record_version_fields": "Version"},
-    {"upstream": {"kind": "pypi", "url": "https://example.com/json"}},
-    {"upstream": {"kind": "pypi", "url": "http://pypi.org/pypi/a/json"}},
+    {"upstream": {"kind": "pypi", "url": "https://pypi.org/pypi/a/json"}},
     {"upstream": {"kind": "boverket_page", "url": "https://example.com"}},
     {"upstream": {"kind": "guess", "url": "https://example.com"}},
 ])
@@ -310,35 +273,33 @@ def test_duplicate_source_files_are_rejected(tmp_path):
         SourceCache.load(path)
 
 
-@pytest.mark.parametrize("remote,status", [("2.0.7", "current"), ("2.0.8", "update_available"),
-    ("2.0.6", "different_release"), ("3.0.0rc1", "different_release")])
-def test_online_pypi_check_reports_release_without_upgrading(tmp_path, monkeypatch, remote, status):
-    path, _ = _write_cache(tmp_path, source={"upstream": _PYPI})
+@pytest.mark.parametrize("remote,status", [("02.07.000", "current"), ("02.08.000", "update_available"),
+    ("02.06.000", "different_release")])
+def test_online_check_reports_release_without_upgrading(tmp_path, monkeypatch, remote, status):
+    path, _ = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
     cache = SourceCache.load(path)
     before = {p.name: p.read_bytes() for p in tmp_path.iterdir()}
-    calls = _responses(monkeypatch, json.dumps({"info": {"name": "honeybee_standards", "version": remote}}).encode())
+    calls = _responses(monkeypatch, _page(remote))
     row = cache.check_versions(online=True, timeout=1.5)["sources"]["example"]
     assert row["status"] == status
-    assert row["local_release"] == "2.0.7"
+    assert row["local_release"] == "02.07.000"
     assert row["remote_release"] == remote
-    assert calls == [(_PYPI["url"], 1.5)]
+    assert calls == [(_BOVERKET["url"], 1.5)]
     assert {p.name: p.read_bytes() for p in tmp_path.iterdir()} == before
     assert cache.records("example")["Example"]["density"] == 100
 
 
 def test_namespaces_share_one_successful_upstream_probe_but_compare_their_own_pins(tmp_path, monkeypatch):
-    path, manifest = _write_cache(tmp_path, source={"upstream": _PYPI})
+    path, manifest = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
     (tmp_path / "second.json").write_bytes((tmp_path / "records.json").read_bytes())
     manifest["sources"]["second"] = {
-        **manifest["sources"]["example"], "records_path": "second.json", "release": "2.0.6",
+        **manifest["sources"]["example"], "records_path": "second.json", "release": "02.06.000",
     }
     _rewrite_manifest(path, manifest)
     cache = SourceCache.load(path)
-    calls = _responses(monkeypatch, json.dumps({
-        "info": {"name": "honeybee_standards", "version": "2.0.7"},
-    }).encode())
+    calls = _responses(monkeypatch, _page("02.07.000"))
     report = cache.check_versions(online=True)
-    assert calls == [(_PYPI["url"], 3)]
+    assert calls == [(_BOVERKET["url"], 3)]
     assert report["sources"]["example"]["status"] == "current"
     assert report["sources"]["second"]["status"] == "update_available"
     # Memoization belongs to one explicit check; a later request checks again.
@@ -355,9 +316,9 @@ def test_boverket_probe_uses_labelled_current_version_not_oldest_page_link(tmp_p
     assert row["remote_release"] == "02.08.000"
 
 
-@pytest.mark.parametrize("payload", [b'{}', b'{"info":{"name":"different","version":"2.0.7"}}', b'not JSON'])
+@pytest.mark.parametrize("payload", [b'{}', b'<p>no version section</p>', b'not HTML'])
 def test_invalid_remote_response_is_reported_per_source(tmp_path, monkeypatch, payload):
-    path, _ = _write_cache(tmp_path, source={"upstream": _PYPI})
+    path, _ = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
     _responses(monkeypatch, payload)
     report = SourceCache.load(path).check_versions(online=True)
     row = report["sources"]["example"]
@@ -367,7 +328,7 @@ def test_invalid_remote_response_is_reported_per_source(tmp_path, monkeypatch, p
 
 
 def test_network_timeout_is_reported_without_invalidating_local_cache(tmp_path, monkeypatch):
-    path, _ = _write_cache(tmp_path, source={"upstream": _PYPI})
+    path, _ = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
 
     def timeout(*args, **kwargs):
         raise TimeoutError("timed out")
@@ -380,7 +341,7 @@ def test_network_timeout_is_reported_without_invalidating_local_cache(tmp_path, 
 
 
 def test_oversize_or_redirected_response_is_reported(tmp_path, monkeypatch):
-    path, _ = _write_cache(tmp_path, source={"upstream": _PYPI})
+    path, _ = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
     cache = SourceCache.load(path)
     _responses(monkeypatch, b"x" * (source_cache._MAX_RESPONSE_BYTES + 1))
     assert "size limit" in cache.check_versions(online=True)["sources"]["example"]["error"]
@@ -409,7 +370,7 @@ def test_network_timeout_is_bounded_even_for_explicit_requests(timeout):
 
 
 def test_incomplete_remote_response_is_reported_as_a_source_error(tmp_path, monkeypatch):
-    path, _ = _write_cache(tmp_path, source={"upstream": _PYPI})
+    path, _ = _write_cache(tmp_path, source={"release": "02.07.000", "upstream": _BOVERKET})
 
     def incomplete(*args, **kwargs):
         raise IncompleteRead(b"{", 20)

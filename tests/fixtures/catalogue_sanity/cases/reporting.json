@@ -59,49 +59,49 @@
       "archetype_id": "mf_se01",
       "state": "existing",
       "expected_u_w_m2k": 0.58,
-      "actual_u_w_m2k": 0.6833365653220981
+      "actual_u_w_m2k": 0.6875317537015121
     },
     {
       "archetype_id": "mf_se01",
       "state": "standard",
       "expected_u_w_m2k": 0.29075773227198154,
-      "actual_u_w_m2k": 0.31460794918224844
+      "actual_u_w_m2k": 0.31549425825962507
     },
     {
       "archetype_id": "mf_se01",
       "state": "advanced",
       "expected_u_w_m2k": 0.09078490523080428,
-      "actual_u_w_m2k": 0.0929859160995593
+      "actual_u_w_m2k": 0.09306318756409378
     },
     {
       "archetype_id": "sf_se01",
       "state": "existing",
       "expected_u_w_m2k": 0.6,
-      "actual_u_w_m2k": 0.6833365653220981
+      "actual_u_w_m2k": 0.6875317537015121
     },
     {
       "archetype_id": "sf_se02",
       "state": "existing",
       "expected_u_w_m2k": 0.31,
-      "actual_u_w_m2k": 0.30229597574081146
+      "actual_u_w_m2k": 0.30528356590769207
     },
     {
       "archetype_id": "sf_se03",
       "state": "existing",
       "expected_u_w_m2k": 0.21,
-      "actual_u_w_m2k": 0.23960123215898946
+      "actual_u_w_m2k": 0.24290920255081688
     },
     {
       "archetype_id": "sf_se04",
       "state": "existing",
       "expected_u_w_m2k": 0.17,
-      "actual_u_w_m2k": 0.19844473963234524
+      "actual_u_w_m2k": 0.20169886637517423
     },
     {
       "archetype_id": "sf_se05",
       "state": "existing",
       "expected_u_w_m2k": 0.2,
-      "actual_u_w_m2k": 0.18115722854652896
+      "actual_u_w_m2k": 0.18432582440073597
     }
   ],
   "ground_project_limitations": {

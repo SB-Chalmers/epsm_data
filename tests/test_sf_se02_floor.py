@@ -115,7 +115,7 @@ def test_shared_grades_keep_exact_honeybee_properties_and_concrete_carbon_proxy(
     finish = FLOOR["materials"]["finish"]
     density = next(row["Value"] for row in payload["boverket"][finish["boverket_id"]][
         "Conversions"] if row["Field"] == "Volume" and row["Unit"] == "kg/m³")
-    assert abs(finish["density_kg_m3"] - density) / density == pytest.approx(110 / 2350)
+    assert abs(finish["density_kg_m3"] - density) / density == pytest.approx(50 / 2350)
 
 
 @pytest.mark.parametrize("state", STATES)

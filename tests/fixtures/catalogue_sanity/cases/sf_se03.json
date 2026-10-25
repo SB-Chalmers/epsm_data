@@ -59,7 +59,7 @@
             "area_fraction": 1.0,
             "thickness_m": 0.012,
             "thermal_properties": {
-              "conductivity": 0.07,
+              "conductivity": 0.05,
               "density": 230,
               "specific_heat": 2100
             }
@@ -75,9 +75,9 @@
             "area_fraction": 0.15,
             "thickness_m": 0.145,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           },
           {
@@ -101,9 +101,9 @@
             "area_fraction": 0.15,
             "thickness_m": 0.05,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           },
           {
@@ -123,20 +123,20 @@
         "is_composite": false,
         "materials": [
           {
-            "material_id": "material:bde46592c24c2487",
+            "material_id": "material:1fd89c413e7a4ed7",
             "area_fraction": 1,
             "thickness_m": 0.013,
             "thermal_properties": {
-              "conductivity": 0.15989299909405463,
-              "density": 800.0018291911765,
-              "specific_heat": 1089.2971854559414
+              "conductivity": 0.21,
+              "density": 720,
+              "specific_heat": 1000
             }
           }
         ]
       }
     ],
     "retained_main_frame_layer_id": "layer:2c5d4b98f4a48693",
-    "retained_gypsum_layer_id": "layer:446925126f083c48",
+    "retained_gypsum_layer_id": "layer:149a1ab32c2c6168",
     "renovation_insulation_material_id": "material:a224c4024cbc6c40",
     "renovation_insulation_conductivity_w_mk": 0.033,
     "renovation_cladding_material_id": "material:3035359c17bff54b",
@@ -148,7 +148,7 @@
         "source_variant": "SE.N.SFH.03.Gen.ReEx.001.001",
         "source_variant_row": 2623,
         "added_insulation_m": 0,
-        "expected_u_w_m2k": 0.23960123215898946,
+        "expected_u_w_m2k": 0.24290920255081688,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.21,
@@ -171,7 +171,7 @@
         "source_variant": "SE.N.SFH.03.Gen.ReEx.001.002",
         "source_variant_row": 2628,
         "added_insulation_m": 0.045,
-        "expected_u_w_m2k": 0.17480397752928847,
+        "expected_u_w_m2k": 0.17700268826540774,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.16258064516129034,
@@ -197,7 +197,7 @@
         "source_variant": "SE.N.SFH.03.Gen.ReEx.001.003",
         "source_variant_row": 2633,
         "added_insulation_m": 0.07,
-        "expected_u_w_m2k": 0.1543622132448733,
+        "expected_u_w_m2k": 0.15607423442977475,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.1451470588235294,
@@ -230,9 +230,9 @@
             "area_fraction": 0.15,
             "thickness_m": 0.145,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           },
           {
@@ -256,9 +256,9 @@
             "area_fraction": 0.15,
             "thickness_m": 0.05,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           },
           {
@@ -278,13 +278,13 @@
         "is_composite": false,
         "materials": [
           {
-            "material_id": "material:bde46592c24c2487",
+            "material_id": "material:1fd89c413e7a4ed7",
             "area_fraction": 1,
             "thickness_m": 0.013,
             "thermal_properties": {
-              "conductivity": 0.15989299909405463,
-              "density": 800.0018291911765,
-              "specific_heat": 1089.2971854559414
+              "conductivity": 0.21,
+              "density": 720,
+              "specific_heat": 1000
             }
           }
         ]
@@ -295,7 +295,7 @@
       "thickness_m": 0.012,
       "layer_function": "wind_barrier",
       "properties": {
-        "conductivity": 0.07,
+        "conductivity": 0.05,
         "density": 230,
         "roughness": "MediumRough",
         "solar_absorptance": 0.65,
@@ -321,7 +321,7 @@
         },
         "thermal_proxy_scope": "Existing generic soft wood-fibre grade retained atlambda0.07,density230,specific_heat2100. Historic asphalt impregnation is a functional family assumption; exact asphalt content,mass,air/water performance and carbon factors are not established."
       },
-      "expected_added_resistance_m2k_w": 0.1714285714285714,
+      "expected_added_resistance_m2k_w": 0.24,
       "expected_added_mass_kg_m2": 2.7600000000000002,
       "expected_added_heat_capacity_j_m2k": 5796.000000000001,
       "carbon_scope": "Existing unmapped-retained-stock declaration remains. The same new baseline windboard component must remain unchanged in every renovation state. Unknown carbon factors are not zero; no hardboard/HDF substitution or invented fullA5 is allowed."
@@ -463,14 +463,14 @@
     "scope": "Accepted shared-definition preservation guards, not historical source benchmarks.",
     "material_records": {
       "material:3035359c17bff54b": {
-        "honeybee_id": "Std Wood 6 in.",
+        "honeybee_id": "EPSM_softwood_timber_500",
         "boverket_id": "6000000007",
         "properties": {
-          "conductivity": 0.11991974932054163,
-          "density": 540.0012347040437,
+          "conductivity": 0.13,
+          "density": 500,
           "roughness": "MediumSmooth",
           "solar_absorptance": 0.7,
-          "specific_heat": 1209.2198113776988,
+          "specific_heat": 1600,
           "thermal_absorptance": 0.9,
           "visible_absorptance": 0.7
         }
@@ -486,19 +486,6 @@
           "specific_heat": 1030,
           "thermal_absorptance": 0.9,
           "visible_absorptance": 0.5
-        }
-      },
-      "material:bde46592c24c2487": {
-        "honeybee_id": "5/8 in. Gypsum Board",
-        "boverket_id": "6000000020",
-        "properties": {
-          "conductivity": 0.15989299909405463,
-          "density": 800.0018291911765,
-          "roughness": "MediumSmooth",
-          "solar_absorptance": 0.7,
-          "specific_heat": 1089.2971854559414,
-          "thermal_absorptance": 0.9,
-          "visible_absorptance": 0.7
         }
       },
       "material:a224c4024cbc6c40": {
@@ -518,13 +505,26 @@
         "honeybee_id": "EPSM_woodfiber_board",
         "boverket_id": null,
         "properties": {
-          "conductivity": 0.07,
+          "conductivity": 0.05,
           "density": 230,
           "roughness": "MediumRough",
           "solar_absorptance": 0.65,
           "specific_heat": 2100,
           "thermal_absorptance": 0.9,
           "visible_absorptance": 0.65
+        }
+      },
+      "material:1fd89c413e7a4ed7": {
+        "honeybee_id": "EPSM_gypsum_board_gn_720",
+        "boverket_id": "6000000020",
+        "properties": {
+          "roughness": "Smooth",
+          "conductivity": 0.21,
+          "density": 720,
+          "specific_heat": 1000,
+          "thermal_absorptance": 0.9,
+          "solar_absorptance": 0.7,
+          "visible_absorptance": 0.5
         }
       }
     },
@@ -561,9 +561,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.145,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -583,13 +583,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]
@@ -611,9 +611,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.145,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -633,13 +633,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]
@@ -678,9 +678,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.145,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -700,13 +700,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]
@@ -744,35 +744,35 @@
     "materials": {
       "slab": {
         "material_id": "material:3b9cb95202f2163a",
-        "honeybee_id": "100mm Normalweight concrete floor",
+        "honeybee_id": "EPSM_concrete_reinforced_2300",
         "boverket_id": "6000000029",
-        "conductivity_w_mk": 2.3089016425031033,
-        "density_kg_m3": 2322.006775596,
-        "specific_heat_j_kgk": 832.0199665271966
+        "conductivity_w_mk": 2.3,
+        "density_kg_m3": 2300,
+        "specific_heat_j_kgk": 900
       },
       "finish": {
         "material_id": "material:1bd0a6d16b766b3a",
-        "honeybee_id": "Generic HW Concrete",
+        "honeybee_id": "EPSM_concrete_unreinforced_2300",
         "boverket_id": "6000000029",
-        "conductivity_w_mk": 1.95,
-        "density_kg_m3": 2240.0,
-        "specific_heat_j_kgk": 900.0
+        "conductivity_w_mk": 1.7,
+        "density_kg_m3": 2300,
+        "specific_heat_j_kgk": 900
       },
       "insulation": {
         "material_id": "material:a72ef018595b5849",
         "honeybee_id": "EPSM_floor_eps100_lambda036",
         "boverket_id": "6000000131",
         "conductivity_w_mk": 0.036,
-        "density_kg_m3": 20.0,
-        "specific_heat_j_kgk": 1209.2198113776988
+        "density_kg_m3": 20,
+        "specific_heat_j_kgk": 1450
       },
       "original_insulation": {
         "material_id": "material:f1cfc49793192104",
         "honeybee_id": "EPSM_cellular_plastic",
         "boverket_id": "6000000131",
         "conductivity_w_mk": 0.037,
-        "density_kg_m3": 20.0,
-        "specific_heat_j_kgk": 1209.2198113776988
+        "density_kg_m3": 20,
+        "specific_heat_j_kgk": 1450
       }
     },
     "baseline_layers": [
@@ -861,9 +861,9 @@
             "area_fraction": 0.0625,
             "thickness_m": 0.2,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           },
           {
@@ -887,9 +887,9 @@
             "area_fraction": 1.0,
             "thickness_m": 0.022,
             "thermal_properties": {
-              "conductivity": 0.11991974932054163,
-              "density": 540.0012347040437,
-              "specific_heat": 1209.2198113776988
+              "conductivity": 0.13,
+              "density": 500,
+              "specific_heat": 1600
             }
           }
         ]
@@ -899,13 +899,13 @@
         "is_composite": false,
         "materials": [
           {
-            "material_id": "material:bde46592c24c2487",
+            "material_id": "material:1fd89c413e7a4ed7",
             "area_fraction": 1.0,
             "thickness_m": 0.013,
             "thermal_properties": {
-              "conductivity": 0.15989299909405463,
-              "density": 800.0018291911765,
-              "specific_heat": 1089.2971854559414
+              "conductivity": 0.21,
+              "density": 720,
+              "specific_heat": 1000
             }
           }
         ]
@@ -944,7 +944,7 @@
     "states": {
       "existing": {
         "added_insulation_m": 0,
-        "expected_u_w_m2k": 0.16314011392854877,
+        "expected_u_w_m2k": 0.16570839778796043,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.15,
@@ -965,7 +965,7 @@
       },
       "standard": {
         "added_insulation_m": 0.2,
-        "expected_u_w_m2k": 0.08984967932275756,
+        "expected_u_w_m2k": 0.09062323905618322,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.08283582089552238,
@@ -988,7 +988,7 @@
       },
       "advanced": {
         "added_insulation_m": 0.5,
-        "expected_u_w_m2k": 0.05367772887578412,
+        "expected_u_w_m2k": 0.05395286421783995,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.049553571428571426,
@@ -1015,15 +1015,15 @@
     "scope": "Pre-change physical snapshots protect shared definitions; these guards are not historical source evidence.",
     "material_properties": {
       "material:3035359c17bff54b": {
-        "honeybee_id": "Std Wood 6 in.",
+        "honeybee_id": "EPSM_softwood_timber_500",
         "boverket_id": "6000000007",
         "carbon_reference_id": null,
         "properties": {
-          "conductivity": 0.11991974932054163,
-          "density": 540.0012347040437,
+          "conductivity": 0.13,
+          "density": 500,
           "roughness": "MediumSmooth",
           "solar_absorptance": 0.7,
-          "specific_heat": 1209.2198113776988,
+          "specific_heat": 1600,
           "thermal_absorptance": 0.9,
           "visible_absorptance": 0.7
         }
@@ -1042,20 +1042,6 @@
           "visible_absorptance": 0.5
         }
       },
-      "material:bde46592c24c2487": {
-        "honeybee_id": "5/8 in. Gypsum Board",
-        "boverket_id": "6000000020",
-        "carbon_reference_id": null,
-        "properties": {
-          "conductivity": 0.15989299909405463,
-          "density": 800.0018291911765,
-          "roughness": "MediumSmooth",
-          "solar_absorptance": 0.7,
-          "specific_heat": 1089.2971854559414,
-          "thermal_absorptance": 0.9,
-          "visible_absorptance": 0.7
-        }
-      },
       "material:27e5e8c65dde5e1f": {
         "honeybee_id": "EPSM_open_attic_glass_wool_lambda040",
         "boverket_id": null,
@@ -1068,6 +1054,20 @@
           "specific_heat": 1030,
           "thermal_absorptance": 0.9,
           "visible_absorptance": 0.7
+        }
+      },
+      "material:1fd89c413e7a4ed7": {
+        "honeybee_id": "EPSM_gypsum_board_gn_720",
+        "boverket_id": "6000000020",
+        "carbon_reference_id": null,
+        "properties": {
+          "roughness": "Smooth",
+          "conductivity": 0.21,
+          "density": 720,
+          "specific_heat": 1000,
+          "thermal_absorptance": 0.9,
+          "solar_absorptance": 0.7,
+          "visible_absorptance": 0.5
         }
       }
     },
@@ -1104,9 +1104,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.2,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -1130,9 +1130,9 @@
                 "area_fraction": 1.0,
                 "thickness_m": 0.022,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               }
             ]
@@ -1142,13 +1142,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]
@@ -1170,9 +1170,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.2,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -1196,9 +1196,9 @@
                 "area_fraction": 1.0,
                 "thickness_m": 0.022,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               }
             ]
@@ -1208,13 +1208,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]
@@ -1253,9 +1253,9 @@
                 "area_fraction": 0.15,
                 "thickness_m": 0.2,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               },
               {
@@ -1279,9 +1279,9 @@
                 "area_fraction": 1.0,
                 "thickness_m": 0.022,
                 "thermal_properties": {
-                  "conductivity": 0.11991974932054163,
-                  "density": 540.0012347040437,
-                  "specific_heat": 1209.2198113776988
+                  "conductivity": 0.13,
+                  "density": 500,
+                  "specific_heat": 1600
                 }
               }
             ]
@@ -1291,13 +1291,13 @@
             "is_composite": false,
             "materials": [
               {
-                "material_id": "material:bde46592c24c2487",
+                "material_id": "material:1fd89c413e7a4ed7",
                 "area_fraction": 1.0,
                 "thickness_m": 0.013,
                 "thermal_properties": {
-                  "conductivity": 0.15989299909405463,
-                  "density": 800.0018291911765,
-                  "specific_heat": 1089.2971854559414
+                  "conductivity": 0.21,
+                  "density": 720,
+                  "specific_heat": 1000
                 }
               }
             ]

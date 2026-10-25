@@ -16,7 +16,7 @@ from pathlib import Path, PurePosixPath
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
-_KINDS = {"boverket", "honeybee", "epsm_authored", "carbon_reference"}
+_KINDS = {"boverket", "epsm_authored", "carbon_reference"}
 _MAX_RESPONSE_BYTES = 4 * 1024 * 1024
 _MAX_TIMEOUT_SECONDS = 30
 _BOVERKET_VERSION_URL = (
@@ -80,16 +80,6 @@ def _validate_upstream(upstream):
     if kind == "boverket_page":
         if url != _BOVERKET_VERSION_URL:
             raise ValueError("Boverket version checks require the official current-version page")
-    elif kind == "pypi":
-        parsed = urlsplit(_text(url, "upstream URL"))
-        if (
-            parsed.scheme != "https"
-            or parsed.netloc != "pypi.org"
-            or not re.fullmatch(r"/pypi/[A-Za-z0-9][A-Za-z0-9._-]*/json", parsed.path)
-            or parsed.query
-            or parsed.fragment
-        ):
-            raise ValueError("PyPI version checks require the official project JSON endpoint")
     else:
         raise ValueError(f"Unsupported upstream version check: {kind!r}")
 
@@ -126,14 +116,6 @@ def _record_mapping(source_id, source, payload):
         if payload.get("Version") != source["release"]:
             raise ValueError(f"Source root release mismatch: {source_id}.Version")
         return _index_records(source_id, payload.get("Resources"), "ResourceId")
-    if format_name == "honeybee_defaults":
-        if (
-            source["kind"] != "honeybee"
-            or not isinstance(payload, dict)
-            or payload.get("type") != "ModelEnergyProperties"
-        ):
-            raise ValueError("honeybee_defaults requires a Honeybee ModelEnergyProperties root")
-        return _index_records(source_id, payload.get("materials"), "identifier")
     raise ValueError(f"Unsupported source record format: {format_name!r}")
 
 
@@ -179,17 +161,6 @@ def _fetch_upstream(upstream, timeout):
         raw = response.read(_MAX_RESPONSE_BYTES + 1)
     if len(raw) > _MAX_RESPONSE_BYTES:
         raise ValueError("Version endpoint response exceeds the size limit")
-    if upstream["kind"] == "pypi":
-        payload = _json(raw)
-        if not isinstance(payload, dict) or not isinstance(payload.get("info"), dict):
-            raise ValueError("PyPI response lacks project info")
-        version = _text(payload["info"].get("version"), "upstream release")
-        expected_name = upstream["url"].split("/")[-2]
-        def normalize(name):
-            return re.sub(r"[-_.]+", "-", name).lower()
-        if normalize(str(payload["info"].get("name", ""))) != normalize(expected_name):
-            raise ValueError("PyPI response identifies another project")
-        return version
     plain = unescape(re.sub(r"<[^>]*>", " ", raw.decode("utf-8")))
     match = re.search(
         r"Klimatdatabas\s+gällande\s+version.{0,2000}?\bversion\s+(\d{2}\.\d{2}\.\d{3})\b",

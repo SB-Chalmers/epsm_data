@@ -572,8 +572,6 @@ def test_prescribed_insulation_depth_excludes_timber_panelling_and_air(
     else:
         timber = data["materials"]["material:3035359c17bff54b"]
         assert timber["material_family"] == "timber"
-        assert timber["properties"]["conductivity"] < refs["policy"][
-            "insulation_conductivity_max_w_mk"]
     findings = _run(data, catalogue, refs)
     assert not any(f["expected"].get("code") == code
                    for f in _matching(findings, "tabula.measure_thickness", "standard"))

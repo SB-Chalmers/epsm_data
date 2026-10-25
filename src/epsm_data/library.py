@@ -135,7 +135,7 @@ def _resolve_material_sources(definition, cache):
         name = mapping.get("epsm_material_name")
         if not isinstance(name, str) or not name.strip():
             raise ValueError(f"epsm_material_name is required for {mid}")
-        _, hid, thermal = reference(mapping.get("thermal_ref"), {"honeybee", "epsm_authored"},
+        _, hid, thermal = reference(mapping.get("thermal_ref"), {"epsm_authored"},
                                     f"materials.{mid}.thermal_ref")
         kind = mapping.get("kind")
         if kind not in {"opaque", "window"}:

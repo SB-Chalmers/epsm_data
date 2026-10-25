@@ -4,35 +4,35 @@
   "materials": {
     "slab": {
       "material_id": "material:3b9cb95202f2163a",
-      "honeybee_id": "100mm Normalweight concrete floor",
+      "honeybee_id": "EPSM_concrete_reinforced_2300",
       "boverket_id": "6000000029",
-      "conductivity_w_mk": 2.3089016425031033,
-      "density_kg_m3": 2322.006775596,
-      "specific_heat_j_kgk": 832.0199665271966
+      "conductivity_w_mk": 2.3,
+      "density_kg_m3": 2300,
+      "specific_heat_j_kgk": 900
     },
     "finish": {
       "material_id": "material:1bd0a6d16b766b3a",
-      "honeybee_id": "Generic HW Concrete",
+      "honeybee_id": "EPSM_concrete_unreinforced_2300",
       "boverket_id": "6000000029",
-      "conductivity_w_mk": 1.95,
-      "density_kg_m3": 2240.0,
-      "specific_heat_j_kgk": 900.0
+      "conductivity_w_mk": 1.7,
+      "density_kg_m3": 2300,
+      "specific_heat_j_kgk": 900
     },
     "insulation": {
       "material_id": "material:a72ef018595b5849",
       "honeybee_id": "EPSM_floor_eps100_lambda036",
       "boverket_id": "6000000131",
       "conductivity_w_mk": 0.036,
-      "density_kg_m3": 20.0,
-      "specific_heat_j_kgk": 1209.2198113776988
+      "density_kg_m3": 20,
+      "specific_heat_j_kgk": 1450
     },
     "original_insulation": {
       "material_id": "material:f1cfc49793192104",
       "honeybee_id": "EPSM_cellular_plastic",
       "boverket_id": "6000000131",
       "conductivity_w_mk": 0.037,
-      "density_kg_m3": 20.0,
-      "specific_heat_j_kgk": 1209.2198113776988
+      "density_kg_m3": 20,
+      "specific_heat_j_kgk": 1450
     },
     "leca": {
       "material_id": "material:64821b09b361452a",
@@ -44,11 +44,11 @@
     },
     "plaster": {
       "material_id": "material:cb6437506c8a07cd",
-      "honeybee_id": "1IN Stucco",
+      "honeybee_id": "EPSM_lime_cement_render_1800",
       "boverket_id": "6000000091",
-      "conductivity_w_mk": 0.6913373548329222,
-      "density_kg_m3": 1858.004248296516,
-      "specific_heat_j_kgk": 836.4603158042426
+      "conductivity_w_mk": 1.0,
+      "density_kg_m3": 1800,
+      "specific_heat_j_kgk": 836
     },
     "wool": {
       "material_id": "material:8c0e602f796d38cb",
@@ -59,12 +59,12 @@
       "specific_heat_j_kgk": 1030
     },
     "gypsum": {
-      "material_id": "material:bde46592c24c2487",
-      "honeybee_id": "5/8 in. Gypsum Board",
+      "material_id": "material:1fd89c413e7a4ed7",
+      "honeybee_id": "EPSM_gypsum_board_gn_720",
       "boverket_id": "6000000020",
-      "conductivity_w_mk": 0.15989299909405463,
-      "density_kg_m3": 800.0018291911765,
-      "specific_heat_j_kgk": 1089.2971854559414
+      "conductivity_w_mk": 0.21,
+      "density_kg_m3": 720,
+      "specific_heat_j_kgk": 1000
     }
   },
   "shared_components": {

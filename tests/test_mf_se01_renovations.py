@@ -502,7 +502,7 @@ def test_floor_cap_carbon_proxy_density_is_comparable_and_within_policy(payload,
                           if row["Field"] == "Volume" and row["Unit"] == "kg/m³")
     assert source_density == cap["boverket_source_density_kg_m3"]
     difference = abs(material["properties"]["density"] - source_density) / source_density
-    assert difference == pytest.approx(110 / 2350)
+    assert difference == pytest.approx(50 / 2350)
     assert difference <= 0.2
     assert not [row for row in report["findings"]
                 if row["rule_id"] == "density.agreement"

@@ -113,21 +113,21 @@
     "material_id": "material:5bf216bc11260eb8",
     "boverket_id": "6000000140",
     "thickness_m": 0.003,
-    "thermal_density_kg_m3": 930,
+    "thermal_density_kg_m3": 1190,
     "source_mass_kg_m2": 4.0,
-    "expected_model_mass_kg_m2": 2.79,
-    "relative_areal_difference": 0.3025
+    "expected_model_mass_kg_m2": 3.57,
+    "relative_areal_difference": 0.1075
   },
   "concrete_grades": {
-    "material:698f410136a39689": {
-      "conductivity": 1.7284433202067357,
-      "density": 2243.0051285947593,
-      "specific_heat": 836.4603158042426
-    },
     "material:3b9cb95202f2163a": {
-      "conductivity": 2.3089016425031033,
-      "density": 2322.006775596,
-      "specific_heat": 832.0199665271966
+      "conductivity": 2.3,
+      "density": 2300,
+      "specific_heat": 900
+    },
+    "material:1bd0a6d16b766b3a": {
+      "conductivity": 1.7,
+      "density": 2300,
+      "specific_heat": 900
     }
   }
 }

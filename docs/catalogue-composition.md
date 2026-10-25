@@ -62,14 +62,13 @@ Ground-effective reference values stay separate from material properties.
 
 ## Thermal and carbon sources
 
-Materials select thermal records from pinned original Honeybee files or the custom source
-namespace, plus a Boverket resource or an external carbon reference where applicable.
+Materials select EPSM-authored thermal records from the `epsm-custom` namespace,
+plus a Boverket resource or an external carbon reference where applicable.
 The `epsm_material_name` is the catalogue's display name; source display names and
 identifiers remain attached to the cached records. A non-product air layer can
 declare its exemption.
-An exact Honeybee property match uses the original identifier. Unmatched and
-modified grades retain their existing thermal properties as custom records;
-source-based TABULA and representative historic grades are included in this group.
+Each thermal record is a Swedish product declaration, design value, TABULA grade,
+documented derivation or period grade, stated in its provenance.
 Layer dimensions remain separate from any source material's example thickness.
 External factors retain their source, method, declared unit and proxy description,
 normalized per material unit. Unknown factors remain `None`; zero is a known zero.
@@ -83,8 +82,7 @@ A custom record states where its values come from in `user_data.provenance`:
               "values": {"conductivity": 0.036, "density": 29.5}}]}
 ```
 
-Prefer an exact Honeybee record. Otherwise use a declared Swedish product
-(`product`), a TABULA measure (`tabula`), a documented derivation such as
+Prefer a declared Swedish product (`product`), a TABULA measure (`tabula`), a documented derivation such as
 whole-window optics from glazing values (`derived`), a standard design table
 (`standard`) or period evidence (`historical`). `assumption` remains visible
 in every sanity report.

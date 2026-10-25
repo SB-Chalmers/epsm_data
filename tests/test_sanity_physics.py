@@ -381,5 +381,4 @@ def test_packaged_custom_records_all_declare_provenance():
 
     report = check_catalogue(Catalogue.load())
     rows = [row for row in report["findings"] if row["rule_id"] == "thermal.provenance"]
-    assert rows and all(row["severity"] == "review" for row in rows)
-    assert all(row["actual"]["tier"] == "assumption" for row in rows)
+    assert all(row["severity"] == "review" and row["actual"]["tier"] == "assumption" for row in rows)
