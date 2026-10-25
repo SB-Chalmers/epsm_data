@@ -12,7 +12,7 @@ import math
 from collections.abc import Mapping
 from copy import deepcopy
 
-from .domain import BuildingArchetype, BuildingElement
+from .domain import BuildingArchetype, BuildingElement, CarbonReference
 from .serialization import _encode
 from .thermal.boundary_conditions import get_boundary_resistances
 
@@ -50,8 +50,37 @@ def _source_id(value):
     return None if value is None or value == "" else str(value)
 
 
-def _reference_matches(reference, properties, boverket_id):
+def _carbon_reference_matches(reference, carbon_reference):
+    expected_id = carbon_reference.identifier if carbon_reference is not None else None
+    if ("carbon_reference_id" in reference
+            and reference["carbon_reference_id"] != expected_id):
+        return False
+    if "carbon_reference" in reference:
+        supplied = reference["carbon_reference"]
+        if supplied is None:
+            return carbon_reference is None
+        if carbon_reference is None:
+            return False
+        try:
+            return CarbonReference.from_dict(supplied) == carbon_reference
+        except (TypeError, ValueError) as exc:
+            raise ValueError("Invalid supplied external carbon reference") from exc
+    return True
+
+
+def _attach_carbon_reference(reference, carbon_reference):
+    if not _carbon_reference_matches(reference, carbon_reference):
+        raise ValueError("Supplied external carbon reference disagrees with attached source")
+    if carbon_reference is not None:
+        reference["carbon_reference_id"] = carbon_reference.identifier
+        reference["carbon_reference"] = carbon_reference.to_dict()
+    return reference
+
+
+def _reference_matches(reference, properties, boverket_id, carbon_reference=None):
     if _source_id(reference.get("boverket_id")) != _source_id(boverket_id):
+        return False
+    if not _carbon_reference_matches(reference, carbon_reference):
         return False
     supplied = reference.get("properties", {})
     if not isinstance(supplied, Mapping):
@@ -89,18 +118,22 @@ def _material_references(archetype, metadata):
                     if material.json_id in by_json_id:
                         if not _reference_matches(
                             by_json_id[material.json_id], _opaque_properties(material),
-                            material.boverket_id,
+                            material.boverket_id, material.carbon_reference,
                         ):
                             raise ValueError(
                                 f"Material {material.json_id}: source reference disagrees with "
-                                "physical properties or Boverket ID"
+                                "physical properties or Boverket ID or external carbon reference"
                             )
+                        _attach_carbon_reference(
+                            by_json_id[material.json_id], material.carbon_reference
+                        )
                         continue
                     ref = {
                         "json_id": material.json_id,
                         "honeybee_id": None,
                         "boverket_id": material.boverket_id,
                     }
+                    _attach_carbon_reference(ref, material.carbon_reference)
                     key = material.json_id or material.name
                     if key in references and references[key] != ref:
                         raise ValueError(f"Conflicting material reference: {key}")
@@ -119,15 +152,22 @@ def _window_reference(element, references):
         properties = {"u_value": element.u_value, "shgc": element.shgc, "vt": element.vt}
         matching = [
             ref for ref in candidates
-            if _reference_matches(ref, properties, element.boverket_id)
+            if _reference_matches(ref, properties, element.boverket_id, element.carbon_reference)
         ]
         if len(matching) != 1:
             raise ValueError(
                 "Window requires exactly one source reference matching its physical "
-                "properties and Boverket ID"
+                "properties, Boverket ID and external carbon reference"
             )
-        return deepcopy(matching[0])
-    return {"kind": "simple_window", "boverket_id": element.boverket_id, "honeybee_id": None}
+        reference = matching[0]
+        _attach_carbon_reference(reference, element.carbon_reference)
+        return deepcopy(reference)
+    reference = _attach_carbon_reference({
+        "kind": "simple_window", "boverket_id": element.boverket_id, "honeybee_id": None,
+    }, element.carbon_reference)
+    if element.carbon_reference is not None:
+        references[f"window:{element.name}"] = deepcopy(reference)
+    return reference
 
 
 def export_nominal_constructions(archetype, *, metadata=None):
@@ -314,6 +354,8 @@ def export_nominal_constructions(archetype, *, metadata=None):
         # Existing EPSM consumers use this spelling.
         "reciprocal": deepcopy(reciprocal),
     }
+    if "selection" in context_metadata:
+        bundle["selection"] = deepcopy(context_metadata["selection"])
     validate_nominal_handover(bundle)
     return bundle
 

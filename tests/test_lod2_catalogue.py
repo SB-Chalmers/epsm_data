@@ -41,7 +41,7 @@ def catalogue():
 
 @pytest.fixture
 def catalogue_payload():
-    return json.loads(files("epsm_data.datasets.lod2").joinpath("catalogue.json").read_text())
+    return Catalogue(json.loads(files("epsm_data.datasets.lod2").joinpath("catalogue.json").read_text())).resolved_dict()
 
 
 def _configurations(catalogue):

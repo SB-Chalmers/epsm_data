@@ -1,0 +1,23 @@
+{
+  "EPD-IES-0013025:003": {
+    "declared_unit": "1 m² of 100 mm insulation, R=2.60 m²K/W, containing 2.00 kg glass mineral wool; source results divided by 2.00 for a kilogram basis.",
+    "identifier": "EPD-IES-0013025:003",
+    "method": "EN 15804:2012+A2:2019/AC:2021; additional GWP-GHG indicator, declared EN 15804+A1-equivalent",
+    "modules": {
+      "A1A3": 0.78,
+      "A4": 0.0755,
+      "A5": 0.04385
+    },
+    "name": "Knauf Supafil Loft Plus / Pro, glass wool (mineral wool)",
+    "notes": [
+      "Primary source: https://knauf.com/api/download-center/v1/assets/718d00f9-9c43-4cca-9f5f-c13dbea9c797?country=de&download=true; version 2, updated 2024-05-24, valid to 2029-03-20.",
+      "EPD p.6 declared density: 20 kg/m³ (+/-10%). Declared conductivity0.038 W/(mK) at10°C. The selected thermal grade retains the manufacturer-supported lambda 0.037, density 20 and specific heat1030; no thermal properties are changed to fit this carbon reference.",
+      "EPD p.11 separate GWP-GHG row: per declared2kg unit, A1A3=1.56,A4=0.151,A5=0.0877kgCO2e. Footnote[2] states this excludes biogenic carbon dioxide uptake/emissions and biogenic storage and is equivalent to the EN15804+A1 indicator. GWP-total and GWP-fossil rows are not substituted or recombined.",
+      "EPD p.7 A4 scenario:600km truck transport. A5 scenario:2% site material loss, packaging treatment and installation electricity0.02MJ/kg using European grid. This is the declared product installation scenario; whole-project temporary heat, site facilities, extra fixings and other site processes remain project inputs and must not be silently represented as zero.",
+      "The source supplies no separate A5.1 factor in this imported row; selecting A5 uses the full declared product-installation A5 scenario. Unimported lifecycle modules remain unavailable rather than zero."
+    ],
+    "proxy_for": "Selected TABULA loose glass-wool thermal grade at lambda 0.037 W/(m K), density 20kg/m³. Same-product modern EPD declares lambda 0.038 W/(m K); it is not an exact historic product identification.",
+    "unit": "kg",
+    "url": "https://www.environdec.com/library/epd13025"
+  }
+}

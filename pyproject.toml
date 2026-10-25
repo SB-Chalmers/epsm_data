@@ -12,6 +12,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
+geography = ["geopandas>=1.0,<2"]
 visualization = ["matplotlib>=3.9,<4", "networkx>=3,<4", "pyvis>=0.3,<1"]
 dev = ["pytest>=8", "ruff>=0.11", "build>=1"]
 
@@ -25,6 +26,9 @@ epsm-catalogue = "epsm_data.cli:main"
 [tool.setuptools.package-data]
 "epsm_data.datasets.standards" = ["*.json"]
 "epsm_data.datasets.lod2" = ["*.json"]
+"epsm_data.datasets.sanity" = ["*.json"]
+"epsm_data.datasets.climate_zones" = ["*.json", "*.json.gz"]
+"epsm_data.datasets.sources" = ["*.json", "LICENSE-*.txt"]
 
 [tool.setuptools.dynamic]
 version = {attr = "epsm_data._version.__version__"}

@@ -1,0 +1,2885 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "retained_extraction": "evidence/betsi_review/audit.json#/tabula_zone_comparisons",
+    "official_download_page": "https://episcope.eu/communication/download/",
+    "attribution": "IEE Projects TABULA + EPISCOPE",
+    "selection": "Residential SFH/MFH SE.01–SE.05, all states and zones. Equivalent SFH source variants share values; source_variants retains both codes and source_locators selects the first exact workbook cell. Door values are outside current envelope model scope."
+  },
+  "u_values": [
+    {
+      "category": "multi_family",
+      "era": "SE.01",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.23106546854942236,
+            "SE.Zone2": 0.23106546854942236,
+            "SE.Zone3": 0.23106546854942236
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2756",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2751",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2746"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BS814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.06138248847926268,
+            "SE.Zone2": 0.06138248847926268,
+            "SE.Zone3": 0.06138248847926268
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2756",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2751",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2746"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.09078490523080428,
+            "SE.Zone2": 0.09078490523080428,
+            "SE.Zone3": 0.09078490523080428
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2756",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2751",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2746"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.39452297689996546,
+            "SE.Zone2": 0.39452297689996546,
+            "SE.Zone3": 0.39452297689996546
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2756",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2751",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2746"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BQ814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2756",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2751",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2746"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.01",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.3249097472924188,
+            "SE.Zone2": 0.3249097472924188,
+            "SE.Zone3": 0.3249097472924188
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2662",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2657",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2652"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BS814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.36,
+            "SE.Zone2": 0.36,
+            "SE.Zone3": 0.36
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2662",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2657",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2652"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.58,
+            "SE.Zone2": 0.58,
+            "SE.Zone3": 0.58
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2662",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2657",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2652"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2662",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2657",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2652"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BQ814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.22,
+            "SE.Zone2": 2.22,
+            "SE.Zone3": 2.22
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2662",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2657",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2652"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.01",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.23872679045092843,
+            "SE.Zone2": 0.23872679045092843,
+            "SE.Zone3": 0.23872679045092843
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2709",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2704",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2699"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BS814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.12220183486238531,
+            "SE.Zone2": 0.12220183486238531,
+            "SE.Zone3": 0.12220183486238531
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2709",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2704",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2699"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.29075773227198154,
+            "SE.Zone2": 0.29075773227198154,
+            "SE.Zone3": 0.29075773227198154
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2709",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2704",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2699"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2709",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2704",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2699"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.01 representative has a completely conditioned basement. Its BETSI ground-inclusive ISO 13370 floor/wall U-values already include ground effects, but TABULA subsequently applies Cellar resistance and temperature corrections. The adjusted observations are retained for traceability, not used to accept nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT814",
+              "TABULA.xlsm#Tab.Building!BQ814",
+              "BETSI Energi i bebyggelsen, printed p.17 (SS-EN ISO 13370 boundary convention)",
+              "BETSI Energi i bebyggelsen, printed pp.35–36, 166, 168 (ground-inclusive basement floor/wall observations)",
+              "TABULA Swedish building typology brochure, printed pp.24, 54, 84 (MFH.01 conditioned-basement envelope and renovation measures)"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.01.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2709",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2704",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2699"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.02",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.19525801952580196,
+            "SE.Zone2": 0.19525801952580196,
+            "SE.Zone3": 0.19525801952580196
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2757",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2752",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2747"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BS815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I300:R300",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.05401459854014598,
+            "SE.Zone2": 0.05401459854014598,
+            "SE.Zone3": 0.05401459854014598
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2757",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2752",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2747"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.08525197535064838,
+            "SE.Zone2": 0.08525197535064838,
+            "SE.Zone3": 0.08525197535064838
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2757",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2752",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2747"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.39452297689996546,
+            "SE.Zone2": 0.39452297689996546,
+            "SE.Zone3": 0.39452297689996546
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2757",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2752",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2747"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BQ815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2757",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2752",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2747"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.02",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2583025830258303,
+            "SE.Zone2": 0.2583025830258303,
+            "SE.Zone3": 0.2583025830258303
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2663",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2658",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2653"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BS815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I300:R300",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2,
+            "SE.Zone2": 0.2,
+            "SE.Zone3": 0.2
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2663",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2658",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2653"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.41000000000000003,
+            "SE.Zone2": 0.41000000000000003,
+            "SE.Zone3": 0.41000000000000003
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2663",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2658",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2653"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2663",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2658",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2653"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BQ815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.22,
+            "SE.Zone2": 2.22,
+            "SE.Zone3": 2.22
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2663",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2658",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2653"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.02",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20070086014654348,
+            "SE.Zone2": 0.20070086014654348,
+            "SE.Zone3": 0.20070086014654348
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2710",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2705",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2700"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BS815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I300:R300",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.0961038961038961,
+            "SE.Zone2": 0.0961038961038961,
+            "SE.Zone3": 0.0961038961038961
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2710",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2705",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2700"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.24072163114258263,
+            "SE.Zone2": 0.24072163114258263,
+            "SE.Zone3": 0.24072163114258263
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2710",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2705",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2700"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2710",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2705",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2700"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.02 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT815,BQ815",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.02.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2710",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2705",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2700"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.03",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20006898930665748,
+            "SE.Zone2": 0.20006898930665748,
+            "SE.Zone3": 0.20006898930665748
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2758",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2753",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2748"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BS816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I302:R302",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.05155737704918033,
+            "SE.Zone2": 0.05155737704918033,
+            "SE.Zone3": 0.05155737704918033
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2758",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2753",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2748"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.08116084604033448,
+            "SE.Zone2": 0.08116084604033448,
+            "SE.Zone3": 0.08116084604033448
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2758",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2753",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2748"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.39452297689996546,
+            "SE.Zone2": 0.39452297689996546,
+            "SE.Zone3": 0.39452297689996546
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2758",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2753",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2748"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BQ816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2758",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2753",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2748"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.03",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2667893284268629,
+            "SE.Zone2": 0.2667893284268629,
+            "SE.Zone3": 0.2667893284268629
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2664",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2659",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2654"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BS816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I302:R302",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.17,
+            "SE.Zone2": 0.17,
+            "SE.Zone3": 0.17
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2664",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2659",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2654"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.33,
+            "SE.Zone2": 0.33,
+            "SE.Zone3": 0.33
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2664",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2659",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2654"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2664",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2659",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2654"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BQ816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.04,
+            "SE.Zone2": 2.04,
+            "SE.Zone3": 2.04
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2664",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2659",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2654"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.03",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2057872743041867,
+            "SE.Zone2": 0.2057872743041867,
+            "SE.Zone3": 0.2057872743041867
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2711",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2706",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2701"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BS816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I302:R302",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.08859154929577465,
+            "SE.Zone2": 0.08859154929577465,
+            "SE.Zone3": 0.08859154929577465
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2711",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2706",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2701"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.210727969348659,
+            "SE.Zone2": 0.210727969348659,
+            "SE.Zone3": 0.210727969348659
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2711",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2706",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2701"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2711",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2706",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2701"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.03 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT816,BQ816",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.03.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2711",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2706",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2701"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.04",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.18531717747683538,
+            "SE.Zone2": 0.18531717747683538,
+            "SE.Zone3": 0.18531717747683538
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2759",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2754",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2749"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BS817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I304:R304",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.049553571428571426,
+            "SE.Zone2": 0.049553571428571426,
+            "SE.Zone3": 0.049553571428571426
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2759",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2754",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2749"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.07227332457293036,
+            "SE.Zone2": 0.07227332457293036,
+            "SE.Zone3": 0.07227332457293036
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2759",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2754",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2749"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.39452297689996546,
+            "SE.Zone2": 0.39452297689996546,
+            "SE.Zone3": 0.39452297689996546
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2759",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2754",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2749"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BQ817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2759",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2754",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2749"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.04",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.24118738404452694,
+            "SE.Zone2": 0.24118738404452694,
+            "SE.Zone3": 0.24118738404452694
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2665",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2660",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2655"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BS817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I304:R304",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15,
+            "SE.Zone2": 0.15,
+            "SE.Zone3": 0.15
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2665",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2660",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2655"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.21999999999999997,
+            "SE.Zone2": 0.21999999999999997,
+            "SE.Zone3": 0.21999999999999997
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2665",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2660",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2655"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2665",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2660",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2655"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BQ817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 1.7999999999999998,
+            "SE.Zone2": 1.7999999999999998,
+            "SE.Zone3": 1.7999999999999998
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2665",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2660",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2655"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.04",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1902129735002439,
+            "SE.Zone2": 0.1902129735002439,
+            "SE.Zone3": 0.1902129735002439
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2712",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2707",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2702"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BS817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I304:R304",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.08283582089552238,
+            "SE.Zone2": 0.08283582089552238,
+            "SE.Zone3": 0.08283582089552238
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2712",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2707",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2702"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15972894482090996,
+            "SE.Zone2": 0.15972894482090996,
+            "SE.Zone3": 0.15972894482090996
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2712",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2707",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2702"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2712",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2707",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2702"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.04 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT817,BQ817",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.04.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2712",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2707",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2702"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.05",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.16405667412378822,
+            "SE.Zone2": 0.16405667412378822,
+            "SE.Zone3": 0.16405667412378822
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2760",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2755",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2750"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BS818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I306:R306",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.04715686274509804,
+            "SE.Zone2": 0.04715686274509804,
+            "SE.Zone3": 0.04715686274509804
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2760",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2755",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2750"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.06997455470737915,
+            "SE.Zone2": 0.06997455470737915,
+            "SE.Zone3": 0.06997455470737915
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2760",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2755",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2750"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.39452297689996546,
+            "SE.Zone2": 0.39452297689996546,
+            "SE.Zone3": 0.39452297689996546
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2760",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2755",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2750"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BQ818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2760",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2755",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2750"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.05",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20637898686679174,
+            "SE.Zone2": 0.20637898686679174,
+            "SE.Zone3": 0.20637898686679174
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2666",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2661",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2656"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BS818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I306:R306",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.13,
+            "SE.Zone2": 0.13,
+            "SE.Zone3": 0.13
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2666",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2661",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2656"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2,
+            "SE.Zone2": 0.2,
+            "SE.Zone3": 0.2
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2666",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2661",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2656"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2666",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2661",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2656"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BQ818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 1.9700000000000002,
+            "SE.Zone2": 1.9700000000000002,
+            "SE.Zone3": 1.9700000000000002
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2666",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2661",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2656"
+          }
+        }
+      }
+    },
+    {
+      "category": "multi_family",
+      "era": "SE.05",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1678819738850263,
+            "SE.Zone2": 0.1678819738850263,
+            "SE.Zone3": 0.1678819738850263
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2713",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2708",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2703"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "GROUND_FLOOR",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_floor",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BS818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I306:R306",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 8, p.166"
+            ]
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.07634920634920635,
+            "SE.Zone2": 0.07634920634920635,
+            "SE.Zone3": 0.07634920634920635
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2713",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2708",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2703"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.14891696750902528,
+            "SE.Zone2": 0.14891696750902528,
+            "SE.Zone3": 0.14891696750902528
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2713",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2708",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2703"
+          }
+        },
+        "TABULA_WALL_2": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.702446724546172,
+            "SE.Zone2": 0.702446724546172,
+            "SE.Zone3": 0.702446724546172
+          },
+          "source_property": "envelope.wall_2.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HS2713",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HS2708",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HS2703"
+          },
+          "boundary_comparison": {
+            "catalogue_role": "BASEMENT_WALL",
+            "physical_boundary": "soil",
+            "physical_role": "conditioned_basement_wall",
+            "status": "source_incompatible",
+            "reason": "The MF SE.05 reference specifies a completely conditioned cellar, while ground-inclusive BETSI ISO 13370 inputs receive additional TABULA unheated-Cellar resistance and transmission corrections. These retained observations cannot validate nominal material-layer U-values. The secondary wall reuses the pre-1960 buried-wall stock average; it is an explicit source proxy for this later era.",
+            "source_locators": [
+              "TABULA.xlsm#Tab.Building!AT818,BQ818",
+              "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+              "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+              "TABULA.xlsm#Tab.Building.Constr!I334:R334",
+              "BETSI Energi i bebyggelsen (2010), printed p.17, ISO 13370 ground boundary convention",
+              "BETSI Energi i bebyggelsen (2010), Appendix 2, Table 16, p.168"
+            ]
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "MFH.05.Gen.ReEx.001.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2713",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2708",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2703"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.01",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20740740740740743,
+            "SE.Zone2": 0.20740740740740743,
+            "SE.Zone3": 0.20740740740740743
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.003",
+            "SFH.01.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2782",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2772",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2762"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.05895604395604395,
+            "SE.Zone2": 0.05895604395604395,
+            "SE.Zone3": 0.05895604395604395
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.003",
+            "SFH.01.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2782",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2772",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2762"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2635514018691589,
+            "SE.Zone2": 0.2635514018691589,
+            "SE.Zone3": 0.2635514018691589
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.003",
+            "SFH.01.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2782",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2772",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2762"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.003",
+            "SFH.01.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2782",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2772",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2762"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.01",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.28,
+            "SE.Zone2": 0.28,
+            "SE.Zone3": 0.28
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.001",
+            "SFH.01.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2688",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2678",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2668"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.29,
+            "SE.Zone2": 0.29,
+            "SE.Zone3": 0.29
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.001",
+            "SFH.01.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2688",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2678",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2668"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.6,
+            "SE.Zone2": 0.6,
+            "SE.Zone3": 0.6
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.001",
+            "SFH.01.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2688",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2678",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2668"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.34,
+            "SE.Zone2": 2.34,
+            "SE.Zone3": 2.34
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.001",
+            "SFH.01.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2688",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2678",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2668"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.01",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.21355932203389832,
+            "SE.Zone2": 0.21355932203389832,
+            "SE.Zone3": 0.21355932203389832
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.002",
+            "SFH.01.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2735",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2725",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2715"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.11294736842105263,
+            "SE.Zone2": 0.11294736842105263,
+            "SE.Zone3": 0.11294736842105263
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.002",
+            "SFH.01.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2735",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2725",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2715"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.32727272727272727,
+            "SE.Zone2": 0.32727272727272727,
+            "SE.Zone3": 0.32727272727272727
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.002",
+            "SFH.01.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2735",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2725",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2715"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.01.Gen.ReEx.001.002",
+            "SFH.01.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2735",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2725",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2715"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.02",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.22857142857142856,
+            "SE.Zone2": 0.22857142857142856,
+            "SE.Zone3": 0.22857142857142856
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.003",
+            "SFH.02.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2784",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2774",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2764"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.05471830985915493,
+            "SE.Zone2": 0.05471830985915493,
+            "SE.Zone3": 0.05471830985915493
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.003",
+            "SFH.02.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2784",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2774",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2764"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.18679487179487178,
+            "SE.Zone2": 0.18679487179487178,
+            "SE.Zone3": 0.18679487179487178
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.003",
+            "SFH.02.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2784",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2774",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2764"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.003",
+            "SFH.02.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2784",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2774",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2764"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.02",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.32,
+            "SE.Zone2": 0.32,
+            "SE.Zone3": 0.32
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.001",
+            "SFH.02.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2690",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2680",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2670"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.21,
+            "SE.Zone2": 0.21,
+            "SE.Zone3": 0.21
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.001",
+            "SFH.02.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2690",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2680",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2670"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.31,
+            "SE.Zone2": 0.31,
+            "SE.Zone3": 0.31
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.001",
+            "SFH.02.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2690",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2680",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2670"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.3,
+            "SE.Zone2": 2.3,
+            "SE.Zone3": 2.3
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.001",
+            "SFH.02.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2690",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2680",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2670"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.02",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.23606557377049184,
+            "SE.Zone2": 0.23606557377049184,
+            "SE.Zone3": 0.23606557377049184
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.002",
+            "SFH.02.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2737",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2727",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2717"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.09835443037974682,
+            "SE.Zone2": 0.09835443037974682,
+            "SE.Zone3": 0.09835443037974682
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.002",
+            "SFH.02.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2737",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2727",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2717"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.21669902912621358,
+            "SE.Zone2": 0.21669902912621358,
+            "SE.Zone3": 0.21669902912621358
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.002",
+            "SFH.02.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2737",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2727",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2717"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.02.Gen.ReEx.001.002",
+            "SFH.02.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2737",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2727",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2717"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.03",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20186915887850468,
+            "SE.Zone2": 0.20186915887850468,
+            "SE.Zone3": 0.20186915887850468
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.003",
+            "SFH.03.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2786",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2776",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2766"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.049553571428571426,
+            "SE.Zone2": 0.049553571428571426,
+            "SE.Zone3": 0.049553571428571426
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.003",
+            "SFH.03.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2786",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2776",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2766"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1451470588235294,
+            "SE.Zone2": 0.1451470588235294,
+            "SE.Zone3": 0.1451470588235294
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.003",
+            "SFH.03.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2786",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2776",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2766"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.003",
+            "SFH.03.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2786",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2776",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2766"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.03",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.27,
+            "SE.Zone2": 0.27,
+            "SE.Zone3": 0.27
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.001",
+            "SFH.03.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2692",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2682",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2672"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15,
+            "SE.Zone2": 0.15,
+            "SE.Zone3": 0.15
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.001",
+            "SFH.03.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2692",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2682",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2672"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.21,
+            "SE.Zone2": 0.21,
+            "SE.Zone3": 0.21
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.001",
+            "SFH.03.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2692",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2682",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2672"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 2.01,
+            "SE.Zone2": 2.01,
+            "SE.Zone3": 2.01
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.001",
+            "SFH.03.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2692",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2682",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2672"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.03",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.20769230769230768,
+            "SE.Zone2": 0.20769230769230768,
+            "SE.Zone3": 0.20769230769230768
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.002",
+            "SFH.03.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2739",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2729",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2719"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.08283582089552238,
+            "SE.Zone2": 0.08283582089552238,
+            "SE.Zone3": 0.08283582089552238
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.002",
+            "SFH.03.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2739",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2729",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2719"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.16258064516129034,
+            "SE.Zone2": 0.16258064516129034,
+            "SE.Zone3": 0.16258064516129034
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.002",
+            "SFH.03.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2739",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2729",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2719"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.03.Gen.ReEx.001.002",
+            "SFH.03.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2739",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2729",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2719"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.04",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1846153846153846,
+            "SE.Zone2": 0.1846153846153846,
+            "SE.Zone3": 0.1846153846153846
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.003",
+            "SFH.04.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2788",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2778",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2768"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.045773195876288655,
+            "SE.Zone2": 0.045773195876288655,
+            "SE.Zone3": 0.045773195876288655
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.003",
+            "SFH.04.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2788",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2778",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2768"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.12484375000000002,
+            "SE.Zone2": 0.12484375000000002,
+            "SE.Zone3": 0.12484375000000002
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.003",
+            "SFH.04.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2788",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2778",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2768"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.003",
+            "SFH.04.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2788",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2778",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2768"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.04",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.24,
+            "SE.Zone2": 0.24,
+            "SE.Zone3": 0.24
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.001",
+            "SFH.04.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2694",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2684",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2674"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.12,
+            "SE.Zone2": 0.12,
+            "SE.Zone3": 0.12
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.001",
+            "SFH.04.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2694",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2684",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2674"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.17,
+            "SE.Zone2": 0.17,
+            "SE.Zone3": 0.17
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.001",
+            "SFH.04.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2694",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2684",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2674"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 1.9399999999999997,
+            "SE.Zone2": 1.9399999999999997,
+            "SE.Zone3": 1.9399999999999997
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.001",
+            "SFH.04.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2694",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2684",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2674"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.04",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1894736842105263,
+            "SE.Zone2": 0.1894736842105263,
+            "SE.Zone3": 0.1894736842105263
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.002",
+            "SFH.04.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2741",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2731",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2721"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.07278688524590164,
+            "SE.Zone2": 0.07278688524590164,
+            "SE.Zone3": 0.07278688524590164
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.002",
+            "SFH.04.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2741",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2731",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2721"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.13752808988764048,
+            "SE.Zone2": 0.13752808988764048,
+            "SE.Zone3": 0.13752808988764048
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.002",
+            "SFH.04.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2741",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2731",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2721"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.04.Gen.ReEx.001.002",
+            "SFH.04.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2741",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2731",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2721"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.05",
+      "state": "advanced",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1469387755102041,
+            "SE.Zone2": 0.1469387755102041,
+            "SE.Zone3": 0.1469387755102041
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2770"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.045773195876288655,
+            "SE.Zone2": 0.045773195876288655,
+            "SE.Zone3": 0.045773195876288655
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2770"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.14029850746268657,
+            "SE.Zone2": 0.14029850746268657,
+            "SE.Zone3": 0.14029850746268657
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2770"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2770"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.05",
+      "state": "existing",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.18,
+            "SE.Zone2": 0.18,
+            "SE.Zone3": 0.18
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2676"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.12,
+            "SE.Zone2": 0.12,
+            "SE.Zone3": 0.12
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2676"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2,
+            "SE.Zone2": 0.2,
+            "SE.Zone3": 0.2
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2676"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 1.8700000000000003,
+            "SE.Zone2": 1.8700000000000003,
+            "SE.Zone3": 1.8700000000000003
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2676"
+          }
+        }
+      }
+    },
+    {
+      "category": "single_family",
+      "era": "SE.05",
+      "state": "standard",
+      "elements": {
+        "GROUND_FLOOR": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15000000000000002,
+            "SE.Zone2": 0.15000000000000002,
+            "SE.Zone3": 0.15000000000000002
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2723"
+          }
+        },
+        "THERMAL_TOP": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.07278688524590164,
+            "SE.Zone2": 0.07278688524590164,
+            "SE.Zone3": 0.07278688524590164
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2723"
+          }
+        },
+        "EXT_WALL": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15652173913043477,
+            "SE.Zone2": 0.15652173913043477,
+            "SE.Zone3": 0.15652173913043477
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2723"
+          }
+        },
+        "WINDOW": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2723"
+          }
+        }
+      }
+    }
+  ]
+}

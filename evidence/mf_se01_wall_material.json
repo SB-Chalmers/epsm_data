@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "material_id": "material:596c3826b8c18ab7",
+  "honeybee_id": "EPSM_historic_aac_masonry_500_babs1946",
+  "selection": {
+    "name": "Historic aerated concrete masonry, 500 kg/m³ — BABS 1946",
+    "grade_status": "representative_historic_grade",
+    "rationale": "BABS 1946 documents this masonry grade and SBUF documents its approximate specific heat. BABS 1960 independently documents autoclaved-block masonry around this density class (510 kg/m³). It is within the Boverket AAC product scope. The exact CMF grade and a specific source-building year remain unverified; this is a representative grade choice, independent of target U-values.",
+    "source_layer_locator": "evidence/layered/mfh_cmf_decades_workbook.json: CMF_1940_1, Layers!95–97"
+  },
+  "thermal": {
+    "conductivity_basis": "effective_masonry_including_mortar",
+    "sources": {
+      "density_and_conductivity": {
+        "url": "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
+        "locator": "printed p.32, section 4, Murverk av lättbetong, 500 kg/m³",
+        "density_kg_m3": 500,
+        "source_value": 0.17,
+        "source_unit": "kcal/(m h °C)",
+        "conversion_to_w_mk": 1.163,
+        "conductivity_w_mk": 0.19771,
+        "sha256": "8e4228c7c89426dbc149622710a7a687910ac9f44bddcd56e0da0956a8c98c48"
+      },
+      "specific_heat": {
+        "url": "https://vpp.sbuf.se/Public/Documents/ProjectDocuments/82F6A503-9D9F-4E29-AEA2-66B0C93AB9C3/FinalReport/SBUF%2011352%20Slutrapport_BYGGNADSUTFORMNING%20OCH%20V%C3%84RMEKAPACITET.pdf",
+        "locator": "Table 5.4, printed p.33; approximate values, citing Sandin (1990)",
+        "density_kg_m3": 500,
+        "value_j_kg_k": 1000,
+        "approximate": true,
+        "sha256": "b9cc7e7b17c8bcb3a3d7c131f954b75ce1066b60b29a1006c314f66d2173e346"
+      },
+      "surface_defaults": {
+        "url": "https://www.ladybug.tools/honeybee-energy/docs/honeybee_energy.material.opaque.html",
+        "status": "explicit_modelling_defaults",
+        "roughness": "MediumRough",
+        "thermal_absorptance": 0.9,
+        "solar_absorptance": 0.7,
+        "visible_absorptance": 0.7
+      }
+    }
+  },
+  "carbon": {
+    "boverket_id": "6000000096",
+    "source_version": "02.07.000",
+    "source_url": "https://api.boverket.se/klimatdatabas/api/Klimat/v2/GetAllResources/02.07.000/en/json",
+    "source_sha256": "8894acdfc1c4a45730b77af7f65caacdb8f75a9b851c4af6e74f4583ea030d2c",
+    "proxy": true,
+    "proxy_reason": "Modern non-reinforced AAC production proxy; historic composition and manufacturing emissions are not established.",
+    "applicability_density_range_kg_m3": [
+      350,
+      700
+    ],
+    "conversion_density_kg_m3": 400,
+    "density_relative_difference": 0.25,
+    "known_modules": [
+      "A1A3",
+      "A4",
+      "A5.1"
+    ],
+    "missing_modules": [
+      "A5"
+    ]
+  },
+  "construction": {
+    "layer_id": "layer:91740a64c496eacd",
+    "thickness_m": 0.25,
+    "internal_plaster_m": 0.01,
+    "external_plaster_m": 0.01,
+    "mortar_treatment": "Masonry lambda already includes mortar; no additional parallel mortar path or separate mortar quantity is asserted."
+  },
+  "benchmark": {
+    "u_value_w_m2k": 0.58,
+    "relative_tolerance": 0.2,
+    "basis": "BETSI surveyed stock average; grade selected independently of target.",
+    "source": "TABULA.xlsm, Tab.Building.Constr!R286; Boverket BETSI Table 24, printed p.170."
+  }
+}

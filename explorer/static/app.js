@@ -220,10 +220,12 @@ function lod2Overview(p) {
   return `<h3>${lod2Label(p.lod2.status)}</h3><p>${p.missing.length ? `${p.missing.length} required values are missing.` : "All required fabric values and source mappings are present."} <a href="#tab-layers" data-open-lod2>Inspect constructions and missing values</a>.</p>`;
 }
 function lod2Details(p) {
-  const role = metricRoles[filters.metric];
+  const construction = p.construction || {};
+  const role = filters.metric === "ground" && construction.BASEMENT_FLOOR ? "BASEMENT_FLOOR"
+    : filters.metric === "top" && !construction.TOP_FLOOR ? "ROOF" : metricRoles[filters.metric];
   return `<h3>${lod2Label(p.lod2.status)}</h3>${constructionDetails(p.construction || {}, role)}${Object.keys(p.construction || {}).length ? '<button type="button" class="button primary" id="open-archetype">Open full archetype</button>' : ""}<h4>Missing values</h4>${p.missing.length ? `<ul>${p.missing.map((item) => `<li><code>${esc(item)}</code></li>`).join("")}</ul>` : "<p>No missing fabric values.</p>"}<p class="muted">Completeness covers fabric and required mappings. Geometry, site conditions, systems and schedules are supplied by the consuming project.</p>`;
 }
-const elementNames = { TOP_FLOOR: "Attic floor", EXT_WALL: "External wall", INTERMEDIATE_FLOOR: "Intermediate floor", GROUND_FLOOR: "Ground floor", BASEMENT_WALL: "Basement wall", BASEMENT_FLOOR: "Basement floor", INT_WALL_LOADBEARING: "Loadbearing internal wall", INT_WALL_NONLOADBEARING: "Internal partition", WINDOW: "Window" };
+const elementNames = { TOP_FLOOR: "Attic floor", ROOF: "Roof", EXT_WALL: "External wall", INTERMEDIATE_FLOOR: "Intermediate floor", GROUND_FLOOR: "Ground floor / basement ceiling", BASEMENT_WALL: "Basement wall", BASEMENT_FLOOR: "Soil slab", INT_WALL_LOADBEARING: "Loadbearing internal wall", INT_WALL_NONLOADBEARING: "Internal partition", WINDOW: "Window" };
 const metricRoles = { wall: "EXT_WALL", top: "TOP_FLOOR", ground: "GROUND_FLOOR", glazing: "WINDOW", intermediate_floor: "INTERMEDIATE_FLOOR", internal_wall: "INT_WALL_NONLOADBEARING", basement_wall: "BASEMENT_WALL" };
 const hatchStyles = [
   ["air gap", "#fff", "#78909c", ""], ["acoustic", "#d5e1e8", "#708a99", "dots"],
@@ -273,7 +275,8 @@ function sectionSvg(role, assembly, prefix) {
   const total = layers.reduce((sum, layer) => sum + layer.thickness_mm, 0);
   if (!layers.length || !(total > 0)) return "";
   const wall = ["EXT_WALL", "BASEMENT_WALL", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING"].includes(role);
-  const topFirst = ["TOP_FLOOR", "INTERMEDIATE_FLOOR"].includes(role);
+  const topFirst = assembly.side_convention === "top_to_bottom" ||
+    (assembly.side_convention !== "bottom_to_top" && ["TOP_FLOOR", "ROOF"].includes(role));
   const patterns = new Map();
   let cursor = 0;
   const rects = layers.map((layer, li) => {
@@ -310,9 +313,30 @@ function materialDetails(material) {
   const hb = material.honeybee_properties || {};
   const propertyNames = { roughness: "Roughness", conductivity: "Conductivity λ (W/(m·K))", density: "Density (kg/m³)", specific_heat: "Specific heat (J/(kg·K))", thermal_absorptance: "Thermal absorptance", solar_absorptance: "Solar absorptance", visible_absorptance: "Visible absorptance", u_value: "U-value (W/(m²·K))", shgc: "SHGC", vt: "Visible transmittance" };
   const propertyRows = Object.entries(hb).map(([key, value]) => `<div><dt>${esc(propertyNames[key] || label(key))}</dt><dd>${esc(typeof value === "number" ? fmt(value, 4) : value ?? "Unavailable")}</dd></div>`).join("");
-  const gwp = material.gwp;
-  const gwpRows = gwp ? [["A1–A3 typical", gwp.A1_A3_typical], ["A1–A3 conservative", gwp.A1_A3_conservative], ["A4 transport", gwp.A4_transport], ["A5 conservative", gwp.A5_conservative]].map(([name, value]) => `<div><dt>${name}</dt><dd>${value == null ? "Unavailable" : `${fmt(value, 5)} ${esc(gwp.unit)}`}</dd></div>`).join("") : "<div><dt>Retrieved values</dt><dd>Unavailable</dd></div>";
-  return `<details class="material-facts"><summary>${esc(material.name)} · ${esc(material.honeybee_id || "Honeybee ID unavailable")} · Boverket ${esc(material.boverket_id || "unmatched")}</summary><p class="muted">${esc(material.boverket_name || "No matched Boverket resource")} · ${esc(label(material.mapping_status || "unmatched"))}</p>${propertyRows ? `<h6>HBJSON thermal properties</h6><dl class="material-property-grid">${propertyRows}</dl>` : "<p class=\"muted\">HBJSON properties unavailable.</p>"}<h6>Boverket GWP · retrieved values</h6><dl class="material-property-grid">${gwpRows}</dl></details>`;
+  const gwp = material.gwp, reference = material.carbon_reference;
+  let sourceLabel, sourceDetails, carbonDetails;
+  if (reference) {
+    sourceLabel = `External carbon · ${reference.identifier}`;
+    const source = /^https?:\/\//i.test(reference.url || "")
+      ? `<a href="${esc(reference.url)}" target="_blank" rel="noopener noreferrer">${esc(reference.identifier)}</a>`
+      : esc(reference.identifier);
+    const notes = Array.isArray(reference.notes) ? reference.notes.join(" ") : reference.notes;
+    sourceDetails = `<p class="muted">${esc(reference.name)} · ${source}</p>${reference.proxy_for ? `<p><strong>Carbon proxy:</strong> ${esc(reference.proxy_for)}</p>` : ""}<p class="muted">Method: ${esc(reference.method)}${reference.declared_unit ? `<br>EPD declared unit: ${esc(reference.declared_unit)}; factors below are per ${esc(reference.unit)}.` : ""}</p>${notes ? `<p class="muted">${esc(notes)}</p>` : ""}`;
+    const moduleNames = { A1A3: "A1–A3 production", A4: "A4 transport", A5: "A5 installation" };
+    const modules = new Set(["A1A3", "A4", "A5", ...Object.keys(reference.modules)]);
+    const moduleRows = [...modules].map((module) => {
+      const value = reference.modules[module];
+      return `<div><dt>${esc(moduleNames[module] || module)}</dt><dd>${value == null ? "Not declared" : `${fmt(value, 5)} ${esc(gwp.unit)}`}</dd></div>`;
+    }).join("");
+    carbonDetails = `<h6>External carbon factors</h6><dl class="material-property-grid">${moduleRows}</dl>`;
+  } else {
+    const nonProduct = material.mapping_status === "non_product";
+    sourceLabel = nonProduct ? "Non-product material" : `Boverket ${material.boverket_id || "unmatched"}`;
+    sourceDetails = `<p class="muted">${esc(nonProduct ? "No product carbon source required" : material.boverket_name || "No matched Boverket resource")} · ${esc(label(material.mapping_status || "unmatched"))}</p>`;
+    const gwpRows = gwp ? [["A1–A3 typical", gwp.A1_A3_typical], ["A1–A3 conservative", gwp.A1_A3_conservative], ["A4 transport", gwp.A4_transport], ["A5.1", gwp.A5_conservative]].map(([name, value]) => `<div><dt>${name}</dt><dd>${value == null ? "Not declared" : `${fmt(value, 5)} ${esc(gwp.unit)}`}</dd></div>`).join("") : "<div><dt>Retrieved values</dt><dd>Unavailable</dd></div>";
+    carbonDetails = nonProduct ? "" : `<h6>Boverket GWP · retrieved values</h6><dl class="material-property-grid">${gwpRows}</dl>`;
+  }
+  return `<details class="material-facts"><summary>${esc(material.name)} · ${esc(material.honeybee_id || "Honeybee ID unavailable")} · ${esc(sourceLabel)}</summary>${sourceDetails}${propertyRows ? `<h6>HBJSON thermal properties</h6><dl class="material-property-grid">${propertyRows}</dl>` : "<p class=\"muted\">HBJSON properties unavailable.</p>"}${carbonDetails}</details>`;
 }
 function wholeWindowDefinition(assembly) {
   const props = assembly.material?.honeybee_properties || {};
@@ -321,7 +345,7 @@ function wholeWindowDefinition(assembly) {
 }
 function constructionDetails(construction, role, { full = false } = {}) {
   const entries = full ? Object.entries(construction).sort(([a], [b]) => {
-    const order = ["TOP_FLOOR", "EXT_WALL", "INTERMEDIATE_FLOOR", "GROUND_FLOOR", "BASEMENT_WALL", "BASEMENT_FLOOR", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING", "WINDOW"];
+    const order = ["TOP_FLOOR", "ROOF", "EXT_WALL", "INTERMEDIATE_FLOOR", "GROUND_FLOOR", "BASEMENT_WALL", "BASEMENT_FLOOR", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING", "WINDOW"];
     return order.indexOf(a) - order.indexOf(b);
   }) : (construction[role] ? [[role, construction[role]]] : []);
   if (!entries.length) return `<h4>${full ? "Full archetype" : "Selected construction"}</h4><p class="muted">${full ? "No detailed layer recipe is available." : `No layer recipe is available for ${esc(elementNames[role] || label(role))}.`}</p>`;
@@ -332,7 +356,7 @@ function constructionDetails(construction, role, { full = false } = {}) {
     const cavity = assembly.boundary_details?.facade_cavity;
     const cavityDetails = cavity ? `<p class="muted cavity-note">${cavity.ventilation === "sealed_existing_cavity_assumption" ? "Sealed existing cavity" : "Drained facade cavity"} · ${fmt(cavity.thickness_m * 1000, 0)} mm · section depth shown; no separate material record.</p>` : "";
     const windowMaterial = assembly.window ? materialDetails(assembly.material) : "";
-    return `<article class="construction-card"><h4>${esc(elementNames[entryRole] || label(entryRole))}${assembly.u_value != null ? ` <small>· U ${fmt(assembly.u_value, 3)} W/(m²·K)</small>` : ""}</h4><p class="muted">${esc(assembly.name)}${total ? ` · ${fmt(total, 0)} mm total` : ""}</p>${assembly.window ? `${wholeWindowDefinition(assembly)}${windowMaterial}` : `${sectionSvg(entryRole, assembly, `draw-${++drawingSequence}`)}<p class="muted layer-order-note">${["EXT_WALL", "BASEMENT_WALL", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING"].includes(entryRole) ? "Layer order: left to right · composites repeat five divisions." : "Layer order: from top to bottom · composites repeat five divisions."}</p>${cavityDetails}${list}`}</article>`;
+    return `<article class="construction-card"><h4>${esc(elementNames[entryRole] || label(entryRole))}${assembly.u_value != null ? ` <small>· U ${fmt(assembly.u_value, 3)} W/(m²·K)</small>` : ""}</h4><p class="muted">${esc(assembly.name)}${total ? ` · ${fmt(total, 0)} mm total` : ""}</p>${assembly.window ? `${wholeWindowDefinition(assembly)}${windowMaterial}` : `${sectionSvg(entryRole, assembly, `draw-${++drawingSequence}`)}<p class="muted layer-order-note">${["EXT_WALL", "BASEMENT_WALL", "INT_WALL_LOADBEARING", "INT_WALL_NONLOADBEARING"].includes(entryRole) ? "Layer order: left to right · composites repeat five divisions." : `Layer order: ${assembly.side_convention === "top_to_bottom" || (assembly.side_convention !== "bottom_to_top" && ["TOP_FLOOR", "ROOF"].includes(entryRole)) ? "top to bottom" : "bottom to top"} · composites repeat five divisions.`}</p>${cavityDetails}${list}`}</article>`;
   }).join("")}</section>`;
 }
 function closeArchetypeDialog() {

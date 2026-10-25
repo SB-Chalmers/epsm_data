@@ -1,0 +1,1355 @@
+{
+  "schema_version": 1,
+  "archetype_id": "sf_se05",
+  "category": "single_family",
+  "era": "SE.05",
+  "construction_year": 2000,
+  "purpose": "Independent late-era source benchmarks, declared nominal assembly dimensions and shared-definition preservation guards. Checks calculate forward and never repair a construction to fit U.",
+  "sources": {
+    "building_locator": "TABULA.xlsm#Tab.Building!A813,AA813:AD813,BD813,BF813,BI813,BK813",
+    "wall_construction_locator": "TABULA.xlsm#Tab.Building.Constr!A293:R293,AC293",
+    "ceiling_construction_locator": "TABULA.xlsm#Tab.Building.Constr!A315:R315,AC315",
+    "floor_construction_locator": "TABULA.xlsm#Tab.Building.Constr!A305:R305,AC305",
+    "scope": "Source stock means have no layer recipe. The selected timber/ceiling/slab recipe is a declared representative construction, with fixed existing thermal grades and no reverse U-value solving."
+  },
+  "u_value_relative_tolerance": 0.2,
+  "nominal_surface_resistance_m2k_w": 0.17,
+  "wall": {
+    "depths_outside_to_inside_m": [
+      0.012,
+      0.195,
+      0.07,
+      0.013
+    ],
+    "main_frame_layer_id": "layer:095b79ab53489338",
+    "inside_cross_frame_layer_id": "layer:02be60731d729b92",
+    "windboard_component_id": "component:ff4e1a017dcf6b84",
+    "timber_fraction_each_framed_layer": 0.15,
+    "standard_addition_component_id": "component:b1e5690ece16111d",
+    "advanced_addition_component_id": "component:804905e6373ffaf7",
+    "nominal_u_w_m2k": {
+      "existing": 0.18115722854652896,
+      "standard": 0.14149957234327634,
+      "advanced": 0.12779985641299532
+    },
+    "history_scope": "Bjerking R106:1978 pp39–40/Fig2222b supports the cross-framed mineral-wool/windboard/gypsum family from1965; it specifies50mm nominal cross-members, not this70mm selection. Use the same existing70mm nominal composite layer for both later eras as an explicit engineering default. No exact historical product or construction drawing is claimed.",
+    "dimension_context_url": "https://www.traguiden.se/konstruktion/konstruktionsexempel/vaggar/",
+    "dimension_context_scope": "Svenskt Trä guidance published2003 supports insulated inner framing dimensions45–70mm in its timber construction examples. This is later buildability context, not proof of the exact1988 wall or a substitute for the period family source.",
+    "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified",
+    "original_layers": [
+      {
+        "thickness_m": 0.012,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:622fee5beaa8a10c",
+            "area_fraction": 1.0,
+            "thickness_m": 0.012,
+            "thermal_properties": {
+              "conductivity": 0.07,
+              "density": 230,
+              "specific_heat": 2100
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.195,
+        "is_composite": true,
+        "materials": [
+          {
+            "material_id": "material:3035359c17bff54b",
+            "area_fraction": 0.15,
+            "thickness_m": 0.195,
+            "thermal_properties": {
+              "conductivity": 0.11991974932054163,
+              "density": 540.0012347040437,
+              "specific_heat": 1209.2198113776988
+            }
+          },
+          {
+            "material_id": "material:ab1fcd9a68303dc7",
+            "area_fraction": 0.85,
+            "thickness_m": 0.195,
+            "thermal_properties": {
+              "conductivity": 0.04,
+              "density": 29,
+              "specific_heat": 1030
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.07,
+        "is_composite": true,
+        "materials": [
+          {
+            "material_id": "material:3035359c17bff54b",
+            "area_fraction": 0.15,
+            "thickness_m": 0.07,
+            "thermal_properties": {
+              "conductivity": 0.11991974932054163,
+              "density": 540.0012347040437,
+              "specific_heat": 1209.2198113776988
+            }
+          },
+          {
+            "material_id": "material:ab1fcd9a68303dc7",
+            "area_fraction": 0.85,
+            "thickness_m": 0.07,
+            "thermal_properties": {
+              "conductivity": 0.04,
+              "density": 29,
+              "specific_heat": 1030
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.013,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:bde46592c24c2487",
+            "area_fraction": 1.0,
+            "thickness_m": 0.013,
+            "thermal_properties": {
+              "conductivity": 0.15989299909405463,
+              "density": 800.0018291911765,
+              "specific_heat": 1089.2971854559414
+            }
+          }
+        ]
+      }
+    ],
+    "renovation_panel_material_id": "material:3035359c17bff54b",
+    "renovation_panel_depth_m": 0.022,
+    "renovation_insulation_material_id": "material:a224c4024cbc6c40",
+    "renovation_insulation_lambda_w_mk": 0.033,
+    "states": {
+      "existing": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.2,
+            "SE.Zone2": 0.2,
+            "SE.Zone3": 0.2
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2676"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.001",
+        "source_variant_row": 2625,
+        "expected_u_w_m2k": 0.18115722854652896,
+        "added_insulation_m": 0
+      },
+      "standard": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15652173913043477,
+            "SE.Zone2": 0.15652173913043477,
+            "SE.Zone3": 0.15652173913043477
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2723"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.002",
+        "source_variant_row": 2630,
+        "expected_u_w_m2k": 0.14149957234327634,
+        "added_insulation_m": 0.045
+      },
+      "advanced": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.14029850746268657,
+            "SE.Zone2": 0.14029850746268657,
+            "SE.Zone3": 0.14029850746268657
+          },
+          "source_property": "envelope.wall_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HR2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HR2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HR2770"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.003",
+        "source_variant_row": 2635,
+        "expected_u_w_m2k": 0.12779985641299532,
+        "added_insulation_m": 0.07
+      }
+    }
+  },
+  "attic": {
+    "depths_outside_to_inside_m": [
+      0.1,
+      0.2,
+      0.022,
+      0.013
+    ],
+    "continuous_original_wool_m": 0.1,
+    "framed_depth_m": 0.2,
+    "joist_width_m": 0.075,
+    "joist_centres_m": 1.2,
+    "timber_fraction": 0.0625,
+    "nominal_u_w_m2k": {
+      "existing": 0.13550685850939562,
+      "standard": 0.07821601366294413,
+      "advanced": 0.04786243085805985
+    },
+    "scope": "Both later eras use the same300mm nominal original ceiling (200mm framed+100mm continuous) with unchanged historic wool. This is a declared completion default in the documented over-joist family. Geometry follows the accepted75/c1200 family;15% is replaced by the stated field-framing geometry, not tuned separately by era. Bjerkingp43 illustrates c600, so adopted spacing/depths remain explicit engineering defaults.",
+    "period_context": "Energimyndigheten ET2009:19 p11 gives1986–2004 approximate original atticU.15 and wallU.20; these provide context, not layer prescriptions or changed acceptance targets.",
+    "standard_addition_component_id": "component:67a9e0724a681f18",
+    "advanced_addition_component_id": "component:c2126357402a00ec",
+    "original_layers": [
+      {
+        "thickness_m": 0.1,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:ab1fcd9a68303dc7",
+            "area_fraction": 1.0,
+            "thickness_m": 0.1,
+            "thermal_properties": {
+              "conductivity": 0.04,
+              "density": 29,
+              "specific_heat": 1030
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.2,
+        "is_composite": true,
+        "materials": [
+          {
+            "material_id": "material:3035359c17bff54b",
+            "area_fraction": 0.0625,
+            "thickness_m": 0.2,
+            "thermal_properties": {
+              "conductivity": 0.11991974932054163,
+              "density": 540.0012347040437,
+              "specific_heat": 1209.2198113776988
+            }
+          },
+          {
+            "material_id": "material:ab1fcd9a68303dc7",
+            "area_fraction": 0.9375,
+            "thickness_m": 0.2,
+            "thermal_properties": {
+              "conductivity": 0.04,
+              "density": 29,
+              "specific_heat": 1030
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.022,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:3035359c17bff54b",
+            "area_fraction": 1.0,
+            "thickness_m": 0.022,
+            "thermal_properties": {
+              "conductivity": 0.11991974932054163,
+              "density": 540.0012347040437,
+              "specific_heat": 1209.2198113776988
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.013,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:bde46592c24c2487",
+            "area_fraction": 1.0,
+            "thickness_m": 0.013,
+            "thermal_properties": {
+              "conductivity": 0.15989299909405463,
+              "density": 800.0018291911765,
+              "specific_heat": 1089.2971854559414
+            }
+          }
+        ]
+      }
+    ],
+    "renovation_insulation_material_id": "material:27e5e8c65dde5e1f",
+    "renovation_insulation_lambda_w_mk": 0.037,
+    "renovation_carbon_reference_id": "EPD-IES-0013025:003",
+    "states": {
+      "existing": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.12,
+            "SE.Zone2": 0.12,
+            "SE.Zone3": 0.12
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2676"
+          }
+        },
+        "expected_u_w_m2k": 0.13550685850939562,
+        "added_insulation_m": 0
+      },
+      "standard": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.07278688524590164,
+            "SE.Zone2": 0.07278688524590164,
+            "SE.Zone3": 0.07278688524590164
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2723"
+          }
+        },
+        "expected_u_w_m2k": 0.07821601366294413,
+        "added_insulation_m": 0.2
+      },
+      "advanced": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.045773195876288655,
+            "SE.Zone2": 0.045773195876288655,
+            "SE.Zone3": 0.045773195876288655
+          },
+          "source_property": "envelope.roof_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HP2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HP2770"
+          }
+        },
+        "expected_u_w_m2k": 0.04786243085805985,
+        "added_insulation_m": 0.5
+      }
+    }
+  },
+  "floor": {
+    "baseline_depths_outside_to_inside_m": [
+      0.15,
+      0.12,
+      0.04
+    ],
+    "retained_under_slab_eps_m": 0.15,
+    "retained_concrete_m": 0.12,
+    "bonded_finish_component_id": "component:192a5aaf4824534e",
+    "floating_finish_component_id": "component:51a4bcd2ee5b9126",
+    "renovation_eps_m": {
+      "standard": 0.04,
+      "advanced": 0.045
+    },
+    "new_floating_finish_m": 0.05,
+    "scope": "Preserve nominal original EPS/slab; replace10mm timber finish with40mm bonded mineral finish. Renovations retain the original and add source40/45mm warm-side EPS plus50mm floating finish. Project moisture/load/height/ground geometry inputs remain; no nominal-U pass against effective ground U.",
+    "baseline_layers": [
+      {
+        "thickness_m": 0.15,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:f1cfc49793192104",
+            "area_fraction": 1.0,
+            "thickness_m": 0.15,
+            "thermal_properties": {
+              "conductivity": 0.037,
+              "density": 20,
+              "specific_heat": 1209.2198113776988
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.12,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:3b9cb95202f2163a",
+            "area_fraction": 1.0,
+            "thickness_m": 0.12,
+            "thermal_properties": {
+              "conductivity": 2.3089016425031033,
+              "density": 2322.006775596,
+              "specific_heat": 832.0199665271966
+            }
+          }
+        ]
+      },
+      {
+        "thickness_m": 0.04,
+        "is_composite": false,
+        "materials": [
+          {
+            "material_id": "material:1bd0a6d16b766b3a",
+            "area_fraction": 1.0,
+            "thickness_m": 0.04,
+            "thermal_properties": {
+              "conductivity": 1.95,
+              "density": 2240.0,
+              "specific_heat": 900.0
+            }
+          }
+        ]
+      }
+    ],
+    "new_eps_material_id": "material:a72ef018595b5849",
+    "new_eps_lambda_w_mk": 0.036,
+    "finish_material_id": "material:1bd0a6d16b766b3a",
+    "states": {
+      "existing": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.18,
+            "SE.Zone2": 0.18,
+            "SE.Zone3": 0.18
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2676"
+          }
+        },
+        "added_insulation_m": 0
+      },
+      "standard": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.15000000000000002,
+            "SE.Zone2": 0.15000000000000002,
+            "SE.Zone3": 0.15000000000000002
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2723"
+          }
+        },
+        "added_insulation_m": 0.04
+      },
+      "advanced": {
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.1469387755102041,
+            "SE.Zone2": 0.1469387755102041,
+            "SE.Zone3": 0.1469387755102041
+          },
+          "source_property": "envelope.floor_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HU2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HU2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HU2770"
+          }
+        },
+        "added_insulation_m": 0.045
+      }
+    },
+    "retained_original_layer_ids": [
+      "layer:21f805ee8d600f18",
+      "layer:7b12d3ea3df2fa36"
+    ],
+    "prior_baseline_component_id": "component:982587b42ba3f295"
+  },
+  "window": {
+    "selection": "Retain existing baseline and standard definitions; advanced reuses the accepted TABULA replacement. Original nominal optics remain an EPSM lumped assumption rather than a claim to reproduce TABULA glazing g and frame separately.",
+    "states": {
+      "existing": {
+        "element_id": "element:985a1262e68eba08",
+        "material_id": "window:6eca2ecf1da45804",
+        "honeybee_id": "EPSM_window_lod2_mf_se05_existing",
+        "boverket_id": "6000000104",
+        "properties": {
+          "shgc": 0.7,
+          "u_value": 1.8,
+          "vt": 0.75
+        },
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 1.8700000000000003,
+            "SE.Zone2": 1.8700000000000003,
+            "SE.Zone3": 1.8700000000000003
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.001",
+            "SFH.05.Gen.ReEx.002.001"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2696",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2686",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2676"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.001"
+      },
+      "standard": {
+        "element_id": "element:310146bffcb423bf",
+        "material_id": "window:2a97a2809618c594",
+        "honeybee_id": "EPSM_tabula_mf_window_standard",
+        "boverket_id": "6000000104",
+        "properties": {
+          "shgc": 0.35,
+          "u_value": 0.9,
+          "vt": 0.455
+        },
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.8999999999999999,
+            "SE.Zone2": 0.8999999999999999,
+            "SE.Zone3": 0.8999999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.002",
+            "SFH.05.Gen.ReEx.002.002"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2743",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2733",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2723"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.002"
+      },
+      "advanced": {
+        "element_id": "element:84b4a3b3e472e6c2",
+        "material_id": "window:a89c0fe5b1650304",
+        "honeybee_id": "EPSM_tabula_mf_window_advanced",
+        "boverket_id": "6000000106",
+        "properties": {
+          "shgc": 0.42,
+          "u_value": 0.76,
+          "vt": 0.42
+        },
+        "tabula": {
+          "values_w_m2k": {
+            "SE.Zone1": 0.7599999999999999,
+            "SE.Zone2": 0.7599999999999999,
+            "SE.Zone3": 0.7599999999999999
+          },
+          "source_property": "envelope.window_1.u_value_w_m2k",
+          "source_variants": [
+            "SFH.05.Gen.ReEx.001.003",
+            "SFH.05.Gen.ReEx.002.003"
+          ],
+          "source_locators": {
+            "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HW2790",
+            "SE.Zone2": "TABULA.xlsm#'Calc.Building.Set'!HW2780",
+            "SE.Zone3": "TABULA.xlsm#'Calc.Building.Set'!HW2770"
+          }
+        },
+        "source_variant": "SE.N.SFH.05.Gen.ReEx.001.003"
+      }
+    }
+  },
+  "preservation": {
+    "school_archetype_id": "school_se05",
+    "school_states": {
+      "advanced": {
+        "EXT_WALL": {
+          "element_id": "element:4bc10e39f4e042c8",
+          "layers": [
+            {
+              "thickness_m": 0.2,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:a224c4024cbc6c40",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.033,
+                    "density": 80,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.195,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "TOP_FLOOR": {
+          "element_id": "element:6cdf47e452dd5814",
+          "layers": [
+            {
+              "thickness_m": 0.2,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:d479d6d7f0424d78",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.042,
+                    "density": 28,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.1,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.1,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.2,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.022,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.022,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "GROUND_FLOOR": {
+          "element_id": "element:bc44222b126c4158",
+          "layers": [
+            {
+              "thickness_m": 0.15,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:f1cfc49793192104",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.15,
+                  "thermal_properties": {
+                    "conductivity": 0.037,
+                    "density": 20,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.12,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3b9cb95202f2163a",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.12,
+                  "thermal_properties": {
+                    "conductivity": 2.3089016425031033,
+                    "density": 2322.006775596,
+                    "specific_heat": 832.0199665271966
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.01,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.01,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "existing": {
+        "EXT_WALL": {
+          "element_id": "element:3b3f1d132cd62c8e",
+          "layers": [
+            {
+              "thickness_m": 0.195,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "TOP_FLOOR": {
+          "element_id": "element:37d866c47536eccc",
+          "layers": [
+            {
+              "thickness_m": 0.1,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.1,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.2,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.022,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.022,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "GROUND_FLOOR": {
+          "element_id": "element:bc44222b126c4158",
+          "layers": [
+            {
+              "thickness_m": 0.15,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:f1cfc49793192104",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.15,
+                  "thermal_properties": {
+                    "conductivity": 0.037,
+                    "density": 20,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.12,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3b9cb95202f2163a",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.12,
+                  "thermal_properties": {
+                    "conductivity": 2.3089016425031033,
+                    "density": 2322.006775596,
+                    "specific_heat": 832.0199665271966
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.01,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.01,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "standard": {
+        "EXT_WALL": {
+          "element_id": "element:5ee6828a92338f58",
+          "layers": [
+            {
+              "thickness_m": 0.1,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:a224c4024cbc6c40",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.1,
+                  "thermal_properties": {
+                    "conductivity": 0.033,
+                    "density": 80,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.195,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.195,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "TOP_FLOOR": {
+          "element_id": "element:bf38c49f635edc56",
+          "layers": [
+            {
+              "thickness_m": 0.15,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:d479d6d7f0424d78",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.15,
+                  "thermal_properties": {
+                    "conductivity": 0.042,
+                    "density": 28,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.1,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.1,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.2,
+              "is_composite": true,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 0.15,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                },
+                {
+                  "material_id": "material:ab1fcd9a68303dc7",
+                  "area_fraction": 0.85,
+                  "thickness_m": 0.2,
+                  "thermal_properties": {
+                    "conductivity": 0.04,
+                    "density": 29,
+                    "specific_heat": 1030
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.022,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.022,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.013,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:bde46592c24c2487",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.013,
+                  "thermal_properties": {
+                    "conductivity": 0.15989299909405463,
+                    "density": 800.0018291911765,
+                    "specific_heat": 1089.2971854559414
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "GROUND_FLOOR": {
+          "element_id": "element:bc44222b126c4158",
+          "layers": [
+            {
+              "thickness_m": 0.15,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:f1cfc49793192104",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.15,
+                  "thermal_properties": {
+                    "conductivity": 0.037,
+                    "density": 20,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.12,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3b9cb95202f2163a",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.12,
+                  "thermal_properties": {
+                    "conductivity": 2.3089016425031033,
+                    "density": 2322.006775596,
+                    "specific_heat": 832.0199665271966
+                  }
+                }
+              ]
+            },
+            {
+              "thickness_m": 0.01,
+              "is_composite": false,
+              "materials": [
+                {
+                  "material_id": "material:3035359c17bff54b",
+                  "area_fraction": 1.0,
+                  "thickness_m": 0.01,
+                  "thermal_properties": {
+                    "conductivity": 0.11991974932054163,
+                    "density": 540.0012347040437,
+                    "specific_heat": 1209.2198113776988
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "material_records": {
+      "material:1bd0a6d16b766b3a": {
+        "honeybee_id": "Generic HW Concrete",
+        "boverket_id": "6000000029",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 1.95,
+          "density": 2240.0,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.8,
+          "specific_heat": 900.0,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.8
+        }
+      },
+      "material:27e5e8c65dde5e1f": {
+        "honeybee_id": "EPSM_open_attic_glass_wool_lambda037",
+        "boverket_id": null,
+        "carbon_reference_id": "EPD-IES-0013025:003",
+        "properties": {
+          "conductivity": 0.037,
+          "density": 20,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.7,
+          "specific_heat": 1030,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.7
+        }
+      },
+      "material:3035359c17bff54b": {
+        "honeybee_id": "Std Wood 6 in.",
+        "boverket_id": "6000000007",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.11991974932054163,
+          "density": 540.0012347040437,
+          "roughness": "MediumSmooth",
+          "solar_absorptance": 0.7,
+          "specific_heat": 1209.2198113776988,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.7
+        }
+      },
+      "material:3b9cb95202f2163a": {
+        "honeybee_id": "100mm Normalweight concrete floor",
+        "boverket_id": "6000000029",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 2.3089016425031033,
+          "density": 2322.006775596,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.7,
+          "specific_heat": 832.0199665271966,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.7
+        }
+      },
+      "material:622fee5beaa8a10c": {
+        "honeybee_id": "EPSM_woodfiber_board",
+        "boverket_id": null,
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.07,
+          "density": 230,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.65,
+          "specific_heat": 2100,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.65
+        }
+      },
+      "material:a224c4024cbc6c40": {
+        "honeybee_id": "EPSM_facade_stone_wool",
+        "boverket_id": "6000000125",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.033,
+          "density": 80,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.7,
+          "specific_heat": 1030,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.7
+        }
+      },
+      "material:a72ef018595b5849": {
+        "honeybee_id": "EPSM_floor_eps100_lambda036",
+        "boverket_id": "6000000131",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.036,
+          "density": 20,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.6,
+          "specific_heat": 1209.2198113776988,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.6
+        }
+      },
+      "material:ab1fcd9a68303dc7": {
+        "honeybee_id": "EPSM_sf_historic_mineral_wool",
+        "boverket_id": "6000000123",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.04,
+          "density": 29,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.5,
+          "specific_heat": 1030,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.5
+        }
+      },
+      "material:bde46592c24c2487": {
+        "honeybee_id": "5/8 in. Gypsum Board",
+        "boverket_id": "6000000020",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.15989299909405463,
+          "density": 800.0018291911765,
+          "roughness": "MediumSmooth",
+          "solar_absorptance": 0.7,
+          "specific_heat": 1089.2971854559414,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.7
+        }
+      },
+      "material:f1cfc49793192104": {
+        "honeybee_id": "EPSM_cellular_plastic",
+        "boverket_id": "6000000131",
+        "carbon_reference_id": null,
+        "properties": {
+          "conductivity": 0.037,
+          "density": 20,
+          "roughness": "MediumRough",
+          "solar_absorptance": 0.6,
+          "specific_heat": 1209.2198113776988,
+          "thermal_absorptance": 0.9,
+          "visible_absorptance": 0.6
+        }
+      }
+    }
+  },
+  "limits": [
+    "Original facade cladding,battens and cavity quantities remain project inputs; windboard thermal proxy/asphalt content and retained-stock carbon are not exact historic products.",
+    "All thermal material/source records and all benchmark values/tolerances remain unchanged.",
+    "No actual individual building or structural/fire/moisture certification is claimed."
+  ]
+}

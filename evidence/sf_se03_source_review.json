@@ -1,0 +1,146 @@
+{
+  "archetype_id": "sf_se03",
+  "representative_year": 1978,
+  "scope": "Representative new construction in 1976–1985, retained by both renovation states. It is a nominal period model with declared normal-use defaults, not a verified individual building. Material grades and source records remain unchanged.",
+  "tabula": {
+    "workbook_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "workbook_sha256": "4577a3dd37fb30eb6695623bffe9a7a140fbbd3398413b6cb6dcf3c2127685c1",
+    "brochure_url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf",
+    "brochure_printed_pages_by_zone": {
+      "SE.Zone1": [
+        72
+      ],
+      "SE.Zone2": [
+        42
+      ],
+      "SE.Zone3": [
+        12
+      ]
+    },
+    "source_locators": [
+      "Tab.Building!AA811:AD811,BD811,BF811,BI811,BK811",
+      "Tab.Building.Constr!A289:R289,AC289",
+      "Calc.Building.Set!CA2628,CA2633,CD2628,CD2633,CF2628,CF2633"
+    ],
+    "source_meaning": "Original envelope references are BETSI stock means with no complete layer recipe. The brochure illustrates an AAC wall without specifying a thickness or grade; this catalogue uses an independently period-supported timber variant. 1978 is an EPSM representative year within the source era, not a TABULA construction date."
+  },
+  "wall": {
+    "period_source_url": "https://gupea.ub.gu.se/server/api/core/bitstreams/b2c787b2-54f6-4147-b0e1-b5b9eb881a00/content",
+    "period_locator": "Bjerking R106:1978, printed pp.39–40, Fig.2222b",
+    "source_supported_family": "From 1965: main vertical timber framing plus an insulated horizontal inner cross-frame, external wind sheathing, internal board/gypsum and vapour control. The drawing specifies a four-inch main frame and a two-inch cross-member; it does not establish the retained 145 mm main-frame depth.",
+    "declared_defaults": {
+      "retained_main_frame_depth_m": 0.145,
+      "inside_cross_frame_depth_m": 0.05,
+      "windboard_depth_m": 0.012,
+      "gypsum_depth_m": 0.013,
+      "timber_fraction_each_framed_layer": 0.15,
+      "retained_wool_lambda_w_mk": 0.04,
+      "facade_wool_lambda_w_mk": 0.033,
+      "renovation_panel_depth_m": 0.022
+    },
+    "nominal_choice": "Retain the existing 145 mm late-period main frame and 13 mm gypsum. Reuse the accepted 50 mm nominal inner cross-frame and 12 mm porous wood-fibre windboard. The existing 15% whole-wall framing allowance and all material thermal properties are unchanged.",
+    "period_plausibility": {
+      "url": "https://www.solleftea.se/download/18.499760a71853e28aa2aac3a/1644584957117/att_tillaggsisolera_hus-fakta_fordelar_och_fallgropar.pdf",
+      "locator": "Energimyndigheten ET2009:19, printed p.11",
+      "original_1976_1985_u_w_m2k": 0.25,
+      "scope": "Approximate independent era mean, not a layer prescription or acceptance target."
+    },
+    "renovation": "Reuse shared 22 mm timber panel plus 45/70 mm facade-wool additions outside all retained original nominal core layers. TABULA prescribes the added thickness and panelled finish; grade and panel depth are explicit EPSM defaults.",
+    "forward_nominal_u_w_m2k": {
+      "existing": 0.23960123215898946,
+      "standard": 0.17480397752928847,
+      "advanced": 0.1543622132448733
+    },
+    "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified",
+    "remaining_limits": "Original cladding, battens and ventilation cavity remain unquantified project details. Thin air/vapour controls, fasteners, interfaces and moisture design are project requirements. The generic windboard thermal grade does not establish asphalt content or full weather performance; its retained-stock carbon factors remain unknown."
+  },
+  "attic": {
+    "period_source_locators": {
+      "tabula": "TABULA.xlsm#'Tab.Building'!BD811,BN811,CJ811; 'Tab.Building.Constr'!I311:R311,AC311. The roof code is SE.Ceiling.ReEx.03.01, a synthetic BETSI average for 1976–1985, not a physical layer recipe. Tab.Building!V811 is blank; 1978 is an EPSM representative year.",
+      "period_context": {
+        "url": "https://www.solleftea.se/download/18.499760a71853e28aa2aac3a/1644584957117/att_tillaggsisolera_hus-fakta_fordelar_och_fallgropar.pdf",
+        "locator": "Energimyndigheten ET2009:19, printed p.11 / PDF index10, right-hand table: 1976–1985 original attic mean U0.18. The separate 1955-onwards drawing gives 100–180mm mineral wool and c/c1200, not a post-1975 depth prescription. Example U-values use an older calculation convention."
+      },
+      "period_arrangement": {
+        "url": "https://gupea.ub.gu.se/server/api/core/bitstreams/b2c787b2-54f6-4147-b0e1-b5b9eb881a00/content",
+        "locator": "Bjerking R106:1978, printed p.43 / PDF index43, Figure2234 (1965 onwards): mineral-wool boards between joists, continuous mineral-wool mat above, underpanel and gypsum/wood-fibre lining. The drawing states c/c600 and joists up to3x9 inches; it does not specify the mat depths selected here."
+      }
+    },
+    "declared_defaults": {
+      "nominal_surface_resistance_m2k_w": 0.17,
+      "u_value_relative_tolerance": 0.2,
+      "selection": "Representative 1978 ceiling: retain the former nominal200mm framed depth and existing mineral-wool grade; add50mm continuous original wool following the documented over-joist arrangement. The total250mm is an explicit EPSM completion default, not a layer recipe recovered from TABULA or the ET2009:19 100–180mm illustration. The ET1976–1985 meanU0.18 is broad period-performance context, not a target used to solve a layer depth.",
+      "geometry": "Nominal75mm joist width at 1200 mm centres gives6.25% timber, reusing the declared regular-framing family selected for SFSE02. Width, spacing and50mm continuous depth are engineering defaults for this representative ceiling. The period detail supporting the over-joist arrangement uses c/c600, so its framing dimensions are not claimed as the adopted recipe. Joist sizing, supports, spans, connectors and structural verification remain project details.",
+      "materials": "Historic wool conductivity0.04W/(mK), density29kg/m³ and specific heat1030J/(kgK), and the shared softwood and lining properties are unchanged. The renovation states retain all original layers and add the accepted 200/500 mm loose wool at conductivity0.037W/(mK). Thin air/vapour control and wind protection, ventilation and moisture design remain project details; this nominal model does not certify code compliance."
+    },
+    "nominal_recipe": "Retain the existing 200 mm main ceiling depth but use a 75 mm joist-width default at 1200 mm centres (6.25% timber), with 50 mm continuous mineral wool above it. Retain 22 mm timber underboard and 13 mm gypsum. Total nominal original wool depth 250 mm.",
+    "source_scope": "The period source supports insulation between framing plus a continuous mat above. Exact 200+50 mm depths and 75/c1200 framing are declared engineering defaults, not recovered TABULA dimensions. Earlier 100–180 mm examples are not treated as the 1976–85 depth prescription.",
+    "renovation": "Retain the original ceiling and reuse accepted 200/500 mm loose-wool additions. The existing matching Supafil EPD reference remains; its retained source capture is in evidence/sf_se02_source_review.json#/carbon_review/loft_epd.",
+    "forward_nominal_u_w_m2k": {
+      "existing": 0.16314011392854877,
+      "standard": 0.08669188027834035,
+      "advanced": 0.050908166613895016
+    }
+  },
+  "floor": {
+    "source": {
+      "construction_code": "SE.Floor.ReEx.03.01",
+      "description": "platta på mark",
+      "construction_locator": "TABULA.xlsm#Tab.Building.Constr!A301:R301",
+      "input_u_w_m2k": 0.27,
+      "input_u_locator": "TABULA.xlsm#Tab.Building.Constr!R301",
+      "u_basis": "BETSI area-weighted stock average including soil heat transfer under ISO 13370:2007(E), not material-only resistance; the underlying statistic includes at-grade slabs and basement ground floors.",
+      "betsi_locators": [
+        "BETSI Energi i bebyggelsen (2010), printed p.17, U-value calculation assumptions",
+        "BETSI Energi i bebyggelsen (2010), printed pp.19–20, slab/basement-floor population and geometry assumptions",
+        "BETSI Energi i bebyggelsen (2010), printed p.166, Appendix 2, Table 8, SF 1976–1985"
+      ],
+      "placement_locator": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=14",
+      "placement_scope": "Brochure illustration places added insulation above the existing slab. It does not prescribe the EPSM concrete finish, its exact thickness or a complete moisture-safe floor system.",
+      "link_locator": "TABULA.xlsm#Tab.Building!BI811",
+      "source_recipe_scope": "TABULA supplies a synthetic BETSI average and no original material recipe; Tab.Building.Constr!AC301 explicitly records that limitation."
+    },
+    "baseline": "Retain the user P04 nominal 70 mm under-slab EPS and 120 mm concrete; replace the 10 mm timber finish with a 40 mm bonded mineral cement finish. All depths and finish choice are explicit representative defaults.",
+    "chronology_scope": "Modin and Sundberg (2012), EPS i grund, printed p.6 (PDF page 16), reports compressed mineral-wool under-slab boards as dominant in the 1970s with occasional EPS/XPS substitution. EPS below a 1978 slab is plausible but not asserted to be the majority practice. The 70 mm depth is the retained user P04 default. TABULA has no exact building year (Tab.Building!V811 blank); 1978 is a declared representative year within 1976–1985.",
+    "renovation": "Reuse warm-side 40/45 mm EPS at lambda 0.036 plus 50 mm floating mineral cement finish. Retain all original layers; floor rise 90/95 mm.",
+    "finish_scope": "Shared Generic HW Concrete is a thermal/concrete-family carbon proxy, not an exact proprietary screed. Reinforcement, load distribution, moisture, separation and clearances remain project inputs.",
+    "boundary": "Soil-facing slab on ground. Source effective ground U includes soil heat transfer and stock geometry; nominal material-layer U cannot be accepted directly against it. Project geometry, soil and ground method remain unresolved inputs."
+  },
+  "windows": {
+    "existing": {
+      "u_value": 2.01,
+      "shgc": 0.49,
+      "vt": 0.525,
+      "selection": "Retain accepted original whole-window default.",
+      "source_locators": {
+        "u_value": "TABULA.xlsm#Calc.Building.Set!AT2623",
+        "glazing_g": "TABULA.xlsm#Calc.Building.Set!AW2623",
+        "frame_fraction": "TABULA.xlsm#Calc.Building.Set!GS2623"
+      }
+    },
+    "standard": {
+      "u_value": 0.9,
+      "shgc": 0.35,
+      "vt": 0.455,
+      "selection": "Retain accepted shared standard replacement.",
+      "source_locators": {
+        "u_value": "TABULA.xlsm#Calc.Building.Set!HW2628",
+        "glazing_g": "TABULA.xlsm#Calc.Building.Set!EY2628",
+        "frame_fraction": "TABULA.xlsm#Calc.Building.Set!GS2628"
+      }
+    },
+    "advanced": {
+      "u_value": 0.76,
+      "shgc": 0.42,
+      "vt": 0.42,
+      "selection": "Reuse the accepted shared TABULA advanced replacement.",
+      "source_locators": {
+        "u_value": "TABULA.xlsm#Calc.Building.Set!HW2633",
+        "glazing_g": "TABULA.xlsm#Calc.Building.Set!EY2633",
+        "frame_fraction": "TABULA.xlsm#Calc.Building.Set!GS2633"
+      }
+    }
+  },
+  "window_scope": "Original glazing g 0.70 and frame fraction 0.30 give whole-aperture SHGC 0.49; glazing VT 0.75 is an EPSM default giving aperture VT 0.525. Renovation optics follow source g and the same frame convention. Boverket window IDs remain declared modern family proxies.",
+  "verification": "Organized independent cases/sf_se03.json controls source values and declared geometry. Fixed TABULA benchmark tables and 20% tolerance remain unchanged; all physical checks calculate forward. Shared-definition guards retain school SE03 assignments and thermal properties. Unknown carbon modules and project inputs remain visible."
+}

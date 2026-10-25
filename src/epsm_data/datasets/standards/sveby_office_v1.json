@@ -2,6 +2,7 @@
   "schema_version": 1,
   "building_use": "office",
   "profile_id": "sveby.office.v1.0.2012-10-10",
+  "area_basis": "Atemp",
   "source_uri": "https://www.sveby.org/wp-content/uploads/2012/10/Sveby_Brukarindata_kontor_version_1.0.pdf",
   "source_sha256": "471f143f7e33f9ba8a4d934906c0a8c656a4bffe744097e79a09fcb5e499793d",
   "reference_active_days": 225,

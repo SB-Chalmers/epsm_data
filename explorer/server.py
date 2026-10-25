@@ -117,10 +117,7 @@ def validate_note(payload, catalogue, *, existing=False):
     cell = next((c for c in catalogue["cells"] if c["id"] == payload["cell_id"]), None)
     if cell is None:
         raise ValueError("Unknown archetype cell")
-    candidates = [(cell["package_id"], cell["revision"])] + [
-        (c["id"], c["revision"]) for c in cell["alternatives"]
-    ]
-    if (payload["package_id"], payload["revision"]) not in candidates:
+    if (payload["package_id"], payload["revision"]) != (cell["package_id"], cell["revision"]):
         raise ValueError("Package is not assigned to this archetype cell")
     if payload["release_id"] != catalogue["manifest"]["release_id"]:
         raise ValueError("Catalogue release changed. Reload before saving")

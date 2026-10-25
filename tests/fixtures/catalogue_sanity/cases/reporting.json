@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "purpose": "Small deliberate authoring mistakes with independently specified expected rule outcomes; these are not generated from the catalogue being checked.",
+  "cases": [
+    {
+      "name": "dangling_shared_honeybee_reference",
+      "section": "materials",
+      "identifier": "material:4857e866ed223064",
+      "changes": {
+        "honeybee_id": "missing-honeybee-record"
+      },
+      "expected_rule": "reference.dangling",
+      "expected_severity": "error",
+      "expected_users": [
+        "office_se01",
+        "school_se01"
+      ],
+      "expected_states": [
+        "existing",
+        "standard",
+        "advanced"
+      ]
+    },
+    {
+      "name": "empty_shared_material_name",
+      "section": "materials",
+      "identifier": "material:4857e866ed223064",
+      "changes": {
+        "name": ""
+      },
+      "expected_rule": "material.name",
+      "expected_severity": "error",
+      "expected_users": [
+        "office_se01",
+        "school_se01"
+      ],
+      "expected_states": [
+        "existing",
+        "standard",
+        "advanced"
+      ]
+    }
+  ],
+  "source_module_placeholder": {
+    "source_id": "EPD-IES-0005222:003",
+    "known_production_kgco2e_per_kg": 0.002,
+    "missing_modules": [
+      "A4",
+      "A5"
+    ],
+    "expected_users": [
+      "office_se01",
+      "school_se01"
+    ]
+  },
+  "residential_wall_reference_errors": [],
+  "residential_wall_reference_passes": [
+    {
+      "archetype_id": "mf_se01",
+      "state": "existing",
+      "expected_u_w_m2k": 0.58,
+      "actual_u_w_m2k": 0.6833365653220981
+    },
+    {
+      "archetype_id": "mf_se01",
+      "state": "standard",
+      "expected_u_w_m2k": 0.29075773227198154,
+      "actual_u_w_m2k": 0.31460794918224844
+    },
+    {
+      "archetype_id": "mf_se01",
+      "state": "advanced",
+      "expected_u_w_m2k": 0.09078490523080428,
+      "actual_u_w_m2k": 0.0929859160995593
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "existing",
+      "expected_u_w_m2k": 0.6,
+      "actual_u_w_m2k": 0.6833365653220981
+    },
+    {
+      "archetype_id": "sf_se02",
+      "state": "existing",
+      "expected_u_w_m2k": 0.31,
+      "actual_u_w_m2k": 0.30229597574081146
+    },
+    {
+      "archetype_id": "sf_se03",
+      "state": "existing",
+      "expected_u_w_m2k": 0.21,
+      "actual_u_w_m2k": 0.23960123215898946
+    },
+    {
+      "archetype_id": "sf_se04",
+      "state": "existing",
+      "expected_u_w_m2k": 0.17,
+      "actual_u_w_m2k": 0.19844473963234524
+    },
+    {
+      "archetype_id": "sf_se05",
+      "state": "existing",
+      "expected_u_w_m2k": 0.2,
+      "actual_u_w_m2k": 0.18115722854652896
+    }
+  ],
+  "ground_project_limitations": {
+    "rule_id": "ground.project_inputs",
+    "severity": "review",
+    "authored_configuration_count": 76,
+    "authored_family_count": 28,
+    "climate_zones_per_configuration": 3,
+    "required_project_inputs": [
+      "ground_contact_geometry_area_perimeter_and_burial_depth",
+      "soil_properties",
+      "ground_boundary_method_and_assumptions"
+    ],
+    "unresolved_definition_rule": "construction.ground_definition",
+    "unresolved_definition_severity": "missing",
+    "reference_mapping_status": "reference_mapping_not_assessed",
+    "comparison_is_pass": false
+  },
+  "residential_wall_deviation_probe": {
+    "archetype_id": "sf_se01",
+    "state": "existing",
+    "role": "EXT_WALL",
+    "material_id": "material:596c3826b8c18ab7",
+    "accepted_layer_depth_m": 0.25,
+    "deliberate_layer_depth_m": 0.05,
+    "expected_rule": "tabula.u_value",
+    "expected_severity": "error",
+    "source_u_w_m2k": 0.6,
+    "scope": "Deliberate copy-only layer change exercises deviation reporting after the accepted residential catalogue no longer contains a known wall failure. No source target, tolerance or accepted catalogue record changes."
+  }
+}

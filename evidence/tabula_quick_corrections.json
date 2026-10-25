@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "scope": "Simple source-prescribed corrections beyond MF SE.01; no benchmark or tolerance changes.",
+  "source_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+  "thermal_top": {
+    "archetypes": [
+      "sf_se01",
+      "sf_se02",
+      "sf_se03",
+      "sf_se04",
+      "sf_se05",
+      "mf_se02",
+      "mf_se03",
+      "mf_se04",
+      "mf_se05"
+    ],
+    "source_locators": [
+      "Tab.Building.Measure!P236:Q236",
+      "Tab.Building.Measure!P242:Q242"
+    ],
+    "standard_added_m": 0.2,
+    "advanced_added_m": 0.5,
+    "conductivity_w_mk": 0.037,
+    "method": "Reuse accepted MF SE.01 loft components above each unchanged original cold-attic ceiling; retain weather roof and declared settlement/deep-fill limitations."
+  },
+  "mf_walls": {
+    "archetypes": [
+      "mf_se02",
+      "mf_se03",
+      "mf_se04",
+      "mf_se05"
+    ],
+    "source_locators": [
+      "Calc.Building.Set!CA2642:CA2645",
+      "Calc.Building.Set!CA2647:CA2650",
+      "Tab.Building.Measure!P221:T221",
+      "Tab.Building.Measure!P226:T226"
+    ],
+    "standard_added_insulation_m": 0.05,
+    "advanced_added_insulation_m": 0.3,
+    "new_brick_m": 0.12,
+    "method": "Reuse accepted shared MF SE.01 package before unchanged original walls. Support, ties and moisture details remain project assessments. MF02 original veneer remains substrate; retained cavity is assumed sealed as in its former renovation definition, with no added cavity resistance."
+  },
+  "standard_windows": {
+    "archetypes": [
+      "sf_se01",
+      "sf_se02",
+      "sf_se03",
+      "sf_se04",
+      "sf_se05",
+      "mf_se02",
+      "mf_se03",
+      "mf_se04",
+      "mf_se05"
+    ],
+    "source_locators": [
+      "Tab.Building.Measure!L229,V229",
+      "Tab.BoundaryCond!U12:U13"
+    ],
+    "method": "Reuse the accepted standard replacement: U=0.9, glazing g=0.5, frame fraction 0.3, whole-window SHGC=0.35 and assumed VT=0.455. Advanced windows remain unchanged."
+  },
+  "original_windows": [
+    {
+      "archetype_id": "sf_se02",
+      "properties": {
+        "u_value": 2.3,
+        "shgc": 0.56,
+        "vt": 0.525
+      },
+      "glazing_g": 0.8,
+      "frame_fraction": 0.3,
+      "source_locators": [
+        "Calc.Building.Set!AT2622",
+        "Calc.Building.Set!AW2622",
+        "Calc.Building.Set!GS2622"
+      ],
+      "material_id": "window:d0f83a3b66727a2e",
+      "element_id": "element:2c49e7eb1d1c410e"
+    },
+    {
+      "archetype_id": "sf_se03",
+      "properties": {
+        "u_value": 2.01,
+        "shgc": 0.49,
+        "vt": 0.525
+      },
+      "glazing_g": 0.7,
+      "frame_fraction": 0.3,
+      "source_locators": [
+        "Calc.Building.Set!AT2623",
+        "Calc.Building.Set!AW2623",
+        "Calc.Building.Set!GS2623"
+      ],
+      "material_id": "window:93a845c935a1bba2",
+      "element_id": "element:ebb86c9a6ec83294"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "properties": {
+        "u_value": 2.04,
+        "shgc": 0.49,
+        "vt": 0.525
+      },
+      "glazing_g": 0.7,
+      "frame_fraction": 0.3,
+      "source_locators": [
+        "Calc.Building.Set!AT2638",
+        "Calc.Building.Set!AW2638",
+        "Calc.Building.Set!GS2638"
+      ],
+      "material_id": "window:bb0d14a95270b29f",
+      "element_id": "element:461434dd49b23ec8"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "properties": {
+        "u_value": 1.8,
+        "shgc": 0.49,
+        "vt": 0.525
+      },
+      "glazing_g": 0.7,
+      "frame_fraction": 0.3,
+      "source_locators": [
+        "Calc.Building.Set!AT2639",
+        "Calc.Building.Set!AW2639",
+        "Calc.Building.Set!GS2639"
+      ],
+      "material_id": "window:fc5d69256bd7f50e",
+      "element_id": "element:6519eb785fe202d0"
+    }
+  ],
+  "office_se05": {
+    "construction_year": 1998,
+    "method": "Retain the baseline fabric year in standard and advanced states;2000 was an inconsistent renovation-state date."
+  },
+  "remaining_scope": "SF baseline wall/ceiling recipes, SF panelled wall measures and unreviewed floor additions remain visible for separate review. No reverse U-value fitting.",
+  "changes": [
+    {
+      "archetype_id": "sf_se01",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:22169cbcd714f6ec",
+      "after_element": "element:1f472e2d2e187e5e"
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:8eaf0c74761eae87",
+      "after_element": "element:3dc1987239b48ab8"
+    },
+    {
+      "archetype_id": "sf_se02",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:ef822920e4a6880c",
+      "after_element": "element:821ce13e5ebdb85a"
+    },
+    {
+      "archetype_id": "sf_se02",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:de69a55506a1fd16",
+      "after_element": "element:a92f9e0ad4d4ef6d"
+    },
+    {
+      "archetype_id": "sf_se03",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:afbb65d8b6cc58f1",
+      "after_element": "element:abbbb00cec9701cb"
+    },
+    {
+      "archetype_id": "sf_se03",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:e3878b320b2cadab",
+      "after_element": "element:86184fe17ba69441"
+    },
+    {
+      "archetype_id": "sf_se04",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:8cb9dabc76c986b9",
+      "after_element": "element:b3b8128b53893567"
+    },
+    {
+      "archetype_id": "sf_se04",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:7441dba7f7dd1055",
+      "after_element": "element:6159c4ef176a2f30"
+    },
+    {
+      "archetype_id": "sf_se05",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:8d04afeacbae5571",
+      "after_element": "element:115286e3fea92f79"
+    },
+    {
+      "archetype_id": "sf_se05",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:71a741e15abaad60",
+      "after_element": "element:68262cfe1f5c0d57"
+    },
+    {
+      "archetype_id": "mf_se02",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:bd52788de54dd8d4",
+      "after_element": "element:5a0fc45849a0b2d5"
+    },
+    {
+      "archetype_id": "mf_se02",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:7e239794e2d4c6b4",
+      "after_element": "element:04c851494de53bfa"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:801abfc66c0a455e",
+      "after_element": "element:7f94715e9cb0e74e"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:b55c3ea69dc41d30",
+      "after_element": "element:25b0f85a5cc92689"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:8c26e5f9f653664b",
+      "after_element": "element:03dac6d01a99afef"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:4b25546cccdf38f0",
+      "after_element": "element:0f24a43f205c5f45"
+    },
+    {
+      "archetype_id": "mf_se05",
+      "state": "standard",
+      "role": "TOP_FLOOR",
+      "before_element": "element:6d82857897389089",
+      "after_element": "element:aad9aae822ba289e"
+    },
+    {
+      "archetype_id": "mf_se05",
+      "state": "advanced",
+      "role": "TOP_FLOOR",
+      "before_element": "element:502694bef3d38d66",
+      "after_element": "element:935f9b9a6e5f238f"
+    },
+    {
+      "archetype_id": "mf_se02",
+      "state": "standard",
+      "role": "EXT_WALL",
+      "before_element": "element:2a61f1e665f32944",
+      "after_element": "element:501cd0adaffe2207"
+    },
+    {
+      "archetype_id": "mf_se02",
+      "state": "advanced",
+      "role": "EXT_WALL",
+      "before_element": "element:f023a3acde9cf6ca",
+      "after_element": "element:599f91e14d04fa30"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "standard",
+      "role": "EXT_WALL",
+      "before_element": "element:677d8e417cf93cda",
+      "after_element": "element:7c44f2d77ef10f70"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "advanced",
+      "role": "EXT_WALL",
+      "before_element": "element:915a61bcacb2b056",
+      "after_element": "element:00e67ee95ba65398"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "standard",
+      "role": "EXT_WALL",
+      "before_element": "element:33a040e38889c985",
+      "after_element": "element:287b1648f5457d0d"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "advanced",
+      "role": "EXT_WALL",
+      "before_element": "element:d569217e1ce7ef44",
+      "after_element": "element:b0e0181e77a67f72"
+    },
+    {
+      "archetype_id": "mf_se05",
+      "state": "standard",
+      "role": "EXT_WALL",
+      "before_element": "element:674e7b0da59963b4",
+      "after_element": "element:3de3cdbbda8c8255"
+    },
+    {
+      "archetype_id": "mf_se05",
+      "state": "advanced",
+      "role": "EXT_WALL",
+      "before_element": "element:dc175eb7272faf7f",
+      "after_element": "element:e74c9b16f1694465"
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "sf_se02",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "sf_se03",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "sf_se04",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "sf_se05",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "mf_se02",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "mf_se05",
+      "state": "standard",
+      "role": "WINDOW",
+      "before_element": "element:2a510342650971da",
+      "after_element": "element:310146bffcb423bf"
+    },
+    {
+      "archetype_id": "sf_se02",
+      "state": "existing",
+      "role": "WINDOW",
+      "before_element": "element:552346c5eb54e002",
+      "after_element": "element:2c49e7eb1d1c410e"
+    },
+    {
+      "archetype_id": "sf_se03",
+      "state": "existing",
+      "role": "WINDOW",
+      "before_element": "element:a38175865ac0b47e",
+      "after_element": "element:ebb86c9a6ec83294"
+    },
+    {
+      "archetype_id": "mf_se03",
+      "state": "existing",
+      "role": "WINDOW",
+      "before_element": "element:a38175865ac0b47e",
+      "after_element": "element:461434dd49b23ec8"
+    },
+    {
+      "archetype_id": "mf_se04",
+      "state": "existing",
+      "role": "WINDOW",
+      "before_element": "element:7af744a6e4b453fc",
+      "after_element": "element:6519eb785fe202d0"
+    }
+  ],
+  "removed_orphans": {
+    "construction_sets": [
+      "construction_set:008ec9ebcf23a555",
+      "construction_set:02ac664b64fbc180",
+      "construction_set:0473adaaf2150a9e",
+      "construction_set:09560d4d8c8e3647",
+      "construction_set:0d27b0c48fc1c2ad",
+      "construction_set:0def218bf4995c95",
+      "construction_set:111f6357d0d18a22",
+      "construction_set:11436ac69606c94a",
+      "construction_set:190bd09b803f5535",
+      "construction_set:27ad3decdcba9d0c",
+      "construction_set:2c0041fa3eed1430",
+      "construction_set:3b41b2363dee3f16",
+      "construction_set:3c5ccd82b7e2442d",
+      "construction_set:41849518b601a903",
+      "construction_set:47a68f907b4395b0",
+      "construction_set:497e6ed8581e43bd",
+      "construction_set:4c02a64a72d351ed",
+      "construction_set:5ac6217cea86d1f9",
+      "construction_set:5dee2727928b1832",
+      "construction_set:7d07bd1d1d21c7fd",
+      "construction_set:8a0b7c48b6328fce",
+      "construction_set:93cebfce5dd6c09d",
+      "construction_set:a0cc89f44044a257",
+      "construction_set:a9a6010b62000569",
+      "construction_set:b482d88efd748359",
+      "construction_set:b48ff01a9759d3d4",
+      "construction_set:b6e454c7a2e817b8",
+      "construction_set:c514e8f5ce9c8679",
+      "construction_set:c9e7b92293a125c5",
+      "construction_set:ca0b7a5688dbc13d",
+      "construction_set:ce673f2fad0c0645",
+      "construction_set:d2a9b1249e900f10",
+      "construction_set:d986332c9b7199c8",
+      "construction_set:dac30de140708d91",
+      "construction_set:dbb687821d2de3eb",
+      "construction_set:e9797ad14dfdbb05",
+      "construction_set:eacc8f35a2330310",
+      "construction_set:f51ec80ec7b96ac4",
+      "construction_set:ff9630732e5b63f0"
+    ],
+    "elements": [
+      "element:22169cbcd714f6ec",
+      "element:2a61f1e665f32944",
+      "element:4b25546cccdf38f0",
+      "element:502694bef3d38d66",
+      "element:677d8e417cf93cda",
+      "element:6d82857897389089",
+      "element:71a741e15abaad60",
+      "element:7441dba7f7dd1055",
+      "element:7e239794e2d4c6b4",
+      "element:801abfc66c0a455e",
+      "element:8c26e5f9f653664b",
+      "element:8d04afeacbae5571",
+      "element:8eaf0c74761eae87",
+      "element:915a61bcacb2b056",
+      "element:a38175865ac0b47e",
+      "element:b55c3ea69dc41d30",
+      "element:bd52788de54dd8d4",
+      "element:d569217e1ce7ef44",
+      "element:dc175eb7272faf7f",
+      "element:de69a55506a1fd16",
+      "element:e3878b320b2cadab",
+      "element:ef822920e4a6880c",
+      "element:f023a3acde9cf6ca"
+    ],
+    "components": [
+      "component:08182158e7602e45",
+      "component:164b9da463e35087",
+      "component:243c69ddd0dcd072",
+      "component:3ae860666cd2c84e",
+      "component:6868fd4220ef2931",
+      "component:832a756f199ba849",
+      "component:8a0a3a3bfbeabab6",
+      "component:a18e22c57712552b",
+      "component:b4142a15671ff1aa",
+      "component:c4a0ad75ef2b50a2",
+      "component:d4cf071f4409e2a6",
+      "component:d5c8c45d4ceab0e0"
+    ],
+    "layers": [
+      "layer:1eb556f09c5c9948",
+      "layer:47a8b54ed54cd73b",
+      "layer:4ba4fe8bfdcd7199",
+      "layer:5b594fb0da84434d",
+      "layer:71f26b2330e51cad",
+      "layer:ac05174f0d466d8e",
+      "layer:b03ea6d4d7b29959",
+      "layer:b90afc3d98796091",
+      "layer:c879712b3652c39a",
+      "layer:d13d539d0df5f0b5",
+      "layer:dbf9a85c29af2d51",
+      "layer:fda2dee92a9c86c4"
+    ]
+  }
+}

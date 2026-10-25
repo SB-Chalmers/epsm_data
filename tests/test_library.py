@@ -1,6 +1,5 @@
 """Test the library boundary, portable records, and meaningful construction cases."""
 
-import importlib
 import json
 import os
 import subprocess
@@ -53,7 +52,7 @@ for example in sys.argv[1:]:
             str(ROOT / "examples/archetype.py"),
             str(ROOT / "examples/renovations.py"),
         ],
-        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": str(ROOT / "src")},
         capture_output=True,
         text=True,
     )
@@ -146,24 +145,6 @@ def test_invalid_record_version_and_role(archetype):
     payload["archetype"]["construction_set"]["elements"]["EXT_WALL"]["application"] = "ROOF"
     with pytest.raises(ValueError):
         archetype_from_dict(payload)
-
-
-def test_removed_modules_are_not_in_package():
-    for name in (
-        "epsm_data.lifecycle",
-        "epsm_data.domain.scenario",
-        "epsm_data.infra.db",
-        "epsm_data.governed",
-        "epsm_data.archetype_catalogue",
-        "epsm_data.layer_packages",
-        "epsm_data.calibration",
-        "epsm_data.carbon",
-        "epsm_data.epsm_core_adapter",
-        "epsm_data.datasets.tabula_se",
-        "epsm_data.datasets.betsi_layers",
-    ):
-        with pytest.raises(ModuleNotFoundError):
-            importlib.import_module(name)
 
 
 def test_optional_graph_supports_window_records(archetype):

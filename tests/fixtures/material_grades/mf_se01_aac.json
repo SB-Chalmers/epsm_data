@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent regression expectations for the sourced MF SE.01 historic AAC masonry correction; not fitted to TABULA.",
+  "material_id": "material:596c3826b8c18ab7",
+  "honeybee_id": "EPSM_historic_aac_masonry_500_babs1946",
+  "boverket_id": "6000000096",
+  "name": "Historic aerated concrete masonry, 500 kg/m³ — BABS 1946",
+  "properties": {
+    "conductivity": 0.19771,
+    "density": 500,
+    "specific_heat": 1000,
+    "roughness": "MediumRough",
+    "thermal_absorptance": 0.9,
+    "solar_absorptance": 0.7,
+    "visible_absorptance": 0.7
+  },
+  "historic_thermal_basis": {
+    "source_url": "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
+    "source_locator": "BABS 1946, printed page 32: masonry of lightweight concrete, volume weight 500 kg/m³",
+    "conductivity_kcal_m_h_c": 0.17,
+    "kcal_m_h_c_to_w_m_k": 1.163,
+    "includes_mortar": true,
+    "scope": "Masonry conductivity; do not add a second parallel mortar correction."
+  },
+  "carbon_basis": {
+    "name": "Autoclaved Aerated Concrete, (AAC)",
+    "source_version": "02.07.000",
+    "inventory_unit": "kg",
+    "source_density_kg_m3": 400,
+    "applicable_density_range_kg_m3": [
+      350,
+      700
+    ],
+    "density_relative_difference": 0.25,
+    "modules_kgco2e_per_kg": {
+      "A1-A3 Conservative": 0.539,
+      "A1-A3 Typical": 0.431,
+      "A4": 0.0989,
+      "A5.1": 0.0319
+    },
+    "full_a5_is_known": false,
+    "scope": "Modern unreinforced AAC product-family carbon proxy, not verified historic manufacture."
+  },
+  "wall": {
+    "aac_layer_id": "layer:91740a64c496eacd",
+    "aac_thickness_m": 0.25,
+    "plaster_material_id": "material:cb6437506c8a07cd",
+    "plaster_thickness_each_side_m": 0.01,
+    "plaster_conductivity_w_m_k": 0.6913373548329222,
+    "inside_surface_resistance_m2_k_w": 0.13,
+    "outside_surface_resistance_m2_k_w": 0.04,
+    "renovation_insulation_conductivity_w_m_k": 0.033,
+    "added_insulation_m": {
+      "existing": 0,
+      "standard": 0.05,
+      "advanced": 0.3
+    },
+    "expected_u_w_m2k": {
+      "existing": 0.6833365653220982,
+      "standard": 0.31460794918224844,
+      "advanced": 0.0929859160995593
+    },
+    "renovation_brick_thickness_m": 0.12,
+    "renovation_brick_conductivity_w_m_k": 0.6
+  },
+  "affected_configurations": [
+    {
+      "archetype_id": "mf_se01",
+      "state": "existing"
+    },
+    {
+      "archetype_id": "mf_se01",
+      "state": "standard"
+    },
+    {
+      "archetype_id": "mf_se01",
+      "state": "advanced"
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "existing"
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "standard"
+    },
+    {
+      "archetype_id": "sf_se01",
+      "state": "advanced"
+    }
+  ],
+  "tabula_baseline": {
+    "u_value_w_m2k": 0.58,
+    "relative_tolerance": 0.2,
+    "climate_zones": [
+      "SE.Zone1",
+      "SE.Zone2",
+      "SE.Zone3"
+    ],
+    "scope": "Independent pre-1961 surveyed stock benchmark, not a historic material-grade target."
+  }
+}

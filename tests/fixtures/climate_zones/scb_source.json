@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_provider": "Statistics Sweden (SCB)",
+  "source_url": "https://www.scb.se/contentassets/3443fea3fa6640f7a57ea15d9a372d33/shape_svenska_260225.zip",
+  "source_archive_sha256": "26a7030a23648ad25a69acee16f08974148eafd076bfa8dd76013060693f51f4",
+  "source_archive_bytes": 214808,
+  "source_county_member": "LanSweref99TM.zip/Lan_Sweref99TM_region.shp",
+  "source_fields": [
+    "LnKod",
+    "LnNamn"
+  ],
+  "source_crs": "EPSG:3006",
+  "source_county_count": 21,
+  "source_vertex_count": 3849,
+  "license": "CC0",
+  "metadata_url": "https://www.scb.se/hitta-statistik/regional-statistik-och-kartor/regionala-indelningar/digitala-granser/",
+  "limitation": "Generalised boundaries for thematic statistics. SCB states these are not suitable for precise analyses.",
+  "default_boundary_guard_m": 100,
+  "additional_simplification_m": 0
+}

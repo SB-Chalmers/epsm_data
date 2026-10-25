@@ -9,7 +9,7 @@ from epsm_data import BuildingElement, Catalogue
 
 @pytest.fixture
 def payload():
-    return Catalogue.load().to_dict()
+    return Catalogue.load().resolved_dict()
 
 
 def wall_records(payload):

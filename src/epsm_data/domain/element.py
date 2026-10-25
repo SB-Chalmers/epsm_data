@@ -16,6 +16,7 @@ from typing import Tuple
 from .component import Component
 from .editing import Editable
 from .enums import BuildingElement
+from .material import CarbonReference, _validate_carbon_reference
 
 
 @dataclass(frozen=True)
@@ -128,6 +129,7 @@ class WindowElement(Editable):
     shgc: float  # solar heat gain coefficient
     vt: float = 0.65  # visible transmittance (default for 2-pane clear)
     boverket_id: int | None = None  # Klimatdatabas resource ID
+    carbon_reference: CarbonReference | None = None
     # Future: glazing_layers: tuple[GlazingLayer, ...] = ()
 
     application: BuildingElement = field(
@@ -136,6 +138,7 @@ class WindowElement(Editable):
     )
 
     def __post_init__(self) -> None:
+        _validate_carbon_reference(self.carbon_reference, self.boverket_id)
         if isinstance(self.u_value, bool) or not isfinite(self.u_value) or self.u_value <= 0:
             raise ValueError(f"WindowElement '{self.name}': U-value must be positive.")
         if not 0 < self.shgc <= 1:
@@ -160,4 +163,5 @@ class WindowElement(Editable):
             "shgc": round(self.shgc, 4),
             "vt": round(self.vt, 4),
             "boverket_id": self.boverket_id,
+            "carbon_reference": self.carbon_reference.to_dict() if self.carbon_reference else None,
         }

@@ -12,6 +12,7 @@ from uuid import UUID
 from .domain import (
     BuildingArchetype,
     BuildingElement,
+    CarbonReference,
     Component,
     ConstructionSet,
     Element,
@@ -74,6 +75,8 @@ def _material(data):
     values = dict(data)
     values["uuid"] = UUID(values["uuid"])
     values["roughness"] = Roughness(values["roughness"])
+    if values.get("carbon_reference") is not None:
+        values["carbon_reference"] = CarbonReference.from_dict(values["carbon_reference"])
     carbon = values["embodied_carbon"]
     values["embodied_carbon"] = EmbodiedCarbon(**carbon) if carbon is not None else None
     return OpaqueMaterial(**values)
@@ -156,6 +159,8 @@ def element_from_dict(data: dict) -> Element | WindowElement:
     # representation lacks components; the role alone does not identify its type.
     if role is BuildingElement.WINDOW and "components" not in values:
         values.pop("application")
+        if values.get("carbon_reference") is not None:
+            values["carbon_reference"] = CarbonReference.from_dict(values["carbon_reference"])
         return WindowElement(**values)
     values["application"] = role
     values["components"] = tuple(_component(c) for c in values["components"])

@@ -67,6 +67,19 @@ def test_completeness_matches_public_fabric_report(catalogue):
     )
 
 
+@pytest.mark.parametrize("category", ["office", "school"])
+@pytest.mark.parametrize("state", ["existing", "standard", "advanced"])
+def test_basement_ceiling_is_not_displayed_as_soil_slab(catalogue, category, state):
+    package = next(p for p in catalogue["packages"] if p["id"] == f"lod2:{category}_se01:{state}")
+    slab = package["construction"]["BASEMENT_FLOOR"]
+    ceiling = package["construction"]["GROUND_FLOOR"]
+    assert package["u_values"]["ground"] == slab["u_value"]
+    assert package["u_values"]["basement_ceiling"] == ceiling["u_value"]
+    assert package["properties"]["ground_floor"]["value"] != package["properties"]["basement_ceiling"]["value"]
+    layers = [layer for component in slab["components"] for layer in component["layers"]]
+    assert len(layers) == 1 and layers[0]["thickness_mm"] == 100
+
+
 def test_construction_payload_retains_material_properties_and_composites(catalogue):
     package = next(p for p in catalogue["packages"] if p["id"] == "lod2:mf_se02:existing")
     wall = package["construction"]["EXT_WALL"]
@@ -93,11 +106,62 @@ def test_construction_payload_retains_material_properties_and_composites(catalog
         for component in assembly.get("components", [])
         for layer in component["layers"]
         for material in layer["materials"]
-        if material["boverket_id"] is None
+        if material["mapping_status"] == "non_product"
     )
     assert unmatched["gwp"] is None
     window = package["construction"]["WINDOW"]
     assert window["window"] and window["material"]["honeybee_id"]
+
+
+def test_external_sand_carbon_proxy_and_missing_modules_are_visible(catalogue):
+    sand_uses = [
+        (package, material)
+        for package in catalogue["packages"]
+        for assembly in package["construction"].values()
+        for component in assembly.get("components", [])
+        for layer in component["layers"]
+        for material in layer["materials"]
+        if material["id"] == "material:4857e866ed223064"
+    ]
+    assert len(sand_uses) == 6
+    for package, material in sand_uses:
+        assert material["mapping_status"] == "external"
+        assert material["boverket_id"] is None
+        reference = material["carbon_reference"]
+        assert reference["identifier"] == "EPD-IES-0005222:003"
+        assert reference["url"] == "https://www.environdec.com/library/epd5222"
+        assert reference["proxy_for"]
+        assert reference["modules"] == {"A1A3": 0.002, "A4": None, "A5": None}
+        assert material["gwp"]["modules"] == reference["modules"]
+        assert material["gwp"]["method"] == reference["method"]
+        assert package["missing"] == []
+        assert material["honeybee_properties"]["conductivity"] == 0.4
+        assert material["honeybee_properties"]["density"] == 1600
+
+
+@pytest.mark.parametrize("unit", ["m2", "m3", "item"])
+def test_external_carbon_projection_preserves_quantity_unit(tmp_path, unit):
+    from epsm_data import Catalogue
+
+    config = Catalogue.load().resolved_dict()
+    reference = config["carbon_references"]["EPD-IES-0005222:003"]
+    reference["unit"] = unit
+    reference["declared_unit"] = f"1 {unit}"
+    path = tmp_path / "catalogue.json"
+    path.write_text(json.dumps(config), encoding="utf-8")
+    projected = load_data(path)
+    material = next(
+        material
+        for package in projected["packages"]
+        for assembly in package["construction"].values()
+        for component in assembly.get("components", [])
+        for layer in component["layers"]
+        for material in layer["materials"]
+        if material["id"] == "material:4857e866ed223064"
+    )
+    assert material["gwp"]["unit"] == f"kg CO2 eq./{unit}"
+    assert material["carbon_reference"]["unit"] == unit
+    assert material["gwp"]["modules"]["A1A3"] == 0.002
 
 
 @pytest.fixture
@@ -246,15 +310,20 @@ def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
     config = Catalogue.load().to_dict()
     path.write_text(json.dumps(dict(reversed(list(config.items())))), encoding="utf-8")
     assert load_data(path) == catalogue
-    material = next(
-        material
-        for package in catalogue["packages"]
-        for assembly in package["construction"].values()
-        for component in assembly.get("components", [])
-        for layer in component["layers"]
-        for material in layer["materials"]
+    material_users = {}
+    for package in catalogue["packages"]:
+        for assembly in package["construction"].values():
+            for component in assembly.get("components", []):
+                for layer in component["layers"]:
+                    for material in layer["materials"]:
+                        material_users.setdefault(material["id"], set()).add(package["id"])
+    # Exercise both shared propagation and unaffected packages. The first
+    # material may legitimately be concrete used by every configuration.
+    material_id = next(
+        identifier for identifier in sorted(material_users)
+        if 1 < len(material_users[identifier]) < len(catalogue["packages"])
     )
-    config["materials"][material["id"]]["name"] += " reviewed"
+    config["materials"][material_id]["epsm_material_name"] += " reviewed"
     path.write_text(json.dumps(config), encoding="utf-8")
     changed = load_data(path)
     assert changed["manifest"]["release_id"] != catalogue["manifest"]["release_id"]
@@ -262,7 +331,7 @@ def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
     affected = 0
     for before in catalogue["packages"]:
         uses_material = any(
-            item["id"] == material["id"]
+            item["id"] == material_id
             for assembly in before["construction"].values()
             for component in assembly.get("components", [])
             for layer in component["layers"]
@@ -270,7 +339,8 @@ def test_json_input_and_deterministic_review_hashes(tmp_path, catalogue):
         )
         assert (before["revision"] != changed_packages[before["id"]]["revision"]) == uses_material
         affected += uses_material
-    assert 0 < affected < len(catalogue["packages"])
+    assert affected == len(material_users[material_id])
+    assert 1 < affected < len(catalogue["packages"])
 
 
 def test_static_app_assets_and_catalogue_endpoint(server, catalogue):
@@ -387,9 +457,41 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
   assert.match(elements.get("detail-content").innerHTML, /LoD2 complete/);
   assert.match(elements.get("detail-content").innerHTML, /Missing values/);
   assert.match(elements.get("detail-content").innerHTML, /Honeybee ID|HBJSON thermal properties/);
+  vm.runInContext('selectCell(cellsById.get("office:SE.05:SE.Zone3:existing"));', context);
+  elements.get("metric").value = "top"; elements.get("metric").listeners.change();
+  assert.match(elements.get("detail-content").innerHTML, /Roof composition/);
+  assert.doesNotMatch(elements.get("detail-content").innerHTML, /No layer recipe/);
   vm.runInContext('selectCell(cellsById.get("office:SE.01:SE.Zone3:existing"));', context);
-  assert.match(elements.get("detail-content").innerHTML, /LoD2 incomplete/);
-  assert.match(elements.get("detail-content").innerHTML, /boverket_id/);
+  assert.match(elements.get("detail-content").innerHTML, /LoD2 complete/);
+  elements.get("metric").value = "intermediate_floor"; elements.get("metric").listeners.change();
+  assert.match(elements.get("detail-content").innerHTML, /Layer order: bottom to top/);
+  vm.runInContext(`globalThis.floorDrawing = sectionSvg("INTERMEDIATE_FLOOR", packages.get(activePackage).construction.INTERMEDIATE_FLOOR, "room-side-test");`, context);
+  const finish = [...context.floorDrawing.matchAll(/<rect[^>]+y="([^"]+)%"[^>]*><title>([^<]+)<\/title>/g)].find(m => /linoleum/i.test(m[2]));
+  const lining = [...context.floorDrawing.matchAll(/<rect[^>]+y="([^"]+)%"[^>]*><title>([^<]+)<\/title>/g)].find(m => /plaster/i.test(m[2]));
+  assert.ok(finish && lining, "Real office floor needs upper finish and lower lining");
+  assert.ok(Number(finish[1]) < Number(lining[1]), "Floor finish must be drawn above ceiling lining");
+  assert.match(elements.get("detail-content").innerHTML, /Carbon proxy:/);
+  assert.match(elements.get("detail-content").innerHTML, /External carbon · EPD-IES-0005222:003/);
+  assert.match(elements.get("detail-content").innerHTML, /href="https:\/\/www.environdec.com\/library\/epd5222"/);
+  assert.match(elements.get("detail-content").innerHTML, /Method: GWP-GHG/);
+  assert.match(elements.get("detail-content").innerHTML, /0.00200 kg CO2 eq.\/kg/);
+  assert.match(elements.get("detail-content").innerHTML, /A4 transport<\/dt><dd>Not declared/);
+  assert.match(elements.get("detail-content").innerHTML, /A5 installation<\/dt><dd>Not declared/);
+  assert.match(elements.get("detail-content").innerHTML, /A4 and A5 are not declared/);
+  assert.doesNotMatch(elements.get("detail-content").innerHTML, /Boverket unmatched|No matched Boverket resource/);
+  // Omitted required modules remain visible, alongside additional supplied modules.
+  vm.runInContext(`
+    globalThis.sandRecord = packages.get(activePackage).construction.INTERMEDIATE_FLOOR.components
+      .flatMap(c => c.layers).flatMap(l => l.materials)
+      .find(m => m.id === "material:4857e866ed223064");
+    globalThis.savedModules = sandRecord.carbon_reference.modules;
+    sandRecord.carbon_reference.modules = {A1A3: 0.002, D: -0.001};
+    renderDetail();
+  `, context);
+  assert.match(elements.get("detail-content").innerHTML, /A4 transport<\/dt><dd>Not declared/);
+  assert.match(elements.get("detail-content").innerHTML, /A5 installation<\/dt><dd>Not declared/);
+  assert.match(elements.get("detail-content").innerHTML, /<dt>D<\/dt><dd>-0.00100 kg CO2 eq.\/kg/);
+  vm.runInContext('sandRecord.carbon_reference.modules = savedModules; renderDetail();', context);
   vm.runInContext('selectCell(cellsById.get("multi_family:SE.02:SE.Zone3:existing"));', context);
   vm.runInContext('tab = "record"; renderDetail();', context);
   assert.match(elements.get("detail-content").innerHTML, /Resolved construction record/);

@@ -1,10 +1,12 @@
 """Section drawings compare ordinary physical definitions without catalogue history."""
 
+import json
+from pathlib import Path
 from uuid import uuid4
 
 import pytest
 
-from epsm_data import Archetype, Catalogue, archetype_to_dict
+from epsm_data import Archetype, BuildingElement, Catalogue, archetype_to_dict
 
 
 @pytest.fixture(scope="module")
@@ -47,12 +49,22 @@ def test_sections_have_correct_floor_wall_orientation_and_cavity(state, drawing,
     # Ground assemblies retain bottom-to-top order: aggregate below finish.
     assert ground.patches[0].get_y() == 0
     assert ground.patches[-2].get_y() > ground.patches[0].get_y()
-    # A single veneer, then cavity, then wool and lining, left to right.
-    offset = 0 if state == "existing" else 1
+    # The retained veneer/cavity follow the new brick and wool in renovated walls.
+    offset = 0 if state == "existing" else 2
     brick, mortar = wall.patches[offset:offset + 2]
     cavity = wall.patches[offset + 10]
     assert brick.get_x() == mortar.get_x()
-    assert brick.get_x() == (0 if state == "existing" else wall.patches[0].get_width())
+    if state == "existing":
+        assert brick.get_x() == 0
+    else:
+        new_brick, added_wool = wall.patches[:2]
+        assert new_brick.get_x() == 0
+        assert added_wool.get_x() == pytest.approx(new_brick.get_width())
+        assert brick.get_x() == pytest.approx(new_brick.get_width() + added_wool.get_width())
+        assert new_brick.get_width() / brick.get_width() == pytest.approx(120 / 125)
+        added_mm = 50 if state == "standard" else 300
+        assert added_wool.get_width() / brick.get_width() == pytest.approx(added_mm / 125)
+        assert boundaries["EXT_WALL"]["facade_cavity"]["after_layer"] == 3
     assert cavity.get_x() == pytest.approx(brick.get_x() + brick.get_width())
     assert cavity.get_width() / brick.get_width() == pytest.approx(25 / 125)
     label = "Drained cavity" if state == "existing" else "Sealed existing cavity"
@@ -95,7 +107,7 @@ def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(d
     for index, (archetype, boundaries) in enumerate(examples):
         fig = plot_sections(archetype, scales=scales, boundary_details=boundaries, show=False)
         fig.canvas.draw()
-        brick_index = 0 if index == 0 else 1
+        brick_index = 0 if index == 0 else 2
         widths.append(fig.axes[1].patches[brick_index].get_window_extent().width)
         # The retained attic concrete is 140 mm in every state.
         heights.append(fig.axes[0].patches[-2].get_window_extent().height)
@@ -124,15 +136,41 @@ def test_physical_annotations_and_window_comparison(drawing, catalogue):
         baseline, baseline, boundary_details=baseline_boundaries
     )
     assert {tag for tags in baseline_tags.values() for tag in tags} == {"E"}
-    for archetype, boundaries in examples[1:]:
+    fixture = json.loads((Path(__file__).parent
+                          / "fixtures/catalogue_sanity/cases/mf_se02_05_ground.json").read_text())
+    floor_case = fixture["archetypes"]["mf_se02"]
+    for state, (archetype, boundaries) in zip(
+        ("standard", "advanced"), examples[1:], strict=True,
+    ):
         tags, _ = renovation_annotations(
             archetype, baseline, boundary_details=boundaries,
             baseline_boundary_details=baseline_boundaries,
         )
-        # New insulation, retained veneer, changed cavity ventilation metadata.
-        assert tags["EXT_WALL"][:3] == ["A", "K", "A"]
-        assert set(tags["GROUND_FLOOR"]) == {"K"}
-        assert set(tags["BASEMENT_WALL"]) == {"K"}
+        # New brick and wool, retained veneer, then changed cavity ventilation metadata.
+        assert tags["EXT_WALL"][:4] == ["A", "A", "K", "A"]
+        assert tags["GROUND_FLOOR"] == ["K", "K", "K", "A", "A"]
+        assert tags["BASEMENT_WALL"] == (["K", "K"] if state == "standard"
+                                         else ["K", "K", "A", "A"])
+        floor = archetype.construction_set.elements[BuildingElement.GROUND_FLOOR]
+        layers = [slot.layer for component in floor.components for slot in component.layers]
+        expected = floor_case["floor_baseline_layers"] + [
+            {"material": "insulation", "thickness_m": floor_case["states"][state][
+                "floor_added_eps_m"]},
+            {"material": "finish", "thickness_m": 0.05},
+        ]
+        assert len(layers) == len(expected) == 5
+        for layer, row in zip(layers, expected, strict=True):
+            assert layer.thickness == row["thickness_m"]
+            assert len(layer.materials) == 1
+            assert layer.materials[0].material.json_id == fixture["materials"][row["material"]][
+                "material_id"]
+        # The top course is the added mineral finish, above the added EPS.
+        assert layers[-1].thickness == 0.05
+        finish = layers[-1].materials[0].material
+        grade = fixture["materials"]["finish"]
+        assert finish.conductivity == grade["conductivity_w_mk"]
+        assert finish.density == grade["density_kg_m3"]
+        assert finish.specific_heat == grade["specific_heat_j_kgk"]
     labels = ["Existing", "Standard", "Advanced"]
     fig = plot_section_comparison(
         [a for a, _ in examples], "WINDOW", labels=labels,

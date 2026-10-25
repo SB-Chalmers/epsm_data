@@ -6,6 +6,10 @@ from dataclasses import dataclass
 from types import MappingProxyType
 
 CATEGORIES = ("single_family", "multi_family", "office", "school")
+# Selection fallback only: never an authored family or extra default matrix axis.
+SELECTION_CATEGORIES = (*CATEGORIES, "generic")
+GENERIC_DONOR_CATEGORY = "multi_family"
+GENERIC_ASSUMPTION_LABEL = "Unknown building type — multifamily assumption"
 CATEGORY_LABELS = dict(zip(CATEGORIES, ("SF", "MF", "Office", "School"), strict=True))
 ERAS = {
     "SE.01": (1, 1960),
@@ -71,7 +75,7 @@ class ArchetypeKey:
     renovation_state: str | None = None
 
     def __post_init__(self):
-        for field, choices in (("category", CATEGORIES), ("era", ERAS), ("climate_zone", ZONES)):
+        for field, choices in (("category", SELECTION_CATEGORIES), ("era", ERAS), ("climate_zone", ZONES)):
             if getattr(self, field) not in choices:
                 raise ValueError(f"Unknown {field}: {getattr(self, field)}")
         if self.renovation_state not in states_for_era(self.era):
@@ -113,6 +117,18 @@ class ArchetypeSlot:
     def complete(self):
         return not self.missing_values
 
+    @property
+    def selection(self):
+        """Expose the donor assumption for a virtual generic assignment."""
+        if self.key.category != "generic":
+            return None
+        return {
+            "requested_category": "generic",
+            "donor_category": GENERIC_DONOR_CATEGORY,
+            "donor_archetype_id": self.archetype_id,
+            "assumption_label": GENERIC_ASSUMPTION_LABEL,
+        }
+
     def to_dict(self):
         return {
             "slot_id": self.slot_id,
@@ -121,4 +137,5 @@ class ArchetypeSlot:
             "construction_set_id": self.construction_set_id,
             "complete": self.complete,
             "missing_values": list(self.missing_values),
+            **({"selection": self.selection} if self.selection is not None else {}),
         }

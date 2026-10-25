@@ -1,0 +1,22 @@
+{
+  "EPD-IES-0005222:003": {
+    "declared_unit": "1000 kg product",
+    "identifier": "EPD-IES-0005222:003",
+    "method": "GWP-GHG; EN 15804:2012+A2:2019/AC:2021",
+    "modules": {
+      "A1A3": 0.002,
+      "A4": null,
+      "A5": null
+    },
+    "name": "Tagene crushed-granite rock fines 0/2 mm (product group 3)",
+    "notes": [
+      "EPD revision 2024-11-18, valid until 2026-12-15; NCC Industry Nordic AB, Tagene quarry, Gothenburg, Sweden.",
+      "Table 5, product group 3 (including Stenmjöl 0/2): A1-A3 GWP-GHG is 2.0 kg CO2 eq. per 1000 kg product, normalized to 0.002 kg CO2e/kg.",
+      "A4 and A5 are not declared in the EPD. Null placeholders remain missing; no transport, installation or waste factors are inferred.",
+      "The EPD method is retained as published and is not relabelled as Boverket GWP-GHG AR4. Only the carbon reference changes; the sand's thermal properties are retained."
+    ],
+    "proxy_for": "Retained dry sand fill; crushed-granite aggregate proxy, not a verified historic product match",
+    "unit": "kg",
+    "url": "https://www.environdec.com/library/epd5222"
+  }
+}

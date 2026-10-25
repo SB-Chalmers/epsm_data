@@ -14,8 +14,8 @@ OPAQUE_FIELDS = (
 WINDOW_FIELDS = ("u_value", "shgc", "vt")
 
 
-def carbon_record(resource, name):
-    """Preserve published kg-based GWP-GHG AR4 values and conversion factors."""
+def boverket_carbon_modules(resource):
+    """Read declared kg-based modules without requiring an assessment scope."""
     values = {}
     for item in resource.get("DataItems", ()):
         if item.get("PropertyCode") != "GWP-GHG AR4":
@@ -27,6 +27,16 @@ def carbon_record(resource, name):
             if module in values:
                 raise ValueError("Duplicate Boverket GWP module")
             values[module] = value["Value"]
+    return values
+
+
+def carbon_record(resource, name):
+    """Resolve the complete legacy view; partial sources retain their raw modules.
+
+    The legacy ``A5_conservative`` field represents Boverket A5.1 waste only.
+    Its availability never establishes a full A5 factor.
+    """
+    values = boverket_carbon_modules(resource)
     required = ("A1-A3 Conservative", "A1-A3 Typical", "A4", "A5.1")
     if any(values.get(key) is None for key in required):
         return None

@@ -1,0 +1,700 @@
+{
+  "EPSM_attic_loose_stone_wool": {
+    "conductivity": 0.042,
+    "density": 28,
+    "display_name": "Attic loose stone wool",
+    "identifier": "EPSM_attic_loose_stone_wool",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_cellular_plastic": {
+    "conductivity": 0.037,
+    "density": 20,
+    "display_name": "EPS 100 — representative",
+    "identifier": "EPSM_cellular_plastic",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.6,
+    "specific_heat": 1209.2198113776988,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.6
+  },
+  "EPSM_facade_stone_wool": {
+    "conductivity": 0.033,
+    "density": 80,
+    "display_name": "Facade stone wool board",
+    "identifier": "EPSM_facade_stone_wool",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_floor_eps100_lambda036": {
+    "conductivity": 0.036,
+    "density": 20,
+    "display_name": "EPS 100 floor insulation, TABULA conductivity 0.036 W/(m K)",
+    "identifier": "EPSM_floor_eps100_lambda036",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.6,
+    "specific_heat": 1209.2198113776988,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "representation": "source_supported_nominal_material",
+      "source_note": "evidence/mf_se01_tabula_renovations.json"
+    },
+    "visible_absorptance": 0.6
+  },
+  "EPSM_gypsum_wind_sheathing": {
+    "conductivity": 0.25,
+    "density": 757.8947368421053,
+    "display_name": "gypsum_wind_sheathing",
+    "identifier": "EPSM_gypsum_wind_sheathing",
+    "roughness": "MediumSmooth",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1089.2971854559414,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_historic_aac_masonry_500_babs1946": {
+    "conductivity": 0.19771,
+    "density": 500,
+    "display_name": "Historic aerated concrete masonry, 500 kg/m³ — BABS 1946",
+    "identifier": "EPSM_historic_aac_masonry_500_babs1946",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1000,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.25,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "catalogue_status": "authored_source_supported_record",
+      "conductivity_basis": "effective_masonry_including_mortar",
+      "definition_author": "EPSM",
+      "grade_status": "representative_historic_grade",
+      "source_references": [
+        "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
+        "https://vpp.sbuf.se/Public/Documents/ProjectDocuments/82F6A503-9D9F-4E29-AEA2-66B0C93AB9C3/FinalReport/SBUF%2011352%20Slutrapport_BYGGNADSUTFORMNING%20OCH%20V%C3%84RMEKAPACITET.pdf",
+        "https://www.ladybug.tools/honeybee-energy/docs/honeybee_energy.material.opaque.html"
+      ],
+      "surface_properties": "Explicit Honeybee default modelling assumptions."
+    },
+    "visible_absorptance": 0.7
+  },
+  "EPSM_leca": {
+    "conductivity": 0.16,
+    "density": 400,
+    "display_name": "leca",
+    "identifier": "EPSM_leca",
+    "roughness": "VeryRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1000,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_mfh_coke_ash": {
+    "conductivity": 0.159893,
+    "density": 700,
+    "display_name": "Historic coke ash fill",
+    "identifier": "EPSM_mfh_coke_ash",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 840,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_mineral_wool": {
+    "conductivity": 0.036,
+    "density": 29,
+    "display_name": "Stone wool batts — representative",
+    "identifier": "EPSM_mineral_wool",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.5,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.5
+  },
+  "EPSM_office_air_gap_internal": {
+    "conductivity": 0.17,
+    "density": 1.2,
+    "display_name": "Air gap (int.)",
+    "identifier": "EPSM_office_air_gap_internal",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1006,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_concrete": {
+    "conductivity": 1.7,
+    "density": 2300,
+    "display_name": "Concrete",
+    "identifier": "EPSM_office_concrete",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 880,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_expanded_plastic": {
+    "conductivity": 0.035,
+    "density": 20,
+    "display_name": "Expanded plastic",
+    "identifier": "EPSM_office_expanded_plastic",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1700,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_gypsum_partition": {
+    "conductivity": 0.22,
+    "density": 970,
+    "display_name": "Gypsum",
+    "identifier": "EPSM_office_gypsum_partition",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1090,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_light_insulation": {
+    "conductivity": 0.036,
+    "density": 20,
+    "display_name": "Light insulation",
+    "identifier": "EPSM_office_light_insulation",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 750,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_linoleum": {
+    "conductivity": 0.156,
+    "density": 1200,
+    "display_name": "Linoleum",
+    "identifier": "EPSM_office_linoleum",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1260,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_office_under_felt": {
+    "conductivity": 0.13,
+    "density": 930,
+    "display_name": "Under felt",
+    "identifier": "EPSM_office_under_felt",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1300,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_open_attic_glass_wool_lambda037": {
+    "conductivity": 0.037,
+    "density": 20,
+    "display_name": "Loose glass wool, open attic, declared lambda 0.037 W/(m K), 20 kg/m³",
+    "identifier": "EPSM_open_attic_glass_wool_lambda037",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "representation": "source_supported_nominal_material",
+      "source_note": "evidence/mf_se01_tabula_renovations.json"
+    },
+    "visible_absorptance": 0.7
+  },
+  "EPSM_rubber_floor_finish": {
+    "conductivity": 0.17,
+    "density": 1200,
+    "display_name": "rubber_floor_finish",
+    "identifier": "EPSM_rubber_floor_finish",
+    "roughness": "Smooth",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1400,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_sf_historic_mineral_wool": {
+    "conductivity": 0.04,
+    "density": 29,
+    "display_name": "Sf Historic Mineral Wool",
+    "identifier": "EPSM_sf_historic_mineral_wool",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.5,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.5
+  },
+  "EPSM_sf_wood_shavings": {
+    "conductivity": 0.078,
+    "density": 100,
+    "display_name": "Sf Wood Shavings",
+    "identifier": "EPSM_sf_wood_shavings",
+    "roughness": "VeryRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1700,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_tabula_facing_brick_lambda060": {
+    "conductivity": 0.6,
+    "density": 1800,
+    "display_name": "Facing brick, TABULA conductivity 0.60 W/(m K)",
+    "identifier": "EPSM_tabula_facing_brick_lambda060",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 789.4906206515565,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "representation": "source_supported_nominal_material",
+      "source_note": "evidence/mf_se01_tabula_renovations.json"
+    },
+    "visible_absorptance": 0.7
+  },
+  "EPSM_tabula_mf_window_advanced": {
+    "display_name": "TABULA MF advanced whole-aperture replacement window",
+    "identifier": "EPSM_tabula_mf_window_advanced",
+    "shgc": 0.42,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 0.76,
+    "user_data": {
+      "assumed_glazing_vt": 0.6,
+      "frame_fraction": 0.3,
+      "frame_solar_gain": "assumed negligible",
+      "glazing_g": 0.6,
+      "source": "TABULA.xlsm Tab.Building.Measure",
+      "source_note": "evidence/mf_se01_tabula_renovations.json"
+    },
+    "vt": 0.42
+  },
+  "EPSM_tabula_mf_window_standard": {
+    "display_name": "TABULA MF standard whole-aperture replacement window",
+    "identifier": "EPSM_tabula_mf_window_standard",
+    "shgc": 0.35,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 0.9,
+    "user_data": {
+      "assumed_glazing_vt": 0.65,
+      "frame_fraction": 0.3,
+      "frame_solar_gain": "assumed negligible",
+      "glazing_g": 0.5,
+      "source": "TABULA.xlsm Tab.Building.Measure",
+      "source_note": "evidence/mf_se01_tabula_renovations.json"
+    },
+    "vt": 0.455
+  },
+  "EPSM_tabula_original_timber_window_1_8": {
+    "display_name": "Timber window, TABULA original, U=1.80 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_1_8",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.8,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original mf_se04",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!AT2639",
+        "Calc.Building.Set!AW2639",
+        "Calc.Building.Set!GS2639"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_222": {
+    "display_name": "Coupled two-pane timber window, TABULA original, U=2.22 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_222",
+    "shgc": 0.56,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.22,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original MFH.01",
+      "source_glazing_g": 0.8,
+      "source_locators": [
+        "Calc.Building.Set!AT2636",
+        "Calc.Building.Set!AW2636",
+        "Calc.Building.Set!GS2636"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_234": {
+    "display_name": "Timber window,TABULA original,U=2.34 W/(m²K)",
+    "identifier": "EPSM_tabula_original_timber_window_234",
+    "shgc": 0.56,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.34,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA SFH.01 original",
+      "source_glazing_g": 0.8,
+      "source_locators": [
+        "Calc.Building.Set!AT2621",
+        "Calc.Building.Set!AW2621",
+        "Calc.Building.Set!GS2621"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_2_01": {
+    "display_name": "Timber window, TABULA original, U=2.01 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_2_01",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.01,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original sf_se03",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!AT2623",
+        "Calc.Building.Set!AW2623",
+        "Calc.Building.Set!GS2623"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_2_04": {
+    "display_name": "Timber window, TABULA original, U=2.04 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_2_04",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.04,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original mf_se03",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!AT2638",
+        "Calc.Building.Set!AW2638",
+        "Calc.Building.Set!GS2638"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_2_3": {
+    "display_name": "Timber window, TABULA original, U=2.30 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_2_3",
+    "shgc": 0.56,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.3,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original sf_se02",
+      "source_glazing_g": 0.8,
+      "source_locators": [
+        "Calc.Building.Set!AT2622",
+        "Calc.Building.Set!AW2622",
+        "Calc.Building.Set!GS2622"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_v1_1_acoustic_wood_wool": {
+    "conductivity": 0.085,
+    "density": 450,
+    "display_name": "Generic wood-wool acoustic lining",
+    "identifier": "EPSM_v1_1_acoustic_wood_wool",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 837,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.025,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_v1_2_air_150": {
+    "conductivity": 0.9375,
+    "density": 1.2,
+    "display_name": "Unventilated air gap equivalent 150 mm",
+    "identifier": "EPSM_v1_2_air_150",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1006,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.15,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_v1_2_air_98": {
+    "conductivity": 0.6125,
+    "density": 1.2,
+    "display_name": "Unventilated air gap equivalent 98 mm",
+    "identifier": "EPSM_v1_2_air_98",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 1006,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.098,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_v1_2_sand_fill": {
+    "conductivity": 0.4,
+    "density": 1600,
+    "display_name": "Retained dry sand fill",
+    "identifier": "EPSM_v1_2_sand_fill",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 800,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.1,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.7
+  },
+  "EPSM_v1_roof_board": {
+    "conductivity": 0.038,
+    "density": 180,
+    "display_name": "Generic rigid stone-wool roof board",
+    "identifier": "EPSM_v1_roof_board",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.5,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.5
+  },
+  "EPSM_window_lod2_mf_1940_advanced": {
+    "display_name": "MF se01_advanced whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_1940_advanced",
+    "shgc": 0.45,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 0.85,
+    "vt": 0.6
+  },
+  "EPSM_window_lod2_mf_1940_existing": {
+    "display_name": "MF 1940s TABULA-era whole-window proxy",
+    "identifier": "EPSM_window_lod2_mf_1940_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.8,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_mf_1940_standard": {
+    "display_name": "MF se01_standard whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_1940_standard",
+    "shgc": 0.5,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.22,
+    "vt": 0.65
+  },
+  "EPSM_window_lod2_mf_se03_existing": {
+    "display_name": "MF se03_existing whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_se03_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.5,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_mf_se04_existing": {
+    "display_name": "MF se04_existing whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_se04_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.2,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_mf_se05_existing": {
+    "display_name": "MF se05_existing whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_se05_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.8,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_mf_se06_existing": {
+    "display_name": "MF se06_existing whole-window representative",
+    "identifier": "EPSM_window_lod2_mf_se06_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.4999999999999998,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_office_se01_advanced": {
+    "display_name": "Office SE.01 advanced whole window",
+    "identifier": "EPSM_window_lod2_office_se01_advanced",
+    "shgc": 0.5,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 0.9,
+    "vt": 0.65
+  },
+  "EPSM_window_lod2_office_se01_existing": {
+    "display_name": "Office SE.01 existing whole window",
+    "identifier": "EPSM_window_lod2_office_se01_existing",
+    "shgc": 0.4857214787019664,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.8,
+    "vt": 0.5101413579674405
+  },
+  "EPSM_window_lod2_office_se04_existing": {
+    "display_name": "Office SE.04 existing whole window",
+    "identifier": "EPSM_window_lod2_office_se04_existing",
+    "shgc": 0.4857214787019664,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.359495605462134,
+    "vt": 0.5101413579674405
+  },
+  "EPSM_window_lod2_office_se05_existing": {
+    "display_name": "Office representative whole window",
+    "identifier": "EPSM_window_lod2_office_se05_existing",
+    "shgc": 0.4857214787019664,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.9882926829268293,
+    "vt": 0.5101413579674405
+  },
+  "EPSM_window_lod2_office_se06_existing": {
+    "display_name": "Office SE.06 existing whole window",
+    "identifier": "EPSM_window_lod2_office_se06_existing",
+    "shgc": 0.4857214787019664,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.3,
+    "vt": 0.5101413579674405
+  },
+  "EPSM_window_lod2_school_se02_existing": {
+    "display_name": "School SE.02 existing whole window",
+    "identifier": "EPSM_window_lod2_school_se02_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.7,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_school_se03_existing": {
+    "display_name": "School SE.03 existing whole window",
+    "identifier": "EPSM_window_lod2_school_se03_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.25,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_school_se04_existing": {
+    "display_name": "School SE.04 existing whole window",
+    "identifier": "EPSM_window_lod2_school_se04_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.9,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_school_se05_existing": {
+    "display_name": "School SE.05 existing whole window",
+    "identifier": "EPSM_window_lod2_school_se05_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.6,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_school_se06_existing": {
+    "display_name": "School SE.06 existing whole window",
+    "identifier": "EPSM_window_lod2_school_se06_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.1428571428571428,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_school_se06_standard": {
+    "display_name": "School SE.06 standard whole window",
+    "identifier": "EPSM_window_lod2_school_se06_standard",
+    "shgc": 0.5,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.08,
+    "vt": 0.65
+  },
+  "EPSM_window_lod2_sf_se01_advanced": {
+    "display_name": "SF SE.01 advanced representative whole window",
+    "identifier": "EPSM_window_lod2_sf_se01_advanced",
+    "shgc": 0.45,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 0.8,
+    "vt": 0.6
+  },
+  "EPSM_window_lod2_sf_se04_existing": {
+    "display_name": "SF SE.04 existing representative whole window",
+    "identifier": "EPSM_window_lod2_sf_se04_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.0,
+    "vt": 0.75
+  },
+  "EPSM_window_lod2_sf_se06_existing": {
+    "display_name": "SF SE.06 existing representative whole window",
+    "identifier": "EPSM_window_lod2_sf_se06_existing",
+    "shgc": 0.7,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.3,
+    "vt": 0.75
+  },
+  "EPSM_woodfiber_board": {
+    "conductivity": 0.07,
+    "density": 230,
+    "display_name": "Soft wood-fibre board — representative",
+    "identifier": "EPSM_woodfiber_board",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.65,
+    "specific_heat": 2100,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "visible_absorptance": 0.65
+  }
+}

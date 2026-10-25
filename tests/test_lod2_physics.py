@@ -1,4 +1,4 @@
-"""Physical regression values captured from the accepted catalogue before migration."""
+"""Reviewed physical regression values for the accepted catalogue."""
 
 import hashlib
 import json
@@ -37,6 +37,7 @@ def _physical(element):
                                     "name",
                                     "material_type",
                                     "embodied_carbon",
+                                    "carbon_reference",
                                 }
                             },
                         }

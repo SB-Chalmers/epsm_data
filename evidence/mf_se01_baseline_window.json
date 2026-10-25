@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "archetype_id": "mf_se01",
+  "selection": "Use the Swedish TABULA original two-pane timber whole-window default as a simple representative typology assumption.",
+  "material_id": "window:9c16a71829efc1d4",
+  "element_id": "element:2f754ef20fbb42ac",
+  "honeybee_id": "EPSM_tabula_original_timber_window_222",
+  "properties": {
+    "u_value": 2.22,
+    "shgc": 0.56,
+    "vt": 0.525
+  },
+  "thermal_source": {
+    "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "nominal_whole_window_u_w_m2k": 2.22,
+    "source_locators": [
+      "Calc.Building.Set!AT2636 (SE.N.MFH.01.Gen.ReEx.001.001)",
+      "Calc.Building.Set!HW2652,HW2657,HW2662 (all three zones)",
+      "Tab.Building!CQ814"
+    ],
+    "status": "explicit_TABULA_representative_default"
+  },
+  "optical_source": {
+    "glazing_g": 0.8,
+    "frame_fraction": 0.3,
+    "whole_aperture_shgc": 0.56,
+    "source_locators": [
+      "Calc.Building.Set!AW2636",
+      "Calc.Building.Set!GS2636",
+      "Tab.Building!CT814",
+      "Tab.BoundaryCond!U13 (EU.MUH fallback)"
+    ],
+    "assumed_glazing_vt": 0.75,
+    "whole_aperture_vt": 0.525,
+    "vt_status": "explicit EPSM default; not measured by TABULA",
+    "excluded_factors": "External shading and angular corrections belong in simulation."
+  },
+  "carbon_source": {
+    "boverket_id": "6000000104",
+    "source_version": "02.07.000",
+    "status": "explicit modern painted-timber three-pane family proxy",
+    "limitation": "Pinned Boverket provides no matching original two-pane timber entry; no exact product match or historic manufacturing emissions are claimed."
+  },
+  "scope": "Only MF SE.01 original and its virtual generic fallback change. Shared 2.8 windows and both renovation windows remain unchanged. No TABULA benchmark or tolerance changes."
+}

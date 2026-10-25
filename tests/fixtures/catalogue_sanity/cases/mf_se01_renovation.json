@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent source and approved assembly expectations for the MF SE.01 TABULA renovation correction. Expected measures are not generated from accepted catalogue values.",
+  "source_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+  "source_workbook": "TABULA.xlsm",
+  "baseline": {
+    "construction_year": 1943,
+    "u_w_m2k": {
+      "EXT_WALL": 0.6833365653220981,
+      "TOP_FLOOR": 0.35982482914077746,
+      "GROUND_FLOOR": 1.2815211601268137,
+      "WINDOW": 2.22,
+      "BASEMENT_WALL": 3.593007785145802
+    },
+    "retained_shared_attic_material_id": "material:d479d6d7f0424d78",
+    "retained_shared_attic_conductivity_w_mk": 0.042,
+    "retained_shared_standard_window_id": "window:21eac0c64cab887c",
+    "retained_shared_standard_window_u_w_m2k": 1.22,
+    "floor_retained_layers": [
+      {
+        "material_id": "material:3b9cb95202f2163a",
+        "thickness_m": 0.16,
+        "conductivity_w_mk": 2.3089016425031033,
+        "density_kg_m3": 2322.006775596,
+        "specific_heat_j_kgk": 832.0199665271966
+      },
+      {
+        "material_id": "material:64821b09b361452a",
+        "thickness_m": 0.08,
+        "conductivity_w_mk": 0.16,
+        "density_kg_m3": 400,
+        "specific_heat_j_kgk": 1000
+      }
+    ],
+    "window": {
+      "thermal_source_kind": "explicit_tabula_whole_window_default",
+      "u_w_m2k": 2.22,
+      "source_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+      "source_variant": "SE.N.MFH.01.Gen.ReEx.001.001",
+      "source_locator": "TABULA.xlsm#Calc.Building.Set!AT2636",
+      "construction": {
+        "frame_family": "timber",
+        "number_of_panes": 2,
+        "description": "Representative original timber two-pane window; no product-specific frame, pane thickness or geometry is prescribed."
+      },
+      "selection_scope": "Explicit TABULA stock-typology whole-window default, selected as the representative original-state assumption. It is not a measured as-new 1943 product or a reverse layer calculation.",
+      "glazing_g": 0.8,
+      "glazing_g_source_locator": "TABULA.xlsm#Calc.Building.Set!AW2636",
+      "frame_fraction": 0.3,
+      "frame_fraction_source_locator": "TABULA.xlsm#Calc.Building.Set!GS2636",
+      "whole_aperture_shgc": 0.56,
+      "glazing_vt_default": 0.75,
+      "whole_aperture_vt_default": 0.525,
+      "optical_scope": "Whole-aperture SHGC and VT multiply the glazing values by the glazing fraction, assuming negligible opaque-frame optical transmission/solar gain. VT is an explicit modelling default, not measured in Fredlund or supplied by TABULA. External shading and angular factors are excluded.",
+      "boverket_id": "6000000104",
+      "carbon_scope": "Modern painted timber side-hung triple-glazed window is an explicitly approximate carbon-family proxy for a historic coupled two-pane timber window.",
+      "tabula_comparison": {
+        "u_w_m2k": 2.22,
+        "relative_tolerance": 0.2,
+        "source_locator": "TABULA.xlsm#Calc.Building.Set!AT2636"
+      },
+      "retained_shared_existing_window_id": "window:75fd884ffa101b80",
+      "retained_shared_existing_window_properties": {
+        "u_value": 2.8,
+        "shgc": 0.7,
+        "vt": 0.75
+      },
+      "retained_shared_existing_window_users": [
+        "school_se01"
+      ]
+    }
+  },
+  "assembly_defaults": {
+    "wall_brick_thickness_m": 0.12,
+    "wall_brick_conductivity_w_mk": 0.6,
+    "wall_brick_density_kg_m3": 1800,
+    "wall_brick_boverket_id": "6000000082",
+    "attic_boverket_id": null,
+    "attic_density_kg_m3": 20,
+    "floor_eps_boverket_id": "6000000131",
+    "floor_screed_thickness_m": 0.03,
+    "floor_screed_conductivity_w_mk": 1.7,
+    "floor_screed_density_kg_m3": 2300,
+    "floor_screed_boverket_id": "6000000029",
+    "floor_scope": "Internal floating-floor completion: EPS followed by 30 mm screed on the room side of the retained nominal baseline. The screed and placement are explicit EPSM modelling choices, not prescribed TABULA measures.",
+    "window_vt_scope": "Glazing visible transmittance is an explicit EPSM default; TABULA supplies glazing g and frame fraction rather than VT. Whole-aperture VT applies the same frame fraction.",
+    "basement_wall_drylining": {
+      "placement": "inside_retained_baseline",
+      "insulation_material_id": "material:8c0e602f796d38cb",
+      "insulation_honeybee_id": "EPSM_mineral_wool",
+      "insulation_boverket_id": "6000000123",
+      "insulation_density_kg_m3": 29,
+      "insulation_specific_heat_j_kgk": 1030,
+      "finish_material_id": "material:bde46592c24c2487",
+      "finish_thickness_m": 0.013,
+      "finish_conductivity_w_mk": 0.15989299909405463,
+      "finish_scope": "The 13 mm gypsum finish is an explicit EPSM completion assumption. The Swedish TABULA brochure supports internal placement; the workbook specifies a stone wool facade board, so the shared internal batts are an explicit family adaptation.",
+      "retained_layers": [
+        {
+          "thickness_m": 0.2,
+          "conductivity_w_mk": 2.3089016425031033
+        },
+        {
+          "thickness_m": 0.015,
+          "conductivity_w_mk": 0.6913373548329222
+        }
+      ],
+      "nominal_surface_resistance_m2k_w": 0.17,
+      "scope": "Nominal material-layer resistance with EPSM surface films; neither effective soil heat transfer nor certification of moisture safety.",
+      "placement_source_locator": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=26"
+    },
+    "floor_cap": {
+      "purpose": "Representative cement-finished concrete wearing/topping layer above retained LECA, supplied in original construction and retained by renovation states. It is not fitted to TABULA ground U.",
+      "thickness_m": 0.08,
+      "thickness_scope": "80 mm is an explicit EPSM representative assembly default. Period evidence supports cement-finished basement floors and concrete floor coverings, not this exact thickness.",
+      "source_thermal_identifier": "Generic HW Concrete",
+      "properties": {
+        "conductivity": 1.95,
+        "density": 2240,
+        "specific_heat": 900,
+        "roughness": "MediumRough",
+        "thermal_absorptance": 0.9,
+        "solar_absorptance": 0.8,
+        "visible_absorptance": 0.8
+      },
+      "boverket_id": "6000000029",
+      "boverket_source_density_kg_m3": 2350,
+      "carbon_scope": "Modern ready-mix concrete C25/30 product-family carbon proxy, not evidence of the historic concrete recipe.",
+      "expected_added_resistance_m2k_w": 0.041025641025641026,
+      "expected_added_mass_kg_m2": 179.20000000000002,
+      "expected_added_heat_capacity_j_m2k": 161280.00000000003,
+      "period_sources": [
+        "SOU 1944:7, printed p.157, cement-finished basement floors",
+        "BABS 1946, printed p.7, concrete floor coverings"
+      ],
+      "thermal_source_locator": "honeybee_energy.lib.materials.opaque_material_by_identifier('Generic HW Concrete')"
+    },
+    "floor_eps_density_kg_m3": 20,
+    "floor_eps_specific_heat_j_kgk": 1209.2198113776988,
+    "floor_screed_specific_heat_j_kgk": 880,
+    "attic_carbon_reference_id": "EPD-IES-0013025:003"
+  },
+  "states": {
+    "standard": {
+      "source_variant": "SE.N.MFH.01.Gen.ReEx.001.002",
+      "source_variant_row": 2641,
+      "wall": {
+        "added_insulation_m": 0.05,
+        "insulation_conductivity_w_mk": 0.033,
+        "measure_code": "SE.Wall.Insulation 50 mm brick.01",
+        "measure_row": 221,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!221"
+      },
+      "attic": {
+        "added_insulation_m": 0.2,
+        "insulation_conductivity_w_mk": 0.037,
+        "measure_code": "SE.Ceiling.Add 200 mm.01",
+        "measure_row": 236,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!236"
+      },
+      "floor": {
+        "added_insulation_m": 0.04,
+        "insulation_conductivity_w_mk": 0.036,
+        "measure_code": "SE.Floor.Add 40 mm.01",
+        "measure_row": 243,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!243"
+      },
+      "window": {
+        "u_w_m2k": 0.9,
+        "glazing_g": 0.5,
+        "frame_fraction": 0.3,
+        "whole_aperture_shgc": 0.35,
+        "boverket_id": "6000000104",
+        "measure_row": 229,
+        "carbon_scope": "Wood three-pane product family",
+        "glazing_vt_default": 0.65,
+        "whole_aperture_vt_default": 0.45499999999999996,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!229"
+      },
+      "expected_u_w_m2k": {
+        "EXT_WALL": 0.31460794918224844,
+        "TOP_FLOOR": 0.12218164413693305,
+        "GROUND_FLOOR": 0.5238122894174825,
+        "WINDOW": 0.9
+      },
+      "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2641",
+      "secondary_wall": {
+        "added_insulation_m": 0,
+        "source_locator": "TABULA.xlsm#Calc.Building.Set!CB2641",
+        "measure_code": null
+      }
+    },
+    "advanced": {
+      "source_variant": "SE.N.MFH.01.Gen.ReEx.001.003",
+      "source_variant_row": 2646,
+      "wall": {
+        "added_insulation_m": 0.3,
+        "insulation_conductivity_w_mk": 0.033,
+        "measure_code": "SE.Wall.Insulation 300 mm brick.01",
+        "measure_row": 226,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!226"
+      },
+      "attic": {
+        "added_insulation_m": 0.5,
+        "insulation_conductivity_w_mk": 0.037,
+        "measure_code": "SE.Ceiling.Add 500 mm.01",
+        "measure_row": 242,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!242"
+      },
+      "floor": {
+        "added_insulation_m": 0.045,
+        "insulation_conductivity_w_mk": 0.036,
+        "measure_code": "SE.Floor.Add 45 mm.01",
+        "measure_row": 244,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!244"
+      },
+      "window": {
+        "u_w_m2k": 0.76,
+        "glazing_g": 0.6,
+        "frame_fraction": 0.3,
+        "whole_aperture_shgc": 0.42,
+        "boverket_id": "6000000106",
+        "measure_row": 227,
+        "carbon_scope": "Wood/aluminium three-pane carbon proxy for TABULA 2+2 replacement; exact 2+2 carbon source is not established.",
+        "glazing_vt_default": 0.6,
+        "whole_aperture_vt_default": 0.42,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!227"
+      },
+      "expected_u_w_m2k": {
+        "EXT_WALL": 0.0929859160995593,
+        "TOP_FLOOR": 0.06137739374934895,
+        "GROUND_FLOOR": 0.4882884697978995,
+        "WINDOW": 0.76
+      },
+      "source_variant_locator": "TABULA.xlsm#Calc.Building.Set!2646",
+      "secondary_wall": {
+        "added_insulation_m": 0.04,
+        "insulation_conductivity_w_mk": 0.036,
+        "measure_code": "SE.Wall.Insulation 40mm.01",
+        "measure_row": 212,
+        "source_locator": "TABULA.xlsm#Tab.Building.Measure!I212:Q212",
+        "source_product_description": "Stenull fasadskiva"
+      }
+    }
+  },
+  "remaining_unassessed": [
+    "effective_ground_u"
+  ],
+  "boundary_resolution": {
+    "physical_boundary": "soil",
+    "comparison_status": "source_incompatible",
+    "value_meaning": "nominal_material_layers_not_effective_ground_u",
+    "nominal_surface_resistance_m2k_w": 0.17,
+    "roles": {
+      "GROUND_FLOOR": {
+        "physical_role": "conditioned_basement_floor",
+        "source_mapping": "GROUND_FLOOR",
+        "source_input_u_w_m2k": 0.36,
+        "input_source_locator": "TABULA.xlsm#Tab.Building.Constr!R298",
+        "source_description": "platta på mark",
+        "description_source_locator": "TABULA.xlsm#Tab.Building.Constr!I298",
+        "workbook_border": "Cellar",
+        "border_source_locator": "TABULA.xlsm#Tab.Building!BS814",
+        "betsi_locator": "BETSI Energi i bebyggelsen (2010), printed p.166, Appendix 2, Table 8, MF pre-1960"
+      },
+      "BASEMENT_WALL": {
+        "physical_role": "conditioned_basement_wall",
+        "source_mapping": "TABULA_WALL_2",
+        "source_input_u_w_m2k": 0.89,
+        "input_source_locator": "TABULA.xlsm#Tab.Building.Constr!R334",
+        "source_description": "Källarvägg under mark",
+        "description_source_locator": "TABULA.xlsm#Tab.Building.Constr!I334",
+        "workbook_border": "Cellar",
+        "border_source_locator": "TABULA.xlsm#Tab.Building!BQ814",
+        "betsi_locator": "BETSI Energi i bebyggelsen (2010), printed p.168, Appendix 2, Table 16, MF pre-1960"
+      }
+    },
+    "source_convention": {
+      "cellar_condition": "C",
+      "cellar_condition_meaning": "completely conditioned",
+      "cellar_condition_locator": "TABULA.xlsm#Tab.Building!AT814",
+      "cellar_condition_definition_locator": "TABULA.xlsm#Tab.Const.CellarCond!A14:C14",
+      "unheated_cellar_definition_locator": "TABULA.xlsm#Tab.Const.ConstrBorder!A13:E13",
+      "original_u_basis": "BETSI stock-average effective ground U calculated using ISO 13370:2007(E), not bare material-layer U",
+      "original_u_basis_locator": "BETSI Energi i bebyggelsen (2010), printed p.17, section 2, calculation assumptions",
+      "workbook_additional_unheated_space_resistance_m2k_w": 0.3,
+      "workbook_transmission_reduction_factor": 0.5,
+      "assessment": "Do not export the contradictory unheated-cellar adjustments, infer nominal layers from these effective U inputs, or treat source-adjusted workbook outputs as a nominal construction acceptance target.",
+      "topology_confirmation_locator": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=26"
+    },
+    "workbook_output_u_w_m2k": {
+      "existing": {
+        "GROUND_FLOOR": 0.3249097472924188,
+        "TABULA_WALL_2": 0.702446724546172
+      },
+      "standard": {
+        "GROUND_FLOOR": 0.23872679045092843,
+        "TABULA_WALL_2": 0.702446724546172
+      },
+      "advanced": {
+        "GROUND_FLOOR": 0.23106546854942236,
+        "TABULA_WALL_2": 0.39452297689996546
+      }
+    }
+  }
+}

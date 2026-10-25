@@ -1,0 +1,1712 @@
+{
+  "schema_version": 1,
+  "purpose": "Explicit SF SE.02 assembly metadata, keeping physical definitions and reference identities unchanged.",
+  "assignment_basis": "Functions follow inspected physical layer order. Generic finishes remain generic where exposure differs; application-specific timber board functions are declared at their existing component occurrences.",
+  "global_layer_functions": {
+    "layer:6254cae50263a56a": "finish",
+    "layer:af8c69f054c910da": "structure",
+    "layer:02be60731d729b92": "structure",
+    "layer:149a1ab32c2c6168": "lining",
+    "layer:269a77728251a8bb": "structure",
+    "layer:c1473bda98e2054a": "finish",
+    "layer:bdc224063c71b531": "structure",
+    "layer:446925126f083c48": "lining",
+    "layer:0cb7f6c54258159c": "waterproofing",
+    "layer:4a2c4fa7e084d624": "insulation",
+    "layer:7b12d3ea3df2fa36": "structure",
+    "layer:08005e97bbec6689": "insulation"
+  },
+  "slot_functions": [
+    {
+      "component_id": "component:1f9bbf09dae30698",
+      "slot_index": 3,
+      "layer_id": "layer:f5f338c60f731dad",
+      "layer_function": "structure"
+    },
+    {
+      "component_id": "component:804905e6373ffaf7",
+      "slot_index": 0,
+      "layer_id": "layer:f5f338c60f731dad",
+      "layer_function": "weather_protection"
+    },
+    {
+      "component_id": "component:b1e5690ece16111d",
+      "slot_index": 0,
+      "layer_id": "layer:f5f338c60f731dad",
+      "layer_function": "weather_protection"
+    },
+    {
+      "component_id": "component:a9af422b6bd16c8a",
+      "slot_index": 1,
+      "layer_id": "layer:f5f338c60f731dad",
+      "layer_function": "structure"
+    },
+    {
+      "component_id": "component:f0183790c068b8e5",
+      "slot_index": 2,
+      "layer_id": "layer:f5f338c60f731dad",
+      "layer_function": "structure"
+    }
+  ],
+  "element_metadata": {
+    "element:00c75d3125d41795": {
+      "assembly_family": "intermediate_floor",
+      "side_convention": "top_to_bottom"
+    },
+    "element:086f2aafca57476b": {
+      "assembly_family": "concrete",
+      "side_convention": "outside_to_inside"
+    },
+    "element:4ea2487438f16cd2": {
+      "assembly_family": "other",
+      "side_convention": "outside_to_inside"
+    },
+    "element:903bd4107a285440": {
+      "assembly_family": "internal_partition",
+      "side_convention": "outside_to_inside"
+    }
+  },
+  "side_convention_notes": {
+    "element:00c75d3125d41795": "Layer order runs from the upper room floor finish to the lower room ceiling lining.",
+    "element:086f2aafca57476b": "The nominal exterior-to-interior wall stack is reusable; basement presence, soil contact and exposed plinth fraction are selected by project geometry.",
+    "element:4ea2487438f16cd2": "This is the separate representative weather shell, not a complete thermal roof. The cold-attic ceiling or supplied thermal roof remains a distinct boundary.",
+    "element:903bd4107a285440": "The nominal outside-to-inside convention orders the first room face to the second room face for this symmetric interior partition; it does not imply exterior exposure."
+  },
+  "shared_layer_without_global_function": "layer:f5f338c60f731dad",
+  "sf02_opaque_roles": [
+    "BASEMENT_WALL",
+    "EXT_WALL",
+    "GROUND_FLOOR",
+    "INTERMEDIATE_FLOOR",
+    "INT_WALL_NONLOADBEARING",
+    "TOP_FLOOR"
+  ],
+  "physical_guards": {
+    "layers": {
+      "layer:6254cae50263a56a": {
+        "thickness": 0.028,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:3035359c17bff54b",
+            "thickness": 0.028
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:af8c69f054c910da": {
+        "thickness": 0.15,
+        "materials": [
+          {
+            "area_fraction": 0.15,
+            "material_id": "material:3035359c17bff54b",
+            "thickness": 0.15
+          },
+          {
+            "area_fraction": 0.85,
+            "material_id": "material:13b6d886635f0c32",
+            "thickness": 0.15
+          }
+        ],
+        "is_composite": true
+      },
+      "layer:02be60731d729b92": {
+        "thickness": 0.07,
+        "materials": [
+          {
+            "area_fraction": 0.15,
+            "material_id": "material:3035359c17bff54b",
+            "thickness": 0.07
+          },
+          {
+            "area_fraction": 0.85,
+            "material_id": "material:ab1fcd9a68303dc7",
+            "thickness": 0.07
+          }
+        ],
+        "is_composite": true
+      },
+      "layer:149a1ab32c2c6168": {
+        "thickness": 0.013,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:c6d85ff085da146a",
+            "thickness": 0.013
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:269a77728251a8bb": {
+        "thickness": 0.2,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:3b9cb95202f2163a",
+            "thickness": 0.2
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:c1473bda98e2054a": {
+        "thickness": 0.015,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:cb6437506c8a07cd",
+            "thickness": 0.015
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:bdc224063c71b531": {
+        "thickness": 0.1,
+        "materials": [
+          {
+            "area_fraction": 0.15,
+            "material_id": "material:3035359c17bff54b",
+            "thickness": 0.1
+          },
+          {
+            "area_fraction": 0.85,
+            "material_id": "material:ab1fcd9a68303dc7",
+            "thickness": 0.1
+          }
+        ],
+        "is_composite": true
+      },
+      "layer:446925126f083c48": {
+        "thickness": 0.013,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:bde46592c24c2487",
+            "thickness": 0.013
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:0cb7f6c54258159c": {
+        "thickness": 0.003,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:5bf216bc11260eb8",
+            "thickness": 0.003
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:4a2c4fa7e084d624": {
+        "thickness": 0.05,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:f1cfc49793192104",
+            "thickness": 0.05
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:7b12d3ea3df2fa36": {
+        "thickness": 0.12,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:3b9cb95202f2163a",
+            "thickness": 0.12
+          }
+        ],
+        "is_composite": false
+      },
+      "layer:08005e97bbec6689": {
+        "thickness": 0.07,
+        "materials": [
+          {
+            "area_fraction": 1.0,
+            "material_id": "material:a224c4024cbc6c40",
+            "thickness": 0.07
+          }
+        ],
+        "is_composite": false
+      }
+    },
+    "components": {
+      "component:1f9bbf09dae30698": {
+        "application": "INTERMEDIATE_FLOOR",
+        "shearing_layer": "Structure",
+        "layers": [
+          {
+            "layer_id": "layer:6254cae50263a56a",
+            "position": 0
+          },
+          {
+            "layer_id": "layer:af8c69f054c910da",
+            "position": 1
+          },
+          {
+            "layer_id": "layer:02be60731d729b92",
+            "position": 2
+          },
+          {
+            "layer_id": "layer:f5f338c60f731dad",
+            "position": 3
+          },
+          {
+            "layer_id": "layer:149a1ab32c2c6168",
+            "position": 4
+          }
+        ]
+      },
+      "component:804905e6373ffaf7": {
+        "application": "EXT_WALL",
+        "shearing_layer": "Skin",
+        "layers": [
+          {
+            "layer_id": "layer:f5f338c60f731dad",
+            "position": 0
+          },
+          {
+            "layer_id": "layer:08005e97bbec6689",
+            "position": 1
+          }
+        ]
+      },
+      "component:b1e5690ece16111d": {
+        "application": "EXT_WALL",
+        "shearing_layer": "Skin",
+        "layers": [
+          {
+            "layer_id": "layer:f5f338c60f731dad",
+            "position": 0
+          },
+          {
+            "layer_id": "layer:39cf7cd9cc99ffbf",
+            "position": 1
+          }
+        ]
+      },
+      "component:a9af422b6bd16c8a": {
+        "application": "ROOF",
+        "shearing_layer": "Skin",
+        "layers": [
+          {
+            "layer_id": "layer:0cb7f6c54258159c",
+            "position": 0
+          },
+          {
+            "layer_id": "layer:f5f338c60f731dad",
+            "position": 1
+          }
+        ]
+      },
+      "component:f0183790c068b8e5": {
+        "application": "TOP_FLOOR",
+        "shearing_layer": "Structure",
+        "layers": [
+          {
+            "layer_id": "layer:abc400374dcdccd7",
+            "position": 0
+          },
+          {
+            "layer_id": "layer:c20d6f5c50bf09c2",
+            "position": 1
+          },
+          {
+            "layer_id": "layer:f5f338c60f731dad",
+            "position": 2
+          },
+          {
+            "layer_id": "layer:446925126f083c48",
+            "position": 3
+          }
+        ]
+      }
+    },
+    "elements": {
+      "element:00c75d3125d41795": {
+        "role": "INTERMEDIATE_FLOOR",
+        "components": [
+          "component:1f9bbf09dae30698"
+        ],
+        "window_material_id": null
+      },
+      "element:086f2aafca57476b": {
+        "role": "BASEMENT_WALL",
+        "components": [
+          "component:b94d814e1bebfef1",
+          "component:8367d93ced1c70da"
+        ],
+        "window_material_id": null
+      },
+      "element:4ea2487438f16cd2": {
+        "role": "ROOF",
+        "components": [
+          "component:a9af422b6bd16c8a"
+        ],
+        "window_material_id": null
+      },
+      "element:903bd4107a285440": {
+        "role": "INT_WALL_NONLOADBEARING",
+        "components": [
+          "component:57656834549f038b"
+        ],
+        "window_material_id": null
+      }
+    }
+  },
+  "propagation_cases": [
+    {
+      "section": "elements",
+      "identifier": "element:4ea2487438f16cd2",
+      "field_path": "assembly_family",
+      "mutation": "remove",
+      "rule_id": "assembly.metadata",
+      "severity": "review",
+      "expected_affected_archetypes": [
+        {
+          "archetype_id": "mf_se01",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se01",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se01",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se01",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se01",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se01",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se01",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se01",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se01",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se01",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se01",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se01",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        }
+      ],
+      "generic_fallback_affected": true
+    },
+    {
+      "section": "layers",
+      "identifier": "layer:446925126f083c48",
+      "field_path": "layer_function",
+      "mutation": "invalid",
+      "rule_id": "assembly.metadata",
+      "severity": "error",
+      "expected_affected_archetypes": [
+        {
+          "archetype_id": "mf_se01",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "mf_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "office_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "school_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "advanced",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "existing",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se06",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se07",
+          "state": null,
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        }
+      ],
+      "generic_fallback_affected": true
+    },
+    {
+      "section": "components",
+      "identifier": "component:b1e5690ece16111d",
+      "field_path": "layers.0.layer_function",
+      "mutation": "invalid",
+      "rule_id": "assembly.metadata",
+      "severity": "error",
+      "expected_affected_archetypes": [
+        {
+          "archetype_id": "sf_se01",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se02",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se03",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se04",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        },
+        {
+          "archetype_id": "sf_se05",
+          "state": "standard",
+          "climate_zones": [
+            "SE.Zone1",
+            "SE.Zone2",
+            "SE.Zone3"
+          ]
+        }
+      ],
+      "generic_fallback_affected": false
+    }
+  ],
+  "slot_override_unit_assembly": {
+    "layers": {
+      "board": {
+        "name": "Shared timber board",
+        "thickness": 0.022,
+        "is_composite": false,
+        "layer_function": "structure",
+        "materials": [
+          {
+            "material_id": "timber",
+            "area_fraction": 1.0,
+            "thickness": 0.022
+          }
+        ]
+      }
+    },
+    "components": {
+      "panel": {
+        "name": "Repeated board occurrences",
+        "application": "EXT_WALL",
+        "shearing_layer": "Skin",
+        "layers": [
+          {
+            "layer_id": "board",
+            "position": 0
+          },
+          {
+            "layer_id": "board",
+            "position": 1
+          }
+        ]
+      }
+    },
+    "elements": {
+      "wall": {
+        "name": "Occurrence-function checker example",
+        "role": "EXT_WALL",
+        "assembly_family": "timber_frame",
+        "side_convention": "outside_to_inside",
+        "components": [
+          "panel"
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Functions describe the represented layer role, not structural, fire or moisture certification.",
+    "The shared22mm timber board has different application functions. Functions belong to the component occurrence; no duplicate physical board definition is introduced.",
+    "The catalogue has no door role or door definitions. This patch does not invent them."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "archetype_id": "mf_se01",
+  "decision": "Conditioned basement: lowest slab and buried wall face soil; advanced adds 40 mm internal wall insulation. No unheated-basement ceiling is inferred.",
+  "physical_evidence": {
+    "brochure": {
+      "url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf",
+      "sha256": "ebdf4894b51a841346bc9ddea456d22ca69ec87ac64f2a90a781ffe6bb91c841",
+      "printed_pages_by_zone": {
+        "Zone_III": 24,
+        "Zone_II": 54,
+        "Zone_I": 84
+      },
+      "floor_label": "Källargolv",
+      "wall_label": "Källarvägg",
+      "floor_area_m2": 470,
+      "wall_area_m2": 240,
+      "wall_advanced_placement": "40 mm invändigt",
+      "floor_illustration": "Insulation overlay above the retained floor; the particular EPS/screed completion remains an EPSM assumption."
+    },
+    "workbook": {
+      "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+      "sha256": "4577a3dd37fb30eb6695623bffe9a7a140fbbd3398413b6cb6dcf3c2127685c1",
+      "conditioned_basement": "Tab.Building!AT814=C; Tab.Const.CellarCond!A14:C14=completely conditioned cellar",
+      "buried_wall": "Tab.Building!BG814; Tab.Building.Constr!I334=Källarvägg under mark; estimated FW814=Soil",
+      "ground_slab": "Tab.Building!BI814; Tab.Building.Constr!I298=platta på mark",
+      "conflicting_boundary_flags": "Tab.Building!BQ814,BS814=Cellar; Tab.Const.ConstrBorder!A13:E13=unheated cellar, Radd=0.3 m2K/W, b=0.5",
+      "wall_measure": "Tab.Building.Measure!I212=Stenull fasadskiva, P212=0.04 m, Q212=0.036 W/(m K)"
+    },
+    "betsi": {
+      "title": "Energi i bebyggelsen – tekniska egenskaper och beräkningar (2010)",
+      "local_source_sha256": "d0fe3c9750083afa50ed546453d200c9cd2e27692c949daf4198dbc6ede8a4fd",
+      "printed_p17": "Ground and basement slabs and buried basement walls use ISO 13370:2007(E), including ground transfer.",
+      "printed_p35_36": "Platta på mark includes buildings with basement foundations; ground resistance is included.",
+      "printed_p45": "Ceilings over unheated basements are a separate construction category.",
+      "printed_p166_table8": "MF before 1960 basement/ground slab U=0.36 ±0.05 W/(m2 K).",
+      "printed_p168_table16": "MF before 1960 buried basement wall U=0.89 ±0.10 W/(m2 K).",
+      "url": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-energi-i-bebyggelsen.pdf"
+    }
+  },
+  "comparison_decision": {
+    "status": "source_incompatible",
+    "raw_ground_inclusive_stock_u_w_m2k": {
+      "GROUND_FLOOR": 0.36,
+      "TABULA_WALL_2": 0.89
+    },
+    "preserved_workbook_effective_u_w_m2k": {
+      "advanced": {
+        "GROUND_FLOOR": 0.23106546854942236,
+        "TABULA_WALL_2": 0.39452297689996546
+      },
+      "existing": {
+        "GROUND_FLOOR": 0.3249097472924188,
+        "TABULA_WALL_2": 0.702446724546172
+      },
+      "standard": {
+        "GROUND_FLOOR": 0.23872679045092843,
+        "TABULA_WALL_2": 0.702446724546172
+      }
+    },
+    "explanation": "The source inputs already include ground transfer, but TABULA further adds unheated-cellar resistance Radd=0.3 to produce the listed Ueff values. Separately, b=0.5 multiplies area times Ueff in the transmission balance; the listed Ueff values do not already contain this factor. These historical observations are preserved for audit and are not compatible nominal-layer acceptance targets. Removing only Radd does not produce independently validated ISO 13370 renovated targets.",
+    "required_for_forward_assessment": [
+      "Ground-contact geometry, area/perimeter and burial depth",
+      "Soil conductivity and ground-temperature assumptions",
+      "Matching ISO 13370 or other declared ground-transfer calculation and original/reference geometry"
+    ],
+    "not_allowed": [
+      "Reverse-solving insulation or conductivity from effective U",
+      "Adding cellar R=0.3 or b=0.5 to physical layer definitions",
+      "Counting an unavailable comparison as a pass"
+    ],
+    "workbook_equations": {
+      "listed_effective_u": "Ueff = 1 / (1 / Uinput + Rmeasure + 0.3)",
+      "separate_transmission_term": "Htr,element = 0.5 × area × Ueff; factor 0.5 is separate from the listed Ueff",
+      "original_input_basis": "Uinput is the ground-inclusive BETSI stock mean, not a bare-layer U."
+    }
+  },
+  "catalogue_changes": {
+    "boundary_metadata": "All three MF SE.01 states map GROUND_FLOOR to conditioned_basement_floor and TABULA_WALL_2 to BASEMENT_WALL/conditioned_basement_wall, both soil-facing. Definitions remain geometry-selected.",
+    "standard_wall": "Retained unchanged",
+    "advanced_wall_element_id": "element:aad7e87939d3fe40",
+    "advanced_added_insulation_m": 0.04,
+    "insulation_material_id": "material:8c0e602f796d38cb",
+    "finish_material_id": "material:bde46592c24c2487",
+    "finish_thickness_m": 0.013,
+    "generic_fallback": "Uses the same MF definitions; no new family is created.",
+    "floor_finish": "Baseline now includes an 80 mm period-supported cement-finished concrete topping above LECA, retained under standard/advanced EPS overlays. See evidence/mf_se01_basement_floor_finish.json; no source U is fitted."
+  },
+  "completion_assumptions": {
+    "material": "Reuse generic stone-wool batts lambda 0.036, density 29 kg/m3, Honeybee EPSM_mineral_wool and Boverket 6000000123. The source names stone-wool facade board; this internal-lining family adaptation is explicit.",
+    "finish": "13 mm gypsum board; not prescribed by TABULA.",
+    "conditions": [
+      "Existing wall must remain dry year-round; assess internal-insulation moisture risk.",
+      "Suitable metal support and fixings; junction/point thermal bridges require project assessment.",
+      "No assumed timber studs or polyethylene vapour barrier.",
+      "Accessories and metal supports are unquantified project details; this is a nominal planar construction."
+    ],
+    "guidance_url": "https://www.rockwool.com/se/produkter-och-konstruktioner/golvisolering/kaellare-tillaeggsisolering/"
+  }
+}

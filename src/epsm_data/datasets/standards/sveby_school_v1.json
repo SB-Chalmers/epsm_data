@@ -2,6 +2,7 @@
   "schema_version": 1,
   "building_use": "school",
   "profile_id": "sveby.school.v1.0.2016-05-16",
+  "area_basis": "Atemp",
   "source_uri": "https://www.sveby.org/wp-content/uploads/2016/05/Sveby-Brukarindata-undervisning-1.0-160525.pdf",
   "source_sha256": "6d2b8648613c4d06cf7a7ef63437263999d9f3ee8d40e2ae581172d9c889677f",
   "reference_active_days": 220,

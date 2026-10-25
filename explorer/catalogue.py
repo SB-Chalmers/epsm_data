@@ -25,6 +25,7 @@ _PROPERTY_ROLES = {
     "intermediate_floor": "intermediate_floor",
     "internal_wall": "internal_wall",
     "basement_wall": "basement_wall",
+    "basement_ceiling": "basement_ceiling",
 }
 
 
@@ -40,6 +41,8 @@ def _material_view(library, material_id):
     material = library.materials.get(material_id)
     carbon = material.embodied_carbon if material is not None else None
     resource = library.boverket_resources.get(str(record.get("boverket_id")), {})
+    reference = library.carbon_references.get(record.get("carbon_reference_id"))
+    reference_record = reference.to_dict() if reference is not None else None
     values = {
         item["DataModuleCode"]: item["Value"]
         for group in resource.get("DataItems", ())
@@ -56,6 +59,12 @@ def _material_view(library, material_id):
             "A5_conservative": values.get("A5.1"),
         }
     )
+    if reference_record is not None:
+        gwp = {
+            "unit": f"kg CO2 eq./{reference_record['unit']}",
+            "method": reference_record["method"],
+            "modules": reference_record["modules"],
+        }
     return {
         "id": material_id,
         "name": record["name"],
@@ -63,10 +72,15 @@ def _material_view(library, material_id):
         "honeybee_properties": props,
         "boverket_id": record.get("boverket_id"),
         "boverket_name": resource.get("Name"),
+        "carbon_reference": reference_record,
         "mapping_status": "non_product"
         if record.get("non_product")
-        else ("mapped" if record.get("boverket_id") else "missing"),
-        "gwp": {"unit": "kg CO2 eq./kg", **gwp} if resource else None,
+        else (
+            "external"
+            if reference_record is not None
+            else ("mapped" if record.get("boverket_id") else "missing")
+        ),
+        "gwp": {"unit": "kg CO2 eq./kg", **gwp} if resource or reference_record else None,
     }
 
 
@@ -113,24 +127,27 @@ def _construction_view(library, raw, construction_id):
                     "shearing_layer": component["shearing_layer"],
                 }
             )
-        result[role] = {"name": record["name"], "components": components, "u_value": value}
+        result[role] = {"name": record["name"], "components": components, "u_value": value,
+                        "side_convention": record.get("side_convention")}
     return result
 
 
 def load_data(path=None):
     library = Catalogue.load(path)
-    raw = library.to_dict()
+    raw = library.resolved_dict()
     packages, cells = {}, []
     for slot in library.search():
         key = slot.key
         package_id = f"lod2:{slot.archetype_id}:{slot.state or 'default'}"
         if package_id not in packages:
             construction = _construction_view(library, raw, slot.construction_set_id)
-            u_values = {
-                _VALUE_ROLES[role]: record["u_value"]
-                for role, record in construction.items()
-                if role in _VALUE_ROLES
-            }
+            u_values = {}
+            for role, record in construction.items():
+                if role in _VALUE_ROLES:
+                    name = _VALUE_ROLES[role]
+                    if role == "GROUND_FLOOR" and "BASEMENT_FLOOR" in construction:
+                        name = "basement_ceiling"
+                    u_values[name] = record["u_value"]
             report = library.completeness(slot.archetype_id, state=slot.state)
             status = "complete" if report["complete"] else "incomplete"
             packages[package_id] = {
@@ -164,7 +181,6 @@ def load_data(path=None):
                 "state": slot.state or "default",
                 "package_id": package_id,
                 "revision": package["revision"],
-                "alternatives": [],
                 "family": key.category,
                 "status": package["status"],
                 "lod2_status": package["status"],

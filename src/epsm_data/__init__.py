@@ -8,10 +8,18 @@ import logging as _stdlib_logging
 from ._version import __version__
 from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
 from .classification import ArchetypeKey, ArchetypeSlot
+from .climate_zones import (
+    AmbiguousClimateZoneError,
+    build_climate_zone_boundaries,
+    climate_zone_for_building,
+    climate_zone_for_county,
+    climate_zone_for_point,
+)
 from .domain import (
     Archetype,
     BuildingArchetype,
     BuildingElement,
+    CarbonReference,
     Component,
     ConstructionSet,
     Element,
@@ -43,17 +51,27 @@ from .profiles import (
     select_operating_profile,
 )
 from .reference import reference_construction_set, reference_hvac_template
+from .sanity import check_catalogue, load_sanity_fixture
 from .serialization import (
     archetype_from_dict,
     archetype_to_dict,
     construction_set_from_dict,
     construction_set_to_dict,
 )
+from .source_cache import SourceCache
 from .usecases.build_archetype import build_archetype
 
 __all__ = [
     "__version__",
     "Catalogue",
+    "check_catalogue",
+    "load_sanity_fixture",
+    "SourceCache",
+    "AmbiguousClimateZoneError",
+    "build_climate_zone_boundaries",
+    "climate_zone_for_building",
+    "climate_zone_for_county",
+    "climate_zone_for_point",
     "ArchetypeKey",
     "ArchetypeSlot",
     "Archetype",
@@ -62,6 +80,7 @@ __all__ = [
     "Component",
     "ConstructionSet",
     "Element",
+    "CarbonReference",
     "EmbodiedCarbon",
     "EnvelopePerformance",
     "EnvironmentalFactor",
