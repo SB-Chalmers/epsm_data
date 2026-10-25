@@ -22,8 +22,9 @@
 - Resolved payloads use a `thermal` section and `thermal_id`. Older `honeybee` /
   `honeybee_id` payloads still load, `Catalogue.honeybee_materials` remains an
   alias and nominal references carry both ids.
-- Every archetype carries an airflow-only ventilation template (S, F, FT or FTX by
-  type and era; Advanced installs FTX) that epsm_core applies automatically, and
+- Every archetype can use any ventilation system: `get(..., ventilation="S"|"F"|"FT"|"FTX")`
+  selects the template for a building's observed (EPC) system, with an era default
+  when unknown; Advanced installs FTX 0.80. epsm_core applies it automatically, and
   `Catalogue.facade_assumptions()` gives window-to-wall ratios per orientation.
 - Ground floors and basement walls are no longer compared with TABULA; ground heat
   transfer belongs to epsm_core / epsm_rc. See [validation](docs/validation.md)

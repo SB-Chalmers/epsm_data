@@ -5,10 +5,19 @@ building when the building itself does not supply them.
 
 ## Ventilation
 
-`catalogue.get(...).hvac_template` is an airflow-only `HVACTemplate`. The platform
-merges airflow in the order operating profile → template → envelope, so the
-profile keeps its occupied ventilation rates and `envelope_performance` keeps
-infiltration.
+Any archetype can use any ventilation system. Pass the building's observed system,
+for example its EPC ventilation type as resolved by epsm_db, and the archetype
+returns the matching template; without it the era default below applies.
+
+```python
+archetype = catalogue.for_year("multi_family", 1970, state="existing", ventilation="FTX")
+archetype.hvac_template          # epsm.ventilation.FTX_075
+catalogue.ventilation_options("mf_se02", state="existing")  # S, F, FT, FTX templates
+```
+
+`hvac_template` is an airflow-only `HVACTemplate`. The platform merges airflow in
+the order operating profile → template → envelope, so the profile keeps its
+occupied ventilation rates and `envelope_performance` keeps infiltration.
 
 | Template | Airflow |
 | --- | --- |
@@ -16,6 +25,13 @@ infiltration.
 | `epsm.ventilation.F` | Mechanical exhaust, profile flow, no recovery |
 | `epsm.ventilation.FT` | Supply and exhaust, profile flow, no recovery |
 | `epsm.ventilation.FTX_060` / `_075` / `_080` | Supply and exhaust with heat recovery 0.60 / 0.75 / 0.80 |
+
+**Observed system.** S, F and FT are used as observed. An observed FTX gets 0.75
+in buildings before 1976 (it must be a retrofit), 0.60 in 1976–2005 (early original
+recovery), 0.75 in 2006–2021 and 0.80 from 2022. Exhaust-air heat pumps are F
+ventilation; the heat pump is a heating-system input.
+
+**Era default**, used only when the building's system is unknown:
 
 | Era | Single-family | Multi-family | Office | School |
 | --- | --- | --- | --- | --- |
@@ -27,9 +43,10 @@ infiltration.
 | SE.06 | FTX 0.75 | FTX 0.75 | FTX 0.75 | FTX 0.75 |
 | SE.07 | FTX 0.80 | FTX 0.80 | FTX 0.80 | FTX 0.80 |
 
-Standard renovation keeps the existing system; Advanced installs FTX 0.80. These
-are period assumptions from typical Swedish practice, not measured stock shares.
-The rules live in `src/epsm_data/datasets/standards/ventilation_templates.json`.
+Standard renovation keeps the existing (observed or default) system; Advanced
+installs FTX 0.80. These are period assumptions from typical Swedish practice, not
+measured stock shares. The rules live in
+`src/epsm_data/datasets/standards/ventilation_templates.json`.
 
 ## Window-to-wall ratio
 

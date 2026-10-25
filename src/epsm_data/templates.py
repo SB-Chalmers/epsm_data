@@ -28,13 +28,29 @@ def ventilation_templates():
     }
 
 
-def ventilation_template_id(category, era, state):
-    """Template id for a catalogue configuration; Standard keeps the existing system."""
+VENTILATION_SYSTEMS = ("S", "F", "FT", "FTX")
+
+
+def ventilation_template_id(category, era, state, ventilation=None):
+    """Template id for a configuration and an optional observed system (S, F, FT, FTX).
+
+    Without an observed system the era default applies. Standard keeps the existing
+    system; Advanced installs FTX 0.80.
+    """
     table = _table("ventilation_templates")
-    if category not in table["assignment"]:
+    if category not in table["default_by_era"]:
         raise ValueError(f"No ventilation assignment for category: {category}")
+    if ventilation is not None and ventilation not in VENTILATION_SYSTEMS:
+        raise ValueError(f"Unknown ventilation system {ventilation!r}; use one of {VENTILATION_SYSTEMS}")
     rule = table["renovation"].get(state, "existing")
-    key = table["assignment"][category][era] if rule == "existing" else rule
+    if rule != "existing":
+        key = rule
+    elif ventilation is None:
+        key = table["default_by_era"][category][era]
+    elif ventilation == "FTX":
+        key = table["observed_ftx_by_era"][era]
+    else:
+        key = ventilation
     return f"epsm.ventilation.{key}"
 
 

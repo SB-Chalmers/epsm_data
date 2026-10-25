@@ -12,9 +12,10 @@ Validation code and data live in `epsm_studies`; this page defines the contract.
 1. **Inputs from the building:** footprint, height and storeys (geometry), heated
    area (Atemp), building type, construction year, and the measured space heating
    for one year with that year's weather.
-2. **Inputs from the catalogue only:** fabric for each state, the archetype's
-   ventilation template, the facade window-to-wall ratios, the operating profile
-   and infiltration. Nothing is tuned per building.
+2. **Inputs from the catalogue only:** fabric for each state, the ventilation
+   template for the building's EPC ventilation type (era default if unknown), the
+   facade window-to-wall ratios, the operating profile and infiltration. Nothing is
+   tuned per building.
 3. **Simulate three times:** Existing, Standard and Advanced. SE.07 has one state.
 4. **Compare:** `r = simulated / measured` annual space heating for each state.
 

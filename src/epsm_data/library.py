@@ -729,7 +729,7 @@ class Catalogue:
         return {"complete": not missing, "missing_values": missing}
 
     @logged_operation("catalogue.select", level=10)
-    def get(self, archetype_id, *, state=None):
+    def get(self, archetype_id, *, state=None, ventilation=None):
         """Return shared physical definitions; incomplete configurations stay inspectable."""
         aid, generic = self._resolve_selection(archetype_id)
         record = self._data["archetypes"][aid]
@@ -752,7 +752,7 @@ class Catalogue:
         missing = self.completeness(aid, state=state)["missing_values"]
         from .templates import ventilation_template_id
 
-        hvac = self._hvac.get(ventilation_template_id(record["category"], record["era"], selected))
+        hvac = self._hvac.get(ventilation_template_id(record["category"], record["era"], selected, ventilation))
         return Archetype(
             archetype_id="generic_se" + record["era"].removeprefix("SE.") if generic else aid,
             display_name=GENERIC_ASSUMPTION_LABEL if generic else record["name"]
@@ -785,6 +785,13 @@ class Catalogue:
             ),
         )
 
+    def ventilation_options(self, archetype_id, *, state=None):
+        """The template each observed system (S, F, FT, FTX) gives this configuration."""
+        from .templates import VENTILATION_SYSTEMS
+
+        return {system: self.get(archetype_id, state=state, ventilation=system).hvac_template
+                for system in VENTILATION_SYSTEMS}
+
     def facade_assumptions(self, archetype_id):
         """Default and N/E/S/W window-to-wall ratios for templates without measured openings."""
         from .templates import facade_assumptions
@@ -792,14 +799,19 @@ class Catalogue:
         aid, _generic = self._resolve_selection(archetype_id)
         return facade_assumptions(self._data["archetypes"][aid]["category"])
 
-    def for_year(self, category, construction_year, *, state=None):
-        """Select an era; generic explicitly borrows MF fabric and residential operation."""
+    def for_year(self, category, construction_year, *, state=None, ventilation=None):
+        """Select an era; generic explicitly borrows MF fabric and residential operation.
+
+        ``ventilation`` is the building's observed system (S, F, FT or FTX), for example
+        from its EPC; without it the era default ventilation template applies.
+        """
         if category not in SELECTION_CATEGORIES:
             raise ValueError(f"Unknown category: {category}")
         era = era_for_year(construction_year)
         if category == "generic":
-            return self.get("generic_se" + era.removeprefix("SE."), state=state)
-        return self.get(self._classified[(category, era)], state=state)
+            return self.get("generic_se" + era.removeprefix("SE."), state=state,
+                            ventilation=ventilation)
+        return self.get(self._classified[(category, era)], state=state, ventilation=ventilation)
 
     def search(self, *, category=None, era=None, climate_zone=None, state=None):
         """List authored zone assignments, or explicit virtual generic/MF assignments.

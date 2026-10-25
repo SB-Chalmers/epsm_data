@@ -80,3 +80,28 @@ def test_facade_assumptions_give_a_default_and_four_orientations(catalogue, aid,
 def test_unknown_archetype_has_no_facade_assumptions(catalogue):
     with pytest.raises(KeyError):
         catalogue.facade_assumptions("hospital_se01")
+
+
+@pytest.mark.parametrize("aid", ["sf_se01", "mf_se03", "office_se05", "school_se02"])
+def test_any_archetype_accepts_every_observed_system(catalogue, aid):
+    options = catalogue.ventilation_options(aid, state="existing")
+    assert {system: template.values["airflow"]["topology"] for system, template in options.items()} == {
+        "S": "S", "F": "F", "FT": "FT", "FTX": "FTX"}
+    assert catalogue.get(aid, state="standard", ventilation="F").hvac_template is options["F"]
+    assert all(template.values["airflow"]["sensible_recovery_effectiveness"] == 0.8
+               for template in catalogue.ventilation_options(aid, state="advanced").values())
+
+
+@pytest.mark.parametrize("aid, recovery", [("mf_se01", 0.75), ("mf_se04", 0.6), ("mf_se06", 0.75)])
+def test_observed_ftx_takes_a_period_recovery(catalogue, aid, recovery):
+    template = catalogue.get(aid, state="existing", ventilation="FTX").hvac_template
+    assert template.values["airflow"]["sensible_recovery_effectiveness"] == recovery
+
+
+def test_observed_system_flows_through_year_selection_and_rejects_unknown_codes(catalogue):
+    selected = catalogue.for_year("multi_family", 1970, state="existing", ventilation="FTX")
+    assert selected.hvac_template.template_id == "epsm.ventilation.FTX_075"
+    assert catalogue.for_year("multi_family", 1970, state="existing").hvac_template.template_id == (
+        "epsm.ventilation.F")
+    with pytest.raises(ValueError, match="S', 'F', 'FT', 'FTX"):
+        catalogue.get("sf_se02", state="existing", ventilation="FX")
