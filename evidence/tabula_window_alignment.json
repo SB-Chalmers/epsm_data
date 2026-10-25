@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-25",
+  "scope": "Whole-window assignments of the TABULA-covered SF/MF SE.01-SE.05 configurations.",
+  "sources": {
+    "tabula_workbook": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "tabula_brochure": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf",
+    "fixture": "tests/fixtures/catalogue_sanity/tabula_u_values.json"
+  },
+  "changes": [
+    {
+      "configurations": ["mf_se02:advanced", "mf_se03:advanced", "mf_se04:advanced", "mf_se05:advanced"],
+      "before": "Generic whole window U=0.85, SHGC 0.45, VT 0.60 (EPSM_window_lod2_mf_1940_advanced)",
+      "after": "TABULA advanced replacement window U=0.76 (EPSM_tabula_mf_window_advanced), already used by MF SE.01 and SF SE.01-SE.05",
+      "basis": "Measure SE.Window.Wood and aluminium (2+1, 2+2).01 prescribes U=0.76 for every MFH advanced package; the brochure lists 'lågenergifönster' U=0.76."
+    },
+    {
+      "configurations": ["mf_se02:existing"],
+      "before": "Generic whole window U=2.2, SHGC 0.70, VT 0.75",
+      "after": "TABULA original two-pane timber window U=2.22 shared with MF SE.01",
+      "basis": "Calc.Building.Set!HW2653,HW2658,HW2663 (MFH.02.Gen.ReEx.001.001) give U=2.22. Glazing g=0.8 follows the two-pane MF SE.01 and SF SE.02 (1961-1975) originals; the MFH.02 g cell is not retained locally."
+    },
+    {
+      "configurations": ["mf_se05:existing", "sf_se04:existing", "sf_se05:existing"],
+      "before": "Generic whole windows U=1.8/2.0/1.8 with SHGC 0.70, VT 0.75",
+      "after": "Exact TABULA originals U=1.97 / 1.94 / 1.87 with SHGC 0.49, VT 0.525",
+      "basis": "Calc.Building.Set column HW for MFH.05/SFH.04/SFH.05 .001; brochure lists 'Enkla treglasfönster' 1.94 (SFH 1986-95) and 'Treglasfönster' 1.87 (SFH 1996-2005). Three-pane glazing g=0.7 follows the SE.03-SE.04 originals; frame fraction 0.30 and glazing VT 0.75 are the existing EPSM conventions."
+    }
+  ],
+  "removed_unreferenced": [
+    "EPSM_window_lod2_mf_se03_existing", "EPSM_window_lod2_mf_se04_existing",
+    "EPSM_window_lod2_mf_se05_existing", "EPSM_window_lod2_sf_se04_existing",
+    "EPSM_rubber_floor_finish", "5 unreferenced roof/intermediate-floor elements and their 3 components"
+  ],
+  "unchanged": "No TABULA benchmark, tolerance or sanity rule changed. Non-TABULA windows (SE.06-SE.07, office, school) are outside this alignment."
+}

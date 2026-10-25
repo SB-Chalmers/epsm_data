@@ -115,8 +115,8 @@
       "u_value": 0.054030499159700436
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
-      "u_value": 0.85
+      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "u_value": 0.76
     }
   },
   "mf_se02:existing": {
@@ -145,8 +145,8 @@
       "u_value": 0.20021817118979393
     },
     "WINDOW": {
-      "physics": "613e0b21a2b6b206cb955f940117ff27f6bb8f4762e635d304b40782d3745ee2",
-      "u_value": 2.2
+      "physics": "4aacb93693067f2f4e7c068c97878d66d3ecde79bbe41d145bf8ec9e6462547c",
+      "u_value": 2.22
     }
   },
   "mf_se02:standard": {
@@ -205,8 +205,8 @@
       "u_value": 0.051767797244581214
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
-      "u_value": 0.85
+      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "u_value": 0.76
     }
   },
   "mf_se03:existing": {
@@ -295,8 +295,8 @@
       "u_value": 0.05032058294722506
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
-      "u_value": 0.85
+      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "u_value": 0.76
     }
   },
   "mf_se04:existing": {
@@ -385,8 +385,8 @@
       "u_value": 0.04703343065738155
     },
     "WINDOW": {
-      "physics": "dd4ef0c200cfd3eb448ed4514e336a24e19d2d27831564d1fb8ea91f0f208b5f",
-      "u_value": 0.85
+      "physics": "e27371cefad25e4536028b4b9485b4ef200c5d1aa532204b862e912a65c8fd3a",
+      "u_value": 0.76
     }
   },
   "mf_se05:existing": {
@@ -415,8 +415,8 @@
       "u_value": 0.1290662458552201
     },
     "WINDOW": {
-      "physics": "542d004e11aaa74faad24abb701f881b4521510c6738ca2f3c2027f4eca4666e",
-      "u_value": 1.8
+      "physics": "21a9005fb800387c4cc60f1f44aa59eda74522faf7701fe2d7de361094351aba",
+      "u_value": 1.97
     }
   },
   "mf_se05:standard": {
@@ -2147,8 +2147,8 @@
       "u_value": 0.13550685850939562
     },
     "WINDOW": {
-      "physics": "fb405d66ba637b87e0a9a04c65a2e3085186ea36fb0e0a7fed49c297c38ec772",
-      "u_value": 2.0
+      "physics": "b56d58311c74eec035b778710da505db3a814e23331ee08df1e29fc066307ecc",
+      "u_value": 1.94
     }
   },
   "sf_se04:standard": {
@@ -2237,8 +2237,8 @@
       "u_value": 0.13550685850939562
     },
     "WINDOW": {
-      "physics": "542d004e11aaa74faad24abb701f881b4521510c6738ca2f3c2027f4eca4666e",
-      "u_value": 1.8
+      "physics": "b2b4a34559ae2b4d2e4d150759e4751f406d471f62fefbd7c62c24845261a7ff",
+      "u_value": 1.87
     }
   },
   "sf_se05:standard": {

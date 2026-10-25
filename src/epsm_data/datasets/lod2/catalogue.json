@@ -7674,17 +7674,6 @@
       "name": "Structure 92a6f3",
       "shearing_layer": "Structure"
     },
-    "component:92ae7887180b0b05": {
-      "application": "ROOF",
-      "layers": [
-        {
-          "layer_id": "layer:0324dddfd9d8631a",
-          "position": 0
-        }
-      ],
-      "name": "Skin 92ae78",
-      "shearing_layer": "Skin"
-    },
     "component:97a8c2092f684917": {
       "application": "EXT_WALL",
       "layers": [
@@ -7995,25 +7984,6 @@
       "name": "Space b22317",
       "shearing_layer": "Space"
     },
-    "component:b2dfce8b8c42301c": {
-      "application": "ROOF",
-      "layers": [
-        {
-          "layer_id": "layer:e9425992af7c2da3",
-          "position": 0
-        },
-        {
-          "layer_id": "layer:f5f338c60f731dad",
-          "position": 1
-        },
-        {
-          "layer_id": "layer:c1473bda98e2054a",
-          "position": 2
-        }
-      ],
-      "name": "Structure b2dfce",
-      "shearing_layer": "Structure"
-    },
     "component:b6e65719327d68e9": {
       "application": "INT_WALL_NONLOADBEARING",
       "layers": [
@@ -8262,17 +8232,6 @@
       ],
       "name": "Structure d54997",
       "shearing_layer": "Structure"
-    },
-    "component:d65bc84150947dca": {
-      "application": "ROOF",
-      "layers": [
-        {
-          "layer_id": "layer:73e18ce9f5d17959",
-          "position": 0
-        }
-      ],
-      "name": "Skin d65bc8",
-      "shearing_layer": "Skin"
     },
     "component:d704e4b07c80ed88": {
       "application": "EXT_WALL",
@@ -8613,7 +8572,7 @@
         "INTERMEDIATE_FLOOR": "element:03b342da86bbf768",
         "INT_WALL_NONLOADBEARING": "element:913f783f0e8ace5d",
         "TOP_FLOOR": "element:b38718c935a75efb",
-        "WINDOW": "element:7af744a6e4b453fc"
+        "WINDOW": "element:2f754ef20fbb42ac"
       }
     },
     "construction_set:07ca3e6987d4798c": {
@@ -8740,7 +8699,7 @@
         "INTERMEDIATE_FLOOR": "element:0538064c0247c884",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "TOP_FLOOR": "element:baeb200c424fa0f6",
-        "WINDOW": "element:985a1262e68eba08"
+        "WINDOW": "element:89d8c60471c8367f"
       }
     },
     "construction_set:304c7f86220746ab": {
@@ -8818,7 +8777,7 @@
         "INTERMEDIATE_FLOOR": "element:0538064c0247c884",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "TOP_FLOOR": "element:935f9b9a6e5f238f",
-        "WINDOW": "element:570f3574c6e8a664"
+        "WINDOW": "element:84b4a3b3e472e6c2"
       }
     },
     "construction_set:53232ad058f3e703": {
@@ -8952,7 +8911,7 @@
         "INTERMEDIATE_FLOOR": "element:0538064c0247c884",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "TOP_FLOOR": "element:0f24a43f205c5f45",
-        "WINDOW": "element:570f3574c6e8a664"
+        "WINDOW": "element:84b4a3b3e472e6c2"
       }
     },
     "construction_set:785f4575e46210a2": {
@@ -9054,7 +9013,7 @@
         "INTERMEDIATE_FLOOR": "element:00c75d3125d41795",
         "INT_WALL_NONLOADBEARING": "element:903bd4107a285440",
         "TOP_FLOOR": "element:46dd1d3817a983d6",
-        "WINDOW": "element:985a1262e68eba08"
+        "WINDOW": "element:41647b6ed061e6ac"
       }
     },
     "construction_set:984bdc659aba971e": {
@@ -9158,7 +9117,7 @@
         "INTERMEDIATE_FLOOR": "element:03b342da86bbf768",
         "INT_WALL_NONLOADBEARING": "element:913f783f0e8ace5d",
         "TOP_FLOOR": "element:04c851494de53bfa",
-        "WINDOW": "element:570f3574c6e8a664"
+        "WINDOW": "element:84b4a3b3e472e6c2"
       }
     },
     "construction_set:b762867c226de902": {
@@ -9180,7 +9139,7 @@
         "INTERMEDIATE_FLOOR": "element:0538064c0247c884",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "TOP_FLOOR": "element:25b0f85a5cc92689",
-        "WINDOW": "element:570f3574c6e8a664"
+        "WINDOW": "element:84b4a3b3e472e6c2"
       }
     },
     "construction_set:ba2d0189923f6f22": {
@@ -9377,7 +9336,7 @@
         "INTERMEDIATE_FLOOR": "element:00c75d3125d41795",
         "INT_WALL_NONLOADBEARING": "element:903bd4107a285440",
         "TOP_FLOOR": "element:46dd1d3817a983d6",
-        "WINDOW": "element:453bdf4112f8023b"
+        "WINDOW": "element:788d9ca6fb8c8380"
       }
     },
     "construction_set:fab5c6fec6baea28": {
@@ -9445,14 +9404,6 @@
       "name": "Wall with TABULA brick facing and 300 mm insulation",
       "role": "EXT_WALL",
       "side_convention": "outside_to_inside"
-    },
-    "element:00e7580489362680": {
-      "components": [
-        "component:92ae7887180b0b05",
-        "component:b2dfce8b8c42301c"
-      ],
-      "name": "Roof",
-      "role": "ROOF"
     },
     "element:01ca4ab537003cd2": {
       "components": [
@@ -9727,13 +9678,6 @@
       "name": "Ext Wall",
       "role": "EXT_WALL"
     },
-    "element:27a480633251ffb5": {
-      "components": [
-        "component:4a8781c409a244b0"
-      ],
-      "name": "Intermediate Floor",
-      "role": "INTERMEDIATE_FLOOR"
-    },
     "element:287b1648f5457d0d": {
       "components": [
         "component:983324a412153218",
@@ -9944,11 +9888,6 @@
       "name": "Roof",
       "role": "ROOF"
     },
-    "element:453bdf4112f8023b": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:f86e1e582e66bed4"
-    },
     "element:461434dd49b23ec8": {
       "name": "Timber window, TABULA original, U=2.04 W/(m² K)",
       "role": "WINDOW",
@@ -10132,13 +10071,6 @@
       "name": "Cold-attic ceiling with TABULA 200 mm addition",
       "role": "TOP_FLOOR",
       "side_convention": "outside_to_inside"
-    },
-    "element:5a5771389dcce9c7": {
-      "components": [
-        "component:b2dfce8b8c42301c"
-      ],
-      "name": "Roof",
-      "role": "ROOF"
     },
     "element:5b24821922c88300": {
       "components": [
@@ -10333,11 +10265,6 @@
       ],
       "name": "Ext Wall",
       "role": "EXT_WALL"
-    },
-    "element:7af744a6e4b453fc": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:8fbd9eee35559b13"
     },
     "element:7b1834d48c91ae3b": {
       "assembly_family": "concrete",
@@ -10605,11 +10532,6 @@
       "name": "Top Floor",
       "role": "TOP_FLOOR"
     },
-    "element:985a1262e68eba08": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:6eca2ecf1da45804"
-    },
     "element:985e34ba4245c8c3": {
       "components": [
         "component:a376f34ea414d3af"
@@ -10692,14 +10614,6 @@
       ],
       "name": "Intermediate Floor",
       "role": "INTERMEDIATE_FLOOR"
-    },
-    "element:a179473f65a994a2": {
-      "components": [
-        "component:d65bc84150947dca",
-        "component:b2dfce8b8c42301c"
-      ],
-      "name": "Roof",
-      "role": "ROOF"
     },
     "element:a4d0f636f197052c": {
       "assembly_family": "concrete",
@@ -11165,13 +11079,6 @@
       "role": "GROUND_FLOOR",
       "side_convention": "outside_to_inside"
     },
-    "element:deaeeb44c4da143b": {
-      "components": [
-        "component:29a11601fe1d95bf"
-      ],
-      "name": "Intermediate Floor",
-      "role": "INTERMEDIATE_FLOOR"
-    },
     "element:deefa48b8fb780df": {
       "assembly_family": "cold_attic",
       "components": [
@@ -11398,6 +11305,21 @@
       ],
       "name": "Ext Wall",
       "role": "EXT_WALL"
+    },
+    "element:89d8c60471c8367f": {
+      "name": "TABULA original timber window",
+      "role": "WINDOW",
+      "window_material_id": "window:286f4782c007c8ed"
+    },
+    "element:788d9ca6fb8c8380": {
+      "name": "TABULA original timber window",
+      "role": "WINDOW",
+      "window_material_id": "window:584fcf193dd236f9"
+    },
+    "element:41647b6ed061e6ac": {
+      "name": "TABULA original timber window",
+      "role": "WINDOW",
+      "window_material_id": "window:5b00d98648e10849"
     }
   },
   "layers": {
@@ -13516,21 +13438,6 @@
       },
       "carbon_ref": null
     },
-    "material:baf6da12b85feeef": {
-      "kind": "opaque",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Rubber floor finish",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_rubber_floor_finish"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000211"
-      }
-    },
     "material:bde46592c24c2487": {
       "kind": "opaque",
       "epsm_material_name": "Gypsum board",
@@ -13753,36 +13660,6 @@
         "identifier": "6000000104"
       }
     },
-    "window:52bd6d1d1eb668f5": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=2.5 W/(m² K), SHGC=0.7, VT=0.75",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_mf_se03_existing"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
-      }
-    },
-    "window:6eca2ecf1da45804": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=1.8 W/(m² K), SHGC=0.7, VT=0.75",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_mf_se05_existing"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
-      }
-    },
     "window:7016079eaf9c1cc0": {
       "kind": "window",
       "notes": [
@@ -13839,21 +13716,6 @@
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_tabula_original_timber_window_234"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
-      }
-    },
-    "window:8fbd9eee35559b13": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=2.2 W/(m² K), SHGC=0.7, VT=0.75",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_mf_se04_existing"
       },
       "carbon_ref": {
         "source": "boverket",
@@ -14070,21 +13932,6 @@
         "identifier": "6000000104"
       }
     },
-    "window:f86e1e582e66bed4": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=2 W/(m² K), SHGC=0.7, VT=0.75",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_sf_se04_existing"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
-      }
-    },
     "window:fc5d69256bd7f50e": {
       "kind": "window",
       "notes": [
@@ -14102,6 +13949,60 @@
         "source": "boverket",
         "identifier": "6000000104"
       }
+    },
+    "window:286f4782c007c8ed": {
+      "kind": "window",
+      "notes": [
+        "Representative TABULA original-period whole-window default for mf_se05; not a verified historic product.",
+        "Glazing g=0.7 and frame fraction 0.30 give whole-aperture SHGC=0.49; no angular or external-shading factor is bundled.",
+        "Glazing visible transmittance 0.75 is an explicit EPSM default, giving whole-aperture VT 0.525; TABULA supplies no measured VT.",
+        "Boverket 6000000104 is an approximate modern painted-timber triple-glazed product-family carbon proxy; historic manufacturing emissions are not established."
+      ],
+      "epsm_material_name": "Timber window, TABULA original, U=1.97 W/(m² K)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_tabula_original_timber_window_1_97"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000104"
+      }
+    },
+    "window:584fcf193dd236f9": {
+      "kind": "window",
+      "notes": [
+        "Representative TABULA original-period whole-window default for sf_se04; not a verified historic product.",
+        "Glazing g=0.7 and frame fraction 0.30 give whole-aperture SHGC=0.49; no angular or external-shading factor is bundled.",
+        "Glazing visible transmittance 0.75 is an explicit EPSM default, giving whole-aperture VT 0.525; TABULA supplies no measured VT.",
+        "Boverket 6000000104 is an approximate modern painted-timber triple-glazed product-family carbon proxy; historic manufacturing emissions are not established."
+      ],
+      "epsm_material_name": "Timber window, TABULA original, U=1.94 W/(m² K)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_tabula_original_timber_window_1_94"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000104"
+      }
+    },
+    "window:5b00d98648e10849": {
+      "kind": "window",
+      "notes": [
+        "Representative TABULA original-period whole-window default for sf_se05; not a verified historic product.",
+        "Glazing g=0.7 and frame fraction 0.30 give whole-aperture SHGC=0.49; no angular or external-shading factor is bundled.",
+        "Glazing visible transmittance 0.75 is an explicit EPSM default, giving whole-aperture VT 0.525; TABULA supplies no measured VT.",
+        "Boverket 6000000104 is an approximate modern painted-timber triple-glazed product-family carbon proxy; historic manufacturing emissions are not established."
+      ],
+      "epsm_material_name": "Timber window, TABULA original, U=1.87 W/(m² K)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_tabula_original_timber_window_1_87"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000104"
+      }
     }
   },
   "schema_version": 2,
@@ -14109,7 +14010,7 @@
     "boverket": "02.07.000",
     "epd-ies-0005222": "003",
     "epd-ies-0013025": "003",
-    "epsm-custom": "0.6.0",
+    "epsm-custom": "0.7.0",
     "honeybee-energy-standards-opaque": "2.3.5",
     "honeybee-standards": "2.0.7"
   }

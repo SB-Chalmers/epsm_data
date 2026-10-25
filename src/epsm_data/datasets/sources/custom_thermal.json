@@ -242,19 +242,6 @@
     },
     "visible_absorptance": 0.7
   },
-  "EPSM_rubber_floor_finish": {
-    "conductivity": 0.17,
-    "density": 1200,
-    "display_name": "rubber_floor_finish",
-    "identifier": "EPSM_rubber_floor_finish",
-    "roughness": "Smooth",
-    "solar_absorptance": 0.7,
-    "specific_heat": 1400,
-    "thermal_absorptance": 0.9,
-    "thickness": 0.05,
-    "type": "EnergyMaterial",
-    "visible_absorptance": 0.7
-  },
   "EPSM_sf_historic_mineral_wool": {
     "conductivity": 0.04,
     "density": 29,
@@ -347,6 +334,69 @@
         "Calc.Building.Set!AT2639",
         "Calc.Building.Set!AW2639",
         "Calc.Building.Set!GS2639"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_1_87": {
+    "display_name": "Timber window, TABULA original, U=1.87 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_1_87",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.87,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original sf_se05 (SFH.05.Gen.ReEx.001.001)",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!HW2696",
+        "Calc.Building.Set!HW2686",
+        "Calc.Building.Set!HW2676"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_1_94": {
+    "display_name": "Timber window, TABULA original, U=1.94 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_1_94",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.94,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original sf_se04 (SFH.04.Gen.ReEx.001.001)",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!HW2694",
+        "Calc.Building.Set!HW2684",
+        "Calc.Building.Set!HW2674"
+      ]
+    },
+    "vt": 0.525
+  },
+  "EPSM_tabula_original_timber_window_1_97": {
+    "display_name": "Timber window, TABULA original, U=1.97 W/(m² K)",
+    "identifier": "EPSM_tabula_original_timber_window_1_97",
+    "shgc": 0.49,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.97,
+    "user_data": {
+      "assumed_glazing_vt": 0.75,
+      "frame_fraction": 0.3,
+      "glazing_g_basis": "Three-pane period glazing g=0.7 as recorded for TABULA SE.03-SE.04 originals; the per-variant g cell is not retained in the local extraction.",
+      "representation": "simple_whole_window",
+      "source": "Swedish TABULA original mf_se05 (MFH.05.Gen.ReEx.001.001)",
+      "source_glazing_g": 0.7,
+      "source_locators": [
+        "Calc.Building.Set!HW2666",
+        "Calc.Building.Set!HW2661",
+        "Calc.Building.Set!HW2656"
       ]
     },
     "vt": 0.525
@@ -540,30 +590,6 @@
     "u_factor": 1.22,
     "vt": 0.65
   },
-  "EPSM_window_lod2_mf_se03_existing": {
-    "display_name": "MF se03_existing whole-window representative",
-    "identifier": "EPSM_window_lod2_mf_se03_existing",
-    "shgc": 0.7,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 2.5,
-    "vt": 0.75
-  },
-  "EPSM_window_lod2_mf_se04_existing": {
-    "display_name": "MF se04_existing whole-window representative",
-    "identifier": "EPSM_window_lod2_mf_se04_existing",
-    "shgc": 0.7,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 2.2,
-    "vt": 0.75
-  },
-  "EPSM_window_lod2_mf_se05_existing": {
-    "display_name": "MF se05_existing whole-window representative",
-    "identifier": "EPSM_window_lod2_mf_se05_existing",
-    "shgc": 0.7,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 1.8,
-    "vt": 0.75
-  },
   "EPSM_window_lod2_mf_se06_existing": {
     "display_name": "MF se06_existing whole-window representative",
     "identifier": "EPSM_window_lod2_mf_se06_existing",
@@ -667,14 +693,6 @@
     "type": "EnergyWindowMaterialSimpleGlazSys",
     "u_factor": 0.8,
     "vt": 0.6
-  },
-  "EPSM_window_lod2_sf_se04_existing": {
-    "display_name": "SF SE.04 existing representative whole window",
-    "identifier": "EPSM_window_lod2_sf_se04_existing",
-    "shgc": 0.7,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 2.0,
-    "vt": 0.75
   },
   "EPSM_window_lod2_sf_se06_existing": {
     "display_name": "SF SE.06 existing representative whole window",

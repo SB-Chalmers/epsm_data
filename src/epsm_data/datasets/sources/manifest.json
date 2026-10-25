@@ -80,9 +80,9 @@
       "license_path": "LICENSE-honeybee-energy-standards-2.3.5.txt"
     },
     "epsm-custom": {
-      "release": "0.6.0",
+      "release": "0.7.0",
       "records_path": "custom_thermal.json",
-      "sha256": "0684f70f7343a65565f392fd903bb4676f55cccd988475a57cb19692495cdd71",
+      "sha256": "96ddfd56cbb92bb82e067cd7fcbf78d010fc5816fb95eefcc35769eff2c8501c",
       "kind": "epsm_authored"
     }
   }

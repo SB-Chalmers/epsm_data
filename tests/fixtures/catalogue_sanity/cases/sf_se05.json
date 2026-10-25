@@ -502,17 +502,17 @@
     "prior_baseline_component_id": "component:982587b42ba3f295"
   },
   "window": {
-    "selection": "Retain existing baseline and standard definitions; advanced reuses the accepted TABULA replacement. Original nominal optics remain an EPSM lumped assumption rather than a claim to reproduce TABULA glazing g and frame separately.",
+    "selection": "Existing uses the exact TABULA original whole-window U for this era (three-pane period glazing g=0.7, frame fraction 0.30, assumed glazing VT 0.75); standard reuses the TABULA Wood 3p replacement and advanced the accepted TABULA 2+2 replacement.",
     "states": {
       "existing": {
-        "element_id": "element:985a1262e68eba08",
-        "material_id": "window:6eca2ecf1da45804",
-        "honeybee_id": "EPSM_window_lod2_mf_se05_existing",
+        "element_id": "element:41647b6ed061e6ac",
+        "material_id": "window:5b00d98648e10849",
+        "honeybee_id": "EPSM_tabula_original_timber_window_1_87",
         "boverket_id": "6000000104",
         "properties": {
-          "shgc": 0.7,
-          "u_value": 1.8,
-          "vt": 0.75
+          "u_value": 1.87,
+          "shgc": 0.49,
+          "vt": 0.525
         },
         "tabula": {
           "values_w_m2k": {
