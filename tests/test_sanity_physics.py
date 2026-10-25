@@ -17,8 +17,8 @@ def raw():
                  thermal_absorptance=0.9, solar_absorptance=0.7, visible_absorptance=0.7)
     return {
         "materials": {"wood": {"name": "Wooden stud", "kind": "opaque", "properties": props,
-            "honeybee_id": "hb", "boverket_id": "123"}},
-        "honeybee": {"hb": {"identifier": "hb", "type": "EnergyMaterial", **props}},
+            "thermal_id": "hb", "boverket_id": "123"}},
+        "thermal": {"hb": {"identifier": "hb", "type": "EnergyMaterial", **props}},
         "boverket": {"123": {"Name": "Sawn timber", "ResourceId": 123, "InventoryUnit": "kg",
             "Conversions": [{"Field": "Volume", "Unit": "kg/m³", "Value": 500}],
             "DataItems": [{"PropertyCode": "GWP-GHG AR4", "PropertyUnitCode": "kg CO2 eq./kg",
@@ -92,7 +92,7 @@ def test_component_duplicate_signature_sorts_explicit_positions(raw):
 
 
 @pytest.mark.parametrize("section,identifier,field,target", [
-    ("materials", "wood", "honeybee_id", "absent"),
+    ("materials", "wood", "thermal_id", "absent"),
     ("materials", "wood", "boverket_id", "absent"),
     ("materials", "wood", "carbon_reference_id", "absent"),
     ("elements", "wall", "components", ["absent"]),
@@ -113,7 +113,7 @@ def test_all_reference_levels_are_checked_even_if_loading_would_fail(raw):
 
 
 def test_thermal_source_type_identity_value_and_units_are_independent_errors(raw):
-    raw["honeybee"]["hb"].update(identifier="wrong", type="EnergyWindowMaterialSimpleGlazSys",
+    raw["thermal"]["hb"].update(identifier="wrong", type="EnergyWindowMaterialSimpleGlazSys",
                                 conductivity=0.5, units={"density": "lb/ft3"})
     result = findings(raw)
     assert {item["rule_id"] for item in result if item["severity"] == "error"} >= {
@@ -295,7 +295,7 @@ def test_invalid_metadata_is_collected_without_crashing(raw):
 def test_malformed_raw_records_do_not_prevent_other_findings(raw):
     raw["materials"]["wood"]["kind"] = []
     raw["materials"]["malformed"] = ["not a definition"]
-    raw["honeybee"]["hb"]["units"] = {"density": []}
+    raw["thermal"]["hb"]["units"] = {"density": []}
     raw["layers"]["stud"]["materials"].append(None)
     raw["components"]["frame"]["layers"].append("invalid slot")
     raw["elements"]["wall"]["role"] = []
@@ -334,10 +334,10 @@ def test_window_carbon_cannot_silently_use_an_opaque_product(raw):
 
 
 def _custom(raw, provenance=None):
-    raw["honeybee"]["EPSM_wood"] = {**raw["honeybee"].pop("hb"), "identifier": "EPSM_wood"}
-    raw["materials"]["wood"]["honeybee_id"] = "EPSM_wood"
+    raw["thermal"]["EPSM_wood"] = {**raw["thermal"].pop("hb"), "identifier": "EPSM_wood"}
+    raw["materials"]["wood"]["thermal_id"] = "EPSM_wood"
     if provenance is not None:
-        raw["honeybee"]["EPSM_wood"]["user_data"] = {"provenance": provenance}
+        raw["thermal"]["EPSM_wood"]["user_data"] = {"provenance": provenance}
     return raw
 
 

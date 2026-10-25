@@ -52,7 +52,7 @@ REQUIRED_ROLES = (
 )
 SECTIONS = (
     "materials",
-    "honeybee",
+    "thermal",
     "boverket",
     "carbon_references",
     "layers",
@@ -61,6 +61,17 @@ SECTIONS = (
     "construction_sets",
     "archetypes",
 )
+
+
+def legacy_thermal_names(payload):
+    """Accept resolved payloads written before the honeybee -> thermal rename."""
+    if isinstance(payload, dict):
+        if "honeybee" in payload and "thermal" not in payload:
+            payload["thermal"] = payload.pop("honeybee")
+        for material in (payload.get("materials") or {}).values():
+            if isinstance(material, dict) and "honeybee_id" in material and "thermal_id" not in material:
+                material["thermal_id"] = material.pop("honeybee_id")
+    return payload
 
 
 def _object(pairs):
@@ -100,7 +111,7 @@ def _resolve_material_sources(definition, cache):
     payload = deepcopy(definition)
     payload.pop("source_versions")
     payload["schema_version"] = 1
-    for section in ("honeybee", "boverket", "carbon_references"):
+    for section in ("thermal", "boverket", "carbon_references"):
         if section in definition:
             raise ValueError(f"Reference catalogue must not embed {section} records")
         payload[section] = {}
@@ -116,7 +127,7 @@ def _resolve_material_sources(definition, cache):
         record = records[source][identifier]
         kind = manifest[source]["kind"]
         section = ("boverket" if kind == "boverket" else "carbon_references"
-                   if kind == "carbon_reference" else "honeybee")
+                   if kind == "carbon_reference" else "thermal")
         if identifier in payload[section] and payload[section][identifier] != record:
             raise ValueError(f"Conflicting cached source identifier: {identifier}")
         payload[section][identifier] = record
@@ -129,7 +140,7 @@ def _resolve_material_sources(definition, cache):
         if not isinstance(mapping, dict):
             raise ValueError(f"Invalid material mapping: {mid}")
         if any(field in mapping for field in (
-            "properties", "name", "honeybee_id", "boverket_id", "carbon_reference_id"
+            "properties", "name", "thermal_id", "honeybee_id", "boverket_id", "carbon_reference_id"
         )):
             raise ValueError(f"Material mapping must use source references without copied properties: {mid}")
         name = mapping.get("epsm_material_name")
@@ -144,7 +155,7 @@ def _resolve_material_sources(definition, cache):
                   dict(zip(WINDOW_FIELDS, ("u_factor", "shgc", "vt"), strict=True)))
         resolved = {key: deepcopy(value) for key, value in mapping.items()
                     if key not in {"epsm_material_name", "thermal_ref", "carbon_ref"}}
-        resolved.update(name=name, honeybee_id=hid, boverket_id=None,
+        resolved.update(name=name, thermal_id=hid, boverket_id=None,
                         properties={field: thermal[source_field] for field, source_field in fields.items()
                                     if source_field in thermal})
         if mapping.get("carbon_ref") is not None:
@@ -175,7 +186,7 @@ class Catalogue:
                                   else SourceCache.load(source_cache))
             payload = _resolve_material_sources(data, self._source_cache)
         else:
-            payload = deepcopy(data)
+            payload = legacy_thermal_names(deepcopy(data))
         json.dumps(payload, allow_nan=False)
         if payload.get("schema_version") != 1:
             raise ValueError("Unsupported LoD2 catalogue schema_version")
@@ -191,7 +202,7 @@ class Catalogue:
         self._missing = {section: {} for section in SECTIONS}
         self._material_records = freeze(payload["materials"])
         self._boverket = freeze(payload["boverket"])
-        self._honeybee = freeze(payload["honeybee"])
+        self._thermal = freeze(payload["thermal"])
         self._carbon_references = {}
         from .catalogue import RenovationCatalogue
         from .profiles import available_operating_profiles
@@ -262,7 +273,7 @@ class Catalogue:
             seen[key] = identifier
 
     def _validate_sources(self):
-        for identifier, record in self._data["honeybee"].items():
+        for identifier, record in self._data["thermal"].items():
             if record.get("identifier") != identifier:
                 raise ValueError(f"Honeybee identifier disagrees with source key: {identifier}")
         for identifier, record in self._data["boverket"].items():
@@ -307,7 +318,7 @@ class Catalogue:
             self._need(props, fields, path + ".properties", physical_missing)
             missing.extend(physical_missing)
             hid = self._reference(
-                "honeybee", record.get("honeybee_id"), path + ".honeybee_id", missing
+                "thermal", record.get("thermal_id"), path + ".thermal_id", missing
             )
             bov = record.get("boverket_id")
             external_id = record.get("carbon_reference_id")
@@ -328,7 +339,7 @@ class Catalogue:
                 self._reference("boverket", str(bov), path + ".boverket_id", missing)
             external = self._carbon_references.get(external_id)
             if hid is not None:
-                hb = data["honeybee"][hid]
+                hb = data["thermal"][hid]
                 expected_type = (
                     "EnergyMaterial" if kind == "opaque" else "EnergyWindowMaterialSimpleGlazSys"
                 )
@@ -341,7 +352,7 @@ class Catalogue:
                 )
                 for field, source_field in source_fields.items():
                     if hb.get(source_field) is None:
-                        missing.append(f"honeybee.{hid}.{source_field}")
+                        missing.append(f"thermal.{hid}.{source_field}")
                     elif props.get(field) is not None and props[field] != hb[source_field]:
                         raise ValueError(f"{path}: {field} disagrees with linked Honeybee record")
             carbon_values = boverket_carbon_modules(data["boverket"][str(bov)]) if bov is not None else {}
@@ -612,7 +623,8 @@ class Catalogue:
     components = property(lambda self: self._components)
     elements = property(lambda self: self._elements)
     construction_sets = property(lambda self: self._construction_sets)
-    honeybee_materials = property(lambda self: self._honeybee)
+    thermal_materials = property(lambda self: self._thermal)
+    honeybee_materials = thermal_materials  # deprecated alias
     boverket_resources = property(lambda self: self._boverket)
     carbon_references = property(lambda self: self._carbon_references)
     archetype_records = property(lambda self: freeze(self._data["archetypes"]))
@@ -882,7 +894,8 @@ class Catalogue:
                 "kind": "simple_window"
                 if self._data["materials"][mid]["kind"] == "window"
                 else "opaque",
-                "honeybee_id": self._data["materials"][mid].get("honeybee_id"),
+                "thermal_id": self._data["materials"][mid].get("thermal_id"),
+                "honeybee_id": self._data["materials"][mid].get("thermal_id"),  # deprecated alias
                 "boverket_id": self._data["materials"][mid].get("boverket_id"),
                 **(
                     {

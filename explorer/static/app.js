@@ -310,7 +310,7 @@ function sectionSvg(role, assembly, prefix) {
   return `<svg class="layer-section hatched-section ${wall ? "wall-section" : "floor-section"}" viewBox="0 0 1000 220" role="img" aria-label="Hatched cross-section of ${esc(elementNames[role] || label(role))}, ${layers.length} layers, ${fmt(total, 0)} millimetres"><defs>${[...patterns.values()].join("")}</defs>${edge}${rects}</svg>`;
 }
 function materialDetails(material) {
-  const hb = material.honeybee_properties || {};
+  const hb = material.thermal_properties || {};
   const propertyNames = { roughness: "Roughness", conductivity: "Conductivity λ (W/(m·K))", density: "Density (kg/m³)", specific_heat: "Specific heat (J/(kg·K))", thermal_absorptance: "Thermal absorptance", solar_absorptance: "Solar absorptance", visible_absorptance: "Visible absorptance", u_value: "U-value (W/(m²·K))", shgc: "SHGC", vt: "Visible transmittance" };
   const propertyRows = Object.entries(hb).map(([key, value]) => `<div><dt>${esc(propertyNames[key] || label(key))}</dt><dd>${esc(typeof value === "number" ? fmt(value, 4) : value ?? "Unavailable")}</dd></div>`).join("");
   const gwp = material.gwp, reference = material.carbon_reference;
@@ -336,10 +336,10 @@ function materialDetails(material) {
     const gwpRows = gwp ? [["A1–A3 typical", gwp.A1_A3_typical], ["A1–A3 conservative", gwp.A1_A3_conservative], ["A4 transport", gwp.A4_transport], ["A5.1", gwp.A5_conservative]].map(([name, value]) => `<div><dt>${name}</dt><dd>${value == null ? "Not declared" : `${fmt(value, 5)} ${esc(gwp.unit)}`}</dd></div>`).join("") : "<div><dt>Retrieved values</dt><dd>Unavailable</dd></div>";
     carbonDetails = nonProduct ? "" : `<h6>Boverket GWP · retrieved values</h6><dl class="material-property-grid">${gwpRows}</dl>`;
   }
-  return `<details class="material-facts"><summary>${esc(material.name)} · ${esc(material.honeybee_id || "Honeybee ID unavailable")} · ${esc(sourceLabel)}</summary>${sourceDetails}${propertyRows ? `<h6>HBJSON thermal properties</h6><dl class="material-property-grid">${propertyRows}</dl>` : "<p class=\"muted\">HBJSON properties unavailable.</p>"}${carbonDetails}</details>`;
+  return `<details class="material-facts"><summary>${esc(material.name)} · ${esc(material.thermal_id || "Thermal ID unavailable")} · ${esc(sourceLabel)}</summary>${sourceDetails}${propertyRows ? `<h6>HBJSON thermal properties</h6><dl class="material-property-grid">${propertyRows}</dl>` : "<p class=\"muted\">HBJSON properties unavailable.</p>"}${carbonDetails}</details>`;
 }
 function wholeWindowDefinition(assembly) {
-  const props = assembly.material?.honeybee_properties || {};
+  const props = assembly.material?.thermal_properties || {};
   const uValue = assembly.u_value ?? props.u_value;
   return `<div class="whole-window-definition"><strong>Whole-window definition</strong><dl><div><dt>U-value</dt><dd>${uValue == null ? "Unavailable" : `${fmt(uValue, 2)} W/(m²·K)`}</dd></div><div><dt>Solar gain · SHGC</dt><dd>${props.shgc == null ? "Unavailable" : fmt(props.shgc, 2)}</dd></div><div><dt>Visible transmittance · VT</dt><dd>${props.vt == null ? "Unavailable" : fmt(props.vt, 2)}</dd></div></dl><p>Frame dimensions and pane layers are unspecified.</p></div>`;
 }

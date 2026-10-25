@@ -65,7 +65,7 @@ def test_reference_export_and_expanded_physics_have_identical_sanity(catalogue, 
     reference, resolved = catalogue.to_dict(), catalogue.resolved_dict()
     assert reference["schema_version"] == 2
     assert resolved["schema_version"] == 1
-    assert not {"honeybee", "boverket", "carbon_references"} & reference.keys()
+    assert not {"thermal", "boverket", "carbon_references"} & reference.keys()
     expected = catalogue.sanity_report(fixture=fixture)
     assert check_catalogue(reference, fixture=fixture) == expected
     assert check_catalogue(resolved, fixture=fixture) == expected
@@ -227,7 +227,7 @@ def test_generic_fallback_contract_is_checked(catalogue, fixture, monkeypatch):
 
 def test_cli_uses_selected_fixture_and_reports_errors_without_requiring_valid_load(tmp_path, catalogue, capsys):
     payload = catalogue.resolved_dict()
-    payload["materials"]["material:4857e866ed223064"]["honeybee_id"] = "missing-reference"
+    payload["materials"]["material:4857e866ed223064"]["thermal_id"] = "missing-reference"
     source = tmp_path / "catalogue.json"
     source.write_text(json.dumps(payload))
     assert main(["--sanity", "--fixture", str(FIXTURE), "--path", str(source), "--check"]) == 1
@@ -265,7 +265,7 @@ def test_required_configuration_gaps_are_not_lost(catalogue, fixture, field):
 
 def test_unknown_thermal_source_blocks_thermal_readiness(catalogue, fixture):
     payload = catalogue.resolved_dict()
-    payload["materials"]["material:3035359c17bff54b"]["honeybee_id"] = None
+    payload["materials"]["material:3035359c17bff54b"]["thermal_id"] = None
     report = check_catalogue(payload, fixture=fixture)
     assert report["readiness"]["thermal_inputs"]["status"] == "blocked"
 

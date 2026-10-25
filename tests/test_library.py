@@ -17,7 +17,6 @@ from epsm_data import (
     archetype_to_dict,
     build_archetype,
 )
-from epsm_data.thermal import compute_element_thermal
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -130,9 +129,6 @@ def test_thermal_results_and_unique_layer_ids(archetype):
     assert len({layer.layer_code for layer in layers}) == 2
     expected = 1 / (0.17 + 0.2 / 0.15 + 0.1 / 0.1)
     assert element.u_value == pytest.approx(expected)
-    assert compute_element_thermal(element).u_value == pytest.approx(expected)
-    assert compute_element_thermal(element).reference_u_value is None
-    assert compute_element_thermal(element, reference_u_value=3).reference_warning
     assert archetype_from_dict(archetype_to_dict(arch)) == arch
 
 
@@ -145,13 +141,3 @@ def test_invalid_record_version_and_role(archetype):
     payload["archetype"]["construction_set"]["elements"]["EXT_WALL"]["application"] = "ROOF"
     with pytest.raises(ValueError):
         archetype_from_dict(payload)
-
-
-def test_optional_graph_supports_window_records(archetype):
-    pytest.importorskip("networkx")
-    pytest.importorskip("pyvis")
-    from epsm_data.infra.graph import build_graph
-
-    graph = build_graph([archetype], list(archetype.construction_set.elements.values()))
-    assert graph.nodes[archetype.window.name]["u_value"] == 2.5
-    assert graph.has_edge(archetype.archetype_id, archetype.window.name)

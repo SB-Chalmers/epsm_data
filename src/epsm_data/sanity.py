@@ -18,7 +18,7 @@ from pathlib import Path
 from .classification import CATEGORIES, ERAS, STATES, ZONES
 
 SECTIONS = (
-    "materials", "honeybee", "boverket", "carbon_references", "layers",
+    "materials", "thermal", "boverket", "carbon_references", "layers",
     "components", "elements", "construction_sets", "archetypes",
 )
 GENERIC_LABEL = "Unknown building type — multifamily assumption"
@@ -196,7 +196,7 @@ def _usage_index(data):
         record = _record(data.get(section), identifier)
         children = []
         if section == "materials":
-            for target, field in (("honeybee", "honeybee_id"), ("boverket", "boverket_id"),
+            for target, field in (("thermal", "thermal_id"), ("boverket", "boverket_id"),
                                   ("carbon_references", "carbon_reference_id")):
                 value = record.get(field)
                 if value is not None:
@@ -496,12 +496,13 @@ def check_catalogue(catalogue_or_data, *, fixture=None):
     bundled fixture is read only when no explicit fixture is supplied.
     Project calendars, geometry and installed systems remain consumer inputs.
     """
-    from .library import Catalogue
+    from .library import Catalogue, legacy_thermal_names
     from .sanity_physics import check_physics
     from .sanity_reference import check_references
 
     catalogue = catalogue_or_data if isinstance(catalogue_or_data, Catalogue) else None
-    raw = catalogue.resolved_dict() if catalogue is not None else deepcopy(catalogue_or_data)
+    raw = catalogue.resolved_dict() if catalogue is not None else legacy_thermal_names(
+        deepcopy(catalogue_or_data))
     if not isinstance(raw, Mapping):
         raise TypeError("Sanity checks require a Catalogue or a raw catalogue mapping")
     source_failure = None

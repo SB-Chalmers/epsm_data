@@ -19,17 +19,17 @@ def test_catalogue_stores_names_and_references_instead_of_copied_properties():
     catalogue = Catalogue.load()
     raw = catalogue.to_dict()
     assert raw["schema_version"] == 2
-    assert not {"honeybee", "boverket", "carbon_references"} & raw.keys()
+    assert not {"thermal", "boverket", "carbon_references"} & raw.keys()
     for identifier, mapping in catalogue.material_mappings.items():
         assert mapping["epsm_material_name"] == catalogue.material_records[identifier]["name"]
-        assert not {"properties", "name", "honeybee_id", "boverket_id"} & mapping.keys()
+        assert not {"properties", "name", "thermal_id", "honeybee_id", "boverket_id"} & mapping.keys()
         assert mapping["thermal_ref"]["source"] in catalogue.source_versions
     assert Catalogue(raw).resolved_dict() == catalogue.resolved_dict()
 
 
 def test_linked_views_keep_exact_cached_thermal_records():
     catalogue, cache = Catalogue.load(), SourceCache.load()
-    linked_records = catalogue.resolved_dict()["honeybee"]
+    linked_records = catalogue.resolved_dict()["thermal"]
     refs = [material["thermal_ref"] for material in catalogue.material_mappings.values()]
     assert {ref["source"] for ref in refs} == {"epsm-custom"}
     for ref in refs:
@@ -128,3 +128,16 @@ def test_source_cli_checks_offline_and_reports_upstream_updates(monkeypatch, cap
     assert report["status"] == "updates_available"
     assert report["sources"]["boverket"]["pinned_release"] == "02.07.000"
     assert Catalogue.load().source_versions["boverket"] == "02.07.000"
+
+
+def test_legacy_honeybee_names_still_load_and_alias():
+    catalogue = Catalogue.load()
+    payload = catalogue.resolved_dict()
+    payload["honeybee"] = payload.pop("thermal")
+    for material in payload["materials"].values():
+        material["honeybee_id"] = material.pop("thermal_id")
+    assert Catalogue(payload).resolved_dict() == catalogue.resolved_dict()
+    assert catalogue.honeybee_materials is catalogue.thermal_materials
+    reference = next(iter(catalogue.nominal_metadata("mf_se02", state="advanced")[
+        "material_references"].values()))
+    assert reference["honeybee_id"] == reference["thermal_id"]

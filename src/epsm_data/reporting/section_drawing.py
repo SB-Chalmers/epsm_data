@@ -164,7 +164,7 @@ _STYLE_TABLE: dict[str, dict] = {
     },
 }
 
-# Keyword mapping: honeybee name fragments → style key
+# Keyword mapping: material name fragments → style key
 _NAME_MAP: list[tuple[str, str]] = [
     ("air gap", "air_gap"),
     ("acoustic", "acoustic"),
@@ -201,7 +201,7 @@ _NAME_MAP: list[tuple[str, str]] = [
 
 
 def _classify_material(name: str) -> str:
-    """Map a honeybee material name to a style key."""
+    """Map a material name to a style key."""
     low = name.lower()
     for fragment, style_key in _NAME_MAP:
         if fragment in low:
@@ -218,7 +218,7 @@ def _style_for(name: str, is_composite: bool = False) -> dict:
 
 
 def _short_name(name: str) -> str:
-    """Abbreviate honeybee material names for annotation."""
+    """Abbreviate material names for annotation."""
     replacements = [
         ("Attic loose stone wool", "Loose stone wool"),
         ("Facade stone wool board", "Facade stone wool"),

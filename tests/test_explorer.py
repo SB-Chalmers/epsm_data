@@ -89,10 +89,10 @@ def test_construction_payload_retains_material_properties_and_composites(catalog
     composite = next(layer for layer in layers if len(layer["materials"]) > 1)
     assert sum(material["area_fraction"] for material in composite["materials"]) == pytest.approx(1)
     material = composite["materials"][0]
-    assert material["honeybee_id"]
-    assert material["honeybee_properties"]["conductivity"] > 0
-    assert material["honeybee_properties"]["density"] > 0
-    assert material["honeybee_properties"]["specific_heat"] > 0
+    assert material["thermal_id"]
+    assert material["thermal_properties"]["conductivity"] > 0
+    assert material["thermal_properties"]["density"] > 0
+    assert material["thermal_properties"]["specific_heat"] > 0
     assert material["boverket_id"]
     assert material["gwp"]["unit"] == "kg CO2 eq./kg"
     assert material["gwp"]["A1_A3_typical"] is not None
@@ -110,7 +110,7 @@ def test_construction_payload_retains_material_properties_and_composites(catalog
     )
     assert unmatched["gwp"] is None
     window = package["construction"]["WINDOW"]
-    assert window["window"] and window["material"]["honeybee_id"]
+    assert window["window"] and window["material"]["thermal_id"]
 
 
 def test_external_sand_carbon_proxy_and_missing_modules_are_visible(catalogue):
@@ -135,8 +135,8 @@ def test_external_sand_carbon_proxy_and_missing_modules_are_visible(catalogue):
         assert material["gwp"]["modules"] == reference["modules"]
         assert material["gwp"]["method"] == reference["method"]
         assert package["missing"] == []
-        assert material["honeybee_properties"]["conductivity"] == 0.4
-        assert material["honeybee_properties"]["density"] == 1600
+        assert material["thermal_properties"]["conductivity"] == 0.4
+        assert material["thermal_properties"]["density"] == 1600
 
 
 @pytest.mark.parametrize("unit", ["m2", "m3", "item"])

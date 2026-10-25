@@ -7,7 +7,7 @@
       "section": "materials",
       "identifier": "material:4857e866ed223064",
       "changes": {
-        "honeybee_id": "missing-honeybee-record"
+        "thermal_id": "missing-honeybee-record"
       },
       "expected_rule": "reference.dangling",
       "expected_severity": "error",

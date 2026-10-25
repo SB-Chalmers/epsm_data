@@ -68,8 +68,8 @@ def _material_view(library, material_id):
     return {
         "id": material_id,
         "name": record["name"],
-        "honeybee_id": record.get("honeybee_id"),
-        "honeybee_properties": props,
+        "thermal_id": record.get("thermal_id"),
+        "thermal_properties": props,
         "boverket_id": record.get("boverket_id"),
         "boverket_name": resource.get("Name"),
         "carbon_reference": reference_record,

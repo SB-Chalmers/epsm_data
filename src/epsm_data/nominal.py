@@ -13,8 +13,8 @@ from collections.abc import Mapping
 from copy import deepcopy
 
 from .domain import BuildingArchetype, BuildingElement, CarbonReference
+from .domain.element import surface_resistances
 from .serialization import _encode
-from .thermal.boundary_conditions import get_boundary_resistances
 
 
 def _identity(kind, value):
@@ -130,7 +130,7 @@ def _material_references(archetype, metadata):
                         continue
                     ref = {
                         "json_id": material.json_id,
-                        "honeybee_id": None,
+                        "thermal_id": None, "honeybee_id": None,
                         "boverket_id": material.boverket_id,
                     }
                     _attach_carbon_reference(ref, material.carbon_reference)
@@ -163,7 +163,7 @@ def _window_reference(element, references):
         _attach_carbon_reference(reference, element.carbon_reference)
         return deepcopy(reference)
     reference = _attach_carbon_reference({
-        "kind": "simple_window", "boverket_id": element.boverket_id, "honeybee_id": None,
+        "kind": "simple_window", "boverket_id": element.boverket_id, "thermal_id": None, "honeybee_id": None,
     }, element.carbon_reference)
     if element.carbon_reference is not None:
         references[f"window:{element.name}"] = deepcopy(reference)
@@ -286,7 +286,7 @@ def export_nominal_constructions(archetype, *, metadata=None):
         if any(not math.isclose(metrics[key], value, rel_tol=1e-10, abs_tol=1e-10)
                for key, value in source.items()):
             raise ValueError(f"{name}: construction export changed resistance, mass or storage")
-        rsi, rse = get_boundary_resistances(role)
+        rsi, rse = surface_resistances(role)
         u_value = 1 / (metrics["resistance_m2k_w"] + rsi + rse)
         if not math.isclose(u_value, element.u_value, rel_tol=1e-10):
             raise ValueError(f"{name}: exported U-value differs from the construction")

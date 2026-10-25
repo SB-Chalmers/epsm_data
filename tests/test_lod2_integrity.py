@@ -32,14 +32,14 @@ def test_unequal_constituent_depth_is_incomplete_without_a_fabricated_thermal_mo
     assert BuildingElement.EXT_WALL not in catalogue.get("mf_se02").construction_set.elements
 
 
-@pytest.mark.parametrize("source", ["boverket", "honeybee"])
+@pytest.mark.parametrize("source", ["boverket", "thermal"])
 def test_external_source_record_identity_must_match_its_reference(payload, source):
     _, _, _, mid = wall_records(payload)
     material = payload["materials"][mid]
     if source == "boverket":
         payload["boverket"][material["boverket_id"]]["ResourceId"] = 999999999
     else:
-        payload["honeybee"][material["honeybee_id"]]["identifier"] = "unrelated-material"
+        payload["thermal"][material["thermal_id"]]["identifier"] = "unrelated-material"
     with pytest.raises(ValueError, match="(?i)identity|identifier|resource|reference"):
         Catalogue(payload)
 

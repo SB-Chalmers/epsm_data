@@ -18,6 +18,16 @@ from .editing import Editable
 from .enums import BuildingElement
 from .material import CarbonReference, _validate_carbon_reference
 
+_INTERIOR_ROLES = frozenset({
+    BuildingElement.INT_WALL_LOADBEARING,
+    BuildingElement.INT_WALL_NONLOADBEARING,
+    BuildingElement.INTERMEDIATE_FLOOR,
+})
+
+
+def surface_resistances(application):
+    """(Rsi, Rse) per EN ISO 6946; internal elements use a symmetric 0.13 boundary."""
+    return 0.13, 0.13 if BuildingElement(application) in _INTERIOR_ROLES else 0.04
 
 @dataclass(frozen=True)
 class Element(Editable):
@@ -53,18 +63,7 @@ class Element(Editable):
     @property
     def r_total(self) -> float:
         """Total thermal resistance including boundary resistances [m2 K/W]."""
-        rsi = 0.13
-        # Interior elements get symmetric boundary; exterior get 0.04
-        rse = (
-            0.13
-            if self.application
-            in (
-                BuildingElement.INT_WALL_LOADBEARING,
-                BuildingElement.INT_WALL_NONLOADBEARING,
-                BuildingElement.INTERMEDIATE_FLOOR,
-            )
-            else 0.04
-        )
+        rsi, rse = surface_resistances(self.application)
         return rsi + sum(c.r_sum for c in self.components) + rse
 
     @property

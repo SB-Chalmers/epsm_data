@@ -98,7 +98,7 @@ def check_physics(data, emit, fixture=None):
         emit("definition.structure", "error", "", "Catalogue must be an object.")
         return
     sections = {}
-    for section in ("materials", "honeybee", "boverket", "carbon_references", "layers",
+    for section in ("materials", "thermal", "boverket", "carbon_references", "layers",
                     "components", "elements", "construction_sets", "archetypes"):
         raw = data.get(section, {})
         if not isinstance(raw, Mapping):
@@ -177,7 +177,7 @@ def check_physics(data, emit, fixture=None):
                  "Unknown material family; thickness and mapping screening cannot use it.",
                  actual=record.get("material_family"), expected=sorted(rules["material_families"]))
         _check_thermal(record, path, reference, emit, rules)
-        _check_thermal_provenance(record, path, sections["honeybee"], emit, mid in new_build)
+        _check_thermal_provenance(record, path, sections["thermal"], emit, mid in new_build)
         bov = reference("boverket", record.get("boverket_id"), path + ".boverket_id", optional=True)
         external = reference("carbon_references", record.get("carbon_reference_id"),
                              path + ".carbon_reference_id", optional=True)
@@ -185,9 +185,9 @@ def check_physics(data, emit, fixture=None):
                                stock_assessments.get(mid))
         _check_density(record, path, bov, emit, rules, policy, external=external)
 
-    for identifier, record in sections["honeybee"].items():
+    for identifier, record in sections["thermal"].items():
         if record.get("identifier") != identifier:
-            emit("thermal.identity", "error", f"honeybee.{identifier}.identifier",
+            emit("thermal.identity", "error", f"thermal.{identifier}.identifier",
                  "Thermal source identifier disagrees with its catalogue key.",
                  actual=record.get("identifier"), expected=identifier)
     for identifier, record in sections["boverket"].items():
@@ -321,23 +321,23 @@ def _check_thermal(record, path, reference, emit, rules):
             emit("thermal.properties", "error", base, "Thermal value is outside its physical domain.",
                  actual=value, expected="positive finite SI value" if field in
                  {"conductivity", "density", "specific_heat", "u_value"} else "finite fraction in [0,1]")
-    source = reference("honeybee", record.get("honeybee_id"), path + ".honeybee_id")
+    source = reference("thermal", record.get("thermal_id"), path + ".thermal_id")
     if source is not None:
         expected_type = "EnergyMaterial" if kind == "opaque" else "EnergyWindowMaterialSimpleGlazSys"
         if source.get("type") != expected_type:
-            emit("thermal.source", "error", path + ".honeybee_id", "Thermal source has wrong type.",
+            emit("thermal.source", "error", path + ".thermal_id", "Thermal source has wrong type.",
                  actual=source.get("type"), expected=expected_type)
         for field in fields:
             source_field = "u_factor" if field == "u_value" else field
             expected, actual = source.get(source_field), properties.get(field)
             if expected is None:
-                emit("thermal.source", "missing", path + ".honeybee_id",
+                emit("thermal.source", "missing", path + ".thermal_id",
                      "Linked thermal source lacks a required property.", actual=source_field)
             elif actual is not None and not (_number(actual) and _number(expected) and
                     math.isclose(actual, expected, rel_tol=1e-12, abs_tol=1e-12)) and actual != expected:
                 emit("thermal.source", "error", f"{path}.properties.{field}",
                      "Stored thermal property contradicts linked source.", actual=actual, expected=expected)
-    for owner, base in ((record, path), (source, path + ".honeybee_id")):
+    for owner, base in ((record, path), (source, path + ".thermal_id")):
         if owner is None:
             continue
         units = owner.get("property_units", owner.get("units"))
@@ -375,14 +375,14 @@ def _new_build_materials(sections):
     return used
 
 
-def _check_thermal_provenance(record, path, honeybee, emit, new_build):
+def _check_thermal_provenance(record, path, thermal, emit, new_build):
     """EPSM-authored thermal grades must say where their values come from."""
-    identifier = record.get("honeybee_id")
+    identifier = record.get("thermal_id")
     if not isinstance(identifier, str) or not identifier.startswith("EPSM_"):
         return
-    source = _mapping(honeybee.get(identifier))
+    source = _mapping(thermal.get(identifier))
     provenance = _mapping(_mapping(source.get("user_data")).get("provenance"))
-    base = path + ".honeybee_id"
+    base = path + ".thermal_id"
     if not provenance:
         emit("thermal.provenance", "missing" if new_build else "review", base,
              "EPSM custom thermal values need structured source provenance."

@@ -240,7 +240,7 @@ def test_completeness_reports_fabric_gaps_without_requiring_model_setup(catalogu
         assert tuple(slot.missing_values) == tuple(report["missing_values"])
 
 
-@pytest.mark.parametrize("mapping", ["boverket_id", "honeybee_id"])
+@pytest.mark.parametrize("mapping", ["boverket_id", "thermal_id"])
 def test_absent_external_mapping_is_inspectable_and_marks_its_users_incomplete(
     tmp_path, catalogue_payload, mapping
 ):
