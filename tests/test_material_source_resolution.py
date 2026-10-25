@@ -138,6 +138,8 @@ def test_legacy_honeybee_names_still_load_and_alias():
         material["honeybee_id"] = material.pop("thermal_id")
     assert Catalogue(payload).resolved_dict() == catalogue.resolved_dict()
     assert catalogue.honeybee_materials is catalogue.thermal_materials
+    record = next(iter(catalogue.material_records.values()))
+    assert record["honeybee_id"] == record["thermal_id"]
     reference = next(iter(catalogue.nominal_metadata("mf_se02", state="advanced")[
         "material_references"].values()))
     assert reference["honeybee_id"] == reference["thermal_id"]

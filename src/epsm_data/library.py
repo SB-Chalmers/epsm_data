@@ -200,7 +200,10 @@ class Catalogue:
                 raise ValueError(f"{section} requires nonempty stable IDs")
         self._data = payload
         self._missing = {section: {} for section in SECTIONS}
-        self._material_records = freeze(payload["materials"])
+        # honeybee_id stays readable as a deprecated alias of thermal_id.
+        self._material_records = freeze({
+            mid: {**record, "honeybee_id": record.get("thermal_id")}
+            for mid, record in payload["materials"].items()})
         self._boverket = freeze(payload["boverket"])
         self._thermal = freeze(payload["thermal"])
         self._carbon_references = {}
