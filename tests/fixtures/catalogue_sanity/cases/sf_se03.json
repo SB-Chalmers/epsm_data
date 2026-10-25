@@ -923,7 +923,7 @@
     "wool_specific_heat_j_kgk": 1030,
     "wool_boverket_id": "6000000123",
     "renovation_material_id": "material:27e5e8c65dde5e1f",
-    "renovation_conductivity_w_mk": 0.037,
+    "renovation_conductivity_w_mk": 0.04,
     "renovation_density_kg_m3": 20,
     "renovation_boverket_id": null,
     "renovation_carbon_reference_id": "EPD-IES-0013025:003",
@@ -965,7 +965,7 @@
       },
       "standard": {
         "added_insulation_m": 0.2,
-        "expected_u_w_m2k": 0.08669188027834035,
+        "expected_u_w_m2k": 0.08984967932275756,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.08283582089552238,
@@ -988,7 +988,7 @@
       },
       "advanced": {
         "added_insulation_m": 0.5,
-        "expected_u_w_m2k": 0.050908166613895016,
+        "expected_u_w_m2k": 0.05367772887578412,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.049553571428571426,
@@ -1057,11 +1057,11 @@
         }
       },
       "material:27e5e8c65dde5e1f": {
-        "honeybee_id": "EPSM_open_attic_glass_wool_lambda037",
+        "honeybee_id": "EPSM_open_attic_glass_wool_lambda040",
         "boverket_id": null,
         "carbon_reference_id": "EPD-IES-0013025:003",
         "properties": {
-          "conductivity": 0.037,
+          "conductivity": 0.04,
           "density": 20,
           "roughness": "MediumRough",
           "solar_absorptance": 0.7,

@@ -351,7 +351,7 @@
     "joist_centres_m": 0.6,
     "timber_fraction": 0.125,
     "renovation_material_id": "material:27e5e8c65dde5e1f",
-    "renovation_conductivity_w_mk": 0.037,
+    "renovation_conductivity_w_mk": 0.04,
     "renovation_density_kg_m3": 20,
     "renovation_boverket_id": null,
     "shared_addition_component_ids": {
@@ -384,7 +384,7 @@
       },
       "standard": {
         "added_insulation_m": 0.2,
-        "expected_u_w_m2k": 0.11353141161144598,
+        "expected_u_w_m2k": 0.11900894691027653,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.11294736842105263,
@@ -407,7 +407,7 @@
       },
       "advanced": {
         "added_insulation_m": 0.5,
-        "expected_u_w_m2k": 0.05911478061179048,
+        "expected_u_w_m2k": 0.0628822866018256,
         "tabula": {
           "values_w_m2k": {
             "SE.Zone1": 0.05895604395604395,
@@ -474,10 +474,10 @@
         }
       },
       "material:27e5e8c65dde5e1f": {
-        "honeybee_id": "EPSM_open_attic_glass_wool_lambda037",
+        "honeybee_id": "EPSM_open_attic_glass_wool_lambda040",
         "boverket_id": null,
         "properties": {
-          "conductivity": 0.037,
+          "conductivity": 0.04,
           "density": 20,
           "roughness": "MediumRough",
           "solar_absorptance": 0.7,

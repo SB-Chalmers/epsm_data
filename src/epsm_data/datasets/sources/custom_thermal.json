@@ -438,11 +438,11 @@
     },
     "visible_absorptance": 0.7
   },
-  "EPSM_open_attic_glass_wool_lambda037": {
-    "conductivity": 0.037,
+  "EPSM_open_attic_glass_wool_lambda040": {
+    "conductivity": 0.04,
     "density": 20,
-    "display_name": "Loose glass wool, open attic, declared lambda 0.037 W/(m K), 20 kg/m³",
-    "identifier": "EPSM_open_attic_glass_wool_lambda037",
+    "display_name": "Loose glass wool, open attic, lambda 0.040 W/(m K), 20 kg/m³",
+    "identifier": "EPSM_open_attic_glass_wool_lambda040",
     "roughness": "MediumRough",
     "solar_absorptance": 0.7,
     "specific_heat": 1030,
@@ -452,20 +452,34 @@
     "user_data": {
       "definition_author": "EPSM",
       "provenance": {
-        "basis": "Lambda 0.037 is the TABULA loose-wool measure grade. Swedish open-attic declarations are 0.040 (Isover InsulSafe, >=18 kg/m3) to 0.042; 0.037 corresponds to closed-cavity application. Retained for TABULA agreement; review if used outside TABULA packages.",
+        "basis": "Open-attic blown glass wool: Swedish open-attic declarations are 0.040 (Isover InsulSafe, >=18 kg/m3; Knauf Supafil Loft 0.040-0.042). Density 20 kg/m3 stays on the carbon-source product (Knauf Supafil Loft Plus/Pro EPD, 20 kg/m3 +/-10%, declared lambda 0.038 at closed/settled conditions). Replaces the TABULA closed-cavity grade 0.037.",
         "sources": [
-          {
-            "reference": "evidence/mf_se01_tabula_renovations.json"
-          },
           {
             "reference": "Knauf Insulation blowing-wool solutions guide (SE)",
             "url": "https://pim.knaufinsulation.com/files/download/knauf_insulation_blowing_wool-solutions-guide-se.pdf",
             "values": {
               "conductivity": "0.040-0.042 open attic"
             }
+          },
+          {
+            "reference": "Isover InsulSafe declaration of performance (SE), 2019-04-01 (secondary access)",
+            "values": {
+              "conductivity": 0.04,
+              "density": 18
+            }
+          },
+          {
+            "reference": "EPD-IES-0013025:003 Knauf Supafil Loft Plus/Pro",
+            "values": {
+              "conductivity": 0.038,
+              "density": 20
+            }
+          },
+          {
+            "reference": "TABULA.xlsm Tab.Building.Measure!P236:Q236, P242:Q242 (prescribed depths 200/500 mm at lambda 0.037)"
           }
         ],
-        "tier": "tabula"
+        "tier": "product"
       },
       "representation": "source_supported_nominal_material",
       "source_note": "evidence/mf_se01_tabula_renovations.json"

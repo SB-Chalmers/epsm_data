@@ -13166,15 +13166,15 @@
       "kind": "opaque",
       "material_family": "mineral_wool",
       "notes": [
-        "TABULA Tab.Building.Measure!P236:Q236 and P242:Q242 prescribe200/500mm loose-wool additions at lambda 0.037 W/(m K).",
-        "Knauf Supafil Loft Plus manufacturer data support open horizontal blowing at density 20–23kg/m³ and declared lambda 0.037. Density20kg/m³, specific heat1030J/(kg K) and all thermal properties are retained. Nominal depth is final settled thermal depth; settlement allowance and deep-fill convection remain installation checks.",
+        "TABULA Tab.Building.Measure!P236:Q236 and P242:Q242 prescribe 200/500 mm loose-wool additions; their lambda 0.037 is a closed-cavity grade, so the open-attic declared lambda 0.040 is used instead. Depths are unchanged.",
+        "Swedish open-attic declarations: Isover InsulSafe 0.040 at >=18 kg/m³; Knauf Supafil Loft 0.040–0.042. Density 20 kg/m³ and specific heat 1030 J/(kg K) follow the carbon-source product. Nominal depth is final settled thermal depth.",
         "Carbon source is the same-product modern Supafil Loft Plus/Pro EPD-IES-0013025:003 at20kg/m³, replacing the generic Boverket15kg/m³ loft-wool proxy. The EPD itself declares lambda 0.038; this minor thermal-grade adaptation is explicit and does not establish historical product identity.",
         "The EPD GWP-GHG indicator and its own A4/A5 scenario are retained with source method and quantities. These factors do not quantify every project construction-site process."
       ],
-      "epsm_material_name": "Loose glass wool, open attic, declared lambda 0.037 W/(m K), 20 kg/m³",
+      "epsm_material_name": "Loose glass wool, open attic, lambda 0.040 W/(m K), 20 kg/m³",
       "thermal_ref": {
         "source": "epsm-custom",
-        "identifier": "EPSM_open_attic_glass_wool_lambda037"
+        "identifier": "EPSM_open_attic_glass_wool_lambda040"
       },
       "carbon_ref": {
         "source": "epd-ies-0013025",
@@ -13990,7 +13990,7 @@
     "boverket": "02.07.000",
     "epd-ies-0005222": "003",
     "epd-ies-0013025": "003",
-    "epsm-custom": "0.8.0",
+    "epsm-custom": "0.8.1",
     "honeybee-energy-standards-opaque": "2.3.5",
     "honeybee-standards": "2.0.7"
   }

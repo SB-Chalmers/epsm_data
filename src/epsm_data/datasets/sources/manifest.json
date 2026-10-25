@@ -43,7 +43,7 @@
     "epd-ies-0013025": {
       "release": "003",
       "records_path": "epd-ies-0013025.json",
-      "sha256": "16ee0d06c3f85199cf4155e95ccce269794acf1b92680866b87995d483cebe86",
+      "sha256": "7207762e561fed6f0a48c12e135036db1af6c9af4bd91029b00db42c4cd5db9c",
       "kind": "carbon_reference",
       "source_url": "https://www.environdec.com/library/epd13025"
     },
@@ -80,9 +80,9 @@
       "license_path": "LICENSE-honeybee-energy-standards-2.3.5.txt"
     },
     "epsm-custom": {
-      "release": "0.8.0",
+      "release": "0.8.1",
       "records_path": "custom_thermal.json",
-      "sha256": "c98720e2e6bdb53ce80890ecadced5a86ecb5c2451f0d8ef6261a11e1cb9394f",
+      "sha256": "f5035d362f953861b63d29e61777cbe61cadd76fdef54bc4d28a26dcbf749c8e",
       "kind": "epsm_authored"
     }
   }

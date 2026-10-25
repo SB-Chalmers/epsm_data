@@ -153,7 +153,7 @@
       },
       "attic": {
         "added_insulation_m": 0.2,
-        "insulation_conductivity_w_mk": 0.037,
+        "insulation_conductivity_w_mk": 0.04,
         "measure_code": "SE.Ceiling.Add 200 mm.01",
         "measure_row": 236,
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!236"
@@ -179,7 +179,7 @@
       },
       "expected_u_w_m2k": {
         "EXT_WALL": 0.31460794918224844,
-        "TOP_FLOOR": 0.12218164413693305,
+        "TOP_FLOOR": 0.12854907835832818,
         "GROUND_FLOOR": 0.44426758801219607,
         "WINDOW": 0.9
       },
@@ -202,7 +202,7 @@
       },
       "attic": {
         "added_insulation_m": 0.5,
-        "insulation_conductivity_w_mk": 0.037,
+        "insulation_conductivity_w_mk": 0.04,
         "measure_code": "SE.Ceiling.Add 500 mm.01",
         "measure_row": 242,
         "source_locator": "TABULA.xlsm#Tab.Building.Measure!242"
@@ -228,7 +228,7 @@
       },
       "expected_u_w_m2k": {
         "EXT_WALL": 0.0929859160995593,
-        "TOP_FLOOR": 0.06137739374934895,
+        "TOP_FLOOR": 0.06544875237602488,
         "GROUND_FLOOR": 0.4184477579911097,
         "WINDOW": 0.76
       },

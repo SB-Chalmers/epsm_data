@@ -834,10 +834,10 @@
       "advanced": "component:c2126357402a00ec"
     },
     "material_id": "material:27e5e8c65dde5e1f",
-    "honeybee_id": "EPSM_open_attic_glass_wool_lambda037",
+    "honeybee_id": "EPSM_open_attic_glass_wool_lambda040",
     "boverket_id": null,
     "properties": {
-      "conductivity": 0.037,
+      "conductivity": 0.04,
       "density": 20,
       "roughness": "MediumRough",
       "solar_absorptance": 0.7,
@@ -955,7 +955,7 @@
       ],
       "baseline_u_w_m2k": 0.20021817118979393,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.09615424307661329,
+      "expected_u_w_m2k": 0.10005451306449813,
       "tabula_u_w_m2k": 0.0961038961038961,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2710",
@@ -1027,7 +1027,7 @@
       ],
       "baseline_u_w_m2k": 0.20021817118979393,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.05403049915970042,
+      "expected_u_w_m2k": 0.05716065316954328,
       "tabula_u_w_m2k": 0.05401459854014598,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2757",
@@ -1082,7 +1082,7 @@
       ],
       "baseline_u_w_m2k": 0.17230937654908265,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.08921466033008343,
+      "expected_u_w_m2k": 0.09256246949577786,
       "tabula_u_w_m2k": 0.08859154929577465,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2711",
@@ -1137,7 +1137,7 @@
       ],
       "baseline_u_w_m2k": 0.17230937654908265,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.0517677972445812,
+      "expected_u_w_m2k": 0.054634315666207585,
       "tabula_u_w_m2k": 0.05155737704918033,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2758",
@@ -1192,7 +1192,7 @@
       ],
       "baseline_u_w_m2k": 0.15725569298414288,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.08500166337164276,
+      "expected_u_w_m2k": 0.08803537414370766,
       "tabula_u_w_m2k": 0.08283582089552238,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2712",
@@ -1247,7 +1247,7 @@
       ],
       "baseline_u_w_m2k": 0.15725569298414288,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.05032058294722505,
+      "expected_u_w_m2k": 0.0530248833252328,
       "tabula_u_w_m2k": 0.049553571428571426,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2759",
@@ -1302,7 +1302,7 @@
       ],
       "baseline_u_w_m2k": 0.1290662458552201,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.07602617536372495,
+      "expected_u_w_m2k": 0.07844392883249753,
       "tabula_u_w_m2k": 0.07634920634920635,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2713",
@@ -1357,7 +1357,7 @@
       ],
       "baseline_u_w_m2k": 0.1290662458552201,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.047033430657381546,
+      "expected_u_w_m2k": 0.049387693485288646,
       "tabula_u_w_m2k": 0.04715686274509804,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2760",
@@ -1454,7 +1454,7 @@
       ],
       "baseline_u_w_m2k": 0.29388171253542306,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.11353141161144598,
+      "expected_u_w_m2k": 0.11900894691027653,
       "tabula_u_w_m2k": 0.11294736842105263,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2735",
@@ -1552,7 +1552,7 @@
       ],
       "baseline_u_w_m2k": 0.29388171253542306,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.05911478061179048,
+      "expected_u_w_m2k": 0.0628822866018256,
       "tabula_u_w_m2k": 0.05895604395604395,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2782",
@@ -1650,7 +1650,7 @@
       ],
       "baseline_u_w_m2k": 0.2213140820661953,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.10076713308591607,
+      "expected_u_w_m2k": 0.10505895315952114,
       "tabula_u_w_m2k": 0.09835443037974682,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2737",
@@ -1748,7 +1748,7 @@
       ],
       "baseline_u_w_m2k": 0.2213140820661953,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.05545703055646177,
+      "expected_u_w_m2k": 0.05875970496926861,
       "tabula_u_w_m2k": 0.05471830985915493,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2784",
@@ -1846,7 +1846,7 @@
       ],
       "baseline_u_w_m2k": 0.16314011392854877,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.08669188027834035,
+      "expected_u_w_m2k": 0.08984967932275756,
       "tabula_u_w_m2k": 0.08283582089552238,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2739",
@@ -1944,7 +1944,7 @@
       ],
       "baseline_u_w_m2k": 0.16314011392854877,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.050908166613895016,
+      "expected_u_w_m2k": 0.05367772887578412,
       "tabula_u_w_m2k": 0.049553571428571426,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2786",
@@ -2042,7 +2042,7 @@
       ],
       "baseline_u_w_m2k": 0.13550685850939562,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.07821601366294413,
+      "expected_u_w_m2k": 0.08077739996817433,
       "tabula_u_w_m2k": 0.07278688524590164,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2741",
@@ -2139,7 +2139,7 @@
       ],
       "baseline_u_w_m2k": 0.13550685850939562,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.04786243085805985,
+      "expected_u_w_m2k": 0.05030256928124181,
       "tabula_u_w_m2k": 0.045773195876288655,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2788",
@@ -2236,7 +2236,7 @@
       ],
       "baseline_u_w_m2k": 0.13550685850939562,
       "added_insulation_m": 0.2,
-      "expected_u_w_m2k": 0.07821601366294413,
+      "expected_u_w_m2k": 0.08077739996817433,
       "tabula_u_w_m2k": 0.07278688524590164,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2743",
@@ -2333,7 +2333,7 @@
       ],
       "baseline_u_w_m2k": 0.13550685850939562,
       "added_insulation_m": 0.5,
-      "expected_u_w_m2k": 0.04786243085805985,
+      "expected_u_w_m2k": 0.05030256928124181,
       "tabula_u_w_m2k": 0.045773195876288655,
       "tabula_source_locators": {
         "SE.Zone1": "TABULA.xlsm#'Calc.Building.Set'!HP2790",

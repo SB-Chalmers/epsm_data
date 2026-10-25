@@ -15,7 +15,7 @@ metadata. It does not maintain reduced copies of upstream material properties.
 | `honeybee-energy-standards-opaque` | 2.3.5 | Full opaque-material file, 171 records |
 | `honeybee-energy-standards-window` | 2.3.5 | Full window-material file, 322 records |
 | `boverket` | 02.07.000 | Full database response, 230 resources and metadata |
-| `epsm-custom` | 0.8.0 | 52 custom thermal records with structured provenance |
+| `epsm-custom` | 0.8.1 | 52 custom thermal records with structured provenance |
 | Two `epd-ies-*` sources | 003 | Declared external carbon records |
 
 Nine unique original Honeybee records serve ten material mappings. The other
