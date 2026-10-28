@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "profile_id": "epsm.measured_use.v1",
+  "purpose": "stock_operation",
+  "source_uri": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-energi-i-bebyggelsen.pdf",
+  "base_standard": "sveby",
+  "selection_note": "Measured Swedish stock operation, for simulating existing buildings against measured energy use. Each value replaces one Sveby normal-use input and passed the epsm_studies cohort validation on a calibration and a disjoint hold-out sample (validation/catalogue/calibration_plan.md). Sveby normal use remains the default selection and the basis for compliance-style calculations.",
+  "types": {
+    "multi_family": {
+      "use": {
+        "heating_setpoint_c_by_era": {
+          "SE.01": 22.2,
+          "SE.02": 22.6,
+          "SE.03": 22.5,
+          "SE.04": 22.4,
+          "SE.05": 23.0,
+          "SE.06": 23.0,
+          "SE.07": 23.0
+        }
+      },
+      "ventilation": {
+        "S": {
+          "total_air_change_ach": 0.39,
+          "meaning": "Measured total air change of self-draught buildings, envelope infiltration included. The natural exchange is this total minus the building's envelope infiltration in conditioned-volume ACH, and at least 0.05 ACH."
+        }
+      },
+      "source_locators": {
+        "heating_setpoint_c_by_era": "BETSI (Boverket 2010) table 3.6, p. 66: measured mean apartment temperature by construction year (-60, 61-75, 76-85, 86-95, 96-05). SE.06 and SE.07 postdate the survey and take the newest measured class.",
+        "ventilation.S.total_air_change_ach": "BETSI (Boverket 2010) section 4.2.2: tracer-gas total air change in self-draught multi-family buildings."
+      }
+    },
+    "office": {
+      "use": {
+        "mechanical_vent_l_s_m2": 1.6
+      },
+      "operation_inputs": {
+        "ventilation_start_hour": 6,
+        "ventilation_hours": 14
+      },
+      "source_locators": {
+        "use.mechanical_vent_l_s_m2": "Sveby Brukarindata kontor 1.0 (2012, SBUF 12116): owners report 1.2-1.6 L/(s m2) Atemp, and the guide's table 2.2 lists 1.5; the top of the reported range is used. Page not yet located; cited from epsm_studies calibration_plan.md shortlist item 6.",
+        "operation_inputs.ventilation": "Sveby Brukarindata kontor 1.0 (2012, SBUF 12116): owners report operation 06-20 against the guide's 07-19. Page not yet located; cited from epsm_studies calibration_plan.md shortlist item 6."
+      }
+    }
+  },
+  "not_adopted": {
+    "single_family": "BETSI table 3.3 setpoints by era (20.8-21.9 C) and the 0.40 ACH self-draught total did not pass the hold-out acceptance rule; single-family overprediction follows the model conditioning more floor than the EPC Atemp, a geometry question rather than an operating one.",
+    "school": "No school operating input has a sourced measured-use range yet."
+  }
+}

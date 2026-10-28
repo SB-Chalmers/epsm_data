@@ -43,6 +43,35 @@ Supported types are `single_family`, `multi_family`, `office`, `school` and
 `non_residential`. Purpose is explicit and the resource retains its source edition.
 The selection leaves the Sveby profile unchanged.
 
+## Measured stock operation
+
+```python
+from epsm_data import select_operating_profile
+
+measured = select_operating_profile("multi_family", standard="measured", era="SE.03")
+assert measured.values["use"]["heating_setpoint_c"] == 22.5
+```
+
+Sveby describes normal use; existing buildings run warmer and longer. The
+`measured` standard returns the same Sveby record with measured Swedish stock
+operation substituted, so Core resolves it unchanged. Use it to simulate
+existing buildings against measured energy, and Sveby for compliance-style
+calculations. Each value passed the cohort validation on a calibration and a
+hold-out sample ([validation](validation.md)):
+
+| Use | Input | Sveby | Measured | Source |
+| --- | --- | --- | --- | --- |
+| Multi-family | Heating setpoint | 21 °C | 22.2–23.0 °C by era | BETSI (Boverket 2010) table 3.6 |
+| Multi-family | Self-draught total air change | 0.5 ACH + infiltration | 0.39 ACH in total | BETSI section 4.2.2 |
+| Office | Ventilation flow and hours | 1.3 L/(s m²), 07–19 | 1.6 L/(s m²), 06–20 | Sveby kontor 1.0, owner reports |
+
+SE.06 and SE.07 postdate BETSI and take its newest class (1996–2005). The
+self-draught value is a total including envelope infiltration: it is recorded
+under `values["measured_use"]["ventilation"]["S"]`, and the consumer sets the
+natural exchange to that total minus the building's infiltration (at least
+0.05 ACH). Single-family houses and schools have no adopted value and return
+their Sveby record with a note.
+
 ## Custom definitions and exchange
 
 `OperatingProfile(profile_id, values, source_references=(), notes=())` freezes
