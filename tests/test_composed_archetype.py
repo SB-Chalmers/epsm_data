@@ -142,6 +142,8 @@ def test_real_legacy_field_shape_remains_readable(version):
         },
         {"thermal_bridge_uplift_fraction": float("inf")},
         {"thermal_bridge_uplift_fraction": -0.1},
+        {"thermal_bridge_delta_u_w_m2k": -0.05},
+        {"thermal_bridge_uplift_fraction": 0.1, "thermal_bridge_delta_u_w_m2k": 0.05},
     ],
 )
 def test_invalid_envelope_inputs_fail_at_authoring(kwargs):
@@ -164,6 +166,9 @@ def test_explicit_zero_and_unresolved_envelope_are_distinct():
     assert zero.infiltration_l_s_m2 == 0
     assert zero != unknown
     assert EnvelopePerformance.from_dict(zero.to_dict()) == zero
+    surcharge = EnvelopePerformance(thermal_bridge_delta_u_w_m2k=0.05)
+    assert EnvelopePerformance.from_dict(surcharge.to_dict()) == surcharge
+    assert "+0.05 W/m2K" in repr(surcharge)
     for definition in (unknown, zero, zero.with_changes(notes=("\n😀" * 1000,))):
         assert len(repr(definition)) <= 160
         assert "\n" not in str(definition)

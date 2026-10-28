@@ -381,3 +381,20 @@ def test_custom_authoring_retains_the_complete_linked_hierarchy():
     with pytest.raises(ValueError):
         window.with_changes(u_value=0)
     assert Archetype("unfinished", "Unfinished").construction_set is None
+
+
+@pytest.mark.parametrize("aid, state, delta_u", [
+    ("office_se01", "existing", 0.15), ("office_se01", "advanced", 0.10), ("office_se05", "advanced", 0.05),
+    ("office_se06", "existing", 0.05), ("office_se07", None, 0.05)])
+def test_offices_carry_the_tabula_thermal_bridge_surcharge(catalogue, aid, state, delta_u):
+    envelope = catalogue.get(aid, state=state).envelope_performance
+    assert envelope.thermal_bridge_delta_u_w_m2k == delta_u
+    assert envelope.thermal_bridge_uplift_fraction is None
+    assert envelope.source_references
+
+
+@pytest.mark.parametrize("aid", ["sf_se01", "mf_se04", "school_se03"])
+def test_housing_and_school_bridges_remain_unknown(catalogue, aid):
+    envelope = catalogue.get(aid, state="existing").envelope_performance
+    assert envelope.thermal_bridge_delta_u_w_m2k is None
+    assert envelope.thermal_bridge_uplift_fraction is None

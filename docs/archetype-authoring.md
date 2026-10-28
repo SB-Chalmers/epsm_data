@@ -55,8 +55,14 @@ replacement construction set.
 `EnvelopePerformance` accepts one infiltration rate with an explicit reference
 basis. See [airflow units](airflow-inputs.md) for the supported fields and
 conversions. `thermal_bridge_uplift_fraction` is a finite nonnegative fraction of
-nominal transmission; Core applies it to physical constructions. Store source
-references and assumptions alongside these inputs.
+nominal transmission; Core applies it to physical constructions.
+`thermal_bridge_delta_u_w_m2k` is the alternative absolute form, TABULA's
+`delta_U_ThermalBridging`: an additive U in W/(m² K) on the whole envelope area
+(opaque elements and glazing counted once), carried by the above-grade walls and
+thermal top rather than by ground assemblies. Supply at most one of the two.
+The catalogue gives offices the TABULA surcharge; housing and schools leave both
+unknown, because the cohort validation rejected a surcharge for them. Store
+source references and assumptions alongside these inputs.
 
 ## Portable exchange
 

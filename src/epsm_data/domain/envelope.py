@@ -38,6 +38,12 @@ class EnvelopePerformance(Editable):
     thermal_bridge_uplift_fraction : float or None
         Nonnegative uplift relative to nominal transmission. Unknown is None;
         zero explicitly means no uplift. Core owns its physical application.
+    thermal_bridge_delta_u_w_m2k : float or None
+        Nonnegative additive U surcharge in W/(m2 K) on the whole envelope area,
+        opaque elements and glazing counted once (TABULA's ``delta_U_ThermalBridging``).
+        The surcharge belongs to the above-grade walls and thermal top, where the
+        linear bridges sit, not to ground or basement assemblies. Supply at most one
+        bridge representation.
     source_references, notes : tuple of str
         Source identifiers and declared modelling choices, retained in exchange.
 
@@ -52,11 +58,17 @@ class EnvelopePerformance(Editable):
     infiltration_l_s_m2: float | None = None
     infiltration_reference_basis: str | None = None
     thermal_bridge_uplift_fraction: float | None = None
+    thermal_bridge_delta_u_w_m2k: float | None = None
     source_references: tuple[str, ...] = ()
     notes: tuple[str, ...] = ()
 
     def __post_init__(self):
-        for name in ("infiltration_ach", "infiltration_l_s_m2", "thermal_bridge_uplift_fraction"):
+        for name in (
+            "infiltration_ach",
+            "infiltration_l_s_m2",
+            "thermal_bridge_uplift_fraction",
+            "thermal_bridge_delta_u_w_m2k",
+        ):
             value = getattr(self, name)
             if value is not None and (
                 isinstance(value, bool)
@@ -67,6 +79,11 @@ class EnvelopePerformance(Editable):
                 raise ValueError(f"{name} must be finite and nonnegative, or None")
         if self.infiltration_ach is not None and self.infiltration_l_s_m2 is not None:
             raise ValueError("Supply only one infiltration rate")
+        if (
+            self.thermal_bridge_uplift_fraction is not None
+            and self.thermal_bridge_delta_u_w_m2k is not None
+        ):
+            raise ValueError("Supply only one thermal-bridge representation")
         basis = self.infiltration_reference_basis
         if basis is not None and basis not in (
             "conditioned_volume",
@@ -95,6 +112,7 @@ class EnvelopePerformance(Editable):
             "infiltration_l_s_m2": self.infiltration_l_s_m2,
             "infiltration_reference_basis": self.infiltration_reference_basis,
             "thermal_bridge_uplift_fraction": self.thermal_bridge_uplift_fraction,
+            "thermal_bridge_delta_u_w_m2k": self.thermal_bridge_delta_u_w_m2k,
             "source_references": list(self.source_references),
             "notes": list(self.notes),
         }
@@ -110,7 +128,14 @@ class EnvelopePerformance(Editable):
         kind = "ach" if self.infiltration_ach is not None else "l_s_m2"
         rate_text = f"{rate:.6g}" if rate is not None else "unknown"
         bridge = self.thermal_bridge_uplift_fraction
-        bridge_text = f"{bridge:.6g}" if bridge is not None else "unknown"
+        delta_u = self.thermal_bridge_delta_u_w_m2k
+        bridge_text = (
+            f"{bridge:.6g}"
+            if bridge is not None
+            else f"+{delta_u:.6g} W/m2K"
+            if delta_u is not None
+            else "unknown"
+        )
         return (
             f"EnvelopePerformance({kind}={rate_text}, basis={self.infiltration_reference_basis!r}, "
             f"bridges={bridge_text}, sources={len(self.source_references)})"

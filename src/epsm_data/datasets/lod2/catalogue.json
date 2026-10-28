@@ -51,7 +51,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -116,7 +117,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.2,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {},
@@ -163,7 +165,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -235,7 +238,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -304,7 +308,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.2,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {},
@@ -358,7 +363,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -423,7 +429,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.05,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -488,7 +495,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {},
@@ -536,7 +544,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -601,7 +610,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.05,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -666,7 +676,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {},
@@ -714,7 +725,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -779,7 +791,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.025,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -843,7 +856,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {},
@@ -891,7 +905,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "sanity_assessment": {
@@ -945,7 +960,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.025,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "weather_shell_element_id": "element:4ea2487438f16cd2"
@@ -980,7 +996,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "weather_shell_element_id": "element:4ea2487438f16cd2"
@@ -1015,7 +1032,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.1,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "weather_shell_element_id": "element:4ea2487438f16cd2"
@@ -1057,7 +1075,8 @@
             "infiltration_ach": null,
             "infiltration_l_s_m2": 0.025,
             "infiltration_reference_basis": "Atemp",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "roof_topology": "cold_attic",
           "weather_shell_element_id": "element:4ea2487438f16cd2"
@@ -1120,7 +1139,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -1193,7 +1221,16 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.15,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -1267,7 +1304,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.15,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -1330,7 +1376,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1385,7 +1440,16 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.15,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1441,7 +1505,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.15,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1503,7 +1576,16 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1558,7 +1640,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1614,7 +1705,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1676,7 +1776,16 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1731,7 +1840,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1787,7 +1905,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1849,7 +1976,16 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.05,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1904,7 +2040,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -1960,7 +2105,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.1,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -2022,7 +2176,16 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.05,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -2077,7 +2240,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.05,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -2133,7 +2305,16 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.05,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -2195,7 +2376,16 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": 0.05,
+            "source_references": [
+              "TABULA.xlsm Calc.Building.Set delta_U_ThermalBridging, Swedish multi-family type of the same era and state",
+              "epsm_studies validation/catalogue/calibration_plan.md, Fabric revision 1: accepted for offices on the calibration and hold-out samples"
+            ],
+            "notes": [
+              "TABULA has no non-residential types; offices take the multi-family surcharge of their era and state.",
+              "SE.06 and SE.07 take 0.05 W/(m2 K), the lowest non-zero Swedish TABULA value; TABULA has no Swedish type after 2005."
+            ]
           },
           "reference_height_m": 2.5,
           "roof_topology": "compact",
@@ -2275,7 +2465,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -2348,7 +2539,8 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -2422,7 +2614,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "foundation_context": "unheated_basement",
           "reference_height_m": 2.5,
@@ -2491,7 +2684,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2552,7 +2746,8 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2614,7 +2809,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2682,7 +2878,8 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2743,7 +2940,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2805,7 +3003,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2873,7 +3072,8 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2934,7 +3134,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -2996,7 +3197,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3064,7 +3266,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3125,7 +3328,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3187,7 +3391,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3255,7 +3460,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3316,7 +3522,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3378,7 +3585,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3446,7 +3654,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3523,7 +3732,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3585,7 +3795,8 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3655,7 +3866,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3728,7 +3940,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3791,7 +4004,8 @@
             "infiltration_ach": 0.4,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3861,7 +4075,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3935,7 +4150,8 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -3998,7 +4214,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4068,7 +4285,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4142,7 +4360,8 @@
             "infiltration_ach": 0.1,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4204,7 +4423,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4271,7 +4491,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4345,7 +4566,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4407,7 +4629,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4474,7 +4697,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4530,7 +4754,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4566,7 +4791,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4602,7 +4828,8 @@
             "infiltration_ach": 0.2,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
@@ -4645,7 +4872,8 @@
             "infiltration_ach": 0.05,
             "infiltration_l_s_m2": null,
             "infiltration_reference_basis": "tabula_reference_volume",
-            "thermal_bridge_uplift_fraction": null
+            "thermal_bridge_uplift_fraction": null,
+            "thermal_bridge_delta_u_w_m2k": null
           },
           "reference_height_m": 2.5,
           "roof_topology": "cold_attic",
