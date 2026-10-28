@@ -121,6 +121,7 @@ class HVACTemplate(Editable):
         return self
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {
             "template_id": self.template_id,
             "values": _plain(self.values),
@@ -130,6 +131,7 @@ class HVACTemplate(Editable):
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a template from ``to_dict`` output."""
         return cls(**data)
 
     def __repr__(self):
@@ -175,7 +177,7 @@ def load_standard_record(name):
     """
     if name not in STANDARD_PROFILES:
         raise ValueError(f"Unknown named profile: {name}")
-    resource = files("epsm_data.datasets.standards").joinpath(f"{name}.json")
+    resource = files("epsm_data.datasets.profiles").joinpath(f"{name}.json")
     record = json.loads(resource.read_text(encoding="utf-8"))
     if (
         not isinstance(record, dict)

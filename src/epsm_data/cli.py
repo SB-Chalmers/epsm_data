@@ -5,12 +5,12 @@ import json
 from importlib.resources import files
 from pathlib import Path
 
-from .catalogue import Catalogue
-from .library import _object
-from .sanity import check_catalogue
+from .catalogue.catalogue import Catalogue, _object
+from .sanity.catalogue import check_catalogue
 
 
 def main(argv=None):
+    """Run the ``epsm-catalogue`` command; returns the process exit code."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--path", help="Explicit catalogue JSON file or directory")
     parser.add_argument("--source-cache", help="Explicit source-cache manifest file or directory")

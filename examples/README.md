@@ -1,19 +1,39 @@
 # EPSM Data examples
 
-Install Python 3.11+ and this package with `python -m pip install -e .`. Select that
-environment's notebook kernel. Examples run offline without Core, a database or a
-simulation engine. Notebook outputs and execution counts are cleared in source.
+Four short notebooks, in reading order. Each runs offline from the catalogue bundled
+with the package; none needs EPSM Core, a database, a network connection or a
+simulation engine.
 
-| Example | Task |
-| --- | --- |
-| [01 Operating profiles](01_operating_profiles.ipynb) | Inspect and edit independent portable operating definitions |
-| [02 Author an archetype](02_author_archetype.ipynb) | Build the material-to-archetype hierarchy and round-trip complete exchange |
-| [03 Catalogue authoring](03_catalogue_authoring.ipynb) | Select LoD2 fabric, reuse canonical definitions and inspect missing values |
-| [Archetype script](archetype.py) | Author a synthetic wall/window example |
-| [Catalogue composition](catalogue_composition.py) | Inspect all three fabric alternatives and their completeness |
-| [Renovations](renovations.py) | Author explicit construction and system actions |
-| [Sections](sections.py) | Draw the accepted MF SE.02 constructions; requires `.[visualization]` |
+## Setup
 
-Catalogue selections are reusable representative definitions. Actual geometry,
-site conditions and installed systems belong to the consuming project. No example
-runs LoD1 solving, calibration or an evidence-acceptance workflow.
+Use Python 3.11 or newer and install the package from this checkout:
+
+```bash
+python -m pip install -e ".[visualization]"
+```
+
+The `visualization` extra adds matplotlib, which only notebook 04 needs. Start Jupyter
+in `examples/` and select the kernel of the environment you installed into. The
+committed notebooks keep their outputs so you can read them without running them.
+
+## Notebooks
+
+1. [Select an archetype](01_select_an_archetype.ipynb). Load the catalogue, see what
+   it covers (four building types, eras SE.01–SE.07, three renovation states, three
+   climate zones) and select the archetype for a building by type, construction year
+   and state. Inspect its U-values, window, infiltration, thermal-bridge assumption
+   and sources.
+2. [Operation and systems](02_operation_and_systems.ipynb). Choose an operating
+   profile (Sveby normal use or measured stock operation by era), the BEN DHW
+   coefficient, a ventilation template for an observed system and the facade
+   window-to-wall ratios.
+3. [Author and edit](03_author_and_edit.ipynb). Build a small archetype from your own
+   materials, edit archetypes without changing the originals, save and restore one as
+   JSON, and export and check the construction handover that EPSM Core reads.
+4. [Renovation states and sections](04_renovation_states_and_sections.ipynb). Compare
+   the existing, standard and advanced states of one archetype, see what each
+   renovation changes and draw the constructions as sections. Needs the
+   `visualization` extra.
+
+`tests/test_examples.py` runs every notebook from a fresh kernel as part of the test
+suite.

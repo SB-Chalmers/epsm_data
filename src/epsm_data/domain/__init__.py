@@ -4,7 +4,7 @@ Immutable business objects — no pandas, SQLAlchemy, HTTP, or file-system
 dependencies in this package.
 """
 
-from .building import (
+from .archetype import (
     Archetype,
     BuildingArchetype,
     ConstructionSet,

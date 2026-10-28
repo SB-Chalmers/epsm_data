@@ -3,7 +3,6 @@ recursive-include src/epsm_data/datasets *.json *.gz
 recursive-include src/epsm_data/datasets/sources LICENSE-*.txt
 recursive-include examples *.py *.ipynb *.md
 recursive-include tests *.py *.json *.md
-recursive-include explorer *.py *.html *.css *.js *.md
 recursive-include docs *.md
 recursive-include docs/assets *.png *.svg *.json LICENSE
 recursive-include .github/workflows *.yml

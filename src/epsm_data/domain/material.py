@@ -173,6 +173,7 @@ class CarbonReference(Editable):
         return self
 
     def to_dict(self) -> dict:
+        """Return a JSON-compatible mapping."""
         return {
             "identifier": self.identifier,
             "name": self.name,
@@ -187,6 +188,7 @@ class CarbonReference(Editable):
 
     @classmethod
     def from_dict(cls, data: Mapping) -> CarbonReference:
+        """Rebuild a reference from ``to_dict`` output."""
         if not isinstance(data, Mapping):
             raise ValueError("Carbon reference must be a mapping")
         return cls(**data)
@@ -406,8 +408,10 @@ class EnvironmentalFactor(Editable):
             raise ValueError("Environmental factor module and source are required")
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {"value": self.value, "unit": self.unit, "module": self.module, "source": self.source}
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a factor from ``to_dict`` output."""
         return cls(**data)

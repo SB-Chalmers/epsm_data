@@ -4,8 +4,8 @@ from copy import deepcopy
 
 import pytest
 
-from epsm_data.sanity import load_sanity_fixture
-from epsm_data.sanity_physics import check_physics
+from epsm_data.sanity.catalogue import load_sanity_fixture
+from epsm_data.sanity.physics import check_physics
 
 
 @pytest.fixture
