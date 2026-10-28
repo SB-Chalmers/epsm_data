@@ -27,7 +27,7 @@ fractions and source locators. Review all users of a changed shared definition.
 Run the tests and inspect `Catalogue.load().summary()` and `sanity_report()`.
 Supplied invalid physics and dangling references are errors. Missing values stay
 visible. A deliberate physical change also refreshes the frozen regression hash
-in `tests/fixtures/lod2-physics.json` with `python tests/test_lod2_physics.py`;
+in `tests/fixtures/lod2-physics.json` with `python tests/test_catalogue_physics.py`;
 review that diff together with the catalogue diff.
 
 | Location | Responsibility |

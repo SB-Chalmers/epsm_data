@@ -102,5 +102,5 @@ def test_original_retained_source_evidence_is_unchanged():
 
 
 if __name__ == "__main__":
-    # Refresh after a reviewed physical change: python tests/test_lod2_physics.py
+    # Refresh after a reviewed physical change: python tests/test_catalogue_physics.py
     FIXTURE.write_text(json.dumps(_snapshot(Catalogue.load()), indent=2, ensure_ascii=False) + "\n")
