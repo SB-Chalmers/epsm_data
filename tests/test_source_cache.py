@@ -8,8 +8,8 @@ from http.client import IncompleteRead
 
 import pytest
 
-from epsm_data import source_cache
-from epsm_data.source_cache import SourceCache
+from epsm_data.sources import cache as source_cache
+from epsm_data.sources.cache import SourceCache
 
 _BOVERKET = {
     "kind": "boverket_page",

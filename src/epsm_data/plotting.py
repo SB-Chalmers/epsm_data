@@ -4,7 +4,7 @@ Produces wall-section-style cross sections with material-specific
 colours, hatching patterns, and annotations — one subplot per element.
 
 Usage:
-    from epsm_data.reporting.section_drawing import plot_sections
+    from epsm_data.plotting import plot_sections
 
     fig = plot_sections(archetype)          # returns matplotlib Figure
     fig.savefig("sections.pdf", dpi=150)
@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 
 if TYPE_CHECKING:
-    from epsm_data.domain.building import BuildingArchetype
+    from epsm_data.domain.archetype import BuildingArchetype
     from epsm_data.domain.element import Element
 
 

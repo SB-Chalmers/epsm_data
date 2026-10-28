@@ -229,7 +229,7 @@ def test_invalid_supplied_sections_fail_at_authoring(kwargs):
 
 
 def test_summary_and_representation_are_safe_for_partial_objects(monkeypatch):
-    import epsm_data.profiles as profiles
+    import epsm_data.profiles.operating as profiles
 
     monkeypatch.setattr(profiles, "files", lambda *args: pytest.fail("Unexpected resource lookup"))
     archetype = Archetype("\n😀" * 1000, "Custom")

@@ -12,8 +12,8 @@ import math
 from collections.abc import Mapping
 from copy import deepcopy
 
-from .domain import BuildingArchetype, BuildingElement, CarbonReference
-from .domain.element import surface_resistances
+from ..domain import BuildingArchetype, BuildingElement, CarbonReference
+from ..domain.element import surface_resistances
 from .serialization import _encode
 
 

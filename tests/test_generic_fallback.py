@@ -9,7 +9,7 @@ from epsm_data import (
     archetype_to_dict,
     export_nominal_constructions,
 )
-from epsm_data.classification import CATEGORIES, ERAS, ZONES, states_for_era
+from epsm_data.catalogue.keys import CATEGORIES, ERAS, ZONES, states_for_era
 
 LABEL = "Unknown building type — multifamily assumption"
 CASES = [

@@ -24,7 +24,7 @@ include = ["epsm_data*"]
 epsm-catalogue = "epsm_data.cli:main"
 
 [tool.setuptools.package-data]
-"epsm_data.datasets.standards" = ["*.json"]
+"epsm_data.datasets.profiles" = ["*.json"]
 "epsm_data.datasets.lod2" = ["*.json"]
 "epsm_data.datasets.sanity" = ["*.json"]
 "epsm_data.datasets.climate_zones" = ["*.json", "*.json.gz"]

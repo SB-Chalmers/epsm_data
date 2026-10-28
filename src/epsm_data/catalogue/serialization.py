@@ -9,7 +9,7 @@ from dataclasses import fields, is_dataclass
 from enum import Enum
 from uuid import UUID
 
-from .domain import (
+from ..domain import (
     BuildingArchetype,
     BuildingElement,
     CarbonReference,
@@ -27,7 +27,7 @@ from .domain import (
     ShearingLayer,
     WindowElement,
 )
-from .profiles import HVACTemplate, OperatingProfile
+from ..profiles.operating import HVACTemplate, OperatingProfile
 
 
 def _encode(value):

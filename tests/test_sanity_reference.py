@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from epsm_data import Catalogue
-from epsm_data.sanity_reference import check_references
+from epsm_data.sanity.references import check_references
 
 _ROOT = Path(__file__).resolve().parents[1]
 _FIXTURES = _ROOT / "src/epsm_data/datasets/sanity"
@@ -274,7 +274,7 @@ def test_reviewed_basement_boundaries_map_measures_without_ground_findings(catal
 
 
 def test_unreviewed_mf06_does_not_infer_second_wall_mapping(catalogue, references):
-    from epsm_data.sanity_reference import _mapped_boundary_role
+    from epsm_data.sanity.references import _mapped_boundary_role
 
     data = _focused(catalogue, "mf_se06")
     configs = data["archetypes"]["mf_se06"]["states"]

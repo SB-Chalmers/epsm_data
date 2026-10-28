@@ -18,7 +18,7 @@ from epsm_data import (
     build_archetype,
     export_nominal_constructions,
 )
-from epsm_data.serialization import element_from_dict, element_to_dict
+from epsm_data.catalogue.serialization import element_from_dict, element_to_dict
 
 
 def reference(**changes):

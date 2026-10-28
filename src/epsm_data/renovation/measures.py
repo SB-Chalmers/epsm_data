@@ -7,8 +7,8 @@ from typing import Literal
 
 from epsm_data._logging import operation as logged_operation
 
+from ..catalogue.serialization import _encode
 from .operations import ConstructionOperation, SystemOperation
-from .serialization import _encode
 
 
 @dataclass(frozen=True)
@@ -314,8 +314,3 @@ class RenovationCatalogue:
     @classmethod
     def from_dict(cls, data):
         return cls(RenovationMeasure.from_dict(item) for item in data["measures"])
-
-
-
-# Physical catalogue selection is independent of renovation definitions.
-from .library import Catalogue  # noqa: E402,F401

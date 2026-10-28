@@ -7,8 +7,8 @@ from types import SimpleNamespace
 import pytest
 
 from epsm_data import Catalogue, load_sanity_fixture
-from epsm_data.sanity import _operation
-from epsm_data.sanity_nonresidential import (
+from epsm_data.sanity.catalogue import _operation
+from epsm_data.sanity.nonresidential import (
     _metrics,
     check_nonresidential,
     validate_nonresidential_fixture,

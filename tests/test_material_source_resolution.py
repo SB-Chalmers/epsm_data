@@ -113,8 +113,8 @@ def test_saved_archetype_restores_without_a_source_cache(monkeypatch):
 
 
 def test_source_cli_checks_offline_and_reports_upstream_updates(monkeypatch, capsys):
-    from epsm_data import source_cache
     from epsm_data.cli import main
+    from epsm_data.sources import cache as source_cache
 
     def denied(*args, **kwargs):
         pytest.fail("Default source verification must remain offline")

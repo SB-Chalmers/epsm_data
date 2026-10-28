@@ -15,7 +15,7 @@ from importlib.resources import files
 from math import isfinite
 from pathlib import Path
 
-from .classification import CATEGORIES, ERAS, STATES, ZONES
+from ..catalogue.keys import CATEGORIES, ERAS, STATES, ZONES
 
 SECTIONS = (
     "materials", "thermal", "boverket", "carbon_references", "layers",
@@ -32,7 +32,7 @@ def load_sanity_fixture(path=None):
     The packaged ``epsm_data.datasets.sanity`` bundle is the maintained fixture.
     An alternative fixture directory must be selected explicitly by the caller.
     """
-    from .library import _object
+    from ..catalogue.catalogue import _object
 
     folder = files("epsm_data.datasets.sanity") if path is None else Path(path)
     tables = {}
@@ -92,7 +92,7 @@ def _validate_fixture(fixture):
     if policy["insulation_minimum_area_fraction"] > 1 or policy["area_fraction_tolerance"] >= 1:
         raise ValueError("Sanity fixture fractions must lie within their valid ranges")
     if "nonresidential_construction" in fixture:
-        from .sanity_nonresidential import validate_nonresidential_fixture
+        from .nonresidential import validate_nonresidential_fixture
 
         validate_nonresidential_fixture(fixture["nonresidential_construction"])
     expected_generic = {
@@ -458,7 +458,7 @@ def _operation(data, catalogue, emit):
 def _generic(catalogue, emit):
     if catalogue is None:
         return
-    from .classification import ArchetypeKey
+    from ..catalogue.keys import ArchetypeKey
 
     for aid in catalogue.ids(category="multi_family"):
         record = catalogue.archetype_records[aid]
@@ -495,9 +495,9 @@ def check_catalogue(catalogue_or_data, *, fixture=None):
     bundled fixture is read only when no explicit fixture is supplied.
     Project calendars, geometry and installed systems remain consumer inputs.
     """
-    from .library import Catalogue, legacy_thermal_names
-    from .sanity_physics import check_physics
-    from .sanity_reference import check_references
+    from ..catalogue.catalogue import Catalogue, legacy_thermal_names
+    from .physics import check_physics
+    from .references import check_references
 
     catalogue = catalogue_or_data if isinstance(catalogue_or_data, Catalogue) else None
     raw = catalogue.resolved_dict() if catalogue is not None else legacy_thermal_names(

@@ -82,7 +82,7 @@ def test_invalid_falsy_states_do_not_silently_select_existing(payload, state):
 
 
 def test_loaded_catalogue_selection_never_reads_profiles_again(payload, monkeypatch):
-    import epsm_data.profiles as profiles
+    import epsm_data.profiles.operating as profiles
 
     catalogue = Catalogue(payload)
     expected = catalogue.get("mf_se02")

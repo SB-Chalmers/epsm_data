@@ -8,7 +8,7 @@ import pytest
 
 from epsm_data import Catalogue, check_catalogue, load_sanity_fixture
 from epsm_data.cli import main
-from epsm_data.sanity import FIXTURE_FILES
+from epsm_data.sanity.catalogue import FIXTURE_FILES
 
 FIXTURE = Path(__file__).resolve().parents[1] / "src/epsm_data/datasets/sanity"
 CASES = json.loads((Path(__file__).parent / "fixtures/sanity_cases/reporting.json").read_text())

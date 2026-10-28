@@ -46,7 +46,7 @@ ventilation; the heat pump is a heating-system input.
 Standard renovation keeps the existing (observed or default) system; Advanced
 installs FTX 0.80. These are period assumptions from typical Swedish practice, not
 measured stock shares. The rules live in
-`src/epsm_data/datasets/standards/ventilation_templates.json`.
+`src/epsm_data/datasets/profiles/ventilation_templates.json`.
 
 ## Window-to-wall ratio
 
@@ -63,4 +63,4 @@ compass sector its outward normal faces: N 315–45°, E 45–135°, S 135–225
 
 The four orientation values average to the default, so a building model may use
 either form. Ratios are constant across eras and states. The values live in
-`src/epsm_data/datasets/standards/facade_assumptions.json`.
+`src/epsm_data/datasets/profiles/facade_assumptions.json`.

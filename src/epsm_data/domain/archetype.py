@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from types import MappingProxyType
 from uuid import UUID, uuid4
 
-from ..profiles import HVACTemplate, OperatingProfile
+from ..profiles.operating import HVACTemplate, OperatingProfile
 from .editing import Editable
 from .element import Element, WindowElement
 from .enums import BuildingElement
@@ -316,9 +316,9 @@ class BuildingArchetype(Editable):
         """Draw architectural section drawings for all elements.
 
         Keyword arguments are forwarded to
-        ``epsm_data.reporting.section_drawing.plot_sections``.
+        ``epsm_data.plotting.plot_sections``.
         """
-        from epsm_data.reporting.section_drawing import plot_sections
+        from epsm_data.plotting import plot_sections
 
         return plot_sections(self, **kwargs)
 

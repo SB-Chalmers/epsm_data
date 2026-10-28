@@ -35,7 +35,7 @@ review that diff together with the catalogue diff.
 | `src/epsm_data/domain` | Immutable physical types and editing |
 | `src/epsm_data/library.py` | Catalogue loading, selection and completeness |
 | `src/epsm_data/datasets/lod2` | Canonical physical and source records |
-| `src/epsm_data/datasets/standards` | Reusable operating profiles |
+| `src/epsm_data/datasets/profiles` | Reusable operating profiles |
 | `src/epsm_data/catalogue.py`, `operations.py` | Declarative renovation definitions |
 | `src/epsm_data/datasets/sanity` | Packaged forward-check references |
 | `evidence/` | Source evidence, outside runtime loading |

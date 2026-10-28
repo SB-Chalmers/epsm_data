@@ -1,13 +1,37 @@
-"""Deterministic LoD2 catalogue and linked material-to-archetype authoring.
+"""Swedish LoD2 building archetypes and the construction, operation and source data behind them.
 
-Imports perform no dataset loading, network calls, or database operations.
+Subpackages, by job:
+
+- ``domain``: the shared construction classes (materials to archetypes) that Core builds on;
+- ``catalogue``: the archetype catalogue, authoring, exchange and Core handover;
+- ``profiles``: operating profiles and system (ventilation, facade) templates;
+- ``renovation``: renovation measures and the changes they make;
+- ``sanity``: read-only screens of the catalogue;
+- ``sources``: pinned material and carbon source records;
+- ``climate_zones``, ``carbon`` and ``plotting``: single-purpose modules.
+
+Imports perform no dataset loading, network calls or database operations.
 """
 
 import logging as _stdlib_logging
+import sys as _sys
 
+from . import _compat
 from ._version import __version__
-from .catalogue import Catalogue, Cost, ParameterDefinition, RenovationCatalogue, RenovationMeasure
-from .classification import ArchetypeKey, ArchetypeSlot
+from .catalogue import (
+    ArchetypeKey,
+    ArchetypeSlot,
+    Catalogue,
+    archetype_from_dict,
+    archetype_to_dict,
+    build_archetype,
+    construction_set_from_dict,
+    construction_set_to_dict,
+    export_nominal_constructions,
+    reference_construction_set,
+    reference_hvac_template,
+    validate_nominal_handover,
+)
 from .climate_zones import (
     AmbiguousClimateZoneError,
     build_climate_zone_boundaries,
@@ -38,8 +62,6 @@ from .domain import (
     WindowMaterial,
     build_construction_set,
 )
-from .nominal import export_nominal_constructions, validate_nominal_handover
-from .operations import ConstructionOperation, SystemOperation
 from .profiles import (
     HVACTemplate,
     OperatingProfile,
@@ -50,16 +72,16 @@ from .profiles import (
     select_dhw_profile,
     select_operating_profile,
 )
-from .reference import reference_construction_set, reference_hvac_template
-from .sanity import check_catalogue, load_sanity_fixture
-from .serialization import (
-    archetype_from_dict,
-    archetype_to_dict,
-    construction_set_from_dict,
-    construction_set_to_dict,
+from .renovation import (
+    ConstructionOperation,
+    Cost,
+    ParameterDefinition,
+    RenovationCatalogue,
+    RenovationMeasure,
+    SystemOperation,
 )
-from .source_cache import SourceCache
-from .usecases.build_archetype import build_archetype
+from .sanity import check_catalogue, load_sanity_fixture
+from .sources import SourceCache
 
 __all__ = [
     "__version__",
@@ -120,6 +142,7 @@ __all__ = [
     "validate_nominal_handover",
 ]
 
-# A library emits no output until its host selects handlers.
+_compat.register(_sys.modules[__name__])
 
+# A library emits no output until its host selects handlers.
 _stdlib_logging.getLogger("epsm_data").addHandler(_stdlib_logging.NullHandler())

@@ -6,9 +6,9 @@ establish a typical Swedish building, building compliance or source agreement.
 
 from collections.abc import Mapping
 
-from .classification import ERAS
-from .sanity_physics import _family
-from .sanity_reference import (
+from ..catalogue.keys import ERAS
+from .physics import _family
+from .references import (
     _added_layers,
     _affected,
     _assessment,

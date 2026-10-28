@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from importlib.resources import files
 from types import MappingProxyType
 
-from .domain.editing import Editable
+from ..domain.editing import Editable
 
 logger = logging.getLogger(__name__)
 
@@ -175,7 +175,7 @@ def load_standard_record(name):
     """
     if name not in STANDARD_PROFILES:
         raise ValueError(f"Unknown named profile: {name}")
-    resource = files("epsm_data.datasets.standards").joinpath(f"{name}.json")
+    resource = files("epsm_data.datasets.profiles").joinpath(f"{name}.json")
     record = json.loads(resource.read_text(encoding="utf-8"))
     if (
         not isinstance(record, dict)

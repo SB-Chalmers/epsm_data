@@ -11,9 +11,9 @@ import re
 from collections.abc import Mapping
 from urllib.parse import urlsplit
 
-from .carbon_scope import retained_stock_assessments
-from .domain.enums import BuildingElement
-from .sources import OPAQUE_FIELDS, WINDOW_FIELDS
+from ..carbon import retained_stock_assessments
+from ..domain.enums import BuildingElement
+from ..sources.records import OPAQUE_FIELDS, WINDOW_FIELDS
 
 ROLES = {role.value for role in BuildingElement}
 
@@ -90,7 +90,7 @@ def _signature(section, record):
 def check_physics(data, emit, fixture=None):
     """Emit non-mutating material and assembly findings from even invalid raw data."""
     if fixture is None:
-        from .sanity import load_sanity_fixture
+        from .catalogue import load_sanity_fixture
 
         fixture = load_sanity_fixture()
     rules, policy = fixture["construction_rules"], fixture["policy"]

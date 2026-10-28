@@ -7,7 +7,7 @@ with a catalogue archetype or project-specific measured construction.
 
 from uuid import NAMESPACE_URL, uuid5
 
-from .domain import (
+from ..domain import (
     BuildingElement,
     Component,
     ConstructionSet,
@@ -67,7 +67,7 @@ def reference_construction_set() -> ConstructionSet:
 
 def reference_hvac_template():
     """Explicit illustrative FTX and district-heat inputs, not measured stock values."""
-    from .profiles import HVACTemplate
+    from ..profiles.operating import HVACTemplate
 
     return HVACTemplate(
         template_id="illustrative_reference_ftx",

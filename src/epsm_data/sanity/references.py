@@ -11,7 +11,7 @@ import math
 from collections import defaultdict
 from collections.abc import Mapping
 
-from .classification import ERAS, ZONES
+from ..catalogue.keys import ERAS, ZONES
 
 _RESIDENTIAL = {"single_family", "multi_family"}
 _ENVELOPE = ("EXT_WALL", "GROUND_FLOOR", "BASEMENT_WALL", "THERMAL_TOP", "WINDOW")
@@ -519,7 +519,7 @@ def check_references(data, catalogue, emit, benchmarks):
     Benchmark fields are local portable data, never dynamically downloaded.
     """
     benchmarks = benchmarks if isinstance(benchmarks, dict) else {}
-    from .sanity_nonresidential import check_nonresidential
+    from .nonresidential import check_nonresidential
 
     check_nonresidential(data, catalogue, emit, benchmarks)
     policy = _mapping(benchmarks.get("policy"))

@@ -1,6 +1,6 @@
 """Pure projections of linked Honeybee thermal and Boverket carbon records."""
 
-from .domain import EmbodiedCarbon
+from ..domain import EmbodiedCarbon
 
 OPAQUE_FIELDS = (
     "roughness",

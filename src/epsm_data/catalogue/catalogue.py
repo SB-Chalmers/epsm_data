@@ -8,9 +8,24 @@ from pathlib import Path
 from types import MappingProxyType
 from uuid import NAMESPACE_URL, uuid5
 
-from ._logging import operation as logged_operation
-from .carbon_scope import retained_stock_assessments
-from .classification import (
+from .._logging import operation as logged_operation
+from ..carbon import retained_stock_assessments
+from ..domain import (
+    Archetype,
+    BuildingElement,
+    CarbonReference,
+    Component,
+    ConstructionSet,
+    Element,
+    EnvelopePerformance,
+    Layer,
+    LayerMaterial,
+    LayerSlot,
+    Material,
+    WindowElement,
+)
+from ..sources.records import OPAQUE_FIELDS, WINDOW_FIELDS, boverket_carbon_modules, carbon_record
+from .keys import (
     CATEGORIES,
     CATEGORY_LABELS,
     ERAS,
@@ -26,21 +41,6 @@ from .classification import (
     freeze,
     states_for_era,
 )
-from .domain import (
-    Archetype,
-    BuildingElement,
-    CarbonReference,
-    Component,
-    ConstructionSet,
-    Element,
-    EnvelopePerformance,
-    Layer,
-    LayerMaterial,
-    LayerSlot,
-    Material,
-    WindowElement,
-)
-from .sources import OPAQUE_FIELDS, WINDOW_FIELDS, boverket_carbon_modules, carbon_record
 
 REQUIRED_ROLES = (
     "EXT_WALL",
@@ -180,7 +180,7 @@ class Catalogue:
         self._definition = deepcopy(data)
         self._source_cache = None
         if data.get("schema_version") == 2:
-            from .source_cache import SourceCache
+            from ..sources.cache import SourceCache
 
             self._source_cache = (source_cache if isinstance(source_cache, SourceCache)
                                   else SourceCache.load(source_cache))
@@ -207,15 +207,15 @@ class Catalogue:
         self._boverket = freeze(payload["boverket"])
         self._thermal = freeze(payload["thermal"])
         self._carbon_references = {}
-        from .catalogue import RenovationCatalogue
-        from .profiles import available_operating_profiles
+        from ..profiles.operating import available_operating_profiles
+        from ..renovation.measures import RenovationCatalogue
         from .reference import reference_hvac_template
 
         self.renovations = renovations if renovations is not None else RenovationCatalogue()
         self._profiles = MappingProxyType(
             dict(available_operating_profiles() if profiles is None else profiles)
         )
-        from .templates import ventilation_templates
+        from ..profiles.systems import ventilation_templates
 
         self._hvac = MappingProxyType(
             dict(
@@ -668,7 +668,7 @@ class Catalogue:
 
     def sanity_report(self, *, fixture=None):
         """Check stored definitions forward, without changing the catalogue."""
-        from .sanity import check_catalogue
+        from ..sanity.catalogue import check_catalogue
 
         return check_catalogue(self, fixture=fixture)
 
@@ -750,7 +750,7 @@ class Catalogue:
                 )
             )
         missing = self.completeness(aid, state=state)["missing_values"]
-        from .templates import ventilation_template_id
+        from ..profiles.systems import ventilation_template_id
 
         hvac = self._hvac.get(ventilation_template_id(record["category"], record["era"], selected, ventilation))
         return Archetype(
@@ -787,14 +787,14 @@ class Catalogue:
 
     def ventilation_options(self, archetype_id, *, state=None):
         """The template each observed system (S, F, FT, FTX) gives this configuration."""
-        from .templates import VENTILATION_SYSTEMS
+        from ..profiles.systems import VENTILATION_SYSTEMS
 
         return {system: self.get(archetype_id, state=state, ventilation=system).hvac_template
                 for system in VENTILATION_SYSTEMS}
 
     def facade_assumptions(self, archetype_id):
         """Default and N/E/S/W window-to-wall ratios for templates without measured openings."""
-        from .templates import facade_assumptions
+        from ..profiles.systems import facade_assumptions
 
         aid, _generic = self._resolve_selection(archetype_id)
         return facade_assumptions(self._data["archetypes"][aid]["category"])
@@ -943,7 +943,7 @@ class Catalogue:
         shell = self._elements.get(config.get("weather_shell_element_id"))
         weather_shell = None
         if shell is not None:
-            from .nominal import export_nominal_constructions
+            from .handover import export_nominal_constructions
 
             shell_archetype = Archetype(
                 "weather_shell",

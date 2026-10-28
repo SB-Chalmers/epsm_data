@@ -18,7 +18,7 @@ def drawing():
     matplotlib.use("Agg")
     from matplotlib import pyplot as plt
 
-    from epsm_data.reporting.section_drawing import plot_sections
+    from epsm_data.plotting import plot_sections
 
     return plt, plot_sections
 
@@ -97,7 +97,7 @@ def test_default_plot_remains_a_nominal_layer_drawing_without_cavity(drawing, ca
 
 def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(drawing, catalogue):
     plt, plot_sections = drawing
-    from epsm_data.reporting.section_drawing import section_scales
+    from epsm_data.plotting import section_scales
 
     examples = [example(catalogue, state) for state in ("existing", "standard", "advanced")]
     scales = section_scales([a for a, _ in examples], [b for _, b in examples])
@@ -123,7 +123,7 @@ def test_shared_overview_scales_preserve_pixel_thickness_and_window_properties(d
 
 def test_physical_annotations_and_window_comparison(drawing, catalogue):
     plt, _ = drawing
-    from epsm_data.reporting.section_drawing import (
+    from epsm_data.plotting import (
         plot_section_comparison,
         renovation_annotations,
     )
@@ -165,7 +165,7 @@ def test_physical_annotations_and_window_comparison(drawing, catalogue):
 
 def test_comparison_ignores_authoring_names_and_material_instance_ids(drawing, catalogue):
     from epsm_data.domain import BuildingElement
-    from epsm_data.reporting.section_drawing import renovation_annotations
+    from epsm_data.plotting import renovation_annotations
 
     baseline, _ = example(catalogue)
     role = BuildingElement.EXT_WALL
@@ -193,7 +193,7 @@ def test_comparison_ignores_authoring_names_and_material_instance_ids(drawing, c
 
 def test_comparison_supports_custom_archetypes_and_missing_baseline_roles(drawing, catalogue):
     plt, _ = drawing
-    from epsm_data.reporting.section_drawing import (
+    from epsm_data.plotting import (
         plot_section_comparison,
         renovation_annotations,
     )
@@ -213,7 +213,7 @@ def test_comparison_supports_custom_archetypes_and_missing_baseline_roles(drawin
 
 
 def test_comparison_validates_labels_boundaries_and_missing_roles(drawing, catalogue):
-    from epsm_data.reporting.section_drawing import plot_section_comparison
+    from epsm_data.plotting import plot_section_comparison
 
     archetype, _ = example(catalogue)
     with pytest.raises(ValueError, match="At least one archetype"):

@@ -4,14 +4,13 @@ import json
 from functools import cache
 from importlib.resources import files
 
-from .profiles import HVACTemplate
-
-_STANDARDS = files("epsm_data.datasets.standards")
+from .operating import HVACTemplate
 
 
 @cache
 def _table(name):
-    return json.loads(_STANDARDS.joinpath(f"{name}.json").read_text(encoding="utf-8"))
+    resource = files("epsm_data.datasets.profiles").joinpath(f"{name}.json")
+    return json.loads(resource.read_text(encoding="utf-8"))
 
 
 def ventilation_templates():
