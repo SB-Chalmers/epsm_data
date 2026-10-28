@@ -92,7 +92,8 @@ def test_any_archetype_accepts_every_observed_system(catalogue, aid):
                for template in catalogue.ventilation_options(aid, state="advanced").values())
 
 
-@pytest.mark.parametrize("aid, recovery", [("mf_se01", 0.75), ("mf_se04", 0.6), ("mf_se06", 0.75)])
+@pytest.mark.parametrize("aid, recovery", [("mf_se01", 0.75), ("mf_se02", 0.75), ("mf_se03", 0.6), ("mf_se04", 0.6),
+                                           ("mf_se06", 0.75)])
 def test_observed_ftx_takes_a_period_recovery(catalogue, aid, recovery):
     template = catalogue.get(aid, state="existing", ventilation="FTX").hvac_template
     assert template.values["airflow"]["sensible_recovery_effectiveness"] == recovery
