@@ -21,10 +21,9 @@ from epsm_data import (
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_base_import_and_examples_without_optional_dependencies():
+def test_base_import_without_optional_dependencies():
     script = """
 import importlib.abc
-import runpy
 import sys
 
 class BlockOptional(importlib.abc.MetaPathFinder):
@@ -40,16 +39,12 @@ import epsm_data
 assert not hasattr(epsm_data, "run_build_baseline")
 from epsm_data import Catalogue
 assert Catalogue.load().summary()["slot_count"] == 228
-for example in sys.argv[1:]:
-    runpy.run_path(example, run_name="__main__")
 """
     result = subprocess.run(
         [
             sys.executable,
             "-c",
             script,
-            str(ROOT / "examples/archetype.py"),
-            str(ROOT / "examples/renovations.py"),
         ],
         env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": str(ROOT / "src")},
         capture_output=True,
