@@ -247,7 +247,8 @@ def select_operating_profile(building_type, *, standard="sveby", version=None, e
     ``standard="measured"`` returns the same Sveby record with the measured
     Swedish stock-operation values of ``measured_use_v1`` substituted, for
     simulating existing buildings against measured energy use. Inputs that vary
-    with construction era require ``era`` (``"SE.01"`` to ``"SE.07"``). A use
+    with construction era require ``era`` (``"SE.01"`` to ``"SE.07"``); today that is
+    the multifamily heating setpoint, so multifamily needs ``era`` and office does not. A use
     with no adopted measured value returns its Sveby record with a note saying
     so. The record keeps the Sveby schema, so Core resolves it unchanged.
 

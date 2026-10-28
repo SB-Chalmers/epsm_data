@@ -42,12 +42,11 @@ python -m pip install -e .
 ## Quick start
 
 ```python
-from epsm_data import BuildingElement, Catalogue, climate_zone_for_point
+from epsm_data import Catalogue, climate_zone_for_point
 
 catalogue = Catalogue.load()
 archetype = catalogue.for_year("multi_family", 1970, state="existing")
-wall = archetype.construction_set.elements[BuildingElement.EXT_WALL]
-print(wall.u_value)  # W/(m² K)
+print(archetype.envelope_u_values["EXT_WALL"])  # W/(m² K)
 print(catalogue.completeness("mf_se02", state="existing"))
 print(catalogue.sanity_report()["summary"])
 print(climate_zone_for_point(674571.866, 6580743.008))  # SE.Zone3

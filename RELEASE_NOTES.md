@@ -25,6 +25,19 @@ The package is grouped by job. `from epsm_data import ...` is unchanged.
 Loggers are named after the package area (`epsm_data.catalogue`, `epsm_data.renovation`)
 rather than the file, so moving a module no longer renames its logger.
 
+API tidying:
+
+- `ConstructionSet.elements` accepts a role name as well as a `BuildingElement`:
+  `elements["EXT_WALL"]`.
+- `envelope_u_values` keys are role names throughout; the averaged exterior wall is
+  `"EXT_WALL"` (was `"wall"`).
+- `Catalogue.handover(archetype_id, state=...)` exports a configuration for Core in one
+  call, supplying `nominal_metadata`.
+- `repr(Catalogue)` reports `archetypes=` (was `families=`), matching `summary()`.
+- Docstrings now state SE.07's single configuration (`state=None`), the ventilation
+  template rules per state, which measured-use inputs need an era, and the material
+  identity fields.
+
 - For one release, these old paths still import: `epsm_data.classification`,
   `library`, `nominal`, `operations`, `serialization`, and
   `epsm_data.thermal.boundary_conditions` (`get_boundary_resistances`, `get_rsi`,
