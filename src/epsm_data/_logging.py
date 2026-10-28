@@ -21,11 +21,13 @@ def operation(event, *, level=logging.INFO):
 
     ``log_context`` is an optional keyword-only mapping of scalar identifiers. It
     never enters physical models; nested operations inherit it with a parent id.
+    The logger is named after the package area (``epsm_data.catalogue``), not the
+    file, so it stays stable when modules move within an area.
     """
 
     def decorate(function):
         signature = inspect.signature(function)
-        logger = logging.getLogger(function.__module__)
+        logger = logging.getLogger(".".join(function.__module__.split(".")[:2]))
 
         def emit(context, suffix, details, error=None):
             logger.log(logging.ERROR if error is not None else level, "%s %s",

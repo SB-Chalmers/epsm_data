@@ -4,7 +4,7 @@ Subpackages, by job:
 
 - ``domain``: the shared construction classes (materials to archetypes) that Core builds on;
 - ``catalogue``: the archetype catalogue, authoring, exchange and Core handover;
-- ``profiles``: operating profiles and system (ventilation, facade) templates;
+- ``profiles`` and ``templates``: operating profiles; ventilation and facade templates;
 - ``renovation``: renovation measures and the changes they make;
 - ``sanity``: read-only screens of the catalogue;
 - ``sources``: pinned material and carbon source records;
@@ -82,6 +82,7 @@ from .renovation import (
 )
 from .sanity import check_catalogue, load_sanity_fixture
 from .sources import SourceCache
+from .templates import facade_assumptions, ventilation_template_id, ventilation_templates
 
 __all__ = [
     "__version__",
@@ -140,6 +141,9 @@ __all__ = [
     "reference_hvac_template",
     "export_nominal_constructions",
     "validate_nominal_handover",
+    "facade_assumptions",
+    "ventilation_template_id",
+    "ventilation_templates",
 ]
 
 _compat.register(_sys.modules[__name__])

@@ -67,7 +67,7 @@ def reference_construction_set() -> ConstructionSet:
 
 def reference_hvac_template():
     """Explicit illustrative FTX and district-heat inputs, not measured stock values."""
-    from ..profiles.operating import HVACTemplate
+    from ..profiles import HVACTemplate
 
     return HVACTemplate(
         template_id="illustrative_reference_ftx",

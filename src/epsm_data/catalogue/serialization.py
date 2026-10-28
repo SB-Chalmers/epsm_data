@@ -27,7 +27,7 @@ from ..domain import (
     ShearingLayer,
     WindowElement,
 )
-from ..profiles.operating import HVACTemplate, OperatingProfile
+from ..profiles import HVACTemplate, OperatingProfile
 
 
 def _encode(value):

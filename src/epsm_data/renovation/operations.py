@@ -10,7 +10,7 @@ from dataclasses import dataclass, replace
 from ..catalogue.serialization import _component, _encode, element_from_dict
 from ..domain import BuildingElement, Component, ConstructionSet, Element, WindowElement
 from ..domain.editing import Editable
-from ..profiles.operating import HVACTemplate
+from ..profiles import HVACTemplate
 
 
 @dataclass(frozen=True)

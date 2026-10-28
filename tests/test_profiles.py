@@ -131,7 +131,7 @@ def test_profile_index_and_inputs_are_independent_and_immutable():
 
 
 def test_profile_inspection_is_bounded_and_has_no_io(monkeypatch):
-    import epsm_data.profiles.operating as profiles
+    import epsm_data.profiles as profiles
 
     profile = OperatingProfile("\\n😀" * 1000, {"large": list(range(1000))})
     monkeypatch.setattr(
@@ -162,8 +162,8 @@ def denied(*args, **kwargs):
 importlib.resources.files = denied
 import epsm_data
 importlib.resources.files = original
-import epsm_data.profiles.operating
-epsm_data.profiles.operating.files = original
+import epsm_data.profiles
+epsm_data.profiles.files = original
 assert epsm_data.select_operating_profile('school').values['reference_active_days'] == 220
 assert epsm_data.select_dhw_profile('single_family', purpose='epc_normal_use').values['dhw_kwh_m2_year'] == 20
 """
@@ -175,7 +175,7 @@ assert epsm_data.select_dhw_profile('single_family', purpose='epc_normal_use').v
 
 
 def test_source_loader_rejects_wrong_identity(monkeypatch):
-    import epsm_data.profiles.operating as profiles
+    import epsm_data.profiles as profiles
 
     class Resource:
         def joinpath(self, *args):

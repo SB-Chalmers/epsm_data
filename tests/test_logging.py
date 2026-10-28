@@ -43,3 +43,10 @@ def test_catalogue_load_links_nested_operations(caplog):
     assert not any("parametric" in r.epsm_event for r in records)
     assert all(r.epsm_context["study_id"] == "catalogue-test" for r in records)
     assert records[-1].epsm_event == "catalogue.load.completed"
+
+
+def test_loggers_are_named_after_the_package_area(caplog):
+    with caplog.at_level(logging.DEBUG, logger="epsm_data"):
+        Catalogue.load().for_year("multi_family", 1960, state="existing")
+    names = {record.name for record in caplog.records if getattr(record, "epsm_event", "")}
+    assert names == {"epsm_data.catalogue"}

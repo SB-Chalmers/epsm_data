@@ -207,7 +207,7 @@ class Catalogue:
         self._boverket = freeze(payload["boverket"])
         self._thermal = freeze(payload["thermal"])
         self._carbon_references = {}
-        from ..profiles.operating import available_operating_profiles
+        from ..profiles import available_operating_profiles
         from ..renovation.measures import RenovationCatalogue
         from .reference import reference_hvac_template
 
@@ -215,7 +215,7 @@ class Catalogue:
         self._profiles = MappingProxyType(
             dict(available_operating_profiles() if profiles is None else profiles)
         )
-        from ..profiles.systems import ventilation_templates
+        from ..templates import ventilation_templates
 
         self._hvac = MappingProxyType(
             dict(
@@ -753,7 +753,7 @@ class Catalogue:
                 )
             )
         missing = self.completeness(aid, state=state)["missing_values"]
-        from ..profiles.systems import ventilation_template_id
+        from ..templates import ventilation_template_id
 
         hvac = self._hvac.get(ventilation_template_id(record["category"], record["era"], selected, ventilation))
         return Archetype(
@@ -790,14 +790,14 @@ class Catalogue:
 
     def ventilation_options(self, archetype_id, *, state=None):
         """The template each observed system (S, F, FT, FTX) gives this configuration."""
-        from ..profiles.systems import VENTILATION_SYSTEMS
+        from ..templates import VENTILATION_SYSTEMS
 
         return {system: self.get(archetype_id, state=state, ventilation=system).hvac_template
                 for system in VENTILATION_SYSTEMS}
 
     def facade_assumptions(self, archetype_id):
         """Default and N/E/S/W window-to-wall ratios for templates without measured openings."""
-        from ..profiles.systems import facade_assumptions
+        from ..templates import facade_assumptions
 
         aid, _generic = self._resolve_selection(archetype_id)
         return facade_assumptions(self._data["archetypes"][aid]["category"])

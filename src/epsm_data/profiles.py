@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from importlib.resources import files
 from types import MappingProxyType
 
-from ..domain.editing import Editable
+from .domain.editing import Editable
 
 logger = logging.getLogger(__name__)
 

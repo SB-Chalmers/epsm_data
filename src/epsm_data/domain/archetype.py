@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from types import MappingProxyType
 from uuid import UUID, uuid4
 
-from ..profiles.operating import HVACTemplate, OperatingProfile
+from ..profiles import HVACTemplate, OperatingProfile
 from .editing import Editable
 from .element import Element, WindowElement
 from .enums import BuildingElement

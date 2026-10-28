@@ -9,7 +9,6 @@ from types import ModuleType
 
 from .catalogue import catalogue, handover, keys, serialization
 from .domain.element import surface_resistances
-from .profiles import systems
 from .renovation import operations
 
 _MOVED = {
@@ -18,7 +17,6 @@ _MOVED = {
     "nominal": handover,
     "operations": operations,
     "serialization": serialization,
-    "templates": systems,
 }
 
 

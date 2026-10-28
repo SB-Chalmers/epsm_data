@@ -4,7 +4,7 @@ import json
 from functools import cache
 from importlib.resources import files
 
-from .operating import HVACTemplate
+from .profiles import HVACTemplate
 
 
 @cache
