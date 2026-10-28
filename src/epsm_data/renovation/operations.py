@@ -15,6 +15,18 @@ from ..profiles.operating import HVACTemplate
 
 @dataclass(frozen=True)
 class ConstructionOperation(Editable):
+    """Declarative change to one element role's construction; Core applies it.
+
+    ``action`` is one of:
+
+    - ``add_component``: insert ``component`` at ``position`` (outside to inside);
+    - ``replace_component``: replace the component named ``target_component``;
+    - ``remove_component``: remove the component named ``target_component``;
+    - ``replace_element``: replace the whole ``element``.
+
+    An incoming component or element must match ``role``.
+    """
+
     action: str
     role: BuildingElement
     component: Component | None = None
@@ -72,10 +84,12 @@ class ConstructionOperation(Editable):
         return construction.with_element(self.role, replace(old, components=tuple(components)))
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return _encode(self)
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild an operation from ``to_dict`` output."""
         values = dict(data)
         if values.get("component") is not None:
             values["component"] = _component(values["component"])
@@ -96,8 +110,10 @@ class SystemOperation(Editable):
             raise ValueError("SystemOperation requires replace_hvac and an HVACTemplate")
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {"action": self.action, "template": self.template.to_dict()}
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild an operation from ``to_dict`` output."""
         return cls(data["action"], HVACTemplate.from_dict(data["template"]))

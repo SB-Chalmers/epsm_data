@@ -10,6 +10,7 @@ from .sanity.catalogue import check_catalogue
 
 
 def main(argv=None):
+    """Run the ``epsm-catalogue`` command; returns the process exit code."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--path", help="Explicit catalogue JSON file or directory")
     parser.add_argument("--source-cache", help="Explicit source-cache manifest file or directory")

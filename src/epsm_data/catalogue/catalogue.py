@@ -611,10 +611,12 @@ class Catalogue:
 
     @property
     def dataset_id(self):
+        """Identifier of the loaded catalogue dataset."""
         return self._data["dataset_id"]
 
     @property
     def dimensions(self):
+        """The catalogue axes: building categories, eras, climate zones and renovation states."""
         return freeze(
             {"categories": CATEGORY_LABELS, "eras": ERAS, "zones": ZONES, "states": STATES}
         )
@@ -685,6 +687,7 @@ class Catalogue:
         )
 
     def renovation_states(self, archetype_id):
+        """Renovation states available for an archetype: none for SE.07, otherwise existing, standard and advanced."""
         aid, _ = self._resolve_selection(archetype_id)
         record = self._data["archetypes"][aid]
         return () if record["era"] == "SE.07" else STATES
@@ -851,6 +854,11 @@ class Catalogue:
         return tuple(result)
 
     def get_slot(self, key):
+        """Return the slot for an ``ArchetypeKey`` or a ``category:era:zone:state`` slot ID.
+
+        An SE.07 slot uses ``default`` as its state. Raises ``ValueError`` for a malformed ID
+        and ``TypeError`` for any other key type.
+        """
         if isinstance(key, str):
             parts = key.split(":")
             if len(parts) != 4:
@@ -867,6 +875,7 @@ class Catalogue:
         )
 
     def summary(self):
+        """Counts of archetypes, configurations and slots, and how many slots are complete."""
         slots = self.search()
         return {
             "dataset_id": self.dataset_id,

@@ -196,6 +196,7 @@ class RenovationMeasure:
 
     @property
     def is_executable(self):
+        """True when the measure carries operations that can be applied to a building."""
         return bool(self.operations)
 
     def apply(self, construction):
@@ -309,8 +310,10 @@ class RenovationCatalogue:
         return tuple(result)
 
     def to_dict(self):
+        """Return a JSON-compatible mapping of every measure."""
         return {"measures": [measure.to_dict() for measure in self]}
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a catalogue from ``to_dict`` output."""
         return cls(RenovationMeasure.from_dict(item) for item in data["measures"])

@@ -121,6 +121,7 @@ class HVACTemplate(Editable):
         return self
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {
             "template_id": self.template_id,
             "values": _plain(self.values),
@@ -130,6 +131,7 @@ class HVACTemplate(Editable):
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a template from ``to_dict`` output."""
         return cls(**data)
 
     def __repr__(self):

@@ -48,6 +48,7 @@ def content_hash(value):
 
 
 def freeze(value):
+    """Return a read-only copy: mappings become ``MappingProxyType`` and lists become tuples."""
     if isinstance(value, dict):
         return MappingProxyType({key: freeze(child) for key, child in value.items()})
     if isinstance(value, list):
@@ -56,6 +57,7 @@ def freeze(value):
 
 
 def plain(value):
+    """Return a plain JSON-compatible copy of a frozen value; the inverse of ``freeze``."""
     from collections.abc import Mapping
 
     if isinstance(value, Mapping):
@@ -83,11 +85,13 @@ class ArchetypeKey:
 
     @property
     def id(self):
+        """Slot ID ``category:era:zone:state``, with ``default`` for SE.07's single state."""
         return ":".join(
             (self.category, self.era, self.climate_zone, self.renovation_state or "default")
         )
 
     def to_dict(self):
+        """Return the four key fields as a mapping."""
         return {
             "category": self.category,
             "era": self.era,
@@ -107,14 +111,17 @@ class ArchetypeSlot:
 
     @property
     def slot_id(self):
+        """The slot ID of this slot's key."""
         return self.key.id
 
     @property
     def state(self):
+        """Renovation state of this slot, or None for SE.07."""
         return self.key.renovation_state
 
     @property
     def complete(self):
+        """True when no required value is missing."""
         return not self.missing_values
 
     @property
@@ -130,6 +137,7 @@ class ArchetypeSlot:
         }
 
     def to_dict(self):
+        """Return the slot as a JSON-compatible mapping."""
         return {
             "slot_id": self.slot_id,
             "key": self.key.to_dict(),
