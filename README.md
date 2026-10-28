@@ -14,98 +14,105 @@ offline, without Core, a database or a simulation engine.
 **[Explore the EPSM platform →](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)**
 <!-- /EPSM introduction -->
 
-EPSM Data is a dependency-free Python library and the curated LoD2 construction
-catalogue for the EPSM platform. Catalogue selections and custom definitions use
-the same immutable hierarchy:
+EPSM Data is a Python library and the catalogue of representative Swedish
+buildings (LoD2 archetypes) for the EPSM platform. It serves researchers and
+developers who need typical constructions, operating profiles and renovation
+states for a Swedish building type and construction era. It has no runtime
+dependencies and works offline. It owns:
 
-**Material → Layer → Component → Element / Window → ConstructionSet → Archetype**
+- **Construction classes** shared with Core: Material → Layer → Component →
+  Element / Window → ConstructionSet → Archetype.
+- **The catalogue**: four building types, eras SE.01–SE.07, three renovation
+  states and three climate zones (228 assignments of 76 configurations).
+- **Operating profiles, system templates, renovation definitions**, pinned
+  thermal and carbon **sources**, and **sanity checks** against TABULA.
 
-## Use the catalogue
+Geometry, buildings and simulation belong to `epsm_core` and `epsm`; life-cycle
+assessment to `epsm_lca`; stock records to `epsm_db`.
 
-Requires Python 3.11 or newer. Install from this checkout:
+## Install
+
+Requires Python 3.11 or newer. Optional extras: `visualization` for section
+drawings and `geography` for rebuilding climate-zone boundaries.
 
 ```sh
 python -m pip install -e .
 ```
 
+## Quick start
+
 ```python
-from epsm_data import BuildingElement, Catalogue
+from epsm_data import BuildingElement, Catalogue, climate_zone_for_point
 
 catalogue = Catalogue.load()
 archetype = catalogue.for_year("multi_family", 1970, state="existing")
 wall = archetype.construction_set.elements[BuildingElement.EXT_WALL]
-print(wall.u_value)
+print(wall.u_value)  # W/(m² K)
 print(catalogue.completeness("mf_se02", state="existing"))
 print(catalogue.sanity_report()["summary"])
+print(climate_zone_for_point(674571.866, 6580743.008))  # SE.Zone3
 ```
 
-The catalogue includes **28 families, 76 physical configurations and 228
-climate-zone assignments**:
+## Documentation
 
-- Single-family, multi-family, office and school.
-- Seven construction eras, SE.01–SE.07.
-- Existing, Standard and Advanced states for SE.01–SE.06; one state for SE.07.
-- Three Swedish climate zones sharing the stored physical definitions.
+- [Catalogue](docs/catalogue.md): types, eras, states, selection, composition, Core handover
+- [Authoring](docs/authoring.md): write, edit and save archetypes; apply them to a building
+- [Profiles](docs/profiles.md): operating profiles, ventilation templates, window-to-wall ratios
+- [Sources](docs/sources.md): the pinned source cache, thermal and carbon records
+- [Sanity checks](docs/sanity.md): the screens, the report and the `epsm-catalogue` command
+- [Climate zones](docs/climate-zones.md): offline location-to-zone lookup
+- [Validation](docs/validation.md): the measured-data validation contract
 
-SE.06 covers 2006–2021; SE.07 starts in 2022. These are reusable stock
-representatives: an address, measured building record or individual survey is
-optional.
+Notebooks: [01 Select an archetype](examples/01_select_an_archetype.ipynb),
+[02 Operation and systems](examples/02_operation_and_systems.ipynb),
+[03 Author and edit](examples/03_author_and_edit.ipynb) and
+[04 Renovation states and sections](examples/04_renovation_states_and_sections.ipynb).
 
-## Sources and checks
+## Layout
 
-Every thermal grade is an EPSM-authored record with stated provenance: a Swedish
-product declaration or EPD, a Swedish design value, a TABULA grade or a documented
-derivation. Embodied carbon links to pinned Boverket resources or declared EPDs.
-All sources are cached offline; `catalogue.check_sources()` verifies them and
-online version checks are an explicit request.
+```text
+src/epsm_data/
+├── domain/          shared construction classes, Material to Archetype
+├── catalogue/       selection, keys, authoring, serialization, Core handover
+├── profiles.py      operating profiles (Sveby, measured use, BEN hot water)
+├── templates.py     ventilation templates and facade window ratios
+├── renovation/      renovation measures and the operations they make
+├── sanity/          read-only screens of the catalogue
+├── sources/         the pinned source cache and its records
+├── datasets/        bundled data: lod2, profiles, sources, sanity, climate_zones
+├── climate_zones.py location-to-zone lookup
+├── carbon.py        retained-stock carbon scope
+├── plotting.py      construction section drawings
+└── cli.py           the epsm-catalogue command
+```
 
-Forward sanity checks compare the residential configurations with TABULA U-values
-and renovation packages, screen materials and assemblies, and keep every
-assumption or gap visible. They never repair the catalogue.
+`evidence/` holds source documents; it is not loaded at run time.
 
-`catalogue.to_dict()` exports the reference-only catalogue;
-`catalogue.resolved_dict()` expands its physical and source data for auditing and
-custom authoring.
-
-## Author and inspect
-
-Create project definitions with constructors and `with_changes()`, save complete
-archetypes as portable JSON, or export forward nominal construction properties.
-Operating profiles and renovation definitions are independently reusable.
-
-- [Catalogue selection and inspection](docs/catalogue-inspection.md)
-- [Custom authoring and exchange](docs/archetype-authoring.md)
-- [Construction composition and source mappings](docs/catalogue-composition.md)
-- [Pinned source cache and version checks](docs/source-cache.md)
-- [Sanity checks](docs/catalogue-sanity.md) and [what validation means](docs/validation.md)
-- [Ventilation and facade templates](docs/templates.md)
-- [Operating profiles](docs/operating-profiles.md)
-- [Offline climate-zone lookup](docs/climate-zones.md)
-- [Platform ownership](docs/building-application.md)
-- [Examples](examples/README.md) and [development guide](docs/guide.md)
-
-## Maintain
-
-Correct the canonical JSON in `src/epsm_data/datasets/lod2/catalogue.json` through
-a pull request. Review shared references, run the tests and the sanity report,
-then publish the package. Git carries the change history; saved studies should
-preserve their actual inputs and package/catalogue identification.
+## Development
 
 ```sh
+python -m pip install -e '.[dev]'
 python -m pytest -q
-python -m epsm_data.cli --sanity --check
-python -m explorer.server
+python -m ruff check src tests examples
+epsm-catalogue --sanity --check
 ```
 
-Geometry, building occurrences and simulation belong to Core and the wider
-[EPSM platform](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md).
+Edit the catalogue in `src/epsm_data/datasets/lod2/catalogue.json` through a
+pull request. Reuse IDs for identical compositions, keep units, layer order,
+fractions and source locators, and check every construction that shares a changed
+definition. After a deliberate physical change, refresh the regression snapshot
+`tests/fixtures/lod2-physics.json` with `python tests/test_catalogue_physics.py`
+and review both diffs together.
+
+Pull requests run [ci.yml](.github/workflows/ci.yml) (Ruff, tests, wheel build).
+Before a release, run the manual [tests.yml](.github/workflows/tests.yml), which
+also covers both extras. The library adds no logging handler.
 
 ## License and attribution
 
 EPSM-owned software and documentation use the [MIT license](LICENSE). Boverket,
-EPD and other third-party source data retain their providers' terms and
-attribution. Retained source documents live in `evidence/`; they are separate from
-the runtime catalogue.
+EPD and other third-party source data keep their providers' terms and
+attribution.
 
 Developed at Chalmers University of Technology for the EPSM research platform.
 Funded by the Swedish Energy Agency, project P2024-04053. Partners: Lindholmen

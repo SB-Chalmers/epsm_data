@@ -1,5 +1,43 @@
 # Release notes
 
+## Unreleased: lean layout
+
+The package is grouped by job. `from epsm_data import ...` is unchanged.
+
+| Old module | New module |
+| --- | --- |
+| `library.py` | `catalogue/catalogue.py` |
+| `classification.py` | `catalogue/keys.py` |
+| `nominal.py` | `catalogue/handover.py` |
+| `serialization.py`, `reference.py` | `catalogue/serialization.py`, `catalogue/reference.py` |
+| `usecases/build_archetype.py` | `catalogue/authoring.py` |
+| `catalogue.py` (renovation measures) | `renovation/measures.py` |
+| `operations.py` | `renovation/operations.py` |
+| `sanity.py`, `sanity_physics.py`, `sanity_reference.py`, `sanity_nonresidential.py` | `sanity/catalogue.py`, `physics.py`, `references.py`, `nonresidential.py` |
+| `sources.py`, `source_cache.py` | `sources/records.py`, `sources/cache.py` |
+| `carbon_scope.py` | `carbon.py` |
+| `reporting/section_drawing.py` | `plotting.py` |
+| `domain/building.py` | `domain/archetype.py` |
+| `datasets/standards/` | `datasets/profiles/` |
+
+`profiles.py` and `templates.py` keep their names. `facade_assumptions`,
+`ventilation_template_id` and `ventilation_templates` are now exported from `epsm_data`.
+Loggers are named after the package area (`epsm_data.catalogue`, `epsm_data.renovation`)
+rather than the file, so moving a module no longer renames its logger.
+
+- For one release, these old paths still import: `epsm_data.classification`,
+  `library`, `nominal`, `operations`, `serialization`, and
+  `epsm_data.thermal.boundary_conditions` (`get_boundary_resistances`, `get_rsi`,
+  `get_rse`, now backed by `domain.element.surface_resistances`). Import from
+  `epsm_data` or the new modules instead.
+- Removed: the `thermal/` package, the `explorer/` web inspector, the example
+  scripts (`archetype.py`, `renovations.py`, `sections.py`,
+  `catalogue_composition.py`) and eleven evidence files that nothing cited.
+- Examples are four notebooks, `examples/01_` to `04_`. Tests are named
+  `tests/test_<area>_<topic>.py`.
+- The documentation is seven pages: catalogue, authoring, profiles, sources,
+  sanity, climate zones and validation.
+
 ## Unreleased — frozen LoD2 catalogue
 
 - One normalized offline catalogue: four Swedish building types, seven eras,
@@ -30,13 +68,10 @@
   transfer belongs to epsm_core / epsm_rc. See [validation](docs/validation.md)
   for the cohort coverage/match definition used by epsm_studies.
 - Removed unused modules (graph visualisation, logging configuration, airflow
-  conversion, duplicate thermal engine) and per-archetype snapshot tests; descriptive
-  boundary notes moved to `evidence/catalogue_rationale.json`.
+  conversion, duplicate thermal engine) and per-archetype snapshot tests.
 
-See [catalogue inspection](docs/catalogue-inspection.md),
-[authoring](docs/archetype-authoring.md) and [sanity checks](docs/catalogue-sanity.md)
-for the current interfaces. Source evidence and Git history retain the catalogue's
-maintenance record.
+See [catalogue](docs/catalogue.md), [authoring](docs/authoring.md) and
+[sanity checks](docs/sanity.md) for the current interfaces.
 
 ## 0.6.0 — 15 October 2026
 

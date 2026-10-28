@@ -1,12 +1,12 @@
-# What validation means
+# Measured-data validation
 
 The catalogue does not try to explain every building. It succeeds when a building
 that matches a cohort (type and construction era) can be simulated with that
 cohort's three renovation states, and the plausible range they span contains the
 building's measured heating.
 
-Validation code and data live in `epsm_studies` (`validation/catalogue/`); this page
-defines the contract.
+This page defines the contract. The validation code and data live in
+`epsm_studies` (`validation/catalogue/`), which reproduces it.
 
 ## One building, one year
 
@@ -14,9 +14,9 @@ defines the contract.
    area (Atemp), building type, construction year, heating carrier, and the measured
    space heating for one year with that year's weather.
 2. **Inputs from the catalogue only:** fabric for each state, the ventilation
-   template for the building's EPC ventilation type (era default if unknown), the
-   facade window-to-wall ratios, the operating profile and infiltration. Nothing is
-   tuned per building.
+   template for the ventilation type in the building's energy performance
+   certificate (EPC; the era default if unknown), the facade window-to-wall
+   ratios, the operating profile and infiltration. Nothing is tuned per building.
 3. **Simulate three times:** Existing, Standard and Advanced. SE.07 has one state.
 4. **Compare like with like:** `r = modelled / measured` delivered heating for each
    state, where *modelled* is the simulated space heating plus the accounting terms
@@ -28,7 +28,7 @@ belong to the comparison and never to the catalogue:
 
 | Term | Value | Source | Applied to |
 | --- | --- | --- | --- |
-| Window airing | 4 kWh/m² Atemp per year × the municipality's Fgeo | Sveby *Brukarindata bostadshus* 2.0, ch. 5; BFS 2026:9 | multifamily |
+| Window airing | 4 kWh/m² Atemp per year × the municipality's Fgeo (geographic adjustment factor) | Sveby *Brukarindata bostadshus* 2.0, ch. 5; BFS 2026:9 | multifamily |
 | Hot-water circulation losses | BEN normal hot water × (1/0.75 − 1), no internal gain | BEN (BFS 2016:12), 3 § | multifamily |
 
 A term is applied to a building type only when its source defines it for that type
@@ -90,13 +90,13 @@ unmodelled losses, and a fitted U-value would overstate renovation savings.
   `epsm_rc` from the nominal floor assemblies.
 - **Not a gate on individual buildings.**
 
-Fabric agreement with TABULA (walls, thermal top, windows within ±20 %) remains
-the primary check inside this repository; see [sanity checks](catalogue-sanity.md).
+Inside this package, the main fabric check is agreement with TABULA (walls,
+thermal top and windows within ±20 %); see [sanity checks](sanity.md).
 
 ## Reference buildings
 
-A single well-documented building, with known geometry and a measured annual (or
-full heating-season) space-heating value, should pass the same three-state test as
-a smoke check before cohorts are run. No such building is available yet: the
-secondary school in `evidence/fridhemsskolan_2017_school.md` has one district-heating
-meter for nine buildings including hot water, and its geometry gives areas only.
+Before cohorts are run, a single well-documented building (known geometry and a
+measured annual or heating-season space-heating value) should pass the same
+three-state test. No such building is available: the school in
+`evidence/fridhemsskolan_2017_school.md` has one district-heating meter for nine
+buildings, including hot water, and its geometry gives areas only.
