@@ -19,6 +19,29 @@ from .enums import BuildingElement
 from .envelope import EnvelopePerformance, _text_tuple
 
 
+class _Roles(dict):
+    """Element roles keyed by ``BuildingElement``; lookups also accept the role name."""
+
+    @staticmethod
+    def _role(key):
+        try:
+            return BuildingElement(key)
+        except ValueError:
+            raise KeyError(key) from None
+
+    def __getitem__(self, key):
+        return super().__getitem__(self._role(key))
+
+    def __contains__(self, key):
+        try:
+            return super().__contains__(self._role(key))
+        except KeyError:
+            return False
+
+    def get(self, key, default=None):
+        return self[key] if key in self else default
+
+
 @dataclass(frozen=True)
 class ConstructionSet(Editable):
     """Construction snapshot at a recorded year.
@@ -30,7 +53,8 @@ class ConstructionSet(Editable):
     valid_from_year : int
         Calendar year represented by this construction.
     elements : dict of BuildingElement to Element or WindowElement
-        Role assignments. Treat the mapping as read-only.
+        Role assignments, read-only. Look up a role by enum or by name:
+        ``elements[BuildingElement.EXT_WALL]`` and ``elements["EXT_WALL"]`` are the same.
     """
 
     version_id: UUID = field(default_factory=uuid4)
@@ -42,7 +66,7 @@ class ConstructionSet(Editable):
         for role, element in elements.items():
             if not isinstance(element, (Element, WindowElement)) or element.application != role:
                 raise ValueError("Element application must match its construction role")
-        object.__setattr__(self, "elements", MappingProxyType(elements))
+        object.__setattr__(self, "elements", MappingProxyType(_Roles(elements)))
         object.__setattr__(self, "version_id", UUID(str(self.version_id)))
         if self.valid_from_year is not None and (
             isinstance(self.valid_from_year, bool)
@@ -273,10 +297,11 @@ class BuildingArchetype(Editable):
 
     @property
     def envelope_u_values(self) -> dict[str, float]:
-        """Current U-values keyed by normalized role.
+        """Nominal U-values in W/(m² K), keyed by role name (``"EXT_WALL"``, ``"WINDOW"`` …).
 
-        Exterior wall variants (LOW/MEDIUM/HIGH) are averaged into a
-        single 'wall' key.  A single EXT_WALL also maps to 'wall'.
+        Exterior wall variants (LOW, MEDIUM, HIGH) are averaged under ``"EXT_WALL"``.
+        Ground and basement values are the material layers only, without the soil; the
+        catalogue's ``nominal_metadata(...)["boundary_details"]`` explains each boundary.
         """
         result: dict[str, float] = {}
         wall_values: list[float] = []
@@ -293,7 +318,7 @@ class BuildingArchetype(Editable):
                 result[role.value] = elem.u_value
 
         if wall_values:
-            result["wall"] = sum(wall_values) / len(wall_values)
+            result["EXT_WALL"] = sum(wall_values) / len(wall_values)
 
         return result
 

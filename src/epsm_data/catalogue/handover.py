@@ -173,9 +173,10 @@ def _window_reference(element, references):
 def export_nominal_constructions(archetype, *, metadata=None):
     """Export the actual supplied roles as native Honeybee and Core dictionaries.
 
-    ``metadata`` is optional descriptive context. Supported fields include
-    ``material_references``, ``boundary_details``, ``roof_topology``, ``category``,
-    ``era`` and ``state``. No calibration, evidence or revision records are needed.
+    For a catalogue configuration, call ``Catalogue.handover(archetype_id, state=...)``,
+    which supplies the metadata. For an authored archetype, ``metadata`` is optional
+    descriptive context: ``material_references``, ``boundary_details``,
+    ``roof_topology``, ``category``, ``era`` and ``state``.
 
     Layers remain outside to inside. Parallel materials use area-weighted
     conductivity and density, and mass-weighted specific heat, preserving layer

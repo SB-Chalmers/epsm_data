@@ -29,12 +29,13 @@ renovated fabric states. An omitted state selects `existing`.
 ## Select an archetype
 
 ```python
-from epsm_data import ArchetypeKey, BuildingElement, Catalogue
+from epsm_data import ArchetypeKey, Catalogue
 
 catalogue = Catalogue.load()
 archetype = catalogue.for_year("multi_family", 1970, state="existing")
-wall = archetype.construction_set.elements[BuildingElement.EXT_WALL]
+wall = archetype.construction_set.elements["EXT_WALL"]  # or BuildingElement.EXT_WALL
 print(wall.u_value)  # W/(m² K)
+print(archetype.envelope_u_values)  # every role, keyed by role name
 
 key = ArchetypeKey("multi_family", "SE.02", "SE.Zone3", "existing")
 slot = catalogue.get_slot(key)
@@ -57,7 +58,7 @@ reads another catalogue JSON file, or a directory that contains
 | `ventilation_options(id, state=None)` | The ventilation templates the archetype can use |
 | `facade_assumptions(id)` | Window-to-wall ratios per orientation |
 | `completeness(id, state=None)` | Whether every input is present, with paths to missing values |
-| `summary()` | Counts of families, configurations and assignments |
+| `summary()` | Counts of archetypes, configurations and slots, and any gaps |
 | `sanity_report(fixture=None)` | The [sanity screens](sanity.md) |
 | `check_sources(online=False, timeout=3)` | The [source cache](sources.md) check |
 
@@ -151,17 +152,19 @@ the reference form and `material_records` the resolved one.
 
 ## Hand the archetype to Core
 
-`export_nominal_constructions` (in `catalogue/handover.py`) calculates the
-nominal properties of each construction for `epsm_core` and other adapters.
-`validate_nominal_handover` checks a bundle.
+`catalogue.handover` exports one configuration's constructions, with the nominal
+properties `epsm_core` and other adapters read. `validate_nominal_handover` checks
+a bundle.
 
 ```python
-from epsm_data import export_nominal_constructions
+from epsm_data import validate_nominal_handover
 
-bundle = export_nominal_constructions(
-    archetype, metadata=catalogue.nominal_metadata("mf_se02", state="existing")
-)
+bundle = catalogue.handover("mf_se02", state="existing")
+assert validate_nominal_handover(bundle) == {"honeybee": True, "core": True}
 ```
+
+For an authored or edited archetype, call `export_nominal_constructions(archetype)`
+(in `catalogue/handover.py`) directly; pass `metadata=` to describe its boundaries.
 
 The bundle carries constructions only. Geometry, ground conditions, weather and
 the simulation scenario come from the building that uses it; see

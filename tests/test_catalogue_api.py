@@ -12,10 +12,13 @@ import pytest
 
 from epsm_data import (
     BuildingElement,
+    Catalogue,
     RenovationEvent,
     archetype_from_dict,
     archetype_to_dict,
     build_archetype,
+    export_nominal_constructions,
+    validate_nominal_handover,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,3 +146,32 @@ def test_core_boundary_resistance_import_remains_available():
 
     assert get_boundary_resistances(BuildingElement.EXT_WALL) == (0.13, 0.04)
     assert get_boundary_resistances(BuildingElement.INTERMEDIATE_FLOOR) == (0.13, 0.13)
+
+
+def test_roles_can_be_looked_up_by_name_or_enum():
+    elements = Catalogue.load().get("mf_se02", state="existing").construction_set.elements
+    assert elements["EXT_WALL"] is elements[BuildingElement.EXT_WALL]
+    assert "WINDOW" in elements and BuildingElement.WINDOW in elements
+    assert "NOT_A_ROLE" not in elements and elements.get("NOT_A_ROLE") is None
+    with pytest.raises(KeyError):
+        elements["NOT_A_ROLE"]
+
+
+def test_envelope_u_values_use_role_names():
+    values = Catalogue.load().get("mf_se02", state="existing").envelope_u_values
+    assert {"EXT_WALL", "TOP_FLOOR", "WINDOW"} <= set(values)
+    assert all(key == key.upper() for key in values)
+
+
+def test_handover_supplies_the_catalogue_metadata():
+    catalogue = Catalogue.load()
+    bundle = catalogue.handover("mf_se02", state="existing")
+    assert validate_nominal_handover(bundle) == {"honeybee": True, "core": True}
+    assert bundle == export_nominal_constructions(
+        catalogue.get("mf_se02", state="existing"),
+        metadata=catalogue.nominal_metadata("mf_se02", state="existing"),
+    )
+    assert catalogue.handover("mf_se07")["roles"]
+    with pytest.raises(ValueError, match="SE.07 has no renovation states"):
+        catalogue.handover("mf_se07", state="existing")
+    assert repr(catalogue).startswith("Catalogue(id='epsm-lod2', archetypes=")

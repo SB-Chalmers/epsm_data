@@ -640,7 +640,8 @@ class Catalogue:
     era_for_year = staticmethod(era_for_year)
 
     def __repr__(self):
-        return f"Catalogue(id={self.dataset_id!r}, families={len(self.ids())}, configurations={len(self.search()) // 3})"
+        return (f"Catalogue(id={self.dataset_id!r}, archetypes={len(self.ids())}, "
+                f"configurations={len(self.search()) // len(ZONES)})")
 
     __str__ = __repr__
 
@@ -733,7 +734,16 @@ class Catalogue:
 
     @logged_operation("catalogue.select", level=10)
     def get(self, archetype_id, *, state=None, ventilation=None):
-        """Return shared physical definitions; incomplete configurations stay inspectable."""
+        """Return one archetype configuration as an ``Archetype``.
+
+        ``state`` is ``"existing"`` (the default), ``"standard"`` or ``"advanced"`` for
+        SE.01–SE.06. SE.07 has a single configuration: leave ``state`` as None, since any
+        named state raises ``ValueError``.
+
+        ``ventilation`` is the building's observed system (S, F, FT or FTX); without it the
+        era default applies (see ``ventilation_template_id``). Incomplete configurations
+        are returned too, so they stay inspectable; ``completeness`` lists what is missing.
+        """
         aid, generic = self._resolve_selection(archetype_id)
         record = self._data["archetypes"][aid]
         selected = _state(record, state)
@@ -803,7 +813,15 @@ class Catalogue:
         return facade_assumptions(self._data["archetypes"][aid]["category"])
 
     def for_year(self, category, construction_year, *, state=None, ventilation=None):
-        """Select an era; generic explicitly borrows MF fabric and residential operation.
+        """Return the archetype for a building type and construction year.
+
+        ``category`` is ``single_family``, ``multi_family``, ``office``, ``school`` or
+        ``generic``, which explicitly borrows the multifamily fabric with residential
+        operation. The year selects the era (SE.07 from 2022).
+
+        ``state`` is ``"existing"`` (the default), ``"standard"`` or ``"advanced"`` for
+        SE.01–SE.06. SE.07 has a single configuration: leave ``state`` as None, since any
+        named state raises ``ValueError``.
 
         ``ventilation`` is the building's observed system (S, F, FT or FTX), for example
         from its EPC; without it the era default ventilation template applies.
@@ -875,7 +893,13 @@ class Catalogue:
         )
 
     def summary(self):
-        """Counts of archetypes, configurations and slots, and how many slots are complete."""
+        """Counts that describe the catalogue's coverage.
+
+        ``archetype_count`` counts type × era archetypes; ``configuration_count`` their
+        renovation states; ``slot_count`` configurations × climate zones, against an
+        ``expected_slot_count`` of 228 (4 types × (6 eras × 3 states + SE.07) × 3 zones).
+        ``missing_families`` and ``incomplete_archetypes`` name any gaps.
+        """
         slots = self.search()
         return {
             "dataset_id": self.dataset_id,
@@ -903,7 +927,13 @@ class Catalogue:
         }
 
     def nominal_metadata(self, archetype_id, *, state=None):
-        """Return direct physical/export context; no calibration or evidence workflow."""
+        """Context the Core handover needs beside the constructions themselves.
+
+        Returns the configuration's category, era, state, roof topology, boundary details
+        per role (what each ground or basement value means), material references and the
+        weather shell. ``handover`` passes it to ``export_nominal_constructions`` for you.
+        ``state`` follows the same rules as ``get``.
+        """
         aid, generic = self._resolve_selection(archetype_id)
         record = self._data["archetypes"][aid]
         config = record["states"][_state(record, state)]
@@ -982,3 +1012,17 @@ class Catalogue:
             "boundary_details": deepcopy(config.get("boundary_details", {})),
             "material_references": refs,
         }
+
+    def handover(self, archetype_id, *, state=None, ventilation=None):
+        """Export one configuration's constructions for Core and Honeybee.
+
+        Equivalent to ``export_nominal_constructions(self.get(...),
+        metadata=self.nominal_metadata(...))``. ``state`` and ``ventilation`` follow
+        ``get``. Check the result with ``validate_nominal_handover``.
+        """
+        from .handover import export_nominal_constructions
+
+        return export_nominal_constructions(
+            self.get(archetype_id, state=state, ventilation=ventilation),
+            metadata=self.nominal_metadata(archetype_id, state=state),
+        )

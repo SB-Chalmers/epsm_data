@@ -31,10 +31,13 @@ VENTILATION_SYSTEMS = ("S", "F", "FT", "FTX")
 
 
 def ventilation_template_id(category, era, state, ventilation=None):
-    """Template id for a configuration and an optional observed system (S, F, FT, FTX).
+    """Ventilation template ID for a configuration, such as ``epsm.ventilation.FTX_075``.
 
-    Without an observed system the era default applies. Standard keeps the existing
-    system; Advanced installs FTX 0.80.
+    ``state`` ``"advanced"`` always installs FTX 0.80. Any other state (``"existing"``,
+    ``"standard"`` or None for SE.07) keeps the existing system: the observed
+    ``ventilation`` (S, F, FT or FTX) when given, otherwise the era default for the
+    category. An observed FTX takes the recovery typical of its era: 0.75 before 1976
+    (assumed retrofitted), 0.60 for 1976–2005 and the period value from 2006.
     """
     table = _table("ventilation_templates")
     if category not in table["default_by_era"]:

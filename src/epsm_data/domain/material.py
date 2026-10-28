@@ -218,8 +218,15 @@ class OpaqueMaterial(Editable):
 
     Parameters
     ----------
-    name, json_id, boverket_id, material_type : str
-        Identity, legacy source references, and material classification.
+    name : str
+        Display name; required.
+    json_id : str
+        Stable catalogue identifier of the material.
+    boverket_id : str or None
+        Boverket climate-database resource ID, or None or "" when the material has no
+        Boverket mapping (its carbon is then unknown, not zero).
+    material_type : str
+        Free classification label, for example ``"catalogue"``; not validated.
     roughness : Roughness
         EnergyPlus surface roughness category.
     density : float
@@ -237,7 +244,7 @@ class OpaqueMaterial(Editable):
 
     Examples
     --------
-    See examples/archetype.py for explicit construction with synthetic values.
+    See ``examples/03_author_and_edit.ipynb`` for a material built from explicit values.
     """
 
     name: str
@@ -310,8 +317,14 @@ class WindowMaterial(Editable):
 
     Parameters
     ----------
-    name, json_id, boverket_id, material_type : str
-        Display label, legacy source references, and classification.
+    name : str
+        Display name; required.
+    json_id : str
+        Stable catalogue identifier of the material.
+    boverket_id : str or None
+        Boverket climate-database resource ID, or None or "" when unmapped.
+    material_type : str
+        Free classification label; not validated.
     conductivity : float
         Conductivity in W/(m K).
     solar_transmittance, solar_reflectance_front, solar_reflectance_back : float
@@ -383,6 +396,7 @@ class WindowMaterial(Editable):
 
 
 # Public name for the existing opaque physical material type; no parallel model.
+# ``Material`` is the short public name for an opaque material.
 Material = OpaqueMaterial
 
 
