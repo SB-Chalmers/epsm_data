@@ -1,5 +1,21 @@
 # Release notes
 
+## Unreleased: renovation catalogue
+
+- `RenovationCatalogue.load()` reads a limited renovation catalogue (schema 2):
+  25 candidates over nine measure types, independent of archetype states. Each
+  candidate carries one typed payload (`LayerAddition`, `WindowSwap`,
+  `SystemSwap`, `PVArray`, `DHWReduction`, `Airtightness`), its products and a
+  `CostEstimate`. Licensed prices are applied from an overlay outside the package.
+- `epsm_data.contract` names what Data, Core and LCA share: `QuantityDriver`,
+  `Carrier`, `EndUse`, `boundary_name` and the inventory factor-reference keys.
+- Products without a Boverket record carry a `CarbonReference`.
+- New operations: `AirtightnessOperation`, `PVOperation`, `DHWOperation`.
+- Removed: the old in-memory `RenovationCatalogue` and `Cost`; `RenovationMeasure.cost`
+  is a `CostEstimate`.
+
+See [docs/renovation-catalogue.md](docs/renovation-catalogue.md).
+
 ## Unreleased: lean layout
 
 The package is grouped by job. `from epsm_data import ...` is unchanged.

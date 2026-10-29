@@ -57,6 +57,7 @@ print(climate_zone_for_point(674571.866, 6580743.008))  # SE.Zone3
 - [Catalogue](docs/catalogue.md): types, eras, states, selection, composition, Core handover
 - [Authoring](docs/authoring.md): write, edit and save archetypes; apply them to a building
 - [Profiles](docs/profiles.md): operating profiles, ventilation templates, window-to-wall ratios
+- [Renovation catalogue](docs/renovation-catalogue.md): renovation candidates, payloads, products, costs and the shared contract
 - [Sources](docs/sources.md): the pinned source cache, thermal and carbon records
 - [Sanity checks](docs/sanity.md): the screens, the report and the `epsm-catalogue` command
 - [Climate zones](docs/climate-zones.md): offline location-to-zone lookup

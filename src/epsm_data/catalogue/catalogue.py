@@ -208,7 +208,7 @@ class Catalogue:
         self._thermal = freeze(payload["thermal"])
         self._carbon_references = {}
         from ..profiles import available_operating_profiles
-        from ..renovation.measures import RenovationCatalogue
+        from ..renovation.candidates import RenovationCatalogue
         from .reference import reference_hvac_template
 
         self.renovations = renovations if renovations is not None else RenovationCatalogue()

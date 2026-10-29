@@ -1,0 +1,1122 @@
+{
+  "schema_version": 2,
+  "dataset_id": "epsm.renovation/1",
+  "lod2_dataset_id": "epsm-lod2",
+  "measure_types": [
+    "insulate_wall",
+    "insulate_roof",
+    "insulate_basement",
+    "replace_window",
+    "upgrade_window",
+    "upgrade_ventilation",
+    "install_pv",
+    "reduce_dhw",
+    "seal_envelope"
+  ],
+  "quantity_drivers": [
+    "element_area_m2",
+    "window_area_m2",
+    "window_count",
+    "floor_area_m2",
+    "airflow_l_s",
+    "duct_length_m",
+    "supply_terminal_count",
+    "exhaust_terminal_count",
+    "ahu_count",
+    "riser_count",
+    "pv_area_m2",
+    "pv_capacity_kwp",
+    "building"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "insulate_wall.stone_wool_100",
+      "measure_type": "insulate_wall",
+      "name": "Facade stone wool board, 100 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.1
+      },
+      "source_references": [
+        "Physical records: component:172370f6bea077c1"
+      ],
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "EXT_WALL",
+        "component_ids": [
+          "component:172370f6bea077c1"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_wall.stone_wool_200",
+      "measure_type": "insulate_wall",
+      "name": "Facade stone wool board, 200 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.2
+      },
+      "source_references": [
+        "Physical records: component:50eec349effbca6e"
+      ],
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "EXT_WALL",
+        "component_ids": [
+          "component:50eec349effbca6e"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_wall.stone_wool_50_brick_facing",
+      "measure_type": "insulate_wall",
+      "name": "New brick facing, TABULA nominal 120 mm + Facade stone wool board, 50 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.05
+      },
+      "source_references": [
+        "Physical records: component:983324a412153218"
+      ],
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "EXT_WALL",
+        "component_ids": [
+          "component:983324a412153218"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.attic_loose_glass_wool_200",
+      "measure_type": "insulate_roof",
+      "name": "Loose glass wool, settled thermal depth 200 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.2
+      },
+      "source_references": [
+        "Physical records: component:67a9e0724a681f18"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "TOP_FLOOR",
+        "component_ids": [
+          "component:67a9e0724a681f18"
+        ],
+        "target_boundaries": [
+          "Outdoors",
+          "Internal"
+        ],
+        "roof_topologies": [
+          "cold_attic"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.attic_loose_stone_wool_300",
+      "measure_type": "insulate_roof",
+      "name": "Attic loose stone wool, 300 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.3
+      },
+      "source_references": [
+        "Physical records: component:b83bab46ec6ff688"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "TOP_FLOOR",
+        "component_ids": [
+          "component:b83bab46ec6ff688"
+        ],
+        "target_boundaries": [
+          "Outdoors",
+          "Internal"
+        ],
+        "roof_topologies": [
+          "cold_attic"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.attic_loose_glass_wool_500",
+      "measure_type": "insulate_roof",
+      "name": "Loose glass wool, settled thermal depth 500 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.5
+      },
+      "source_references": [
+        "Physical records: component:c2126357402a00ec"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "TOP_FLOOR",
+        "component_ids": [
+          "component:c2126357402a00ec"
+        ],
+        "target_boundaries": [
+          "Outdoors",
+          "Internal"
+        ],
+        "roof_topologies": [
+          "cold_attic"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.roof_stone_wool_board_150",
+      "measure_type": "insulate_roof",
+      "name": "Generic rigid stone-wool roof board, 150 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.15
+      },
+      "source_references": [
+        "Physical records: component:33e9e17f807b82bd"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "ROOF",
+        "component_ids": [
+          "component:33e9e17f807b82bd"
+        ],
+        "roof_topologies": [
+          "compact"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.roof_stone_wool_board_250",
+      "measure_type": "insulate_roof",
+      "name": "Generic rigid stone-wool roof board, 250 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.25
+      },
+      "source_references": [
+        "Physical records: component:e2a8e8a67b26fcbe"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "ROOF",
+        "component_ids": [
+          "component:e2a8e8a67b26fcbe"
+        ],
+        "roof_topologies": [
+          "compact"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_basement.wall_stone_wool_40_gypsum",
+      "measure_type": "insulate_basement",
+      "name": "Stone wool internal lining, nominal 40 mm + Plaster board, 13 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.04
+      },
+      "source_references": [
+        "Physical records: component:a3bd46f13bee5daa"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "BASEMENT_WALL",
+        "component_ids": [
+          "component:a3bd46f13bee5daa"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_basement.floor_eps_45_screed_50",
+      "measure_type": "insulate_basement",
+      "name": "EPS 100 floor insulation, 45 mm + Floating cement screed,50mm concrete thermal/carbon proxy",
+      "performance": {
+        "nominal_added_insulation_m": 0.045
+      },
+      "source_references": [
+        "Physical records: component:3a0a0011bb08284a, component:51a4bcd2ee5b9126"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "GROUND_FLOOR",
+        "component_ids": [
+          "component:3a0a0011bb08284a",
+          "component:51a4bcd2ee5b9126"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.attic_cellulose_300",
+      "measure_type": "insulate_roof",
+      "name": "Cellulose loose fill, 300 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.3
+      },
+      "source_references": [
+        "Physical records: renovation:component:attic_cellulose_300"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "TOP_FLOOR",
+        "component_ids": [
+          "renovation:component:attic_cellulose_300"
+        ],
+        "target_boundaries": [
+          "Outdoors",
+          "Internal"
+        ],
+        "roof_topologies": [
+          "cold_attic"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_roof.attic_wood_fibre_300",
+      "measure_type": "insulate_roof",
+      "name": "Wood-fibre loose fill, 300 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.3
+      },
+      "source_references": [
+        "Physical records: renovation:component:attic_wood_fibre_300"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "TOP_FLOOR",
+        "component_ids": [
+          "renovation:component:attic_wood_fibre_300"
+        ],
+        "target_boundaries": [
+          "Outdoors",
+          "Internal"
+        ],
+        "roof_topologies": [
+          "cold_attic"
+        ]
+      }
+    },
+    {
+      "candidate_id": "insulate_wall.interior_wood_fibre_70",
+      "measure_type": "insulate_wall",
+      "name": "Wood-fibre batts, 70 mm + Gypsum plasterboard, 13 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.07
+      },
+      "source_references": [
+        "Physical records: renovation:component:interior_wood_fibre_70_gypsum"
+      ],
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "EXT_WALL",
+        "component_ids": [
+          "renovation:component:interior_wood_fibre_70_gypsum"
+        ],
+        "side": "interior",
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_wall.interior_stone_wool_70",
+      "measure_type": "insulate_wall",
+      "name": "Stone wool batts, 70 mm + Gypsum plasterboard, 13 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.07
+      },
+      "source_references": [
+        "Physical records: renovation:component:interior_stone_wool_70_gypsum"
+      ],
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "EXT_WALL",
+        "component_ids": [
+          "renovation:component:interior_stone_wool_70_gypsum"
+        ],
+        "side": "interior",
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "insulate_basement.ceiling_stone_wool_100",
+      "measure_type": "insulate_basement",
+      "name": "Stone wool board, 100 mm",
+      "performance": {
+        "nominal_added_insulation_m": 0.1
+      },
+      "source_references": [
+        "Physical records: renovation:component:basement_ceiling_stone_wool_100"
+      ],
+      "description": "Insulation fixed under the floor above an unheated basement.",
+      "service_life_years": 50,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "layer_addition",
+        "role": "GROUND_FLOOR",
+        "component_ids": [
+          "renovation:component:basement_ceiling_stone_wool_100"
+        ],
+        "side": "exterior",
+        "target_boundaries": [
+          "Internal"
+        ],
+        "roof_topologies": []
+      }
+    },
+    {
+      "candidate_id": "replace_window.u_1_22",
+      "measure_type": "replace_window",
+      "name": "New window: Whole window U=1.22 W/(m² K), SHGC=0.42, VT=0.525",
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "source_references": [
+        "epsm_data LoD2 window record window:21eac0c64cab887c"
+      ],
+      "service_life_years": 40,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "window_swap",
+        "window_id": "window:21eac0c64cab887c",
+        "typical_window_area_m2": 1.08
+      }
+    },
+    {
+      "candidate_id": "replace_window.u_0_90",
+      "measure_type": "replace_window",
+      "name": "New window: Whole window U=0.9 W/(m² K), SHGC=0.35, VT=0.518",
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "source_references": [
+        "epsm_data LoD2 window record window:2a97a2809618c594"
+      ],
+      "service_life_years": 40,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "window_swap",
+        "window_id": "window:2a97a2809618c594",
+        "typical_window_area_m2": 1.08
+      }
+    },
+    {
+      "candidate_id": "replace_window.u_0_76",
+      "measure_type": "replace_window",
+      "name": "New window: Whole window U=0.76 W/(m² K), SHGC=0.42, VT=0.518",
+      "companions": [
+        "seal_envelope.renovated_joints"
+      ],
+      "source_references": [
+        "epsm_data LoD2 window record window:a89c0fe5b1650304"
+      ],
+      "service_life_years": 40,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "window_swap",
+        "window_id": "window:a89c0fe5b1650304",
+        "typical_window_area_m2": 1.08
+      }
+    },
+    {
+      "candidate_id": "upgrade_window.insulating_glass_inner_sash",
+      "measure_type": "upgrade_window",
+      "name": "Low-e insulating glass unit fitted in the inner sash of a coupled window",
+      "description": "Existing coupled frames and sashes are retained and refurbished; the inner single pane is replaced by a low-e double insulating glass unit.",
+      "performance": {
+        "window_u_w_m2k": 1.3,
+        "shgc": 0.5
+      },
+      "products": [
+        {
+          "product_id": "insulating_glass_unit.double_low_e",
+          "description": "Double insulating glass unit (4-16-4), low-e",
+          "driver": "window_area_m2",
+          "unit": "m2",
+          "quantity_per_driver": 0.75,
+          "mass_kg_per_unit": 20.0,
+          "boverket_id": "6000000175",
+          "basis": "Glazed share 0.75 of window area is an EPSM assumption; mass is the Boverket resource's 20 kg/m2 area conversion."
+        }
+      ],
+      "source_references": [
+        "EPSM assumption: retrofit U 1.3 W/(m2 K) for coupled windows with an added low-e unit; verify against product data."
+      ],
+      "service_life_years": 25,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "window_swap",
+        "window_id": "renovation:window:coupled_ig_u130",
+        "typical_window_area_m2": 1.08
+      }
+    },
+    {
+      "candidate_id": "upgrade_ventilation.ftx_080",
+      "measure_type": "upgrade_ventilation",
+      "name": "Balanced ventilation with heat recovery (FTX), effectiveness 0.80",
+      "description": "Central air handling units with heat recovery, new supply and exhaust ductwork as required by the existing system, and room terminals.",
+      "performance": {
+        "sensible_recovery_effectiveness": 0.8,
+        "mechanical_vent_l_s_m2": 0.35
+      },
+      "products": [
+        {
+          "product_id": "duct.galvanised_steel_d160",
+          "description": "Spiral duct, galvanised steel, Ø160",
+          "driver": "duct_length_m",
+          "unit": "m",
+          "mass_kg_per_unit": 2.6,
+          "boverket_id": "6000000221",
+          "basis": "0.6 mm wall, 2.37 kg/m plus 10 % fittings and hangers."
+        },
+        {
+          "product_id": "ahu.ftx_300",
+          "description": "Air handling unit with heat recovery, 300 l/s",
+          "driver": "ahu_count",
+          "unit": "item",
+          "mass_kg_per_unit": 280.0,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: unit mass assessed as galvanised steel; no Boverket generic record exists for air handling units. Replace with an EPD."
+        },
+        {
+          "product_id": "terminal.supply",
+          "description": "Supply air terminal",
+          "driver": "supply_terminal_count",
+          "unit": "item",
+          "mass_kg_per_unit": 0.5,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: assessed as galvanised steel."
+        },
+        {
+          "product_id": "terminal.exhaust",
+          "description": "Exhaust air valve",
+          "driver": "exhaust_terminal_count",
+          "unit": "item",
+          "mass_kg_per_unit": 0.5,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: assessed as galvanised steel."
+        }
+      ],
+      "source_references": [
+        "epsm_data:ventilation_templates.json (FTX_080)"
+      ],
+      "service_life_years": 25,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "system_swap",
+        "template_id": "epsm.ventilation.FTX_080",
+        "layout": {
+          "mechanical_vent_l_s_m2": 0.35,
+          "supply_area_per_terminal_m2": 15.0,
+          "exhaust_area_per_terminal_m2": 25.0,
+          "branch_length_m": 4.0,
+          "main_duct_m_per_m2": 0.08,
+          "riser_area_m2": 120.0,
+          "ahu_max_airflow_l_s": 300.0,
+          "new_duct_systems": {
+            "S": 2,
+            "F": 1,
+            "FT": 0,
+            "FTX": 0
+          },
+          "new_terminals": {
+            "S": [
+              "supply",
+              "exhaust"
+            ],
+            "F": [
+              "supply"
+            ],
+            "FT": [],
+            "FTX": []
+          },
+          "basis": "BBR 6:251 minimum outdoor airflow 0.35 l/(s m2). Terminal densities, branch and main duct lengths, riser spacing and unit size are EPSM design assumptions for multi-family retrofits; calibrate against project data."
+        },
+        "airflow": {
+          "natural_exchange_ach": 0.0
+        },
+        "from_ventilation": [
+          "S",
+          "F",
+          "FT",
+          "FTX"
+        ]
+      }
+    },
+    {
+      "candidate_id": "upgrade_ventilation.ftx_075",
+      "measure_type": "upgrade_ventilation",
+      "name": "Balanced ventilation with heat recovery (FTX), effectiveness 0.75",
+      "description": "Central air handling units with heat recovery, new supply and exhaust ductwork as required by the existing system, and room terminals.",
+      "performance": {
+        "sensible_recovery_effectiveness": 0.75,
+        "mechanical_vent_l_s_m2": 0.35
+      },
+      "products": [
+        {
+          "product_id": "duct.galvanised_steel_d160",
+          "description": "Spiral duct, galvanised steel, Ø160",
+          "driver": "duct_length_m",
+          "unit": "m",
+          "mass_kg_per_unit": 2.6,
+          "boverket_id": "6000000221",
+          "basis": "0.6 mm wall, 2.37 kg/m plus 10 % fittings and hangers."
+        },
+        {
+          "product_id": "ahu.ftx_300",
+          "description": "Air handling unit with heat recovery, 300 l/s",
+          "driver": "ahu_count",
+          "unit": "item",
+          "mass_kg_per_unit": 280.0,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: unit mass assessed as galvanised steel; no Boverket generic record exists for air handling units. Replace with an EPD."
+        },
+        {
+          "product_id": "terminal.supply",
+          "description": "Supply air terminal",
+          "driver": "supply_terminal_count",
+          "unit": "item",
+          "mass_kg_per_unit": 0.5,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: assessed as galvanised steel."
+        },
+        {
+          "product_id": "terminal.exhaust",
+          "description": "Exhaust air valve",
+          "driver": "exhaust_terminal_count",
+          "unit": "item",
+          "mass_kg_per_unit": 0.5,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: assessed as galvanised steel."
+        }
+      ],
+      "source_references": [
+        "epsm_data:ventilation_templates.json (FTX_075)"
+      ],
+      "service_life_years": 25,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "system_swap",
+        "template_id": "epsm.ventilation.FTX_075",
+        "layout": {
+          "mechanical_vent_l_s_m2": 0.35,
+          "supply_area_per_terminal_m2": 15.0,
+          "exhaust_area_per_terminal_m2": 25.0,
+          "branch_length_m": 4.0,
+          "main_duct_m_per_m2": 0.08,
+          "riser_area_m2": 120.0,
+          "ahu_max_airflow_l_s": 300.0,
+          "new_duct_systems": {
+            "S": 2,
+            "F": 1,
+            "FT": 0,
+            "FTX": 0
+          },
+          "new_terminals": {
+            "S": [
+              "supply",
+              "exhaust"
+            ],
+            "F": [
+              "supply"
+            ],
+            "FT": [],
+            "FTX": []
+          },
+          "basis": "BBR 6:251 minimum outdoor airflow 0.35 l/(s m2). Terminal densities, branch and main duct lengths, riser spacing and unit size are EPSM design assumptions for multi-family retrofits; calibrate against project data."
+        },
+        "airflow": {
+          "natural_exchange_ach": 0.0
+        },
+        "from_ventilation": [
+          "S",
+          "F",
+          "FT",
+          "FTX"
+        ]
+      }
+    },
+    {
+      "candidate_id": "upgrade_ventilation.f",
+      "measure_type": "upgrade_ventilation",
+      "name": "Mechanical exhaust ventilation (F) replacing self-draught",
+      "description": "Roof-mounted exhaust fans on new exhaust ductwork; outdoor air enters through trickle vents. The low-cost alternative to FTX for self-draught buildings.",
+      "performance": {
+        "mechanical_vent_l_s_m2": 0.35
+      },
+      "products": [
+        {
+          "product_id": "duct.galvanised_steel_d160",
+          "description": "Spiral duct, galvanised steel, Ø160",
+          "driver": "duct_length_m",
+          "unit": "m",
+          "mass_kg_per_unit": 2.6,
+          "boverket_id": "6000000221",
+          "basis": "0.6 mm wall, 2.37 kg/m plus 10 % fittings and hangers."
+        },
+        {
+          "product_id": "fan.exhaust_300",
+          "description": "Roof exhaust fan, 300 l/s",
+          "driver": "ahu_count",
+          "unit": "item",
+          "mass_kg_per_unit": 45.0,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: fan mass assessed as galvanised steel. Replace with an EPD."
+        },
+        {
+          "product_id": "terminal.exhaust",
+          "description": "Exhaust air valve",
+          "driver": "exhaust_terminal_count",
+          "unit": "item",
+          "mass_kg_per_unit": 0.5,
+          "boverket_id": "6000000221",
+          "basis": "Proxy: assessed as galvanised steel."
+        }
+      ],
+      "source_references": [
+        "epsm_data:ventilation_templates.json (F)"
+      ],
+      "service_life_years": 25,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "system_swap",
+        "template_id": "epsm.ventilation.F",
+        "layout": {
+          "mechanical_vent_l_s_m2": 0.35,
+          "supply_area_per_terminal_m2": 15.0,
+          "exhaust_area_per_terminal_m2": 25.0,
+          "branch_length_m": 4.0,
+          "main_duct_m_per_m2": 0.08,
+          "riser_area_m2": 120.0,
+          "ahu_max_airflow_l_s": 300.0,
+          "new_duct_systems": {
+            "S": 1,
+            "F": 0,
+            "FT": 0,
+            "FTX": 0
+          },
+          "new_terminals": {
+            "S": [
+              "exhaust"
+            ],
+            "F": [],
+            "FT": [],
+            "FTX": []
+          },
+          "basis": "BBR 6:251 minimum outdoor airflow 0.35 l/(s m2). Terminal densities, branch and main duct lengths, riser spacing and unit size are EPSM design assumptions for multi-family retrofits; calibrate against project data."
+        },
+        "airflow": {
+          "natural_exchange_ach": 0.0
+        },
+        "from_ventilation": [
+          "S"
+        ]
+      }
+    },
+    {
+      "candidate_id": "install_pv.roof_south_15",
+      "measure_type": "install_pv",
+      "name": "Roof PV, due south, 15° tilt",
+      "description": "Mono-Si array on 80 % of a flat roof's footprint or 30 % of a pitched roof's surface, at 130 W per m2 of roof used, with 12 % system losses.",
+      "products": [
+        {
+          "product_id": "pv.module_mono_si",
+          "description": "Mono-Si PV modules",
+          "driver": "pv_capacity_kwp",
+          "unit": "m2",
+          "quantity_per_driver": 4.785,
+          "mass_kg_per_unit": 23.0,
+          "boverket_id": "6000000203",
+          "basis": "Module area at 209 W/m2 (20.9 % efficiency, IEA PVPS T12 2023); Boverket 6000000203 is stated per m2 of module."
+        },
+        {
+          "product_id": "pv.balance_of_system",
+          "description": "Inverter, mounting and cabling, per kWp",
+          "driver": "pv_capacity_kwp",
+          "unit": "item",
+          "carbon_reference": {
+            "identifier": "epsm-derived:pv.balance_of_system",
+            "name": "PV balance of system (inverter, mounting, cabling), per kWp",
+            "url": "https://iea-pvps.org/wp-content/uploads/2024/05/Slides_IEA-PVPS-T12_Fact-Sheet-update-2023_v2.0.pdf",
+            "method": "Life-cycle GWP from IEA PVPS Task 12 harmonised LCA, reported as A1-A3",
+            "unit": "item",
+            "modules": {
+              "A1A3": 460.0,
+              "A4": null,
+              "A5": null
+            },
+            "notes": [
+              "Derived: 3 kWp rooftop, Europe; system 35.8 minus module 20.2 g CO2e/kWh at 976 kWh/kWp over 30 years. A life-cycle value including one inverter replacement, used as A1-A3. One item is one kWp."
+            ]
+          },
+          "basis": "No Boverket generic record exists for inverters or mounting."
+        }
+      ],
+      "cost": {
+        "currency": "SEK",
+        "price_year": 2024,
+        "items": [
+          {
+            "category": "material",
+            "rate": 7320.0,
+            "driver": "pv_capacity_kwp",
+            "description": "Modules, inverter, mounting and electronics",
+            "source": "IEA PVPS National Survey Report Sweden 2024, turnkey price excl. VAT, 10-100 kW"
+          },
+          {
+            "category": "labour",
+            "rate": 3981.0,
+            "driver": "pv_capacity_kwp",
+            "description": "Installation",
+            "source": "IEA PVPS National Survey Report Sweden 2024, turnkey price excl. VAT, 10-100 kW"
+          },
+          {
+            "category": "overhead",
+            "rate": 799.0,
+            "driver": "pv_capacity_kwp",
+            "description": "Other costs",
+            "source": "IEA PVPS National Survey Report Sweden 2024, turnkey price excl. VAT, 10-100 kW"
+          }
+        ],
+        "source_references": [
+          "IEA PVPS National Survey Report Sweden 2024, turnkey price excl. VAT, 10-100 kW",
+          "IEA PVPS NSR Sweden 2023 Table 11: villa cost split 60.5/32.9/6.6 %"
+        ],
+        "notes": [
+          "12,100 SEK/kWp gross before subsidy; split by the only published (villa) cost structure. 100-250 kW systems averaged 9,400 SEK/kWp."
+        ]
+      },
+      "source_references": [
+        "IEA PVPS National Survey Report Sweden 2024, turnkey price excl. VAT, 10-100 kW"
+      ],
+      "service_life_years": 30,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "pv_array",
+        "tilt_deg": 15.0,
+        "azimuth_deg": 180.0,
+        "module_w_m2": 130.0,
+        "system_losses_pct": 12.0,
+        "flat_roof_share": 0.8,
+        "pitched_roof_share": 0.3,
+        "basis": "EPSM defaults. 130 W/m2 of roof used is conservative against modern mono-Si modules (about 209 W/m2 of module, IEA PVPS T12 2023) and covers spacing and setbacks."
+      }
+    },
+    {
+      "candidate_id": "reduce_dhw.low_flow_fittings",
+      "measure_type": "reduce_dhw",
+      "name": "Low-flow mixers and shower heads",
+      "description": "Shower, washbasin and kitchen mixers replaced with energy-class A low-flow fittings.",
+      "products": [
+        {
+          "product_id": "dhw.low_flow_fitting_set",
+          "description": "Low-flow fitting set, per m2 Atemp",
+          "driver": "floor_area_m2",
+          "unit": "m2",
+          "mass_kg_per_unit": 0.042,
+          "carbon_reference": {
+            "identifier": "epsm-derived:dhw.low_flow_fitting_set",
+            "name": "Low-flow mixer set, per m2 Atemp",
+            "url": "https://api.environdec.com/api/v1/EPDLibrary/Files/4b820f7d-0204-4462-f105-08daa04473b0/Data",
+            "method": "EN 15804+A2 GWP-GHG A1-A3 of two product EPDs, combined by EPSM",
+            "unit": "m2",
+            "modules": {
+              "A1A3": 0.2,
+              "A4": null,
+              "A5": null
+            },
+            "notes": [
+              "Three mixers per 100 m2 apartment: Gustavsberg Atlantic basin mixer EPD S-P-07034 (4.96 kg CO2e/kg x 1.21 kg) for basin and kitchen, FM Mattsson MMIX II EPD-IES-0014428 (4.51 kg CO2e/kg x 1.78 kg) for shower: 20 kg CO2e per apartment."
+            ]
+          },
+          "basis": "Removed fittings are not inventoried."
+        }
+      ],
+      "cost": {
+        "currency": "SEK",
+        "price_year": 2026,
+        "items": [
+          {
+            "category": "subcontractor",
+            "rate": 90.0,
+            "driver": "floor_area_m2",
+            "description": "Fittings supplied and installed by a plumber",
+            "source": "SBUF 11488 (NCC Teknik, 2009): 6,300 SEK per apartment for shower, basin and kitchen fittings"
+          }
+        ],
+        "source_references": [
+          "SBUF 11488 (NCC Teknik, 2009): 6,300 SEK per apartment for shower, basin and kitchen fittings"
+        ],
+        "notes": [
+          "63 SEK/m2 Atemp at 2009 prices (100 m2 apartments) escalated by an assumed 45 % to 2026; not index-based. VAT treatment of the source is not stated."
+        ]
+      },
+      "source_references": [
+        "RISE/E2B2 field study, five rental blocks in Borås: 28 % less hot water, no decay; 0.25 used as a rounded-down default",
+        "SBUF 11488: 20-40 % hot-water saving"
+      ],
+      "service_life_years": 15,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "dhw_reduction",
+        "fraction": 0.25
+      }
+    },
+    {
+      "candidate_id": "seal_envelope.renovated_joints",
+      "measure_type": "seal_envelope",
+      "name": "Tightened joints at renovated windows and walls",
+      "description": "Window replacement and wall insulation are assumed to meet new-construction airtightness where they renovate; sealant and tape are part of the host work item, so no product or cost is added.",
+      "source_references": [
+        "EPSM nominal default: 20 % lower envelope infiltration when the whole envelope is renovated, scaled by the renovated share. Replace with measured retrofit airtightness when available."
+      ],
+      "service_life_years": 40,
+      "notes": [
+        "EPSM assumption: reference service lives for Swedish residential building parts; replace with a sourced table before B4 assessment."
+      ],
+      "payload": {
+        "kind": "airtightness",
+        "nominal_reduction": 0.2
+      }
+    }
+  ],
+  "windows": {
+    "renovation:window:coupled_ig_u130": {
+      "name": "Coupled window with added low-e insulating glass unit, U=1.3 W/(m² K)",
+      "archetype": "renovation",
+      "u_value": 1.3,
+      "shgc": 0.5,
+      "vt": 0.6,
+      "boverket_id": null
+    }
+  },
+  "materials": {
+    "renovation:material:cellulose_loose_fill": {
+      "name": "Cellulose loose fill, open attic, lambda 0.040 W/(m K), 30 kg/m³",
+      "conductivity": 0.04,
+      "density": 30.0,
+      "specific_heat": 1900.0,
+      "boverket_id": "6000000137",
+      "basis": "EPSM representative open-attic / batt grade; verify lambda and density against the installed product's declaration. Carbon from the Boverket generic record, excluding biogenic storage.",
+      "roughness": "MediumRough",
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "renovation:material:wood_fibre_loose_fill": {
+      "name": "Wood-fibre loose fill, open attic, lambda 0.039 W/(m K), 35 kg/m³",
+      "conductivity": 0.039,
+      "density": 35.0,
+      "specific_heat": 2100.0,
+      "boverket_id": "6000000135",
+      "basis": "EPSM representative open-attic / batt grade; verify lambda and density against the installed product's declaration. Carbon from the Boverket generic record, excluding biogenic storage.",
+      "roughness": "MediumRough",
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    },
+    "renovation:material:wood_fibre_batts": {
+      "name": "Wood-fibre batts, lambda 0.038 W/(m K), 50 kg/m³",
+      "conductivity": 0.038,
+      "density": 50.0,
+      "specific_heat": 2100.0,
+      "boverket_id": "6000000136",
+      "basis": "EPSM representative open-attic / batt grade; verify lambda and density against the installed product's declaration. Carbon from the Boverket generic record, excluding biogenic storage.",
+      "roughness": "MediumRough",
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.7,
+      "visible_absorptance": 0.7
+    }
+  },
+  "layers": {
+    "renovation:layer:cellulose_300": {
+      "name": "Cellulose loose fill, 300 mm",
+      "thickness": 0.3,
+      "materials": [
+        {
+          "material_id": "renovation:material:cellulose_loose_fill",
+          "thickness": 0.3
+        }
+      ]
+    },
+    "renovation:layer:wood_fibre_loose_300": {
+      "name": "Wood-fibre loose fill, 300 mm",
+      "thickness": 0.3,
+      "materials": [
+        {
+          "material_id": "renovation:material:wood_fibre_loose_fill",
+          "thickness": 0.3
+        }
+      ]
+    },
+    "renovation:layer:wood_fibre_batts_70": {
+      "name": "Wood-fibre batts, 70 mm",
+      "thickness": 0.07,
+      "materials": [
+        {
+          "material_id": "renovation:material:wood_fibre_batts",
+          "thickness": 0.07
+        }
+      ]
+    },
+    "renovation:layer:stone_wool_batts_70": {
+      "name": "Stone wool batts, 70 mm",
+      "thickness": 0.07,
+      "materials": [
+        {
+          "material_id": "material:8c0e602f796d38cb",
+          "thickness": 0.07
+        }
+      ]
+    },
+    "renovation:layer:gypsum_13": {
+      "name": "Gypsum plasterboard, 13 mm",
+      "thickness": 0.013,
+      "materials": [
+        {
+          "material_id": "material:1fd89c413e7a4ed7",
+          "thickness": 0.013
+        }
+      ]
+    },
+    "renovation:layer:stone_wool_board_100": {
+      "name": "Stone wool board, 100 mm",
+      "thickness": 0.1,
+      "materials": [
+        {
+          "material_id": "material:a224c4024cbc6c40",
+          "thickness": 0.1
+        }
+      ]
+    }
+  },
+  "components": {
+    "renovation:component:attic_cellulose_300": {
+      "name": "Attic cellulose loose fill, 300 mm",
+      "application": "TOP_FLOOR",
+      "shearing_layer": "Structure",
+      "layers": [
+        "renovation:layer:cellulose_300"
+      ]
+    },
+    "renovation:component:attic_wood_fibre_300": {
+      "name": "Attic wood-fibre loose fill, 300 mm",
+      "application": "TOP_FLOOR",
+      "shearing_layer": "Structure",
+      "layers": [
+        "renovation:layer:wood_fibre_loose_300"
+      ]
+    },
+    "renovation:component:interior_wood_fibre_70_gypsum": {
+      "name": "Interior wood-fibre lining, 70 mm, gypsum finish",
+      "application": "EXT_WALL",
+      "shearing_layer": "Space",
+      "layers": [
+        "renovation:layer:wood_fibre_batts_70",
+        "renovation:layer:gypsum_13"
+      ]
+    },
+    "renovation:component:interior_stone_wool_70_gypsum": {
+      "name": "Interior stone-wool lining, 70 mm, gypsum finish",
+      "application": "EXT_WALL",
+      "shearing_layer": "Space",
+      "layers": [
+        "renovation:layer:stone_wool_batts_70",
+        "renovation:layer:gypsum_13"
+      ]
+    },
+    "renovation:component:basement_ceiling_stone_wool_100": {
+      "name": "Stone wool board under the basement ceiling, 100 mm",
+      "application": "GROUND_FLOOR",
+      "shearing_layer": "Space",
+      "layers": [
+        "renovation:layer:stone_wool_board_100"
+      ]
+    }
+  }
+}

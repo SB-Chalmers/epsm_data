@@ -5,7 +5,8 @@ Subpackages, by job:
 - ``domain``: the shared construction classes (materials to archetypes) that Core builds on;
 - ``catalogue``: the archetype catalogue, authoring, exchange and Core handover;
 - ``profiles`` and ``templates``: operating profiles; ventilation and facade templates;
-- ``renovation``: renovation measures and the changes they make;
+- ``renovation``: the renovation catalogue, executable measures and the changes they make;
+- ``contract``: names shared with Core and LCA (quantity drivers, carriers, end uses);
 - ``sanity``: read-only screens of the catalogue;
 - ``sources``: pinned material and carbon source records;
 - ``climate_zones``, ``carbon`` and ``plotting``: single-purpose modules.
@@ -39,6 +40,7 @@ from .climate_zones import (
     climate_zone_for_county,
     climate_zone_for_point,
 )
+from .contract import Carrier, EndUse, QuantityDriver, boundary_name
 from .domain import (
     Archetype,
     BuildingArchetype,
@@ -73,12 +75,28 @@ from .profiles import (
     select_operating_profile,
 )
 from .renovation import (
+    MEASURE_TYPES,
+    PAYLOADS,
+    Airtightness,
+    AirtightnessOperation,
     ConstructionOperation,
-    Cost,
+    CostEstimate,
+    CostItem,
+    DHWOperation,
+    DHWReduction,
+    LayerAddition,
     ParameterDefinition,
+    Payload,
+    Product,
+    PVArray,
+    PVOperation,
+    RenovationCandidate,
     RenovationCatalogue,
     RenovationMeasure,
     SystemOperation,
+    SystemSwap,
+    VentilationLayout,
+    WindowSwap,
 )
 from .sanity import check_catalogue, load_sanity_fixture
 from .sources import SourceCache
@@ -124,10 +142,30 @@ __all__ = [
     "construction_set_to_dict",
     "ConstructionOperation",
     "SystemOperation",
+    "AirtightnessOperation",
+    "DHWOperation",
+    "PVOperation",
+    "PVArray",
+    "PAYLOADS",
+    "Payload",
+    "LayerAddition",
+    "WindowSwap",
+    "SystemSwap",
+    "DHWReduction",
+    "Airtightness",
+    "Carrier",
+    "EndUse",
+    "QuantityDriver",
+    "boundary_name",
     "RenovationCatalogue",
     "RenovationMeasure",
     "RenovationEvent",
-    "Cost",
+    "CostEstimate",
+    "CostItem",
+    "MEASURE_TYPES",
+    "Product",
+    "RenovationCandidate",
+    "VentilationLayout",
     "ParameterDefinition",
     "OperatingProfile",
     "HVACTemplate",
