@@ -29,6 +29,7 @@ epsm-catalogue = "epsm_data.cli:main"
 "epsm_data.datasets.sanity" = ["*.json"]
 "epsm_data.datasets.climate_zones" = ["*.json", "*.json.gz"]
 "epsm_data.datasets.sources" = ["*.json", "LICENSE-*.txt"]
+"epsm_data.datasets.renovation" = ["*.json"]
 
 [tool.setuptools.dynamic]
 version = {attr = "epsm_data._version.__version__"}

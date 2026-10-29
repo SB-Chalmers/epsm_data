@@ -117,3 +117,77 @@ class SystemOperation(Editable):
     def from_dict(cls, data):
         """Rebuild an operation from ``to_dict`` output."""
         return cls(data["action"], HVACTemplate.from_dict(data["template"]))
+
+
+@dataclass(frozen=True)
+class AirtightnessOperation(Editable):
+    """Declarative reduction of envelope infiltration; Core applies it to a Building.
+
+    ``fraction`` is the share of the current infiltration removed, in (0, 1).
+    """
+
+    action: str
+    fraction: float
+
+    def __post_init__(self):
+        if self.action != "reduce_infiltration":
+            raise ValueError("AirtightnessOperation requires reduce_infiltration")
+        if (isinstance(self.fraction, bool) or not isinstance(self.fraction, (int, float))
+                or not 0 < self.fraction < 1):
+            raise ValueError("Infiltration reduction must be a fraction in (0, 1)")
+
+    def to_dict(self):
+        return {"action": self.action, "fraction": self.fraction}
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["action"], data["fraction"])
+
+
+@dataclass(frozen=True)
+class PVOperation(Editable):
+    """Declarative addition of one PV array; Core sizes it and appends it to a Building."""
+
+    action: str
+    dc_capacity_kw: float
+    tilt_deg: float
+    azimuth_deg: float
+    system_losses_pct: float
+
+    def __post_init__(self):
+        if self.action != "add_pv":
+            raise ValueError("PVOperation requires add_pv")
+        if not self.dc_capacity_kw > 0 or not 0 <= self.tilt_deg <= 90 \
+                or not 0 <= self.azimuth_deg < 360 or not 0 <= self.system_losses_pct < 100:
+            raise ValueError("PV capacity, tilt, azimuth or losses are out of range")
+
+    def to_dict(self):
+        return {"action": self.action, "dc_capacity_kw": self.dc_capacity_kw,
+                "tilt_deg": self.tilt_deg, "azimuth_deg": self.azimuth_deg,
+                "system_losses_pct": self.system_losses_pct}
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
+
+
+@dataclass(frozen=True)
+class DHWOperation(Editable):
+    """Declarative reduction of domestic hot-water use; Core applies it to a Building."""
+
+    action: str
+    fraction: float
+
+    def __post_init__(self):
+        if self.action != "reduce_dhw":
+            raise ValueError("DHWOperation requires reduce_dhw")
+        if (isinstance(self.fraction, bool) or not isinstance(self.fraction, (int, float))
+                or not 0 < self.fraction < 1):
+            raise ValueError("DHW reduction must be a fraction in (0, 1)")
+
+    def to_dict(self):
+        return {"action": self.action, "fraction": self.fraction}
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["action"], data["fraction"])

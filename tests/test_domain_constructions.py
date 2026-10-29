@@ -19,7 +19,6 @@ from epsm_data import (
     LayerSlot,
     Material,
     OpaqueMaterial,
-    RenovationCatalogue,
     RenovationMeasure,
     ShearingLayer,
     SystemOperation,
@@ -102,8 +101,6 @@ def test_ordered_renovation_operations_roundtrip_without_dates():
     restored_geometry = remove.apply(after)
     assert restored_geometry.elements == before.elements
     assert restored_geometry.version_id != before.version_id
-    catalogue = RenovationCatalogue.from_dict(RenovationCatalogue((measure,)).to_dict())
-    assert catalogue.applicable(before) == (measure,)
     with pytest.raises(ValueError, match="one component"):
         remove.apply(before)
     with pytest.raises(ValueError, match="position"):
@@ -131,7 +128,6 @@ def test_hvac_operations_preserve_data_definitions_and_need_core_to_apply():
     assert {x["identifier"] for x in template.values["equipment"]} == {"heating","ventilation"}
     with pytest.raises(ValueError, match="Core Building"):
         measure.apply(reference_construction_set())
-    assert RenovationCatalogue((measure,)).applicable(reference_construction_set()) == (measure,)
 
 
 def test_sourced_factor_units_and_unknown_carbon_are_independent():
@@ -144,17 +140,14 @@ def test_sourced_factor_units_and_unknown_carbon_are_independent():
 
 
 
-def test_measure_prerequisites_and_incompatibilities_are_executable():
+def test_measure_prerequisites_and_incompatibilities_are_validated():
     before = reference_construction_set()
     window = before.elements[BuildingElement.WINDOW]
     operation = ConstructionOperation("replace_element",BuildingElement.WINDOW,element=window)
     measure = RenovationMeasure("windows","fabric","Windows","Example","window",
                                 operations=(operation,),requires_measure_ids=("survey",),
                                 incompatible_measure_ids=("keep_windows",))
-    catalogue = RenovationCatalogue((measure,))
-    assert catalogue.applicable(before) == ()
-    assert catalogue.applicable(before,applied_measure_ids=("survey",)) == (measure,)
-    assert catalogue.applicable(before,applied_measure_ids=("survey","keep_windows")) == ()
+    # Core's Building.renovate is the only place these rules are enforced.
     assert RenovationMeasure.from_dict(measure.to_dict()) == measure
     with pytest.raises(ValueError):
         RenovationMeasure("bad","fabric","Bad","Example","wall",requires_measure_ids=("bad",))

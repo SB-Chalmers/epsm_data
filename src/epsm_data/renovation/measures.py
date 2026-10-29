@@ -1,41 +1,18 @@
-"""Caller-populated renovation definitions; application belongs to simulation code."""
+"""Executable renovation measures; candidate definitions live in :mod:`epsm_data.renovation.candidates`."""
 
-from collections.abc import Iterable
 from dataclasses import dataclass
 from math import isfinite
 from typing import Literal
 
-from epsm_data._logging import operation as logged_operation
-
 from ..catalogue.serialization import _encode
-from .operations import ConstructionOperation, SystemOperation
-
-
-@dataclass(frozen=True)
-class Cost:
-    """Describe a cost with an explicit basis.
-
-    Parameters
-    ----------
-    amount : float
-        Non-negative amount per unit; no price or exchange-rate defaults.
-    currency : str
-        Three-letter uppercase currency code, for example "SEK".
-    unit : str
-        Basis such as "m2_window", "m2_floor_area", or "installation".
-    """
-
-    amount: float
-    currency: str
-    unit: str
-
-    def __post_init__(self) -> None:
-        if not isfinite(self.amount) or self.amount < 0:
-            raise ValueError("Cost amount must be finite and non-negative")
-        if len(self.currency) != 3 or not self.currency.isalpha() or not self.currency.isupper():
-            raise ValueError("Currency must be a three-letter uppercase code")
-        if not self.unit.strip():
-            raise ValueError("Cost unit must be explicit")
+from .candidates import CostEstimate
+from .operations import (
+    AirtightnessOperation,
+    ConstructionOperation,
+    DHWOperation,
+    PVOperation,
+    SystemOperation,
+)
 
 
 @dataclass(frozen=True)
@@ -91,8 +68,8 @@ class RenovationMeasure:
         Inputs to be resolved by a workflow.
     applicability_notes : tuple of str, optional
         Human-readable applicability guidance, not executable policy.
-    cost : Cost, optional
-        Sourced cost estimate with explicit currency and basis.
+    cost : CostEstimate, optional
+        Sourced unit rates per Core quantity driver, split by cost category.
     service_life_years : float, optional
         Positive service-life estimate; no aging behavior is attached.
     source_references : tuple of str, optional
@@ -117,10 +94,10 @@ class RenovationMeasure:
     target: str
     parameters: tuple[ParameterDefinition, ...] = ()
     applicability_notes: tuple[str, ...] = ()
-    cost: Cost | None = None
+    cost: CostEstimate | None = None
     service_life_years: float | None = None
     source_references: tuple[str, ...] = ()
-    operations: tuple[ConstructionOperation | SystemOperation, ...] = ()
+    operations: tuple = ()
     target_element_ids: tuple[str, ...] = ()
     requires_measure_ids: tuple[str, ...] = ()
     incompatible_measure_ids: tuple[str, ...] = ()
@@ -138,7 +115,9 @@ class RenovationMeasure:
                 raise ValueError(f"{field} must contain unique other measure identities")
         if set(self.requires_measure_ids) & set(self.incompatible_measure_ids):
             raise ValueError("A measure cannot both require and prohibit the same measure")
-        if any(not isinstance(op, (ConstructionOperation, SystemOperation)) for op in self.operations):
+        if any(not isinstance(op, (ConstructionOperation, SystemOperation, AirtightnessOperation,
+                                      PVOperation, DHWOperation))
+               for op in self.operations):
             raise ValueError("operations must contain ConstructionOperation records")
         if any(not isinstance(i, str) or not i.strip() for i in self.target_element_ids) or len(set(self.target_element_ids)) != len(self.target_element_ids):
             raise ValueError("Physical element selectors must be nonempty and unique")
@@ -147,8 +126,8 @@ class RenovationMeasure:
         names = [p.name for p in self.parameters]
         if len(names) != len(set(names)):
             raise ValueError("Parameter names must be unique within a measure")
-        if self.cost is not None and not isinstance(self.cost, Cost):
-            raise ValueError("cost must be a Cost object")
+        if self.cost is not None and not isinstance(self.cost, CostEstimate):
+            raise ValueError("cost must be a CostEstimate")
         if self.service_life_years is not None and (
             not isfinite(self.service_life_years) or self.service_life_years <= 0
         ):
@@ -163,6 +142,7 @@ class RenovationMeasure:
             Nested parameter and cost definitions; no application state.
         """
         result = _encode(self)
+        result["cost"] = self.cost.to_dict() if self.cost is not None else None
         for field in ("parameters", "applicability_notes", "source_references", "operations", "target_element_ids"):
             result[field] = list(result[field])
         return result
@@ -188,9 +168,13 @@ class RenovationMeasure:
         """
         values = dict(data)
         values["parameters"] = tuple(ParameterDefinition(**p) for p in values.get("parameters", ()))
-        values["operations"] = tuple((SystemOperation.from_dict(op) if op.get("action") == "replace_hvac" else ConstructionOperation.from_dict(op)) for op in values.get("operations", ()))
+        readers = {"replace_hvac": SystemOperation.from_dict,
+                   "reduce_infiltration": AirtightnessOperation.from_dict,
+                   "add_pv": PVOperation.from_dict, "reduce_dhw": DHWOperation.from_dict}
+        values["operations"] = tuple(readers.get(op.get("action"), ConstructionOperation.from_dict)(op)
+                                     for op in values.get("operations", ()))
         if values.get("cost") is not None:
-            values["cost"] = Cost(**values["cost"])
+            values["cost"] = CostEstimate.from_dict(values["cost"])
         return cls(**values)
 
 
@@ -205,115 +189,7 @@ class RenovationMeasure:
             raise ValueError("Measure has no executable construction operations")
         result = construction
         for operation in self.operations:
-            if isinstance(operation, SystemOperation):
+            if not isinstance(operation, ConstructionOperation):
                 raise ValueError("System changes require a Core Building")
             result = operation.apply(result)
         return result
-
-
-class RenovationCatalogue:
-    """Index caller-supplied measures without loading defaults or external data.
-
-    Parameters
-    ----------
-    measures : iterable of RenovationMeasure, optional
-        Initial definitions. Duplicate identities raise ValueError.
-    """
-
-    def __init__(self, measures: Iterable[RenovationMeasure] = ()) -> None:
-        self._measures: dict[str, RenovationMeasure] = {}
-        for measure in measures:
-            self.add(measure)
-
-    def __iter__(self):
-        return iter(self._measures.values())
-
-    def __len__(self):
-        return len(self._measures)
-
-    def add(self, measure: RenovationMeasure) -> None:
-        """Add a definition.
-
-        Parameters
-        ----------
-        measure : RenovationMeasure
-            Definition with an unused identity.
-
-        Raises
-        ------
-        ValueError
-            The identity already exists. Replacement must be explicit outside
-            this in-memory catalogue.
-        """
-        if measure.measure_id in self._measures:
-            raise ValueError(f"Duplicate measure: {measure.measure_id}")
-        self._measures[measure.measure_id] = measure
-
-    @logged_operation("catalogue.select", level=10)
-    def get(self, measure_id: str) -> RenovationMeasure:
-        """Look up a definition by its exact identity.
-
-        Parameters
-        ----------
-        measure_id : str
-            Catalogue identity.
-
-        Returns
-        -------
-        RenovationMeasure
-            Matching definition.
-
-        Raises
-        ------
-        KeyError
-            The identity is unknown.
-        """
-        return self._measures[measure_id]
-
-    def filter(self, *, category: str | None = None) -> tuple[RenovationMeasure, ...]:
-        """Select definitions in insertion order.
-
-        Parameters
-        ----------
-        category : str, optional
-            Exact category; None selects all definitions.
-
-        Returns
-        -------
-        tuple of RenovationMeasure
-            Matching definitions.
-        """
-        return tuple(
-            m for m in self._measures.values() if category is None or m.category == category
-        )
-
-    def applicable(self, construction, *, applied_measure_ids=()):
-        """Return executable measures whose complete ordered operations apply."""
-        result = []
-        applied = set(applied_measure_ids)
-        for measure in self:
-            if not set(measure.requires_measure_ids) <= applied or set(measure.incompatible_measure_ids) & applied:
-                continue
-            if any(prior in self._measures and measure.measure_id in self._measures[prior].incompatible_measure_ids
-                   for prior in applied):
-                continue
-            try:
-                if not measure.operations:
-                    continue
-                result_construction = construction
-                for operation in measure.operations:
-                    if isinstance(operation, ConstructionOperation):
-                        result_construction = operation.apply(result_construction)
-            except ValueError:
-                continue
-            result.append(measure)
-        return tuple(result)
-
-    def to_dict(self):
-        """Return a JSON-compatible mapping of every measure."""
-        return {"measures": [measure.to_dict() for measure in self]}
-
-    @classmethod
-    def from_dict(cls, data):
-        """Rebuild a catalogue from ``to_dict`` output."""
-        return cls(RenovationMeasure.from_dict(item) for item in data["measures"])
