@@ -7,7 +7,8 @@
       "airflow": {
         "topology": "S",
         "mechanical_vent_l_s_m2": 0,
-        "natural_exchange_ach": 0.5
+        "natural_exchange_ach": 0.5,
+        "sensible_recovery_effectiveness": 0
       },
       "note": "Self-draught. 0.5 ACH is the BBR minimum 0.35 L/(s m2) at a 2.5 m room height; actual self-draught flow varies with weather."
     },
