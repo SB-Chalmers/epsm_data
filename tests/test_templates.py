@@ -106,3 +106,13 @@ def test_observed_system_flows_through_year_selection_and_rejects_unknown_codes(
         "epsm.ventilation.F")
     with pytest.raises(ValueError, match="S', 'F', 'FT', 'FTX"):
         catalogue.get("sf_se02", state="existing", ventilation="FX")
+
+
+def test_templates_without_heat_recovery_state_zero_recovery():
+    """A system change from FTX must not carry its recovery into S, F or FT."""
+    from epsm_data import ventilation_templates
+
+    for template in ventilation_templates().values():
+        airflow = template.to_dict()["values"]["airflow"]
+        if airflow["topology"] != "FTX":
+            assert airflow["sensible_recovery_effectiveness"] == 0
