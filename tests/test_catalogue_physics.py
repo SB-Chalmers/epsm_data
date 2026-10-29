@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from epsm_data import Catalogue, WindowElement
@@ -85,7 +86,10 @@ def test_all_76_frozen_configurations_preserve_their_accepted_physical_values():
                     _physical(element), sort_keys=True, ensure_ascii=False, allow_nan=False
                 ).encode()
             ).hexdigest()
-            assert element.u_value == roles[role.value]["u_value"], (key, role)
+            # Summation order differs by platform; accept float rounding only.
+            assert math.isclose(
+                element.u_value, roles[role.value]["u_value"], rel_tol=1e-12, abs_tol=0.0
+            ), (key, role)
             assert actual == roles[role.value]["physics"], (key, role)
         checked += 1
     assert checked == 76

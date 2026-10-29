@@ -1,6 +1,10 @@
 # Release notes
 
-## Unreleased: renovation catalogue
+## 0.7.0 — 29 October 2026
+
+Data 0.7.0 is consumed by Core 0.9.0, LCA 0.3.0 and RC 0.11.0 through `epsm_data.contract`.
+
+### Renovation catalogue
 
 - `RenovationCatalogue.load()` reads a limited renovation catalogue (schema 2):
   25 candidates over nine measure types, independent of archetype states. Each
@@ -16,7 +20,7 @@
 
 See [docs/renovation-catalogue.md](docs/renovation-catalogue.md).
 
-## Unreleased: lean layout
+### Lean layout
 
 The package is grouped by job. `from epsm_data import ...` is unchanged.
 
@@ -67,7 +71,7 @@ API tidying:
 - The documentation is seven pages: catalogue, authoring, profiles, sources,
   sanity, climate zones and validation.
 
-## Unreleased — frozen LoD2 catalogue
+### Frozen LoD2 catalogue
 
 - One normalized offline catalogue: four Swedish building types, seven eras,
   76 physical configurations and 228 climate-zone assignments.
