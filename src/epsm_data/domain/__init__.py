@@ -4,7 +4,7 @@ Immutable business objects — no pandas, SQLAlchemy, HTTP, or file-system
 dependencies in this package.
 """
 
-from .building import (
+from .archetype import (
     Archetype,
     BuildingArchetype,
     ConstructionSet,
@@ -22,7 +22,14 @@ from .enums import (
 )
 from .envelope import EnvelopePerformance
 from .layer import Layer, LayerMaterial
-from .material import EmbodiedCarbon, EnvironmentalFactor, Material, OpaqueMaterial, WindowMaterial
+from .material import (
+    CarbonReference,
+    EmbodiedCarbon,
+    EnvironmentalFactor,
+    Material,
+    OpaqueMaterial,
+    WindowMaterial,
+)
 
 __all__ = [
     "EnvelopePerformance",
@@ -34,6 +41,7 @@ __all__ = [
     "Roughness",
     "ShearingLayer",
     # material
+    "CarbonReference",
     "EmbodiedCarbon",
     "OpaqueMaterial",
     "WindowMaterial",

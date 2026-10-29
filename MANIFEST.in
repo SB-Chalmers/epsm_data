@@ -1,14 +1,28 @@
-include README.md pyproject.toml
-recursive-include src/epsm_data/datasets/parametric *.json
-recursive-include src/epsm_data/datasets/standards *.json
-recursive-include src/epsm_data/datasets/layered *.json
-recursive-include examples *.py
-recursive-include tests *.py *.json
-recursive-include explorer *.py *.html *.css *.js *.md
-prune ARCHIVE
-prune docs/archive
+include README.md RELEASE_NOTES.md pyproject.toml LICENSE
+recursive-include src/epsm_data/datasets *.json *.gz
+recursive-include src/epsm_data/datasets/sources LICENSE-*.txt
+recursive-include examples *.py *.ipynb *.md
+recursive-include tests *.py *.json *.md
+recursive-include docs *.md
+recursive-include docs/assets *.png *.svg *.json LICENSE
+recursive-include .github/workflows *.yml
+
+# Source provenance used by the verification suite and fixed sanity references.
+# Other curation history remains in the repository, outside distributions.
+include evidence/source-index.json
+recursive-include evidence/historical_sources *.json
+include evidence/betsi_review/audit.json
+include evidence/mf_se01_wall_material.json
+include evidence/mf_se01_ground_boundaries.json
+include evidence/mfh_tabula_measures.json
+include evidence/sfh_tabula_measures.json
+include evidence/mfh_baseline_user_stacks.txt
+include evidence/sfh_baseline_user_stacks.txt
+include evidence/office_period_user_stacks.txt
+include evidence/school_period_user_stacks.txt
+include evidence/nonresidential_current_recipe_contract.md
+
 prune data
 prune output
+prune outputs
 global-exclude *.py[cod]
-recursive-include evidence *.json *.md *.txt *.csv
-recursive-include docs *.md

@@ -121,6 +121,7 @@ class HVACTemplate(Editable):
         return self
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {
             "template_id": self.template_id,
             "values": _plain(self.values),
@@ -130,6 +131,7 @@ class HVACTemplate(Editable):
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a template from ``to_dict`` output."""
         return cls(**data)
 
     def __repr__(self):
@@ -148,6 +150,7 @@ STANDARD_PROFILES = (
     "sveby_school_v1",
     "dhw_epc_normal_use_v1",
     "generic_other",
+    "measured_use_v1",
 )
 
 _IDENTITIES = dict(
@@ -159,6 +162,7 @@ _IDENTITIES = dict(
             "sveby.school.v1.0.2016-05-16",
             "ben.dhw.normal_use.v1",
             "epsm.generic_other.v1",
+            "epsm.measured_use.v1",
         ),
     )
 )
@@ -173,7 +177,7 @@ def load_standard_record(name):
     """
     if name not in STANDARD_PROFILES:
         raise ValueError(f"Unknown named profile: {name}")
-    resource = files("epsm_data.datasets.standards").joinpath(f"{name}.json")
+    resource = files("epsm_data.datasets.profiles").joinpath(f"{name}.json")
     record = json.loads(resource.read_text(encoding="utf-8"))
     if (
         not isinstance(record, dict)
@@ -218,19 +222,20 @@ def available_operating_profiles():
 
     Keys are names accepted by :func:`load_operating_profile`. Each value is a
     portable definition whose ``values`` includes applicability and requirements.
-    BEN DHW is a separate explicit selection, not a complete operating profile.
-    This reads four packaged records; no catalogue, network or Core is needed.
+    BEN DHW and measured use are separate explicit selections, not complete
+    operating profiles. This reads four packaged records; no catalogue, network
+    or Core is needed.
     """
     return MappingProxyType(
         {
             name: load_operating_profile(name)
             for name in STANDARD_PROFILES
-            if name != "dhw_epc_normal_use_v1"
+            if name not in ("dhw_epc_normal_use_v1", "measured_use_v1")
         }
     )
 
 
-def select_operating_profile(building_type, *, standard="sveby", version=None):
+def select_operating_profile(building_type, *, standard="sveby", version=None, era=None):
     """Read a supported operating definition for an explicitly selected use.
 
     Supports single_family/multi_family (residential 2), office (1) and school
@@ -238,6 +243,14 @@ def select_operating_profile(building_type, *, standard="sveby", version=None):
     A small-house selection records Sveby's permitted residential fallback.
     Unsupported uses, standards and versions raise ValueError; no generic
     fallback, installed HVAC, project calendar or reference area is inferred.
+
+    ``standard="measured"`` returns the same Sveby record with the measured
+    Swedish stock-operation values of ``measured_use_v1`` substituted, for
+    simulating existing buildings against measured energy use. Inputs that vary
+    with construction era require ``era`` (``"SE.01"`` to ``"SE.07"``); today that is
+    the multifamily heating setpoint, so multifamily needs ``era`` and office does not. A use
+    with no adopted measured value returns its Sveby record with a note saying
+    so. The record keeps the Sveby schema, so Core resolves it unchanged.
 
     Examples
     --------
@@ -251,8 +264,10 @@ def select_operating_profile(building_type, *, standard="sveby", version=None):
         "office": ("sveby_office_v1", "1"),
         "school": ("sveby_school_v1", "1"),
     }
-    if standard != "sveby" or building_type not in names:
+    if standard not in ("sveby", "measured") or building_type not in names:
         raise ValueError(f"Unsupported operating profile selection: {standard}/{building_type}")
+    if era is not None and standard != "measured":
+        raise ValueError("era selects measured-use values; Sveby normal use does not vary with era")
     name, edition = names[building_type]
     if version not in (None, edition, f"{edition}.0"):
         raise ValueError(f"Unsupported {building_type} operating profile version: {version!r}")
@@ -264,7 +279,47 @@ def select_operating_profile(building_type, *, standard="sveby", version=None):
                 "Explicit single-family fallback permitted by Sveby residential 2.0; primary scope is multi-family.",
             )
         )
+    if standard == "measured":
+        profile = _measured_use(profile, building_type, era)
     return profile
+
+
+def _measured_use(profile, building_type, era):
+    """Substitute the adopted measured-use values into a selected Sveby profile."""
+    record = load_standard_record("measured_use_v1")
+    overrides = record["types"].get(building_type)
+    if overrides is None:
+        return profile.with_changes(
+            notes=profile.notes
+            + (f"Measured use: no value adopted for {building_type}. {record['not_adopted'][building_type]}",)
+        )
+    values = _plain(profile.values)
+    changed = []
+    for section in ("use", "operation_inputs"):
+        for key, value in overrides.get(section, {}).items():
+            if key.endswith("_by_era"):
+                if era not in value:
+                    raise ValueError(f"Measured {building_type} {key} requires an era in {sorted(value)}")
+                key, value = key.removesuffix("_by_era"), value[era]
+            values[section][key] = value
+            changed.append(f"{section}.{key}")
+    identity = f"{record['profile_id']}.{building_type}" + (f".{era}" if era else "")
+    values["profile_id"] = identity
+    values["measured_use"] = {
+        "profile_id": record["profile_id"],
+        "base_profile_id": profile.profile_id,
+        "era": era,
+        "changed": changed,
+        "ventilation": overrides.get("ventilation", {}),
+        "source_locators": overrides["source_locators"],
+        "selection_note": record["selection_note"],
+    }
+    return OperatingProfile(
+        identity,
+        values,
+        profile.source_references + (record["source_uri"],),
+        profile.notes + ("Measured use replaces " + ", ".join(changed) + " with measured stock operation.",),
+    )
 
 
 def select_dhw_profile(building_type, *, purpose, version="1"):

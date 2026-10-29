@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "fixture_id": "epsm-catalogue-sanity",
+  "purpose": "Independent acceptance expectations for representative original-era fabric and declared normal-use operation. Not a verified individual building or regulatory certification.",
+  "policy": {
+    "u_value_relative_tolerance": 0.2,
+    "density_review_relative_difference": 0.2,
+    "density_prominent_relative_difference": 0.5,
+    "area_fraction_tolerance": 0.001,
+    "nominal_added_thickness_tolerance_m": 0.001,
+    "u_value_numeric_tolerance_w_m2k": 1e-06,
+    "insulation_conductivity_max_w_mk": 0.12,
+    "insulation_minimum_area_fraction": 0.5,
+    "heuristic_renovation_age_years": 35,
+    "nominal_comparison_convention": "Compare matching physical envelope roles (walls, thermal top, windows) and nominal forward U-values with declared surface films. Ground floors and basement walls are not compared: ground heat transfer is modelled by epsm_core / epsm_rc. Missing or contradictory physical definitions remain blocking.",
+    "density_comparison_convention": "Compare only compatible material families and explicit kg/m3 bases; abs(thermal density - source density) / source density. Never modify a thermal property to satisfy a carbon mapping.",
+    "generic_fallback": {
+      "requested_category": "generic",
+      "donor_category": "multi_family",
+      "assumption_label": "Unknown building type — multifamily assumption",
+      "is_average": false
+    },
+    "severity_policy": {
+      "error": "Contradictory or invalid supplied data, failed acceptance reference, or worsening intervention.",
+      "missing": "Required catalogue definitions, material data or acceptance inputs absent; unknown is never a numerical zero or a pass.",
+      "review": "Context or construction judgement required; not a certification or automatic rejection.",
+      "check_exit_failure": [
+        "error",
+        "missing"
+      ]
+    }
+  },
+  "sources": {
+    "project_policy": "User-approved Catalogue sanity-check rules; tolerances are project screening policies, not Swedish regulatory limits.",
+    "swedish_practice_context": "https://www.boverket.se/sv/energiguiden/energirenovera-smahus/5.valja_atgarder/tillaggsisolera-fasaden/"
+  }
+}

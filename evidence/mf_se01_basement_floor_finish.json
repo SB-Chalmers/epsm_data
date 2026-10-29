@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "archetype_id": "mf_se01",
+  "decision": "Add an exposed cement-finished, nominal 80 mm concrete load-distributing topping above the retained LECA; retain it in all renovation states.",
+  "period_evidence": [
+    {
+      "source": "SOU 1944:7",
+      "url": "https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Akb%3Asou-1594099",
+      "transcription_url": "https://lagen.nu/sou/1944:7#sid157",
+      "printed_page": 157,
+      "locator": "Cementmaterial, basement-floor cement finishing",
+      "scope": "Contemporaneous support for cement-finished basement floors; does not prescribe topping thickness, the LECA recipe, concrete strength or a particular building.",
+      "verified_original_page": {
+        "url": "https://lagen.nu/api/v1/facsimile?uri=https%3A%2F%2Flagen.nu%2Fsou%2F1944%3A7&sid=160",
+        "printed_page": 157,
+        "scan_page": 160,
+        "sha256": "6979b45df37b40a26a1bb1635afcd4f0f09698560de22d151ab2249333e04276",
+        "verification": "Complete original page visually checked; cement use for basement-floor finishing is explicit."
+      }
+    },
+    {
+      "source": "BABS 1946",
+      "url": "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
+      "printed_page": 7,
+      "locator": "d) Betong och bruk; i) Golvbeläggningar",
+      "scope": "Lists normal concrete and concrete floor coverings. Supports period material plausibility, not this exact assembly.",
+      "pdf_sha256": "8e4228c7c89426dbc149622710a7a687910ac9f44bddcd56e0da0956a8c98c48",
+      "verification": "Printed page 7 visually checked: normal concrete and concrete floor coverings are listed."
+    }
+  ],
+  "thickness_assessment": {
+    "selected_m": 0.08,
+    "status": "representative_engineering_default",
+    "sources": [
+      "https://betongforeningen.se/fraga_experten/fraga-experten-isolering-och-golvvarme-2/",
+      "https://betongforeningen.se/fraga_experten/fraga-experten-oisolerad-platta-pa-mark-3/"
+    ],
+    "rationale": "Modern concrete guidance distinguishes ordinary concrete overlays of approximately 70–100 mm from thin proprietary cementitious screeds. An 80 mm topping is selected for the representative loose-fill cap; the guidance is an analogy for buildability, not evidence of a specific 1943 thickness."
+  },
+  "thermal_candidate": {
+    "material_id": "material:1bd0a6d16b766b3a",
+    "honeybee_id": "Generic HW Concrete",
+    "source": "honeybee-standards 2.0.7 energy_default.json / honeybee-energy 1.126.6",
+    "source_url": "https://github.com/ladybug-tools/honeybee-standards/blob/master/honeybee_standards/energy_default.json",
+    "source_file_sha256": "06d0801814c42fcddd64a867fb87372bbc7546f56672a089507ee5904fccb1d9",
+    "captured_material": {
+      "type": "EnergyMaterial",
+      "identifier": "Generic HW Concrete",
+      "roughness": "MediumRough",
+      "thickness": 0.2,
+      "conductivity": 1.95,
+      "density": 2240.0,
+      "specific_heat": 900.0,
+      "thermal_absorptance": 0.9,
+      "solar_absorptance": 0.8,
+      "visible_absorptance": 0.8
+    },
+    "layer_thickness_m": 0.08,
+    "material_r_m2k_w": 0.041025641025641026,
+    "mass_kg_m2": 179.20000000000002,
+    "heat_capacity_j_m2k": 161280.00000000003
+  },
+  "carbon_candidate": {
+    "boverket_id": "6000000029",
+    "source_version": "02.07.000",
+    "name": "Ready-mix made concrete, buildings C25/30",
+    "mapping_status": "modern_generic_concrete_proxy",
+    "source_density_kg_m3": 2350,
+    "thermal_density_kg_m3": 2240,
+    "relative_density_difference": 0.04680851063829787,
+    "historical_limits": "No original C25/30 specification or historic cement recipe/emission factor is claimed.",
+    "coverage": "Known A1-A3, A4 and A5.1 remain separate; complete A5 is unknown. Reinforcement is excluded and unquantified."
+  },
+  "floor_elements": {
+    "advanced": "element:70411c9a374509e9",
+    "existing": "element:d1d1ede40a5ff173",
+    "standard": "element:9c97328583c59646"
+  },
+  "shared_cap_component_id": "component:5b2fe8eeb4df6047",
+  "shared_cap_layer_id": "layer:3ebe9a65298fdfa7",
+  "removed_orphan_elements": [
+    "element:03d51d8722621ab5",
+    "element:516243527517c55a",
+    "element:c692fb6cec8d5d67"
+  ],
+  "renovation_retention": "The original topping stays below EPS40/45 mm; the existing 30 mm modern screed stays above EPS. They are separate retained and added layers, not duplicate definitions.",
+  "remaining_project_details": [
+    "LECA grading and compaction",
+    "Separation and moisture/radon provisions",
+    "Topping reinforcement, support, joints and their quantities",
+    "Renovation floor height and existing-load feasibility"
+  ],
+  "reference_policy": "No TABULA target or tolerance is changed. Ground-effective U remains separate from material-layer validation. The LECA recipe is still a representative assumption rather than a verified 1943 construction.",
+  "nominal_u_w_m2k": {
+    "advanced": 0.4882884697978995,
+    "existing": 1.2815211601268137,
+    "standard": 0.5238122894174824
+  }
+}

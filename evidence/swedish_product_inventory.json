@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-25",
+  "purpose": "Swedish-market product declarations reviewed for custom thermal grades. Values were read from the cited pages; 'secondary' marks values seen only via search excerpts or aggregators.",
+  "honeybee_assessment": "Honeybee was removed as a thermal source on 2026-10-25. Its libraries held no realistic Nordic insulation or window grades, and its remaining US/ASHRAE grades (timber, plywood, concrete, stucco, gypsum, brick) were replaced by the Swedish design values and declarations below.",
+  "products": {
+    "stone_wool_batt": [
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC eXtra",
+        "lambda_d": 0.036,
+        "density": 29.5,
+        "epd": "NEPD-4340-3565-EN",
+        "epd_url": "https://paroc.com/en/documents/uploads/epd-se",
+        "datasheet": "https://www.paroc.com/sv-se/documents/uploads/pds-paroc-extra.pdf",
+        "gwp_a1a3": "1.30 kg CO2e per m2 at R=1 (36 mm)"
+      },
+      {
+        "manufacturer": "Rockwool",
+        "product": "Flexibatts",
+        "lambda_d": 0.037,
+        "density": "about 30 (secondary)",
+        "url": "https://www.rockwool.com/se/produkter/flexibatts/"
+      }
+    ],
+    "stone_wool_loose_fill_open_attic": [
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC BLT 1",
+        "lambda_d": "0.042 at >=28; 0.041 at >=30",
+        "epd": "NEPD-4340-3565-EN",
+        "datasheet": "https://www.paroc.com/sv-se/documents/uploads/paroc-blt-1.pdf"
+      },
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC BLT 3 / BLT 9",
+        "lambda_d": "0.041 at >=33 / >=40",
+        "datasheet": "https://www.paroc.com/sv-se/documents/uploads/paroc-blt-3.pdf"
+      }
+    ],
+    "glass_wool_loose_fill": [
+      {
+        "manufacturer": "Isover",
+        "product": "InsulSafe",
+        "lambda_d": "0.040 at >=18 open attic; 0.037 at >=21 closed frame",
+        "note": "secondary (DoP fetch failed)"
+      },
+      {
+        "manufacturer": "Knauf Insulation",
+        "product": "Supafil Loft",
+        "lambda_d": "0.040-0.042",
+        "density": "12-13",
+        "datasheet": "https://pim.knaufinsulation.com/files/download/knauf_insulation_blowing_wool-solutions-guide-se.pdf"
+      }
+    ],
+    "glass_wool_batt": [
+      {
+        "manufacturer": "Isover",
+        "product": "Skalmursskiva 34",
+        "lambda_d": 0.034,
+        "density": 22,
+        "epd": "EPD-IES-0028919:001",
+        "epd_url": "https://www.environdec.com/library/epd28919",
+        "gwp_a1a3": "0.535 kg CO2e per m2 at R=1"
+      }
+    ],
+    "facade_and_wind_barrier_stone_wool": [
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC WAS 25",
+        "lambda_d": 0.033,
+        "density": 80,
+        "epd": "NEPD-4340-3565-EN"
+      },
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC Linio 10 (ETICS)",
+        "lambda_d": 0.036,
+        "density": 85,
+        "epd": "NEPD-4340-3565-EN"
+      }
+    ],
+    "stone_wool_roof_board": [
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC ROS 30 / 50 / 60",
+        "lambda_d": "0.036 / 0.038 / 0.039",
+        "density": "103 / 125-132 / 133-150",
+        "epd": "NEPD-4340-3565-EN"
+      },
+      {
+        "manufacturer": "Paroc",
+        "product": "PAROC ROS 80 (top layer)",
+        "lambda_d": 0.039,
+        "density": 185
+      }
+    ],
+    "eps": [
+      {
+        "manufacturer": "BEWI",
+        "product": "Jackopor EPS 100",
+        "lambda_d": 0.037,
+        "dop": "https://media.derome.se/medias/docus/178/Prestandadeklaration-Jackopor-EPS-100-SE.pdf"
+      },
+      {
+        "manufacturer": "Sundolitt",
+        "product": "EPS S100",
+        "lambda_d": 0.036,
+        "density": "18 (secondary)",
+        "epd": "NEPD-2795-1495-EN (secondary)"
+      }
+    ],
+    "wood_fibre_board": [
+      {
+        "manufacturer": "STEICO",
+        "product": "STEICOprotect M / H",
+        "lambda_d": "0.046 / 0.048",
+        "density": "230 / 265",
+        "specific_heat": 2100,
+        "datasheet": "https://www.roofgiant.com/resources/files/steico-protect-data-sheet.pdf"
+      },
+      {
+        "manufacturer": "Hunton",
+        "product": "Nativo board",
+        "lambda_d": 0.038,
+        "density": 50,
+        "epd": "NEPD-2287-1041-EN (expired 2025-07-06)"
+      }
+    ],
+    "cellulose_loose_fill": [
+      {
+        "manufacturer": "Isocell",
+        "product": "Isocell Evolution",
+        "lambda_d": 0.037,
+        "density": "28-65",
+        "specific_heat": 2110,
+        "datasheet": "https://www.isocell.com/fileadmin/pim_export/documents/PDBL/PDBL_MA_ISOCELL_EVOLUTION_NL.pdf"
+      }
+    ],
+    "wood_wool_acoustic_panel": [
+      {
+        "manufacturer": "Troldtekt",
+        "product": "Natural grey FUTURECEM 25 mm",
+        "lambda_d": 0.076,
+        "density": 463,
+        "epd": "MD-22046-EN (EPD Danmark)",
+        "epd_url": "https://www.troldtekt.dk/media/jitdwycf/epddanmark_futurecem_natur_25mm-umalet.pdf",
+        "gwp_a1a3": "-1.37 kg CO2e/m2"
+      }
+    ],
+    "lightweight_expanded_clay": [
+      {
+        "manufacturer": "Leca Sverige",
+        "product": "Leca Medium 4-10 mm (loose)",
+        "lambda_d": 0.095,
+        "density": 305,
+        "datasheet": "https://media.derome.se/medias/docus/123/PDS-SE-Leca_Medium.pdf"
+      },
+      {
+        "manufacturer": "Leca Sverige",
+        "product": "Leca Coated 8-20 mm (loose)",
+        "lambda_d": 0.095,
+        "density": 245,
+        "datasheet": "https://media.derome.se/medias/docus/123/PDS-SE-Leca_Coated.pdf"
+      },
+      {
+        "manufacturer": "Leca",
+        "product": "Murblock typ 3 / typ 5",
+        "lambda": "0.200-0.205",
+        "density": "650 / 900"
+      }
+    ],
+    "gypsum_board": [
+      {
+        "manufacturer": "Gyproc",
+        "product": "Vindskydd GU 9.5 mm",
+        "lambda": 0.21,
+        "density": 758,
+        "epd": "EPD-IES-0000391:002",
+        "gwp_a1a3": "1.66 kg CO2e/m2"
+      },
+      {
+        "manufacturer": "Gyproc",
+        "product": "Normal GN 12.5 mm",
+        "lambda": 0.21,
+        "areal_mass_kg_m2": 9.0,
+        "epd": "EPD-IES-0017752:003",
+        "gwp_a1a3": "1.17 kg CO2e/m2"
+      }
+    ],
+    "aerated_concrete": [
+      {
+        "manufacturer": "H+H Sverige",
+        "product": "Multiplattan 525",
+        "lambda_10_dry": 0.12,
+        "density": 525,
+        "datasheet": "https://www.bygma.se/globalassets/produkter/10-byggmaterial/102-byggnadsblock--ballast/10203-lattbetong/p011030020/006059463_pb1.pdf"
+      }
+    ],
+    "bituminous_underlay": [
+      {
+        "manufacturer": "BMI Icopal",
+        "product": "Flexilight",
+        "areal_mass_kg_m2": 0.74,
+        "epd": "EPD-IES-0022489:002",
+        "gwp_a1a3": "0.712 kg CO2e/m2",
+        "note": "no lambda or density declared"
+      }
+    ],
+    "floor_covering": [
+      {
+        "manufacturer": "Forbo",
+        "product": "Marmoleum",
+        "lambda": 0.17,
+        "density": "about 1160",
+        "note": "secondary"
+      },
+      {
+        "manufacturer": "nora",
+        "product": "noraplan",
+        "lambda": 0.17,
+        "note": "secondary"
+      }
+    ],
+    "windows": [
+      {
+        "manufacturer": "Elitfönster",
+        "product": "Original Alu (3-pane, one low-e, argon)",
+        "options_uw_lt_g": [
+          [
+            1.22,
+            0.75,
+            0.6
+          ],
+          [
+            1.1,
+            0.75,
+            0.6
+          ],
+          [
+            1.02,
+            0.74,
+            0.53
+          ],
+          [
+            0.89,
+            0.74,
+            0.53
+          ],
+          [
+            0.81,
+            0.74,
+            0.53
+          ]
+        ],
+        "note": "LT and g describe the glazing, not the whole window",
+        "datasheet": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+      },
+      {
+        "manufacturer": "Elitfönster",
+        "product": "Retro MF-AL",
+        "epd": "EPD-IES-0019847:001",
+        "epd_url": "https://www.environdec.com/library/epd19847",
+        "gwp_a1a3": "52.3 kg CO2e/m2"
+      }
+    ],
+    "tabula_windows": {
+      "source": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf",
+      "sfh_current_u": {
+        "pre-1960": 2.34,
+        "1961-75": 2.3,
+        "1976-85": 2.01,
+        "1986-95": 1.94,
+        "1996-2005": 1.87
+      },
+      "renovation_u": {
+        "bättre 3-glas": 0.9,
+        "lågenergifönster": 0.76
+      },
+      "note": "No g-values are given in the brochure."
+    }
+  },
+  "not_found": [
+    "Ekofiber datasheet",
+    "Swedish facing-brick declarations (Wienerberger, Randers, Petersen)",
+    "Historic Siporex/Ytong lambda",
+    "Bitumen underlay lambda/density",
+    "Free EN ISO 10456 tables",
+    "Historic window g-values"
+  ],
+  "design_values": {
+    "sources": {
+      "isolerguiden": "Swedisol, Isolerguiden Bilaga A (2004) p.54-55 - http://web.archive.org/web/20050530031209/http://www.swedisol.se:80/site/files/isolerguiden/IG_bilagaA.pdf",
+      "sandin": "K. Sandin, Värme och fukt (LTH 1996) Tab 2.1/2.3/2.6, reproduced in LTH ISRN LUTMDN/TMHP--06/5091--SE - https://www.lth.se/fileadmin/ees/Publikationer/2006/5091.pdf",
+      "br443": "BRE BR 443 (2019) section 3 - https://www.cibse.org/media/wzrjrf3l/conventions-for-u-value-calculations.pdf",
+      "traguiden": "TräGuiden Värmeegenskaper - https://www.traguiden.se/om-tra/materialet-tra/traets-egenskaper-och-kvalitet/termiska-egenskaper1/varmeegenskaper/"
+    },
+    "softwood": {
+      "lambda": 0.13,
+      "density": 500,
+      "specific_heat": "1500-1700",
+      "refs": [
+        "traguiden",
+        "br443",
+        "sandin"
+      ]
+    },
+    "plywood_spruce": {
+      "manufacturer": "Metsä Wood",
+      "lambda": 0.12,
+      "density": 460,
+      "dop": "MW/PW/421-001/CPR/DOP"
+    },
+    "concrete": {
+      "unreinforced_lambda": 1.7,
+      "reinforced_1pct_lambda": 2.3,
+      "density": 2300,
+      "specific_heat": 900,
+      "screed_lambda": "1.0-1.15",
+      "refs": [
+        "sandin",
+        "isolerguiden",
+        "br443"
+      ]
+    },
+    "lime_cement_render": {
+      "design_lambda": 1.0,
+      "finja_kc_dry_lambda": 0.61,
+      "refs": [
+        "isolerguiden",
+        "sandin",
+        "Finja DoP 22025-1"
+      ]
+    },
+    "gypsum_board": {
+      "gyproc_gn_areal_mass_kg_m2": 9.0,
+      "lambda_epd": 0.21,
+      "lambda_product_sheet": 0.25,
+      "specific_heat": "800 (Sandin) / 960 (Rigips, secondary)"
+    },
+    "clay_brick": {
+      "practical_lambda": 0.6,
+      "wienerberger_pastorale_dry_lambda": 0.69,
+      "gross_density": 1650,
+      "specific_heat": 800
+    },
+    "porous_wood_fibre_board": {
+      "lambda_d": "0.049-0.050",
+      "refs": [
+        "SINTEF TG 20044 Hunton Stubbeloft",
+        "SINTEF TG 20636 Huntonit Vindtett"
+      ]
+    },
+    "bitumen_underlay": {
+      "product": "Mataki YEP 2500",
+      "areal_mass_kg_m2": 2.5,
+      "thickness_mm": 2.1
+    },
+    "sand_fill": {
+      "lambda": 0.4,
+      "refs": [
+        "sandin"
+      ]
+    },
+    "air_layers": {
+      "sandin_R": {
+        "5mm": 0.11,
+        "10mm": 0.14,
+        "20mm": 0.16,
+        "50-100mm": 0.17
+      },
+      "isolerguiden": "max 0.18 walls, 0.16 roofs, 0.23 downward 300 mm"
+    },
+    "not_found": [
+      "Nordic plywood specific heat",
+      "Render specific heat",
+      "EPS specific heat from a Nordic manufacturer",
+      "Mineral-wool specific heat from Paroc/Rockwool/Isover",
+      "Free EN ISO 10456 / 6946 tables"
+    ]
+  }
+}

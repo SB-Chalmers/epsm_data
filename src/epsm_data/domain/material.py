@@ -7,7 +7,11 @@ property validation.  No I/O or framework dependencies.
 from __future__ import annotations
 
 import math
+import re
+from collections.abc import Mapping
 from dataclasses import dataclass, field
+from types import MappingProxyType
+from urllib.parse import urlsplit
 from uuid import UUID, uuid4
 
 from .editing import Editable
@@ -98,13 +102,131 @@ class EmbodiedCarbon(Editable):
 
 
 @dataclass(frozen=True)
+class CarbonReference(Editable):
+    """A manually authored carbon source with explicit unknown lifecycle modules.
+
+    Module values are kg CO2e per ``unit``. The method is retained as supplied;
+    no conversion to a different indicator or source methodology is implied.
+    ``declared_unit`` records the source's original quantity when a factor has
+    been normalized (for example one tonne to one kilogram).
+    """
+
+    identifier: str
+    name: str
+    url: str
+    method: str
+    unit: str
+    modules: Mapping[str, float | None]
+    proxy_for: str | None = None
+    declared_unit: str | None = None
+    notes: tuple[str, ...] = ()
+
+    def __post_init__(self) -> None:
+        for field_name in ("identifier", "name", "url", "method"):
+            value = getattr(self, field_name)
+            if not isinstance(value, str) or not value.strip() or value != value.strip():
+                raise ValueError(f"Carbon reference {field_name} must be a non-empty string")
+        try:
+            location = urlsplit(self.url)
+            valid_url = location.scheme in {"http", "https"} and bool(location.hostname)
+        except ValueError:
+            valid_url = False
+        if not valid_url or any(character.isspace() for character in self.url):
+            raise ValueError("Carbon reference url must be an HTTP(S) source URL")
+        if not isinstance(self.unit, str) or self.unit not in {"kg", "m2", "m3", "item"}:
+            raise ValueError("Carbon reference requires an explicit material quantity unit")
+        if not isinstance(self.modules, Mapping) or not self.modules:
+            raise ValueError("Carbon reference modules must be a non-empty mapping")
+        modules = dict(self.modules)
+        for module, value in modules.items():
+            if not isinstance(module, str) or re.fullmatch(
+                r"(?:A1A3|A[1-5]|B[1-7]|C[1-4]|D)(?:\.[1-9]\d*)?", module
+            ) is None:
+                raise ValueError(f"Invalid carbon reference lifecycle module: {module!r}")
+            if value is not None and (
+                isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+            ):
+                raise ValueError(f"Carbon reference {module} must be finite or unknown")
+        for field_name in ("proxy_for", "declared_unit"):
+            value = getattr(self, field_name)
+            if value is not None and (not isinstance(value, str) or not value.strip()):
+                raise ValueError(f"Carbon reference {field_name} must be a non-empty string or None")
+        if isinstance(self.notes, (str, Mapping)):
+            raise ValueError("Carbon reference notes must be a sequence of strings")
+        try:
+            notes = tuple(self.notes)
+        except TypeError as exc:
+            raise ValueError("Carbon reference notes must be a sequence of strings") from exc
+        if any(not isinstance(note, str) or not note.strip() for note in notes):
+            raise ValueError("Carbon reference notes must contain non-empty strings")
+        object.__setattr__(self, "modules", MappingProxyType(modules))
+        object.__setattr__(self, "notes", notes)
+
+    def __hash__(self):
+        return hash((
+            self.identifier, self.name, self.url, self.method, self.unit,
+            tuple(sorted(self.modules.items())), self.proxy_for, self.declared_unit, self.notes,
+        ))
+
+    def __deepcopy__(self, memo):
+        return self
+
+    def to_dict(self) -> dict:
+        """Return a JSON-compatible mapping."""
+        return {
+            "identifier": self.identifier,
+            "name": self.name,
+            "url": self.url,
+            "method": self.method,
+            "unit": self.unit,
+            "modules": dict(self.modules),
+            "proxy_for": self.proxy_for,
+            "declared_unit": self.declared_unit,
+            "notes": list(self.notes),
+        }
+
+    @classmethod
+    def from_dict(cls, data: Mapping) -> CarbonReference:
+        """Rebuild a reference from ``to_dict`` output."""
+        if not isinstance(data, Mapping):
+            raise ValueError("Carbon reference must be a mapping")
+        return cls(**data)
+
+    def factors(self) -> dict[str, EnvironmentalFactor]:
+        """Return known factors only; null placeholders never become zero."""
+        source = f"{self.identifier} | {self.method} | {self.url}"
+        if self.proxy_for is not None:
+            source += f" | proxy for: {self.proxy_for}"
+        return {
+            module: EnvironmentalFactor(value, self.unit, module, source)
+            for module, value in self.modules.items() if value is not None
+        }
+
+
+def _validate_carbon_reference(reference, boverket_id, embodied_carbon=None):
+    if reference is not None:
+        if not isinstance(reference, CarbonReference):
+            raise ValueError("carbon_reference must be a CarbonReference record or None")
+        if boverket_id is not None or embodied_carbon is not None:
+            raise ValueError("External carbon_reference cannot also use a Boverket carbon source")
+
+
+@dataclass(frozen=True)
 class OpaqueMaterial(Editable):
     """Resolved physical properties of an opaque material.
 
     Parameters
     ----------
-    name, json_id, boverket_id, material_type : str
-        Identity, legacy source references, and material classification.
+    name : str
+        Display name; required.
+    json_id : str
+        Stable catalogue identifier of the material.
+    boverket_id : str or None
+        Boverket climate-database resource ID, or None or "" when the material has no
+        Boverket mapping (its carbon is then unknown, not zero).
+    material_type : str
+        Free classification label, for example ``"catalogue"``; not validated.
     roughness : Roughness
         EnergyPlus surface roughness category.
     density : float
@@ -122,7 +244,7 @@ class OpaqueMaterial(Editable):
 
     Examples
     --------
-    See examples/archetype.py for explicit construction with synthetic values.
+    See ``examples/03_author_and_edit.ipynb`` for a material built from explicit values.
     """
 
     name: str
@@ -138,8 +260,10 @@ class OpaqueMaterial(Editable):
     conductivity: float
     embodied_carbon: EmbodiedCarbon | None = None
     uuid: UUID = field(default_factory=uuid4)
+    carbon_reference: CarbonReference | None = None
 
     def __post_init__(self) -> None:
+        _validate_carbon_reference(self.carbon_reference, self.boverket_id, self.embodied_carbon)
         if not self.name:
             raise ValueError("Material name cannot be empty.")
         if isinstance(self.conductivity, bool) or not isinstance(self.conductivity, (int, float)) or not math.isfinite(self.conductivity) or self.conductivity <= 0:
@@ -183,6 +307,7 @@ class OpaqueMaterial(Editable):
             "visible_absorptance": self.visible_absorptance,
             "conductivity": self.conductivity,
             "embodied_carbon": self.embodied_carbon.to_dict() if self.embodied_carbon else None,
+            "carbon_reference": self.carbon_reference.to_dict() if self.carbon_reference else None,
         }
 
 
@@ -192,8 +317,14 @@ class WindowMaterial(Editable):
 
     Parameters
     ----------
-    name, json_id, boverket_id, material_type : str
-        Display label, legacy source references, and classification.
+    name : str
+        Display name; required.
+    json_id : str
+        Stable catalogue identifier of the material.
+    boverket_id : str or None
+        Boverket climate-database resource ID, or None or "" when unmapped.
+    material_type : str
+        Free classification label; not validated.
     conductivity : float
         Conductivity in W/(m K).
     solar_transmittance, solar_reflectance_front, solar_reflectance_back : float
@@ -226,8 +357,10 @@ class WindowMaterial(Editable):
     solar_diffusing: bool
     embodied_carbon: EmbodiedCarbon | None = None
     uuid: UUID = field(default_factory=uuid4)
+    carbon_reference: CarbonReference | None = None
 
     def __post_init__(self) -> None:
+        _validate_carbon_reference(self.carbon_reference, self.boverket_id, self.embodied_carbon)
         if not self.name:
             raise ValueError("Material name cannot be empty.")
         if isinstance(self.conductivity, bool) or not isinstance(self.conductivity, (int, float)) or not math.isfinite(self.conductivity) or self.conductivity <= 0:
@@ -258,10 +391,12 @@ class WindowMaterial(Editable):
             "dirt_correction": self.dirt_correction,
             "solar_diffusing": self.solar_diffusing,
             "embodied_carbon": self.embodied_carbon.to_dict() if self.embodied_carbon else None,
+            "carbon_reference": self.carbon_reference.to_dict() if self.carbon_reference else None,
         }
 
 
 # Public name for the existing opaque physical material type; no parallel model.
+# ``Material`` is the short public name for an opaque material.
 Material = OpaqueMaterial
 
 
@@ -287,8 +422,10 @@ class EnvironmentalFactor(Editable):
             raise ValueError("Environmental factor module and source are required")
 
     def to_dict(self):
+        """Return a JSON-compatible mapping."""
         return {"value": self.value, "unit": self.unit, "module": self.module, "source": self.source}
 
     @classmethod
     def from_dict(cls, data):
+        """Rebuild a factor from ``to_dict`` output."""
         return cls(**data)

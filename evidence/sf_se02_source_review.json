@@ -1,0 +1,168 @@
+{
+  "archetype_id": "sf_se02",
+  "representative_year": 1970,
+  "scope": "Representative new construction within 1961–1975, retained by both renovation states; not a verified individual building. Material thermal properties and Honeybee records remain unchanged. The shared renovation loft wool receives a separately verified matching external EPD carbon reference.",
+  "tabula": {
+    "workbook_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "brochure_url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf",
+    "source_locators": [
+      "Tab.Building!BF810,BD810,BI810",
+      "Tab.Building.Constr!287,299,309",
+      "Calc.Building.Set!CA2627,CA2632,CD2627,CD2632"
+    ],
+    "source_meaning": "Original wall, attic and floor references are BETSI 1961–1975 stock means, not complete layer recipes. The brochure illustrates AAC walls without specifying thickness or grade. This catalogue instead retains an independently documented period timber variant and compares its forward thermal values with the stock benchmarks."
+  },
+  "wall": {
+    "period_source_url": "https://gupea.ub.gu.se/server/api/core/bitstreams/b2c787b2-54f6-4147-b0e1-b5b9eb881a00/content",
+    "period_locator": "Bjerking R106:1978, printed pp. 39–40, Fig. 2222, timber wall from 1965",
+    "source_supported_recipe": "The period source supports exterior asphalt-impregnated porous wood-fibre windboard with an approximately 100 mm main frame and 50 mm insulated inner cross-frame, inner gypsum and vapour control. The 12 mm windboard is a declared representative nominal dimension, not recovered TABULA geometry.",
+    "defaults": "Existing 15% whole-wall framing allowance in both layers, existing timber/mineral-wool thermal grades, and 13 mm gypsum. The allowance exceeds field-stud fractions and represents additional framing, not a U-value fit.",
+    "weather_skin_status": "windboard_quantified_cladding_cavity_unquantified",
+    "weather_limit": "The 12 mm porous wood-fibre windboard is represented in the nominal core and quantities. Original timber cladding, battens and ventilation cavity remain outside the nominal core and unquantified. Air/vapour control, fasteners and interfaces remain project details.",
+    "renovation": "Reuse SF SE.01 shared 22 mm timber panelling plus 45/70 mm facade-wool packages outside all retained original core layers. The source prescribes insulation depth and panelled finish; fibre grade and 22 mm panel are explicit completion defaults.",
+    "nominal_limit": "Full nominal R includes the new panel. Ventilation/cavity corrections, battens, fixings and moisture design are unresolved project details.",
+    "windboard": {
+      "material_id": "material:622fee5beaa8a10c",
+      "thickness_m": 0.012,
+      "thermal_properties": {
+        "conductivity": 0.07,
+        "density": 230,
+        "roughness": "MediumRough",
+        "solar_absorptance": 0.65,
+        "specific_heat": 2100,
+        "thermal_absorptance": 0.9,
+        "visible_absorptance": 0.65
+      },
+      "property_scope": "The existing generic soft wood-fibre grade is retained at 0.07 W/(m K), 230 kg/m³ and 2100 J/(kg K). It is a thermal-family proxy for historic asphalt-impregnated windboard. Exact asphalt content, air/water performance and historic carbon factors are not established.",
+      "dimension_source_url": "https://hunton.se/produkter/vagg/hunton-vindtat/",
+      "dimension_source_scope": "The current manufacturer asphalt-windboard family confirms 12 mm as a real nominal board size. It supports a representative dimensional choice, not evidence of an exact 1970 product or adoption of the modern product’s thermal properties.",
+      "period_source_locators": [
+        "Bjerking R106:1978, printed pp. 39–40, Fig. 2222b: the timber wall from 1965 has external asphalt-impregnated porous wood-fibre windboard.",
+        "Bjerking R106:1978, printed pp. 87–89, Figs. 2613–2615: cladding from 1960 sits on battens over windboard, with an air space."
+      ],
+      "carbon_scope": "The existing unmapped retained-stock declaration remains. The same windboard component must remain in every renovation state. Unknown factors are not zero; no hardboard/HDF substitution or invented complete A5 is used.",
+      "forward_increment_per_square_metre": {
+        "resistance_m2k_w": 0.1714285714285714,
+        "mass_kg_m2": 2.7600000000000002,
+        "heat_capacity_j_m2k": 5796.000000000001
+      }
+    }
+  },
+  "attic": {
+    "period_source_url": "https://www.solleftea.se/download/18.499760a71853e28aa2aac3a/1644584957117/att_tillaggsisolera_hus-fakta_fordelar_och_fallgropar.pdf",
+    "period_locator": "Energimyndigheten ET2009:19, printed p. 11, ceiling range from 1955",
+    "range": "100–180 mm mineral wool; six-inch framing at 1200 mm centres. The same guidance gives original 1961–75 U approximately 0.30; the former 150 mm recipe is period-plausible.",
+    "arrangement_source": "Bjerking R106:1978 printed p. 43 Fig 2234, 1965-onward wool between joists and a continuous mat above.",
+    "defaults": {
+      "total_original_wool_m": 0.18,
+      "framed_zone_m": 0.15,
+      "continuous_upper_mat_m": 0.03,
+      "joist_width_m": 0.075,
+      "joist_centres_m": 1.2,
+      "timber_fraction": 0.0625,
+      "retained_boards_m": 0.022,
+      "retained_gypsum_m": 0.013
+    },
+    "selection": "180 mm is an explicit representative selection at the documented upper range, not a recovered TABULA depth. 75 mm width is an engineering default; existing lambda 0.04 and density 29 are unchanged.",
+    "renovation": "Retain original ceiling and shared 200/500 mm loft-wool additions.",
+    "renovation_carbon_reference": {
+      "identifier": "EPD-IES-0013025:003",
+      "scope": "Matching modern renovation loose-wool product EPD replaces the weaker Boverket blowing-wool family proxy. The existing selected thermal conductivity, density, heat capacity and layer depths stay unchanged; source modules and indicators follow the explicit retained external carbon reference.",
+      "retained_source_capture": "carbon_review.loft_epd"
+    }
+  },
+  "floor": {
+    "source_locators": [
+      "Tab.Building!BI810",
+      "Tab.Building.Constr!I299,R299",
+      "Calc.Building.Set!CD2627,CD2632",
+      "Tab.Building.Measure!P243:Q244"
+    ],
+    "baseline": "Retain the intentional 50 mm under-slab EPS and 120 mm concrete family from evidence/sfh_baseline_user_stacks.txt(P03); replace the former 10 mm timber finish with a 40 mm bonded cement finish to avoid burying organic finish beneath the overlay. All depths remain declared nominal defaults.",
+    "chronology_source_url": "https://lup.lub.lu.se/student-papers/record/2760007/file/8961451.pdf",
+    "chronology_locator": "Modin and Sundberg 2012, EPS i grund, printed p. 6 / PDF p. 16; summary PDF p. 3",
+    "chronology_scope": "Literature review places foam under slabs in the 1970s, with compressed mineral wool still dominant and EPS/XPS occasional substitutes. 1970 is a representative choice within the era, not an exact first-use claim or a TABULA date requirement. Existing modern EPS100 property grade is a proxy.",
+    "renovation": "Reuse warm-side 40/45 mm EPS at lambda 0.036 and 50 mm floating cement finish. Retain all original components; floor rise 90/95 mm.",
+    "finish_scope": "Shared Generic HW Concrete gives a thermal/carbon proxy, not an exact proprietary screed. Reinforcement, separation, moisture/vapour control, load distribution and clearances require project checks.",
+    "finish_source": "https://www.se.weber/files/se/2022-04/PDS-SE-weber_lggningsbruk_C2530.pdf",
+    "boundary": "Soil-facing slab at grade. TABULA 0.32 and its renovated values include ground effects; nominal layer U-values are not directly accepted against those numbers. Project geometry, soil and boundary method remain declared inputs."
+  },
+  "windows": {
+    "existing": {
+      "u_value": 2.3,
+      "shgc": 0.56,
+      "vt": 0.525,
+      "selection": "Unchanged accepted TABULA original default."
+    },
+    "standard": {
+      "u_value": 0.9,
+      "shgc": 0.35,
+      "vt": 0.455,
+      "selection": "Unchanged shared replacement."
+    },
+    "advanced": {
+      "u_value": 0.76,
+      "shgc": 0.42,
+      "vt": 0.42,
+      "selection": "Reuse accepted SF/MF replacement matching TABULA measure row 227; whole-aperture optics use frame fraction 0.3 and declared VT default."
+    }
+  },
+  "validation": "Organized independent cases/sf_se02.json controls expected source values and declared construction defaults. Source benchmark tables and 20% tolerance are unchanged; all calculations run forward. Known carbon-module gaps remain unknown.",
+  "carbon_review": {
+    "loft_epd": {
+      "identifier": "EPD-IES-0013025:003",
+      "url": "https://www.environdec.com/library/epd13025",
+      "download_url": "https://api.prod.environdec.com/api/v1/EPDLibrary/Files/EPDs/4a5b720c-d2ce-42dc-6878-08dc3c6d662d/Documents",
+      "pdf_sha256": "ed5c81bf74eeffd7726f4562154dbd3f35e830b70326d276a8222f69fb5657a4",
+      "document_version": 2,
+      "updated": "2024-05-24",
+      "valid_until": "2029-03-20",
+      "locators": {
+        "density": "printed p. 6",
+        "declared_mass_and_installation": "printed p. 7, declared unit and A4/A5 installation scenarios",
+        "GWP-GHG": "printed p. 11, additional indicator row and footnote [2]",
+        "excluded_site_processes": "printed p. 8, construction-process scope exclusions"
+      },
+      "declared_unit": {
+        "area_m2": 1,
+        "depth_m": 0.1,
+        "mass_kg": 2
+      },
+      "source_GWP_GHG_kgCO2e_per_declared_unit": {
+        "A1A3": 1.56,
+        "A4": 0.151,
+        "A5": 0.0877
+      },
+      "imported_kgCO2e_per_kg": {
+        "A1A3": 0.78,
+        "A4": 0.0755,
+        "A5": 0.04385
+      },
+      "selection": "Use the separately declared GWP-GHG row, described by its footnote as EN 15804+A1-equivalent. Divide each source value by the declared 2 kg mass.",
+      "thermal_scope": "The EPD density is 20 kg/m³ ±10%. Its conductivity is 0.038 W/(m K); the separately supported selected thermal grade remains 0.037. No thermal properties or layer depths were changed.",
+      "scenario": "A4 assumes 600 km transport. Product A5 includes 2% material loss, packaging treatment and 0.02 MJ/kg installation electricity. Additional site processes and ancillary products remain project inputs.",
+      "pdf_size_bytes": 667308,
+      "capture_verification": "The official registry download is byte-identical to the reviewed manufacturer PDF; SHA256 and file size identify the source without bundling the PDF."
+    },
+    "grade_density_checks": "The organized construction-rules fixture selects the published EPS 100 density from the retained Boverket description and the declared Supafil density. Exact source identity, quotation, units and volume basis must agree; existing source conversions take precedence.",
+    "boverket_A5_scope": {
+      "product_data": "Generic product A5.1 covers construction waste. It remains separate from the unavailable full A5 value.",
+      "project_data": "Site electricity, heat and fuels require project quantities, supported by supplier or contractor records. A product EPD installation scenario does not supply all building-site emissions; reconcile installation-energy scope before adding project totals.",
+      "sources": [
+        "https://www.boverket.se/sv/klimatdeklaration/klimatdatabas/om-klimatdatabas/",
+        "https://www.boverket.se/sv/klimatdeklaration/gor-sa-har/underlag/indata-om-energi/"
+      ],
+      "source_locators": {
+        "product_data": "Klimatdatabasens innehåll",
+        "project_site_energy": "Detta ska redovisas från bygg- och installationsprocessens modul A5 energi; Dessa underlag kan användas för A5 energi"
+      },
+      "code_scope": "A5.1 is the retained API module identifier. The public guidance describes its product scope as A5 construction waste, including associated transport; separate energy resources support site-energy calculations.",
+      "unknown_full_A5_must_remain_null": true
+    },
+    "remaining_limits": [
+      "Unknown retained windboard carbon remains unquantified; new installation, removal or baseline-inclusive LCA still requires suitable factors.",
+      "Original cladding, battens and ventilation-cavity quantities remain project details.",
+      "Areal underlay mass is not a comparable volumetric density: the 3 mm model gives 2.79 kg/m², while the source declares 4.0 kg/m² without thickness."
+    ]
+  }
+}

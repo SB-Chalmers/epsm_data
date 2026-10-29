@@ -30,6 +30,40 @@ def test_selection_keeps_sveby_and_ben_dhw_separate():
         select_dhw_profile("multi_family")
 
 
+@pytest.mark.parametrize("era, setpoint", [("SE.01", 22.2), ("SE.02", 22.6), ("SE.05", 23.0), ("SE.07", 23.0)])
+def test_measured_use_substitutes_betsi_setpoints_by_era(era, setpoint):
+    from epsm_data import select_operating_profile
+
+    sveby = select_operating_profile("multi_family")
+    measured = select_operating_profile("multi_family", standard="measured", era=era)
+    assert measured.values["use"]["heating_setpoint_c"] == setpoint
+    assert sveby.values["use"]["heating_setpoint_c"] == 21.0
+    assert measured.profile_id == f"epsm.measured_use.v1.multi_family.{era}"
+    assert measured.values["measured_use"]["base_profile_id"] == sveby.profile_id
+    assert measured.values["measured_use"]["ventilation"]["S"]["total_air_change_ach"] == 0.39
+    unchanged = {k: v for k, v in measured.values["use"].items() if k != "heating_setpoint_c"}
+    assert unchanged == {k: v for k, v in sveby.values["use"].items() if k != "heating_setpoint_c"}
+    assert OperatingProfile.from_dict(json.loads(json.dumps(measured.to_dict()))) == measured
+
+
+def test_measured_office_ventilation_and_explicit_selection_rules():
+    from epsm_data import available_operating_profiles, select_operating_profile
+
+    office = select_operating_profile("office", standard="measured")
+    assert office.values["use"]["mechanical_vent_l_s_m2"] == 1.6
+    assert (office.values["operation_inputs"]["ventilation_start_hour"],
+            office.values["operation_inputs"]["ventilation_hours"]) == (6, 14)
+    for building_type in ("single_family", "school"):
+        profile = select_operating_profile(building_type, standard="measured")
+        assert profile.values == select_operating_profile(building_type).values
+        assert "no value adopted" in profile.notes[-1]
+    with pytest.raises(ValueError, match="requires an era"):
+        select_operating_profile("multi_family", standard="measured")
+    with pytest.raises(ValueError, match="does not vary with era"):
+        select_operating_profile("multi_family", era="SE.01")
+    assert "measured_use_v1" not in available_operating_profiles()
+
+
 @pytest.mark.parametrize(
     "building_type,name",
     [

@@ -1,3 +1,6 @@
+RETAINED USER INSTRUCTION / AUTHORING HISTORY
+Reviewed 2026-10-24: original quantities below are preserved. They are not an exact executable specification of every current catalogue state. Current representative choices, boundary roles and source limits are documented in nonresidential_current_recipe_contract.md.
+
 Below is the office recipe structure for all three scenarios. The baseline layers are retained in renovated and advanced scenarios unless an intervention below says otherwise.
 
 The current office archetypes use two baseline families:

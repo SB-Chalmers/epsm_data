@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "decision": "Remove contradictory carbon proxies for retained historic products; keep their thermal definitions and unknown carbon factors. Use existing intervention LCA accounting, not invented historical emissions.",
+  "retained_stock": [
+    {
+      "material_id": "material:24606d33cd33ee52",
+      "name": "Historic coke ash fill",
+      "reason": "No suitable historic coke-ash carbon source was found; expanded clay is a different manufactured material and its former proxy is removed."
+    },
+    {
+      "material_id": "material:622fee5beaa8a10c",
+      "name": "Soft wood-fibre board",
+      "reason": "Hardboard is a different board grade; its former proxy is removed. A better modern wet-process softboard EPD candidate is retained in the evidence material, pending compatible carbon indicators."
+    },
+    {
+      "material_id": "material:d9698d5db7cf2fc0",
+      "name": "Wood Shavings",
+      "reason": "Particleboard includes pressing and binders absent from loose historic shavings; its former proxy is removed. A modern shavings-insulation EPD candidate is retained in the evidence material, pending compatible carbon indicators."
+    }
+  ],
+  "better_candidates": [
+    {
+      "for_material": "material:622fee5beaa8a10c",
+      "name": "STEICO wet-process wood-fibre insulation boards",
+      "reference": "NEPD-10882-10882-2",
+      "url": "https://epdnorway.lca-data.com/datasetdetail/process.xhtml?uuid=0d11078b-f5ab-4898-a2f9-2ff5be116bc9&version=00.00.002",
+      "declared_density_kg_m3": 243,
+      "catalogue_density_kg_m3": 230,
+      "relative_density_difference": 0.053497942386831275,
+      "applicability": "A better softboard product-family candidate than hardboard; still a modern proxy for historic material.",
+      "status": "candidate_only_no_factors_imported"
+    },
+    {
+      "for_material": "material:d9698d5db7cf2fc0",
+      "name": "Baufritz HOIZ wood-shavings insulation",
+      "reference": "BAU-EPD-Baufritz-2025-1-GaBi-Hoiz",
+      "url": "https://www.bau-epd.at/fileadmin/user_upload/epds_Deutsch/BAU-EPD-Baufritz-2025-1-GaBi-Hoiz-20250608-Webseite.pdf",
+      "declared_density_kg_m3": 70,
+      "catalogue_density_kg_m3": 100,
+      "relative_density_difference": 0.42857142857142855,
+      "applicability": "Actual loose shavings product with modern soda/whey treatment; closer product form than particleboard, but density remains a review.",
+      "status": "candidate_only_no_factors_imported"
+    }
+  ],
+  "metric_limitation": "The candidate EPDs publish EN 15804+A2 GWP indicators including biogenic storage. Their negative GWP-total values are not interchangeable with Boverket GWP-GHG AR4. No numeric factors are imported or guessed until that indicator basis is reconciled.",
+  "coke_ash": "No suitable pinned Boverket resource or matching historic coke-ash EPD was found. Modern incinerator bottom ash, LECA granules and LECA blocks are not asserted to be equivalent.",
+  "renovation_accounting": "Retained existing stock is excluded from original production by default in epsm_lca. Actual added/removed material flows determine which factors are needed. Use retained-component additions for insulation packages; replacing a whole element records removal and installation of the whole element.",
+  "strict_cases": "Unknown newly installed, removed, or include-baseline products still produce missing LCA factors. Existing-stock declarations are not non-product exemptions and never supply zero emissions.",
+  "scope": "These three shared material definitions are retained across their current authored states. The validation guard refuses newly introduced, changed or relocated uses."
+}
