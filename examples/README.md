@@ -1,19 +1,39 @@
 # EPSM Data examples
 
-Use Python 3.11 or newer and install this repository's development revision:
-`python -m pip install .`. The profile notebook needs only the installed package
-and a Python notebook kernel. Select that environment's kernel and run each
-notebook from a fresh kernel. No sibling source imports are needed.
+Four short notebooks, in reading order. Each runs offline from the catalogue bundled
+with the package; none needs EPSM Core, a database, a network connection or a
+simulation engine.
 
-| Example | Task and requirements |
-| --- | --- |
-| [01 Operating profiles](01_operating_profiles.ipynb) | Inspect immutable definitions, explicit BEN DHW and portable editing offline; no files are written. |
-| [02 Author an archetype](02_author_archetype.ipynb) | Assemble materials through a composed archetype and round-trip format 4 offline; no files are written. |
-| [03 Catalogue authoring](03_catalogue_authoring.ipynb) | Reuse material/construction/profile definitions and inspect their explicit source bases offline. |
-| [Archetype script](archetype.py) | Inspect a predefined construction archetype. |
-| [Renovation script](renovations.py) | Inspect existing renovation definitions. |
+## Setup
 
-Drawing scripts require the `visualization` extra. `sections.py` uses `Catalogue.assess` for its explicit calibration comparisons; `school_sections.py` uses `Catalogue.source_reference("school_fridhem")` to retain draft evidence labels. The authoring/selection examples use `Catalogue.get` and full format-4 exchange. Source editions are
-recorded on the returned objects; selecting one is an assumption, not a measured
-building observation. Notebook outputs and execution counts are cleared before
-commit. Installed-wheel execution is recorded in the pull request.
+Use Python 3.11 or newer and install the package from this checkout:
+
+```bash
+python -m pip install -e ".[visualization]"
+```
+
+The `visualization` extra adds matplotlib, which only notebook 04 needs. Start Jupyter
+in `examples/` and select the kernel of the environment you installed into. The
+committed notebooks keep their outputs so you can read them without running them.
+
+## Notebooks
+
+1. [Select an archetype](01_select_an_archetype.ipynb). Load the catalogue, see what
+   it covers (four building types, eras SE.01–SE.07, three renovation states, three
+   climate zones) and select the archetype for a building by type, construction year
+   and state. Inspect its U-values, window, infiltration, thermal-bridge assumption
+   and sources.
+2. [Operation and systems](02_operation_and_systems.ipynb). Choose an operating
+   profile (Sveby normal use or measured stock operation by era), the BEN DHW
+   coefficient, a ventilation template for an observed system and the facade
+   window-to-wall ratios.
+3. [Author and edit](03_author_and_edit.ipynb). Build a small archetype from your own
+   materials, edit archetypes without changing the originals, save and restore one as
+   JSON, and export and check the construction handover that EPSM Core reads.
+4. [Renovation states and sections](04_renovation_states_and_sections.ipynb). Compare
+   the existing, standard and advanced states of one archetype, see what each
+   renovation changes and draw the constructions as sections. Needs the
+   `visualization` extra.
+
+`tests/test_examples.py` runs every notebook from a fresh kernel as part of the test
+suite.

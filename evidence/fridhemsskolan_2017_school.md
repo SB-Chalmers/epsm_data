@@ -96,13 +96,15 @@ U=0.1023. The thesis identifies a basement classroom but not its wall build-up.
 
 ## Coverage, acceptance and exports
 
-The shared JSON now retains this construction as an unassigned alternative to
-the canonical School SE.02 recipe. It contributes no catalogue slots. After the
-MF, SF, Office and canonical School completions, recipe coverage and accepted
-catalogue LoD2 are both **864/1080**. The Fridhem draft has open provisional-property, mapping and source-selection
-review items and is **not accepted LoD2**.
+This is an earlier unassigned alternative to the canonical School SE.02 recipe;
+it contributes no current portable catalogue slots. The historical authoring
+workflow reported coverage **864/1080** after its MF, SF, Office and canonical
+School completions. Those historical counters are not the current portable
+catalogue's 28 archetypes/76 configurations/228 climate assignments. The Fridhem
+draft has open provisional-property, mapping and source-selection review items
+and is **not accepted as a canonical period representative**.
 
-Current school LoD1 targets use PUB-003 for wall 0.32, roof 0.15 and ground 0.22;
+The earlier school LoD1 targets used PUB-003 for wall 0.32, roof 0.15 and ground 0.22;
 the period profile supplies window 2.7. Internal wall 1.271 and intermediate floor
 2.190288 are office proxies. PUB-003's ground
 value has an effective-ground interpretation. Fridhem source and layer-only
@@ -113,5 +115,5 @@ and reciprocal order. They carry draft/provisional labels. Native parser success
 means a payload can be read; it does not establish that inferred assemblies,
 optics, ground heat transfer or carbon are source-validated. The portable JSON
 retains detailed assembly annotations. No renovated Fridhem states are inferred;
-canonical period renovations are documented separately in
-[the School completion note](school_lod2_completion.md).
+canonical current period choices and their limits are documented in
+[the current recipe contract](nonresidential_current_recipe_contract.md).

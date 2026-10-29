@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "boverket": {
+      "release": "02.07.000",
+      "records_path": "boverket.json",
+      "sha256": "8894acdfc1c4a45730b77af7f65caacdb8f75a9b851c4af6e74f4583ea030d2c",
+      "kind": "boverket",
+      "record_version_fields": [
+        "Version",
+        "SourceVersion"
+      ],
+      "source_url": "https://api.boverket.se/klimatdatabas/api/Klimat/v2/GetAllResources/02.07.000/en/json",
+      "upstream": {
+        "kind": "boverket_page",
+        "url": "https://www.boverket.se/sv/om-boverket/oppna-data/boverkets-klimatdatabas/"
+      },
+      "format": "boverket_database"
+    },
+    "epd-ies-0005222": {
+      "release": "003",
+      "records_path": "epd-ies-0005222.json",
+      "sha256": "c3b4243045426229e7ee9dcf84b0ba34a2de03be11ac1cc3063362c20be957b7",
+      "kind": "carbon_reference",
+      "source_url": "https://www.environdec.com/library/epd5222"
+    },
+    "epd-ies-0013025": {
+      "release": "003",
+      "records_path": "epd-ies-0013025.json",
+      "sha256": "7207762e561fed6f0a48c12e135036db1af6c9af4bd91029b00db42c4cd5db9c",
+      "kind": "carbon_reference",
+      "source_url": "https://www.environdec.com/library/epd13025"
+    },
+    "epsm-custom": {
+      "release": "0.9.0",
+      "records_path": "custom_thermal.json",
+      "sha256": "82c79d727116dcbd02f5cb35280f636ce7d4ee0c4a7b451717097b27b14a6b40",
+      "kind": "epsm_authored"
+    }
+  }
+}

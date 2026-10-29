@@ -14,78 +14,109 @@ offline, without Core, a database or a simulation engine.
 **[Explore the EPSM platform →](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)**
 <!-- /EPSM introduction -->
 
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/actions/workflows/ci.yml) [![Releases](https://img.shields.io/badge/releases-GitHub-181717?logo=github&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/releases) [![Issues](https://img.shields.io/badge/issues-GitHub-181717?logo=github&logoColor=white)](https://github.com/SB-Chalmers/epsm_data/issues)
+EPSM Data is a Python library and the catalogue of representative Swedish
+buildings (LoD2 archetypes) for the EPSM platform. It serves researchers and
+developers who need typical constructions, operating profiles and renovation
+states for a Swedish building type and construction era. It has no runtime
+dependencies and works offline. It owns:
 
-## From materials to a construction set
+- **Construction classes** shared with Core: Material → Layer → Component →
+  Element / Window → ConstructionSet → Archetype.
+- **The catalogue**: four building types, eras SE.01–SE.07, three renovation
+  states and three climate zones (228 assignments of 76 configurations).
+- **Operating profiles, system templates, renovation definitions**, pinned
+  thermal and carbon **sources**, and **sanity checks** against TABULA.
 
-![EPSM data model: sourced materials, layers, components, elements and building archetypes](docs/assets/welcome/Figure_03_epsm_data_model.png)
+Geometry, buildings and simulation belong to `epsm_core` and `epsm`; life-cycle
+assessment to `epsm_lca`; stock records to `epsm_db`.
 
-Follow the reusable definitions from a sourced material to a construction set.
-Core supplies the actual building geometry and quantities. The
-[platform guide](https://github.com/SB-Chalmers/epsm/blob/main/docs/platform.md)
-shows how these definitions feed energy and climate calculations.
+## Install
 
-## Getting started
-
-Use Python 3.11 or newer. From a terminal on macOS or Linux:
+Requires Python 3.11 or newer. Optional extras: `visualization` for section
+drawings and `geography` for rebuilding climate-zone boundaries.
 
 ```sh
-git clone https://github.com/SB-Chalmers/epsm_data.git
-cd epsm_data
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -e .
-python examples/archetype.py
 ```
 
-The example authors and serializes an illustrative construction entirely offline.
-To select a bundled archetype:
+## Quick start
 
 ```python
-from epsm_data import Catalogue
+from epsm_data import Catalogue, climate_zone_for_point
 
 catalogue = Catalogue.load()
-archetype = catalogue.for_year("multi_family", 1970)
-construction = archetype.construction_set
+archetype = catalogue.for_year("multi_family", 1970, state="existing")
+print(archetype.envelope_u_values["EXT_WALL"])  # W/(m² K)
+print(catalogue.completeness("mf_se02", state="existing"))
+print(catalogue.sanity_report()["summary"])
+print(climate_zone_for_point(674571.866, 6580743.008))  # SE.Zone3
 ```
-
-Catalogue records retain their sources and assumptions. Core assigns definitions
-to building geometry; EPSM owns catalogue-to-building application.
 
 ## Documentation
 
-- [Catalogue inspection and reuse](docs/catalogue-inspection.md)
-- [Archetype authoring and exchange](docs/archetype-authoring.md)
-- [Operating profiles](docs/operating-profiles.md)
-- [Examples and notebooks](examples/README.md)
-- [Project guide and development](docs/guide.md)
+- [Catalogue](docs/catalogue.md): types, eras, states, selection, composition, Core handover
+- [Authoring](docs/authoring.md): write, edit and save archetypes; apply them to a building
+- [Profiles](docs/profiles.md): operating profiles, ventilation templates, window-to-wall ratios
+- [Renovation catalogue](docs/renovation-catalogue.md): renovation candidates, payloads, products, costs and the shared contract
+- [Sources](docs/sources.md): the pinned source cache, thermal and carbon records
+- [Sanity checks](docs/sanity.md): the screens, the report and the `epsm-catalogue` command
+- [Climate zones](docs/climate-zones.md): offline location-to-zone lookup
+- [Validation](docs/validation.md): the measured-data validation contract
 
-## License
+Notebooks: [01 Select an archetype](examples/01_select_an_archetype.ipynb),
+[02 Operation and systems](examples/02_operation_and_systems.ipynb),
+[03 Author and edit](examples/03_author_and_edit.ipynb) and
+[04 Renovation states and sections](examples/04_renovation_states_and_sections.ipynb).
 
-EPSM-owned software and documentation use the [MIT license](LICENSE).
-Source datasets, catalogue evidence and third-party material retain their
-providers' terms and attribution; MIT does not grant new redistribution rights
-to those sources.
+## Layout
 
-## People and support
+```text
+src/epsm_data/
+├── domain/          shared construction classes, Material to Archetype
+├── catalogue/       selection, keys, authoring, serialization, Core handover
+├── profiles.py      operating profiles (Sveby, measured use, BEN hot water)
+├── templates.py     ventilation templates and facade window ratios
+├── renovation/      renovation measures and the operations they make
+├── sanity/          read-only screens of the catalogue
+├── sources/         the pinned source cache and its records
+├── datasets/        bundled data: lod2, profiles, sources, sanity, climate_zones
+├── climate_zones.py location-to-zone lookup
+├── carbon.py        retained-stock carbon scope
+├── plotting.py      construction section drawings
+└── cli.py           the epsm-catalogue command
+```
 
-Developed at Chalmers University of Technology as part of the EPSM research platform.
+`evidence/` holds source documents; it is not loaded at run time.
 
-**Funding**: Swedish Energy Agency (Project ID: P2024-04053)
+## Development
 
-**Partners**:
+```sh
+python -m pip install -e '.[dev]'
+python -m pytest -q
+python -m ruff check src tests examples
+epsm-catalogue --sanity --check
+```
 
-- Lindholmen Science Park AB
-- Sinom AB
-- Stiftelsen Chalmers Industriteknik
+Edit the catalogue in `src/epsm_data/datasets/lod2/catalogue.json` through a
+pull request. Reuse IDs for identical compositions, keep units, layer order,
+fractions and source locators, and check every construction that shares a changed
+definition. After a deliberate physical change, refresh the regression snapshot
+`tests/fixtures/lod2-physics.json` with `python tests/test_catalogue_physics.py`
+and review both diffs together.
 
-**Team**:
+Pull requests run [ci.yml](.github/workflows/ci.yml) (Ruff, tests, wheel build).
+Before a release, run the manual [tests.yml](.github/workflows/tests.yml), which
+also covers both extras. The library adds no logging handler.
 
-- **Lead Developer**: Sanjay Somanath
-- **Principal Investigator**: Alexander Hollberg
-- **Contributors**: Yinan Yu, Dag Wästberg
+## License and attribution
 
-<p align="center">
-  <img src="docs/assets/welcome/logos.png" width="100%" alt="Chalmers University of Technology, Chalmers Industriteknik, Sinom, Lindholmen Science Park and Swedish Energy Agency logos">
-</p>
+EPSM-owned software and documentation use the [MIT license](LICENSE). Boverket,
+EPD and other third-party source data keep their providers' terms and
+attribution.
+
+Developed at Chalmers University of Technology for the EPSM research platform.
+Funded by the Swedish Energy Agency, project P2024-04053. Partners: Lindholmen
+Science Park AB, Sinom AB and Stiftelsen Chalmers Industriteknik.
+
+Lead developer: Sanjay Somanath. Principal investigator: Alexander Hollberg.
+Contributors: Yinan Yu and Dag Wästberg.

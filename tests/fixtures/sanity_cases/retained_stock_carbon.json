@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent occurrence and reporting cases for the narrow retained-existing-stock carbon scope. Unknown factors are never replaced by zero.",
+  "declaration": {
+    "status": "retained_existing_unmapped",
+    "reason": "Original historical material is retained unchanged; suitable historic carbon data is unavailable."
+  },
+  "stock_materials": [
+    {
+      "id": "material:24606d33cd33ee52",
+      "archetypes": [
+        "mf_se01"
+      ]
+    },
+    {
+      "id": "material:622fee5beaa8a10c",
+      "archetypes": [
+        "mf_se01",
+        "mf_se02",
+        "mf_se03",
+        "mf_se04",
+        "mf_se05",
+        "mf_se06",
+        "mf_se07",
+        "sf_se02",
+        "sf_se03",
+        "sf_se04",
+        "sf_se05"
+      ]
+    },
+    {
+      "id": "material:d9698d5db7cf2fc0",
+      "archetypes": [
+        "mf_se01",
+        "office_se01",
+        "school_se01",
+        "sf_se01"
+      ]
+    }
+  ],
+  "synthetic": {
+    "materials": {
+      "stock": {
+        "kind": "opaque",
+        "name": "Original loose shavings",
+        "carbon_assessment": {
+          "status": "retained_existing_unmapped",
+          "reason": "Retained original stock."
+        }
+      },
+      "new": {
+        "kind": "opaque",
+        "name": "New insulation"
+      }
+    },
+    "layers": {
+      "stock_layer": {
+        "thickness": 0.1,
+        "materials": [
+          {
+            "material_id": "stock",
+            "area_fraction": 1,
+            "thickness": 0.1
+          }
+        ]
+      },
+      "new_layer": {
+        "thickness": 0.2,
+        "materials": [
+          {
+            "material_id": "new",
+            "area_fraction": 1,
+            "thickness": 0.2
+          }
+        ]
+      }
+    },
+    "components": {
+      "original_outer": {
+        "application": "EXT_WALL",
+        "layers": [
+          {
+            "layer_id": "new_layer",
+            "position": 0
+          }
+        ]
+      },
+      "original_stock": {
+        "application": "EXT_WALL",
+        "layers": [
+          {
+            "layer_id": "stock_layer",
+            "position": 0
+          }
+        ]
+      },
+      "addition": {
+        "application": "EXT_WALL",
+        "layers": [
+          {
+            "layer_id": "new_layer",
+            "position": 0
+          }
+        ]
+      }
+    },
+    "elements": {
+      "original": {
+        "role": "EXT_WALL",
+        "components": [
+          "original_outer",
+          "original_stock"
+        ]
+      },
+      "renovated": {
+        "role": "EXT_WALL",
+        "components": [
+          "addition",
+          "original_outer",
+          "original_stock"
+        ]
+      }
+    },
+    "construction_sets": {
+      "baseline": {
+        "elements": {
+          "EXT_WALL": "original"
+        }
+      },
+      "renovation": {
+        "elements": {
+          "EXT_WALL": "renovated"
+        }
+      }
+    },
+    "archetypes": {
+      "example": {
+        "states": {
+          "existing": {
+            "construction_set_id": "baseline"
+          },
+          "standard": {
+            "construction_set_id": "renovation"
+          },
+          "advanced": {
+            "construction_set_id": "renovation"
+          }
+        }
+      }
+    }
+  }
+}

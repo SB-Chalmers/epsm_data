@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "purpose": "Ventilation templates for every archetype configuration, read by epsm_core through BuildingArchetype.hvac_template. Any archetype may use any system: a building's observed system (for example its EPC ventilation type) selects the template, and the era default applies only when no observed system is known. Airflow only: operating profiles supply occupied ventilation rates and envelope_performance supplies infiltration.",
+  "basis": "EPSM assumption from typical Swedish practice: self-draught (S) in older buildings, mechanical exhaust (F) as the residential norm from the 1960s-1970s, supply/exhaust (FT) in 1960s-1970s premises, and heat recovery (FTX) in premises from the 1980s and in most new construction after the 2006 energy rules. The era default is used only when a building's own ventilation system is unknown. Advanced renovation installs FTX; Standard renovation keeps the existing system. Not measured stock shares.",
+  "templates": {
+    "epsm.ventilation.S": {
+      "airflow": {
+        "topology": "S",
+        "mechanical_vent_l_s_m2": 0,
+        "natural_exchange_ach": 0.5,
+        "sensible_recovery_effectiveness": 0
+      },
+      "note": "Self-draught. 0.5 ACH is the BBR minimum 0.35 L/(s m2) at a 2.5 m room height; actual self-draught flow varies with weather."
+    },
+    "epsm.ventilation.F": {
+      "airflow": {
+        "topology": "F",
+        "sensible_recovery_effectiveness": 0
+      },
+      "note": "Mechanical exhaust without heat recovery; flow from the operating profile."
+    },
+    "epsm.ventilation.FT": {
+      "airflow": {
+        "topology": "FT",
+        "sensible_recovery_effectiveness": 0
+      },
+      "note": "Mechanical supply and exhaust without heat recovery; flow from the operating profile."
+    },
+    "epsm.ventilation.FTX_060": {
+      "airflow": {
+        "topology": "FTX",
+        "sensible_recovery_effectiveness": 0.6
+      },
+      "note": "Early heat recovery (cross-flow plate or run-around coil), effectiveness 0.6."
+    },
+    "epsm.ventilation.FTX_075": {
+      "airflow": {
+        "topology": "FTX",
+        "sensible_recovery_effectiveness": 0.75
+      },
+      "note": "Typical rotary or counter-flow recovery 2006-2021, effectiveness 0.75."
+    },
+    "epsm.ventilation.FTX_080": {
+      "airflow": {
+        "topology": "FTX",
+        "sensible_recovery_effectiveness": 0.8
+      },
+      "note": "Current recovery for new construction and advanced renovation, effectiveness 0.8."
+    }
+  },
+  "renovation": {
+    "standard": "existing",
+    "advanced": "FTX_080"
+  },
+  "default_by_era": {
+    "single_family": {
+      "SE.01": "S",
+      "SE.02": "S",
+      "SE.03": "F",
+      "SE.04": "F",
+      "SE.05": "F",
+      "SE.06": "FTX_075",
+      "SE.07": "FTX_080"
+    },
+    "multi_family": {
+      "SE.01": "S",
+      "SE.02": "F",
+      "SE.03": "F",
+      "SE.04": "F",
+      "SE.05": "F",
+      "SE.06": "FTX_075",
+      "SE.07": "FTX_080"
+    },
+    "office": {
+      "SE.01": "S",
+      "SE.02": "FT",
+      "SE.03": "FT",
+      "SE.04": "FTX_060",
+      "SE.05": "FTX_060",
+      "SE.06": "FTX_075",
+      "SE.07": "FTX_080"
+    },
+    "school": {
+      "SE.01": "S",
+      "SE.02": "F",
+      "SE.03": "FT",
+      "SE.04": "FTX_060",
+      "SE.05": "FTX_060",
+      "SE.06": "FTX_075",
+      "SE.07": "FTX_080"
+    }
+  },
+  "observed_ftx_by_era": {
+    "SE.01": "FTX_075",
+    "SE.02": "FTX_075",
+    "SE.03": "FTX_060",
+    "SE.04": "FTX_060",
+    "SE.05": "FTX_060",
+    "SE.06": "FTX_075",
+    "SE.07": "FTX_080"
+  },
+  "observed_rule": "An observed S, F or FT system is used as-is in Existing and Standard. An observed FTX is assumed retrofitted (0.75) in buildings before 1976, original early recovery (0.60) in 1976-2005, and period recovery from 2006. Advanced always installs FTX 0.80."
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "crs": "EPSG:3006",
+  "description": "Manually selected approximate city-centre positions; expected zones independently derived from declared county mapping, not calculated from boundary polygons under test. Coordinates transformed once from the stated WGS84 positions with pyproj always_xy=True.",
+  "mapping_source_url": "https://rinfo.boverket.se/BFS2011-6/pdf/BFS2011-26.pdf",
+  "mapping_source_locator": "BBR 19 section 9:12, printed pages 138–139",
+  "cases": [
+    {
+      "name": "Stockholm",
+      "wgs84_longitude": 18.0686,
+      "wgs84_latitude": 59.3293,
+      "easting": 674571.866,
+      "northing": 6580743.008,
+      "county_code": "01",
+      "expected_zone": "SE.Zone3"
+    },
+    {
+      "name": "Gothenburg",
+      "wgs84_longitude": 11.9746,
+      "wgs84_latitude": 57.7089,
+      "easting": 319758.02,
+      "northing": 6400326.036,
+      "county_code": "14",
+      "expected_zone": "SE.Zone3"
+    },
+    {
+      "name": "Malmö",
+      "wgs84_longitude": 13.0038,
+      "wgs84_latitude": 55.605,
+      "easting": 374243.759,
+      "northing": 6163926.553,
+      "county_code": "12",
+      "expected_zone": "SE.Zone3"
+    },
+    {
+      "name": "Umeå",
+      "wgs84_longitude": 20.263,
+      "wgs84_latitude": 63.8258,
+      "easting": 758803.435,
+      "northing": 7088280.798,
+      "county_code": "24",
+      "expected_zone": "SE.Zone1"
+    },
+    {
+      "name": "Luleå",
+      "wgs84_longitude": 22.1567,
+      "wgs84_latitude": 65.5848,
+      "easting": 829524.213,
+      "northing": 7292404.416,
+      "county_code": "25",
+      "expected_zone": "SE.Zone1"
+    },
+    {
+      "name": "Östersund",
+      "wgs84_longitude": 14.6357,
+      "wgs84_latitude": 63.1792,
+      "easting": 481660.55,
+      "northing": 7005607.441,
+      "county_code": "23",
+      "expected_zone": "SE.Zone1"
+    },
+    {
+      "name": "Sundsvall",
+      "wgs84_longitude": 17.3069,
+      "wgs84_latitude": 62.3908,
+      "easting": 619260.25,
+      "northing": 6919844.804,
+      "county_code": "22",
+      "expected_zone": "SE.Zone2"
+    },
+    {
+      "name": "Gävle",
+      "wgs84_longitude": 17.1413,
+      "wgs84_latitude": 60.6749,
+      "easting": 616981.569,
+      "northing": 6728483.287,
+      "county_code": "21",
+      "expected_zone": "SE.Zone2"
+    },
+    {
+      "name": "Falun",
+      "wgs84_longitude": 15.6355,
+      "wgs84_latitude": 60.6065,
+      "easting": 534795.542,
+      "northing": 6719126.956,
+      "county_code": "20",
+      "expected_zone": "SE.Zone2"
+    },
+    {
+      "name": "Karlstad",
+      "wgs84_longitude": 13.5036,
+      "wgs84_latitude": 59.3793,
+      "easting": 414980.422,
+      "northing": 6583244.033,
+      "county_code": "17",
+      "expected_zone": "SE.Zone2"
+    },
+    {
+      "name": "Visby",
+      "wgs84_longitude": 18.2948,
+      "wgs84_latitude": 57.6348,
+      "easting": 696685.541,
+      "northing": 6392831.258,
+      "county_code": "09",
+      "expected_zone": "SE.Zone3"
+    },
+    {
+      "name": "Oslo (outside Sweden)",
+      "wgs84_longitude": 10.7522,
+      "wgs84_latitude": 59.9139,
+      "easting": 262560.482,
+      "northing": 6649443.584,
+      "county_code": null,
+      "expected_zone": null
+    }
+  ]
+}

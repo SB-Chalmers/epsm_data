@@ -1,3 +1,6 @@
+RETAINED USER INSTRUCTION / AUTHORING HISTORY
+Reviewed 2026-10-24: original quantities below are preserved. They are not an exact executable specification of every current catalogue state. Current representative choices, boundary roles and source limits are documented in nonresidential_current_recipe_contract.md.
+
 Below is the current **school baseline, renovated and advanced structure**, with the material crosswalk. The baseline stacks are the same school families described earlier; renovated and advanced scenarios derive from those baselines through explicit interventions.
 
 The source-matrix window assumptions should be used as the school baseline central values:

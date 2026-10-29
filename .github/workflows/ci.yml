@@ -25,5 +25,12 @@ jobs:
       run: python -m pip install '.[dev]'
     - name: Run offline development checks
       run: |
-        python -m pytest -q tests/test_catalogue.py tests/test_current_catalogue.py tests/test_catalogue_authoring.py tests/test_profiles.py tests/test_operation_logging.py
+        python -m ruff check src tests examples
+        python -m pytest -q
         python -m build --wheel
+    - name: Report current catalogue findings
+      run: python -m epsm_data.cli --sanity > catalogue-sanity-report.json
+    - uses: actions/upload-artifact@v4
+      with:
+        name: catalogue-sanity-report
+        path: catalogue-sanity-report.json

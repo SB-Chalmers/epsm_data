@@ -16,7 +16,18 @@ from typing import Tuple
 from .component import Component
 from .editing import Editable
 from .enums import BuildingElement
+from .material import CarbonReference, _validate_carbon_reference
 
+_INTERIOR_ROLES = frozenset({
+    BuildingElement.INT_WALL_LOADBEARING,
+    BuildingElement.INT_WALL_NONLOADBEARING,
+    BuildingElement.INTERMEDIATE_FLOOR,
+})
+
+
+def surface_resistances(application):
+    """(Rsi, Rse) per EN ISO 6946; internal elements use a symmetric 0.13 boundary."""
+    return 0.13, 0.13 if BuildingElement(application) in _INTERIOR_ROLES else 0.04
 
 @dataclass(frozen=True)
 class Element(Editable):
@@ -25,7 +36,7 @@ class Element(Editable):
     Parameters
     ----------
     name, archetype : str
-        Element identity and owning archetype label.
+        Element name and optional authoring context; catalogue definitions are shared.
     age : int or None
         Historical construction calendar year, not duration. None means unknown.
     components : tuple of Component
@@ -45,26 +56,14 @@ class Element(Editable):
         object.__setattr__(self, "application", BuildingElement(self.application))
         if any(not isinstance(c, Component) or c.application != self.application for c in self.components):
             raise ValueError("Every component must match its element role")
-        if len({c.name for c in self.components}) != len(self.components):
-            raise ValueError("Component names must be unique within an element")
+        # Repeated references are distinct ordered occurrences of one definition.
         if not self.components:
             raise ValueError(f"Element '{self.name}': missing components.")
 
     @property
     def r_total(self) -> float:
         """Total thermal resistance including boundary resistances [m2 K/W]."""
-        rsi = 0.13
-        # Interior elements get symmetric boundary; exterior get 0.04
-        rse = (
-            0.13
-            if self.application
-            in (
-                BuildingElement.INT_WALL_LOADBEARING,
-                BuildingElement.INT_WALL_NONLOADBEARING,
-                BuildingElement.INTERMEDIATE_FLOOR,
-            )
-            else 0.04
-        )
+        rsi, rse = surface_resistances(self.application)
         return rsi + sum(c.r_sum for c in self.components) + rse
 
     @property
@@ -112,7 +111,7 @@ class WindowElement(Editable):
     Parameters
     ----------
     name, archetype : str
-        Element identity and owning archetype label.
+        Element name and optional authoring context; catalogue definitions are shared.
     u_value : float
         Whole-window thermal transmittance in W/(m² K).
     shgc : float
@@ -129,6 +128,7 @@ class WindowElement(Editable):
     shgc: float  # solar heat gain coefficient
     vt: float = 0.65  # visible transmittance (default for 2-pane clear)
     boverket_id: int | None = None  # Klimatdatabas resource ID
+    carbon_reference: CarbonReference | None = None
     # Future: glazing_layers: tuple[GlazingLayer, ...] = ()
 
     application: BuildingElement = field(
@@ -137,6 +137,7 @@ class WindowElement(Editable):
     )
 
     def __post_init__(self) -> None:
+        _validate_carbon_reference(self.carbon_reference, self.boverket_id)
         if isinstance(self.u_value, bool) or not isfinite(self.u_value) or self.u_value <= 0:
             raise ValueError(f"WindowElement '{self.name}': U-value must be positive.")
         if not 0 < self.shgc <= 1:
@@ -161,4 +162,5 @@ class WindowElement(Editable):
             "shgc": round(self.shgc, 4),
             "vt": round(self.vt, 4),
             "boverket_id": self.boverket_id,
+            "carbon_reference": self.carbon_reference.to_dict() if self.carbon_reference else None,
         }

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "archetype_id": "mf_se01",
+  "source": {
+    "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "workbook_sha256": "4577a3dd37fb30eb6695623bffe9a7a140fbbd3398413b6cb6dcf3c2127685c1",
+    "packages": {
+      "standard": "Calc.Building.Set!BY2641:CH2641",
+      "advanced": "Calc.Building.Set!BY2646:CH2646"
+    },
+    "wall": {
+      "standard": "Tab.Building.Measure!P221:T221",
+      "advanced": "Tab.Building.Measure!P226:T226",
+      "brick_thickness_m": 0.12,
+      "brick_conductivity_w_mk": 0.6,
+      "insulation_conductivity_w_mk": 0.033
+    },
+    "attic": {
+      "standard": "Tab.Building.Measure!P236:Q236",
+      "advanced": "Tab.Building.Measure!P242:Q242",
+      "conductivity_w_mk": 0.037
+    },
+    "floor": {
+      "standard": "Tab.Building.Measure!P243:Q243",
+      "advanced": "Tab.Building.Measure!P244:Q244",
+      "conductivity_w_mk": 0.036
+    },
+    "window": {
+      "standard": "Tab.Building.Measure!L229,V229",
+      "advanced": "Tab.Building.Measure!L227,V227",
+      "frame_fraction": "Calc.Building.Set!GS2641,GS2646; Tab.BoundaryCond!U13 (EU.MUH default)"
+    }
+  },
+  "materials": {
+    "brick": "material:17a12dbe594a2f8a",
+    "loft": "material:27e5e8c65dde5e1f",
+    "floor_eps": "material:a72ef018595b5849",
+    "screed_proxy": "material:698f410136a39689",
+    "facade_insulation": "material:a224c4024cbc6c40"
+  },
+  "states": {
+    "standard": {
+      "construction_set_id": "construction_set:6cd9cf9bc2965e27",
+      "added_insulation_m": {
+        "EXT_WALL": 0.05,
+        "TOP_FLOOR": 0.2,
+        "GROUND_FLOOR": 0.04
+      },
+      "new_brick_m": 0.12,
+      "completion_screed_m": 0.03,
+      "window": {
+        "u_value_w_m2k": 0.9,
+        "glazing_g": 0.5,
+        "frame_fraction": 0.3,
+        "shgc": 0.35,
+        "assumed_glazing_vt": 0.65,
+        "vt": 0.455,
+        "boverket_id": "6000000104"
+      },
+      "element_ids": {
+        "EXT_WALL": "element:d7bd3aa6cf634243",
+        "TOP_FLOOR": "element:0699ac6dd22a84bc",
+        "GROUND_FLOOR": "element:9c97328583c59646",
+        "WINDOW": "element:310146bffcb423bf"
+      }
+    },
+    "advanced": {
+      "construction_set_id": "construction_set:795905a1f890e576",
+      "added_insulation_m": {
+        "EXT_WALL": 0.3,
+        "TOP_FLOOR": 0.5,
+        "GROUND_FLOOR": 0.045,
+        "BASEMENT_WALL": 0.04
+      },
+      "new_brick_m": 0.12,
+      "completion_screed_m": 0.03,
+      "window": {
+        "u_value_w_m2k": 0.76,
+        "glazing_g": 0.6,
+        "frame_fraction": 0.3,
+        "shgc": 0.42,
+        "assumed_glazing_vt": 0.6,
+        "vt": 0.42,
+        "boverket_id": "6000000106"
+      },
+      "element_ids": {
+        "EXT_WALL": "element:e25fa252ed3b8442",
+        "TOP_FLOOR": "element:4046f96c296770b6",
+        "GROUND_FLOOR": "element:70411c9a374509e9",
+        "WINDOW": "element:84b4a3b3e472e6c2",
+        "BASEMENT_WALL": "element:aad7e87939d3fe40"
+      }
+    }
+  },
+  "assumptions": {
+    "brick": "TABULA includes new 120 mm brick directly in nominal resistance. No ventilated cavity is modelled; support, ties and moisture/drainage interfaces are project details.",
+    "attic": {
+      "property_source": "https://knauf.com/de-DE/p/produkt/supafil-loft-plus-21498_4314",
+      "datasheet": "https://knauf.com/api/download-center/v1/assets/79770817-2dac-406a-95a2-bd960e9fa2ca?download=true",
+      "declared_lambda": 0.037,
+      "german_design_lambda": 0.038,
+      "selected_density_kg_m3": 20,
+      "declared_density_range_kg_m3": [
+        20,
+        23
+      ],
+      "specific_heat_j_kg_k": 1030,
+      "carbon_proxy": "Boverket 6000000005, attic glass blowing wool at 15 kg/m³ and lambda 0.042",
+      "thickness": "TABULA final nominal thermal depth; settlement allowance and deep-fill installation assessment remain required."
+    },
+    "floor": {
+      "placement": "Internal floating overlay above the retained basement slab; the brochure supports warm-side placement, while the EPS/screed completion is an EPSM choice.",
+      "completion_screed_m": 0.03,
+      "support_source": "https://golvnavigator.se/konstruktionsguide/nyproduktion/flytande-golv-pa-isolering/",
+      "eps_source": "https://bewi.com/wp-content/uploads/2025/06/BEWI-EPS-datasheet-0725-2.pdf",
+      "thermal_and_carbon_screed_proxy": "Existing generic concrete, not a verified screed product.",
+      "accessories": "Separator, reinforcement, edges, moisture protection and final finish are unquantified project details.",
+      "original_floor_completion": "Nominal 80 mm cement-finished concrete topping closes the baseline LECA surface and is retained beneath renovation EPS; see evidence/mf_se01_basement_floor_finish.json."
+    },
+    "optics": {
+      "conversion_source": "https://www.osti.gov/servlets/purl/975375",
+      "shgc": "glazing g × (1 − frame fraction), negligible frame gain",
+      "vt": "Selected glazing VT assumptions 0.65/0.60 use prior nominal VT numbers, then multiply by (1 − frame fraction); the prior fields did not independently establish glazing VT, and TABULA makes no VT claim.",
+      "excluded_factors": "Angular correction and external shading are handled by simulation, not multiplied into material SHGC."
+    }
+  },
+  "original_construction_year": 1943,
+  "scope": "Only MF SE.01 standard/advanced and their generic MF fallbacks change. Original fabric and other archetypes are retained.",
+  "removed_orphan_definitions": {
+    "elements": [
+      "element:7ad1e612643e860f",
+      "element:8f34ac874794bf90",
+      "element:99d4c0b528e46d17",
+      "element:dfb3b4e7d782e199"
+    ],
+    "components": [
+      "component:22b215d70fee37e7",
+      "component:b83bab46ec6ff688"
+    ],
+    "layers": [
+      "layer:0fe0d853fd63fe29"
+    ]
+  },
+  "boundary_resolution": {
+    "source_note": "evidence/mf_se01_ground_boundaries.json",
+    "physical_roles": "Basement slab and buried basement wall of a conditioned basement, both soil-facing.",
+    "advanced_wall_measure": "40 mm internal stone-wool addition implemented; 13 mm gypsum is an explicit EPSM completion.",
+    "remaining_not_assessed": "Ground-effective U acceptance remains unavailable because source U conventions are incompatible and project ground calculation inputs are absent."
+  }
+}

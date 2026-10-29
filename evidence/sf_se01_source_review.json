@@ -1,0 +1,95 @@
+{
+  "archetype_id": "sf_se01",
+  "representative_year": 1950,
+  "selection": "Use TABULA original AAC-wall and slab-on-ground families, with independently supported period attic construction. These form a representative model, not a documented individual house.",
+  "retained_alternative": "evidence/sfh_baseline_user_stacks.txt retains the former timber-wall/suspended-floor model as source material; it is a different representative family.",
+  "wall": {
+    "source_url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip",
+    "source_locators": [
+      "Tab.Building!BF809",
+      "Tab.Building.Constr!K295,O295:R295",
+      "Calc.Building.Set!CA2626,CA2631",
+      "Tab.Building.Measure!P213:P214"
+    ],
+    "original": "250mm AAC blocks, roughcast outside and smooth plaster inside, dated1930–1960 in source.",
+    "shared_original_element_id": "element:211947d53a61f9b2",
+    "thermal_grade": "Reuse historic AAC500,lambda0.19771 W/(mK), with10mm render defaults already reviewed for MF SE.01.",
+    "renovation": "45/70mm accepted facade stone wool plus22mm softwood panelling; fibre grade and panel depth are explicit EPSM defaults. All original wall layers retained.",
+    "nominal_limit": "Full-layer nominal R includes the panel. Ventilation/cavity corrections, battens, wind protection, support and moisture design remain project details; this is not a resolved ventilated-rainscreen calculation."
+  },
+  "attic": {
+    "period_sources": [
+      {
+        "url": "https://gupea.ub.gu.se/server/api/core/bitstreams/b2c787b2-54f6-4147-b0e1-b5b9eb881a00/content",
+        "locator": "Bjerking R106:1978 printedp41 Fig2231",
+        "supports": "200–300mm shavings fill including overfill above timber joists; period construction through approximately1955."
+      },
+      {
+        "url": "https://www.boverket.se/contentassets/4e14d56168e14bbba074de978b141591/babs-1946.pdf",
+        "locator": "BABS1946 printedp27, heavy-floor joist table",
+        "supports": "Nominal75x220mm(3x9Swedish inches),600mm centres as dimensional precedent; structural span/bearing is not verified."
+      }
+    ],
+    "original_defaults": {
+      "fill_total_m": 0.25,
+      "joist_depth_m": 0.22,
+      "joist_width_m": 0.075,
+      "joist_centres_m": 0.6,
+      "timber_fraction": 0.125,
+      "pure_shavings_overfill_m": 0.03,
+      "ceiling_boards_m": 0.022,
+      "plaster_m": 0.015
+    },
+    "selection": "250mm is the midpoint of the documented range, not solved from TABULA U0.29. Existing shavingslambda0.078/density100 and timber thermal properties are unchanged. Nominal full-layer calculation does not reproduce BABS historical surface/fill corrections.",
+    "renovation": "Retain the original ceiling and shared200/500mm loose-glass-wool addition.",
+    "interfaces": "AAC bearings/ties, joist spans, air/wind control and moisture details remain project design."
+  },
+  "ground": {
+    "source_locators": [
+      "Tab.Building!BI809,BS809",
+      "Tab.Building.Constr!I297",
+      "Tab.Building.Measure!P243:Q244",
+      "Swedish TABULA brochure printedp4/PDFp6"
+    ],
+    "source_url": "https://episcope.eu/fileadmin/tabula/public/docs/brochure/SE_TABULA_TypologyBrochure_Mdh.pdf#page=6",
+    "period_source": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-fukt-och-mogel.pdf",
+    "period_locator": "BETSI Fukt och mögel2011 printedpp34–35: pre1960 slabs largely occur in1950s buildings; uninsulated slabs are documented, not asserted to be the only form.",
+    "original_defaults": "160mm uninsulated concrete slab and40mm bonded cement finish. Nominal depths are EPSM choices, not recovered TABULA layers. No LECA is introduced.",
+    "renovation": "Warm-side EPS40/45mm atlambda0.036, retaining all original components, plus50mm nominal floating cement finish. Floor rise90/95mm.",
+    "finish_source": "https://www.se.weber/files/se/2022-04/PDS-SE-weber_lggningsbruk_C2530.pdf",
+    "finish_scope": "Generic heavyweight concrete is a thermal/carbon proxy, not a claim of exact Weber composition or performance. Moisture/vapour control, reinforcement, load distribution and clearances are project checks.",
+    "u_value_scope": "BETSI/TABULA0.28 is ground-effective stock information calculated using ISO13370. It cannot recover material layers; the floor comparison remains explicitly not assessed pending project geometry/soil/method.",
+    "period_finish_evidence": "Existing concrete-finish evidence: evidence/mf_se01_basement_floor_finish.json, SOU1944:7 printedp157 and BABS1946 printedp7. This supports the cement/concrete material family, not the SF nominal dimensions."
+  },
+  "windows": {
+    "source_locators": [
+      "Calc.Building.Set!AT2621,AW2621,GS2621",
+      "Tab.Building.Measure!L229,V229",
+      "Tab.Building.Measure!L227,V227"
+    ],
+    "original": {
+      "u_value": 2.34,
+      "shgc": 0.56,
+      "vt": 0.525
+    },
+    "standard": {
+      "u_value": 0.9,
+      "shgc": 0.35,
+      "vt": 0.455
+    },
+    "advanced": {
+      "u_value": 0.76,
+      "shgc": 0.42,
+      "vt": 0.42
+    },
+    "optics": "SHGC=source glazingg*(1-frame fraction0.3); VT is an explicit glazing default times0.7. No bundled external shading/angular correction.",
+    "carbon": "Existing modern timber/window-family Boverket proxies remain explicit; no historic manufacturing emissions or exact product identity is inferred."
+  },
+  "validation": "Checks calculate forward using unchanged source benchmarks and20% tolerance. Known full-A5 and retained-stock carbon gaps remain visible; no missing factors become zero.",
+  "separate_review_finding": {
+    "definition": "MF SE.01 original expanded-clay fill",
+    "source_url": "https://www.leca.se/kunskapsbank/vad-ar-leca-lattklinker",
+    "finding": "Manufacturer dates Swedish Leca use to the early1960s. The accepted MF nominal1943 expanded-clay recipe lacks a period-specific Swedish source and needs separate review; this does not establish the international availability date of all expanded-clay products.",
+    "action": "No MF material or assembly is changed by the SF review; SF SE.01 uses no expanded clay."
+  }
+}
