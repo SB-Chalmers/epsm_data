@@ -116,3 +116,17 @@ def test_templates_without_heat_recovery_state_zero_recovery():
         airflow = template.to_dict()["values"]["airflow"]
         if airflow["topology"] != "FTX":
             assert airflow["sensible_recovery_effectiveness"] == 0
+
+
+def test_heat_pump_delivery_template_carries_the_field_average_seasonal_cop():
+    from epsm_data import heating_delivery_template
+
+    template = heating_delivery_template("heat_pump")
+    heating = template.values["delivery"]["heating"]
+    assert template.template_id == "epsm.heating.heat_pump_field_average"
+    assert heating["carrier"] == "heat_pump"
+    assert set(heating["heat_pump_cop"]["values"]) == {2.75} and len(heating["heat_pump_cop"]["values"]) == 24
+    assert template.source_references and any("rejected" in note for note in template.notes)
+    with pytest.raises(ValueError, match="No heating delivery template"):
+        heating_delivery_template("district_heating")
+

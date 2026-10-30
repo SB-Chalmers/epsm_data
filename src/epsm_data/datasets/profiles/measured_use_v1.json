@@ -4,7 +4,7 @@
   "purpose": "stock_operation",
   "source_uri": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-energi-i-bebyggelsen.pdf",
   "base_standard": "sveby",
-  "selection_note": "Measured Swedish stock operation, for simulating existing buildings against measured energy use. Each value replaces one Sveby normal-use input and passed the epsm_studies cohort validation on a calibration and a disjoint hold-out sample (validation/catalogue/calibration_plan.md). Sveby normal use remains the default selection and the basis for compliance-style calculations.",
+  "selection_note": "Observed Swedish stock operation, for simulating existing buildings against measured energy use. Housing values are measured stock surveys; office values are named operator examples. Each value replaces one Sveby normal-use input and passed the epsm_studies cohort validation on a calibration and a disjoint hold-out sample (validation/catalogue/calibration_plan.md). Sveby normal use remains the default selection and the basis for compliance-style calculations.",
   "types": {
     "multi_family": {
       "use": {
@@ -38,8 +38,8 @@
         "ventilation_hours": 14
       },
       "source_locators": {
-        "use.mechanical_vent_l_s_m2": "Sveby Brukarindata kontor 1.0 (2012, SBUF 12116): owners report 1.2-1.6 L/(s m2) Atemp, and the guide's table 2.2 lists 1.5; the top of the reported range is used. Page not yet located; cited from epsm_studies calibration_plan.md shortlist item 6.",
-        "operation_inputs.ventilation": "Sveby Brukarindata kontor 1.0 (2012, SBUF 12116): owners report operation 06-20 against the guide's 07-19. Page not yet located; cited from epsm_studies calibration_plan.md shortlist item 6."
+        "use.mechanical_vent_l_s_m2": "Sveby Brukarindata kontor 1.0, chapter 5 background, p. 12: named examples, not a stock survey. Brostaden reports many offices around 1.6 L/(s m2) Atemp, JM's head office 1.2, and new consultancy offices 1.5.",
+        "operation_inputs.ventilation": "Sveby Brukarindata kontor 1.0, chapter 5 background, p. 12: many operators run one hour before opening and after closing; Skanska normally runs 06-20 on working days. A named example, not a stock survey."
       }
     }
   },

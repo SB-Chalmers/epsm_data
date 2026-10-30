@@ -1,4 +1,4 @@
-"""Simple per-archetype ventilation templates and facade window-to-wall assumptions."""
+"""Simple per-archetype system templates and facade window-to-wall assumptions."""
 
 import json
 from functools import cache
@@ -25,6 +25,30 @@ def ventilation_templates():
         )
         for identifier, record in table["templates"].items()
     }
+
+
+def heating_delivery_template(carrier="heat_pump"):
+    """The sourced heating-delivery ``HVACTemplate`` for a carrier.
+
+    The heat-pump template gives the Swedish field-average seasonal COP as a
+    delivery section, so a consumer selects it as it selects a ventilation
+    template. Unsupported carriers raise ValueError.
+    """
+    table = _table("heating_delivery_v1")
+    if carrier not in table["templates"]:
+        raise ValueError(f"No heating delivery template for carrier: {carrier!r}")
+    record = table["templates"][carrier]
+    cop = record["seasonal_cop"]
+    return HVACTemplate(
+        template_id=record["template_id"],
+        values={"delivery": {"heating": {
+            "carrier": carrier,
+            "heat_pump_cop": {"values": [cop] * 24},
+            "source": record["template_id"],
+        }}},
+        source_references=(table["source_uri"],),
+        notes=(record["source_locator"], record["note"], table["basis"]),
+    )
 
 
 VENTILATION_SYSTEMS = ("S", "F", "FT", "FTX")

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "profile_id": "epsm.heating_delivery.v1",
+  "source_uri": "https://iifiir.org/en/fridoc/field-measurements-of-ground-source-heat-pump-systems-installed-in-31303",
+  "basis": "Effective seasonal performance of installed Swedish systems, for converting simulated heat demand to purchased energy.",
+  "templates": {
+    "heat_pump": {
+      "template_id": "epsm.heating.heat_pump_field_average",
+      "seasonal_cop": 2.75,
+      "source_locator": "Haglund Stignor, Tiljander and Alsbjer (2015), 24th IIR International Congress of Refrigeration: field SPF of ground-source heat pumps in existing Swedish houses, average 2.7 in year 1 and 2.9 in year 2 (range 1.9-3.6). Swedish exhaust-air installations average 2.7 (Nowacki, cited by Hesaraki and Holmberg 2013; cited from epsm_studies calibration_plan.md, revision 5).",
+      "note": "One field-average value for every heat-pump type and era. A modern SPF of 3.9 or 3.5 for new ground-source houses was rejected in the cohort validation (calibration_plan.md, revision 5)."
+    }
+  }
+}

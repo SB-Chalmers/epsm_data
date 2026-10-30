@@ -56,10 +56,12 @@ assert measured.values["use"]["heating_setpoint_c"] == 22.5
 | --- | --- | --- | --- | --- |
 | Multi-family | Heating setpoint | 21 °C | 22.2–23.0 °C by era | BETSI (Boverket 2010) table 3.6 |
 | Multi-family | Self-draught total air change | 0.5 ACH + infiltration | 0.39 ACH in total | BETSI section 4.2.2 |
-| Office | Ventilation flow and hours | 1.3 L/(s m²), 07–19 | 1.6 L/(s m²), 06–20 | Sveby kontor 1.0, owner reports |
+| Office | Ventilation flow and hours | 1.3 L/(s m²), 07–19 | 1.6 L/(s m²), 06–20 | Sveby kontor 1.0, named operator examples |
 
 Each value passed the cohort test in [validation](validation.md) on a
-calibration and a hold-out sample. SE.06 and SE.07 postdate BETSI and use its
+calibration and a hold-out sample. The housing values are measured stock surveys.
+The office values are named operator examples in Sveby kontor 1.0 (p. 12), not a
+survey: Brostaden's 1.6 L/(s m²) and Skanska's 06–20. SE.06 and SE.07 postdate BETSI and use its
 newest class (1996–2005).
 
 The self-draught value already includes envelope infiltration. It is stored in
@@ -82,6 +84,40 @@ This is the useful hot-water heat in BEN (BFS 2016:12, amended by BFS 2017:6),
 before production losses and excluding circulation and storage losses. It
 supports `single_family`, `multi_family`, `office`, `school` and
 `non_residential`. `purpose` must be given. It does not change the Sveby profile.
+
+## Heat that an EPC includes
+
+```python
+from epsm_data import select_epc_comparison_terms
+
+terms = select_epc_comparison_terms("multi_family", municipality_code="1485")
+assert round(terms.values["window_airing_kwh_m2_year"], 2) == 3.6
+assert round(terms.values["hot_water_circulation_kwh_m2_year"], 2) == 8.33
+```
+
+Measured EPC heating includes energy that a simulation does not. These terms are
+kWh/m² Atemp per year of heat, before the heating system's efficiency or COP:
+
+| Use | Window airing | Hot-water circulation |
+| --- | --- | --- |
+| Housing | 4 × Fgeo (Sveby bostadshus 2.0, p. 9; BFS 2026:9 Tabell 1) | BEN hot water × (1/0.75 − 1) (BEN 3 kap. 3 §) |
+| School | 4, no Fgeo (Sveby undervisning 1.0, chapter 6) | None: to be measured |
+| Office | 0, negligible (Sveby kontor 1.0, p. 13) | None: no default |
+
+Housing needs `municipality_code`. These are definitions: which types a
+comparison applies them to is its own decision, see [validation](validation.md).
+
+## Heat-pump delivery
+
+```python
+from epsm_data import heating_delivery_template
+
+template = heating_delivery_template("heat_pump")
+```
+
+An `HVACTemplate` with the Swedish field-average seasonal COP of 2.75 (field SPF
+2.7–2.9, Haglund Stignor et al. 2015). There is one value for every pump type and
+era: a modern 3.9 for new ground-source houses was tested and rejected.
 
 ## Custom profiles
 

@@ -34,6 +34,8 @@ belong to the comparison and never to the catalogue:
 A term is applied to a building type only when its source defines it for that type
 and the cohort test below accepts it. Single-family airing and office circulation
 were tested and not accepted.
+`select_epc_comparison_terms(building_type, municipality_code=...)` gives every
+sourced value; the column above records which ones the comparison applies.
 
 The building is
 
