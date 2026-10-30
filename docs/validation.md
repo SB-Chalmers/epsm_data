@@ -57,7 +57,8 @@ range is tested on its own, so a failure names the state that needs work:
 | Existing-state median `r` | Bias of the original-construction state | Reported |
 | Selected state | Which state matched, per building | Reported |
 
-SE.07 has a single state, so it is judged on match and on its stock placement.
+SE.07 has a single state, which spans no range. It is judged on match, on the share
+measured above that state, and on its stock placement; it has no bottom target.
 
 **Stock placement.** Against every eligible measured EPC in the cohort (district
 heating, where delivered heat is measured directly), Existing should sit near the
