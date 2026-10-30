@@ -72,6 +72,7 @@ from .profiles import (
     load_operating_profile,
     load_standard_record,
     select_dhw_profile,
+    select_epc_comparison_terms,
     select_operating_profile,
 )
 from .renovation import (
@@ -100,7 +101,12 @@ from .renovation import (
 )
 from .sanity import check_catalogue, load_sanity_fixture
 from .sources import SourceCache
-from .templates import facade_assumptions, ventilation_template_id, ventilation_templates
+from .templates import (
+    facade_assumptions,
+    heating_delivery_template,
+    ventilation_template_id,
+    ventilation_templates,
+)
 
 __all__ = [
     "__version__",
@@ -174,12 +180,14 @@ __all__ = [
     "load_operating_profile",
     "load_standard_record",
     "select_dhw_profile",
+    "select_epc_comparison_terms",
     "select_operating_profile",
     "reference_construction_set",
     "reference_hvac_template",
     "export_nominal_constructions",
     "validate_nominal_handover",
     "facade_assumptions",
+    "heating_delivery_template",
     "ventilation_template_id",
     "ventilation_templates",
 ]
