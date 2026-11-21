@@ -1,6 +1,6 @@
 # Release notes
 
-## Unreleased
+## 0.8.0 — 21 November 2026
 
 - `heating_delivery_template("heat_pump")`: a sourced delivery template with the
   Swedish field-average seasonal COP of 2.75.
@@ -8,6 +8,8 @@
   BFS 2026:9 Fgeo table, and BEN's hot-water circulation.
 - Measured-use office locators now name their evidence: operator examples in
   Sveby kontor 1.0, p. 12, not a stock survey.
+- `docs/validation.md` says briefly how the catalogue was calibrated, and the
+  catalogue's source locators point there.
 
 ## 0.7.0 — 29 October 2026
 
