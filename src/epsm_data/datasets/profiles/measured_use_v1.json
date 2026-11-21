@@ -4,7 +4,7 @@
   "purpose": "stock_operation",
   "source_uri": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-energi-i-bebyggelsen.pdf",
   "base_standard": "sveby",
-  "selection_note": "Observed Swedish stock operation, for simulating existing buildings against measured energy use. Housing values are measured stock surveys; office values are named operator examples. Each value replaces one Sveby normal-use input and passed the epsm_studies cohort validation on a calibration and a disjoint hold-out sample (validation/catalogue/calibration_plan.md). Sveby normal use remains the default selection and the basis for compliance-style calculations.",
+  "selection_note": "Observed Swedish stock operation, for simulating existing buildings against measured energy use. Housing values are measured stock surveys; office values are named operator examples. Each value replaces one Sveby normal-use input and passed the measured-heating cohort test in docs/validation.md on a calibration and a disjoint hold-out sample. Sveby normal use remains the default selection and the basis for compliance-style calculations.",
   "types": {
     "multi_family": {
       "use": {
