@@ -64,6 +64,32 @@ def test_measured_office_ventilation_and_explicit_selection_rules():
     assert "measured_use_v1" not in available_operating_profiles()
 
 
+@pytest.mark.parametrize("building_type, airing, circulation", [
+    ("multi_family", 3.6, 25 / 3), ("single_family", 3.6, 20 / 3), ("school", 4.0, None), ("office", 0.0, None)])
+def test_epc_comparison_terms_follow_their_sources(building_type, airing, circulation):
+    from epsm_data import select_epc_comparison_terms
+
+    values = select_epc_comparison_terms(building_type, municipality_code="1485").values
+    assert values["window_airing_kwh_m2_year"] == pytest.approx(airing)
+    assert values["hot_water_circulation_kwh_m2_year"] == pytest.approx(circulation)
+    assert values["window_airing_source_locator"] and values["hot_water_circulation_source_locator"]
+
+
+def test_epc_comparison_scales_only_housing_airing_by_fgeo():
+    from epsm_data import load_standard_record, select_epc_comparison_terms
+
+    table = load_standard_record("fgeo_bfs_2026_9")["fgeo_by_municipality"]
+    assert len(table) == 290 and (table["2584"], table["1280"]) == (1.8, 0.8)
+    kiruna = select_epc_comparison_terms("multi_family", municipality_code="2584")
+    assert kiruna.values["window_airing_kwh_m2_year"] == pytest.approx(7.2)
+    assert select_epc_comparison_terms("school").values["fgeo"] is None
+    for municipality_code in (None, "9999"):
+        with pytest.raises(ValueError, match="municipality code"):
+            select_epc_comparison_terms("multi_family", municipality_code=municipality_code)
+    with pytest.raises(ValueError, match="Unsupported"):
+        select_epc_comparison_terms("hospital")
+
+
 @pytest.mark.parametrize(
     "building_type,name",
     [

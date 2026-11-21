@@ -5,8 +5,8 @@ that matches a cohort (type and construction era) can be simulated with that
 cohort's three renovation states, and the plausible range they span contains the
 building's measured heating.
 
-This page defines the contract. The validation code and data live in
-`epsm_studies` (`validation/catalogue/`), which reproduces it.
+This page defines the contract and says briefly how the catalogue was calibrated
+against it. Study samples, runs and results are kept outside this package.
 
 ## One building, one year
 
@@ -34,6 +34,8 @@ belong to the comparison and never to the catalogue:
 A term is applied to a building type only when its source defines it for that type
 and the cohort test below accepts it. Single-family airing and office circulation
 were tested and not accepted.
+`select_epc_comparison_terms(building_type, municipality_code=...)` gives every
+sourced value; the column above records which ones the comparison applies.
 
 The building is
 
@@ -55,7 +57,8 @@ range is tested on its own, so a failure names the state that needs work:
 | Existing-state median `r` | Bias of the original-construction state | Reported |
 | Selected state | Which state matched, per building | Reported |
 
-SE.07 has a single state, so it is judged on match and on its stock placement.
+SE.07 has a single state, which spans no range. It is judged on match, on the share
+measured above that state, and on its stock placement; it has no bottom target.
 
 **Stock placement.** Against every eligible measured EPC in the cohort (district
 heating, where delivered heat is measured directly), Existing should sit near the
@@ -80,6 +83,25 @@ both a calibration sample and a disjoint, seeded hold-out sample:
 Fabric (U-values, constructions, glazing) is not fitted to measured heating: annual
 heating cannot separate transmission from infiltration, recovery, setpoint and
 unmodelled losses, and a fitted U-value would overstate renovation savings.
+
+## How the catalogue was calibrated
+
+The catalogue was compared with measured EPC heating on two disjoint, seeded samples of
+buildings (calibration and hold-out). Only operating and accounting inputs that have a
+sourced range were changed, each per building type, and each only when it passed the rule
+above on both samples:
+
+- multifamily: measured indoor temperature by era and the measured self-draught air change (BETSI);
+- offices: ventilation flow and hours (Sveby kontor operator examples) and the TABULA
+  thermal-bridge allowance;
+- heat pumps: the Swedish field-average seasonal COP of 2.75;
+- EPC comparison terms: window airing and hot-water circulation for multifamily.
+
+Fabric was not fitted. Single-family houses and schools keep Sveby normal use, because no
+measured input passed for them. What remains between the catalogue and measured heating is
+mostly building-specific (use, renovation history, operation) and cannot be closed by
+archetype values. The `measured` operating standard selects these values; Sveby normal use
+stays the default.
 
 ## What validation is not
 

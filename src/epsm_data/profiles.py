@@ -151,6 +151,15 @@ STANDARD_PROFILES = (
     "dhw_epc_normal_use_v1",
     "generic_other",
     "measured_use_v1",
+    "epc_comparison_v1",
+    "fgeo_bfs_2026_9",
+)
+# Selected explicitly, or read through a selector; none is a complete operating profile.
+_PARTIAL_PROFILES = (
+    "dhw_epc_normal_use_v1",
+    "measured_use_v1",
+    "epc_comparison_v1",
+    "fgeo_bfs_2026_9",
 )
 
 _IDENTITIES = dict(
@@ -163,6 +172,8 @@ _IDENTITIES = dict(
             "ben.dhw.normal_use.v1",
             "epsm.generic_other.v1",
             "epsm.measured_use.v1",
+            "epsm.epc_comparison.v1",
+            "boverket.fgeo.bfs_2026_9",
         ),
     )
 )
@@ -230,7 +241,7 @@ def available_operating_profiles():
         {
             name: load_operating_profile(name)
             for name in STANDARD_PROFILES
-            if name not in ("dhw_epc_normal_use_v1", "measured_use_v1")
+            if name not in _PARTIAL_PROFILES
         }
     )
 
@@ -358,3 +369,55 @@ def select_dhw_profile(building_type, *, purpose, version="1"):
     return OperatingProfile(
         values["profile_id"], values, (data["source_uri"],), (data["selection_note"],)
     )
+
+
+def select_epc_comparison_terms(building_type, *, municipality_code=None):
+    """Read the heat a measured EPC figure includes and a simulation does not.
+
+    Returns window airing and hot-water circulation in kWh/m2 Atemp per year,
+    before the heating system's efficiency or seasonal COP. Housing airing is
+    scaled by the municipality's Fgeo (BFS 2026:9), so ``municipality_code`` is
+    required for it. Circulation is BEN's share of normal-use hot water, and is
+    None where BEN defines no share. These are definitions: which types a
+    comparison applies them to is its own decision. Unsupported selectors raise
+    ValueError.
+
+    Examples
+    --------
+    >>> terms = select_epc_comparison_terms("multi_family", municipality_code="1485")
+    >>> round(terms.values["window_airing_kwh_m2_year"], 2)
+    3.6
+    """
+    data = load_standard_record("epc_comparison_v1")
+    if building_type not in data["window_airing"]:
+        raise ValueError(f"Unsupported EPC comparison building type: {building_type!r}")
+    airing = data["window_airing"][building_type]
+    circulation = data["hot_water_circulation"]
+    fgeo = None
+    if airing["fgeo_scaled"]:
+        table = load_standard_record("fgeo_bfs_2026_9")["fgeo_by_municipality"]
+        if municipality_code not in table:
+            raise ValueError(f"{building_type} airing requires a municipality code in BFS 2026:9, not {municipality_code!r}")
+        fgeo = table[municipality_code]
+    defined = building_type in circulation["applies_to"]
+    hot_water = select_dhw_profile(building_type, purpose="epc_normal_use").values["dhw_kwh_m2_year"]
+    values = {
+        "schema_version": data["schema_version"],
+        "purpose": data["purpose"],
+        "profile_id": f"{data['profile_id']}.{building_type}",
+        "building_type": building_type,
+        "area_basis": data["area_basis"],
+        "source_uri": data["source_uri"],
+        "energy_boundary": data["energy_boundary"],
+        "selection_note": data["selection_note"],
+        "window_airing_kwh_m2_year": airing["kwh_m2_year"] * (1 if fgeo is None else fgeo),
+        "fgeo": fgeo,
+        "window_airing_source_locator": airing["source_locator"],
+        "hot_water_circulation_kwh_m2_year": hot_water * (1 / circulation["delivered_hot_water_share"] - 1)
+        if defined
+        else None,
+        "hot_water_circulation_source_locator": circulation["source_locator"]
+        if defined
+        else circulation["not_defined"][building_type],
+    }
+    return OperatingProfile(values["profile_id"], values, (data["source_uri"],), (data["selection_note"],))

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "profile_id": "epsm.epc_comparison.v1",
+  "purpose": "epc_comparison",
+  "source_uri": "https://www.boverket.se/Resources/constitutiontextstore/BEN/xml/Konsoliderad_BEN_BFS_2016_12.pdf",
+  "area_basis": "Atemp",
+  "energy_boundary": "Annual heat, per m2 Atemp, that a measured EPC heating figure includes and a building simulation does not. Purchased energy requires the heating system's efficiency or seasonal COP. These terms describe the measurement, not the building.",
+  "selection_note": "Definitions only. Which building types a comparison applies them to is the comparison's decision; see docs/validation.md.",
+  "window_airing": {
+    "single_family": {
+      "kwh_m2_year": 4.0,
+      "fgeo_scaled": true,
+      "source_locator": "Sveby Brukarindata bostadshus 2.0, chapter 5, p. 9: booked as heating, multiplied by Fgeo, and may be divided by the heating system's efficiency or COP"
+    },
+    "multi_family": {
+      "kwh_m2_year": 4.0,
+      "fgeo_scaled": true,
+      "source_locator": "Sveby Brukarindata bostadshus 2.0, chapter 5, p. 9: booked as heating, multiplied by Fgeo, and may be divided by the heating system's efficiency or COP"
+    },
+    "office": {
+      "kwh_m2_year": 0.0,
+      "fgeo_scaled": false,
+      "source_locator": "Sveby Brukarindata kontor 1.0, chapter 6, p. 13: the effect of airing is considered negligible in normal office use"
+    },
+    "school": {
+      "kwh_m2_year": 4.0,
+      "fgeo_scaled": false,
+      "source_locator": "Sveby Brukarindata undervisning 1.0, chapter 6 and tables 2.1-2.3: 4 kWh/m2 added to the calculated energy performance; no geographic factor is stated"
+    }
+  },
+  "hot_water_circulation": {
+    "delivered_hot_water_share": 0.75,
+    "applies_to": [
+      "single_family",
+      "multi_family"
+    ],
+    "source_locator": "BEN BFS 2016:12, 3 kap. 3 §, allmänt råd: circulation losses are included in the building's energy for heating, and delivered hot water is 0.75 of hot water plus circulation",
+    "not_defined": {
+      "office": "BEN gives the 0.75 share for housing only. Sveby kontor 1.0 chapter 11 says circulation can far exceed tap use and gives no default.",
+      "school": "BEN gives the 0.75 share for housing only. Sveby undervisning 1.0 chapter 10 says circulation losses should be measured and gives no default."
+    }
+  }
+}
