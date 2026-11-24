@@ -19,8 +19,9 @@ The mapping follows epsm_core where Honeybee can express the same thing:
   sensible heat recovery. No economiser; cooling off unless the profile enables it.
 * Infiltration is a constant rate per m2 Atemp (TABULA ACH is converted with the
   catalogue reference height, as EPSM does) and is spread over the room's exposed area.
-* No solar shading by default, as in EPSM's calibrated runs. A Sveby factor, if
-  chosen, becomes a reduced window SHGC; epsm_core would multiply incident solar. With EnergyPlus's simple glazing, halving SHGC cuts
+* Sveby's occupant shading factor (blinds, curtains) is applied by default as a
+  reduced window SHGC; obstructions are left to the user's geometry. epsm_core
+  multiplies incident solar instead. With EnergyPlus's simple glazing, halving SHGC cuts
   transmitted solar to about 38 % but the net window gain is close to a 0.5 multiplier.
 * Ground floors get an ISO 13370 equivalent soil layer and need the ground temperature
   from :func:`ground_temperature_idf`. epsm_core uses Kiva, which Honeybee lacks, so
@@ -618,7 +619,7 @@ def _program(identifier, category, values, airflow, *, year, active_dates):
 
 
 def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standard="sveby",
-                active_dates=None, solar_shading_factor=None):
+                active_dates=None, solar_shading_factor="behaviour"):
     """Export one catalogue configuration as honeybee-energy objects.
 
     Parameters
@@ -633,10 +634,11 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
         Office or school working days in 2017, the year Honeybee simulates; default
         :func:`swedish_active_dates` with Sveby's day count. Ignored for housing.
     solar_shading_factor : float or str, optional
-        Factor on window SHGC. Default 1.0 (no shading) for every type, matching EPSM's
-        calibrated model, which applies none. ``"behaviour"`` gives Sveby's occupant
-        factor (0.71 housing and office, 0.65 school), for models with obstructions as
-        geometry; ``"total"`` gives Sveby's combined factor (0.50; school 0.65).
+        Factor on window SHGC. Default ``"behaviour"``: Sveby's occupant factor for
+        blinds and curtains (0.71 housing and office, 0.65 school), for models whose
+        obstructions are geometry, as EPSM's are. ``"total"`` gives Sveby's combined
+        factor (0.50; school 0.65) for models without obstructions; ``None`` or 1.0
+        turns shading off, as in EPSM's runs before this default.
 
     Returns
     -------
@@ -659,7 +661,6 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     identifier = f"epsm_{archetype_id}_{selected or 'single'}_{template_id.rsplit('.', 1)[-1]}".lower()
     if solar_shading_factor in ("behaviour", "total"):
         solar_shading_factor = sveby_shading_factors(values, category)[solar_shading_factor]
-    # EPSM's calibrated model applies no Sveby shading to any type (factor 1.0).
     factor = 1.0 if solar_shading_factor is None else solar_shading_factor
     if not 0 < factor <= 1:
         raise ValueError("solar_shading_factor must be in (0, 1]")

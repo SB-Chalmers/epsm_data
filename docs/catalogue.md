@@ -201,10 +201,10 @@ extra = ground_temperature_idf("weather.epw")   # pass as additional_string
 | Infiltration | The configuration's rate per m2 Atemp, spread over the exposed envelope |
 | Ground | An ISO 13370 soil layer on ground floors, with the annual mean outdoor temperature as ground temperature |
 
-Solar shading is off by default for every type, as in EPSM's calibrated runs.
-`solar_shading_factor="behaviour"` applies Sveby's occupant factor (0.71; schools
-0.65) for models with obstructions as geometry, and `"total"` the combined 0.50;
-either becomes a lower window g-value. Other differences from EPSM's EnergyPlus model: the ground uses ISO 13370 rather than
+Solar shading follows Sveby: by default the occupant factor for blinds and curtains
+(0.71; schools 0.65) lowers the window g-value, and obstructions come from your
+geometry. Use `solar_shading_factor="total"` (0.50) when the model has no
+obstructions, or `None` for no shading. Other differences from EPSM's EnergyPlus model: the ground uses ISO 13370 rather than
 Kiva; the office and school calendar is an EPSM assumption (weekdays without
 Swedish holidays, July and the Christmas break; pass `active_dates` to change it),
 and Honeybee simulates the 2017 calendar. Ideal air gives delivered heat; divide
