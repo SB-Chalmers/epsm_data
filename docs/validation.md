@@ -103,6 +103,20 @@ mostly building-specific (use, renovation history, operation) and cannot be clos
 archetype values. The `measured` operating standard selects these values; Sveby normal use
 stays the default.
 
+## Stochastic operating values (tested, not adopted)
+
+`select_operating_distributions` and `sample_operating_values` give each building its own
+reproducible draw of setpoint, air change and household electricity from the sourced
+single-family ranges (Sveby normal use to the BETSI measured means). Nothing uses them by
+default, and the Advanced state keeps its released values.
+
+They were tested on 2,987 single-family houses (SE.01–SE.06, EnergyPlus, lake revision
+13345) against one fixed value at the centre of the same ranges. Per-house draws matched
+1,852 houses and the fixed centre 1,850 (98 gained, 96 lost, exact McNemar p 0.94); the
+released values match 1,829. The draws hardly change the stock's spread of energy per m²,
+which geometry, weather and carrier already set. Use the draws for uncertainty bands
+around a result, not to improve match.
+
 ## What validation is not
 
 - **Not calibration.** No catalogue parameter is adjusted to fit individual

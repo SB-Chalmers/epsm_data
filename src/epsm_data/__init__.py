@@ -101,6 +101,12 @@ from .renovation import (
 )
 from .sanity import check_catalogue, load_sanity_fixture
 from .sources import SourceCache
+from .stochastic import (
+    OperatingDistribution,
+    OperatingDistributions,
+    sample_operating_values,
+    select_operating_distributions,
+)
 from .templates import (
     facade_assumptions,
     heating_delivery_template,
@@ -181,6 +187,10 @@ __all__ = [
     "load_standard_record",
     "select_dhw_profile",
     "select_epc_comparison_terms",
+    "OperatingDistribution",
+    "OperatingDistributions",
+    "select_operating_distributions",
+    "sample_operating_values",
     "select_operating_profile",
     "reference_construction_set",
     "reference_hvac_template",

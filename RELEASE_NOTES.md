@@ -1,5 +1,12 @@
 # Release notes
 
+## Unreleased
+
+- `select_operating_distributions(type, era=...)` and `sample_operating_values(...)`:
+  optional, reproducible per-building draws of operating values inside sourced ranges
+  (single-family only). Off by default; tested against EPC data and not adopted as a
+  calibration (see `docs/validation.md`).
+
 ## 0.8.0 — 21 November 2026
 
 - `heating_delivery_template("heat_pump")`: a sourced delivery template with the

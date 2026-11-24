@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "profile_id": "epsm.operating_distributions.v1",
+  "purpose": "stochastic_operation",
+  "source_uri": "https://www.boverket.se/globalassets/publikationer/dokument/2011/betsi-energi-i-bebyggelsen.pdf",
+  "selection_note": "Optional per-building spread of operating values, drawn inside sourced ranges. Nothing selects it by default: the deterministic catalogue values remain the default. Applies to the Existing and Standard states; the Advanced state is a renovation scenario and keeps its released values. Draws are reproducible from a seed and a building key.",
+  "evidence_status": "not_adopted",
+  "evidence_note": "Tested 24 November 2026 on 2,987 single-family houses (SE.01-SE.06, EnergyPlus, EPC heating energy, +-20 % any-state match). A per-house draw matched 1,852 against 1,850 for one fixed value at the centre of the same ranges (98 gained, 96 lost, exact McNemar p 0.94) and 1,829 for the released values. The draws barely change the stock's spread of energy per m2, which geometry, weather and carrier already set. Use for uncertainty bands, not to improve match.",
+  "types": {
+    "single_family": {
+      "applies_to_states": ["existing", "standard"],
+      "levers": {
+        "heating_setpoint_c": {
+          "kind": "uniform",
+          "low": 21.0,
+          "high_by_era": {"SE.01": 20.8, "SE.02": 21.3, "SE.03": 21.7, "SE.04": 21.4, "SE.05": 21.9, "SE.06": 21.9, "SE.07": 21.9},
+          "released": 21.0,
+          "unit": "C",
+          "meaning": "Main-zone heating setpoint, between Sveby normal use and the BETSI measured mean for the era. Where the BETSI mean is below 21.0 C the range runs downwards.",
+          "source_locator": "Sveby Brukarindata bostadshus 2.0 (21 C); BETSI (Boverket 2010) table 3.3, single-family mean indoor temperature by construction class; SE.06 and SE.07 take the newest class."
+        },
+        "air_change_fraction": {
+          "kind": "uniform",
+          "low": 0.0,
+          "high": 1.0,
+          "released": 0.0,
+          "unit": "1",
+          "meaning": "0 is the catalogue airflow; 1 moves the total air change (envelope infiltration included) to the BETSI measured mean for the ventilation system: F and FVP 0.36, S 0.40, FT and FTX 0.45 ACH. The mechanical flow, or the natural exchange for S, moves; infiltration does not.",
+          "source_locator": "BETSI (Boverket 2010) section 4.1.2, measured total air change in single-family houses by ventilation system."
+        },
+        "household_electricity_kwh_m2_year": {
+          "kind": "uniform",
+          "low": 21.0,
+          "high": 30.0,
+          "released": 21.0,
+          "unit": "kWh/m2 Atemp per year",
+          "meaning": "Household electricity; the released 70 % heat share becomes the equipment and lighting gain, scaled by value / 21.",
+          "source_locator": "Sveby Brukarindata bostadshus 2.0 (2024) ch. 9 p. 13 (21 kWh/m2, 70 % as heat; ch. 2 allows it for smahus); Sveby background report SBUF 14302 (2024) ch. 9 table 9.2 (previous value 30 kWh/m2)."
+        }
+      }
+    }
+  },
+  "not_defined": {
+    "multi_family": "No sourced per-building spread yet; BETSI table 3.6 gives era means only.",
+    "office": "No sourced per-building spread yet.",
+    "school": "No sourced per-building spread yet."
+  }
+}

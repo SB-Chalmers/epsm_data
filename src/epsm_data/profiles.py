@@ -153,6 +153,7 @@ STANDARD_PROFILES = (
     "measured_use_v1",
     "epc_comparison_v1",
     "fgeo_bfs_2026_9",
+    "operating_distributions_v1",
 )
 # Selected explicitly, or read through a selector; none is a complete operating profile.
 _PARTIAL_PROFILES = (
@@ -160,6 +161,7 @@ _PARTIAL_PROFILES = (
     "measured_use_v1",
     "epc_comparison_v1",
     "fgeo_bfs_2026_9",
+    "operating_distributions_v1",
 )
 
 _IDENTITIES = dict(
@@ -174,6 +176,7 @@ _IDENTITIES = dict(
             "epsm.measured_use.v1",
             "epsm.epc_comparison.v1",
             "boverket.fgeo.bfs_2026_9",
+            "epsm.operating_distributions.v1",
         ),
     )
 )
