@@ -103,8 +103,9 @@ def test_heat_recovery_follows_template(catalogue):
     exhaust = to_honeybee(catalogue, "mf_se03", state="existing", ventilation="F")
     assert exhaust.hvac.sensible_heat_recovery == 0
     natural = to_honeybee(catalogue, "mf_se01", state="existing", ventilation="S")
-    assert natural.program_type.ventilation.air_changes_per_hour == 0.5
-    assert natural.program_type.ventilation.flow_per_area == 0
+    assert natural.hvac.sensible_heat_recovery == 0
+    assert math.isclose(natural.program_type.ventilation.flow_per_area, 0.35 / 1000)
+    assert natural.program_type.ventilation.air_changes_per_hour == 0
 
 
 def test_office_calendar_and_annual_electricity(catalogue):

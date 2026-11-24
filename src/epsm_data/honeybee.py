@@ -20,7 +20,8 @@ The mapping follows epsm_core where Honeybee can express the same thing:
 * Infiltration is a constant rate per m2 Atemp (TABULA ACH is converted with the
   catalogue reference height, as EPSM does) and is spread over the room's exposed area.
 * Sveby solar shading becomes a reduced window SHGC. epsm_core instead multiplies
-  incident solar on the window; the solar gain is the same.
+  incident solar on the window. With EnergyPlus's simple glazing, halving SHGC cuts
+  transmitted solar to about 38 % but the net window gain is close to a 0.5 multiplier.
 * Ground floors get an ISO 13370 equivalent soil layer and need the ground temperature
   from :func:`ground_temperature_idf`. epsm_core uses Kiva, which Honeybee lacks, so
   ground losses will differ somewhat.
@@ -533,7 +534,6 @@ def _program(identifier, category, values, airflow, *, year, active_dates):
 
     use = values["use"]
     always = _constant(f"{identifier}_always_on", 1, fractional)
-    topology = airflow.get("topology")
     lighting = None
     if category in _RESIDENTIAL:
         completion = values["model_completion_defaults"]
@@ -590,12 +590,10 @@ def _program(identifier, category, values, airflow, *, year, active_dates):
         dhw_hours = _annual_sum(dhw_on, zero, days, year)
         cooling_enabled = completion["cooling_enabled"]
         dhw_kwh = use["dhw_kwh_m2_year"]
-    if topology == "S":
-        ventilation = Ventilation(f"{identifier}_ventilation",
-                                  air_changes_per_hour=airflow.get("natural_exchange_ach", 0))
-    else:
-        ventilation = Ventilation(f"{identifier}_ventilation", flow_per_area=mech_flow / 1000,
-                                  schedule=vent_schedule)
+    # Self-draught gets the profile's outdoor-air flow too, as EPSM's record route does
+    # (Sveby 0.35 L/s m2 for housing); only the heat recovery differs by topology.
+    ventilation = Ventilation(f"{identifier}_ventilation", flow_per_area=mech_flow / 1000,
+                              schedule=vent_schedule)
     hot_water = ServiceHotWater(f"{identifier}_dhw", dhw_kwh / _KWH_PER_LITRE / dhw_hours,
                                 dhw_schedule, sensible_fraction=0, latent_fraction=0)
     setpoint = Setpoint(f"{identifier}_setpoint",
