@@ -19,8 +19,8 @@ The mapping follows epsm_core where Honeybee can express the same thing:
   sensible heat recovery. No economiser; cooling off unless the profile enables it.
 * Infiltration is a constant rate per m2 Atemp (TABULA ACH is converted with the
   catalogue reference height, as EPSM does) and is spread over the room's exposed area.
-* Sveby solar shading becomes a reduced window SHGC. epsm_core instead multiplies
-  incident solar on the window. With EnergyPlus's simple glazing, halving SHGC cuts
+* No solar shading by default, as in EPSM's calibrated runs. A Sveby factor, if
+  chosen, becomes a reduced window SHGC; epsm_core would multiply incident solar. With EnergyPlus's simple glazing, halving SHGC cuts
   transmitted solar to about 38 % but the net window gain is close to a 0.5 multiplier.
 * Ground floors get an ISO 13370 equivalent soil layer and need the ground temperature
   from :func:`ground_temperature_idf`. epsm_core uses Kiva, which Honeybee lacks, so
@@ -507,15 +507,22 @@ def _construction_set(identifier, bundle, factor):
     return cs, built
 
 
-def _shading_factor(values, category):
+def sveby_shading_factors(values, category):
+    """Sveby solar-shading factors for a profile: ``{"behaviour": f, "total": f}``.
+
+    ``behaviour`` is the occupant part (blinds, curtains) to use when obstructions are
+    modelled as geometry; ``total`` also covers obstructions (about behaviour squared).
+    Schools give one behaviour factor only.
+    """
     if category in _RESIDENTIAL:
-        # EPSM's calibrated housing model applies no Sveby shading (factor 1.0), so the
-        # export matches it; pass solar_shading_factor=0.5 for Sveby's total factor.
-        return 1.0
+        shading = values["solar_shading"]
+        return {"behaviour": shading["occupant_behavior_factor"], "total": shading["total_default_factor"]}
     completion = values.get("completion_inputs", {})
     if category == "office":
-        return completion["solar_shading_total_factor"]
-    return completion["solar_shading_behavior_factor"]
+        return {"behaviour": completion["solar_shading_behavior_factor"],
+                "total": completion["solar_shading_total_factor"]}
+    return {"behaviour": completion["solar_shading_behavior_factor"],
+            "total": completion["solar_shading_behavior_factor"]}
 
 
 def _program(identifier, category, values, airflow, *, year, active_dates):
@@ -625,10 +632,11 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     active_dates : sequence of datetime.date, optional
         Office or school working days in 2017, the year Honeybee simulates; default
         :func:`swedish_active_dates` with Sveby's day count. Ignored for housing.
-    solar_shading_factor : float, optional
-        Factor on window SHGC. Default: 1.0 for housing, matching EPSM's calibrated
-        model (Sveby's total factor would be 0.50); 0.50 for offices and the 0.65
-        behaviour factor for schools.
+    solar_shading_factor : float or str, optional
+        Factor on window SHGC. Default 1.0 (no shading) for every type, matching EPSM's
+        calibrated model, which applies none. ``"behaviour"`` gives Sveby's occupant
+        factor (0.71 housing and office, 0.65 school), for models with obstructions as
+        geometry; ``"total"`` gives Sveby's combined factor (0.50; school 0.65).
 
     Returns
     -------
@@ -649,7 +657,10 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     airflow = dict(archetype.hvac_template.values["airflow"])
     template_id = archetype.hvac_template.template_id
     identifier = f"epsm_{archetype_id}_{selected or 'single'}_{template_id.rsplit('.', 1)[-1]}".lower()
-    factor = _shading_factor(values, category) if solar_shading_factor is None else solar_shading_factor
+    if solar_shading_factor in ("behaviour", "total"):
+        solar_shading_factor = sveby_shading_factors(values, category)[solar_shading_factor]
+    # EPSM's calibrated model applies no Sveby shading to any type (factor 1.0).
+    factor = 1.0 if solar_shading_factor is None else solar_shading_factor
     if not 0 < factor <= 1:
         raise ValueError("solar_shading_factor must be in (0, 1]")
     cs, built = _construction_set(identifier, bundle, factor)
@@ -714,5 +725,5 @@ def catalogue_reference_height(catalogue, archetype_id, state=None):
 __all__ = [
     "HoneybeeArchetype", "to_honeybee", "swedish_active_dates", "swedish_holidays",
     "ground_temperature_idf", "iso13370_floor_u", "ground_construction",
-    "bridged_construction", "orientation",
+    "bridged_construction", "orientation", "sveby_shading_factors",
 ]

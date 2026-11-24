@@ -75,7 +75,14 @@ def test_window_shgc_carries_sveby_shading(catalogue):
     assert export.solar_shading_factor == 0.5
     assert math.isclose(material.shgc, glass["shgc"] * 0.5)
     assert material.u_factor == glass["u_factor"]
-    assert to_honeybee(catalogue, "school_se03", state="existing").solar_shading_factor == 0.65
+    for aid in ("sf_se03", "office_se03", "school_se03"):
+        assert to_honeybee(catalogue, aid, state="existing").solar_shading_factor == 1.0
+    assert to_honeybee(catalogue, "mf_se03", state="existing",
+                       solar_shading_factor="behaviour").solar_shading_factor == 0.71
+    assert to_honeybee(catalogue, "office_se03", state="existing",
+                       solar_shading_factor="total").solar_shading_factor == 0.5
+    assert to_honeybee(catalogue, "school_se03", state="existing",
+                       solar_shading_factor="behaviour").solar_shading_factor == 0.65
 
 
 def test_residential_program_matches_sveby(catalogue):
