@@ -509,7 +509,9 @@ def _construction_set(identifier, bundle, factor):
 
 def _shading_factor(values, category):
     if category in _RESIDENTIAL:
-        return values["solar_shading"]["total_default_factor"]
+        # EPSM's calibrated housing model applies no Sveby shading (factor 1.0), so the
+        # export matches it; pass solar_shading_factor=0.5 for Sveby's total factor.
+        return 1.0
     completion = values.get("completion_inputs", {})
     if category == "office":
         return completion["solar_shading_total_factor"]
@@ -624,8 +626,9 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
         Office or school working days in 2017, the year Honeybee simulates; default
         :func:`swedish_active_dates` with Sveby's day count. Ignored for housing.
     solar_shading_factor : float, optional
-        Factor on window SHGC. Default: Sveby total factor 0.50 for housing and
-        offices, the 0.65 behaviour factor for schools.
+        Factor on window SHGC. Default: 1.0 for housing, matching EPSM's calibrated
+        model (Sveby's total factor would be 0.50); 0.50 for offices and the 0.65
+        behaviour factor for schools.
 
     Returns
     -------
