@@ -1,5 +1,12 @@
 # Release notes
 
+## Unreleased
+
+- `epsm_data.honeybee.to_honeybee(catalogue, id, ...)` exports a configuration as a
+  honeybee-energy ConstructionSet, ProgramType and IdealAirSystem, with
+  `apply_to_rooms` for windows, airtightness, thermal bridges and an ISO 13370 ground
+  floor. Optional extra: `pip install "epsm_data[honeybee]"`.
+
 ## 0.8.0 — 21 November 2026
 
 - `heating_delivery_template("heat_pump")`: a sourced delivery template with the
