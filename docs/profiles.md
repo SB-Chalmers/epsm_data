@@ -180,7 +180,7 @@ pump is a heating-system input.
 | SE.04 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.05 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.06 | FTX 0.75 | FTX 0.75 | FTX 0.75 | FTX 0.75 |
-| SE.07 | FTX 0.70 | FTX 0.70 | FTX 0.70 | FTX 0.70 |
+| SE.07 | FTX 0.60 | FTX 0.70 | FTX 0.70 | FTX 0.70 |
 
 The Standard renovation keeps the existing system. Advanced installs FTX 0.80.
 These are period assumptions from typical Swedish practice, not measured stock

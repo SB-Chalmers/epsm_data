@@ -67,7 +67,7 @@
       "SE.04": "F",
       "SE.05": "F",
       "SE.06": "FTX_075",
-      "SE.07": "FTX_070"
+      "SE.07": "FTX_060"
     },
     "multi_family": {
       "SE.01": "S",
@@ -106,5 +106,11 @@
     "SE.06": "FTX_075",
     "SE.07": "FTX_070"
   },
-  "observed_rule": "An observed S, F or FT system is used as-is in Existing and Standard. An observed FTX is assumed retrofitted (0.75) in buildings before 1976, original early recovery (0.60) in 1976-2005, period recovery 0.75 in 2006-2021 and in-use recovery 0.70 from 2022. Advanced always installs FTX 0.80."
+  "observed_ftx_by_category_era": {
+    "single_family": {
+      "SE.07": "FTX_060"
+    }
+  },
+  "single_family_se07_note": "Single-family SE.07 FTX in use 0.60: field evidence for houses is below the multi-family 0.70. In-situ overall efficiency about 60 % with leakage, defrost and imbalance (REHVA Journal large-scale residential analysis, citing Merzkirch et al., Faes et al., Knoll et al.); retrofitted residential MVHR 0.65 +/- 0.24 in use; a modern Swedish single-family house with a ground-source heat pump showed no clear heat-demand difference between exhaust and heat recovery outside sub-zero weather (Energy and Buildings 2025, S0378778825000593); BeBo 2016 multi-family flow-corrected 0.49-0.92, median about 0.70. Proposed 25 November 2026; held-out confirmation pending.",
+  "observed_rule": "An observed S, F or FT system is used as-is in Existing and Standard. An observed FTX is assumed retrofitted (0.75) in buildings before 1976, original early recovery (0.60) in 1976-2005, period recovery 0.75 in 2006-2021 and in-use recovery 0.70 from 2022 (0.60 for single-family houses). Advanced always installs FTX 0.80."
 }
