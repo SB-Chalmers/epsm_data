@@ -1,3 +1,10 @@
+# Unreleased — office SE.01 existing walls and windows from STIL2 (25 November 2026)
+
+Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window U 2.3 of pre-1961
+schools (ER 2007:11), as a proxy for offices of the same era (were 0.95 and 2.8). Window optics, roof, ground,
+standard and advanced are unchanged. With epsm policy v10 (EPC ventilation with FTX among several systems read
+as FTX), office SE.01 match goes from 57.6 to 65.9 %. See `docs/validation.md#office-se01-existing-state-stil2-school-proxy`.
+
 # Unreleased — exhaust-air heat pump COP 3.0 in SE.07 (25 November 2026)
 
 Exhaust-air heat pumps in SE.07 (2022 onwards) use a seasonal COP of 3.0, the top of the Energimyndigheten

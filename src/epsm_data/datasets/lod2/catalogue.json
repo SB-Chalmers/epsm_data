@@ -7078,6 +7078,25 @@
       ],
       "name": "Structure school_se02 existing STIL2",
       "shearing_layer": "Structure"
+    },
+    "component:cf4d3185c45a36b0": {
+      "application": "EXT_WALL",
+      "layers": [
+        {
+          "layer_id": "layer:203f6c16f1bd3b13",
+          "position": 0
+        },
+        {
+          "layer_id": "layer:7ecd216b6066b2c3",
+          "position": 1
+        },
+        {
+          "layer_id": "layer:c1473bda98e2054a",
+          "position": 2
+        }
+      ],
+      "name": "Structure office_se01 existing STIL2",
+      "shearing_layer": "Structure"
     }
   },
   "construction_sets": {
@@ -7802,13 +7821,13 @@
       "elements": {
         "BASEMENT_FLOOR": "element:1027f119c3a2b217",
         "BASEMENT_WALL": "element:880fa768d51a7846",
-        "EXT_WALL": "element:ac5bdbc9f8198b84",
+        "EXT_WALL": "element:ca9b8a9c534f39d5",
         "GROUND_FLOOR": "element:f801237a69fa3e0c",
         "INTERMEDIATE_FLOOR": "element:d0e7da1d45648140",
         "INT_WALL_NONLOADBEARING": "element:48e34fee0ad2d65d",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:6d4f08a79ae226bd",
-        "WINDOW": "element:a7d128ce96d7e3a7"
+        "WINDOW": "element:2a1a377afe55174e"
       }
     },
     "construction_set:f552f5ce767ee9f0": {
@@ -9155,13 +9174,6 @@
       "role": "TOP_FLOOR",
       "side_convention": "outside_to_inside"
     },
-    "element:ac5bdbc9f8198b84": {
-      "components": [
-        "component:2ae2c2461d3d49bf"
-      ],
-      "name": "Ext Wall",
-      "role": "EXT_WALL"
-    },
     "element:acb8a6809f0e513f": {
       "components": [
         "component:50661af77f8f3aa1"
@@ -9827,6 +9839,18 @@
       "name": "Window",
       "role": "WINDOW",
       "window_material_id": "window:bffb0a01f987575d"
+    },
+    "element:ca9b8a9c534f39d5": {
+      "components": [
+        "component:cf4d3185c45a36b0"
+      ],
+      "name": "Ext Wall",
+      "role": "EXT_WALL"
+    },
+    "element:2a1a377afe55174e": {
+      "name": "Window",
+      "role": "WINDOW",
+      "window_material_id": "window:99d4ad0c921bbdef"
     }
   },
   "layers": {
@@ -11549,6 +11573,18 @@
       ],
       "name": "Wooden stud + Historic Mineral Wool, 100 mm (as found, STIL2)",
       "thickness": 0.1
+    },
+    "layer:7ecd216b6066b2c3": {
+      "is_composite": false,
+      "materials": [
+        {
+          "area_fraction": 1.0,
+          "material_id": "material:3921cc1ba1d9c5e7",
+          "thickness": 0.51
+        }
+      ],
+      "name": "Brick, 510 mm (as found, STIL2)",
+      "thickness": 0.51
     }
   },
   "materials": {
@@ -12467,6 +12503,37 @@
       "carbon_ref": {
         "source": "boverket",
         "identifier": "6000000104"
+      }
+    },
+    "material:3921cc1ba1d9c5e7": {
+      "kind": "opaque",
+      "material_family": "masonry",
+      "notes": [
+        "Equivalent conductivity of the 510 mm brick layer that gives wall U 0.70 W/(m² K), the STIL2 median of the 43 inspected schools built before 1961 (ER 2007:11 Bilaga 4), used as a proxy for offices of the same era. Mass and heat capacity unchanged."
+      ],
+      "epsm_material_name": "Brick, office SE.01 as found (STIL2 school proxy, effective)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_office_se01_brick_as_found_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000082"
+      }
+    },
+    "window:99d4ad0c921bbdef": {
+      "kind": "window",
+      "notes": [
+        "Boverket reference is a representative product-family proxy."
+      ],
+      "epsm_material_name": "Whole window U=2.3 W/(m² K), SHGC=0.4857214787019664, VT=0.5101413579674405",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_window_office_se01_existing_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000103"
       }
     }
   },
