@@ -142,7 +142,7 @@ def test_heat_pump_delivery_follows_the_epc_pump_type(pump, era, cop):
     template = heating_delivery_template("heat_pump", heat_pump_type=pump, era=era)
     assert template.template_id == f"epsm.heating.heat_pump_{pump}"
     assert set(template.values["delivery"]["heating"]["heat_pump_cop"]["values"]) == {cop}
-    assert any("not significant" in note for note in template.notes)
+    assert any("docs/validation.md" in note for note in template.notes)
 
 
 def test_exhaust_air_without_era_falls_back_and_unknown_types_raise():
@@ -153,11 +153,3 @@ def test_exhaust_air_without_era_falls_back_and_unknown_types_raise():
     with pytest.raises(ValueError, match="Unknown heat-pump type"):
         heating_delivery_template("heat_pump", heat_pump_type="solar")
 
-
-def test_se07_as_built_ftx_uses_in_use_recovery_and_advanced_keeps_080(catalogue):
-    for aid in ("sf_se07", "mf_se07", "office_se07", "school_se07"):
-        template = catalogue.get(aid).hvac_template
-        assert template.template_id == "epsm.ventilation.FTX_070"
-        assert template.values["airflow"]["sensible_recovery_effectiveness"] == 0.7
-    observed = catalogue.get("mf_se07", ventilation="FTX").hvac_template
-    assert observed.template_id == "epsm.ventilation.FTX_070"

@@ -78,7 +78,7 @@ def ventilation_template_id(category, era, state, ventilation=None):
     ``"standard"`` or None for SE.07) keeps the existing system: the observed
     ``ventilation`` (S, F, FT or FTX) when given, otherwise the era default for the
     category. An observed FTX takes the recovery typical of its era: 0.75 before 1976
-    (assumed retrofitted), 0.60 for 1976–2005, 0.75 for 2006–2021 and in-use 0.70 from 2022.
+    (assumed retrofitted), 0.60 for 1976–2005, and the period value from 2006.
     """
     table = _table("ventilation_templates")
     if category not in table["default_by_era"]:

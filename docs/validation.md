@@ -103,22 +103,17 @@ mostly building-specific (use, renovation history, operation) and cannot be clos
 archetype values. The `measured` operating standard selects these values; Sveby normal use
 stays the default.
 
-### Sourced defaults that did not pass the rule
+### Heat-pump COP by pump type
 
-Two HVAC defaults were changed on 22 November 2026 for realism, not for fit. Both were
-pre-registered and tested on the calibration, hold-out and a third untouched sample. Both
-moved the match in the expected direction in every sample where they could act, but
-neither passed the rule, so they are **sourced defaults, not calibrated values**:
+The heat-pump seasonal COP follows the EPC's pump type: ground 2.75, exhaust air 2.4
+before 2006 (radiators) and 2.75 from 2006 (floor heating), air–water 2.4, air–air 2.0.
+In the pre-registered test of 22 November 2026 it moved matches the expected way but did
+not pass the rule (calibration + hold-out 16 gained, 8 lost, p 0.15; third sample 12
+gained, 5 lost). A later test on unseen single-family houses supported it: heat-pump
+houses rose from 59.7 % to 64.6 % (p < 0.001), mostly exhaust-air pumps in SE.04–SE.05.
 
-- heat-pump seasonal COP by the EPC's pump type: ground 2.75, exhaust air 2.4 before 2006
-  (radiators) and 2.75 from 2006 (floor heating), air–water 2.4, air–air 2.0.
-  Calibration + hold-out: 16 buildings gained a match, 8 lost one (p 0.15); third sample
-  12 gained, 5 lost.
-- FTX recovery in SE.07 as built: 0.80 → 0.70 (in-use annual recovery). Without
-  multifamily SE.07: calibration 8 gained, 0 lost; the hold-out has no affected office or
-  school. With multifamily SE.07, 18 gained and 3 lost over the three samples.
-
-Advanced renovation keeps FTX 0.80; it has not been tested.
+SE.07 FTX recovery 0.70 (in-use) instead of 0.80 was also tested twice and did not pass
+(the second test: 123 to 122 matches of 481), so SE.07 keeps 0.80.
 
 ## What validation is not
 
