@@ -103,6 +103,23 @@ mostly building-specific (use, renovation history, operation) and cannot be clos
 archetype values. The `measured` operating standard selects these values; Sveby normal use
 stays the default.
 
+### Sourced defaults that did not pass the rule
+
+Two HVAC defaults were changed on 22 November 2026 for realism, not for fit. Both were
+pre-registered and tested on the calibration, hold-out and a third untouched sample. Both
+moved the match in the expected direction in every sample where they could act, but
+neither passed the rule, so they are **sourced defaults, not calibrated values**:
+
+- heat-pump seasonal COP by the EPC's pump type: ground 2.75, exhaust air 2.4 before 2006
+  (radiators) and 2.75 from 2006 (floor heating), air–water 2.4, air–air 2.0.
+  Calibration + hold-out: 16 buildings gained a match, 8 lost one (p 0.15); third sample
+  12 gained, 5 lost.
+- FTX recovery in SE.07 as built: 0.80 → 0.70 (in-use annual recovery). Without
+  multifamily SE.07: calibration 8 gained, 0 lost; the hold-out has no affected office or
+  school. With multifamily SE.07, 18 gained and 3 lost over the three samples.
+
+Advanced renovation keeps FTX 0.80; it has not been tested.
+
 ## What validation is not
 
 - **Not calibration.** No catalogue parameter is adjusted to fit individual

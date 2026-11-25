@@ -130,3 +130,34 @@ def test_heat_pump_delivery_template_carries_the_field_average_seasonal_cop():
     with pytest.raises(ValueError, match="No heating delivery template"):
         heating_delivery_template("district_heating")
 
+
+
+@pytest.mark.parametrize("pump, era, cop", [
+    ("ground", "SE.04", 2.75), ("exhaust_air", "SE.03", 2.4), ("exhaust_air", "SE.07", 2.75),
+    ("air_water", "SE.05", 2.4), ("air_air", "SE.02", 2.0),
+])
+def test_heat_pump_delivery_follows_the_epc_pump_type(pump, era, cop):
+    from epsm_data import heating_delivery_template
+
+    template = heating_delivery_template("heat_pump", heat_pump_type=pump, era=era)
+    assert template.template_id == f"epsm.heating.heat_pump_{pump}"
+    assert set(template.values["delivery"]["heating"]["heat_pump_cop"]["values"]) == {cop}
+    assert any("not significant" in note for note in template.notes)
+
+
+def test_exhaust_air_without_era_falls_back_and_unknown_types_raise():
+    from epsm_data import heating_delivery_template
+
+    assert heating_delivery_template("heat_pump", heat_pump_type="exhaust_air").template_id == (
+        "epsm.heating.heat_pump_field_average")
+    with pytest.raises(ValueError, match="Unknown heat-pump type"):
+        heating_delivery_template("heat_pump", heat_pump_type="solar")
+
+
+def test_se07_as_built_ftx_uses_in_use_recovery_and_advanced_keeps_080(catalogue):
+    for aid in ("sf_se07", "mf_se07", "office_se07", "school_se07"):
+        template = catalogue.get(aid).hvac_template
+        assert template.template_id == "epsm.ventilation.FTX_070"
+        assert template.values["airflow"]["sensible_recovery_effectiveness"] == 0.7
+    observed = catalogue.get("mf_se07", ventilation="FTX").hvac_template
+    assert observed.template_id == "epsm.ventilation.FTX_070"
