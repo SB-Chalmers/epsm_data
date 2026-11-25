@@ -1,3 +1,13 @@
+# Unreleased — single-family SE.07 FTX in use 0.60 (25 November 2026)
+
+Single-family SE.07 FTX, as the era default and as an observed system, now uses `FTX_060` (in-use recovery
+0.60). Multi-family, office and school SE.07 keep 0.70. The field evidence for houses is the REHVA Journal's
+large-scale residential analysis (in-situ about 60 % with leakage, defrost and imbalance), retrofitted MVHR
+in use at 0.65 ± 0.24, and a Swedish single-family house with a ground-source heat pump that showed no clear
+heat-demand difference between exhaust and recovery outside sub-zero weather (Energy and Buildings 2025).
+Held-out confirmation is pending. The new optional table `observed_ftx_by_category_era` overrides
+`observed_ftx_by_era` per building type.
+
 # Release notes
 
 ## Unreleased
