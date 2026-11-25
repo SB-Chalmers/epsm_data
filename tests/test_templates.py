@@ -133,7 +133,7 @@ def test_heat_pump_delivery_template_carries_the_field_average_seasonal_cop():
 
 
 @pytest.mark.parametrize("pump, era, cop", [
-    ("ground", "SE.04", 2.75), ("exhaust_air", "SE.03", 2.4), ("exhaust_air", "SE.07", 2.75),
+    ("ground", "SE.04", 2.75), ("exhaust_air", "SE.03", 2.4), ("exhaust_air", "SE.06", 2.75), ("exhaust_air", "SE.07", 3.0),
     ("air_water", "SE.05", 2.4), ("air_air", "SE.02", 2.0),
 ])
 def test_heat_pump_delivery_follows_the_epc_pump_type(pump, era, cop):
