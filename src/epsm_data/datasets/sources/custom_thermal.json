@@ -679,6 +679,72 @@
     },
     "visible_absorptance": 0.7
   },
+  "EPSM_school_se01_masonry_as_found_stil2": {
+    "conductivity": 0.3105662580268535,
+    "density": 1650,
+    "display_name": "Masonry, school SE.01 as found (STIL2 effective), 1650 kg/m³",
+    "identifier": "EPSM_school_se01_masonry_as_found_stil2",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 800,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "provenance": {
+        "basis": "Equivalent conductivity of the 380 mm masonry layer that gives the STIL2 median wall U 0.70 W/(m² K) of the 43 inspected schools built before 1961 (IQR 0.65-0.82; only 3 had added wall insulation). Mass and heat capacity unchanged.",
+        "sources": [
+          {
+            "reference": "Energimyndigheten (2007), Energianvändning & innemiljö i skolor och förskolor, STIL2, ER 2007:11, Bilaga 4 (inspected U-values per school, 2006)",
+            "url": "https://energimyndigheten.a-w2m.se/Home.mvc?ResourceId=2313"
+          },
+          {
+            "reference": "docs/validation.md#school-existing-state-stil2"
+          }
+        ],
+        "tier": "derived",
+        "values": {
+          "n_schools": 43,
+          "wall_u_median": 0.7
+        }
+      }
+    },
+    "visible_absorptance": 0.7
+  },
+  "EPSM_school_se02_wool_as_found_stil2": {
+    "conductivity": 0.028929246273357127,
+    "density": 29,
+    "display_name": "Mineral wool, school SE.02 as found (STIL2 effective)",
+    "identifier": "EPSM_school_se02_wool_as_found_stil2",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.5,
+    "specific_heat": 1030,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "provenance": {
+        "basis": "Equivalent wool conductivity in the 100 mm stud layer that gives the STIL2 median wall U 0.40 W/(m² K) of the 29 inspected schools built 1961-1975.",
+        "sources": [
+          {
+            "reference": "Energimyndigheten (2007), Energianvändning & innemiljö i skolor och förskolor, STIL2, ER 2007:11, Bilaga 4 (inspected U-values per school, 2006)",
+            "url": "https://energimyndigheten.a-w2m.se/Home.mvc?ResourceId=2313"
+          },
+          {
+            "reference": "docs/validation.md#school-existing-state-stil2"
+          }
+        ],
+        "tier": "derived",
+        "values": {
+          "n_schools": 29,
+          "wall_u_median": 0.4
+        }
+      }
+    },
+    "visible_absorptance": 0.5
+  },
   "EPSM_sf_historic_mineral_wool": {
     "conductivity": 0.04,
     "density": 29,
@@ -1514,34 +1580,6 @@
     },
     "vt": 0.518
   },
-  "EPSM_window_lod2_mf_1940_existing": {
-    "display_name": "Whole window U=2.8 W/(m² K), SHGC=0.56, VT=0.525",
-    "identifier": "EPSM_window_lod2_mf_1940_existing",
-    "shgc": 0.56,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 2.8,
-    "user_data": {
-      "provenance": {
-        "basis": "Uw from the period profile evidence; optics for a two-pane period window (Uw >= 2.2).",
-        "sources": [
-          {
-            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
-            "values": {
-              "frame_fraction": 0.3,
-              "glazing_g": 0.8,
-              "glazing_lt": 0.75
-            }
-          },
-          {
-            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
-            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
-          }
-        ],
-        "tier": "derived"
-      }
-    },
-    "vt": 0.525
-  },
   "EPSM_window_lod2_mf_1940_standard": {
     "display_name": "Whole window U=1.22 W/(m² K), SHGC=0.42, VT=0.525",
     "identifier": "EPSM_window_lod2_mf_1940_standard",
@@ -1685,34 +1723,6 @@
       }
     },
     "vt": 0.5101413579674405
-  },
-  "EPSM_window_lod2_school_se02_existing": {
-    "display_name": "Whole window U=2.7 W/(m² K), SHGC=0.56, VT=0.525",
-    "identifier": "EPSM_window_lod2_school_se02_existing",
-    "shgc": 0.56,
-    "type": "EnergyWindowMaterialSimpleGlazSys",
-    "u_factor": 2.7,
-    "user_data": {
-      "provenance": {
-        "basis": "Uw from the period profile evidence; optics for a two-pane period window (Uw >= 2.2).",
-        "sources": [
-          {
-            "reference": "EPSM whole-window convention: glazing value x (1 - frame fraction 0.30)",
-            "values": {
-              "frame_fraction": 0.3,
-              "glazing_g": 0.8,
-              "glazing_lt": 0.75
-            }
-          },
-          {
-            "reference": "TABULA original-window glazing g by pane count (SE.01-SE.04 originals)",
-            "url": "https://episcope.eu/fileadmin/tabula/public/calc/TABULA-xlsm_Download.zip"
-          }
-        ],
-        "tier": "derived"
-      }
-    },
-    "vt": 0.525
   },
   "EPSM_window_lod2_school_se03_existing": {
     "display_name": "Whole window U=2.25 W/(m² K), SHGC=0.56, VT=0.525",
@@ -1903,6 +1913,29 @@
           {
             "reference": "Elitfönster Original Alu product sheet 2020-08-04 (glass LT/g per Uw option)",
             "url": "https://xlbygg.se/media/page_attachments/Produktblad_EF_Original_ALU_qoaM3uA.pdf"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.525
+  },
+  "EPSM_window_school_se02_existing_stil2": {
+    "display_name": "Whole window U=1.9 W/(m² K), SHGC=0.56, VT=0.525",
+    "identifier": "EPSM_window_school_se02_existing_stil2",
+    "shgc": 0.56,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 1.9,
+    "user_data": {
+      "provenance": {
+        "basis": "STIL2 median window U 1.9 of the 29 inspected schools built 1961-1975; period two-pane optics kept, as tested.",
+        "sources": [
+          {
+            "reference": "Energimyndigheten (2007), Energianvändning & innemiljö i skolor och förskolor, STIL2, ER 2007:11, Bilaga 4 (inspected U-values per school, 2006)",
+            "url": "https://energimyndigheten.a-w2m.se/Home.mvc?ResourceId=2313"
+          },
+          {
+            "reference": "docs/validation.md#school-existing-state-stil2"
           }
         ],
         "tier": "derived"

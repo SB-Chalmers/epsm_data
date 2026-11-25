@@ -122,6 +122,9 @@ savings, especially when the original envelope is already insulated.
 
 ### Forward nominal values
 
+Update 25 November 2026: the school SE.01 and SE.02 existing wall and window rows now
+carry the STIL2 as-found values (ER 2007:11). See `docs/validation.md#school-existing-state-stil2`.
+
 Values are W/(m² K), computed from stored nominal layers and declared films.
 The ground column is the lowest conditioned-floor construction; for SE.01 it
 is the suspended basement ceiling. It is not an effective ground coefficient.
@@ -149,10 +152,10 @@ chosen soil/geometry method. No value below is a measured energy benchmark.
 | Office SE.06 | standard | 0.1143 | 0.0928 | 0.1751 | 1.22 | 0.42 / 0.53 |
 | Office SE.06 | advanced | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.35 / 0.52 |
 | Office SE.07 | default | 0.0895 | 0.0827 | 0.1751 | 0.9 | 0.35 / 0.52 |
-| School SE.01 | existing | 1.5435 | 0.4641 | 0.3131 | 2.8 | 0.56 / 0.53 |
+| School SE.01 | existing | 0.7000 | 0.4641 | 0.3131 | 2.3 | 0.56 / 0.53 |
 | School SE.01 | standard | 0.2719 | 0.1746 | 0.3131 | 1.22 | 0.42 / 0.53 |
 | School SE.01 | advanced | 0.1491 | 0.1446 | 0.3131 | 0.9 | 0.35 / 0.52 |
-| School SE.02 | existing | 0.4598 | 0.3012 | 0.6036 | 2.7 | 0.56 / 0.53 |
+| School SE.02 | existing | 0.4000 | 0.3012 | 0.6036 | 1.9 | 0.56 / 0.53 |
 | School SE.02 | standard | 0.1921 | 0.1451 | 0.6036 | 1.22 | 0.42 / 0.53 |
 | School SE.02 | advanced | 0.1214 | 0.1237 | 0.6036 | 0.9 | 0.35 / 0.52 |
 | School SE.03 | existing | 0.3289 | 0.2335 | 0.4551 | 2.25 | 0.56 / 0.53 |
