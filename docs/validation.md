@@ -139,6 +139,28 @@ scored once):
   narrowly, so this is a sourced default that improves match, not a calibrated value. No unused office
   SE.01 buildings exist.
 
+## Office SE.02 existing state (STIL2, school proxy)
+
+Office SE.02 (1961–1975) uses the same STIL2 "as found" wall and window U-values as school SE.02:
+the medians of the 29 inspected schools built 1961–1975 (ER 2007:11, Bilaga 4). As for office SE.01,
+no office survey with inspected U-values exists, so schools of the same era serve as the proxy.
+
+- External wall 0.40 W/(m² K) (was 0.60): the 150 mm concrete layer gets an equivalent conductivity
+  of 0.167 (was 2.3), with mass and heat capacity unchanged. The other layers are unchanged.
+- Window 1.9 W/(m² K) (was 2.8). The office existing optics are kept (SHGC 0.486, VT 0.510).
+- Roof, ground, airtightness, standard and advanced are unchanged.
+- These are values from a measured stock survey. They were not fitted to measured heating.
+
+Tested against measured EPC heating on 25 November 2026 (office SE.01–SE.02 study path, v6 final-campaign
+rows with epsm policy v10's ventilation rule, 418 office SE.02 buildings, pre-registered, scored once;
+`epsm_studies/output/cohort-dives-2026-11-25`):
+
+- Match rose from 62.4 % to 72.7 % (58 gained, 15 lost, exact McNemar p 4e-7). Skill over within-cohort
+  chance rose from +10.6 to +18.7 points. The median existing-state ratio fell from 1.53 to 1.33.
+- Both md5 halves gained (24/9 and 34/6).
+- Office SE.02 played no part in choosing the values (a transfer from school SE.02). No unused office
+  SE.02 buildings exist, so it was scored on buildings used in earlier studies.
+
 ## School existing state (STIL2)
 
 School SE.01 (to 1960) and SE.02 (1961–1975) use a measured "as found" existing state for

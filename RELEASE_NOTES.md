@@ -8,6 +8,10 @@ in `docs/validation.md`.
 - Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window
   U 2.3 of pre-1961 schools (ER 2007:11), as a proxy for offices of the same era (were 0.95
   and 2.8). Window optics, roof, ground, standard and advanced are unchanged.
+- Office SE.02 (1961–1975) existing state uses the STIL2 "as found" wall U 0.40 and window
+  U 1.9 of schools built 1961–75 (ER 2007:11), the same values as school SE.02, as a proxy for
+  offices of the same era (were 0.60 and 2.8). Window optics, roof, ground, standard and
+  advanced are unchanged. See `docs/validation.md#office-se02-existing-state-stil2-school-proxy`.
 - Exhaust-air heat pumps in SE.07 (2022 onwards) use a seasonal COP of 3.0, the top of the
   Energimyndigheten 2013 floor-heating range (2.4–3.0). Current inverter units are rated
   well above that generation (NIBE S735 SCOP 4.5 at 35 °C, EN 14825). Earlier eras are
