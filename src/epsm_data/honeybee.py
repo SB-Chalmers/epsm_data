@@ -635,7 +635,8 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
         :func:`swedish_active_dates` with Sveby's day count. Ignored for housing.
     solar_shading_factor : float or str, optional
         Factor on window SHGC. Default ``"behaviour"``: Sveby's occupant factor for
-        blinds and curtains (0.71 housing and office, 0.65 school), for models whose
+        blinds and curtains (0.71 single-family and office, 0.65 school; multi-family
+        keeps 1.0 for any named choice, as in EPSM), for models whose
         obstructions are geometry, as EPSM's are. ``"total"`` gives Sveby's combined
         factor (0.50; school 0.65) for models without obstructions; ``None`` or 1.0
         turns shading off, as in EPSM's runs before this default.
@@ -660,7 +661,10 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     template_id = archetype.hvac_template.template_id
     identifier = f"epsm_{archetype_id}_{selected or 'single'}_{template_id.rsplit('.', 1)[-1]}".lower()
     if solar_shading_factor in ("behaviour", "total"):
-        solar_shading_factor = sveby_shading_factors(values, category)[solar_shading_factor]
+        # As in EPSM (epsm._solar_shading): multi-family keeps no Sveby shading, chosen
+        # after the final calibration campaign; untested on fresh buildings.
+        solar_shading_factor = (1.0 if category == "multi_family"
+                                else sveby_shading_factors(values, category)[solar_shading_factor])
     factor = 1.0 if solar_shading_factor is None else solar_shading_factor
     if not 0 < factor <= 1:
         raise ValueError("solar_shading_factor must be in (0, 1]")

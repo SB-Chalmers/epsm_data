@@ -68,7 +68,7 @@ def test_constructions_keep_catalogue_u_values(catalogue):
 
 
 def test_window_shgc_carries_sveby_shading(catalogue):
-    assert to_honeybee(catalogue, "mf_se03", state="existing").solar_shading_factor == 0.71
+    assert to_honeybee(catalogue, "mf_se03", state="existing").solar_shading_factor == 1.0
     assert to_honeybee(catalogue, "mf_se03", state="existing", solar_shading_factor=None).solar_shading_factor == 1.0
     export = to_honeybee(catalogue, "mf_se03", state="existing", solar_shading_factor=0.5)
     glass = catalogue.handover("mf_se03", state="existing")["honeybee"]["WINDOW"]["materials"][0]
@@ -78,8 +78,8 @@ def test_window_shgc_carries_sveby_shading(catalogue):
     assert material.u_factor == glass["u_factor"]
     for aid, factor in (("sf_se03", 0.71), ("office_se03", 0.71), ("school_se03", 0.65)):
         assert to_honeybee(catalogue, aid, state="existing").solar_shading_factor == factor
-    assert to_honeybee(catalogue, "mf_se03", state="existing",
-                       solar_shading_factor="behaviour").solar_shading_factor == 0.71
+    assert to_honeybee(catalogue, "sf_se03", state="existing",
+                       solar_shading_factor="total").solar_shading_factor == 0.5
     assert to_honeybee(catalogue, "office_se03", state="existing",
                        solar_shading_factor="total").solar_shading_factor == 0.5
     assert to_honeybee(catalogue, "school_se03", state="existing",
