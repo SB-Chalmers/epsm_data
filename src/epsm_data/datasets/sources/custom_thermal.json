@@ -596,6 +596,40 @@
     },
     "visible_absorptance": 0.7
   },
+  "EPSM_office_se01_brick_as_found_stil2": {
+    "conductivity": 0.41681260945709286,
+    "density": 1650,
+    "display_name": "Brick, office SE.01 as found (STIL2 school proxy, effective)",
+    "identifier": "EPSM_office_se01_brick_as_found_stil2",
+    "roughness": "MediumRough",
+    "solar_absorptance": 0.7,
+    "specific_heat": 800,
+    "thermal_absorptance": 0.9,
+    "thickness": 0.05,
+    "type": "EnergyMaterial",
+    "user_data": {
+      "definition_author": "EPSM",
+      "provenance": {
+        "basis": "Equivalent conductivity of the 510 mm brick layer that gives wall U 0.70 W/(m² K), the STIL2 median of the 43 inspected schools built before 1961 (ER 2007:11 Bilaga 4), used as a proxy for offices of the same era. Mass and heat capacity unchanged.",
+        "sources": [
+          {
+            "reference": "Energimyndigheten (2007), Energianvändning & innemiljö i skolor och förskolor, STIL2, ER 2007:11, Bilaga 4 (inspected U-values per school, 2006)",
+            "url": "https://energimyndigheten.a-w2m.se/Home.mvc?ResourceId=2313"
+          },
+          {
+            "reference": "docs/validation.md#office-se01-existing-state-stil2-school-proxy"
+          }
+        ],
+        "tier": "derived",
+        "values": {
+          "n_schools": 43,
+          "proxy_for": "office SE.01",
+          "wall_u_median": 0.7
+        }
+      }
+    },
+    "visible_absorptance": 0.7
+  },
   "EPSM_office_under_felt": {
     "conductivity": 0.23,
     "density": 1190,
@@ -1919,6 +1953,29 @@
       }
     },
     "vt": 0.525
+  },
+  "EPSM_window_office_se01_existing_stil2": {
+    "display_name": "Whole window U=2.3 W/(m² K), SHGC=0.4857214787019664, VT=0.5101413579674405",
+    "identifier": "EPSM_window_office_se01_existing_stil2",
+    "shgc": 0.4857214787019664,
+    "type": "EnergyWindowMaterialSimpleGlazSys",
+    "u_factor": 2.3,
+    "user_data": {
+      "provenance": {
+        "basis": "STIL2 median window U 2.3 of the 43 inspected schools built before 1961, used as an office SE.01 proxy; office existing optics kept.",
+        "sources": [
+          {
+            "reference": "Energimyndigheten (2007), Energianvändning & innemiljö i skolor och förskolor, STIL2, ER 2007:11, Bilaga 4 (inspected U-values per school, 2006)",
+            "url": "https://energimyndigheten.a-w2m.se/Home.mvc?ResourceId=2313"
+          },
+          {
+            "reference": "docs/validation.md#office-se01-existing-state-stil2-school-proxy"
+          }
+        ],
+        "tier": "derived"
+      }
+    },
+    "vt": 0.5101413579674405
   },
   "EPSM_window_school_se02_existing_stil2": {
     "display_name": "Whole window U=1.9 W/(m² K), SHGC=0.56, VT=0.525",

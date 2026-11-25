@@ -617,8 +617,8 @@
       "u_value": 1.2219959266802443
     },
     "EXT_WALL": {
-      "physics": "92b9e57455525aece17ef84a84f3fa2d8e7d03015abcfa457eab64d8aa9488d0",
-      "u_value": 0.947867298578199
+      "physics": "b932353b2cc5b785918b4f865940787a568c839a05b260411b50cd3079cabbee",
+      "u_value": 0.7000000000000001
     },
     "GROUND_FLOOR": {
       "physics": "7e991db324a1a9f347538897ffb5e42fe89d72e6ab0a4fae2acc7fc7420633e1",
@@ -641,8 +641,8 @@
       "u_value": 0.47562821173770603
     },
     "WINDOW": {
-      "physics": "b2d4934981c2b13ee7c568080a5bedabd485ad156a02d478ed3780edac6cc1c5",
-      "u_value": 2.8
+      "physics": "9a1e4d65e286701db277cd661c0957942fbd3c514f52f34d3afc373914ca8113",
+      "u_value": 2.3
     }
   },
   "office_se01:standard": {

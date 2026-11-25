@@ -34,7 +34,7 @@
     "epsm-custom": {
       "release": "0.9.0",
       "records_path": "custom_thermal.json",
-      "sha256": "dd8c96b4fc319c4b9ab3cbdfc001f111dd307f37ff177cf26006725da8f76f97",
+      "sha256": "c9ed8799800c545f88f34a125d969f53e8e1b08b689bf10bab6c0593ad8f56cc",
       "kind": "epsm_authored"
     }
   }

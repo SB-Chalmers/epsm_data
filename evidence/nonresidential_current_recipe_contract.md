@@ -122,6 +122,9 @@ savings, especially when the original envelope is already insulated.
 
 ### Forward nominal values
 
+Update 25 November 2026: the office SE.01 existing wall and window row now carries the STIL2
+school-proxy values. See `docs/validation.md#office-se01-existing-state-stil2-school-proxy`.
+
 Update 25 November 2026: the school SE.01 and SE.02 existing wall and window rows now
 carry the STIL2 as-found values (ER 2007:11). See `docs/validation.md#school-existing-state-stil2`.
 
@@ -133,7 +136,7 @@ chosen soil/geometry method. No value below is a measured energy benchmark.
 
 | Configuration | State | Wall U | Thermal top U | Ground-role U | Window U | SHGC / VT |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Office SE.01 | existing | 1.2594 | 0.4641 | 0.3131 | 2.8 | 0.49 / 0.51 |
+| Office SE.01 | existing | 0.7000 | 0.4641 | 0.3131 | 2.3 | 0.49 / 0.51 |
 | Office SE.01 | standard | 0.2615 | 0.1746 | 0.3131 | 1.22 | 0.42 / 0.53 |
 | Office SE.01 | advanced | 0.1600 | 0.1076 | 0.3131 | 0.9 | 0.35 / 0.52 |
 | Office SE.02 | existing | 0.5993 | 0.3639 | 0.6036 | 2.8 | 0.49 / 0.51 |

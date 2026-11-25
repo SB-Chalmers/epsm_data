@@ -115,6 +115,30 @@ houses rose from 59.7 % to 64.6 % (p < 0.001), mostly exhaust-air pumps in SE.04
 SE.07 FTX recovery 0.70 (in-use) instead of 0.80 was also tested twice and did not pass
 (the second test: 123 to 122 matches of 481), so SE.07 keeps 0.80.
 
+## Office SE.01 existing state (STIL2, school proxy)
+
+Office SE.01 (to 1960) uses the same STIL2 "as found" wall and window U-values as school SE.01:
+the medians of the 43 inspected schools built before 1961 (ER 2007:11, Bilaga 4). No office
+survey with inspected U-values was found. STIL2's office report (ER 2007:34) and STIL3
+(ER 2025:25) give energy use and systems but no envelope values, so schools of the same era
+serve as the proxy.
+
+- External wall 0.70 W/(m² K) (was 0.95 as a catalogue element): the 510 mm brick layer gets an
+  equivalent conductivity of 0.417 (was 0.60), with mass and heat capacity unchanged.
+- Window 2.3 W/(m² K) (was 2.8). The office existing optics are kept (SHGC 0.486, VT 0.510).
+- Roof, ground, airtightness, standard and advanced are unchanged.
+- These are values from a measured stock survey. They were not fitted to measured heating.
+
+Tested against measured EPC heating on 25 November 2026 (office SE.01, 949 buildings, pre-registered,
+scored once):
+
+- With epsm policy v10, match rose from 57.6 % to 65.9 % (107 gained, 29 lost, p 1e-11), and skill over
+  within-cohort chance from +4.7 to +9.9 points. On the v6 baseline without v10: 59.7 % → 66.0 %
+  (82 gained, 23 lost).
+- Both pre-registered halves moved the same way. The test's own skill threshold (+10 points) was missed
+  narrowly, so this is a sourced default that improves match, not a calibrated value. No unused office
+  SE.01 buildings exist.
+
 ## School existing state (STIL2)
 
 School SE.01 (to 1960) and SE.02 (1961–1975) use a measured "as found" existing state for

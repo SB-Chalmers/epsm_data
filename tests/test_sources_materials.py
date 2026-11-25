@@ -95,7 +95,9 @@ def test_custom_cache_changes_resolved_physics_without_repeating_properties(tmp_
     assert custom.materials[material_id].name == baseline.materials[material_id].name
     assert custom.materials[material_id].conductivity == expected
     def wall(catalogue):
-        return catalogue.get("office_se01").construction_set.elements[BuildingElement.EXT_WALL].u_value
+        # The standard state keeps the original brick (existing uses the STIL2 as-found layer).
+        return catalogue.get("office_se01", state="standard").construction_set.elements[
+            BuildingElement.EXT_WALL].u_value
 
     assert wall(custom) > wall(baseline)
     assert Catalogue.load().materials[material_id].conductivity != expected

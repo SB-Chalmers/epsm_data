@@ -68,7 +68,7 @@ def test_packaged_sources_are_pinned_and_load_without_network(monkeypatch):
     cache = SourceCache.load()
     counts = {key: len(cache.records(key)) for key in cache.manifest["sources"]}
     assert counts == {
-        "epsm-custom": 58, "boverket": 230,
+        "epsm-custom": 60, "boverket": 230,
         "epd-ies-0005222": 1, "epd-ies-0013025": 1,
     }
     assert {r["Version"] for r in cache.records("boverket").values()} == {"02.07.000"}
