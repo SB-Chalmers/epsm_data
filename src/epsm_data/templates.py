@@ -27,27 +27,44 @@ def ventilation_templates():
     }
 
 
-def heating_delivery_template(carrier="heat_pump"):
+HEAT_PUMP_TYPES = ("ground", "exhaust_air", "air_water", "air_air")
+
+
+def heating_delivery_template(carrier="heat_pump", *, heat_pump_type=None, era=None):
     """The sourced heating-delivery ``HVACTemplate`` for a carrier.
 
-    The heat-pump template gives the Swedish field-average seasonal COP as a
-    delivery section, so a consumer selects it as it selects a ventilation
-    template. Unsupported carriers raise ValueError.
+    The heat-pump template gives a seasonal COP as a delivery section, so a consumer
+    selects it as it selects a ventilation template. Without ``heat_pump_type`` it is
+    the Swedish field average 2.75. With the building's pump type (``ground``,
+    ``exhaust_air``, ``air_water`` or ``air_air``, as read from its EPC) it is the
+    sourced value for that type; exhaust air also needs ``era`` (radiators before
+    2006, floor heating from 2006) and falls back to the field average without it.
+    Unsupported carriers or pump types raise ValueError.
     """
     table = _table("heating_delivery_v1")
     if carrier not in table["templates"]:
         raise ValueError(f"No heating delivery template for carrier: {carrier!r}")
     record = table["templates"][carrier]
-    cop = record["seasonal_cop"]
+    template_id, cop = record["template_id"], record["seasonal_cop"]
+    notes = [record["source_locator"], record["note"], table["basis"]]
+    if heat_pump_type is not None:
+        if carrier != "heat_pump" or heat_pump_type not in HEAT_PUMP_TYPES:
+            raise ValueError(f"Unknown heat-pump type {heat_pump_type!r}; use one of {HEAT_PUMP_TYPES}")
+        typed = record["seasonal_cop_by_pump_type"][heat_pump_type]
+        by_era = typed.get("seasonal_cop_by_era")
+        if by_era is None or era in by_era:
+            cop = typed["seasonal_cop"] if by_era is None else by_era[era]
+            template_id = f"epsm.heating.heat_pump_{heat_pump_type}"
+            notes = [typed["source_locator"], record["pump_type_note"], table["basis"]]
     return HVACTemplate(
-        template_id=record["template_id"],
+        template_id=template_id,
         values={"delivery": {"heating": {
             "carrier": carrier,
             "heat_pump_cop": {"values": [cop] * 24},
-            "source": record["template_id"],
+            "source": template_id,
         }}},
         source_references=(table["source_uri"],),
-        notes=(record["source_locator"], record["note"], table["basis"]),
+        notes=tuple(notes),
     )
 
 
@@ -61,7 +78,7 @@ def ventilation_template_id(category, era, state, ventilation=None):
     ``"standard"`` or None for SE.07) keeps the existing system: the observed
     ``ventilation`` (S, F, FT or FTX) when given, otherwise the era default for the
     category. An observed FTX takes the recovery typical of its era: 0.75 before 1976
-    (assumed retrofitted), 0.60 for 1976–2005 and the period value from 2006.
+    (assumed retrofitted), 0.60 for 1976–2005, 0.75 for 2006–2021 and in-use 0.70 from 2022.
     """
     table = _table("ventilation_templates")
     if category not in table["default_by_era"]:

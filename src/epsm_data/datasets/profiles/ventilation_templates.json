@@ -40,12 +40,19 @@
       },
       "note": "Typical rotary or counter-flow recovery 2006-2021, effectiveness 0.75."
     },
+    "epsm.ventilation.FTX_070": {
+      "airflow": {
+        "topology": "FTX",
+        "sensible_recovery_effectiveness": 0.7
+      },
+      "note": "As-built recovery in SE.07, in-use annual effectiveness 0.70. Rated units give 0.80-0.90, but measured units in Swedish multifamily buildings gave 0.49-0.71 once flow imbalance was corrected (BeBo/CIT FTX measurement report 2016, p. 15), and annual recovery with normal defrosting is seldom above about 0.60 (Energi & Miljo, 15 April 2014). 0.70 is the middle of 0.60-0.80. Sourced default, tested 22 November 2026: direction confirmed, not significant (see docs/validation.md)."
+    },
     "epsm.ventilation.FTX_080": {
       "airflow": {
         "topology": "FTX",
         "sensible_recovery_effectiveness": 0.8
       },
-      "note": "Current recovery for new construction and advanced renovation, effectiveness 0.8."
+      "note": "Recovery for advanced renovation, effectiveness 0.8 (a new, commissioned unit). In-use evidence suggests about 0.70; not changed because it moves every Advanced state and has not been tested."
     }
   },
   "renovation": {
@@ -60,7 +67,7 @@
       "SE.04": "F",
       "SE.05": "F",
       "SE.06": "FTX_075",
-      "SE.07": "FTX_080"
+      "SE.07": "FTX_070"
     },
     "multi_family": {
       "SE.01": "S",
@@ -69,7 +76,7 @@
       "SE.04": "F",
       "SE.05": "F",
       "SE.06": "FTX_075",
-      "SE.07": "FTX_080"
+      "SE.07": "FTX_070"
     },
     "office": {
       "SE.01": "S",
@@ -78,7 +85,7 @@
       "SE.04": "FTX_060",
       "SE.05": "FTX_060",
       "SE.06": "FTX_075",
-      "SE.07": "FTX_080"
+      "SE.07": "FTX_070"
     },
     "school": {
       "SE.01": "S",
@@ -87,7 +94,7 @@
       "SE.04": "FTX_060",
       "SE.05": "FTX_060",
       "SE.06": "FTX_075",
-      "SE.07": "FTX_080"
+      "SE.07": "FTX_070"
     }
   },
   "observed_ftx_by_era": {
@@ -97,7 +104,7 @@
     "SE.04": "FTX_060",
     "SE.05": "FTX_060",
     "SE.06": "FTX_075",
-    "SE.07": "FTX_080"
+    "SE.07": "FTX_070"
   },
-  "observed_rule": "An observed S, F or FT system is used as-is in Existing and Standard. An observed FTX is assumed retrofitted (0.75) in buildings before 1976, original early recovery (0.60) in 1976-2005, and period recovery from 2006. Advanced always installs FTX 0.80."
+  "observed_rule": "An observed S, F or FT system is used as-is in Existing and Standard. An observed FTX is assumed retrofitted (0.75) in buildings before 1976, original early recovery (0.60) in 1976-2005, period recovery 0.75 in 2006-2021 and in-use recovery 0.70 from 2022. Advanced always installs FTX 0.80."
 }

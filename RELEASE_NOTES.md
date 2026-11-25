@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- `heating_delivery_template("heat_pump", heat_pump_type=..., era=...)`: seasonal COP
+  by the EPC pump type (ground 2.75, exhaust air 2.4 before 2006 and 2.75 from 2006,
+  air–water 2.4, air–air 2.0). Without a pump type it is still 2.75.
+- SE.07 FTX as built uses the new `epsm.ventilation.FTX_070` (in-use recovery 0.70)
+  instead of 0.80. Advanced renovation keeps FTX 0.80.
+- Both are sourced defaults, tested on three samples: direction confirmed, not
+  significant. See `docs/validation.md`.
 - `select_operating_distributions(type, era=...)` and `sample_operating_values(...)`:
   optional, reproducible per-building draws of operating values inside sourced ranges
   (single-family only). Off by default; tested against EPC data and not adopted as a
