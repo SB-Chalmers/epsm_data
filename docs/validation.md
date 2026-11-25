@@ -120,6 +120,39 @@ neither passed the rule, so they are **sourced defaults, not calibrated values**
 
 Advanced renovation keeps FTX 0.80; it has not been tested.
 
+## School existing state (STIL2)
+
+School SE.01 (to 1960) and SE.02 (1961–1975) use a measured "as found" existing state for
+the external wall and the windows. The values are the medians of Energimyndigheten's STIL2
+inspections of schools in 2006 (ER 2007:11, Bilaga 4). For each school, the inspectors gave
+wall, roof and window U-values with the build year and the envelope measures carried out:
+
+| Era | Schools | Wall U | Window U | Roof U | Original existing |
+| --- | ---: | ---: | ---: | ---: | --- |
+| SE.01 | 43 | 0.70 (IQR 0.65–0.82) | 2.3 | 0.45 | wall 1.19, window 2.8, roof 0.46 |
+| SE.02 | 29 | 0.40 | 1.9 | 0.30 | wall 0.48, window 2.7, roof 0.30 |
+
+- Few of these schools had been renovated: added wall insulation in 3 of the 43 older
+  schools, and replaced windows in 6. The original 380 mm brick recipe therefore understates
+  real school walls; the difference is not a renovation.
+- The roof agrees with STIL2 and is unchanged. STIL2 has no airtightness or ground data, so
+  those stay as they were.
+- Each wall keeps its layers, mass and heat capacity. One layer carries an equivalent
+  conductivity that gives the STIL2 U: the masonry in SE.01, and the wool share of the stud
+  layer in SE.02. The SE.01 window reuses the TABULA original timber window (U 2.30). Both
+  windows keep period two-pane optics. Standard and advanced are unchanged.
+- These are values from a measured stock survey. They were not fitted to measured heating.
+
+Tested against measured EPC heating on 25 November 2026. Each test was pre-registered and
+scored once.
+
+- **School SE.01** (287 buildings): match rose from 50.5 % to 61.3 % (42 gained, 11 lost,
+  p 2e-5), and skill over chance from +2.6 to +9.0 points. With EPSM reading EPCs that tick
+  FTX together with another system as FTX, match was 63.4 % and skill +10.2. There are no
+  unused school SE.01 buildings, and the change was chosen on this cohort.
+- **School SE.02** (198 buildings, held out; with the same ventilation reading): match rose
+  from 63.1 % to 70.7 % (27 gained, 12 lost, p 0.02), and skill from +6.0 to +11.1.
+
 ## Stochastic operating values (tested, not adopted)
 
 `select_operating_distributions` and `sample_operating_values` give each building its own

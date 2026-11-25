@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- School SE.01 and SE.02 existing states use the external-wall and window U-values found
+  in Energimyndigheten's STIL2 school inspections (ER 2007:11): SE.01 wall 0.70 and window
+  2.3 (were 1.19 and 2.8), SE.02 wall 0.40 and window 1.9 (were 0.48 and 2.7). Standard and
+  advanced are unchanged. See `docs/validation.md#school-existing-state-stil2`.
+
 - `heating_delivery_template("heat_pump", heat_pump_type=..., era=...)`: seasonal COP
   by the EPC pump type (ground 2.75, exhaust air 2.4 before 2006 and 2.75 from 2006,
   air–water 2.4, air–air 2.0). Without a pump type it is still 2.75.
