@@ -1,33 +1,24 @@
-# Unreleased — office SE.01 existing walls and windows from STIL2 (25 November 2026)
-
-Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window U 2.3 of pre-1961
-schools (ER 2007:11), as a proxy for offices of the same era (were 0.95 and 2.8). Window optics, roof, ground,
-standard and advanced are unchanged. With epsm policy v10 (EPC ventilation with FTX among several systems read
-as FTX), office SE.01 match goes from 57.6 to 65.9 %. See `docs/validation.md#office-se01-existing-state-stil2-school-proxy`.
-
-# Unreleased — exhaust-air heat pump COP 3.0 in SE.07 (25 November 2026)
-
-Exhaust-air heat pumps in SE.07 (2022 onwards) use a seasonal COP of 3.0, the top of the Energimyndigheten
-2013 floor-heating range (2.4–3.0). Current inverter units are rated well above that generation (NIBE S735
-SCOP 4.5 at 35 °C, EN 14825). Earlier eras are unchanged. On the SF SE.07 halves, with the epsm slab-edge and household-electricity change and FTX
-0.60, match goes from 46.5 to 50.0 % on the fit half and from 44.8 to 49.0 % on the test half. COPs of 3.0 to 3.5
-were viewed on both halves, so the test half is not a clean confirmation. 3.0 was chosen as the sourced top of the
-range, not as the fit optimum (3.2).
-
-# Unreleased — single-family SE.07 FTX in use 0.60 (25 November 2026)
-
-Single-family SE.07 FTX, as the era default and as an observed system, now uses `FTX_060` (in-use recovery
-0.60). Multi-family, office and school SE.07 keep 0.80. The field evidence for houses is the REHVA Journal's
-large-scale residential analysis (in-situ about 60 % with leakage, defrost and imbalance), retrofitted MVHR
-in use at 0.65 ± 0.24, and a Swedish single-family house with a ground-source heat pump that showed no clear
-heat-demand difference between exhaust and recovery outside sub-zero weather (Energy and Buildings 2025).
-Held-out confirmation is pending. The new optional table `observed_ftx_by_category_era` overrides
-`observed_ftx_by_era` per building type.
-
 # Release notes
 
-## Unreleased
+## 0.9.0rc1 — release candidate (25 November 2026)
 
+A candidate for 0.9.0, for testing with EPSM 0.8.0rc1. Match figures for each change are
+in `docs/validation.md`.
+
+- Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window
+  U 2.3 of pre-1961 schools (ER 2007:11), as a proxy for offices of the same era (were 0.95
+  and 2.8). Window optics, roof, ground, standard and advanced are unchanged.
+- Exhaust-air heat pumps in SE.07 (2022 onwards) use a seasonal COP of 3.0, the top of the
+  Energimyndigheten 2013 floor-heating range (2.4–3.0). Current inverter units are rated
+  well above that generation (NIBE S735 SCOP 4.5 at 35 °C, EN 14825). Earlier eras are
+  unchanged. 3.0 is the sourced top of the range, not a fitted value.
+- Single-family SE.07 FTX, as the era default and as an observed system, uses `FTX_060`
+  (in-use recovery 0.60). Multi-family, office and school SE.07 keep 0.80. Field evidence
+  for houses: the REHVA Journal's large-scale residential analysis (in situ about 60 % with
+  leakage, defrost and imbalance), retrofitted MVHR in use at 0.65 ± 0.24, and a Swedish
+  single-family house with a ground-source heat pump (Energy and Buildings 2025). Held-out
+  confirmation is pending. The new optional table `observed_ftx_by_category_era` overrides
+  `observed_ftx_by_era` per building type.
 - School SE.01 and SE.02 existing states use the external-wall and window U-values found
   in Energimyndigheten's STIL2 school inspections (ER 2007:11): SE.01 wall 0.70 and window
   2.3 (were 1.19 and 2.8), SE.02 wall 0.40 and window 1.9 (were 0.48 and 2.7). Standard and
@@ -36,7 +27,7 @@ Held-out confirmation is pending. The new optional table `observed_ftx_by_catego
 - `heating_delivery_template("heat_pump", heat_pump_type=..., era=...)`: seasonal COP
   by the EPC pump type (ground 2.75, exhaust air 2.4 before 2006 and 2.75 from 2006,
   air–water 2.4, air–air 2.0). Without a pump type it is still 2.75.
-  Supported on unseen single-family houses; see `docs/validation.md`.
+  Tested on unseen single-family houses; see `docs/validation.md`.
 - `epsm_data.honeybee.to_honeybee(catalogue, id, ...)` exports a configuration as a
   honeybee-energy ConstructionSet, ProgramType and IdealAirSystem, with
   `apply_to_rooms` for windows, airtightness, thermal bridges and an ISO 13370 ground
