@@ -172,3 +172,40 @@ the simulation scenario come from the building that uses it; see
 
 The [first example notebook](../examples/01_select_an_archetype.ipynb) walks
 through selection and inspection.
+
+## Use an archetype in Honeybee
+
+`epsm_data.honeybee.to_honeybee` turns one configuration into honeybee-energy
+objects that you assign to your own Honeybee rooms. It needs the optional extra:
+`pip install "epsm_data[honeybee]"`.
+
+```python
+from honeybee.room import Room
+from epsm_data import Catalogue
+from epsm_data.honeybee import to_honeybee, ground_temperature_idf
+
+catalogue = Catalogue.load()
+export = to_honeybee(catalogue, "mf_se03", state="existing", ventilation="F")
+rooms = [...]                      # your Honeybee rooms, adjacency solved
+export.apply_to_rooms(rooms)       # constructions, program, ideal air, windows, airtightness, ground
+parameter = export.simulation_parameter("weather.epw")
+extra = ground_temperature_idf("weather.epw")   # pass as additional_string
+```
+
+| Honeybee | From the catalogue |
+| --- | --- |
+| ConstructionSet | `handover` constructions: external, ground and basement walls, ground floor, intermediate floor and its reverse, top floor, window |
+| ProgramType | Sveby (or `standard="measured"`) people, electricity, hot water, ventilation and setpoints; office and school loads on 225 or 220 working days |
+| IdealAirSystem | The ventilation template's heat recovery; no economiser; cooling off unless the profile enables it |
+| Windows | `facade_assumptions` WWR on each outdoor wall by orientation |
+| Infiltration | The configuration's rate per m2 Atemp, spread over the exposed envelope |
+| Ground | An ISO 13370 soil layer on ground floors, with the annual mean outdoor temperature as ground temperature |
+
+Solar shading follows EPSM: by default Sveby's occupant factor for blinds and
+curtains (0.71; schools 0.65; none for multi-family) lowers the window g-value, and obstructions come from your
+geometry. Use `solar_shading_factor="total"` (0.50) when the model has no
+obstructions, or `None` for no shading. Other differences from EPSM's EnergyPlus model: the ground uses ISO 13370 rather than
+Kiva; the office and school calendar is an EPSM assumption (weekdays without
+Swedish holidays, July and the Christmas break; pass `active_dates` to change it),
+and Honeybee simulates the 2017 calendar. Ideal air gives delivered heat; divide
+by `export.heating_cop` for heat-pump electricity.

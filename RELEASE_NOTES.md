@@ -9,6 +9,12 @@
   instead of 0.80. Advanced renovation keeps FTX 0.80.
 - Both are sourced defaults, tested on three samples: direction confirmed, not
   significant. See `docs/validation.md`.
+- `epsm_data.honeybee.to_honeybee(catalogue, id, ...)` exports a configuration as a
+  honeybee-energy ConstructionSet, ProgramType and IdealAirSystem, with
+  `apply_to_rooms` for windows, airtightness, thermal bridges and an ISO 13370 ground
+  floor. Optional extra: `pip install "epsm_data[honeybee]"`.
+  Windows carry Sveby's occupant shading factor by default (0.71; schools 0.65;
+  none for multi-family, as in EPSM).
 - `select_operating_distributions(type, era=...)` and `sample_operating_values(...)`:
   optional, reproducible per-building draws of operating values inside sourced ranges
   (single-family only). Off by default; tested against EPC data and not adopted as a
