@@ -126,7 +126,7 @@ heating_delivery_template("heat_pump", heat_pump_type="exhaust_air", era="SE.04"
 | Pump type | Seasonal COP | Evidence |
 | --- | --- | --- |
 | `ground` | 2.75 | Swedish field SPF 2.7–2.9 (Haglund Stignor et al. 2015) |
-| `exhaust_air` | 2.4 before 2006, 2.75 from 2006 | Energimyndigheten 2013 test: 2.2–2.6 with radiators, 2.4–3.0 with floor heating |
+| `exhaust_air` | 2.4 before 2006, 2.75 from 2006, 3.0 in SE.07 | Energimyndigheten 2013 test: 2.2–2.6 with radiators, 2.4–3.0 with floor heating; SE.07 takes the top of the range (current units rated SCOP 4.5 at 35 °C) |
 | `air_water` | 2.4 | Nordic field SPF 1.2–4.3, lab-derived 1.8–3.2 (TemaNord 2019:502) |
 | `air_air` | 2.0 | Field SPFH4 1.8–2.1 (TemaNord 2019:504) |
 
@@ -180,7 +180,7 @@ pump is a heating-system input.
 | SE.04 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.05 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.06 | FTX 0.75 | FTX 0.75 | FTX 0.75 | FTX 0.75 |
-| SE.07 | FTX 0.80 | FTX 0.80 | FTX 0.80 | FTX 0.80 |
+| SE.07 | FTX 0.60 | FTX 0.80 | FTX 0.80 | FTX 0.80 |
 
 The Standard renovation keeps the existing system. Advanced installs FTX 0.80.
 These are period assumptions from typical Swedish practice, not measured stock

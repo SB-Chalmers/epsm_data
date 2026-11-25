@@ -133,7 +133,7 @@ def test_heat_pump_delivery_template_carries_the_field_average_seasonal_cop():
 
 
 @pytest.mark.parametrize("pump, era, cop", [
-    ("ground", "SE.04", 2.75), ("exhaust_air", "SE.03", 2.4), ("exhaust_air", "SE.07", 2.75),
+    ("ground", "SE.04", 2.75), ("exhaust_air", "SE.03", 2.4), ("exhaust_air", "SE.06", 2.75), ("exhaust_air", "SE.07", 3.0),
     ("air_water", "SE.05", 2.4), ("air_air", "SE.02", 2.0),
 ])
 def test_heat_pump_delivery_follows_the_epc_pump_type(pump, era, cop):
@@ -153,3 +153,14 @@ def test_exhaust_air_without_era_falls_back_and_unknown_types_raise():
     with pytest.raises(ValueError, match="Unknown heat-pump type"):
         heating_delivery_template("heat_pump", heat_pump_type="solar")
 
+
+
+def test_single_family_se07_ftx_uses_house_in_use_recovery(catalogue):
+    for template in (catalogue.get("sf_se07").hvac_template,
+                     catalogue.get("sf_se07", ventilation="FTX").hvac_template):
+        assert template.template_id == "epsm.ventilation.FTX_060"
+        assert template.values["airflow"]["sensible_recovery_effectiveness"] == 0.6
+    for aid in ("mf_se07", "office_se07", "school_se07"):
+        assert catalogue.get(aid).hvac_template.template_id == "epsm.ventilation.FTX_080"
+    assert catalogue.get("mf_se07", ventilation="FTX").hvac_template.template_id == "epsm.ventilation.FTX_080"
+    assert catalogue.get("sf_se06", ventilation="FTX").hvac_template.template_id == "epsm.ventilation.FTX_075"
