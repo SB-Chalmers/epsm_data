@@ -7044,6 +7044,40 @@
       "name": "Porous wood-fibre wind protection, 12 mm",
       "shearing_layer": "Skin",
       "side_convention": "outside_to_inside"
+    },
+    "component:2c44f3e9e4ced3f0": {
+      "application": "EXT_WALL",
+      "layers": [
+        {
+          "layer_id": "layer:203f6c16f1bd3b13",
+          "position": 0
+        },
+        {
+          "layer_id": "layer:289704d97ec7f047",
+          "position": 1
+        },
+        {
+          "layer_id": "layer:c1473bda98e2054a",
+          "position": 2
+        }
+      ],
+      "name": "Structure school_se01 existing STIL2",
+      "shearing_layer": "Structure"
+    },
+    "component:6ac2d16011c1bfb3": {
+      "application": "EXT_WALL",
+      "layers": [
+        {
+          "layer_id": "layer:fa111babc3b09466",
+          "position": 0
+        },
+        {
+          "layer_id": "layer:149a1ab32c2c6168",
+          "position": 1
+        }
+      ],
+      "name": "Structure school_se02 existing STIL2",
+      "shearing_layer": "Structure"
     }
   },
   "construction_sets": {
@@ -7084,13 +7118,13 @@
       "elements": {
         "BASEMENT_FLOOR": "element:1027f119c3a2b217",
         "BASEMENT_WALL": "element:880fa768d51a7846",
-        "EXT_WALL": "element:272bec3be5f544f1",
+        "EXT_WALL": "element:33893db9b334fd2b",
         "GROUND_FLOOR": "element:f801237a69fa3e0c",
         "INTERMEDIATE_FLOOR": "element:d0e7da1d45648140",
         "INT_WALL_NONLOADBEARING": "element:b15e7acd202e5275",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:6d4f08a79ae226bd",
-        "WINDOW": "element:552346c5eb54e002"
+        "WINDOW": "element:2c49e7eb1d1c410e"
       }
     },
     "construction_set:0f61d6eb5b1923f7": {
@@ -7525,13 +7559,13 @@
     "construction_set:9e17e9389f32d531": {
       "elements": {
         "BASEMENT_WALL": "element:5b24821922c88300",
-        "EXT_WALL": "element:0d61e6fca6e6a59d",
+        "EXT_WALL": "element:043c5c8c6e83dd08",
         "GROUND_FLOOR": "element:3b21ef8316b06dca",
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:4a8b9fe61b5f76ad",
         "ROOF": "element:4ea2487438f16cd2",
         "TOP_FLOOR": "element:52d0a0c757e165bd",
-        "WINDOW": "element:6fc95bf2aa83a757"
+        "WINDOW": "element:2b07bd09045a1c1a"
       }
     },
     "construction_set:a1e32448959c1174": {
@@ -7999,13 +8033,6 @@
       "role": "GROUND_FLOOR",
       "side_convention": "outside_to_inside"
     },
-    "element:0d61e6fca6e6a59d": {
-      "components": [
-        "component:06d87d02b42551dd"
-      ],
-      "name": "Ext Wall",
-      "role": "EXT_WALL"
-    },
     "element:0f24a43f205c5f45": {
       "assembly_family": "cold_attic",
       "components": [
@@ -8153,13 +8180,6 @@
       "name": "Representative 2000 conditioned-basement floor, standard",
       "role": "GROUND_FLOOR",
       "side_convention": "outside_to_inside"
-    },
-    "element:272bec3be5f544f1": {
-      "components": [
-        "component:cabd3dd391bb9503"
-      ],
-      "name": "Ext Wall",
-      "role": "EXT_WALL"
     },
     "element:287b1648f5457d0d": {
       "components": [
@@ -8493,11 +8513,6 @@
       "role": "TOP_FLOOR",
       "side_convention": "outside_to_inside"
     },
-    "element:552346c5eb54e002": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:75fd884ffa101b80"
-    },
     "element:5578c6cce0213a52": {
       "components": [
         "component:5f0d1cd443c6916c",
@@ -8662,11 +8677,6 @@
       ],
       "name": "Roof",
       "role": "ROOF"
-    },
-    "element:6fc95bf2aa83a757": {
-      "name": "Window",
-      "role": "WINDOW",
-      "window_material_id": "window:a8e024f34abc1255"
     },
     "element:70411c9a374509e9": {
       "assembly_family": "concrete",
@@ -9798,6 +9808,25 @@
       "name": "TABULA original timber window",
       "role": "WINDOW",
       "window_material_id": "window:5b00d98648e10849"
+    },
+    "element:33893db9b334fd2b": {
+      "components": [
+        "component:2c44f3e9e4ced3f0"
+      ],
+      "name": "Ext Wall",
+      "role": "EXT_WALL"
+    },
+    "element:043c5c8c6e83dd08": {
+      "components": [
+        "component:6ac2d16011c1bfb3"
+      ],
+      "name": "Ext Wall",
+      "role": "EXT_WALL"
+    },
+    "element:2b07bd09045a1c1a": {
+      "name": "Window",
+      "role": "WINDOW",
+      "window_material_id": "window:bffb0a01f987575d"
     }
   },
   "layers": {
@@ -11490,6 +11519,36 @@
       ],
       "name": "Wooden stud + Stone wool batts, 200 mm",
       "thickness": 0.2
+    },
+    "layer:289704d97ec7f047": {
+      "is_composite": false,
+      "materials": [
+        {
+          "area_fraction": 1.0,
+          "material_id": "material:90dd2e707321c1c8",
+          "thickness": 0.38
+        }
+      ],
+      "name": "Brick, 380 mm (as found, STIL2)",
+      "thickness": 0.38
+    },
+    "layer:fa111babc3b09466": {
+      "is_composite": true,
+      "layer_function": "structure",
+      "materials": [
+        {
+          "area_fraction": 0.15,
+          "material_id": "material:3035359c17bff54b",
+          "thickness": 0.1
+        },
+        {
+          "area_fraction": 0.85,
+          "material_id": "material:e9a54852a99a0d5b",
+          "thickness": 0.1
+        }
+      ],
+      "name": "Wooden stud + Historic Mineral Wool, 100 mm (as found, STIL2)",
+      "thickness": 0.1
     }
   },
   "materials": {
@@ -12080,21 +12139,6 @@
         "identifier": "6000000103"
       }
     },
-    "window:75fd884ffa101b80": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=2.8 W/(m² K), SHGC=0.56, VT=0.525",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_mf_1940_existing"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
-      }
-    },
     "window:78fe25791859d1b7": {
       "kind": "window",
       "notes": [
@@ -12194,21 +12238,6 @@
       "carbon_ref": {
         "source": "boverket",
         "identifier": "6000000106"
-      }
-    },
-    "window:a8e024f34abc1255": {
-      "kind": "window",
-      "notes": [
-        "Boverket reference is a representative product-family proxy."
-      ],
-      "epsm_material_name": "Whole window U=2.7 W/(m² K), SHGC=0.56, VT=0.525",
-      "thermal_ref": {
-        "source": "epsm-custom",
-        "identifier": "EPSM_window_lod2_school_se02_existing"
-      },
-      "carbon_ref": {
-        "source": "boverket",
-        "identifier": "6000000104"
       }
     },
     "window:b30e55556e6d74fc": {
@@ -12388,6 +12417,52 @@
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_tabula_original_timber_window_1_87"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000104"
+      }
+    },
+    "material:90dd2e707321c1c8": {
+      "kind": "opaque",
+      "material_family": "masonry",
+      "notes": [
+        "Equivalent conductivity of the 380 mm masonry layer that gives the STIL2 median wall U 0.70 W/(m² K) of the 43 inspected schools built before 1961 (IQR 0.65-0.82; only 3 had added wall insulation). Mass and heat capacity unchanged."
+      ],
+      "epsm_material_name": "Masonry, school SE.01 as found (STIL2 effective), 1650 kg/m³",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_school_se01_masonry_as_found_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000082"
+      }
+    },
+    "material:e9a54852a99a0d5b": {
+      "kind": "opaque",
+      "epsm_material_name": "Mineral wool, school SE.02 as found (STIL2 effective)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_school_se02_wool_as_found_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000123"
+      },
+      "notes": [
+        "Equivalent wool conductivity in the 100 mm stud layer that gives the STIL2 median wall U 0.40 W/(m² K) of the 29 inspected schools built 1961-1975."
+      ]
+    },
+    "window:bffb0a01f987575d": {
+      "kind": "window",
+      "notes": [
+        "Boverket reference is a representative product-family proxy."
+      ],
+      "epsm_material_name": "Whole window U=1.9 W/(m² K), SHGC=0.56, VT=0.525",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_window_school_se02_existing_stil2"
       },
       "carbon_ref": {
         "source": "boverket",
