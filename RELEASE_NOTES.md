@@ -10,10 +10,7 @@
 - `heating_delivery_template("heat_pump", heat_pump_type=..., era=...)`: seasonal COP
   by the EPC pump type (ground 2.75, exhaust air 2.4 before 2006 and 2.75 from 2006,
   air–water 2.4, air–air 2.0). Without a pump type it is still 2.75.
-- SE.07 FTX as built uses the new `epsm.ventilation.FTX_070` (in-use recovery 0.70)
-  instead of 0.80. Advanced renovation keeps FTX 0.80.
-- Both are sourced defaults, tested on three samples: direction confirmed, not
-  significant. See `docs/validation.md`.
+  Supported on unseen single-family houses; see `docs/validation.md`.
 - `epsm_data.honeybee.to_honeybee(catalogue, id, ...)` exports a configuration as a
   honeybee-energy ConstructionSet, ProgramType and IdealAirSystem, with
   `apply_to_rooms` for windows, airtightness, thermal bridges and an ISO 13370 ground

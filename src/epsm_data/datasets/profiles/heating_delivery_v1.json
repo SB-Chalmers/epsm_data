@@ -35,7 +35,7 @@
           "source_locator": "TemaNord 2019:504 (Nordsyn, air-to-air), p. 9: field SPFH4 1.8-2.1."
         }
       },
-      "pump_type_note": "Pump type from the EPC's heat-pump electricity split (EgiPump Mark / Franluft / LuftVatten / LuftLuft). Sourced defaults, tested 22 November 2026: direction confirmed in all three validation samples, not significant (see docs/validation.md). Without a pump type the field average applies."
+      "pump_type_note": "Pump type from the EPC's heat-pump electricity split (EgiPump Mark / Franluft / LuftVatten / LuftLuft). Sourced values. Not significant in the 22 November 2026 three-sample test, then supported on unseen single-family houses (heat-pump houses 59.7 -> 64.6 % match, p < 0.001); see docs/validation.md. Without a pump type the field average applies."
     }
   }
 }

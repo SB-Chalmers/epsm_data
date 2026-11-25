@@ -130,7 +130,7 @@ heating_delivery_template("heat_pump", heat_pump_type="exhaust_air", era="SE.04"
 | `air_water` | 2.4 | Nordic field SPF 1.2–4.3, lab-derived 1.8–3.2 (TemaNord 2019:502) |
 | `air_air` | 2.0 | Field SPFH4 1.8–2.1 (TemaNord 2019:504) |
 
-These are sourced defaults: tested, direction confirmed, not significant (see
+These are sourced values, supported on unseen single-family houses (see
 [validation](validation.md)). A modern 3.9 for new ground-source houses was tested and
 rejected. Exhaust air without an era falls back to the field average.
 
@@ -159,7 +159,7 @@ catalogue.ventilation_options("mf_se02", state="existing")
 | S | `epsm.ventilation.S` | Self-draught (natural), 0.5 ACH (BBR 0.35 L/(s m²) at 2.5 m ceiling height), no fans |
 | F | `epsm.ventilation.F` | Mechanical exhaust, profile flow, no heat recovery |
 | FT | `epsm.ventilation.FT` | Mechanical supply and exhaust, profile flow, no heat recovery |
-| FTX | `epsm.ventilation.FTX_060` / `_070` / `_075` / `_080` | Supply and exhaust with heat recovery efficiency 0.60 / 0.70 / 0.75 / 0.80 |
+| FTX | `epsm.ventilation.FTX_060` / `_075` / `_080` | Supply and exhaust with heat recovery efficiency 0.60 / 0.75 / 0.80 |
 
 The template covers airflow only. Airflow inputs are merged in the order
 operating profile → template → envelope, so the profile keeps its occupied
@@ -167,7 +167,7 @@ ventilation rates and `EnvelopePerformance` keeps infiltration.
 
 **Observed system.** S, F and FT are used as observed. An observed FTX gets
 recovery 0.75 before 1976 (it must be a retrofit), 0.60 in 1976–2005, 0.75 in
-2006–2021 and 0.70 from 2022 (in-use annual recovery; rated units give 0.80–0.90). An exhaust-air heat pump counts as F; the heat
+2006–2021 and 0.80 from 2022. An exhaust-air heat pump counts as F; the heat
 pump is a heating-system input.
 
 **Era default**, used only when the system is unknown:
@@ -180,7 +180,7 @@ pump is a heating-system input.
 | SE.04 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.05 | F | F | FTX 0.60 | FTX 0.60 |
 | SE.06 | FTX 0.75 | FTX 0.75 | FTX 0.75 | FTX 0.75 |
-| SE.07 | FTX 0.70 | FTX 0.70 | FTX 0.70 | FTX 0.70 |
+| SE.07 | FTX 0.80 | FTX 0.80 | FTX 0.80 | FTX 0.80 |
 
 The Standard renovation keeps the existing system. Advanced installs FTX 0.80.
 These are period assumptions from typical Swedish practice, not measured stock
