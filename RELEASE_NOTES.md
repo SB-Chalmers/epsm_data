@@ -2,7 +2,7 @@
 
 Exhaust-air heat pumps in SE.07 (2022 onwards) use a seasonal COP of 3.0, the top of the Energimyndigheten
 2013 floor-heating range (2.4–3.0). Current inverter units are rated well above that generation (NIBE S735
-SCOP 4.5 at 35 °C, EN 14825). Earlier eras are unchanged. On the SF SE.07 halves, with epsm policy v7 and FTX
+SCOP 4.5 at 35 °C, EN 14825). Earlier eras are unchanged. On the SF SE.07 halves, with the epsm slab-edge and household-electricity change and FTX
 0.60, match goes from 46.5 to 50.0 % on the fit half and from 44.8 to 49.0 % on the test half. COPs of 3.0 to 3.5
 were viewed on both halves, so the test half is not a clean confirmation. 3.0 was chosen as the sourced top of the
 range, not as the fit optimum (3.2).
@@ -10,7 +10,7 @@ range, not as the fit optimum (3.2).
 # Unreleased — single-family SE.07 FTX in use 0.60 (25 November 2026)
 
 Single-family SE.07 FTX, as the era default and as an observed system, now uses `FTX_060` (in-use recovery
-0.60). Multi-family, office and school SE.07 keep 0.70. The field evidence for houses is the REHVA Journal's
+0.60). Multi-family, office and school SE.07 keep 0.80. The field evidence for houses is the REHVA Journal's
 large-scale residential analysis (in-situ about 60 % with leakage, defrost and imbalance), retrofitted MVHR
 in use at 0.65 ± 0.24, and a Swedish single-family house with a ground-source heat pump that showed no clear
 heat-demand difference between exhaust and recovery outside sub-zero weather (Energy and Buildings 2025).
