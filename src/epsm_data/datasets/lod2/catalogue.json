@@ -7097,6 +7097,29 @@
       ],
       "name": "Structure office_se01 existing STIL2",
       "shearing_layer": "Structure"
+    },
+    "component:5835159164490662": {
+      "application": "EXT_WALL",
+      "layers": [
+        {
+          "layer_id": "layer:b289bcdd9266a1ff",
+          "position": 0
+        },
+        {
+          "layer_id": "layer:d54c7c55bc8ed045",
+          "position": 1
+        },
+        {
+          "layer_id": "layer:32f459d6d3e59b33",
+          "position": 2
+        },
+        {
+          "layer_id": "layer:dafb6e1cbffb425f",
+          "position": 3
+        }
+      ],
+      "name": "Structure office_se02 existing STIL2",
+      "shearing_layer": "Structure"
     }
   },
   "construction_sets": {
@@ -7476,12 +7499,12 @@
     "construction_set:7a34a9f72617578c": {
       "elements": {
         "BASEMENT_WALL": "element:5b24821922c88300",
-        "EXT_WALL": "element:73880eb6578bf500",
+        "EXT_WALL": "element:4a4e080fb91fc67b",
         "GROUND_FLOOR": "element:3b21ef8316b06dca",
         "INTERMEDIATE_FLOOR": "element:ef3fa24b963c4ce1",
         "INT_WALL_NONLOADBEARING": "element:81eb2e93138c02c2",
         "ROOF": "element:2bb050d8ae1d7f8d",
-        "WINDOW": "element:a7d128ce96d7e3a7"
+        "WINDOW": "element:eae20c9dcee91c6a"
       }
     },
     "construction_set:7e926cf98cd3a707": {
@@ -8739,13 +8762,6 @@
       "role": "TOP_FLOOR",
       "side_convention": "outside_to_inside"
     },
-    "element:73880eb6578bf500": {
-      "components": [
-        "component:49c1ba663e96cf0a"
-      ],
-      "name": "Ext Wall",
-      "role": "EXT_WALL"
-    },
     "element:744e9ed34a796c40": {
       "assembly_family": "concrete",
       "components": [
@@ -9851,6 +9867,18 @@
       "name": "Window",
       "role": "WINDOW",
       "window_material_id": "window:99d4ad0c921bbdef"
+    },
+    "element:4a4e080fb91fc67b": {
+      "components": [
+        "component:5835159164490662"
+      ],
+      "name": "Ext Wall",
+      "role": "EXT_WALL"
+    },
+    "element:eae20c9dcee91c6a": {
+      "name": "Window",
+      "role": "WINDOW",
+      "window_material_id": "window:0ed490e1523ca07e"
     }
   },
   "layers": {
@@ -11585,6 +11613,18 @@
       ],
       "name": "Brick, 510 mm (as found, STIL2)",
       "thickness": 0.51
+    },
+    "layer:32f459d6d3e59b33": {
+      "is_composite": false,
+      "materials": [
+        {
+          "area_fraction": 1.0,
+          "material_id": "material:083e77ac66bad9d0",
+          "thickness": 0.15
+        }
+      ],
+      "name": "Concrete, 150 mm (as found, STIL2)",
+      "thickness": 0.15
     }
   },
   "materials": {
@@ -12530,6 +12570,37 @@
       "thermal_ref": {
         "source": "epsm-custom",
         "identifier": "EPSM_window_office_se01_existing_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000103"
+      }
+    },
+    "material:083e77ac66bad9d0": {
+      "kind": "opaque",
+      "material_family": "concrete",
+      "epsm_material_name": "Concrete layer, office SE.02 as found (STIL2 school proxy, effective)",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_office_se02_concrete_as_found_stil2"
+      },
+      "carbon_ref": {
+        "source": "boverket",
+        "identifier": "6000000029"
+      },
+      "notes": [
+        "Equivalent conductivity of the 150 mm concrete layer that gives wall U 0.40 W/(m² K), the STIL2 median of the 29 inspected schools built 1961-1975 (ER 2007:11 Bilaga 4), used as a proxy for offices of the same era. Mass and heat capacity unchanged."
+      ]
+    },
+    "window:0ed490e1523ca07e": {
+      "kind": "window",
+      "notes": [
+        "Boverket reference is a representative product-family proxy."
+      ],
+      "epsm_material_name": "Whole window U=1.9 W/(m² K), SHGC=0.4857214787019664, VT=0.5101413579674405",
+      "thermal_ref": {
+        "source": "epsm-custom",
+        "identifier": "EPSM_window_office_se02_existing_stil2"
       },
       "carbon_ref": {
         "source": "boverket",
