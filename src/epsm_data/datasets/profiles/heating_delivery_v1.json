@@ -8,7 +8,7 @@
       "template_id": "epsm.heating.heat_pump_field_average",
       "seasonal_cop": 2.75,
       "source_locator": "Haglund Stignor, Tiljander and Alsbjer (2015), 24th IIR International Congress of Refrigeration: field SPF of ground-source heat pumps in existing Swedish houses, average 2.7 in year 1 and 2.9 in year 2 (range 1.9-3.6). Swedish exhaust-air installations average 2.7 (Nowacki, cited by Hesaraki and Holmberg 2013).",
-      "note": "One field-average value for every heat-pump type and era. A modern SPF of 3.9 or 3.5 for new ground-source houses was rejected by the cohort test in docs/validation.md.",
+      "note": "The field-average value, used when the pump type is unknown. A modern SPF of 3.9 or 3.5 for new ground-source houses was rejected by the cohort test in docs/validation.md.",
       "seasonal_cop_by_pump_type": {
         "ground": {
           "seasonal_cop": 2.75,
@@ -22,9 +22,9 @@
             "SE.04": 2.4,
             "SE.05": 2.4,
             "SE.06": 2.75,
-            "SE.07": 2.75
+            "SE.07": 3.0
           },
-          "source_locator": "Energimyndigheten 2013 test of variable-speed exhaust-air heat pumps (VVS-Forum 2013-01, pp. 73-74): whole-house SCOP 2.2-2.6 with radiators and 2.4-3.0 with floor heating. Radiators assumed before 2006 (2.4), floor heating from 2006 (2.75, also the installed mean 2.7, Nowacki cited by Hesaraki and Holmberg 2013)."
+          "source_locator": "Energimyndigheten 2013 test of variable-speed exhaust-air heat pumps (VVS-Forum 2013-01, pp. 73-74): whole-house SCOP 2.2-2.6 with radiators and 2.4-3.0 with floor heating. Radiators assumed before 2006 (2.4), floor heating from 2006 (2.75, also the installed mean 2.7, Nowacki cited by Hesaraki and Holmberg 2013). SE.07 (2022 onwards) takes the top of the floor-heating range, 3.0: current inverter units are rated well above the 2013 generation (NIBE S735 SCOP 4.5 at 35 C, EN 14825 average climate) and field values sit below rated ones. Checked 25 November 2026 on the SF SE.07 fit/test halves with epsm policy v7 and FTX 0.60: fit 46.5 -> 50.0 %, test 44.8 -> 49.0 %. Several values (3.0-3.5) were viewed on both halves, so the test half is not a clean confirmation; 3.0 was chosen as the sourced top of range, not the fit optimum (3.2)."
         },
         "air_water": {
           "seasonal_cop": 2.4,
@@ -35,7 +35,7 @@
           "source_locator": "TemaNord 2019:504 (Nordsyn, air-to-air), p. 9: field SPFH4 1.8-2.1."
         }
       },
-      "pump_type_note": "Pump type from the EPC's heat-pump electricity split (EgiPump Mark / Franluft / LuftVatten / LuftLuft). Sourced defaults, tested 22 November 2026: direction confirmed in all three validation samples, not significant (see docs/validation.md). Without a pump type the field average applies."
+      "pump_type_note": "Pump type from the EPC's heat-pump electricity split (EgiPump Mark / Franluft / LuftVatten / LuftLuft). Sourced values. Not significant in the 22 November 2026 three-sample test, then supported on unseen single-family houses (heat-pump houses 59.7 -> 64.6 % match, p < 0.001); see docs/validation.md. Without a pump type the field average applies."
     }
   }
 }

@@ -22,7 +22,4 @@ include evidence/office_period_user_stacks.txt
 include evidence/school_period_user_stacks.txt
 include evidence/nonresidential_current_recipe_contract.md
 
-prune data
-prune output
-prune outputs
 global-exclude *.py[cod]

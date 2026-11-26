@@ -15,8 +15,6 @@ from .component import Component, LayerSlot
 from .element import Element, WindowElement
 from .enums import (
     BuildingElement,
-    ComponentState,
-    RenovationMeasureType,
     Roughness,
     ShearingLayer,
 )
@@ -36,8 +34,6 @@ __all__ = [
     "Archetype", "Material", "EnvironmentalFactor",
     # enums
     "BuildingElement",
-    "ComponentState",
-    "RenovationMeasureType",
     "Roughness",
     "ShearingLayer",
     # material

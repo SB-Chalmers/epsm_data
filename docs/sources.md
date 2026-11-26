@@ -42,6 +42,11 @@ The tier says what kind of source it is, in order of preference:
 | `assumption` | An assumption; always shown as a review in the [sanity report](sanity.md) |
 
 `evidence/swedish_product_inventory.json` lists the reviewed Swedish products.
+
+Source locators in the catalogue that start with `evidence/` name files in the
+[repository](https://github.com/SB-Chalmers/epsm_data/tree/main/evidence), at the tag of
+the release you installed. The folder is not part of the installed package.
+
 Window optics come from the glazing g-value and light transmittance with a frame
 fraction of 0.30. Records use the EnergyPlus field layout (`EnergyMaterial`,
 `EnergyWindowMaterialSimpleGlazSys`) so they can be exported to EnergyPlus-based

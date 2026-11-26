@@ -222,7 +222,9 @@ class HoneybeeArchetype:
         TABULA surcharge on the envelope area, applied to walls and top by
         ``apply_to_room``.
     heating_cop : float
-        Seasonal COP for converting ideal heating to purchased heat-pump electricity.
+        Seasonal COP for converting ideal heating to purchased heat-pump electricity:
+        the value for ``heat_pump_type`` and the archetype's era when a type was given
+        to ``to_honeybee``, otherwise the Swedish field average.
     """
 
     archetype_id: str
@@ -526,7 +528,7 @@ def sveby_shading_factors(values, category):
             "total": completion["solar_shading_behavior_factor"]}
 
 
-def _program(identifier, category, values, airflow, *, year, active_dates):
+def _program(identifier, category, values, *, year, active_dates):
     from honeybee_energy.lib.scheduletypelimits import (
         activity_level,
         fractional,
@@ -619,7 +621,7 @@ def _program(identifier, category, values, airflow, *, year, active_dates):
 
 
 def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standard="sveby",
-                active_dates=None, solar_shading_factor="behaviour"):
+                active_dates=None, solar_shading_factor="behaviour", heat_pump_type=None):
     """Export one catalogue configuration as honeybee-energy objects.
 
     Parameters
@@ -640,6 +642,10 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
         obstructions are geometry, as EPSM's are. ``"total"`` gives Sveby's combined
         factor (0.50; school 0.65) for models without obstructions; ``None`` or 1.0
         turns shading off, as in EPSM's runs before this default.
+    heat_pump_type : str, optional
+        The building's pump type (``ground``, ``exhaust_air``, ``air_water`` or
+        ``air_air``), which sets ``heating_cop`` for the archetype's era as
+        ``heating_delivery_template`` does. Default: the field average.
 
     Returns
     -------
@@ -661,8 +667,7 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     template_id = archetype.hvac_template.template_id
     identifier = f"epsm_{archetype_id}_{selected or 'single'}_{template_id.rsplit('.', 1)[-1]}".lower()
     if solar_shading_factor in ("behaviour", "total"):
-        # As in EPSM (epsm._solar_shading): multi-family keeps no Sveby shading, chosen
-        # after the final calibration campaign; untested on fresh buildings.
+        # As in EPSM (epsm._solar_shading): multi-family keeps no Sveby shading.
         solar_shading_factor = (1.0 if category == "multi_family"
                                 else sveby_shading_factors(values, category)[solar_shading_factor])
     factor = 1.0 if solar_shading_factor is None else solar_shading_factor
@@ -680,7 +685,7 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
             notes.append(f"Calendar: EPSM assumption of {n_days} Swedish working days in {calendar_year}.")
         active_dates = tuple(sorted(active_dates))
     program, cooling_enabled, cooling_off = _program(
-        identifier, category, values, airflow, year=calendar_year, active_dates=active_dates or ())
+        identifier, category, values, year=calendar_year, active_dates=active_dates or ())
     hvac = IdealAirSystem(
         f"{identifier}_ideal_air", economizer_type="NoEconomizer",
         sensible_heat_recovery=airflow.get("sensible_recovery_effectiveness", 0) or 0,
@@ -710,7 +715,7 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
         wwr_by_orientation=catalogue.facade_assumptions(archetype_id)["wwr_by_orientation"],
         solar_shading_factor=factor, infiltration_l_s_m2=rate, self_draught_total_ach=total_ach,
         thermal_bridge_delta_u_w_m2k=getattr(envelope, "thermal_bridge_delta_u_w_m2k", None),
-        heating_cop=heating_delivery_template().values["delivery"]["heating"]["heat_pump_cop"]["values"][0],
+        heating_cop=heating_delivery_template(heat_pump_type=heat_pump_type, era=era).values["delivery"]["heating"]["heat_pump_cop"]["values"][0],
         calendar_year=calendar_year, notes=tuple(notes))
 
 

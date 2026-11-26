@@ -20,13 +20,17 @@ from difflib import SequenceMatcher
 from math import ceil, isfinite
 from typing import TYPE_CHECKING
 
-import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
+try:
+    import matplotlib.patches as mpatches
+    import matplotlib.pyplot as plt
+    from matplotlib.figure import Figure
+except ImportError as exc:  # pragma: no cover - exercised without the extra
+    raise ImportError(
+        'Section drawings need matplotlib: pip install "epsm_data[visualization]"'
+    ) from exc
 
 if TYPE_CHECKING:
     from epsm_data.domain.archetype import BuildingArchetype
-    from epsm_data.domain.element import Element
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -297,13 +301,6 @@ _SECTION_WIDTH = 1.0  # normalised horizontal width for each section
 _COMPOSITE_DIVISIONS = 5  # repeat constituent shares evenly along the section
 _MM_SCALE = 1000.0  # metres → mm
 _MIN_LABEL_MM = 6  # minimum layer mm to put label inside
-
-
-def _element_total_mm(element: "Element") -> float:
-    """Return the total built-up thickness of an element in mm."""
-    return (
-        sum(slot.layer.thickness for comp in element.components for slot in comp.layers) * _MM_SCALE
-    )
 
 
 def _drawing_layers(element, boundary_details=None):

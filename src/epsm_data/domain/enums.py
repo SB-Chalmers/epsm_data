@@ -32,15 +32,6 @@ class BuildingElement(Enum):
     INT_WALL_NONLOADBEARING = "INT_WALL_NONLOADBEARING"
     WINDOW = "WINDOW"
 
-    @classmethod
-    def from_name(cls, name: str) -> BuildingElement | None:
-        """Match by value, longest-first to avoid partial hits."""
-        upper = name.strip().upper()
-        for member in sorted(cls, key=lambda m: len(m.value), reverse=True):
-            if member.value == upper:
-                return member
-        return None
-
     @property
     def is_ext_wall(self) -> bool:
         """True for any exterior wall variant (single or multi)."""
@@ -69,35 +60,3 @@ class ShearingLayer(Enum):
     SPACE = "Space"
     STUFF = "Stuff"
 
-    # Ordered from outermost to innermost (useful for sorting).
-    @classmethod
-    def sort_order(cls) -> list[ShearingLayer]:
-        """Return the historical outside-to-inside grouping order.
-
-        Returns
-        -------
-        list of ShearingLayer
-            Skin, Space, Structure, Services, Stuff. Source pipelines use this
-            historical convention; explicit builder recipes preserve caller order.
-        """
-        return [cls.SKIN, cls.SPACE, cls.STRUCTURE, cls.SERVICES, cls.STUFF]
-
-
-class ComponentState(Enum):
-    """Lifecycle state of a component."""
-
-    ORIGINAL = "original"
-    RENOVATED = "renovated"
-    DEGRADED = "degraded"
-    REPLACED = "replaced"
-
-
-class RenovationMeasureType(Enum):
-    """Category of renovation measure."""
-
-    INSULATION_ADD = "insulation_add"
-    INSULATION_REPLACE = "insulation_replace"
-    WINDOW_REPLACE = "window_replace"
-    ROOF_REPLACE = "roof_replace"
-    VENTILATION_INSTALL_FTX = "ventilation_install_ftx"
-    FACADE_RECLADDING = "facade_recladding"
