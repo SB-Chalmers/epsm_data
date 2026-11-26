@@ -156,9 +156,9 @@ serve as the proxy.
 Tested against measured EPC heating on 25 November 2026 (office SE.01, 949 buildings, pre-registered,
 scored once):
 
-- With epsm policy v10, match rose from 57.6 % to 65.9 % (107 gained, 29 lost, p 1e-11), and skill over
-  within-cohort chance from +4.7 to +9.9 points. On the v6 baseline without v10: 59.7 % → 66.0 %
-  (82 gained, 23 lost).
+- With EPSM's rule that models an EPC ticking FTX among several ventilation systems as FTX, match rose
+  from 57.6 % to 65.9 % (107 gained, 29 lost, p 1e-11), and skill over within-cohort chance from +4.7 to
+  +9.9 points. Without that ventilation rule: 59.7 % → 66.0 % (82 gained, 23 lost).
 - Both pre-registered halves moved the same way. The test's own skill threshold (+10 points) was missed
   narrowly, so this is a sourced default that improves match, not a calibrated value. No unused office
   SE.01 buildings exist.
@@ -175,8 +175,8 @@ no office survey with inspected U-values exists, so schools of the same era serv
 - Roof, ground, airtightness, standard and advanced are unchanged.
 - These are values from a measured stock survey. They were not fitted to measured heating.
 
-Tested against measured EPC heating on 25 November 2026 (office SE.01–SE.02 study path, v6 final-campaign
-rows with epsm policy v10's ventilation rule, 418 office SE.02 buildings, pre-registered, scored once):
+Tested against measured EPC heating on 25 November 2026 (office SE.01–SE.02 study path, final-campaign
+rows with EPSM's FTX ventilation rule, 418 office SE.02 buildings, pre-registered, scored once):
 
 - Match rose from 62.4 % to 72.7 % (58 gained, 15 lost, exact McNemar p 4e-7). Skill over within-cohort
   chance rose from +10.6 to +18.7 points. The median existing-state ratio fell from 1.53 to 1.33.
