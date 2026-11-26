@@ -80,6 +80,11 @@ both a calibration sample and a disjoint, seeded hold-out sample:
 - the value stays inside its sourced range, and is applied per building type or as a
   sourced era trend, never per cohort.
 
+Some later changes did not go through this two-sample rule. They are sourced defaults,
+and a few apply to a single cohort. The table under
+[How the catalogue was calibrated](#how-the-catalogue-was-calibrated) gives the status of
+each one, so the exceptions are visible.
+
 Fabric (U-values, constructions, glazing) is not fitted to measured heating: annual
 heating cannot separate transmission from infiltration, recovery, setpoint and
 unmodelled losses, and a fitted U-value would overstate renovation savings.
@@ -94,7 +99,7 @@ above on both samples:
 - multifamily: measured indoor temperature by era and the measured self-draught air change (BETSI);
 - offices: ventilation flow and hours (Sveby kontor operator examples) and the TABULA
   thermal-bridge allowance;
-- heat pumps: the Swedish field-average seasonal COP of 2.75;
+- heat pumps: the Swedish field-average seasonal COP of 2.75 (later split by pump type, see below);
 - EPC comparison terms: window airing and hot-water circulation for multifamily.
 
 Fabric was not fitted. Single-family houses and schools keep Sveby normal use, because no
@@ -102,6 +107,22 @@ measured input passed for them. What remains between the catalogue and measured 
 mostly building-specific (use, renovation history, operation) and cannot be closed by
 archetype values. The `measured` operating standard selects these values; Sveby normal use
 stays the default.
+
+### Status of each adopted value
+
+| Value | Applies to | Basis | Status |
+| --- | --- | --- | --- |
+| Indoor temperature by era; self-draught air change | Multifamily, `measured` standard | BETSI | Passed the two-sample rule |
+| Ventilation flow and hours; thermal-bridge allowance | Offices, `measured` standard | Sveby kontor operator examples; TABULA | Passed the two-sample rule |
+| Heat-pump seasonal COP 2.75 | Heat pumps of unknown type | Swedish field measurements | Passed the two-sample rule |
+| Window airing; hot-water circulation | Multifamily EPC comparison | Sveby; BEN | Passed the two-sample rule |
+| Seasonal COP by pump type | Heat pumps with a known EPC pump type | Energimyndigheten 2013; TemaNord 2019:502 and 2019:504 | Sourced values. Did not pass the rule; supported by a later test on unseen single-family houses |
+| Exhaust-air COP 3.0 | SE.07 only | Top of the Energimyndigheten 2013 floor-heating range | Sourced default for one era. Its check was not a clean confirmation |
+| FTX in-use recovery 0.60 | Single-family SE.07 only | Field studies of residential heat recovery | Sourced default for one cohort. Held-out confirmation is pending |
+| STIL2 "as found" wall and window U-values | School SE.01 and SE.02 existing | ER 2007:11 inspections | Measured survey values, not fitted. SE.01 was chosen on its own cohort; SE.02 was held out |
+| STIL2 school values as a proxy | Office SE.01 and SE.02 existing | ER 2007:11 inspections of schools | Sourced default, not a calibrated value. Scored on buildings used in earlier studies |
+
+The sections below give the detail for each row that did not pass the rule.
 
 ### Heat-pump COP by pump type
 
@@ -113,7 +134,10 @@ gained, 5 lost). A later test on unseen single-family houses supported it: heat-
 houses rose from 59.7 % to 64.6 % (p < 0.001), mostly exhaust-air pumps in SE.04–SE.05.
 
 SE.07 FTX recovery 0.70 (in-use) instead of 0.80 was also tested twice and did not pass
-(the second test: 123 to 122 matches of 481), so SE.07 keeps 0.80.
+(the second test: 123 to 122 matches of 481), so multi-family, office and school SE.07 keep
+0.80. Single-family SE.07 was later set to an in-use recovery of 0.60, on field evidence for
+houses rather than on this test; the sources are in the `single_family_se07_note` of
+`ventilation_templates.json`, and held-out confirmation is pending.
 
 ## Office SE.01 existing state (STIL2, school proxy)
 
@@ -152,8 +176,7 @@ no office survey with inspected U-values exists, so schools of the same era serv
 - These are values from a measured stock survey. They were not fitted to measured heating.
 
 Tested against measured EPC heating on 25 November 2026 (office SE.01–SE.02 study path, v6 final-campaign
-rows with epsm policy v10's ventilation rule, 418 office SE.02 buildings, pre-registered, scored once;
-`epsm_studies/output/cohort-dives-2026-11-25`):
+rows with epsm policy v10's ventilation rule, 418 office SE.02 buildings, pre-registered, scored once):
 
 - Match rose from 62.4 % to 72.7 % (58 gained, 15 lost, exact McNemar p 4e-7). Skill over within-cohort
   chance rose from +10.6 to +18.7 points. The median existing-state ratio fell from 1.53 to 1.33.

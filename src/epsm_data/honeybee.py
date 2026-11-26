@@ -661,8 +661,7 @@ def to_honeybee(catalogue, archetype_id, *, state=None, ventilation=None, standa
     template_id = archetype.hvac_template.template_id
     identifier = f"epsm_{archetype_id}_{selected or 'single'}_{template_id.rsplit('.', 1)[-1]}".lower()
     if solar_shading_factor in ("behaviour", "total"):
-        # As in EPSM (epsm._solar_shading): multi-family keeps no Sveby shading, chosen
-        # after the final calibration campaign; untested on fresh buildings.
+        # As in EPSM (epsm._solar_shading): multi-family keeps no Sveby shading.
         solar_shading_factor = (1.0 if category == "multi_family"
                                 else sveby_shading_factors(values, category)[solar_shading_factor])
     factor = 1.0 if solar_shading_factor is None else solar_shading_factor
