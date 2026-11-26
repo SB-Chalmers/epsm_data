@@ -173,3 +173,12 @@ def test_office_thermal_bridges_raise_wall_u(catalogue):
 
 def test_orientation():
     assert [orientation(a) for a in (0, 44, 45, 134, 135, 224, 225, 314, 315)] == list("NNEESSWWN")
+
+
+def test_heating_cop_follows_pump_type_and_era(catalogue):
+    assert to_honeybee(catalogue, "sf_se04", state="existing").heating_cop == 2.75
+    typed = to_honeybee(catalogue, "sf_se04", state="existing", heat_pump_type="exhaust_air")
+    assert typed.heating_cop == 2.4
+    assert to_honeybee(catalogue, "sf_se07", heat_pump_type="exhaust_air").heating_cop == 3.0
+    with pytest.raises(ValueError):
+        to_honeybee(catalogue, "sf_se04", state="existing", heat_pump_type="solar")

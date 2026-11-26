@@ -208,4 +208,5 @@ obstructions, or `None` for no shading. Other differences from EPSM's EnergyPlus
 Kiva; the office and school calendar is an EPSM assumption (weekdays without
 Swedish holidays, July and the Christmas break; pass `active_dates` to change it),
 and Honeybee simulates the 2017 calendar. Ideal air gives delivered heat; divide
-by `export.heating_cop` for heat-pump electricity.
+by `export.heating_cop` for heat-pump electricity; pass `heat_pump_type` to
+`to_honeybee` to get the COP for the building's pump type and era.
