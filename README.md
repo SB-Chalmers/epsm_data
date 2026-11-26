@@ -32,12 +32,25 @@ assessment to `epsm_lca`; stock records to `epsm_db`.
 
 ## Install
 
-Requires Python 3.11 or newer. Optional extras: `visualization` for section
-drawings and `geography` for rebuilding climate-zone boundaries.
+Requires Python 3.11 or newer. Install a release from its tag:
+
+```sh
+python -m pip install "epsm_data @ git+https://github.com/SB-Chalmers/epsm_data@v0.8.0"
+```
+
+Or install from a checkout:
 
 ```sh
 python -m pip install -e .
 ```
+
+Optional extras, for example `python -m pip install -e '.[honeybee]'`:
+
+| Extra | Adds | Needed for |
+| --- | --- | --- |
+| `visualization` | matplotlib | section drawings (`Archetype.plot`, notebook 04) |
+| `honeybee` | honeybee-energy | `epsm_data.honeybee.to_honeybee` |
+| `geography` | geopandas | rebuilding climate-zone boundaries |
 
 ## Quick start
 
@@ -80,20 +93,24 @@ src/epsm_data/
 ├── sanity/          read-only screens of the catalogue
 ├── sources/         the pinned source cache and its records
 ├── datasets/        bundled data: lod2, profiles, sources, sanity, climate_zones
+├── contract.py      names shared with Core and LCA
+├── honeybee.py      export to honeybee-energy (optional extra)
 ├── climate_zones.py location-to-zone lookup
 ├── carbon.py        retained-stock carbon scope
 ├── plotting.py      construction section drawings
 └── cli.py           the epsm-catalogue command
 ```
 
-`evidence/` holds source documents; it is not loaded at run time.
+`evidence/` holds source documents. It is not loaded at run time and is not part
+of the installed package; source locators that start with `evidence/` refer to this
+repository at the release tag.
 
 ## Development
 
 ```sh
 python -m pip install -e '.[dev]'
 python -m pytest -q
-python -m ruff check src tests examples
+python -m ruff check src tests examples tools
 epsm-catalogue --sanity --check
 ```
 
@@ -104,9 +121,10 @@ definition. After a deliberate physical change, refresh the regression snapshot
 `tests/fixtures/lod2-physics.json` with `python tests/test_catalogue_physics.py`
 and review both diffs together.
 
-Pull requests run [ci.yml](.github/workflows/ci.yml) (Ruff, tests, wheel build).
-Before a release, run the manual [tests.yml](.github/workflows/tests.yml), which
-also covers both extras. The library adds no logging handler.
+Pull requests run [ci.yml](.github/workflows/ci.yml) (Ruff, tests with the
+`honeybee` extra, the example notebooks, wheel build). Before a release, run the
+manual [tests.yml](.github/workflows/tests.yml), which covers every extra on
+Python 3.11 to 3.13. The library adds no logging handler.
 
 ## License and attribution
 

@@ -4,6 +4,8 @@ Wikells prices are licensed. This tool only records which work items price which
 measure; the overlay it writes holds the numbers and must stay outside the
 repository. Load it with ``RenovationCatalogue.load(library, costs=path)``.
 
+Needs openpyxl, which no package extra installs: python -m pip install openpyxl
+
 Run: python tools/wikells_cost_overlay.py EXPORT.xlsx OVERLAY.json
 """
 
