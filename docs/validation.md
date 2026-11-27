@@ -236,3 +236,17 @@ measured annual or heating-season space-heating value) should pass the same
 three-state test. No such building is available: the school in
 `evidence/fridhemsskolan_2017_school.md` has one district-heating meter for nine
 buildings, including hot water, and its geometry gives areas only.
+
+## SE.07 FTX in use for multi-family, office and school
+
+Multi-family, office and school SE.07 (2022 onwards) now use the in-use FTX recovery of 0.60 that single-family SE.07 already used (was 0.80). In the final all-cohort run these cohorts were modelled well below measured heating (median modelled/measured 0.84, 0.71 and 0.39).
+
+Tested on every stored building of these cohorts (27 November 2026). This is in-sample: no unused SE.07 buildings exist, so the value is **calibrated, not validated**.
+
+| Cohort | n | ±20 % match, 0.80 | 0.60 | 0.50 |
+|---|---:|---:|---:|---:|
+| Multi-family SE.07 | 104 | 32.7 % | 42.3 % | 36.5 % |
+| School SE.07 | 20 | 15.0 % | 40.0 % | 25.0 % |
+| Office SE.07 | 5 | 0 % | 20 % | 40 % |
+
+0.60 is kept for every type. It is the value the single-family field evidence supports, and 0.50 was worse for the two larger cohorts.
