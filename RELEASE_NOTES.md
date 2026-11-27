@@ -1,8 +1,10 @@
 # Release notes
 
-## 0.9.0rc1 — release candidate (25 November 2026)
+## 0.9.0rc2 — release candidate (27 November 2026)
 
-A candidate for 0.9.0, for testing with EPSM 0.8.0rc1. Match figures for each change are
+A candidate for 0.9.0, for testing with EPSM 0.8.0rc2. It replaces 0.9.0rc1, which was
+never published; the data values are the same, and the validation page, package metadata
+and CI checks were brought up to date. Match figures for each change are
 in `docs/validation.md`.
 
 - Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window
