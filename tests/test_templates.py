@@ -155,12 +155,9 @@ def test_exhaust_air_without_era_falls_back_and_unknown_types_raise():
 
 
 
-def test_single_family_se07_ftx_uses_house_in_use_recovery(catalogue):
-    for template in (catalogue.get("sf_se07").hvac_template,
-                     catalogue.get("sf_se07", ventilation="FTX").hvac_template):
-        assert template.template_id == "epsm.ventilation.FTX_060"
-        assert template.values["airflow"]["sensible_recovery_effectiveness"] == 0.6
-    for aid in ("mf_se07", "office_se07", "school_se07"):
-        assert catalogue.get(aid).hvac_template.template_id == "epsm.ventilation.FTX_080"
-    assert catalogue.get("mf_se07", ventilation="FTX").hvac_template.template_id == "epsm.ventilation.FTX_080"
+def test_se07_ftx_uses_in_use_recovery_for_every_type(catalogue):
+    for aid in ("sf_se07", "mf_se07", "office_se07", "school_se07"):
+        for template in (catalogue.get(aid).hvac_template, catalogue.get(aid, ventilation="FTX").hvac_template):
+            assert template.template_id == "epsm.ventilation.FTX_060"
+            assert template.values["airflow"]["sensible_recovery_effectiveness"] == 0.6
     assert catalogue.get("sf_se06", ventilation="FTX").hvac_template.template_id == "epsm.ventilation.FTX_075"
