@@ -3,8 +3,8 @@
 ## 0.9.0rc2 — release candidate (27 November 2026)
 
 A candidate for 0.9.0, for testing with EPSM 0.8.0rc2. It replaces 0.9.0rc1, which was
-never published; the data values are the same, and the validation page, package metadata
-and CI checks were brought up to date. Match figures for each change are
+never published. Since then, SE.07 FTX in use for multi-family, office and school changed
+(below), and the validation page, package metadata and CI checks were brought up to date. Match figures for each change are
 in `docs/validation.md`.
 
 - Office SE.01 (to 1960) existing state uses the STIL2 "as found" wall U 0.70 and window
@@ -18,12 +18,13 @@ in `docs/validation.md`.
   Energimyndigheten 2013 floor-heating range (2.4–3.0). Current inverter units are rated
   well above that generation (NIBE S735 SCOP 4.5 at 35 °C, EN 14825). Earlier eras are
   unchanged. 3.0 is the sourced top of the range, not a fitted value.
-- Single-family SE.07 FTX, as the era default and as an observed system, uses `FTX_060`
-  (in-use recovery 0.60). Multi-family, office and school SE.07 keep 0.80. Field evidence
+- SE.07 FTX, as the era default and as an observed system, uses `FTX_060` (in-use
+  recovery 0.60) for every building type (was 0.80, except single-family). Field evidence
   for houses: the REHVA Journal's large-scale residential analysis (in situ about 60 % with
   leakage, defrost and imbalance), retrofitted MVHR in use at 0.65 ± 0.24, and a Swedish
-  single-family house with a ground-source heat pump (Energy and Buildings 2025). Held-out
-  confirmation is pending. The new optional table `observed_ftx_by_category_era` overrides
+  single-family house with a ground-source heat pump (Energy and Buildings 2025). For
+  multi-family, office and school the value is calibrated on every stored SE.07 building,
+  not validated on held-out ones; see `docs/validation.md`. The new optional table `observed_ftx_by_category_era` overrides
   `observed_ftx_by_era` per building type.
 - School SE.01 and SE.02 existing states use the external-wall and window U-values found
   in Energimyndigheten's STIL2 school inspections (ER 2007:11): SE.01 wall 0.70 and window
